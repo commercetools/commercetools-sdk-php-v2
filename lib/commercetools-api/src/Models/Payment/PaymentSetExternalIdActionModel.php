@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentSetExternalIdActionModel extends JsonObjectModel implements PaymentSetExternalIdAction
 {
     const DISCRIMINATOR_VALUE = 'setExternalId';
-
     /**
      * @var ?string
      */

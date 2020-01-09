@@ -22,6 +22,6 @@ class ResourceByProjectKeyCustomersPasswordToken extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomersPasswordTokenPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomersPasswordTokenPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

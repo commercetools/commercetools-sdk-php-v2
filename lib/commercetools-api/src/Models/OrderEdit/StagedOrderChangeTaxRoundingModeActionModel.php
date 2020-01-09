@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel implements StagedOrderChangeTaxRoundingModeAction
 {
     const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
-
     /**
      * @var ?string
      */

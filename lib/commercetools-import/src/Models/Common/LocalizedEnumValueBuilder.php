@@ -21,7 +21,7 @@ final class LocalizedEnumValueBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -75,7 +75,7 @@ final class LocalizedEnumValueBuilder implements Builder
     {
         return new LocalizedEnumValueModel(
             $this->key,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label
         );
     }
 

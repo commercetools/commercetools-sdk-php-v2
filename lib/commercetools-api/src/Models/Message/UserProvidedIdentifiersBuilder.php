@@ -43,7 +43,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     private $sku;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -173,7 +173,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
             $this->orderNumber,
             $this->customerNumber,
             $this->sku,
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
         );
     }
 

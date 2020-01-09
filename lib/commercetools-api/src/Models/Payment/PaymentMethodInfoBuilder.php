@@ -28,14 +28,14 @@ final class PaymentMethodInfoBuilder implements Builder
     private $method;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
      * <p>The interface that handles the payment (usually a PSP).
      * Cannot be changed once it has been set.
-     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>.
+     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
      *
      * @return null|string
      */
@@ -47,7 +47,7 @@ final class PaymentMethodInfoBuilder implements Builder
     /**
      * <p>The payment method that is used, e.g.
      * e.g.
-     * a conventional string representing Credit Card, Cash Advance etc.</p>.
+     * a conventional string representing Credit Card, Cash Advance etc.</p>
      *
      * @return null|string
      */
@@ -58,7 +58,7 @@ final class PaymentMethodInfoBuilder implements Builder
 
     /**
      * <p>A human-readable, localized name for the payment method, e.g.
-     * 'Credit Card'.</p>.
+     * 'Credit Card'.</p>
      *
      * @return null|LocalizedString
      */
@@ -112,7 +112,7 @@ final class PaymentMethodInfoBuilder implements Builder
         return new PaymentMethodInfoModel(
             $this->paymentInterface,
             $this->method,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

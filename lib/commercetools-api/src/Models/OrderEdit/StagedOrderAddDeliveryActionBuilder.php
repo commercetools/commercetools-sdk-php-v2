@@ -25,7 +25,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     private $items;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -102,7 +102,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     {
         return new StagedOrderAddDeliveryActionModel(
             $this->items,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
             $this->parcels
         );
     }

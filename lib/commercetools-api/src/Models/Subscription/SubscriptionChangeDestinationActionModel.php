@@ -14,7 +14,6 @@ use stdClass;
 final class SubscriptionChangeDestinationActionModel extends JsonObjectModel implements SubscriptionChangeDestinationAction
 {
     const DISCRIMINATOR_VALUE = 'changeDestination';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implements ProductSlugChangedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductSlugChanged';
-
     /**
      * @var ?string
      */

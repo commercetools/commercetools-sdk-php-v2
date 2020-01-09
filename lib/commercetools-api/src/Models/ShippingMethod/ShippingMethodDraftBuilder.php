@@ -33,7 +33,7 @@ final class ShippingMethodDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
+     * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
@@ -93,7 +93,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>.
+     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>
      *
      * @return null|bool
      */
@@ -103,7 +103,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
      *
      * @return null|string
      */
@@ -198,7 +198,7 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->key,
             $this->name,
             $this->description,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,
             $this->predicate

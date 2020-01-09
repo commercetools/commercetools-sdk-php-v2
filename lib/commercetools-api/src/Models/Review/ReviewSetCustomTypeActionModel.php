@@ -18,7 +18,6 @@ use stdClass;
 final class ReviewSetCustomTypeActionModel extends JsonObjectModel implements ReviewSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */
@@ -61,7 +60,7 @@ final class ReviewSetCustomTypeActionModel extends JsonObjectModel implements Re
     }
 
     /**
-     * <p>If absent, the custom type and any existing custom fields are removed.</p>.
+     * <p>If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -82,7 +81,7 @@ final class ReviewSetCustomTypeActionModel extends JsonObjectModel implements Re
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the CustomFields to this value.</p>.
+     * Sets the CustomFields to this value.</p>
      *
      * @return null|FieldContainer
      */

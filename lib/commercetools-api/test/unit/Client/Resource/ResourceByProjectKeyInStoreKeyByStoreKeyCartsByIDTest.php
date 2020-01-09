@@ -1,125 +1,141 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
-                        ->get();
+                        ->withId('ID')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
-                        ->post(null);
+                        ->withId('ID')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withDataErasure' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure');
+                        ->withDataErasure('dataErasure')
+                    ;
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}?version=version',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
-                        ->withId("ID")
-                        ->delete();
+                        ->withId('ID')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/carts/{ID}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -128,9 +144,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

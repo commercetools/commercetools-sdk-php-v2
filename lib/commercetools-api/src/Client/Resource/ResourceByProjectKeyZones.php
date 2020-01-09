@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyZones extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyZonesKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyZonesKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyZones extends ApiResource
         return new ResourceByProjectKeyZonesKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyZonesByID
+    public function withId(string $ID = null): ResourceByProjectKeyZonesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyZones extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyZones extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

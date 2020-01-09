@@ -23,7 +23,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     private $attributeName;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
@@ -77,7 +77,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     {
         return new ProductTypeSetInputTipActionModel(
             $this->attributeName,
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
+            $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip
         );
     }
 

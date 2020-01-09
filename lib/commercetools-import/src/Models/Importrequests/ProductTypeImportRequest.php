@@ -15,7 +15,7 @@ interface ProductTypeImportRequest extends ImportRequest
     const FIELD_RESOURCES = 'resources';
 
     /**
-     * <p>The product type import resources of this request.</p>.
+     * <p>The product type import resources of this request.</p>
      *
      * @return null|ProductTypeImportCollection
      */

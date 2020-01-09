@@ -23,7 +23,7 @@ final class CartClassificationTierBuilder implements Builder
     private $value;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
@@ -100,7 +100,7 @@ final class CartClassificationTierBuilder implements Builder
     {
         return new CartClassificationTierModel(
             $this->value,
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
             $this->isMatching
         );
     }

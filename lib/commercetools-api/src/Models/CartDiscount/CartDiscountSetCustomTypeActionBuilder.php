@@ -19,7 +19,7 @@ use Commercetools\Base\JsonObject;
 final class CartDiscountSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
@@ -29,7 +29,7 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -40,7 +40,7 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the custom fields to this value.</p>.
+     * Sets the custom fields to this value.</p>
      *
      * @return null|JsonObject
      */
@@ -82,7 +82,7 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     public function build(): CartDiscountSetCustomTypeAction
     {
         return new CartDiscountSetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields
         );
     }

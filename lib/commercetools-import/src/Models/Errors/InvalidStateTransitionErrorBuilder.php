@@ -31,7 +31,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     private $newState;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -41,7 +41,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>.
+     * <p>This enumeration describes the processing state of an import item.</p>
      *
      * @return null|string
      */
@@ -51,7 +51,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>.
+     * <p>This enumeration describes the processing state of an import item.</p>
      *
      * @return null|string
      */

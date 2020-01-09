@@ -200,7 +200,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -220,7 +220,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -240,7 +240,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>A unique identifier for the state.</p>.
+     * <p>A unique identifier for the state.</p>
      *
      * @return null|string
      */
@@ -276,7 +276,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>A human-readable name of the state.</p>.
+     * <p>A human-readable name of the state.</p>
      *
      * @return null|LocalizedString
      */
@@ -296,7 +296,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>A human-readable description of the state.</p>.
+     * <p>A human-readable description of the state.</p>
      *
      * @return null|LocalizedString
      */
@@ -317,7 +317,7 @@ final class StateModel extends JsonObjectModel implements State
 
     /**
      * <p>A state can be declared as an initial state for any state machine.
-     * When a workflow starts, this first state must be an <code>initial</code> state.</p>.
+     * When a workflow starts, this first state must be an <code>initial</code> state.</p>
      *
      * @return null|bool
      */
@@ -336,7 +336,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>.
+     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>
      *
      * @return null|bool
      */
@@ -376,7 +376,7 @@ final class StateModel extends JsonObjectModel implements State
      * When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced state must have a transition to the new state.
      * If <code>transitions</code> is an empty list, it means the current state is a final state and no further transitions are allowed.
      * If <code>transitions</code> is not set, the validation is turned off.
-     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>.
+     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>
      *
      * @return null|StateReferenceCollection
      */

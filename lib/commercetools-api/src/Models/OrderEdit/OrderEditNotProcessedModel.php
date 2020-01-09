@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderEditNotProcessed
 {
     const DISCRIMINATOR_VALUE = 'NotProcessed';
-
     /**
      * @var ?string
      */

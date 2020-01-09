@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderEditSetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderE
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|string
      */

@@ -31,27 +31,27 @@ final class ShippingInfoImportDraftBuilder implements Builder
     private $shippingMethodName;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
-     * @var ShippingRateDraft|?ShippingRateDraftBuilder
+     * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
 
     /**
-     * @var TaxRate|?TaxRateBuilder
+     * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
-     * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
+     * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
@@ -61,7 +61,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     private $deliveries;
 
     /**
-     * @var DiscountedLineItemPriceDraft|?DiscountedLineItemPriceDraftBuilder
+     * @var null|DiscountedLineItemPriceDraft|DiscountedLineItemPriceDraftBuilder
      */
     private $discountedPrice;
 
@@ -87,7 +87,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>.
+     * <p>The shipping rate used to determine the price.</p>
      *
      * @return null|ShippingRateDraft
      */
@@ -113,7 +113,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>.
+     * <p>Not set if custom shipping method is used.</p>
      *
      * @return null|ShippingMethodResourceIdentifier
      */
@@ -123,7 +123,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>.
+     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
      * @return null|DeliveryCollection
      */
@@ -141,7 +141,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>.
+     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
      * @return null|string
      */
@@ -304,13 +304,13 @@ final class ShippingInfoImportDraftBuilder implements Builder
     {
         return new ShippingInfoImportDraftModel(
             $this->shippingMethodName,
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
-            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
+            $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate,
+            $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->deliveries,
-            ($this->discountedPrice instanceof DiscountedLineItemPriceDraftBuilder ? $this->discountedPrice->build() : $this->discountedPrice),
+            $this->discountedPrice instanceof DiscountedLineItemPriceDraftBuilder ? $this->discountedPrice->build() : $this->discountedPrice,
             $this->shippingMethodState
         );
     }

@@ -24,7 +24,7 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

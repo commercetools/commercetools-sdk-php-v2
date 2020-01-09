@@ -20,7 +20,6 @@ use stdClass;
 final class ResourceCreatedDeliveryModel extends JsonObjectModel implements ResourceCreatedDelivery
 {
     const DISCRIMINATOR_VALUE = 'ResourceCreated';
-
     /**
      * @var ?string
      */

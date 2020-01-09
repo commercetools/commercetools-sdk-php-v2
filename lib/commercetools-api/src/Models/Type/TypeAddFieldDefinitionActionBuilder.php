@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class TypeAddFieldDefinitionActionBuilder implements Builder
 {
     /**
-     * @var FieldDefinition|?FieldDefinitionBuilder
+     * @var null|FieldDefinition|FieldDefinitionBuilder
      */
     private $fieldDefinition;
 
@@ -51,7 +51,7 @@ final class TypeAddFieldDefinitionActionBuilder implements Builder
     public function build(): TypeAddFieldDefinitionAction
     {
         return new TypeAddFieldDefinitionActionModel(
-            ($this->fieldDefinition instanceof FieldDefinitionBuilder ? $this->fieldDefinition->build() : $this->fieldDefinition)
+            $this->fieldDefinition instanceof FieldDefinitionBuilder ? $this->fieldDefinition->build() : $this->fieldDefinition
         );
     }
 

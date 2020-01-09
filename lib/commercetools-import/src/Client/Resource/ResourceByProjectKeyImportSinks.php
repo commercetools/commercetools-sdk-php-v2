@@ -14,12 +14,7 @@ use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyImportSinks extends ApiResource
 {
-    /**
-     * @psalm-param scalar $importSinkKey
-     *
-     * @param null|mixed $importSinkKey
-     */
-    public function withImportSinkKeyValue($importSinkKey = null): ResourceByProjectKeyImportSinksByImportSinkKey
+    public function withImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyImportSinksByImportSinkKey
     {
         $args = $this->getArgs();
         if (!is_null($importSinkKey)) {
@@ -37,6 +32,6 @@ class ResourceByProjectKeyImportSinks extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

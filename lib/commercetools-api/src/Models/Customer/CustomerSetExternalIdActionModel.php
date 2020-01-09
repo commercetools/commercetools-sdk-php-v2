@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSetExternalIdActionModel extends JsonObjectModel implements CustomerSetExternalIdAction
 {
     const DISCRIMINATOR_VALUE = 'setExternalId';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>If not defined, the external ID is unset.</p>.
+     * <p>If not defined, the external ID is unset.</p>
      *
      * @return null|string
      */

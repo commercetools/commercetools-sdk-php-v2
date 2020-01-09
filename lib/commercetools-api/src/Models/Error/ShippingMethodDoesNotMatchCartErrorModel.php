@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel implements ShippingMethodDoesNotMatchCartError
 {
     const DISCRIMINATOR_VALUE = 'ShippingMethodDoesNotMatchCart';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,7 @@ interface ProductDiscountChangeSortOrderAction extends ProductDiscountUpdateActi
 
     /**
      * <p>The string must contain a number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>
      *
      * @return null|string
      */

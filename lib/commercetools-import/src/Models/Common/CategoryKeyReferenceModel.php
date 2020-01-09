@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CategoryKeyReferenceModel extends JsonObjectModel implements CategoryKeyReference
 {
     const DISCRIMINATOR_VALUE = 'category';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CategoryKeyReferenceModel extends JsonObjectModel implements Categor
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel implements TypeAddLocalizedEnumValueAction
 {
     const DISCRIMINATOR_VALUE = 'addLocalizedEnumValue';
-
     /**
      * @var ?string
      */

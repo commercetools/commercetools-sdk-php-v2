@@ -15,7 +15,6 @@ use stdClass;
 final class ReviewReferenceModel extends JsonObjectModel implements ReviewReference
 {
     const DISCRIMINATOR_VALUE = 'review';
-
     /**
      * @var ?string
      */

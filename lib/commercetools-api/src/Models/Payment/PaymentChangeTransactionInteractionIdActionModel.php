@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectModel implements PaymentChangeTransactionInteractionIdAction
 {
     const DISCRIMINATOR_VALUE = 'changeTransactionInteractionId';
-
     /**
      * @var ?string
      */

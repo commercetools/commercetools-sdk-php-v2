@@ -47,22 +47,22 @@ final class MyShoppingListBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
@@ -72,7 +72,7 @@ final class MyShoppingListBuilder implements Builder
     private $deleteDaysAfterLastModification;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -87,12 +87,12 @@ final class MyShoppingListBuilder implements Builder
     private $lineItems;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -471,16 +471,16 @@ final class MyShoppingListBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->deleteDaysAfterLastModification,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->key,
             $this->lineItems,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->textLineItems,
             $this->anonymousId
         );

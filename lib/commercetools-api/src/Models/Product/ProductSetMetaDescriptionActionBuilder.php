@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductSetMetaDescriptionActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
@@ -76,7 +76,7 @@ final class ProductSetMetaDescriptionActionBuilder implements Builder
     public function build(): ProductSetMetaDescriptionAction
     {
         return new ProductSetMetaDescriptionActionModel(
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->staged
         );
     }

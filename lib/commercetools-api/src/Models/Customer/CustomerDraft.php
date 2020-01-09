@@ -47,7 +47,7 @@ interface CustomerDraft extends JsonObject
      * <p>String that uniquely identifies a customer.
      * It can be used to create more human-readable (in contrast to ID) identifier for the customer.
      * It should be <strong>unique</strong> across a project.
-     * Once it's set it cannot be changed.</p>.
+     * Once it's set it cannot be changed.</p>
      *
      * @return null|string
      */
@@ -56,7 +56,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>The customer's email address and the main identifier of uniqueness for a customer account.
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
-     * For more information, see Email uniquenes.</p>.
+     * For more information, see Email uniquenes.</p>
      *
      * @return null|string
      */
@@ -88,14 +88,14 @@ interface CustomerDraft extends JsonObject
     public function getTitle();
 
     /**
-     * <p>Identifies a single cart that will be assigned to the new customer account.</p>.
+     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
      * @return null|string
      */
     public function getAnonymousCartId();
 
     /**
-     * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>.
+     * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
      *
      * @return null|string
      */
@@ -117,7 +117,7 @@ interface CustomerDraft extends JsonObject
     public function getVatId();
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
      * @return null|AddressCollection
      */
@@ -125,7 +125,7 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -133,7 +133,7 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>The indices of the shipping addresses in the addresses array.
-     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>.
+     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
      *
      * @return null|array
      */
@@ -141,7 +141,7 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -149,7 +149,7 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>The indices of the billing addresses in the addresses array.
-     * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>.
+     * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
      * @return null|array
      */
@@ -171,14 +171,14 @@ interface CustomerDraft extends JsonObject
     public function getCustomerGroup();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
-     * <p>Must be one of the languages supported for this project</p>.
+     * <p>Must be one of the languages supported for this project</p>
      *
      * @return null|string
      */
@@ -192,7 +192,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>User-specific unique identifier for a customer.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>.
+     * The field can be reset using the Set Key UpdateAction</p>
      *
      * @return null|string
      */
@@ -201,7 +201,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>References to the stores the customer account is associated with.
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>.
+     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
      * @return null|StoreResourceIdentifierCollection
      */

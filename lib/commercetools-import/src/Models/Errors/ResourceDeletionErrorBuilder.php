@@ -27,7 +27,7 @@ final class ResourceDeletionErrorBuilder implements Builder
     private $resource;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

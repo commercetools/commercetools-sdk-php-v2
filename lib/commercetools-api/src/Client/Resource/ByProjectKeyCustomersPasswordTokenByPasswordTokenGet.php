@@ -27,16 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyCustomersPasswordTokenByPasswordTokenGet extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $passwordToken
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $passwordToken
      */
-    public function __construct($projectKey, $passwordToken, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $passwordToken, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{passwordToken}'], [$projectKey, $passwordToken], '{projectKey}/customers/password-token={passwordToken}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

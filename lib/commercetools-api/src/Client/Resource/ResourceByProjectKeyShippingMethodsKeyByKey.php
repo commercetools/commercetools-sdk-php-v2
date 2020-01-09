@@ -24,7 +24,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsKeyByKeyGet((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsKeyByKeyPost((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyShippingMethodsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsKeyByKeyDelete((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
 }

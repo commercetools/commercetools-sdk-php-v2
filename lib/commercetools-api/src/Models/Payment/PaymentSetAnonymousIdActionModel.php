@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements PaymentSetAnonymousIdAction
 {
     const DISCRIMINATOR_VALUE = 'setAnonymousId';
-
     /**
      * @var ?string
      */
@@ -50,7 +49,7 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Anonymous ID of the anonymous customer that this payment belongs to.
-     * If this field is not set any existing <code>anonymousId</code> is removed.</p>.
+     * If this field is not set any existing <code>anonymousId</code> is removed.</p>
      *
      * @return null|string
      */

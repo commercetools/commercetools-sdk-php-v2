@@ -23,7 +23,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var Attribute|?AttributeBuilder
+     * @var null|Attribute|AttributeBuilder
      */
     private $attribute;
 
@@ -77,7 +77,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     {
         return new DuplicateAttributeValueErrorModel(
             $this->message,
-            ($this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute)
+            $this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute
         );
     }
 

@@ -15,7 +15,6 @@ use stdClass;
 final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCategoryReference
 {
     const DISCRIMINATOR_VALUE = 'tax-category';
-
     /**
      * @var ?string
      */

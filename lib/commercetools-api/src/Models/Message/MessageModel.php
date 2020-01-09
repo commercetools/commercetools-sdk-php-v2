@@ -22,7 +22,6 @@ use stdClass;
 final class MessageModel extends JsonObjectModel implements Message
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

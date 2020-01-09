@@ -21,7 +21,7 @@ final class CustomerSetExternalIdActionBuilder implements Builder
     private $externalId;
 
     /**
-     * <p>If not defined, the external ID is unset.</p>.
+     * <p>If not defined, the external ID is unset.</p>
      *
      * @return null|string
      */

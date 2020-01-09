@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeRemoveAttributeDefinitionAction
 {
     const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     }
 
     /**
-     * <p>The name of the attribute to remove.</p>.
+     * <p>The name of the attribute to remove.</p>
      *
      * @return null|string
      */

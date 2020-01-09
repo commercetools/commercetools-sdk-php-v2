@@ -24,7 +24,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedMessage;
 
@@ -34,7 +34,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     private $extensionExtraInfo;
 
     /**
-     * @var ErrorByExtension|?ErrorByExtensionBuilder
+     * @var null|ErrorByExtension|ErrorByExtensionBuilder
      */
     private $errorByExtension;
 
@@ -134,9 +134,9 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     {
         return new ExtensionUpdateActionsFailedErrorModel(
             $this->message,
-            ($this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage),
+            $this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage,
             $this->extensionExtraInfo,
-            ($this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension)
+            $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension
         );
     }
 

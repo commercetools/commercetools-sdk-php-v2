@@ -26,14 +26,14 @@ interface OrderEdit extends LoggedResource
     const FIELD_COMMENT = 'comment';
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>.
+     * <p>The unique ID of the OrderEdit.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the OrderEdit.</p>.
+     * <p>The current version of the OrderEdit.</p>
      *
      * @return null|int
      */
@@ -50,28 +50,28 @@ interface OrderEdit extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>Unique identifier for this edit.</p>.
+     * <p>Unique identifier for this edit.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The order to be updated with this edit.</p>.
+     * <p>The order to be updated with this edit.</p>
      *
      * @return null|OrderReference
      */
@@ -79,7 +79,7 @@ interface OrderEdit extends LoggedResource
 
     /**
      * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>.
+     * Cannot be updated after the edit has been applied.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */
@@ -92,14 +92,14 @@ interface OrderEdit extends LoggedResource
 
     /**
      * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>.
+     * For applied edits, it contains the summary of the changes.</p>
      *
      * @return null|OrderEditResult
      */
     public function getResult();
 
     /**
-     * <p>This field can be used to add textual information regarding the edit.</p>.
+     * <p>This field can be used to add textual information regarding the edit.</p>
      *
      * @return null|string
      */

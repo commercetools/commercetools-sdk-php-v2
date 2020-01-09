@@ -21,7 +21,7 @@ final class OrderEditReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var OrderEdit|?OrderEditBuilder
+     * @var null|OrderEdit|OrderEditBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class OrderEditReferenceBuilder implements Builder
     {
         return new OrderEditReferenceModel(
             $this->id,
-            ($this->obj instanceof OrderEditBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof OrderEditBuilder ? $this->obj->build() : $this->obj
         );
     }
 

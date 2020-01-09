@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartRemoveItemShippingAddressActionModel extends JsonObjectModel implements CartRemoveItemShippingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'removeItemShippingAddress';
-
     /**
      * @var ?string
      */

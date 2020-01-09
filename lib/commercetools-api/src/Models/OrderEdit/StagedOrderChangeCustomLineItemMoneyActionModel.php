@@ -17,7 +17,6 @@ use stdClass;
 final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectModel implements StagedOrderChangeCustomLineItemMoneyAction
 {
     const DISCRIMINATOR_VALUE = 'changeCustomLineItemMoney';
-
     /**
      * @var ?string
      */

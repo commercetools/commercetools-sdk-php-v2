@@ -21,7 +21,7 @@ final class SearchKeywordBuilder implements Builder
     private $text;
 
     /**
-     * @var SuggestTokenizer|?SuggestTokenizerBuilder
+     * @var null|SuggestTokenizer|SuggestTokenizerBuilder
      */
     private $suggestTokenizer;
 
@@ -75,7 +75,7 @@ final class SearchKeywordBuilder implements Builder
     {
         return new SearchKeywordModel(
             $this->text,
-            ($this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer)
+            $this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer
         );
     }
 

@@ -21,7 +21,7 @@ final class ExtensionDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var ExtensionDestination|?ExtensionDestinationBuilder
+     * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
 
@@ -36,7 +36,7 @@ final class ExtensionDraftBuilder implements Builder
     private $timeoutInMs;
 
     /**
-     * <p>User-specific unique identifier for the extension</p>.
+     * <p>User-specific unique identifier for the extension</p>
      *
      * @return null|string
      */
@@ -46,7 +46,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Details where the extension can be reached</p>.
+     * <p>Details where the extension can be reached</p>
      *
      * @return null|ExtensionDestination
      */
@@ -56,7 +56,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Describes what triggers the extension</p>.
+     * <p>Describes what triggers the extension</p>
      *
      * @return null|ExtensionTriggerCollection
      */
@@ -69,7 +69,7 @@ final class ExtensionDraftBuilder implements Builder
      * <p>The maximum time the commercetools platform waits for a response from the extension.
      * The maximum value is 2000 ms (2 seconds).
      * This limit can be increased per project after we review the performance impact.
-     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>.
+     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>
      *
      * @return null|int
      */
@@ -132,7 +132,7 @@ final class ExtensionDraftBuilder implements Builder
     {
         return new ExtensionDraftModel(
             $this->key,
-            ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination),
+            $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination,
             $this->triggers,
             $this->timeoutInMs
         );

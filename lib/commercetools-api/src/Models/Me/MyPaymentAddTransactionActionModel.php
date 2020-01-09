@@ -16,7 +16,6 @@ use stdClass;
 final class MyPaymentAddTransactionActionModel extends JsonObjectModel implements MyPaymentAddTransactionAction
 {
     const DISCRIMINATOR_VALUE = 'addTransaction';
-
     /**
      * @var ?string
      */

@@ -22,6 +22,6 @@ class ResourceByProjectKeyOrdersEditsByIDApply extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDApplyPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDApplyPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

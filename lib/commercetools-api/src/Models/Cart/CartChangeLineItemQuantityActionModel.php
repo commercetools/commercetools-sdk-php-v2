@@ -16,7 +16,6 @@ use stdClass;
 final class CartChangeLineItemQuantityActionModel extends JsonObjectModel implements CartChangeLineItemQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
-
     /**
      * @var ?string
      */

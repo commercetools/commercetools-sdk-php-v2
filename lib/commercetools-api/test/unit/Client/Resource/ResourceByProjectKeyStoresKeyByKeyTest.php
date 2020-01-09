@@ -1,105 +1,120 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyStoresKeyByKey;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyStoresKeyByKeyGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
-                        ->get();
+                        ->withKey('key')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/stores/key={key}',
             ],
             'ByProjectKeyStoresKeyByKeyPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
-                        ->post(null);
+                        ->withKey('key')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/stores/key={key}',
             ],
             'ByProjectKeyStoresKeyByKeyDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/stores/key={key}?version=version',
             ],
             'ByProjectKeyStoresKeyByKeyDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->stores()
-                        ->withKey("key")
-                        ->delete();
+                        ->withKey('key')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/stores/key={key}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -108,9 +123,9 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

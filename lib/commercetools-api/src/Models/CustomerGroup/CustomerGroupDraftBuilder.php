@@ -28,12 +28,12 @@ final class CustomerGroupDraftBuilder implements Builder
     private $groupName;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */
@@ -103,7 +103,7 @@ final class CustomerGroupDraftBuilder implements Builder
         return new CustomerGroupDraftModel(
             $this->key,
             $this->groupName,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

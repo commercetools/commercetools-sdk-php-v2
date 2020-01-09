@@ -81,7 +81,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      * <p>Percentage in the range of [0..1].
      * Must be supplied if no <code>subRates</code> are specified.
      * If <code>subRates</code> are specified
-     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
      * @return null|int
      */
@@ -100,7 +100,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -119,7 +119,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>The state in the country</p>.
+     * <p>The state in the country</p>
      *
      * @return null|string
      */
@@ -140,7 +140,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     /**
      * <p>For countries (e.g.
      * the US) where the total tax is a combination of multiple taxes (e.g.
-     * state and local taxes).</p>.
+     * state and local taxes).</p>
      *
      * @return null|SubRateCollection
      */
@@ -159,7 +159,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>.
+     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
      *
      * @return null|bool
      */

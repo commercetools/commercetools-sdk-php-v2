@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderSetLocaleActionModel extends JsonObjectModel implements StagedOrderSetLocaleAction
 {
     const DISCRIMINATOR_VALUE = 'setLocale';
-
     /**
      * @var ?string
      */

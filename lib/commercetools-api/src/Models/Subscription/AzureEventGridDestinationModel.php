@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AzureEventGridDestinationModel extends JsonObjectModel implements AzureEventGridDestination
 {
     const DISCRIMINATOR_VALUE = 'EventGrid';
-
     /**
      * @var ?string
      */

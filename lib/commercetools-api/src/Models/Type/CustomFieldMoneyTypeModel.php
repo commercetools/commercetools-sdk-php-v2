@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldMoneyTypeModel extends JsonObjectModel implements CustomFieldMoneyType
 {
     const DISCRIMINATOR_VALUE = 'Money';
-
     /**
      * @var ?string
      */

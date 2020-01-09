@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InsufficientScopeErrorModel extends JsonObjectModel implements InsufficientScopeError
 {
     const DISCRIMINATOR_VALUE = 'insufficient_scope';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

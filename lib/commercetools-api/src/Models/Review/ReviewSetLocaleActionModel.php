@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ReviewSetLocaleActionModel extends JsonObjectModel implements ReviewSetLocaleAction
 {
     const DISCRIMINATOR_VALUE = 'setLocale';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>If <code>locale</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * <p>If <code>locale</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|string
      */

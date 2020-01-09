@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ChannelSetRolesActionModel extends JsonObjectModel implements ChannelSetRolesAction
 {
     const DISCRIMINATOR_VALUE = 'setRoles';
-
     /**
      * @var ?string
      */

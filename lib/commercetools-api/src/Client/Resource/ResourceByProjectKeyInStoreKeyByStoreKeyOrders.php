@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
 {
-    /**
-     * @psalm-param scalar $orderNumber
-     *
-     * @param null|mixed $orderNumber
-     */
-    public function withOrderNumber($orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
+    public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
         if (!is_null($orderNumber)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
         return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber($this->getUri().'/order-number={orderNumber}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
+    public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersGet((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

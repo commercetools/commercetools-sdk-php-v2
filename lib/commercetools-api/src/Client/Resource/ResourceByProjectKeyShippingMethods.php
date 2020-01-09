@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyShippingMethods extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyShippingMethodsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
         return new ResourceByProjectKeyShippingMethodsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyShippingMethodsByID
+    public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

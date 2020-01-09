@@ -23,7 +23,7 @@ final class CartValueTierBuilder implements Builder
     private $minimumCentAmount;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
@@ -100,7 +100,7 @@ final class CartValueTierBuilder implements Builder
     {
         return new CartValueTierModel(
             $this->minimumCentAmount,
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
             $this->isMatching
         );
     }

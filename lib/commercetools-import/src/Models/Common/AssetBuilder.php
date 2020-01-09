@@ -26,12 +26,12 @@ final class AssetBuilder implements Builder
     private $sources;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -42,7 +42,7 @@ final class AssetBuilder implements Builder
 
     /**
      * <p>User-defined identifier for the asset.
-     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     * Asset keys are unique inside their container (a product variant or a category).</p>
      *
      * @return null|string
      */
@@ -158,8 +158,8 @@ final class AssetBuilder implements Builder
         return new AssetModel(
             $this->key,
             $this->sources,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->tags
         );
     }

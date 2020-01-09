@@ -23,7 +23,7 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     private $customLineItemId;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $money;
 
@@ -77,7 +77,7 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     {
         return new CartChangeCustomLineItemMoneyActionModel(
             $this->customLineItemId,
-            ($this->money instanceof MoneyBuilder ? $this->money->build() : $this->money)
+            $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money
         );
     }
 

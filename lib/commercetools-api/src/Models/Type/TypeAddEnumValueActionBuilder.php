@@ -21,7 +21,7 @@ final class TypeAddEnumValueActionBuilder implements Builder
     private $fieldName;
 
     /**
-     * @var CustomFieldEnumValue|?CustomFieldEnumValueBuilder
+     * @var null|CustomFieldEnumValue|CustomFieldEnumValueBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class TypeAddEnumValueActionBuilder implements Builder
     {
         return new TypeAddEnumValueActionModel(
             $this->fieldName,
-            ($this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value
         );
     }
 

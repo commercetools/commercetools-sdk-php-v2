@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class ZoneRemoveLocationActionBuilder implements Builder
 {
     /**
-     * @var Location|?LocationBuilder
+     * @var null|Location|LocationBuilder
      */
     private $location;
 
@@ -51,7 +51,7 @@ final class ZoneRemoveLocationActionBuilder implements Builder
     public function build(): ZoneRemoveLocationAction
     {
         return new ZoneRemoveLocationActionModel(
-            ($this->location instanceof LocationBuilder ? $this->location->build() : $this->location)
+            $this->location instanceof LocationBuilder ? $this->location->build() : $this->location
         );
     }
 

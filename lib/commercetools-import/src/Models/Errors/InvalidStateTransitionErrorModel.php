@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidStateTransitionErrorModel extends JsonObjectModel implements InvalidStateTransitionError
 {
     const DISCRIMINATOR_VALUE = 'InvalidTransition';
-
     /**
      * @var ?string
      */
@@ -63,7 +62,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -82,7 +81,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>.
+     * <p>This enumeration describes the processing state of an import item.</p>
      *
      * @return null|string
      */
@@ -101,7 +100,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>.
+     * <p>This enumeration describes the processing state of an import item.</p>
      *
      * @return null|string
      */

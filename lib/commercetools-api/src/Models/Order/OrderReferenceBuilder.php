@@ -21,7 +21,7 @@ final class OrderReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Order|?OrderBuilder
+     * @var null|Order|OrderBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class OrderReferenceBuilder implements Builder
     {
         return new OrderReferenceModel(
             $this->id,
-            ($this->obj instanceof OrderBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof OrderBuilder ? $this->obj->build() : $this->obj
         );
     }
 

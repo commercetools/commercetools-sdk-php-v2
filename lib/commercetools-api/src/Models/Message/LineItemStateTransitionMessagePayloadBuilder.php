@@ -34,12 +34,12 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     private $quantity;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $fromState;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $toState;
 
@@ -159,8 +159,8 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
             $this->lineItemId,
             $this->transitionDate,
             $this->quantity,
-            ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
-            ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState)
+            $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState,
+            $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState
         );
     }
 

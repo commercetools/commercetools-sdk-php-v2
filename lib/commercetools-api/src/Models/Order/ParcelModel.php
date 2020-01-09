@@ -129,7 +129,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>.
+     * <p>The delivery items contained in this parcel.</p>
      *
      * @return null|DeliveryItemCollection
      */

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TaxCategoryResourceIdentifierModel extends JsonObjectModel implements TaxCategoryResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'tax-category';
-
     /**
      * @var ?string
      */

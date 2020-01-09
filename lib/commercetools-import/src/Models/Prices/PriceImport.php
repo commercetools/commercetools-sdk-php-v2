@@ -29,28 +29,28 @@ interface PriceImport extends ImportResource
 
     /**
      * <p>Maps to <code>Price.value</code>.</p>
-     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
+     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
      * @return null|Money
      */
     public function getValue();
 
     /**
-     * <p>Maps to <code>Price.county</code>.</p>.
+     * <p>Maps to <code>Price.county</code>.</p>
      *
      * @return null|string
      */
     public function getCountry();
 
     /**
-     * <p>Maps to <code>Price.validFrom</code>.</p>.
+     * <p>Maps to <code>Price.validFrom</code>.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>Maps to <code>Price.validUntil</code>.</p>.
+     * <p>Maps to <code>Price.validUntil</code>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -60,7 +60,7 @@ interface PriceImport extends ImportResource
      * <p>References a customer group by its key.</p>
      * <p>The customer group referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -70,7 +70,7 @@ interface PriceImport extends ImportResource
      * <p>References a channel by its key.</p>
      * <p>The channel referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ChannelKeyReference
      */
@@ -80,7 +80,7 @@ interface PriceImport extends ImportResource
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -90,7 +90,7 @@ interface PriceImport extends ImportResource
      * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */

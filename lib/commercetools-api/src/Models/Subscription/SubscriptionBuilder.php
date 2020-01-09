@@ -41,12 +41,12 @@ final class SubscriptionBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -56,7 +56,7 @@ final class SubscriptionBuilder implements Builder
     private $changes;
 
     /**
-     * @var Destination|?DestinationBuilder
+     * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
@@ -71,7 +71,7 @@ final class SubscriptionBuilder implements Builder
     private $messages;
 
     /**
-     * @var DeliveryFormat|?DeliveryFormatBuilder
+     * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
 
@@ -113,7 +113,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -123,7 +123,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -347,13 +347,13 @@ final class SubscriptionBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->changes,
-            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
+            $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination,
             $this->key,
             $this->messages,
-            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format),
+            $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format,
             $this->status
         );
     }

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectModel implements ProductRevertedStagedChangesMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
-
     /**
      * @var ?string
      */

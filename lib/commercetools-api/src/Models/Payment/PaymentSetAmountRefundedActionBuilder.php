@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class PaymentSetAmountRefundedActionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amount;
 
@@ -53,7 +53,7 @@ final class PaymentSetAmountRefundedActionBuilder implements Builder
     public function build(): PaymentSetAmountRefundedAction
     {
         return new PaymentSetAmountRefundedActionModel(
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount)
+            $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount
         );
     }
 

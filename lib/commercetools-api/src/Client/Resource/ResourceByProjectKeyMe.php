@@ -94,7 +94,7 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -105,7 +105,7 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMePost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMePost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -118,6 +118,6 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeDelete($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeDelete((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

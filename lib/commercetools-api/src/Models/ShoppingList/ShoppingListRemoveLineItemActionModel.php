@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implements ShoppingListRemoveLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'removeLineItem';
-
     /**
      * @var ?string
      */

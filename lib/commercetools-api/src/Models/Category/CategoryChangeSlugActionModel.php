@@ -16,7 +16,6 @@ use stdClass;
 final class CategoryChangeSlugActionModel extends JsonObjectModel implements CategoryChangeSlugAction
 {
     const DISCRIMINATOR_VALUE = 'changeSlug';
-
     /**
      * @var ?string
      */
@@ -53,7 +52,7 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
 
     /**
      * <p>Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.
-     * Maximum size is {{ site.data.api-limits.slugLength }}.</p>.
+     * Maximum size is  site.data.api-limits.slugLength .</p>
      *
      * @return null|LocalizedString
      */

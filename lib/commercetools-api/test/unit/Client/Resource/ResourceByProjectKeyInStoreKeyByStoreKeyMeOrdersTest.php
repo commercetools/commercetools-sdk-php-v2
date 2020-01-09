@@ -1,139 +1,155 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withWhere' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWhere('where');
+                        ->withWhere('where')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?where=where',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withSort' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withSort('sort');
+                        ->withSort('sort')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?sort=sort',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withLimit('limit');
+                        ->withLimit('limit')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?limit=limit',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withOffset('offset');
+                        ->withOffset('offset')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?offset=offset',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withWithTotal' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWithTotal('withTotal');
+                        ->withWithTotal('withTotal')
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?withTotal=withTotal',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
-                        ->get();
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/me/orders?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->me()
                         ->orders()
-                        ->post(null);
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/me/orders',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -142,9 +158,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implements StagedOrderSetCustomerIdAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerId';
-
     /**
      * @var ?string
      */

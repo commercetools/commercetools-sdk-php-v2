@@ -15,7 +15,6 @@ use stdClass;
 final class ProductDiscountReferenceModel extends JsonObjectModel implements ProductDiscountReference
 {
     const DISCRIMINATOR_VALUE = 'product-discount';
-
     /**
      * @var ?string
      */

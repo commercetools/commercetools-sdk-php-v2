@@ -28,7 +28,7 @@ final class TaxPortionBuilder implements Builder
     private $rate;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amount;
 
@@ -41,7 +41,7 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
-     * <p>A number in the range [0..1]</p>.
+     * <p>A number in the range [0..1]</p>
      *
      * @return null|int
      */
@@ -103,7 +103,7 @@ final class TaxPortionBuilder implements Builder
         return new TaxPortionModel(
             $this->name,
             $this->rate,
-            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount)
+            $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount
         );
     }
 

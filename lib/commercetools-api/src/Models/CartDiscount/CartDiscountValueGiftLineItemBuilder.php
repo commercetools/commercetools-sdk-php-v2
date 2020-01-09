@@ -20,7 +20,7 @@ use Commercetools\Base\Builder;
 final class CartDiscountValueGiftLineItemBuilder implements Builder
 {
     /**
-     * @var ProductReference|?ProductReferenceBuilder
+     * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
@@ -30,12 +30,12 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     private $variantId;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $distributionChannel;
 
@@ -144,10 +144,10 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     public function build(): CartDiscountValueGiftLineItem
     {
         return new CartDiscountValueGiftLineItemModel(
-            ($this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product),
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->variantId,
-            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
+            $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel
         );
     }
 

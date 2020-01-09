@@ -14,7 +14,6 @@ use stdClass;
 final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */
@@ -38,7 +37,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     }
 
     /**
-     * <p>The type of the import resource.</p>.
+     * <p>The type of the import resource.</p>
      *
      * @return null|string
      */

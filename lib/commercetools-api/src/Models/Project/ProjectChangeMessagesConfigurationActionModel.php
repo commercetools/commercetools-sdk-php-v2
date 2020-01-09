@@ -16,7 +16,6 @@ use stdClass;
 final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectModel implements ProjectChangeMessagesConfigurationAction
 {
     const DISCRIMINATOR_VALUE = 'changeMessagesConfiguration';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class CustomerAddAddressActionModel extends JsonObjectModel implements CustomerAddAddressAction
 {
     const DISCRIMINATOR_VALUE = 'addAddress';
-
     /**
      * @var ?string
      */

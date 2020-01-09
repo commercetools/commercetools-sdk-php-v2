@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ReferenceExistsErrorModel extends JsonObjectModel implements ReferenceExistsError
 {
     const DISCRIMINATOR_VALUE = 'ReferenceExists';
-
     /**
      * @var ?string
      */

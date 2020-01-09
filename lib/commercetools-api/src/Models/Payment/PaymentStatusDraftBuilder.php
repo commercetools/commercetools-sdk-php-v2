@@ -28,7 +28,7 @@ final class PaymentStatusDraftBuilder implements Builder
     private $interfaceText;
 
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
@@ -101,7 +101,7 @@ final class PaymentStatusDraftBuilder implements Builder
         return new PaymentStatusDraftModel(
             $this->interfaceCode,
             $this->interfaceText,
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
+            $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state
         );
     }
 

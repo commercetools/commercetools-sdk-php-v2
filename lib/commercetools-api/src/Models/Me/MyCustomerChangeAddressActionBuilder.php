@@ -23,7 +23,7 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     private $addressId;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -77,7 +77,7 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     {
         return new MyCustomerChangeAddressActionModel(
             $this->addressId,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }
 

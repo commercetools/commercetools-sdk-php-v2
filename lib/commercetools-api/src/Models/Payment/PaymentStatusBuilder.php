@@ -28,12 +28,12 @@ final class PaymentStatusBuilder implements Builder
     private $interfaceText;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
-     * <p>A code describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */
@@ -43,7 +43,7 @@ final class PaymentStatusBuilder implements Builder
     }
 
     /**
-     * <p>A text describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */
@@ -105,7 +105,7 @@ final class PaymentStatusBuilder implements Builder
         return new PaymentStatusModel(
             $this->interfaceCode,
             $this->interfaceText,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

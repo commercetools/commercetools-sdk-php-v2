@@ -27,16 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyCategoriesKeyByKeyPost extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $key
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $key
      */
-    public function __construct($projectKey, $key, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/categories/key={key}');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);

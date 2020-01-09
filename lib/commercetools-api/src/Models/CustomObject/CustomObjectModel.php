@@ -200,7 +200,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * <p>A namespace to group custom objects.</p>.
+     * <p>A namespace to group custom objects.</p>
      *
      * @return null|string
      */

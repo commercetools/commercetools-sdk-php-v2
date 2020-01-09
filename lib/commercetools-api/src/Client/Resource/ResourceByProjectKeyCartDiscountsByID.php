@@ -24,7 +24,7 @@ class ResourceByProjectKeyCartDiscountsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartDiscountsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartDiscountsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyCartDiscountsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartDiscountsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartDiscountsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyCartDiscountsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartDiscountsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartDiscountsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -14,12 +14,7 @@ use Commercetools\Import\Models\Importrequests\ProductVariantImportRequest;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends ApiResource
 {
-    /**
-     * @psalm-param scalar $resourceKey
-     *
-     * @param null|mixed $resourceKey
-     */
-    public function resourceKeyWithResourceKeyValue($resourceKey = null): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
+    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
     {
         $args = $this->getArgs();
         if (!is_null($resourceKey)) {
@@ -44,6 +39,6 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

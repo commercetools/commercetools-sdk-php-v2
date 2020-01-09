@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidSubjectError
 {
     const DISCRIMINATOR_VALUE = 'InvalidSubject';
-
     /**
      * @var ?string
      */

@@ -24,7 +24,7 @@ class ResourceByProjectKeyReviewsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyReviewsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyReviewsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyReviewsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyReviewsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyReviewsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyReviewsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyReviewsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyReviewsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

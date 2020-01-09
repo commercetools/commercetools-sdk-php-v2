@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductChangeSlugActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -30,7 +30,7 @@ final class ProductChangeSlugActionBuilder implements Builder
     /**
      * <p>Every slug must be unique across a project, but a product can have the same slug for different languages.
      * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
-     * Maximum size is <code>256</code>.</p>.
+     * Maximum size is <code>256</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -80,7 +80,7 @@ final class ProductChangeSlugActionBuilder implements Builder
     public function build(): ProductChangeSlugAction
     {
         return new ProductChangeSlugActionModel(
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->staged
         );
     }

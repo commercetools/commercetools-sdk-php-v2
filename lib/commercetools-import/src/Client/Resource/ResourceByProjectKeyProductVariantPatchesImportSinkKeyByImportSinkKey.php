@@ -29,6 +29,6 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey exte
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

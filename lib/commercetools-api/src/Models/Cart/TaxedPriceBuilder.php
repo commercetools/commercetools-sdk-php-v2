@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class TaxedPriceBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalNet;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalGross;
 
@@ -49,7 +49,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>.
+     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
      *
      * @return null|TaxPortionCollection
      */
@@ -111,8 +111,8 @@ final class TaxedPriceBuilder implements Builder
     public function build(): TaxedPrice
     {
         return new TaxedPriceModel(
-            ($this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet),
-            ($this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross),
+            $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
+            $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
             $this->taxPortions
         );
     }

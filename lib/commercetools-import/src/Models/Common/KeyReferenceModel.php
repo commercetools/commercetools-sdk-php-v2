@@ -14,7 +14,6 @@ use stdClass;
 final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */
@@ -68,7 +67,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

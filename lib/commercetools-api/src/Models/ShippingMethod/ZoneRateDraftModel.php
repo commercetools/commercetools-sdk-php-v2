@@ -52,7 +52,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     }
 
     /**
-     * <p>The array must not contain two shipping rates with the same currency.</p>.
+     * <p>The array must not contain two shipping rates with the same currency.</p>
      *
      * @return null|ShippingRateDraftCollection
      */

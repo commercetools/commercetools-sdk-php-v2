@@ -28,7 +28,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     private $parcelId;
 
     /**
-     * @var TrackingData|?TrackingDataBuilder
+     * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
@@ -101,7 +101,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
         return new ParcelTrackingDataUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->parcelId,
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData)
+            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData
         );
     }
 

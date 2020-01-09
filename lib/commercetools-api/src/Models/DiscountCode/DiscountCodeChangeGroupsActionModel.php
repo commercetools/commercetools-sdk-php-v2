@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implements DiscountCodeChangeGroupsAction
 {
     const DISCRIMINATOR_VALUE = 'changeGroups';
-
     /**
      * @var ?string
      */
@@ -50,7 +49,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
 
     /**
      * <p>The groups to which this discount code shall belong to.
-     * Use empty array to remove the code from all groups.</p>.
+     * Use empty array to remove the code from all groups.</p>
      *
      * @return null|array
      */

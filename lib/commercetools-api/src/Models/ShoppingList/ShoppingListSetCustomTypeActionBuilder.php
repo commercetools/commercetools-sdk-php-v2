@@ -20,18 +20,18 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
      * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>.
+     * If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -41,7 +41,7 @@ final class ShoppingListSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>.
+     * <p>If set, the custom fields are set to this new value.</p>
      *
      * @return null|FieldContainer
      */
@@ -93,8 +93,8 @@ final class ShoppingListSetCustomTypeActionBuilder implements Builder
     public function build(): ShoppingListSetCustomTypeAction
     {
         return new ShoppingListSetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

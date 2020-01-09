@@ -22,7 +22,7 @@ interface TaxedItemPrice extends JsonObject
     public function getTotalNet();
 
     /**
-     * <p>TaxedItemPrice fields can not be used in query predicates.</p>.
+     * <p>TaxedItemPrice fields can not be used in query predicates.</p>
      *
      * @return null|TypedMoney
      */

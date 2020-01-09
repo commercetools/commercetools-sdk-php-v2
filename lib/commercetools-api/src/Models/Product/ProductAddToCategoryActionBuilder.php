@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductAddToCategoryActionBuilder implements Builder
 {
     /**
-     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $category;
 
@@ -99,7 +99,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     public function build(): ProductAddToCategoryAction
     {
         return new ProductAddToCategoryActionModel(
-            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category),
+            $this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category,
             $this->orderHint,
             $this->staged
         );

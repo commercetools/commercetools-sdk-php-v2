@@ -41,7 +41,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */

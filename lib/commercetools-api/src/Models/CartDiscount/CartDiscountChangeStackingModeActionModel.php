@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel implements CartDiscountChangeStackingModeAction
 {
     const DISCRIMINATOR_VALUE = 'changeStackingMode';
-
     /**
      * @var ?string
      */

@@ -21,7 +21,7 @@ final class TypeReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Type|?TypeBuilder
+     * @var null|Type|TypeBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class TypeReferenceBuilder implements Builder
     {
         return new TypeReferenceModel(
             $this->id,
-            ($this->obj instanceof TypeBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof TypeBuilder ? $this->obj->build() : $this->obj
         );
     }
 

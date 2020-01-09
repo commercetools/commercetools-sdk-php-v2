@@ -28,12 +28,12 @@ final class AssetBuilder implements Builder
     private $sources;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -43,7 +43,7 @@ final class AssetBuilder implements Builder
     private $tags;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -213,10 +213,10 @@ final class AssetBuilder implements Builder
         return new AssetModel(
             $this->id,
             $this->sources,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->tags,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->key
         );
     }

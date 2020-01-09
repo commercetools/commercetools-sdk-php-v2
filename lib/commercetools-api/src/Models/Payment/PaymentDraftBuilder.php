@@ -23,7 +23,7 @@ use Commercetools\Base\Builder;
 final class PaymentDraftBuilder implements Builder
 {
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
@@ -43,12 +43,12 @@ final class PaymentDraftBuilder implements Builder
     private $interfaceId;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amountAuthorized;
 
@@ -58,22 +58,22 @@ final class PaymentDraftBuilder implements Builder
     private $authorizedUntil;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amountPaid;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amountRefunded;
 
     /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
+     * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
-     * @var PaymentStatusDraft|?PaymentStatusDraftBuilder
+     * @var null|PaymentStatusDraft|PaymentStatusDraftBuilder
      */
     private $paymentStatus;
 
@@ -88,7 +88,7 @@ final class PaymentDraftBuilder implements Builder
     private $interfaceInteractions;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -98,7 +98,7 @@ final class PaymentDraftBuilder implements Builder
     private $key;
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerResourceIdentifier
      */
@@ -108,7 +108,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -128,7 +128,7 @@ final class PaymentDraftBuilder implements Builder
     /**
      * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
      * Cannot be changed once it has been set.
-     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>.
+     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
      * @return null|string
      */
@@ -139,7 +139,7 @@ final class PaymentDraftBuilder implements Builder
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|Money
      */
@@ -197,7 +197,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>.
+     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
      * @return null|TransactionDraftCollection
      */
@@ -210,7 +210,7 @@ final class PaymentDraftBuilder implements Builder
      * <p>Interface interactions can be requests send to the PSP, responses received from the PSP or notifications received from the PSP.
      * Some interactions may result in a transaction.
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
-     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>.
+     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
      * @return null|CustomFieldsDraftCollection
      */
@@ -229,7 +229,7 @@ final class PaymentDraftBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */
@@ -471,20 +471,20 @@ final class PaymentDraftBuilder implements Builder
     public function build(): PaymentDraft
     {
         return new PaymentDraftModel(
-            ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer),
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
             $this->externalId,
             $this->interfaceId,
-            ($this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
-            ($this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized),
+            $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
             $this->authorizedUntil,
-            ($this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid),
-            ($this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded),
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
-            ($this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus),
+            $this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
+            $this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
+            $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
+            $this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,
             $this->interfaceInteractions,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->key
         );
     }

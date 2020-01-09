@@ -42,37 +42,37 @@ final class LineItemDraftBuilder implements Builder
     private $quantity;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $externalPrice;
 
     /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
+     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
@@ -102,7 +102,7 @@ final class LineItemDraftBuilder implements Builder
 
     /**
      * <p>The amount of a <code>LineItem</code>in the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -115,7 +115,7 @@ final class LineItemDraftBuilder implements Builder
      * <p>By providing supply channel information, you can unique identify
      * inventory entries that should be reserved.
      * The provided channel should have
-     * the InventorySupply role.</p>.
+     * the InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -126,7 +126,7 @@ final class LineItemDraftBuilder implements Builder
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -136,7 +136,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
      * @return null|ExternalTaxRateDraft
      */
@@ -146,7 +146,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -156,7 +156,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>.
+     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
      *
      * @return null|Money
      */
@@ -166,7 +166,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>.
+     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
      *
      * @return null|ExternalLineItemTotalPrice
      */
@@ -176,7 +176,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Container for line item specific address(es).</p>.
+     * <p>Container for line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */
@@ -372,13 +372,13 @@ final class LineItemDraftBuilder implements Builder
             $this->variantId,
             $this->sku,
             $this->quantity,
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel),
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice),
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
+            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

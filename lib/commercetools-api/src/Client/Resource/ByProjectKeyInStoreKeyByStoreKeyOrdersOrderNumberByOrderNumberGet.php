@@ -27,18 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $storeKey
-     * @psalm-param scalar $orderNumber
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $storeKey
-     * @param mixed $orderNumber
      */
-    public function __construct($projectKey, $storeKey, $orderNumber, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $storeKey, string $orderNumber, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{storeKey}', '{orderNumber}'], [$projectKey, $storeKey, $orderNumber], '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

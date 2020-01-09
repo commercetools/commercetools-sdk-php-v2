@@ -38,7 +38,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     }
 
     /**
-     * <p>The version of this resource.</p>.
+     * <p>The version of this resource.</p>
      *
      * @return null|int
      */
@@ -57,7 +57,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     }
 
     /**
-     * <p>The unique key of the import sink.</p>.
+     * <p>The unique key of the import sink.</p>
      *
      * @return null|string
      */
@@ -76,7 +76,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     }
 
     /**
-     * <p>The type of import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.</p>
      *
      * @return null|string
      */

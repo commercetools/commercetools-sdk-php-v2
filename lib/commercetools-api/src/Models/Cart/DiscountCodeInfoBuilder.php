@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class DiscountCodeInfoBuilder implements Builder
 {
     /**
-     * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
+     * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
@@ -76,7 +76,7 @@ final class DiscountCodeInfoBuilder implements Builder
     public function build(): DiscountCodeInfo
     {
         return new DiscountCodeInfoModel(
-            ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode),
+            $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode,
             $this->state
         );
     }

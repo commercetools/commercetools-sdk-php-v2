@@ -17,7 +17,6 @@ use stdClass;
 final class StagedOrderRemoveDiscountCodeActionModel extends JsonObjectModel implements StagedOrderRemoveDiscountCodeAction
 {
     const DISCRIMINATOR_VALUE = 'removeDiscountCode';
-
     /**
      * @var ?string
      */

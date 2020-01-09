@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel implements ProductRevertStagedVariantChangesAction
 {
     const DISCRIMINATOR_VALUE = 'revertStagedVariantChanges';
-
     /**
      * @var ?string
      */

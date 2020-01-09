@@ -21,7 +21,7 @@ final class ChannelReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Channel|?ChannelBuilder
+     * @var null|Channel|ChannelBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ChannelReferenceBuilder implements Builder
     {
         return new ChannelReferenceModel(
             $this->id,
-            ($this->obj instanceof ChannelBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ChannelBuilder ? $this->obj->build() : $this->obj
         );
     }
 

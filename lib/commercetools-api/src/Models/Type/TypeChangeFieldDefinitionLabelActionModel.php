@@ -16,7 +16,6 @@ use stdClass;
 final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionLabelAction
 {
     const DISCRIMINATOR_VALUE = 'changeFieldDefinitionLabel';
-
     /**
      * @var ?string
      */

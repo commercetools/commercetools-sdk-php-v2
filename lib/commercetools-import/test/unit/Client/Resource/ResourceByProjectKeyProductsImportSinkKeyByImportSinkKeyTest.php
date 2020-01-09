@@ -1,35 +1,42 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Import\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Import\Client\ImportRoot;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductsImportSinkKeyByImportSinkKey;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Import\Client\Resource\ByProjectKeyProductsImportSinkKeyByImportSinkKeyPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyProductsImportSinkKeyByImportSinkKeyPost' => [
-                function(ImportRoot $builder): RequestInterface {
+                function (ImportRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue('projectKey')
                         ->products()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                        ->post(null);
+                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/products/importSinkKey={importSinkKey}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -38,9 +45,9 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyTest extends TestC
         $builder = new ImportRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

@@ -21,7 +21,7 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     private $attributeName;
 
     /**
-     * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
+     * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     {
         return new ProductTypeAddPlainEnumValueActionModel(
             $this->attributeName,
-            ($this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value
         );
     }
 

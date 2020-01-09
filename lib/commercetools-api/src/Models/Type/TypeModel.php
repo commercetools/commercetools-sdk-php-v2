@@ -103,7 +103,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>The unique ID of the type.</p>.
+     * <p>The unique ID of the type.</p>
      *
      * @return null|string
      */
@@ -122,7 +122,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>The current version of the type.</p>.
+     * <p>The current version of the type.</p>
      *
      * @return null|int
      */
@@ -183,7 +183,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -203,7 +203,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -224,7 +224,7 @@ final class TypeModel extends JsonObjectModel implements Type
 
     /**
      * <p>Identifier for the type (max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */
@@ -279,7 +279,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>.
+     * <p>Defines for which resource(s) the type is valid.</p>
      *
      * @return null|array
      */

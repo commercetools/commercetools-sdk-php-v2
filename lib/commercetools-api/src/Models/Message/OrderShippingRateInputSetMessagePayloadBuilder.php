@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
 
@@ -86,8 +86,8 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     public function build(): OrderShippingRateInputSetMessagePayload
     {
         return new OrderShippingRateInputSetMessagePayloadModel(
-            ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
-            ($this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput)
+            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
+            $this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput
         );
     }
 

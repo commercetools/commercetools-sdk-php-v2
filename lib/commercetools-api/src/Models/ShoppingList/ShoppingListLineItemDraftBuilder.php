@@ -24,7 +24,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -170,7 +170,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     {
         return new ShoppingListLineItemDraftModel(
             $this->addedAt,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->sku,
             $this->productId,
             $this->quantity,

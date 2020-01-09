@@ -51,12 +51,12 @@ final class ChannelBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -71,37 +71,37 @@ final class ChannelBuilder implements Builder
     private $roles;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
-     * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
+     * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var GeoJson|?GeoJsonBuilder
+     * @var null|GeoJson|GeoJsonBuilder
      */
     private $geoLocation;
 
     /**
-     * <p>The unique ID of the channel.</p>.
+     * <p>The unique ID of the channel.</p>
      *
      * @return null|string
      */
@@ -135,7 +135,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -145,7 +145,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -155,7 +155,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>.
+     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>
      *
      * @return null|string
      */
@@ -166,7 +166,7 @@ final class ChannelBuilder implements Builder
 
     /**
      * <p>The roles of this channel.
-     * Each channel must have at least one role.</p>.
+     * Each channel must have at least one role.</p>
      *
      * @return null|array
      */
@@ -176,7 +176,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable name of the channel.</p>.
+     * <p>A human-readable name of the channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -186,7 +186,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable description of the channel.</p>.
+     * <p>A human-readable description of the channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -197,7 +197,7 @@ final class ChannelBuilder implements Builder
 
     /**
      * <p>The address where this channel is located (e.g.
-     * if the channel is a physical store).</p>.
+     * if the channel is a physical store).</p>
      *
      * @return null|Address
      */
@@ -207,7 +207,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this channel.</p>.
+     * <p>Statistics about the review ratings taken into account for this channel.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -225,7 +225,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>.
+     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>
      *
      * @return null|GeoJson
      */
@@ -461,16 +461,16 @@ final class ChannelBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->roles,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation
         );
     }
 

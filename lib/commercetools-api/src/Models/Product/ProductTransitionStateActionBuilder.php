@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductTransitionStateActionBuilder implements Builder
 {
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
@@ -76,7 +76,7 @@ final class ProductTransitionStateActionBuilder implements Builder
     public function build(): ProductTransitionStateAction
     {
         return new ProductTransitionStateActionModel(
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
+            $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
             $this->force
         );
     }

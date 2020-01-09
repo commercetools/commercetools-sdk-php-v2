@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductLegacySetSkuActionModel extends JsonObjectModel implements ProductLegacySetSkuAction
 {
     const DISCRIMINATOR_VALUE = 'legacySetSku';
-
     /**
      * @var ?string
      */

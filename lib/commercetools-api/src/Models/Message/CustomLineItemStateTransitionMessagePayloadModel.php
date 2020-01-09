@@ -18,7 +18,6 @@ use stdClass;
 final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectModel implements CustomLineItemStateTransitionMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'CustomLineItemStateTransition';
-
     /**
      * @var ?string
      */

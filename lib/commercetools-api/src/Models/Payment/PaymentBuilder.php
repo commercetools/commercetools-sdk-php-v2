@@ -48,17 +48,17 @@ final class PaymentBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
@@ -78,12 +78,12 @@ final class PaymentBuilder implements Builder
     private $interfaceId;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPlanned;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountAuthorized;
 
@@ -93,22 +93,22 @@ final class PaymentBuilder implements Builder
     private $authorizedUntil;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPaid;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountRefunded;
 
     /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
+     * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
-     * @var PaymentStatus|?PaymentStatusBuilder
+     * @var null|PaymentStatus|PaymentStatusBuilder
      */
     private $paymentStatus;
 
@@ -123,7 +123,7 @@ final class PaymentBuilder implements Builder
     private $interfaceInteractions;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -165,7 +165,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -175,7 +175,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -185,7 +185,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerReference
      */
@@ -195,7 +195,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -215,7 +215,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
      * Cannot be changed once it has been set.
-     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>.
+     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
      * @return null|string
      */
@@ -226,7 +226,7 @@ final class PaymentBuilder implements Builder
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|TypedMoney
      */
@@ -284,7 +284,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>.
+     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
      * @return null|TransactionCollection
      */
@@ -297,7 +297,7 @@ final class PaymentBuilder implements Builder
      * <p>Interface interactions can be requests sent to the PSP, responses received from the PSP or notifications received from the PSP.
      * Some interactions may result in a transaction.
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
-     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>.
+     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
      * @return null|CustomFieldsCollection
      */
@@ -316,7 +316,7 @@ final class PaymentBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */
@@ -642,22 +642,22 @@ final class PaymentBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
             $this->externalId,
             $this->interfaceId,
-            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
-            ($this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized),
+            $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
             $this->authorizedUntil,
-            ($this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid),
-            ($this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded),
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
-            ($this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus),
+            $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
+            $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
+            $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
+            $this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,
             $this->interfaceInteractions,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->key
         );
     }

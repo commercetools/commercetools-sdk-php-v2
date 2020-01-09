@@ -16,7 +16,6 @@ use stdClass;
 final class MyCartRemovePaymentActionModel extends JsonObjectModel implements MyCartRemovePaymentAction
 {
     const DISCRIMINATOR_VALUE = 'removePayment';
-
     /**
      * @var ?string
      */

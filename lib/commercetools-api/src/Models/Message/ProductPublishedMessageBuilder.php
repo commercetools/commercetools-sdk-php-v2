@@ -45,12 +45,12 @@ final class ProductPublishedMessageBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -60,7 +60,7 @@ final class ProductPublishedMessageBuilder implements Builder
     private $sequenceNumber;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
@@ -70,7 +70,7 @@ final class ProductPublishedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
@@ -80,7 +80,7 @@ final class ProductPublishedMessageBuilder implements Builder
     private $removedImageUrls;
 
     /**
-     * @var ProductProjection|?ProductProjectionBuilder
+     * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
@@ -380,14 +380,14 @@ final class ProductPublishedMessageBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->sequenceNumber,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->removedImageUrls,
-            ($this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection),
+            $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection,
             $this->scope
         );
     }

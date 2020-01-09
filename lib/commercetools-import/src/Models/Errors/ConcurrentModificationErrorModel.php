@@ -15,7 +15,6 @@ use stdClass;
 final class ConcurrentModificationErrorModel extends JsonObjectModel implements ConcurrentModificationError
 {
     const DISCRIMINATOR_VALUE = 'ConcurrentModification';
-
     /**
      * @var ?string
      */
@@ -72,7 +71,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -91,7 +90,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The version specified in the failed request.</p>.
+     * <p>The version specified in the failed request.</p>
      *
      * @return null|int
      */
@@ -110,7 +109,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The current version of the resource.</p>.
+     * <p>The current version of the resource.</p>
      *
      * @return null|int
      */
@@ -129,7 +128,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The conflicted resource.</p>.
+     * <p>The conflicted resource.</p>
      *
      * @return null|JsonObject
      */

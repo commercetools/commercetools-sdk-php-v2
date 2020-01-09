@@ -31,7 +31,7 @@ interface MyCartDraft extends JsonObject
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -43,14 +43,14 @@ interface MyCartDraft extends JsonObject
     public function getCustomerEmail();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
     public function getCountry();
 
     /**
-     * <p>Default inventory mode is <code>None</code>.</p>.
+     * <p>Default inventory mode is <code>None</code>.</p>
      *
      * @return null|string
      */
@@ -77,7 +77,7 @@ interface MyCartDraft extends JsonObject
     public function getShippingMethod();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -89,7 +89,7 @@ interface MyCartDraft extends JsonObject
     public function getLocale();
 
     /**
-     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>.
+     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
      * @return null|string
      */
@@ -97,7 +97,7 @@ interface MyCartDraft extends JsonObject
 
     /**
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
-     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>.
+     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
      * @return null|int
      */
@@ -105,7 +105,7 @@ interface MyCartDraft extends JsonObject
 
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.
-     * Each address must contain a key which is unique in this cart.</p>.
+     * Each address must contain a key which is unique in this cart.</p>
      *
      * @return null|AddressCollection
      */

@@ -21,7 +21,7 @@ use DateTimeImmutable;
 final class CartDiscountDraftBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -31,12 +31,12 @@ final class CartDiscountDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var CartDiscountValueDraft|?CartDiscountValueDraftBuilder
+     * @var null|CartDiscountValueDraft|CartDiscountValueDraftBuilder
      */
     private $value;
 
@@ -46,7 +46,7 @@ final class CartDiscountDraftBuilder implements Builder
     private $cartPredicate;
 
     /**
-     * @var CartDiscountTarget|?CartDiscountTargetBuilder
+     * @var null|CartDiscountTarget|CartDiscountTargetBuilder
      */
     private $target;
 
@@ -81,7 +81,7 @@ final class CartDiscountDraftBuilder implements Builder
     private $stackingMode;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -96,7 +96,7 @@ final class CartDiscountDraftBuilder implements Builder
     /**
      * <p>User-specific unique identifier for a cart discount.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>.
+     * The field can be reset using the Set Key UpdateAction.</p>
      *
      * @return null|string
      */
@@ -122,7 +122,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>A valid Cart predicate.</p>.
+     * <p>A valid Cart predicate.</p>
      *
      * @return null|string
      */
@@ -132,7 +132,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget must be set.</p>.
+     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget must be set.</p>
      *
      * @return null|CartDiscountTarget
      */
@@ -144,7 +144,7 @@ final class CartDiscountDraftBuilder implements Builder
     /**
      * <p>The string must contain a number between 0 and 1.
      * A discount with greater sort order is prioritized higher than a discount with lower sort order.
-     * The sort order must be unambiguous among all cart discounts.</p>.
+     * The sort order must be unambiguous among all cart discounts.</p>
      *
      * @return null|string
      */
@@ -155,7 +155,7 @@ final class CartDiscountDraftBuilder implements Builder
 
     /**
      * <p>Only active discount can be applied to the cart.
-     * Defaults to <code>true</code>.</p>.
+     * Defaults to <code>true</code>.</p>
      *
      * @return null|bool
      */
@@ -182,7 +182,7 @@ final class CartDiscountDraftBuilder implements Builder
 
     /**
      * <p>States whether the discount can only be used in a connection with a DiscountCode.
-     * Defaults to <code>false</code>.</p>.
+     * Defaults to <code>false</code>.</p>
      *
      * @return null|bool
      */
@@ -193,7 +193,7 @@ final class CartDiscountDraftBuilder implements Builder
 
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>.
+     * Defaults to Stacking.</p>
      *
      * @return null|string
      */
@@ -393,19 +393,19 @@ final class CartDiscountDraftBuilder implements Builder
     public function build(): CartDiscountDraft
     {
         return new CartDiscountDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value,
             $this->cartPredicate,
-            ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target),
+            $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,
             $this->isActive,
             $this->validFrom,
             $this->validUntil,
             $this->requiresDiscountCode,
             $this->stackingMode,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

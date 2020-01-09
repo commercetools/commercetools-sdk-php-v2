@@ -18,7 +18,7 @@ use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
-     * @var AttributeType|?AttributeTypeBuilder
+     * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
@@ -28,7 +28,7 @@ final class AttributeDefinitionBuilder implements Builder
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -43,7 +43,7 @@ final class AttributeDefinitionBuilder implements Builder
     private $attributeConstraint;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
@@ -234,12 +234,12 @@ final class AttributeDefinitionBuilder implements Builder
     public function build(): AttributeDefinition
     {
         return new AttributeDefinitionModel(
-            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
             $this->attributeConstraint,
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip),
+            $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,
             $this->isSearchable
         );

@@ -21,12 +21,7 @@ class ResourceByProjectKeyCarts extends ApiResource
         return new ResourceByProjectKeyCartsReplicate($this->getUri().'/replicate', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyCartsByID
+    public function withId(string $ID = null): ResourceByProjectKeyCartsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -46,7 +41,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -57,6 +52,6 @@ class ResourceByProjectKeyCarts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

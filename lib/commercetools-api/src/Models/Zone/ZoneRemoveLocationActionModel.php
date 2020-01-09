@@ -14,7 +14,6 @@ use stdClass;
 final class ZoneRemoveLocationActionModel extends JsonObjectModel implements ZoneRemoveLocationAction
 {
     const DISCRIMINATOR_VALUE = 'removeLocation';
-
     /**
      * @var ?string
      */

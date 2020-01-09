@@ -24,7 +24,6 @@ use stdClass;
 final class OrderLineItemAddedMessageModel extends JsonObjectModel implements OrderLineItemAddedMessage
 {
     const DISCRIMINATOR_VALUE = 'OrderLineItemAdded';
-
     /**
      * @var ?string
      */

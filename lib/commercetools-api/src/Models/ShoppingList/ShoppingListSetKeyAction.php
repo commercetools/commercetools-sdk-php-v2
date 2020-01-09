@@ -13,7 +13,7 @@ interface ShoppingListSetKeyAction extends ShoppingListUpdateAction
     const FIELD_KEY = 'key';
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */

@@ -20,7 +20,6 @@ use stdClass;
 final class MessageDeliveryModel extends JsonObjectModel implements MessageDelivery
 {
     const DISCRIMINATOR_VALUE = 'Message';
-
     /**
      * @var ?string
      */

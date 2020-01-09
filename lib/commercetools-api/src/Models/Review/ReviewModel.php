@@ -157,7 +157,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>The unique ID of the review.</p>.
+     * <p>The unique ID of the review.</p>
      *
      * @return null|string
      */
@@ -176,7 +176,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>The current version of the review.</p>.
+     * <p>The current version of the review.</p>
      *
      * @return null|int
      */
@@ -237,7 +237,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -257,7 +257,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -277,7 +277,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>User-specific unique identifier for the review.</p>.
+     * <p>User-specific unique identifier for the review.</p>
      *
      * @return null|string
      */
@@ -382,7 +382,7 @@ final class ReviewModel extends JsonObjectModel implements Review
 
     /**
      * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>.
+     * Can be a Product or a Channel</p>
      *
      * @return null|JsonObject
      */
@@ -403,7 +403,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Indicates if this review is taken into account in the ratings statistics of the target.
      * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
-     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>.
+     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
      *
      * @return null|bool
      */
@@ -422,7 +422,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Number between -100 and 100 included.</p>.
+     * <p>Number between -100 and 100 included.</p>
      *
      * @return null|int
      */
@@ -459,7 +459,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>The customer who created the review.</p>.
+     * <p>The customer who created the review.</p>
      *
      * @return null|CustomerReference
      */

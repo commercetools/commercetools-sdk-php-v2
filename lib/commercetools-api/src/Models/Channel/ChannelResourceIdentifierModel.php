@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ChannelResourceIdentifierModel extends JsonObjectModel implements ChannelResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'channel';
-
     /**
      * @var ?string
      */

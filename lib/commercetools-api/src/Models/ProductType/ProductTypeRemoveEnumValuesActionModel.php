@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel implements ProductTypeRemoveEnumValuesAction
 {
     const DISCRIMINATOR_VALUE = 'removeEnumValues';
-
     /**
      * @var ?string
      */

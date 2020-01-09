@@ -22,7 +22,6 @@ use stdClass;
 final class OrderShipmentStateChangedMessageModel extends JsonObjectModel implements OrderShipmentStateChangedMessage
 {
     const DISCRIMINATOR_VALUE = 'OrderShipmentStateChanged';
-
     /**
      * @var ?string
      */

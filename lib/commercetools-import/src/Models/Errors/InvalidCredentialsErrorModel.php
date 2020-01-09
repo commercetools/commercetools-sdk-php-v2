@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidCredentialsErrorModel extends JsonObjectModel implements InvalidCredentialsError
 {
     const DISCRIMINATOR_VALUE = 'InvalidCredentials';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

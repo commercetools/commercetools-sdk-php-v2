@@ -21,14 +21,14 @@ interface TransactionDraft extends JsonObject
     const FIELD_STATE = 'state';
 
     /**
-     * <p>The time at which the transaction took place.</p>.
+     * <p>The time at which the transaction took place.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();
 
     /**
-     * <p>The type of this transaction.</p>.
+     * <p>The type of this transaction.</p>
      *
      * @return null|string
      */
@@ -41,7 +41,7 @@ interface TransactionDraft extends JsonObject
 
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
      * @return null|string
      */
@@ -49,7 +49,7 @@ interface TransactionDraft extends JsonObject
 
     /**
      * <p>The state of this transaction.
-     * If not set, defaults to <code>Initial</code>.</p>.
+     * If not set, defaults to <code>Initial</code>.</p>
      *
      * @return null|string
      */

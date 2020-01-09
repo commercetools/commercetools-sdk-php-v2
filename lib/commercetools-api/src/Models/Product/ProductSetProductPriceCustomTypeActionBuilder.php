@@ -30,12 +30,12 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
@@ -136,8 +136,8 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
         return new ProductSetProductPriceCustomTypeActionModel(
             $this->priceId,
             $this->staged,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

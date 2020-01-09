@@ -129,7 +129,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>Maps to <code>Product.name</code>.</p>.
+     * <p>Maps to <code>Product.name</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -152,7 +152,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
      * <p>The product type referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -173,7 +173,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
 
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
-     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>.
+     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
      * @return null|LocalizedString
      */
@@ -193,7 +193,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>Maps to <code>Product.description</code>.</p>.
+     * <p>Maps to <code>Product.description</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -216,7 +216,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
      * <p>The categories referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -292,7 +292,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>References a tax category by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -333,7 +333,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>References a state by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|StateKeyReference
      */

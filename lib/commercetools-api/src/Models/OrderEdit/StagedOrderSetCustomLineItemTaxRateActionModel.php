@@ -17,7 +17,6 @@ use stdClass;
 final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectModel implements StagedOrderSetCustomLineItemTaxRateAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxRate';
-
     /**
      * @var ?string
      */

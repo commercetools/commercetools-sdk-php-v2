@@ -21,7 +21,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var VariantValues|?VariantValuesBuilder
+     * @var null|VariantValues|VariantValuesBuilder
      */
     private $variantValues;
 
@@ -75,7 +75,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     {
         return new DuplicateVariantValuesErrorModel(
             $this->message,
-            ($this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues)
+            $this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues
         );
     }
 

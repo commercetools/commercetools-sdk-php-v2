@@ -32,7 +32,7 @@ interface CustomLineItemDraft extends JsonObject
 
     /**
      * <p>The amount of a CustomLineItemin the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -49,28 +49,28 @@ interface CustomLineItemDraft extends JsonObject
     public function getSlug();
 
     /**
-     * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>.
+     * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
-     * <p>Container for custom line item specific address(es).</p>.
+     * <p>Container for custom line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */

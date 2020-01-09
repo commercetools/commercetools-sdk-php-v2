@@ -15,7 +15,6 @@ use stdClass;
 final class ChannelSetCustomFieldActionModel extends JsonObjectModel implements ChannelSetCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomField';
-
     /**
      * @var ?string
      */

@@ -92,7 +92,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * <p>If not specified, then channel will get InventorySupply role by default</p>.
+     * <p>If not specified, then channel will get InventorySupply role by default</p>
      *
      * @return null|array
      */
@@ -165,7 +165,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */

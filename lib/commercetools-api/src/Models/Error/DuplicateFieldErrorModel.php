@@ -17,7 +17,6 @@ use stdClass;
 final class DuplicateFieldErrorModel extends JsonObjectModel implements DuplicateFieldError
 {
     const DISCRIMINATOR_VALUE = 'DuplicateField';
-
     /**
      * @var ?string
      */

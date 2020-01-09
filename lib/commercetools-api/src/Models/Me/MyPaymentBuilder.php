@@ -35,7 +35,7 @@ final class MyPaymentBuilder implements Builder
     private $version;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
@@ -45,12 +45,12 @@ final class MyPaymentBuilder implements Builder
     private $anonymousId;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPlanned;
 
     /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
+     * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
@@ -60,7 +60,7 @@ final class MyPaymentBuilder implements Builder
     private $transactions;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -81,7 +81,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerReference
      */
@@ -91,7 +91,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -102,7 +102,7 @@ final class MyPaymentBuilder implements Builder
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|TypedMoney
      */
@@ -121,7 +121,7 @@ final class MyPaymentBuilder implements Builder
 
     /**
      * <p>A list of financial transactions of different TransactionTypes
-     * with different TransactionStates.</p>.
+     * with different TransactionStates.</p>
      *
      * @return null|TransactionCollection
      */
@@ -263,12 +263,12 @@ final class MyPaymentBuilder implements Builder
         return new MyPaymentModel(
             $this->id,
             $this->version,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
-            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
+            $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->transactions,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

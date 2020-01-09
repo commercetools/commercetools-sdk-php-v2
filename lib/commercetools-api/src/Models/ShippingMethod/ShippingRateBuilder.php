@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class ShippingRateBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $price;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $freeAbove;
 
@@ -48,7 +48,7 @@ final class ShippingRateBuilder implements Builder
     /**
      * <p>The shipping is free if the order total (the sum of line item prices) exceeds the <code>freeAbove</code> value.
      * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
-     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>
      *
      * @return null|TypedMoney
      */
@@ -58,7 +58,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
-     * <p>Only appears in response to requests for shipping methods by cart or location to mark this shipping rate as one that matches the cart or location.</p>.
+     * <p>Only appears in response to requests for shipping methods by cart or location to mark this shipping rate as one that matches the cart or location.</p>
      *
      * @return null|bool
      */
@@ -68,7 +68,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
-     * <p>A list of shipping rate price tiers.</p>.
+     * <p>A list of shipping rate price tiers.</p>
      *
      * @return null|ShippingRatePriceTierCollection
      */
@@ -140,8 +140,8 @@ final class ShippingRateBuilder implements Builder
     public function build(): ShippingRate
     {
         return new ShippingRateModel(
-            ($this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price),
-            ($this->freeAbove instanceof TypedMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove),
+            $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price,
+            $this->freeAbove instanceof TypedMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove,
             $this->isMatching,
             $this->tiers
         );

@@ -14,7 +14,6 @@ use stdClass;
 final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeEnumType
 {
     const DISCRIMINATOR_VALUE = 'enum';
-
     /**
      * @var ?string
      */

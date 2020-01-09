@@ -18,7 +18,6 @@ use stdClass;
 final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implements StagedOrderAddReturnInfoAction
 {
     const DISCRIMINATOR_VALUE = 'addReturnInfo';
-
     /**
      * @var ?string
      */

@@ -15,7 +15,7 @@ interface ProductVariantImportRequest extends ImportRequest
     const FIELD_RESOURCES = 'resources';
 
     /**
-     * <p>The product variant import resources of this request.</p>.
+     * <p>The product variant import resources of this request.</p>
      *
      * @return null|ProductVariantImportCollection
      */

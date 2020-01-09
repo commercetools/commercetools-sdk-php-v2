@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class CartSetShippingRateInputActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
+     * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
 
@@ -24,7 +24,7 @@ final class CartSetShippingRateInputActionBuilder implements Builder
      * <p>Based on the definition of ShippingRateInputType.
      * If CartClassification is defined, it must be ClassificationShippingRateInput.
      * If CartScore is defined, it must be ScoreShippingRateInput.
-     * Otherwise it can not bet set.</p>.
+     * Otherwise it can not bet set.</p>
      *
      * @return null|ShippingRateInputDraft
      */
@@ -56,7 +56,7 @@ final class CartSetShippingRateInputActionBuilder implements Builder
     public function build(): CartSetShippingRateInputAction
     {
         return new CartSetShippingRateInputActionModel(
-            ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput)
+            $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput
         );
     }
 

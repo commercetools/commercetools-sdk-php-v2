@@ -116,7 +116,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -152,7 +152,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -171,7 +171,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>Default inventory mode is <code>None</code>.</p>.
+     * <p>Default inventory mode is <code>None</code>.</p>
      *
      * @return null|string
      */
@@ -261,7 +261,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -298,7 +298,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>.
+     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
      * @return null|string
      */
@@ -318,7 +318,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
-     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>.
+     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
      * @return null|int
      */
@@ -338,7 +338,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.
-     * Each address must contain a key which is unique in this cart.</p>.
+     * Each address must contain a key which is unique in this cart.</p>
      *
      * @return null|AddressCollection
      */

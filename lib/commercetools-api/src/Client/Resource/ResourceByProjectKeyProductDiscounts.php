@@ -21,12 +21,7 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
         return new ResourceByProjectKeyProductDiscountsMatching($this->getUri().'/matching', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyProductDiscountsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyProductDiscountsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -36,12 +31,7 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
         return new ResourceByProjectKeyProductDiscountsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyProductDiscountsByID
+    public function withId(string $ID = null): ResourceByProjectKeyProductDiscountsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -61,7 +51,7 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductDiscountsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductDiscountsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -72,6 +62,6 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductDiscountsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductDiscountsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

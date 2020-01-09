@@ -18,7 +18,7 @@ interface CustomerGroupDraft extends JsonObject
     const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */

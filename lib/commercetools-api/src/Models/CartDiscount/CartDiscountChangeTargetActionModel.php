@@ -14,7 +14,6 @@ use stdClass;
 final class CartDiscountChangeTargetActionModel extends JsonObjectModel implements CartDiscountChangeTargetAction
 {
     const DISCRIMINATOR_VALUE = 'changeTarget';
-
     /**
      * @var ?string
      */

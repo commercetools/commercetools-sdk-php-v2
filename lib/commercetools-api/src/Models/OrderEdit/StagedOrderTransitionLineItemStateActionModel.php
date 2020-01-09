@@ -19,7 +19,6 @@ use stdClass;
 final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectModel implements StagedOrderTransitionLineItemStateAction
 {
     const DISCRIMINATOR_VALUE = 'transitionLineItemState';
-
     /**
      * @var ?string
      */

@@ -52,7 +52,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>.
+     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
      *
      * @return null|string
      */

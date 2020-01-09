@@ -26,7 +26,7 @@ final class GraphQLRequestBuilder implements Builder
     private $operationName;
 
     /**
-     * @var GraphQLVariablesMap|?GraphQLVariablesMapBuilder
+     * @var null|GraphQLVariablesMap|GraphQLVariablesMapBuilder
      */
     private $variables;
 
@@ -99,7 +99,7 @@ final class GraphQLRequestBuilder implements Builder
         return new GraphQLRequestModel(
             $this->query,
             $this->operationName,
-            ($this->variables instanceof GraphQLVariablesMapBuilder ? $this->variables->build() : $this->variables)
+            $this->variables instanceof GraphQLVariablesMapBuilder ? $this->variables->build() : $this->variables
         );
     }
 

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductUnpublishActionModel extends JsonObjectModel implements ProductUnpublishAction
 {
     const DISCRIMINATOR_VALUE = 'unpublish';
-
     /**
      * @var ?string
      */

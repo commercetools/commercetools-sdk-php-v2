@@ -43,12 +43,12 @@ final class TypeBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -58,12 +58,12 @@ final class TypeBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -78,7 +78,7 @@ final class TypeBuilder implements Builder
     private $fieldDefinitions;
 
     /**
-     * <p>The unique ID of the type.</p>.
+     * <p>The unique ID of the type.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the type.</p>.
+     * <p>The current version of the type.</p>
      *
      * @return null|int
      */
@@ -114,7 +114,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -124,7 +124,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -135,7 +135,7 @@ final class TypeBuilder implements Builder
 
     /**
      * <p>Identifier for the type (max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */
@@ -161,7 +161,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>.
+     * <p>Defines for which resource(s) the type is valid.</p>
      *
      * @return null|array
      */
@@ -335,11 +335,11 @@ final class TypeBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->resourceTypeIds,
             $this->fieldDefinitions
         );

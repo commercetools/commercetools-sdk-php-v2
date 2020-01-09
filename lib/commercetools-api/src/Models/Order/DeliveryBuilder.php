@@ -39,7 +39,7 @@ final class DeliveryBuilder implements Builder
     private $parcels;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -61,7 +61,7 @@ final class DeliveryBuilder implements Builder
 
     /**
      * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
-     * Can also be specified individually for each Parcel.</p>.
+     * Can also be specified individually for each Parcel.</p>
      *
      * @return null|DeliveryItemCollection
      */
@@ -153,7 +153,7 @@ final class DeliveryBuilder implements Builder
             $this->createdAt,
             $this->items,
             $this->parcels,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }
 

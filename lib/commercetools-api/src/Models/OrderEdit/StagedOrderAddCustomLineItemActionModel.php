@@ -25,7 +25,6 @@ use stdClass;
 final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel implements StagedOrderAddCustomLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'addCustomLineItem';
-
     /**
      * @var ?string
      */

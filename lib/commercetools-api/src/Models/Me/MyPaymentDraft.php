@@ -22,7 +22,7 @@ interface MyPaymentDraft extends JsonObject
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|Money
      */
@@ -40,7 +40,7 @@ interface MyPaymentDraft extends JsonObject
 
     /**
      * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
-     * TransactionTypes.</p>.
+     * TransactionTypes.</p>
      *
      * @return null|MyTransactionDraft
      */

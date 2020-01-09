@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel implements DiscountCodeSetCartPredicateAction
 {
     const DISCRIMINATOR_VALUE = 'setCartPredicate';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|string
      */

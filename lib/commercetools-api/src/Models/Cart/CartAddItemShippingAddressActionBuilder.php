@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CartAddItemShippingAddressActionBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -53,7 +53,7 @@ final class CartAddItemShippingAddressActionBuilder implements Builder
     public function build(): CartAddItemShippingAddressAction
     {
         return new CartAddItemShippingAddressActionModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }
 

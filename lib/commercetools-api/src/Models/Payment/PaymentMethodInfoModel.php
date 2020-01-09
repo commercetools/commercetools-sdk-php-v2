@@ -43,7 +43,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     /**
      * <p>The interface that handles the payment (usually a PSP).
      * Cannot be changed once it has been set.
-     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>.
+     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
      *
      * @return null|string
      */
@@ -64,7 +64,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     /**
      * <p>The payment method that is used, e.g.
      * e.g.
-     * a conventional string representing Credit Card, Cash Advance etc.</p>.
+     * a conventional string representing Credit Card, Cash Advance etc.</p>
      *
      * @return null|string
      */
@@ -84,7 +84,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
 
     /**
      * <p>A human-readable, localized name for the payment method, e.g.
-     * 'Credit Card'.</p>.
+     * 'Credit Card'.</p>
      *
      * @return null|LocalizedString
      */

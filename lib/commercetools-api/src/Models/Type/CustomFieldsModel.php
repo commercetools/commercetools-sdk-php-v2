@@ -50,7 +50,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     }
 
     /**
-     * <p>A valid JSON object, based on FieldDefinition.</p>.
+     * <p>A valid JSON object, based on FieldDefinition.</p>
      *
      * @return null|FieldContainer
      */

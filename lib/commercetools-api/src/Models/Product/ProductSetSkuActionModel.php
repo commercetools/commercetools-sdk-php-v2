@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductSetSkuActionModel extends JsonObjectModel implements ProductSetSkuAction
 {
     const DISCRIMINATOR_VALUE = 'setSku';
-
     /**
      * @var ?string
      */
@@ -81,7 +80,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
 
     /**
      * <p>SKU must be unique.
-     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>.
+     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>
      *
      * @return null|string
      */

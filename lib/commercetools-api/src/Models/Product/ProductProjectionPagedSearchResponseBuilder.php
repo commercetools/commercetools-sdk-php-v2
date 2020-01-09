@@ -36,7 +36,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     private $results;
 
     /**
-     * @var FacetResults|?FacetResultsBuilder
+     * @var null|FacetResults|FacetResultsBuilder
      */
     private $facets;
 
@@ -147,7 +147,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
             $this->total,
             $this->offset,
             $this->results,
-            ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
+            $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets
         );
     }
 

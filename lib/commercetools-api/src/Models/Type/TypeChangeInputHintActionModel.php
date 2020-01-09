@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeChangeInputHintActionModel extends JsonObjectModel implements TypeChangeInputHintAction
 {
     const DISCRIMINATOR_VALUE = 'changeInputHint';
-
     /**
      * @var ?string
      */

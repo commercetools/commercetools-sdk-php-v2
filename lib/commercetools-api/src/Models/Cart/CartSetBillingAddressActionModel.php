@@ -16,7 +16,6 @@ use stdClass;
 final class CartSetBillingAddressActionModel extends JsonObjectModel implements CartSetBillingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'setBillingAddress';
-
     /**
      * @var ?string
      */

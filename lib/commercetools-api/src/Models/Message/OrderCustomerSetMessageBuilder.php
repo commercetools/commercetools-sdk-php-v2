@@ -47,12 +47,12 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -62,7 +62,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $sequenceNumber;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
@@ -72,27 +72,27 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $oldCustomer;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $oldCustomerGroup;
 
@@ -435,16 +435,16 @@ final class OrderCustomerSetMessageBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->sequenceNumber,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),
-            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup)
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer,
+            $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup
         );
     }
 

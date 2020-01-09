@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TaxCategoryChangeNameActionModel extends JsonObjectModel implements TaxCategoryChangeNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeName';
-
     /**
      * @var ?string
      */

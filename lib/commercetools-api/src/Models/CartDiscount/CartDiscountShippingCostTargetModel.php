@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartDiscountShippingCostTargetModel extends JsonObjectModel implements CartDiscountShippingCostTarget
 {
     const DISCRIMINATOR_VALUE = 'shipping';
-
     /**
      * @var ?string
      */

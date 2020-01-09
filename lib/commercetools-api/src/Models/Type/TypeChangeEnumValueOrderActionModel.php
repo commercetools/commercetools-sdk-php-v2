@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implements TypeChangeEnumValueOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeEnumValueOrder';
-
     /**
      * @var ?string
      */

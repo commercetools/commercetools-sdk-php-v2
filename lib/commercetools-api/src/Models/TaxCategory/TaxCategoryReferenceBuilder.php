@@ -21,7 +21,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var TaxCategory|?TaxCategoryBuilder
+     * @var null|TaxCategory|TaxCategoryBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     {
         return new TaxCategoryReferenceModel(
             $this->id,
-            ($this->obj instanceof TaxCategoryBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof TaxCategoryBuilder ? $this->obj->build() : $this->obj
         );
     }
 

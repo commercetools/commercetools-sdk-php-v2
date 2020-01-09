@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class DateTimeAttributeModel extends JsonObjectModel implements DateTimeAttribute
 {
     const DISCRIMINATOR_VALUE = 'datetime';
-
     /**
      * @var ?string
      */
@@ -43,7 +42,7 @@ final class DateTimeAttributeModel extends JsonObjectModel implements DateTimeAt
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>.
+     * used in a product variant patch.</p>
      *
      * @return null|string
      */

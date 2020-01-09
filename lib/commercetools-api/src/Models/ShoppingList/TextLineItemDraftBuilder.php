@@ -26,17 +26,17 @@ final class TextLineItemDraftBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -46,7 +46,7 @@ final class TextLineItemDraftBuilder implements Builder
     private $quantity;
 
     /**
-     * <p>Defaults to the current date and time.</p>.
+     * <p>Defaults to the current date and time.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -56,7 +56,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -82,7 +82,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Defaults to <code>1</code>.</p>.
+     * <p>Defaults to <code>1</code>.</p>
      *
      * @return null|int
      */
@@ -175,9 +175,9 @@ final class TextLineItemDraftBuilder implements Builder
     {
         return new TextLineItemDraftModel(
             $this->addedAt,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->quantity
         );
     }

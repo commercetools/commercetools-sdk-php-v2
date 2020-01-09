@@ -142,7 +142,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>The unique ID of the shopping list.</p>.
+     * <p>The unique ID of the shopping list.</p>
      *
      * @return null|string
      */
@@ -161,7 +161,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>The current version of the shopping list.</p>.
+     * <p>The current version of the shopping list.</p>
      *
      * @return null|int
      */
@@ -222,7 +222,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -242,7 +242,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -298,7 +298,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
      * @return null|int
      */
@@ -335,7 +335,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */
@@ -391,7 +391,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
      * @return null|LocalizedString
      */
@@ -428,7 +428,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */

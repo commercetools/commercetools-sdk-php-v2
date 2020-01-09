@@ -16,7 +16,6 @@ use stdClass;
 final class ProductAddAssetActionModel extends JsonObjectModel implements ProductAddAssetAction
 {
     const DISCRIMINATOR_VALUE = 'addAsset';
-
     /**
      * @var ?string
      */
@@ -149,7 +148,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>.
+     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
      * @return null|int
      */

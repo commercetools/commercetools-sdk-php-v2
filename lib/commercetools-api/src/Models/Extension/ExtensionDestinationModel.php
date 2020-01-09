@@ -14,7 +14,6 @@ use stdClass;
 final class ExtensionDestinationModel extends JsonObjectModel implements ExtensionDestination
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

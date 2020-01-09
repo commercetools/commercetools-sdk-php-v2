@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductDiscountSetDescriptionActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -53,7 +53,7 @@ final class ProductDiscountSetDescriptionActionBuilder implements Builder
     public function build(): ProductDiscountSetDescriptionAction
     {
         return new ProductDiscountSetDescriptionActionModel(
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

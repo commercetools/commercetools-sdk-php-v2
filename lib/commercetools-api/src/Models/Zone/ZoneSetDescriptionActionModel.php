@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ZoneSetDescriptionActionModel extends JsonObjectModel implements ZoneSetDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setDescription';
-
     /**
      * @var ?string
      */

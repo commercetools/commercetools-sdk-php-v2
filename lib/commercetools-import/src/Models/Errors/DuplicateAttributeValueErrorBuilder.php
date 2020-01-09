@@ -23,12 +23,12 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var Attribute|?AttributeBuilder
+     * @var null|Attribute|AttributeBuilder
      */
     private $attribute;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -38,7 +38,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
-     * <p>The conflicting attribute.</p>.
+     * <p>The conflicting attribute.</p>
      *
      * @return null|Attribute
      */
@@ -81,7 +81,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     {
         return new DuplicateAttributeValueErrorModel(
             $this->message,
-            ($this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute)
+            $this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute
         );
     }
 

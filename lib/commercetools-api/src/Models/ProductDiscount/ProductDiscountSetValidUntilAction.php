@@ -16,7 +16,7 @@ interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction
 
     /**
      * <p>The time from which the discount should be ineffective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

@@ -13,7 +13,7 @@ interface TaxCategorySetKeyAction extends TaxCategoryUpdateAction
     const FIELD_KEY = 'key';
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
      * @return null|string
      */

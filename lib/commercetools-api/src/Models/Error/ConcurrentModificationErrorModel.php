@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ConcurrentModificationErrorModel extends JsonObjectModel implements ConcurrentModificationError
 {
     const DISCRIMINATOR_VALUE = 'ConcurrentModification';
-
     /**
      * @var ?string
      */

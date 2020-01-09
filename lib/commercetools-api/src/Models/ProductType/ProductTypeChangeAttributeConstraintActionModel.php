@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectModel implements ProductTypeChangeAttributeConstraintAction
 {
     const DISCRIMINATOR_VALUE = 'changeAttributeConstraint';
-
     /**
      * @var ?string
      */

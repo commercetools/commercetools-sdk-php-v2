@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ContentionErrorModel extends JsonObjectModel implements ContentionError
 {
     const DISCRIMINATOR_VALUE = 'Contention';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ContentionErrorModel extends JsonObjectModel implements ContentionEr
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

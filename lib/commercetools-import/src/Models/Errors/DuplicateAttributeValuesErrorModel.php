@@ -15,7 +15,6 @@ use stdClass;
 final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implements DuplicateAttributeValuesError
 {
     const DISCRIMINATOR_VALUE = 'DuplicateAttributeValues';
-
     /**
      * @var ?string
      */
@@ -58,7 +57,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

@@ -28,7 +28,7 @@ final class QueryPriceBuilder implements Builder
     private $id;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -38,12 +38,12 @@ final class QueryPriceBuilder implements Builder
     private $country;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
@@ -58,12 +58,12 @@ final class QueryPriceBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -89,7 +89,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -308,14 +308,14 @@ final class QueryPriceBuilder implements Builder
     {
         return new QueryPriceModel(
             $this->id,
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->tiers
         );
     }

@@ -18,13 +18,13 @@ use Commercetools\Base\Builder;
 final class ReviewSetCustomerActionBuilder implements Builder
 {
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
      * <p>The customer who created the review.
-     * If <code>customer</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * If <code>customer</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|CustomerResourceIdentifier
      */
@@ -56,7 +56,7 @@ final class ReviewSetCustomerActionBuilder implements Builder
     public function build(): ReviewSetCustomerAction
     {
         return new ReviewSetCustomerActionModel(
-            ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer
         );
     }
 

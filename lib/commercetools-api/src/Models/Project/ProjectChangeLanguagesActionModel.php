@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements ProjectChangeLanguagesAction
 {
     const DISCRIMINATOR_VALUE = 'changeLanguages';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>.</p>.
+     * <p>.</p>
      *
      * @return null|array
      */

@@ -23,7 +23,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     private $customLineItemId;
 
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     {
         return new StagedOrderSetCustomLineItemTaxRateActionModel(
             $this->customLineItemId,
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
         );
     }
 

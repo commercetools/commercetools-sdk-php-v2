@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTokenError
 {
     const DISCRIMINATOR_VALUE = 'invalid_token';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

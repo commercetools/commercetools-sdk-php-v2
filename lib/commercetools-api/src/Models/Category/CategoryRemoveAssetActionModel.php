@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CategoryRemoveAssetActionModel extends JsonObjectModel implements CategoryRemoveAssetAction
 {
     const DISCRIMINATOR_VALUE = 'removeAsset';
-
     /**
      * @var ?string
      */

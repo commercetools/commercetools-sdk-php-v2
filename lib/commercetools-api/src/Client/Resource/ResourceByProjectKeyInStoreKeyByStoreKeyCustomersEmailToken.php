@@ -22,6 +22,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken extends ApiRes
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

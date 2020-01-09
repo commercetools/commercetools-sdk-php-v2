@@ -22,6 +22,6 @@ class ResourceByProjectKeyProductsByIDImages extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductsByIDImagesPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductsByIDImagesPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

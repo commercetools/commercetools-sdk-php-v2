@@ -119,7 +119,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The unique ID of the inventory entry.</p>.
+     * <p>The unique ID of the inventory entry.</p>
      *
      * @return null|string
      */
@@ -197,7 +197,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -217,7 +217,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -254,7 +254,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Optional connection to a particular supplier.</p>.
+     * <p>Optional connection to a particular supplier.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -275,7 +275,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Overall amount of stock.
-     * (available + reserved)</p>.
+     * (available + reserved)</p>
      *
      * @return null|int
      */
@@ -295,7 +295,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Available amount of stock.
-     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>.
+     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>
      *
      * @return null|int
      */
@@ -314,7 +314,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>.
+     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>
      *
      * @return null|int
      */
@@ -333,7 +333,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The date and time of the next restock.</p>.
+     * <p>The date and time of the next restock.</p>
      *
      * @return null|DateTimeImmutable
      */

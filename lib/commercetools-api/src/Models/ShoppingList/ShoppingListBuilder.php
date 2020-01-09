@@ -47,22 +47,22 @@ final class ShoppingListBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
@@ -72,7 +72,7 @@ final class ShoppingListBuilder implements Builder
     private $deleteDaysAfterLastModification;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -87,12 +87,12 @@ final class ShoppingListBuilder implements Builder
     private $lineItems;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -107,7 +107,7 @@ final class ShoppingListBuilder implements Builder
     private $anonymousId;
 
     /**
-     * <p>The unique ID of the shopping list.</p>.
+     * <p>The unique ID of the shopping list.</p>
      *
      * @return null|string
      */
@@ -117,7 +117,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the shopping list.</p>.
+     * <p>The current version of the shopping list.</p>
      *
      * @return null|int
      */
@@ -143,7 +143,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -153,7 +153,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -179,7 +179,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
      * @return null|int
      */
@@ -197,7 +197,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */
@@ -225,7 +225,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
      * @return null|LocalizedString
      */
@@ -243,7 +243,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -489,16 +489,16 @@ final class ShoppingListBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->deleteDaysAfterLastModification,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->key,
             $this->lineItems,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->textLineItems,
             $this->anonymousId
         );

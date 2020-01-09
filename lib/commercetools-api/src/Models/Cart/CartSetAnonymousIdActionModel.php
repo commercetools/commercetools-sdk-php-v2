@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartSetAnonymousIdActionModel extends JsonObjectModel implements CartSetAnonymousIdAction
 {
     const DISCRIMINATOR_VALUE = 'setAnonymousId';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CartSetAnonymousIdActionModel extends JsonObjectModel implements Car
     }
 
     /**
-     * <p>If not set, any existing anonymous ID will be removed.</p>.
+     * <p>If not set, any existing anonymous ID will be removed.</p>
      *
      * @return null|string
      */

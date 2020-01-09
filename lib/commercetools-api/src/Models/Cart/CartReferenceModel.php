@@ -15,7 +15,6 @@ use stdClass;
 final class CartReferenceModel extends JsonObjectModel implements CartReference
 {
     const DISCRIMINATOR_VALUE = 'cart';
-
     /**
      * @var ?string
      */

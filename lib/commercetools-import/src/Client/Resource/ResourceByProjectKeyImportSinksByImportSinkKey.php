@@ -22,7 +22,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyPut($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyPut((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyGet($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyGet((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyDelete($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyDelete((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

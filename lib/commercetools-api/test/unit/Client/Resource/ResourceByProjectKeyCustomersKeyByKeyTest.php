@@ -1,117 +1,133 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersKeyByKey;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyCustomersKeyByKeyGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
-                        ->get();
+                        ->withKey('key')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/customers/key={key}',
             ],
             'ByProjectKeyCustomersKeyByKeyPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
-                        ->post(null);
+                        ->withKey('key')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/customers/key={key}',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withDataErasure' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withDataErasure('dataErasure');
+                        ->withDataErasure('dataErasure')
+                    ;
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?version=version',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->customers()
-                        ->withKey("key")
-                        ->delete();
+                        ->withKey('key')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/customers/key={key}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -120,9 +136,9 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

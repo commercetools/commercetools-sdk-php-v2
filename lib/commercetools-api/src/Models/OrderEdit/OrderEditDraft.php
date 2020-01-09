@@ -23,42 +23,42 @@ interface OrderEditDraft extends JsonObject
     const FIELD_DRY_RUN = 'dryRun';
 
     /**
-     * <p>Unique identifier for this edit.</p>.
+     * <p>Unique identifier for this edit.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The order to be updated with this edit.</p>.
+     * <p>The order to be updated with this edit.</p>
      *
      * @return null|OrderReference
      */
     public function getResource();
 
     /**
-     * <p>The actions to apply to <code>resource</code>.</p>.
+     * <p>The actions to apply to <code>resource</code>.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
-     * <p>This field can be used to add additional textual information regarding the edit.</p>.
+     * <p>This field can be used to add additional textual information regarding the edit.</p>
      *
      * @return null|string
      */
     public function getComment();
 
     /**
-     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>.
+     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>
      *
      * @return null|bool
      */

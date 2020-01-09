@@ -16,7 +16,7 @@ interface ImportRequest extends JsonObject
     const FIELD_TYPE = 'type';
 
     /**
-     * <p>The type of the import resource.</p>.
+     * <p>The type of the import resource.</p>
      *
      * @return null|string
      */

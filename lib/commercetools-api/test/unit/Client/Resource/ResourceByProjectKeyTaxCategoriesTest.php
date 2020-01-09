@@ -1,121 +1,137 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyTaxCategories;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyTaxCategoriesTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyTaxCategoriesGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesGet_withWhere' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withWhere('where');
+                        ->withWhere('where')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?where=where',
             ],
             'ByProjectKeyTaxCategoriesGet_withSort' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withSort('sort');
+                        ->withSort('sort')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?sort=sort',
             ],
             'ByProjectKeyTaxCategoriesGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withLimit('limit');
+                        ->withLimit('limit')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?limit=limit',
             ],
             'ByProjectKeyTaxCategoriesGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withOffset('offset');
+                        ->withOffset('offset')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?offset=offset',
             ],
             'ByProjectKeyTaxCategoriesGet_withWithTotal' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withWithTotal('withTotal');
+                        ->withWithTotal('withTotal')
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories?withTotal=withTotal',
             ],
             'ByProjectKeyTaxCategoriesGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
-                        ->get();
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/tax-categories',
             ],
             'ByProjectKeyTaxCategoriesPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/tax-categories?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->taxCategories()
-                        ->post(null);
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/tax-categories',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -124,9 +140,9 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

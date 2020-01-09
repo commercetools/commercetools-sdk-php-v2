@@ -23,7 +23,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     private $removedImageUrls;
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
@@ -77,7 +77,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     {
         return new ProductVariantDeletedMessagePayloadModel(
             $this->removedImageUrls,
-            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant)
+            $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant
         );
     }
 

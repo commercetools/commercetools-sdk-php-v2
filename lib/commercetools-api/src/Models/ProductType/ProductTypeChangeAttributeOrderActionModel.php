@@ -14,7 +14,6 @@ use stdClass;
 final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel implements ProductTypeChangeAttributeOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeAttributeOrder';
-
     /**
      * @var ?string
      */

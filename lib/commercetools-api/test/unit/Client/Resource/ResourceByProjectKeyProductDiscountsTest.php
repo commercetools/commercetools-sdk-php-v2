@@ -1,121 +1,137 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductDiscounts;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyProductDiscountsTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyProductDiscountsGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsGet_withWhere' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withWhere('where');
+                        ->withWhere('where')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?where=where',
             ],
             'ByProjectKeyProductDiscountsGet_withSort' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withSort('sort');
+                        ->withSort('sort')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?sort=sort',
             ],
             'ByProjectKeyProductDiscountsGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withLimit('limit');
+                        ->withLimit('limit')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?limit=limit',
             ],
             'ByProjectKeyProductDiscountsGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withOffset('offset');
+                        ->withOffset('offset')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?offset=offset',
             ],
             'ByProjectKeyProductDiscountsGet_withWithTotal' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withWithTotal('withTotal');
+                        ->withWithTotal('withTotal')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts?withTotal=withTotal',
             ],
             'ByProjectKeyProductDiscountsGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
-                        ->get();
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/product-discounts',
             ],
             'ByProjectKeyProductDiscountsPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productDiscounts()
-                        ->post(null);
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/product-discounts',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -124,9 +140,9 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

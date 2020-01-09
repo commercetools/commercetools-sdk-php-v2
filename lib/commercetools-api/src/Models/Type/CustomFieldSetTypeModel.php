@@ -14,7 +14,6 @@ use stdClass;
 final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFieldSetType
 {
     const DISCRIMINATOR_VALUE = 'Set';
-
     /**
      * @var ?string
      */

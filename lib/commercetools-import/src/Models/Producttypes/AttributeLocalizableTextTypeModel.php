@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements AttributeLocalizableTextType
 {
     const DISCRIMINATOR_VALUE = 'ltext';
-
     /**
      * @var ?string
      */

@@ -29,7 +29,7 @@ final class TransactionDraftBuilder implements Builder
     private $type;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amount;
 
@@ -44,7 +44,7 @@ final class TransactionDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>The time at which the transaction took place.</p>.
+     * <p>The time at which the transaction took place.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -54,7 +54,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * <p>The type of this transaction.</p>.
+     * <p>The type of this transaction.</p>
      *
      * @return null|string
      */
@@ -73,7 +73,7 @@ final class TransactionDraftBuilder implements Builder
 
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
      * @return null|string
      */
@@ -84,7 +84,7 @@ final class TransactionDraftBuilder implements Builder
 
     /**
      * <p>The state of this transaction.
-     * If not set, defaults to <code>Initial</code>.</p>.
+     * If not set, defaults to <code>Initial</code>.</p>
      *
      * @return null|string
      */
@@ -158,7 +158,7 @@ final class TransactionDraftBuilder implements Builder
         return new TransactionDraftModel(
             $this->timestamp,
             $this->type,
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
             $this->state
         );

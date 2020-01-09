@@ -23,7 +23,7 @@ interface TextLineItem extends JsonObject
     const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>.
+     * <p>When the text line item was added to the shopping list.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -40,7 +40,7 @@ interface TextLineItem extends JsonObject
     public function getDescription();
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>.
+     * <p>The unique ID of this TextLineItem.</p>
      *
      * @return null|string
      */

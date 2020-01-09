@@ -23,7 +23,7 @@ interface ReturnInfo extends JsonObject
     public function getItems();
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>.
+     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
      * @return null|string
      */

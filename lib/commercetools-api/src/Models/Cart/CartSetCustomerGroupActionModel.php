@@ -16,7 +16,6 @@ use stdClass;
 final class CartSetCustomerGroupActionModel extends JsonObjectModel implements CartSetCustomerGroupAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
-
     /**
      * @var ?string
      */

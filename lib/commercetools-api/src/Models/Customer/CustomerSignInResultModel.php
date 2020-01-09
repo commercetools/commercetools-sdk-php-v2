@@ -52,7 +52,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
 
     /**
      * <p>A cart that is associated to the customer.
-     * Empty if the customer does not have a cart yet.</p>.
+     * Empty if the customer does not have a cart yet.</p>
      *
      * @return null|JsonObject
      */

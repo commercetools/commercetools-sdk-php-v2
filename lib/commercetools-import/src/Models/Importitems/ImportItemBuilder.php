@@ -69,7 +69,7 @@ final class ImportItemBuilder implements Builder
     private $expiresAt;
 
     /**
-     * <p>The import item version.</p>.
+     * <p>The import item version.</p>
      *
      * @return null|int
      */
@@ -79,7 +79,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The key of the import sink.</p>.
+     * <p>The key of the import sink.</p>
      *
      * @return null|string
      */
@@ -89,7 +89,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The key of the import resource.</p>.
+     * <p>The key of the import resource.</p>
      *
      * @return null|string
      */
@@ -99,7 +99,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The status of the import resource.</p>.
+     * <p>The status of the import resource.</p>
      *
      * @return null|string
      */
@@ -109,7 +109,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The number of request retries for processing the import resource.</p>.
+     * <p>The number of request retries for processing the import resource.</p>
      *
      * @return null|int
      */
@@ -120,7 +120,7 @@ final class ImportItemBuilder implements Builder
 
     /**
      * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
-     * and this property contains the unresolved references.</p>.
+     * and this property contains the unresolved references.</p>
      *
      * @return null|KeyReferenceCollection
      */
@@ -131,7 +131,7 @@ final class ImportItemBuilder implements Builder
 
     /**
      * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
-     * and this property contains the errors.</p>.
+     * and this property contains the errors.</p>
      *
      * @return null|ErrorObjectCollection
      */
@@ -141,7 +141,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>When the import item was created.</p>.
+     * <p>When the import item was created.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -151,7 +151,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>When the import item was modified.</p>.
+     * <p>When the import item was modified.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -161,7 +161,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>When the import item expires.</p>.
+     * <p>When the import item expires.</p>
      *
      * @return null|DateTimeImmutable
      */

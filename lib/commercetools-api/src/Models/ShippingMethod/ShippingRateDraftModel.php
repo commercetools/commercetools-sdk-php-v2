@@ -61,7 +61,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     /**
      * <p>The shipping is free if the order total (the sum of line item prices) exceeds the freeAbove value.
      * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
-     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>
      *
      * @return null|Money
      */
@@ -81,7 +81,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
-     * <p>A list of shipping rate price tiers.</p>.
+     * <p>A list of shipping rate price tiers.</p>
      *
      * @return null|ShippingRatePriceTierCollection
      */

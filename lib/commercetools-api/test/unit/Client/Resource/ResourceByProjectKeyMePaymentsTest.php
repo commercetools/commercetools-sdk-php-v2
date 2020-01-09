@@ -1,130 +1,146 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayments;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyMePaymentsTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyMePaymentsGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsGet_withWhere' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withWhere('where');
+                        ->withWhere('where')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?where=where',
             ],
             'ByProjectKeyMePaymentsGet_withSort' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withSort('sort');
+                        ->withSort('sort')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?sort=sort',
             ],
             'ByProjectKeyMePaymentsGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withLimit('limit');
+                        ->withLimit('limit')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?limit=limit',
             ],
             'ByProjectKeyMePaymentsGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withOffset('offset');
+                        ->withOffset('offset')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?offset=offset',
             ],
             'ByProjectKeyMePaymentsGet_withWithTotal' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->get()
-                        ->withWithTotal('withTotal');
+                        ->withWithTotal('withTotal')
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments?withTotal=withTotal',
             ],
             'ByProjectKeyMePaymentsGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
-                        ->get();
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/me/payments',
             ],
             'ByProjectKeyMePaymentsPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->me()
                         ->payments()
-                        ->post(null);
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/me/payments',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -133,9 +149,9 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

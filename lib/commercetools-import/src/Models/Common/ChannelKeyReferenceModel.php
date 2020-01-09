@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelKeyReference
 {
     const DISCRIMINATOR_VALUE = 'channel';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

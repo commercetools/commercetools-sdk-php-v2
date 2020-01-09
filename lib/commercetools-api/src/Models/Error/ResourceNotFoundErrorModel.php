@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ResourceNotFoundErrorModel extends JsonObjectModel implements ResourceNotFoundError
 {
     const DISCRIMINATOR_VALUE = 'ResourceNotFound';
-
     /**
      * @var ?string
      */

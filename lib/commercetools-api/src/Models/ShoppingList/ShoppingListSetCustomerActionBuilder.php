@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetCustomerActionBuilder implements Builder
 {
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
@@ -53,7 +53,7 @@ final class ShoppingListSetCustomerActionBuilder implements Builder
     public function build(): ShoppingListSetCustomerAction
     {
         return new ShoppingListSetCustomerActionModel(
-            ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer
         );
     }
 

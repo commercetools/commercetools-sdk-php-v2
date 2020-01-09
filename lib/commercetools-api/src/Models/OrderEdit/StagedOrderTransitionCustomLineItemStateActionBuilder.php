@@ -29,12 +29,12 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     private $quantity;
 
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $fromState;
 
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $toState;
 
@@ -158,8 +158,8 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
         return new StagedOrderTransitionCustomLineItemStateActionModel(
             $this->customLineItemId,
             $this->quantity,
-            ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
-            ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
+            $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState,
+            $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState,
             $this->actualTransitionDate
         );
     }

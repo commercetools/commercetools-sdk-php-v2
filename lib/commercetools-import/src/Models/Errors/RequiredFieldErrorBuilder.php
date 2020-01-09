@@ -26,7 +26,7 @@ final class RequiredFieldErrorBuilder implements Builder
     private $field;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -36,7 +36,7 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field.</p>.
+     * <p>The name of the field.</p>
      *
      * @return null|string
      */

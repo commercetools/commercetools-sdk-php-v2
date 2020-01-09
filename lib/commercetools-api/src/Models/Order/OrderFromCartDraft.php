@@ -22,7 +22,7 @@ interface OrderFromCartDraft extends JsonObject
     const FIELD_STATE = 'state';
 
     /**
-     * <p>The unique id of the cart from which an order is created.</p>.
+     * <p>The unique id of the cart from which an order is created.</p>
      *
      * @return null|string
      */
@@ -38,7 +38,7 @@ interface OrderFromCartDraft extends JsonObject
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique across a project.
      * Once it's set it cannot be changed.
-     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>.
+     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
      *
      * @return null|string
      */
@@ -55,7 +55,7 @@ interface OrderFromCartDraft extends JsonObject
     public function getShipmentState();
 
     /**
-     * <p>Order will be created with <code>Open</code> status by default.</p>.
+     * <p>Order will be created with <code>Open</code> status by default.</p>
      *
      * @return null|string
      */

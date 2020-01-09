@@ -27,7 +27,7 @@ interface CategoryImport extends ImportResource
     const FIELD_ASSETS = 'assets';
 
     /**
-     * <p>Maps to <code>Category.name</code>.</p>.
+     * <p>Maps to <code>Category.name</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -35,14 +35,14 @@ interface CategoryImport extends ImportResource
 
     /**
      * <p>Maps to <code>Category.slug</code>.
-     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
      *
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
-     * <p>Maps to <code>Category.description</code>.</p>.
+     * <p>Maps to <code>Category.description</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -52,49 +52,49 @@ interface CategoryImport extends ImportResource
      * <p>Maps to <code>Category.parent</code>.
      * The parent category referenced must already exist
      * in the commercetools project, or the import item
-     * will have an <code>Unresolved</code> state.</p>.
+     * will have an <code>Unresolved</code> state.</p>
      *
      * @return null|CategoryKeyReference
      */
     public function getParent();
 
     /**
-     * <p>Maps to <code>Category.orderHint</code>.</p>.
+     * <p>Maps to <code>Category.orderHint</code>.</p>
      *
      * @return null|string
      */
     public function getOrderHint();
 
     /**
-     * <p>Maps to <code>Category.externalId</code>.</p>.
+     * <p>Maps to <code>Category.externalId</code>.</p>
      *
      * @return null|string
      */
     public function getExternalId();
 
     /**
-     * <p>Maps to <code>Category.metaTitle</code>.</p>.
+     * <p>Maps to <code>Category.metaTitle</code>.</p>
      *
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
-     * <p>Maps to <code>Category.metaDescription</code>.</p>.
+     * <p>Maps to <code>Category.metaDescription</code>.</p>
      *
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
-     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>
      *
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
-     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>
      *
      * @return null|AssetCollection
      */

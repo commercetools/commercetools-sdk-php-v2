@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyReference
 {
     const DISCRIMINATOR_VALUE = 'store';
-
     /**
      * @var ?string
      */

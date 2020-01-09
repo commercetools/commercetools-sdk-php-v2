@@ -18,12 +18,12 @@ use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
 final class AttributeNestedTypeBuilder implements Builder
 {
     /**
-     * @var ProductTypeKeyReference|?ProductTypeKeyReferenceBuilder
+     * @var null|ProductTypeKeyReference|ProductTypeKeyReferenceBuilder
      */
     private $typeReference;
 
     /**
-     * <p>References a product type by its key.</p>.
+     * <p>References a product type by its key.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -55,7 +55,7 @@ final class AttributeNestedTypeBuilder implements Builder
     public function build(): AttributeNestedType
     {
         return new AttributeNestedTypeModel(
-            ($this->typeReference instanceof ProductTypeKeyReferenceBuilder ? $this->typeReference->build() : $this->typeReference)
+            $this->typeReference instanceof ProductTypeKeyReferenceBuilder ? $this->typeReference->build() : $this->typeReference
         );
     }
 

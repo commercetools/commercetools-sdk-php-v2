@@ -27,18 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $container
-     * @psalm-param scalar $key
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $container
-     * @param mixed $key
      */
-    public function __construct($projectKey, $container, $key, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $container, string $key, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{container}', '{key}'], [$projectKey, $container, $key], '{projectKey}/custom-objects/{container}/{key}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);

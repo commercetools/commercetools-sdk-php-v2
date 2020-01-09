@@ -22,6 +22,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken extends Api
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

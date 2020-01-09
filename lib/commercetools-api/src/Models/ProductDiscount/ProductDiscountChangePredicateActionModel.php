@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductDiscountChangePredicateActionModel extends JsonObjectModel implements ProductDiscountChangePredicateAction
 {
     const DISCRIMINATOR_VALUE = 'changePredicate';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>.
+     * <p>A valid ProductDiscount Predicate.</p>
      *
      * @return null|string
      */

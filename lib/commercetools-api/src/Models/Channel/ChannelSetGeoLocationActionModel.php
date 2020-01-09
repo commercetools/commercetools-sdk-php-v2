@@ -16,7 +16,6 @@ use stdClass;
 final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements ChannelSetGeoLocationAction
 {
     const DISCRIMINATOR_VALUE = 'setGeoLocation';
-
     /**
      * @var ?string
      */

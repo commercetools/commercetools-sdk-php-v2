@@ -14,7 +14,6 @@ use stdClass;
 final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

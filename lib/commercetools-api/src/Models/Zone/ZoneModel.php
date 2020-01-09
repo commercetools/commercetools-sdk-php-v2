@@ -94,7 +94,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
     /**
-     * <p>The unique ID of the zone.</p>.
+     * <p>The unique ID of the zone.</p>
      *
      * @return null|string
      */
@@ -113,7 +113,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
     /**
-     * <p>The current version of the zone.</p>.
+     * <p>The current version of the zone.</p>
      *
      * @return null|int
      */
@@ -212,7 +212,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     /**
      * <p>User-specific unique identifier for a zone.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>.
+     * The field can be reset using the Set Key UpdateAction.</p>
      *
      * @return null|string
      */

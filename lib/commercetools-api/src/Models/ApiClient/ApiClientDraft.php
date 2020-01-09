@@ -27,7 +27,7 @@ interface ApiClientDraft extends JsonObject
     public function getScope();
 
     /**
-     * <p>If set, the client will be deleted after the specified amount of days.</p>.
+     * <p>If set, the client will be deleted after the specified amount of days.</p>
      *
      * @return null|int
      */

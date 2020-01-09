@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSetLocaleAction
 {
     const DISCRIMINATOR_VALUE = 'setLocale';
-
     /**
      * @var ?string
      */

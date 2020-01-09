@@ -26,7 +26,7 @@ final class AssetSourceBuilder implements Builder
     private $key;
 
     /**
-     * @var AssetDimensions|?AssetDimensionsBuilder
+     * @var null|AssetDimensions|AssetDimensionsBuilder
      */
     private $dimensions;
 
@@ -122,7 +122,7 @@ final class AssetSourceBuilder implements Builder
         return new AssetSourceModel(
             $this->uri,
             $this->key,
-            ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions),
+            $this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions,
             $this->contentType
         );
     }

@@ -23,7 +23,7 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
+     * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     {
         return new StagedOrderSetLineItemTaxAmountActionModel(
             $this->lineItemId,
-            ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
+            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }
 

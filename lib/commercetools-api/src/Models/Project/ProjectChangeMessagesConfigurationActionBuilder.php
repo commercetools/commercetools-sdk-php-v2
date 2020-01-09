@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
 {
     /**
-     * @var MessageConfigurationDraft|?MessageConfigurationDraftBuilder
+     * @var null|MessageConfigurationDraft|MessageConfigurationDraftBuilder
      */
     private $messagesConfiguration;
 
@@ -53,7 +53,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     public function build(): ProjectChangeMessagesConfigurationAction
     {
         return new ProjectChangeMessagesConfigurationActionModel(
-            ($this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration)
+            $this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration
         );
     }
 

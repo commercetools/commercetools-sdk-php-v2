@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class StateSetNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -53,7 +53,7 @@ final class StateSetNameActionBuilder implements Builder
     public function build(): StateSetNameAction
     {
         return new StateSetNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

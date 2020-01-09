@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CategorySetMetaKeywordsActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
@@ -53,7 +53,7 @@ final class CategorySetMetaKeywordsActionBuilder implements Builder
     public function build(): CategorySetMetaKeywordsAction
     {
         return new CategorySetMetaKeywordsActionModel(
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords)
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords
         );
     }
 

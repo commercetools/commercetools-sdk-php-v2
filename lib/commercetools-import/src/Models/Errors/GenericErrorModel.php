@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class GenericErrorModel extends JsonObjectModel implements GenericError
 {
     const DISCRIMINATOR_VALUE = 'Generic';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class GenericErrorModel extends JsonObjectModel implements GenericError
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

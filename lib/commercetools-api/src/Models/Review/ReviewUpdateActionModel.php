@@ -14,7 +14,6 @@ use stdClass;
 final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

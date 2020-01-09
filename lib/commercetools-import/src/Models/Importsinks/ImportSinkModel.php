@@ -54,7 +54,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The unique key of the import sink.</p>.
+     * <p>The unique key of the import sink.</p>
      *
      * @return null|string
      */
@@ -74,7 +74,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
 
     /**
      * <p>The type of import resource sent to this import sink.
-     * You can only send one resource type per import sink.</p>.
+     * You can only send one resource type per import sink.</p>
      *
      * @return null|string
      */
@@ -93,7 +93,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The version of this resource.</p>.
+     * <p>The version of this resource.</p>
      *
      * @return null|int
      */
@@ -112,7 +112,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>When the import sink was created.</p>.
+     * <p>When the import sink was created.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -135,7 +135,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>When the import sink was modified.</p>.
+     * <p>When the import sink was modified.</p>
      *
      * @return null|DateTimeImmutable
      */

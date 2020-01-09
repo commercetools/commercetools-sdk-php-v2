@@ -25,17 +25,17 @@ use Commercetools\Base\Builder;
 final class ProductDraftBuilder implements Builder
 {
     /**
-     * @var ProductTypeResourceIdentifier|?ProductTypeResourceIdentifierBuilder
+     * @var null|ProductTypeResourceIdentifier|ProductTypeResourceIdentifierBuilder
      */
     private $productType;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -45,7 +45,7 @@ final class ProductDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -55,27 +55,27 @@ final class ProductDraftBuilder implements Builder
     private $categories;
 
     /**
-     * @var CategoryOrderHints|?CategoryOrderHintsBuilder
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
-     * @var ProductVariantDraft|?ProductVariantDraftBuilder
+     * @var null|ProductVariantDraft|ProductVariantDraftBuilder
      */
     private $masterVariant;
 
@@ -85,17 +85,17 @@ final class ProductDraftBuilder implements Builder
     private $variants;
 
     /**
-     * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
+     * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
-     * @var SearchKeywords|?SearchKeywordsBuilder
+     * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
@@ -106,7 +106,7 @@ final class ProductDraftBuilder implements Builder
 
     /**
      * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>.
+     * All products must have a product type.</p>
      *
      * @return null|ProductTypeResourceIdentifier
      */
@@ -127,7 +127,7 @@ final class ProductDraftBuilder implements Builder
      * <p>Human-readable identifiers usually used as deep-link URLs for the product.
      * A slug must be unique across a project, but a product can have the same slug for different languages.
      * Slugs have a maximum size of 256.
-     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>.
+     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
      *
      * @return null|LocalizedString
      */
@@ -137,7 +137,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>.
+     * <p>User-specific unique identifier for the product.</p>
      *
      * @return null|string
      */
@@ -155,7 +155,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>Categories assigned to the product.</p>.
+     * <p>Categories assigned to the product.</p>
      *
      * @return null|CategoryResourceIdentifierCollection
      */
@@ -198,7 +198,7 @@ final class ProductDraftBuilder implements Builder
 
     /**
      * <p>The master product variant.
-     * Required if the <code>variants</code> array has product variants.</p>.
+     * Required if the <code>variants</code> array has product variants.</p>
      *
      * @return null|ProductVariantDraft
      */
@@ -208,7 +208,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>An array of related product variants.</p>.
+     * <p>An array of related product variants.</p>
      *
      * @return null|ProductVariantDraftCollection
      */
@@ -242,7 +242,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the product is published immediately.</p>.
+     * <p>If <code>true</code>, the product is published immediately.</p>
      *
      * @return null|bool
      */
@@ -534,21 +534,21 @@ final class ProductDraftBuilder implements Builder
     public function build(): ProductDraft
     {
         return new ProductDraftModel(
-            ($this->productType instanceof ProductTypeResourceIdentifierBuilder ? $this->productType->build() : $this->productType),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->productType instanceof ProductTypeResourceIdentifierBuilder ? $this->productType->build() : $this->productType,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->key,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->categories,
-            ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->masterVariant instanceof ProductVariantDraftBuilder ? $this->masterVariant->build() : $this->masterVariant),
+            $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints,
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->masterVariant instanceof ProductVariantDraftBuilder ? $this->masterVariant->build() : $this->masterVariant,
             $this->variants,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
+            $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
+            $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
             $this->publish
         );
     }

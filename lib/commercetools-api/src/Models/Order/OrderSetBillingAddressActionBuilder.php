@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderSetBillingAddressActionBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -53,7 +53,7 @@ final class OrderSetBillingAddressActionBuilder implements Builder
     public function build(): OrderSetBillingAddressAction
     {
         return new OrderSetBillingAddressActionModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }
 

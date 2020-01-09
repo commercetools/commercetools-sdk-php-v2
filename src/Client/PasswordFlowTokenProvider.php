@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -33,7 +34,6 @@ class PasswordFlowTokenProvider
      */
     private $tokenStorage;
 
-
     public function __construct(
         Client $client,
         string $accessTokenUrl,
@@ -51,21 +51,21 @@ class PasswordFlowTokenProvider
         $data = [
             self::GRANT_TYPE => self::GRANT_TYPE_PASSWORD,
             'username' => $userName,
-            'password' => $password
+            'password' => $password,
         ];
         $options = [
             'form_params' => $data,
-            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()]
+            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()],
         ];
 
         $result = $this->client->post($this->accessTokenUrl, $options);
 
         /** @psalm-var array $body */
-        $body = json_decode((string)$result->getBody(), true);
+        $body = json_decode((string) $result->getBody(), true);
         $token = new RefreshableTokenModel(
-            (string)$body[self::ACCESS_TOKEN],
-            (int)$body[self::EXPIRES_IN],
-            (string)$body[self::REFRESH_TOKEN]
+            (string) $body[self::ACCESS_TOKEN],
+            (int) $body[self::EXPIRES_IN],
+            (string) $body[self::REFRESH_TOKEN]
         );
 
         $this->tokenStorage->setAccessToken($token->getValue());

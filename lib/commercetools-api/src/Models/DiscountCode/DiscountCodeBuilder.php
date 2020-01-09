@@ -47,22 +47,22 @@ final class DiscountCodeBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -102,7 +102,7 @@ final class DiscountCodeBuilder implements Builder
     private $maxApplicationsPerCustomer;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -122,7 +122,7 @@ final class DiscountCodeBuilder implements Builder
     private $validUntil;
 
     /**
-     * <p>The unique ID of the discount code.</p>.
+     * <p>The unique ID of the discount code.</p>
      *
      * @return null|string
      */
@@ -156,7 +156,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -166,7 +166,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -194,7 +194,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Unique identifier of this discount code.
      * This value is added to the cart
-     * to enable the related cart discounts in the cart.</p>.
+     * to enable the related cart discounts in the cart.</p>
      *
      * @return null|string
      */
@@ -204,7 +204,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>.
+     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>
      *
      * @return null|CartDiscountReferenceCollection
      */
@@ -214,7 +214,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     * <p>The discount code can only be applied to carts that match this predicate.</p>
      *
      * @return null|string
      */
@@ -233,7 +233,7 @@ final class DiscountCodeBuilder implements Builder
 
     /**
      * <p>The platform will generate this array from the cart predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     * It contains the references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -243,7 +243,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>.
+     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>
      *
      * @return null|int
      */
@@ -253,7 +253,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>.
+     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>
      *
      * @return null|int
      */
@@ -271,7 +271,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>The groups to which this discount code belong.</p>.
+     * <p>The groups to which this discount code belong.</p>
      *
      * @return null|array
      */
@@ -282,7 +282,7 @@ final class DiscountCodeBuilder implements Builder
 
     /**
      * <p>The time from which the discount can be applied on a cart.
-     * Before that time the code is invalid.</p>.
+     * Before that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -293,7 +293,7 @@ final class DiscountCodeBuilder implements Builder
 
     /**
      * <p>The time until the discount can be applied on a cart.
-     * After that time the code is invalid.</p>.
+     * After that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -549,10 +549,10 @@ final class DiscountCodeBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->code,
             $this->cartDiscounts,
             $this->cartPredicate,
@@ -560,7 +560,7 @@ final class DiscountCodeBuilder implements Builder
             $this->references,
             $this->maxApplications,
             $this->maxApplicationsPerCustomer,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->groups,
             $this->validFrom,
             $this->validUntil

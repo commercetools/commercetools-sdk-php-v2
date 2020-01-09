@@ -26,7 +26,7 @@ final class OrderEditDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var OrderReference|?OrderReferenceBuilder
+     * @var null|OrderReference|OrderReferenceBuilder
      */
     private $resource;
 
@@ -36,7 +36,7 @@ final class OrderEditDraftBuilder implements Builder
     private $stagedActions;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -51,7 +51,7 @@ final class OrderEditDraftBuilder implements Builder
     private $dryRun;
 
     /**
-     * <p>Unique identifier for this edit.</p>.
+     * <p>Unique identifier for this edit.</p>
      *
      * @return null|string
      */
@@ -61,7 +61,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The order to be updated with this edit.</p>.
+     * <p>The order to be updated with this edit.</p>
      *
      * @return null|OrderReference
      */
@@ -71,7 +71,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The actions to apply to <code>resource</code>.</p>.
+     * <p>The actions to apply to <code>resource</code>.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */
@@ -81,7 +81,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -91,7 +91,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>This field can be used to add additional textual information regarding the edit.</p>.
+     * <p>This field can be used to add additional textual information regarding the edit.</p>
      *
      * @return null|string
      */
@@ -101,7 +101,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
-     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>.
+     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>
      *
      * @return null|bool
      */
@@ -194,9 +194,9 @@ final class OrderEditDraftBuilder implements Builder
     {
         return new OrderEditDraftModel(
             $this->key,
-            ($this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->stagedActions,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->comment,
             $this->dryRun
         );

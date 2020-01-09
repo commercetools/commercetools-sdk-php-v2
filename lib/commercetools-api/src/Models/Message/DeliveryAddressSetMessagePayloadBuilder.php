@@ -23,12 +23,12 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     private $deliveryId;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $oldAddress;
 
@@ -110,8 +110,8 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     {
         return new DeliveryAddressSetMessagePayloadModel(
             $this->deliveryId,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress
         );
     }
 

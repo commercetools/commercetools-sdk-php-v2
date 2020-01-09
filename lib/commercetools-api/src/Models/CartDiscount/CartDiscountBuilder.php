@@ -46,17 +46,17 @@ final class CartDiscountBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -66,12 +66,12 @@ final class CartDiscountBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var CartDiscountValue|?CartDiscountValueBuilder
+     * @var null|CartDiscountValue|CartDiscountValueBuilder
      */
     private $value;
 
@@ -81,7 +81,7 @@ final class CartDiscountBuilder implements Builder
     private $cartPredicate;
 
     /**
-     * @var CartDiscountTarget|?CartDiscountTargetBuilder
+     * @var null|CartDiscountTarget|CartDiscountTargetBuilder
      */
     private $target;
 
@@ -121,12 +121,12 @@ final class CartDiscountBuilder implements Builder
     private $stackingMode;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * <p>The unique ID of the cart discount.</p>.
+     * <p>The unique ID of the cart discount.</p>
      *
      * @return null|string
      */
@@ -136,7 +136,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the cart discount.</p>.
+     * <p>The current version of the cart discount.</p>
      *
      * @return null|int
      */
@@ -162,7 +162,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -172,7 +172,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -191,7 +191,7 @@ final class CartDiscountBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for a cart discount.
-     * Must be unique across a project.</p>.
+     * Must be unique across a project.</p>
      *
      * @return null|string
      */
@@ -217,7 +217,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>A valid Cart predicate.</p>.
+     * <p>A valid Cart predicate.</p>
      *
      * @return null|string
      */
@@ -227,7 +227,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>.
+     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
      * @return null|CartDiscountTarget
      */
@@ -240,7 +240,7 @@ final class CartDiscountBuilder implements Builder
      * <p>The string must contain a number between 0 and 1.
      * All matching cart discounts are applied to a cart in the order defined by this field.
      * A discount with greater sort order is prioritized higher than a discount with lower sort order.
-     * The sort order is unambiguous among all cart discounts.</p>.
+     * The sort order is unambiguous among all cart discounts.</p>
      *
      * @return null|string
      */
@@ -250,7 +250,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Only active discount can be applied to the cart.</p>.
+     * <p>Only active discount can be applied to the cart.</p>
      *
      * @return null|bool
      */
@@ -276,7 +276,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>.
+     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>
      *
      * @return null|bool
      */
@@ -287,7 +287,7 @@ final class CartDiscountBuilder implements Builder
 
     /**
      * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     * It contains the references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -298,7 +298,7 @@ final class CartDiscountBuilder implements Builder
 
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>.
+     * Defaults to Stacking.</p>
      *
      * @return null|string
      */
@@ -592,14 +592,14 @@ final class CartDiscountBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value,
             $this->cartPredicate,
-            ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target),
+            $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,
             $this->isActive,
             $this->validFrom,
@@ -607,7 +607,7 @@ final class CartDiscountBuilder implements Builder
             $this->requiresDiscountCode,
             $this->references,
             $this->stackingMode,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

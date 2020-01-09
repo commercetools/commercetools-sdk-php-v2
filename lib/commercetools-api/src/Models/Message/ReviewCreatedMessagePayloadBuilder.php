@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ReviewCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Review|?ReviewBuilder
+     * @var null|Review|ReviewBuilder
      */
     private $review;
 
@@ -53,7 +53,7 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     public function build(): ReviewCreatedMessagePayload
     {
         return new ReviewCreatedMessagePayloadModel(
-            ($this->review instanceof ReviewBuilder ? $this->review->build() : $this->review)
+            $this->review instanceof ReviewBuilder ? $this->review->build() : $this->review
         );
     }
 

@@ -133,7 +133,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     /**
      * <p>By providing supply channel information, you can unique identify
      * inventory entries that should be reserved.
-     * The provided channel should have the InventorySupply role.</p>.
+     * The provided channel should have the InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -154,7 +154,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -174,7 +174,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -194,7 +194,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * <p>Container for line item specific address(es).</p>.
+     * <p>Container for line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */

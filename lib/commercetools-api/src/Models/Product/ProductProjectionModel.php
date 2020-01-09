@@ -186,7 +186,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>The unique ID of the Product.</p>.
+     * <p>The unique ID of the Product.</p>
      *
      * @return null|string
      */
@@ -205,7 +205,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>The current version of the Product.</p>.
+     * <p>The current version of the Product.</p>
      *
      * @return null|int
      */
@@ -266,7 +266,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>User-specific unique identifier of the Product.</p>.
+     * <p>User-specific unique identifier of the Product.</p>
      *
      * @return null|string
      */
@@ -357,7 +357,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>References to categories the product is in.</p>.
+     * <p>References to categories the product is in.</p>
      *
      * @return null|CategoryReferenceCollection
      */
@@ -571,7 +571,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     * <p>Statistics about the review ratings taken into account for this product.</p>
      *
      * @return null|ReviewRatingStatistics
      */

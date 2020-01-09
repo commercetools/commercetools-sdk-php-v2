@@ -15,7 +15,6 @@ use stdClass;
 final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFieldError
 {
     const DISCRIMINATOR_VALUE = 'InvalidField';
-
     /**
      * @var ?string
      */

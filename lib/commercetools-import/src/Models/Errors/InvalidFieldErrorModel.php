@@ -15,7 +15,6 @@ use stdClass;
 final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFieldError
 {
     const DISCRIMINATOR_VALUE = 'InvalidField';
-
     /**
      * @var ?string
      */
@@ -72,7 +71,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -91,7 +90,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>The name of the field.</p>.
+     * <p>The name of the field.</p>
      *
      * @return null|string
      */
@@ -110,7 +109,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>The invalid value.</p>.
+     * <p>The invalid value.</p>
      *
      * @return null|JsonObject
      */
@@ -129,7 +128,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>A fixed set of allowed values for the field, if any.</p>.
+     * <p>A fixed set of allowed values for the field, if any.</p>
      *
      * @return null|array
      */

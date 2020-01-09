@@ -23,7 +23,7 @@ use DateTimeImmutable;
 final class PriceDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -33,12 +33,12 @@ final class PriceDraftBuilder implements Builder
     private $country;
 
     /**
-     * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
+     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $channel;
 
@@ -53,7 +53,7 @@ final class PriceDraftBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -63,7 +63,7 @@ final class PriceDraftBuilder implements Builder
     private $tiers;
 
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
@@ -76,7 +76,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -284,15 +284,15 @@ final class PriceDraftBuilder implements Builder
     public function build(): PriceDraft
     {
         return new PriceDraftModel(
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel),
+            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->tiers,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted)
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 

@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class MyCartAddPaymentActionBuilder implements Builder
 {
     /**
-     * @var PaymentResourceIdentifier|?PaymentResourceIdentifierBuilder
+     * @var null|PaymentResourceIdentifier|PaymentResourceIdentifierBuilder
      */
     private $payment;
 
@@ -53,7 +53,7 @@ final class MyCartAddPaymentActionBuilder implements Builder
     public function build(): MyCartAddPaymentAction
     {
         return new MyCartAddPaymentActionModel(
-            ($this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment)
+            $this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment
         );
     }
 

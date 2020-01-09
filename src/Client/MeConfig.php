@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -37,17 +38,11 @@ class MeConfig extends AuthConfig implements BaseClientCredentialsConfig
         return $this->credentials;
     }
 
-    /**
-     * @return string
-     */
     public function getAnonUri(): string
     {
         return $this->anonUri;
     }
 
-    /**
-     * @return string
-     */
     public function getRefreshUri(): string
     {
         return $this->refreshUri;

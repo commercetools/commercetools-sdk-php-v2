@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class CustomerSetCustomerGroupActionBuilder implements Builder
 {
     /**
-     * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
+     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
-     * <p>If not defined, the customer group is unset.</p>.
+     * <p>If not defined, the customer group is unset.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -55,7 +55,7 @@ final class CustomerSetCustomerGroupActionBuilder implements Builder
     public function build(): CustomerSetCustomerGroupAction
     {
         return new CustomerSetCustomerGroupActionModel(
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup)
+            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup
         );
     }
 

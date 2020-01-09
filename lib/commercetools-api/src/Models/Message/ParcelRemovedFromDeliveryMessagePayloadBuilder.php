@@ -23,7 +23,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     private $deliveryId;
 
     /**
-     * @var Parcel|?ParcelBuilder
+     * @var null|Parcel|ParcelBuilder
      */
     private $parcel;
 
@@ -77,7 +77,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     {
         return new ParcelRemovedFromDeliveryMessagePayloadModel(
             $this->deliveryId,
-            ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel)
+            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel
         );
     }
 

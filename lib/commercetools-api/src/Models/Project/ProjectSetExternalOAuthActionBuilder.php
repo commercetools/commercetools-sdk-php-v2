@@ -16,13 +16,13 @@ use Commercetools\Base\Builder;
 final class ProjectSetExternalOAuthActionBuilder implements Builder
 {
     /**
-     * @var ExternalOAuth|?ExternalOAuthBuilder
+     * @var null|ExternalOAuth|ExternalOAuthBuilder
      */
     private $externalOAuth;
 
     /**
      * <p>If you do not provide the <code>externalOAuth</code> field or provide a value
-     * of <code>null</code>, the update action unsets the External OAuth provider.</p>.
+     * of <code>null</code>, the update action unsets the External OAuth provider.</p>
      *
      * @return null|ExternalOAuth
      */
@@ -54,7 +54,7 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     public function build(): ProjectSetExternalOAuthAction
     {
         return new ProjectSetExternalOAuthActionModel(
-            ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth)
+            $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth
         );
     }
 

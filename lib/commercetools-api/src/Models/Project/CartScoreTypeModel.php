@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartScoreTypeModel extends JsonObjectModel implements CartScoreType
 {
     const DISCRIMINATOR_VALUE = 'CartScore';
-
     /**
      * @var ?string
      */

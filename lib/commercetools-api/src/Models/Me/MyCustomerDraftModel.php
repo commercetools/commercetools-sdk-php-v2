@@ -286,7 +286,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
      * @return null|AddressCollection
      */
@@ -306,7 +306,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -326,7 +326,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -345,7 +345,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFields
      */

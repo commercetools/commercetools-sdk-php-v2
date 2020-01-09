@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
+     * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
@@ -99,7 +99,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     public function build(): OrderDiscountCodeStateSetMessagePayload
     {
         return new OrderDiscountCodeStateSetMessagePayloadModel(
-            ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode),
+            $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode,
             $this->state,
             $this->oldState
         );

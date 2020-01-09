@@ -14,7 +14,6 @@ use stdClass;
 final class SuggestTokenizerModel extends JsonObjectModel implements SuggestTokenizer
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

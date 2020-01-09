@@ -13,12 +13,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyMessages extends ApiResource
 {
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyMessagesByID
+    public function withId(string $ID = null): ResourceByProjectKeyMessagesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -38,6 +33,6 @@ class ResourceByProjectKeyMessages extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMessagesGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMessagesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

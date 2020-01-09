@@ -21,7 +21,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var CustomerGroup|?CustomerGroupBuilder
+     * @var null|CustomerGroup|CustomerGroupBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     {
         return new CustomerGroupReferenceModel(
             $this->id,
-            ($this->obj instanceof CustomerGroupBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof CustomerGroupBuilder ? $this->obj->build() : $this->obj
         );
     }
 

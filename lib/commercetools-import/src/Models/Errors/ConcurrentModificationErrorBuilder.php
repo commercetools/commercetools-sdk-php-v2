@@ -37,7 +37,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $conflictedResource;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -47,7 +47,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
-     * <p>The version specified in the failed request.</p>.
+     * <p>The version specified in the failed request.</p>
      *
      * @return null|int
      */
@@ -57,7 +57,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the resource.</p>.
+     * <p>The current version of the resource.</p>
      *
      * @return null|int
      */
@@ -67,7 +67,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
-     * <p>The conflicted resource.</p>.
+     * <p>The conflicted resource.</p>
      *
      * @return null|JsonObject
      */

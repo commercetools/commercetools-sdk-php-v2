@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class ExternalLineItemTotalPriceBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
@@ -86,8 +86,8 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     public function build(): ExternalLineItemTotalPrice
     {
         return new ExternalLineItemTotalPriceModel(
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice)
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
+            $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice
         );
     }
 

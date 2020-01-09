@@ -22,6 +22,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLogin extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyLoginPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyLoginPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

@@ -32,7 +32,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $duplicateValue;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */
@@ -42,7 +42,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
-     * <p>The name of the field.</p>.
+     * <p>The name of the field.</p>
      *
      * @return null|string
      */
@@ -52,7 +52,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
-     * <p>The offending duplicate value.</p>.
+     * <p>The offending duplicate value.</p>
      *
      * @return null|JsonObject
      */

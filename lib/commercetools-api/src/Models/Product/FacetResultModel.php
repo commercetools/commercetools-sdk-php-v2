@@ -14,7 +14,6 @@ use stdClass;
 final class FacetResultModel extends JsonObjectModel implements FacetResult
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

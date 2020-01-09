@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel implements NoMatchingProductDiscountFoundError
 {
     const DISCRIMINATOR_VALUE = 'NoMatchingProductDiscountFound';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectModel implements PaymentStatusStateTransitionMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'PaymentStatusStateTransition';
-
     /**
      * @var ?string
      */

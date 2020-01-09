@@ -19,7 +19,7 @@ use DateTimeImmutable;
 final class PaymentSetAuthorizationActionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amount;
 
@@ -77,7 +77,7 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
     public function build(): PaymentSetAuthorizationAction
     {
         return new PaymentSetAuthorizationActionModel(
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount,
             $this->until
         );
     }

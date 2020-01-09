@@ -47,12 +47,12 @@ final class CustomerBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -142,12 +142,12 @@ final class CustomerBuilder implements Builder
     private $externalId;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -172,7 +172,7 @@ final class CustomerBuilder implements Builder
     private $stores;
 
     /**
-     * <p>The unique ID of the customer.</p>.
+     * <p>The unique ID of the customer.</p>
      *
      * @return null|string
      */
@@ -182,7 +182,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the customer.</p>.
+     * <p>The current version of the customer.</p>
      *
      * @return null|int
      */
@@ -208,7 +208,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -218,7 +218,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -230,7 +230,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
      * It should be unique across a project.
-     * Once the field was set it cannot be changed anymore.</p>.
+     * Once the field was set it cannot be changed anymore.</p>
      *
      * @return null|string
      */
@@ -242,7 +242,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The customer's email address and the main identifier of uniqueness for a customer account.
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
-     * For more information, see Email uniquenes.</p>.
+     * For more information, see Email uniquenes.</p>
      *
      * @return null|string
      */
@@ -316,7 +316,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The addresses have unique IDs in the addresses list</p>.
+     * <p>The addresses have unique IDs in the addresses list</p>
      *
      * @return null|AddressCollection
      */
@@ -326,7 +326,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The address ID in the addresses list</p>.
+     * <p>The address ID in the addresses list</p>
      *
      * @return null|string
      */
@@ -336,7 +336,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The IDs from the addresses list which are used as shipping addresses</p>.
+     * <p>The IDs from the addresses list which are used as shipping addresses</p>
      *
      * @return null|array
      */
@@ -346,7 +346,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The address ID in the addresses list</p>.
+     * <p>The address ID in the addresses list</p>
      *
      * @return null|string
      */
@@ -356,7 +356,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The IDs from the addresses list which are used as billing addresses</p>.
+     * <p>The IDs from the addresses list which are used as billing addresses</p>
      *
      * @return null|array
      */
@@ -416,7 +416,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>User-specific unique identifier for a customer.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>.
+     * The field can be reset using the Set Key UpdateAction</p>
      *
      * @return null|string
      */
@@ -428,7 +428,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>References to the stores the customer account is associated with.
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>.
+     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
      * @return null|StoreKeyReferenceCollection
      */
@@ -774,8 +774,8 @@ final class CustomerBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customerNumber,
             $this->email,
             $this->password,
@@ -793,8 +793,8 @@ final class CustomerBuilder implements Builder
             $this->billingAddressIds,
             $this->isEmailVerified,
             $this->externalId,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->salutation,
             $this->key,

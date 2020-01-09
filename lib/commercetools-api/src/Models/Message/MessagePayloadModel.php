@@ -14,7 +14,6 @@ use stdClass;
 final class MessagePayloadModel extends JsonObjectModel implements MessagePayload
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

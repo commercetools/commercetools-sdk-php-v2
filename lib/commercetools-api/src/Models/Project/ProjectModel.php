@@ -99,7 +99,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The current version of the project.</p>.
+     * <p>The current version of the project.</p>
      *
      * @return null|int
      */
@@ -118,7 +118,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The unique key of the project.</p>.
+     * <p>The unique key of the project.</p>
      *
      * @return null|string
      */
@@ -137,7 +137,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The name of the project.</p>.
+     * <p>The name of the project.</p>
      *
      * @return null|string
      */
@@ -156,7 +156,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|array
      */
@@ -175,7 +175,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|array
      */
@@ -232,7 +232,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>.
+     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>
      *
      * @return null|string
      */

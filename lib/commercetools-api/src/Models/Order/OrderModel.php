@@ -336,7 +336,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The unique ID of the order.</p>.
+     * <p>The unique ID of the order.</p>
      *
      * @return null|string
      */
@@ -355,7 +355,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The current version of the order.</p>.
+     * <p>The current version of the order.</p>
      *
      * @return null|int
      */
@@ -416,7 +416,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -436,7 +436,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -456,7 +456,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>This field will only be present if it was set for Order Import</p>.
+     * <p>This field will only be present if it was set for Order Import</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -482,7 +482,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * <p>String that uniquely identifies an order.
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique across a project.
-     * Once it's set it cannot be changed.</p>.
+     * Once it's set it cannot be changed.</p>
      *
      * @return null|string
      */
@@ -535,7 +535,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -624,7 +624,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The taxes are calculated based on the shipping address.</p>.
+     * <p>The taxes are calculated based on the shipping address.</p>
      *
      * @return null|TaxedPrice
      */
@@ -697,7 +697,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>.
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
      *
      * @return null|string
      */
@@ -717,7 +717,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -738,7 +738,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|string
      */
@@ -757,7 +757,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>One of the four predefined OrderStates.</p>.
+     * <p>One of the four predefined OrderStates.</p>
      *
      * @return null|string
      */
@@ -776,7 +776,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>This reference can point to a state in a custom workflow.</p>.
+     * <p>This reference can point to a state in a custom workflow.</p>
      *
      * @return null|StateReference
      */
@@ -830,7 +830,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Set if the ShippingMethod is set.</p>.
+     * <p>Set if the ShippingMethod is set.</p>
      *
      * @return null|ShippingInfo
      */
@@ -902,7 +902,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>The sequence number of the last order message produced by changes to this order.
-     * <code>0</code> means, that no messages were created yet.</p>.
+     * <code>0</code> means, that no messages were created yet.</p>
      *
      * @return null|int
      */
@@ -922,7 +922,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
     /**
      * <p>Set when this order was created from a cart.
-     * The cart will have the state <code>Ordered</code>.</p>.
+     * The cart will have the state <code>Ordered</code>.</p>
      *
      * @return null|CartReference
      */
@@ -1029,7 +1029,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>.
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
      *
      * @return null|string
      */
@@ -1048,7 +1048,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>.
+     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
      * @return null|ShippingRateInput
      */
@@ -1068,7 +1068,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>.
+     * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
      * @return null|AddressCollection
      */
@@ -1087,7 +1087,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>.
+     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
      *
      * @return null|CartDiscountReferenceCollection
      */

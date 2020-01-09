@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class FieldDefinitionBuilder implements Builder
 {
     /**
-     * @var FieldType|?FieldTypeBuilder
+     * @var null|FieldType|FieldTypeBuilder
      */
     private $type;
 
@@ -28,7 +28,7 @@ final class FieldDefinitionBuilder implements Builder
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -43,7 +43,7 @@ final class FieldDefinitionBuilder implements Builder
     private $inputHint;
 
     /**
-     * <p>Describes the type of the field.</p>.
+     * <p>Describes the type of the field.</p>
      *
      * @return null|FieldType
      */
@@ -56,7 +56,7 @@ final class FieldDefinitionBuilder implements Builder
      * <p>The name of the field.
      * The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
      * The name must be unique for a given resource type ID.
-     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>.
+     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>
      *
      * @return null|string
      */
@@ -66,7 +66,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable label for the field.</p>.
+     * <p>A human-readable label for the field.</p>
      *
      * @return null|LocalizedString
      */
@@ -76,7 +76,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Whether the field is required to have a value.</p>.
+     * <p>Whether the field is required to have a value.</p>
      *
      * @return null|bool
      */
@@ -87,7 +87,7 @@ final class FieldDefinitionBuilder implements Builder
 
     /**
      * <p>Provides a visual representation type for this field.
-     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>.
+     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>
      *
      * @return null|string
      */
@@ -169,9 +169,9 @@ final class FieldDefinitionBuilder implements Builder
     public function build(): FieldDefinition
     {
         return new FieldDefinitionModel(
-            ($this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->required,
             $this->inputHint
         );

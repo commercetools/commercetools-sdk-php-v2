@@ -42,7 +42,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Unique identifier of this discount code.
      * This value is added to the cart
-     * to enable the related cart discounts in the cart.</p>.
+     * to enable the related cart discounts in the cart.</p>
      *
      * @return null|string
      */
@@ -50,14 +50,14 @@ interface DiscountCodeDraft extends JsonObject
 
     /**
      * <p>The referenced matching cart discounts can be applied to the cart once the discount code is added.
-     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>.
+     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>
      *
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts();
 
     /**
-     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     * <p>The discount code can only be applied to carts that match this predicate.</p>
      *
      * @return null|string
      */
@@ -84,7 +84,7 @@ interface DiscountCodeDraft extends JsonObject
     public function getCustom();
 
     /**
-     * <p>The groups to which this discount code shall belong to.</p>.
+     * <p>The groups to which this discount code shall belong to.</p>
      *
      * @return null|array
      */
@@ -92,7 +92,7 @@ interface DiscountCodeDraft extends JsonObject
 
     /**
      * <p>The time from which the discount can be applied on a cart.
-     * Before that time the code is invalid.</p>.
+     * Before that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -100,7 +100,7 @@ interface DiscountCodeDraft extends JsonObject
 
     /**
      * <p>The time until the discount can be applied on a cart.
-     * After that time the code is invalid.</p>.
+     * After that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */

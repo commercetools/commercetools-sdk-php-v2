@@ -21,7 +21,7 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     private $attributeName;
 
     /**
-     * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
+     * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $newValue;
 
@@ -75,7 +75,7 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     {
         return new ProductTypeChangePlainEnumValueLabelActionModel(
             $this->attributeName,
-            ($this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue)
+            $this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue
         );
     }
 

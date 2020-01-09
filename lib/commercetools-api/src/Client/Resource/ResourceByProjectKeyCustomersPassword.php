@@ -29,6 +29,6 @@ class ResourceByProjectKeyCustomersPassword extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomersPasswordPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomersPasswordPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

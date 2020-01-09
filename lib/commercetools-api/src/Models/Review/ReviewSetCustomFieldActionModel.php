@@ -15,7 +15,6 @@ use stdClass;
 final class ReviewSetCustomFieldActionModel extends JsonObjectModel implements ReviewSetCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomField';
-
     /**
      * @var ?string
      */

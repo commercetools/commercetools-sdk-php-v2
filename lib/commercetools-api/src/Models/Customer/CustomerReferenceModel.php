@@ -15,7 +15,6 @@ use stdClass;
 final class CustomerReferenceModel extends JsonObjectModel implements CustomerReference
 {
     const DISCRIMINATOR_VALUE = 'customer';
-
     /**
      * @var ?string
      */

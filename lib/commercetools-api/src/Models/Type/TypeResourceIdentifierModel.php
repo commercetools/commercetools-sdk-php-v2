@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeResourceIdentifierModel extends JsonObjectModel implements TypeResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'type';
-
     /**
      * @var ?string
      */

@@ -1,117 +1,133 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyReviewsByID;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyReviewsByIDPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyReviewsByIDTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyReviewsByIDGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
-                        ->get();
+                        ->withId('ID')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/reviews/{ID}',
             ],
             'ByProjectKeyReviewsByIDPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
-                        ->post(null);
+                        ->withId('ID')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/reviews/{ID}',
             ],
             'ByProjectKeyReviewsByIDDelete_withDataErasure' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure');
+                        ->withDataErasure('dataErasure')
+                    ;
                 },
                 'delete',
                 '{projectKey}/reviews/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyReviewsByIDDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/reviews/{ID}?version=version',
             ],
             'ByProjectKeyReviewsByIDDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->reviews()
-                        ->withId("ID")
-                        ->delete();
+                        ->withId('ID')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/reviews/{ID}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -120,9 +136,9 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

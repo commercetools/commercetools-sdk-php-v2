@@ -1,105 +1,120 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethodsByID;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsByIDPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyShippingMethodsByIDGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
-                        ->get();
+                        ->withId('ID')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/shipping-methods/{ID}',
             ],
             'ByProjectKeyShippingMethodsByIDPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
-                        ->post(null);
+                        ->withId('ID')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/shipping-methods/{ID}',
             ],
             'ByProjectKeyShippingMethodsByIDDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/shipping-methods/{ID}?version=version',
             ],
             'ByProjectKeyShippingMethodsByIDDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->shippingMethods()
-                        ->withId("ID")
-                        ->delete();
+                        ->withId('ID')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/shipping-methods/{ID}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -108,9 +123,9 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

@@ -13,12 +13,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItems extends ApiResource
 {
-    /**
-     * @psalm-param scalar $resourceKey
-     *
-     * @param null|mixed $resourceKey
-     */
-    public function resourceKeyWithResourceKeyValue($resourceKey = null): ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKey
+    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKey
     {
         $args = $this->getArgs();
         if (!is_null($resourceKey)) {
@@ -38,6 +33,6 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItems extend
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsGet($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsGet((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

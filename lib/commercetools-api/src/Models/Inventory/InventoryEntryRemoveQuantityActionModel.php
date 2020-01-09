@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel implements InventoryEntryRemoveQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'removeQuantity';
-
     /**
      * @var ?string
      */

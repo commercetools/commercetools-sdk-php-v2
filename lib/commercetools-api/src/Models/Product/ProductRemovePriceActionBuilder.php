@@ -26,7 +26,7 @@ final class ProductRemovePriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>ID of the <a href="#price">Price</a></p>.
+     * <p>ID of the <a href="#price">Price</a></p>
      *
      * @return null|string
      */

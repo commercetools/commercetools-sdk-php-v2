@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldReferenceTypeModel extends JsonObjectModel implements CustomFieldReferenceType
 {
     const DISCRIMINATOR_VALUE = 'Reference';
-
     /**
      * @var ?string
      */

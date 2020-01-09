@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCustomerSetLastNameActionModel extends JsonObjectModel implements MyCustomerSetLastNameAction
 {
     const DISCRIMINATOR_VALUE = 'setLastName';
-
     /**
      * @var ?string
      */

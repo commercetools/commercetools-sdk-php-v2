@@ -16,7 +16,6 @@ use stdClass;
 final class CartClassificationTierModel extends JsonObjectModel implements CartClassificationTier
 {
     const DISCRIMINATOR_VALUE = 'CartClassification';
-
     /**
      * @var ?string
      */

@@ -21,7 +21,7 @@ final class ProjectChangeCountriesActionBuilder implements Builder
     private $countries;
 
     /**
-     * <p>A two-digit country code as per country code.</p>.
+     * <p>A two-digit country code as per country code.</p>
      *
      * @return null|array
      */

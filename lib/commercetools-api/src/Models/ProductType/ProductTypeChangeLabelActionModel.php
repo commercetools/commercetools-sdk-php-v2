@@ -16,7 +16,6 @@ use stdClass;
 final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements ProductTypeChangeLabelAction
 {
     const DISCRIMINATOR_VALUE = 'changeLabel';
-
     /**
      * @var ?string
      */

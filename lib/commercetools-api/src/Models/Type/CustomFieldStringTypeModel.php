@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldStringTypeModel extends JsonObjectModel implements CustomFieldStringType
 {
     const DISCRIMINATOR_VALUE = 'String';
-
     /**
      * @var ?string
      */

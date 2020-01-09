@@ -41,12 +41,12 @@ final class ExtensionBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -56,7 +56,7 @@ final class ExtensionBuilder implements Builder
     private $key;
 
     /**
-     * @var ExtensionDestination|?ExtensionDestinationBuilder
+     * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
 
@@ -103,7 +103,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -113,7 +113,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -148,7 +148,7 @@ final class ExtensionBuilder implements Builder
 
     /**
      * <p>The maximum time the commercetools platform waits for a response from the extension.
-     * If not present, <code>2000</code> (2 seconds) is used.</p>.
+     * If not present, <code>2000</code> (2 seconds) is used.</p>
      *
      * @return null|int
      */
@@ -294,10 +294,10 @@ final class ExtensionBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination),
+            $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination,
             $this->triggers,
             $this->timeoutInMs
         );

@@ -16,7 +16,7 @@ interface CartRecalculateAction extends CartUpdateAction
      * <p>If set to <code>true</code>, the line item product data (<code>name</code>, <code>variant</code> and <code>productType</code>) will also be updated.
      * If set to <code>false</code>,
      * only the prices and tax rates of the line item will be updated.
-     * The updated price of a line item may not correspond to a price in <code>variant.prices</code> anymore.</p>.
+     * The updated price of a line item may not correspond to a price in <code>variant.prices</code> anymore.</p>
      *
      * @return null|bool
      */

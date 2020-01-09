@@ -22,7 +22,6 @@ use stdClass;
 final class ReviewRatingSetMessageModel extends JsonObjectModel implements ReviewRatingSetMessage
 {
     const DISCRIMINATOR_VALUE = 'ReviewRatingSet';
-
     /**
      * @var ?string
      */

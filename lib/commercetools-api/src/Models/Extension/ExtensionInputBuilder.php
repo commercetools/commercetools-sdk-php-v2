@@ -23,7 +23,7 @@ final class ExtensionInputBuilder implements Builder
     private $action;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
@@ -77,7 +77,7 @@ final class ExtensionInputBuilder implements Builder
     {
         return new ExtensionInputModel(
             $this->action,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource)
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource
         );
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -17,8 +18,6 @@ class TokenStorageProvider implements TokenProvider
 
     /**
      * TokenStorageProvider constructor.
-     * @param TokenStorage $tokenStorage
-     * @param AnonymousFlowTokenProvider $anonymousProvider
      */
     public function __construct(TokenStorage $tokenStorage, AnonymousFlowTokenProvider $anonymousProvider)
     {
@@ -27,7 +26,7 @@ class TokenStorageProvider implements TokenProvider
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function refreshToken(): Token
     {
@@ -38,7 +37,7 @@ class TokenStorageProvider implements TokenProvider
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getToken(): Token
     {

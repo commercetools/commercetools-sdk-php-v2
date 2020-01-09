@@ -14,7 +14,6 @@ use stdClass;
 final class CategoryChangeParentActionModel extends JsonObjectModel implements CategoryChangeParentAction
 {
     const DISCRIMINATOR_VALUE = 'changeParent';
-
     /**
      * @var ?string
      */

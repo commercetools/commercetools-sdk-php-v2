@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidJsonInputErrorModel extends JsonObjectModel implements InvalidJsonInputError
 {
     const DISCRIMINATOR_VALUE = 'InvalidJsonInput';
-
     /**
      * @var ?string
      */

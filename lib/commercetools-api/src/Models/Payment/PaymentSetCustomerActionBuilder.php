@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class PaymentSetCustomerActionBuilder implements Builder
 {
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerResourceIdentifier
      */
@@ -55,7 +55,7 @@ final class PaymentSetCustomerActionBuilder implements Builder
     public function build(): PaymentSetCustomerAction
     {
         return new PaymentSetCustomerActionModel(
-            ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer
         );
     }
 

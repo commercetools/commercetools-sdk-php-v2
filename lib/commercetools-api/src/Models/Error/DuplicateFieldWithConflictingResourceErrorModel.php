@@ -17,7 +17,6 @@ use stdClass;
 final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectModel implements DuplicateFieldWithConflictingResourceError
 {
     const DISCRIMINATOR_VALUE = 'DuplicateFieldWithConflictingResource';
-
     /**
      * @var ?string
      */

@@ -28,7 +28,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     private $sku;
 
     /**
-     * @var Image|?ImageBuilder
+     * @var null|Image|ImageBuilder
      */
     private $image;
 
@@ -124,7 +124,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
         return new ProductAddExternalImageActionModel(
             $this->variantId,
             $this->sku,
-            ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
+            $this->image instanceof ImageBuilder ? $this->image->build() : $this->image,
             $this->staged
         );
     }

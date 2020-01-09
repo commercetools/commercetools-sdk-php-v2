@@ -21,12 +21,7 @@ class ResourceByProjectKeyOrders extends ApiResource
         return new ResourceByProjectKeyOrdersImport($this->getUri().'/import', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $orderNumber
-     *
-     * @param null|mixed $orderNumber
-     */
-    public function withOrderNumber($orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
+    public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
         if (!is_null($orderNumber)) {
@@ -43,12 +38,7 @@ class ResourceByProjectKeyOrders extends ApiResource
         return new ResourceByProjectKeyOrdersEdits($this->getUri().'/edits', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyOrdersByID
+    public function withId(string $ID = null): ResourceByProjectKeyOrdersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -68,7 +58,7 @@ class ResourceByProjectKeyOrders extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -79,6 +69,6 @@ class ResourceByProjectKeyOrders extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

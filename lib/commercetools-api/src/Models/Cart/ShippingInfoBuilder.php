@@ -32,32 +32,32 @@ final class ShippingInfoBuilder implements Builder
     private $shippingMethodName;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $price;
 
     /**
-     * @var ShippingRate|?ShippingRateBuilder
+     * @var null|ShippingRate|ShippingRateBuilder
      */
     private $shippingRate;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
-     * @var TaxRate|?TaxRateBuilder
+     * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
-     * @var ShippingMethodReference|?ShippingMethodReferenceBuilder
+     * @var null|ShippingMethodReference|ShippingMethodReferenceBuilder
      */
     private $shippingMethod;
 
@@ -67,7 +67,7 @@ final class ShippingInfoBuilder implements Builder
     private $deliveries;
 
     /**
-     * @var DiscountedLineItemPrice|?DiscountedLineItemPriceBuilder
+     * @var null|DiscountedLineItemPrice|DiscountedLineItemPriceBuilder
      */
     private $discountedPrice;
 
@@ -85,7 +85,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>.
+     * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>
      *
      * @return null|TypedMoney
      */
@@ -95,7 +95,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>.
+     * <p>The shipping rate used to determine the price.</p>
      *
      * @return null|ShippingRate
      */
@@ -105,7 +105,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>.
+     * <p>Set once the <code>taxRate</code> is set.</p>
      *
      * @return null|TaxedItemPrice
      */
@@ -116,7 +116,7 @@ final class ShippingInfoBuilder implements Builder
 
     /**
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate
      */
@@ -134,7 +134,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>.
+     * <p>Not set if custom shipping method is used.</p>
      *
      * @return null|ShippingMethodReference
      */
@@ -144,7 +144,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>.
+     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
      * @return null|DeliveryCollection
      */
@@ -162,7 +162,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>.
+     * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>
      *
      * @return null|string
      */
@@ -345,14 +345,14 @@ final class ShippingInfoBuilder implements Builder
     {
         return new ShippingInfoModel(
             $this->shippingMethodName,
-            ($this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price),
-            ($this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate),
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
+            $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price,
+            $this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate,
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->deliveries,
-            ($this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice),
+            $this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice,
             $this->shippingMethodState
         );
     }

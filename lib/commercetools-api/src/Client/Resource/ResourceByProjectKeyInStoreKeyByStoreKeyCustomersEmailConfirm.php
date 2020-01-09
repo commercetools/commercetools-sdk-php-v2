@@ -22,6 +22,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm extends ApiR
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

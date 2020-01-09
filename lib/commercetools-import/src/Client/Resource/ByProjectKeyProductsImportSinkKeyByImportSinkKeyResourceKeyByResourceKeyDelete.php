@@ -23,18 +23,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $importSinkKey
-     * @psalm-param scalar $resourceKey
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $importSinkKey
-     * @param mixed $resourceKey
      */
-    public function __construct($projectKey, $importSinkKey, $resourceKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $importSinkKey, string $resourceKey, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}', '{resourceKey}'], [$projectKey, $importSinkKey, $resourceKey], '{projectKey}/products/importSinkKey={importSinkKey}/resourceKey={resourceKey}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);

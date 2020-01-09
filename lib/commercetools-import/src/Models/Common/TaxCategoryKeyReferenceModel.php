@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxCategoryKeyReference
 {
     const DISCRIMINATOR_VALUE = 'tax-category';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxC
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

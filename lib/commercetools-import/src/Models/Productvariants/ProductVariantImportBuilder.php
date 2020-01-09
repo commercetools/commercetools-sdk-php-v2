@@ -50,7 +50,7 @@ final class ProductVariantImportBuilder implements Builder
     private $assets;
 
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
@@ -63,7 +63,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
+     * <p>Maps to <code>ProductVariant.sku</code>.</p>
      *
      * @return null|string
      */
@@ -73,7 +73,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
+     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>
      *
      * @return null|bool
      */
@@ -86,7 +86,7 @@ final class ProductVariantImportBuilder implements Builder
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
      * <p>Each attribute referenced must be defined
      * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>.
+     * item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|AttributeCollection
      */
@@ -96,7 +96,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.images</code>.</p>.
+     * <p>Maps to <code>ProductVariant.images</code>.</p>
      *
      * @return null|ImageCollection
      */
@@ -106,7 +106,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
+     * <p>Maps to <code>ProductVariant.assets</code>.</p>
      *
      * @return null|AssetCollection
      */
@@ -119,7 +119,7 @@ final class ProductVariantImportBuilder implements Builder
      * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */
@@ -217,7 +217,7 @@ final class ProductVariantImportBuilder implements Builder
             $this->attributes,
             $this->images,
             $this->assets,
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product)
+            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );
     }
 

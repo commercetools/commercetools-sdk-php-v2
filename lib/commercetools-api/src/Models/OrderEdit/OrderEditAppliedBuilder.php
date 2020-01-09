@@ -22,12 +22,12 @@ final class OrderEditAppliedBuilder implements Builder
     private $appliedAt;
 
     /**
-     * @var OrderExcerpt|?OrderExcerptBuilder
+     * @var null|OrderExcerpt|OrderExcerptBuilder
      */
     private $excerptBeforeEdit;
 
     /**
-     * @var OrderExcerpt|?OrderExcerptBuilder
+     * @var null|OrderExcerpt|OrderExcerptBuilder
      */
     private $excerptAfterEdit;
 
@@ -109,8 +109,8 @@ final class OrderEditAppliedBuilder implements Builder
     {
         return new OrderEditAppliedModel(
             $this->appliedAt,
-            ($this->excerptBeforeEdit instanceof OrderExcerptBuilder ? $this->excerptBeforeEdit->build() : $this->excerptBeforeEdit),
-            ($this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit)
+            $this->excerptBeforeEdit instanceof OrderExcerptBuilder ? $this->excerptBeforeEdit->build() : $this->excerptBeforeEdit,
+            $this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit
         );
     }
 

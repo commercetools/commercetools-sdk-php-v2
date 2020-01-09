@@ -19,7 +19,7 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $externalTotalGross;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     public function build(): StagedOrderSetOrderTotalTaxAction
     {
         return new StagedOrderSetOrderTotalTaxActionModel(
-            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross),
+            $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross,
             $this->externalTaxPortions
         );
     }

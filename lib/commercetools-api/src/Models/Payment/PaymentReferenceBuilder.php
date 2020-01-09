@@ -21,7 +21,7 @@ final class PaymentReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Payment|?PaymentBuilder
+     * @var null|Payment|PaymentBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class PaymentReferenceBuilder implements Builder
     {
         return new PaymentReferenceModel(
             $this->id,
-            ($this->obj instanceof PaymentBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof PaymentBuilder ? $this->obj->build() : $this->obj
         );
     }
 

@@ -43,12 +43,12 @@ final class StoreBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -58,7 +58,7 @@ final class StoreBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -113,7 +113,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>.
+     * It is used to reference the store.</p>
      *
      * @return null|string
      */
@@ -123,7 +123,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>The name of the store</p>.
+     * <p>The name of the store</p>
      *
      * @return null|LocalizedString
      */
@@ -249,10 +249,10 @@ final class StoreBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

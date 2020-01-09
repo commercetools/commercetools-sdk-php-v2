@@ -23,7 +23,7 @@ final class ClassificationShippingRateInputBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -77,7 +77,7 @@ final class ClassificationShippingRateInputBuilder implements Builder
     {
         return new ClassificationShippingRateInputModel(
             $this->key,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label
         );
     }
 

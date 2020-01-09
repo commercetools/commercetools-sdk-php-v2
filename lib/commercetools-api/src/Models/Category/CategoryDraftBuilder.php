@@ -21,22 +21,22 @@ use Commercetools\Base\Builder;
 final class CategoryDraftBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $parent;
 
@@ -51,22 +51,22 @@ final class CategoryDraftBuilder implements Builder
     private $externalId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -92,7 +92,7 @@ final class CategoryDraftBuilder implements Builder
      * <p>human-readable identifier usually used as deep-link URL to the related category.
      * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
      * Maximum size is 256.
-     * <strong>Must be unique across a project!</strong> The same category can have the same slug for different languages.</p>.
+     * <strong>Must be unique across a project!</strong> The same category can have the same slug for different languages.</p>
      *
      * @return null|LocalizedString
      */
@@ -111,7 +111,7 @@ final class CategoryDraftBuilder implements Builder
 
     /**
      * <p>A category that is the parent of this category in the category tree.
-     * The parent can be set by its ID or by its key.</p>.
+     * The parent can be set by its ID or by its key.</p>
      *
      * @return null|CategoryResourceIdentifier
      */
@@ -122,7 +122,7 @@ final class CategoryDraftBuilder implements Builder
 
     /**
      * <p>An attribute as base for a custom category order in one level.
-     * A random value will be assigned by API if not set.</p>.
+     * A random value will be assigned by API if not set.</p>
      *
      * @return null|string
      */
@@ -164,7 +164,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -183,7 +183,7 @@ final class CategoryDraftBuilder implements Builder
 
     /**
      * <p>User-defined unique identifier for the category.
-     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>.
+     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>
      *
      * @return null|string
      */
@@ -395,16 +395,16 @@ final class CategoryDraftBuilder implements Builder
     public function build(): CategoryDraft
     {
         return new CategoryDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent,
             $this->orderHint,
             $this->externalId,
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->assets,
             $this->key
         );

@@ -71,12 +71,12 @@ final class StagedOrderBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -106,7 +106,7 @@ final class StagedOrderBuilder implements Builder
     private $anonymousId;
 
     /**
-     * @var StoreKeyReference|?StoreKeyReferenceBuilder
+     * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
@@ -121,22 +121,22 @@ final class StagedOrderBuilder implements Builder
     private $customLineItems;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
-     * @var TaxedPrice|?TaxedPriceBuilder
+     * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
@@ -151,7 +151,7 @@ final class StagedOrderBuilder implements Builder
     private $taxRoundingMode;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
@@ -166,7 +166,7 @@ final class StagedOrderBuilder implements Builder
     private $orderState;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
@@ -181,7 +181,7 @@ final class StagedOrderBuilder implements Builder
     private $paymentState;
 
     /**
-     * @var ShippingInfo|?ShippingInfoBuilder
+     * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
@@ -206,17 +206,17 @@ final class StagedOrderBuilder implements Builder
     private $lastMessageSequenceNumber;
 
     /**
-     * @var CartReference|?CartReferenceBuilder
+     * @var null|CartReference|CartReferenceBuilder
      */
     private $cart;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var PaymentInfo|?PaymentInfoBuilder
+     * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $paymentInfo;
 
@@ -241,7 +241,7 @@ final class StagedOrderBuilder implements Builder
     private $taxCalculationMode;
 
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
@@ -256,7 +256,7 @@ final class StagedOrderBuilder implements Builder
     private $refusedGifts;
 
     /**
-     * <p>The unique ID of the order.</p>.
+     * <p>The unique ID of the order.</p>
      *
      * @return null|string
      */
@@ -266,7 +266,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the order.</p>.
+     * <p>The current version of the order.</p>
      *
      * @return null|int
      */
@@ -292,7 +292,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -302,7 +302,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -312,7 +312,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>This field will only be present if it was set for Order Import</p>.
+     * <p>This field will only be present if it was set for Order Import</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -325,7 +325,7 @@ final class StagedOrderBuilder implements Builder
      * <p>String that uniquely identifies an order.
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique across a project.
-     * Once it's set it cannot be changed.</p>.
+     * Once it's set it cannot be changed.</p>
      *
      * @return null|string
      */
@@ -351,7 +351,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -393,7 +393,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The taxes are calculated based on the shipping address.</p>.
+     * <p>The taxes are calculated based on the shipping address.</p>
      *
      * @return null|TaxedPrice
      */
@@ -427,7 +427,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>.
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
      *
      * @return null|string
      */
@@ -438,7 +438,7 @@ final class StagedOrderBuilder implements Builder
 
     /**
      * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -449,7 +449,7 @@ final class StagedOrderBuilder implements Builder
 
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|string
      */
@@ -459,7 +459,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>One of the four predefined OrderStates.</p>.
+     * <p>One of the four predefined OrderStates.</p>
      *
      * @return null|string
      */
@@ -469,7 +469,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>This reference can point to a state in a custom workflow.</p>.
+     * <p>This reference can point to a state in a custom workflow.</p>
      *
      * @return null|StateReference
      */
@@ -495,7 +495,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Set if the ShippingMethod is set.</p>.
+     * <p>Set if the ShippingMethod is set.</p>
      *
      * @return null|ShippingInfo
      */
@@ -530,7 +530,7 @@ final class StagedOrderBuilder implements Builder
 
     /**
      * <p>The sequence number of the last order message produced by changes to this order.
-     * <code>0</code> means, that no messages were created yet.</p>.
+     * <code>0</code> means, that no messages were created yet.</p>
      *
      * @return null|int
      */
@@ -541,7 +541,7 @@ final class StagedOrderBuilder implements Builder
 
     /**
      * <p>Set when this order was created from a cart.
-     * The cart will have the state <code>Ordered</code>.</p>.
+     * The cart will have the state <code>Ordered</code>.</p>
      *
      * @return null|CartReference
      */
@@ -591,7 +591,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>.
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
      *
      * @return null|string
      */
@@ -601,7 +601,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>.
+     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
      * @return null|ShippingRateInput
      */
@@ -611,7 +611,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>.
+     * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
      * @return null|AddressCollection
      */
@@ -621,7 +621,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>.
+     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
      *
      * @return null|CartDiscountReferenceCollection
      */
@@ -1187,41 +1187,41 @@ final class StagedOrderBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->completedAt,
             $this->orderNumber,
             $this->customerId,
             $this->customerEmail,
             $this->anonymousId,
-            ($this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store),
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,
-            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
+            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->taxMode,
             $this->taxRoundingMode,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->country,
             $this->orderState,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->shipmentState,
             $this->paymentState,
-            ($this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
+            $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->syncInfo,
             $this->returnInfo,
             $this->discountCodes,
             $this->lastMessageSequenceNumber,
-            ($this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo),
+            $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->locale,
             $this->inventoryMode,
             $this->origin,
             $this->taxCalculationMode,
-            ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
+            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->refusedGifts
         );

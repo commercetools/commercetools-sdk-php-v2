@@ -18,7 +18,6 @@ use stdClass;
 final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel implements CartDiscountValueGiftLineItemDraft
 {
     const DISCRIMINATOR_VALUE = 'giftLineItem';
-
     /**
      * @var ?string
      */

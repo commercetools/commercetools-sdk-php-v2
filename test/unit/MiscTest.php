@@ -18,6 +18,10 @@ use Commercetools\Base\ResultMapper;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class MiscTest extends TestCase
 {
     public function testMappings()
@@ -31,15 +35,13 @@ class MiscTest extends TestCase
         /** @var CartModel $bar */
         $bar = $t->mapFromResponse($tr, CartModel::class);
 
-
         $this->assertInstanceOf(ErrorResponse::class, $foo);
         $this->assertInstanceOf(Cart::class, $bar);
 
-        $this->assertSame("baz", $foo->get('foo')->get('bar'));
+        $this->assertSame('baz', $foo->get('foo')->get('bar'));
         $this->assertInstanceOf(JsonObject::class, $foo->get('foos')->current());
         $this->assertSame([1, 2, 3], $foo->get('bar'));
         $this->assertSame('boz', $foo->get('baz'));
-
 
         $tr = new Response(200, [], '{"de-DE" : "test" }');
         $l = $t->mapFromResponse($tr, LocalizedStringModel::class);
@@ -53,10 +55,11 @@ class MiscTest extends TestCase
         $t = ProductDraftModel::of();
 
         $v = ProductVariantDraftModel::of();
-        $v->setSku("123");
+        $v->setSku('123');
 
         $t->setDescription(LocalizedStringModel::of()->put('en', 'test'));
-        $t->setVariants((
+        $t->setVariants(
+            (
         new ProductVariantDraftCollection())->add($v)
         );
         $this->assertJsonStringEqualsJsonString(
@@ -68,16 +71,15 @@ class MiscTest extends TestCase
         $this->assertSame('test', $d->getSku());
 
         $fc = FieldContainerBuilder::of();
-        $fc->put("foo", "bar");
+        $fc->put('foo', 'bar');
         $cf = CustomFieldsDraftBuilder::of();
         $cf->withFieldsBuilder($fc);
 
         $b = CategoryDraftBuilder::of()->withCustomBuilder($cf);
 
-
         $c1 = $b->build();
 
-        $fc->put("foo", "baz");
+        $fc->put('foo', 'baz');
         $c2 = $b->build();
 
         $this->assertNotSame($c1, $c2);

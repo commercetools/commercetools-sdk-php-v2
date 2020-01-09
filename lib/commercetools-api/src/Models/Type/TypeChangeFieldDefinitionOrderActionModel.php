@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
-
     /**
      * @var ?string
      */

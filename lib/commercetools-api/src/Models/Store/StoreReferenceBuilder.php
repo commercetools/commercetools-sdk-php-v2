@@ -21,7 +21,7 @@ final class StoreReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Store|?StoreBuilder
+     * @var null|Store|StoreBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class StoreReferenceBuilder implements Builder
     {
         return new StoreReferenceModel(
             $this->id,
-            ($this->obj instanceof StoreBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof StoreBuilder ? $this->obj->build() : $this->obj
         );
     }
 

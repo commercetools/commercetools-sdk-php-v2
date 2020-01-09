@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implements ProjectChangeCurrenciesAction
 {
     const DISCRIMINATOR_VALUE = 'changeCurrencies';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>A three-digit currency code as per currency code.</p>.
+     * <p>A three-digit currency code as per currency code.</p>
      *
      * @return null|array
      */

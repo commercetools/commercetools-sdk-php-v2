@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectModel implements ExtensionAuthorizationHeaderAuthentication
 {
     const DISCRIMINATOR_VALUE = 'AuthorizationHeader';
-
     /**
      * @var ?string
      */

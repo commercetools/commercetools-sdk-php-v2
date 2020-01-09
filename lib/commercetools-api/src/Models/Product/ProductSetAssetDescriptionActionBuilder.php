@@ -43,7 +43,7 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -173,7 +173,7 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
             $this->staged,
             $this->assetId,
             $this->assetKey,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

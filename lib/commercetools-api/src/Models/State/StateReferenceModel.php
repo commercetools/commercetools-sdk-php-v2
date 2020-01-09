@@ -15,7 +15,6 @@ use stdClass;
 final class StateReferenceModel extends JsonObjectModel implements StateReference
 {
     const DISCRIMINATOR_VALUE = 'state';
-
     /**
      * @var ?string
      */

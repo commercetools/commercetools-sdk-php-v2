@@ -27,7 +27,7 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
     public function getVariantId();
 
     /**
-     * <p>The URL of the image.</p>.
+     * <p>The URL of the image.</p>
      *
      * @return null|string
      */
@@ -35,7 +35,7 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
 
     /**
      * <p>The new image label.
-     * If left blank or set to null, the label is removed.</p>.
+     * If left blank or set to null, the label is removed.</p>
      *
      * @return null|string
      */

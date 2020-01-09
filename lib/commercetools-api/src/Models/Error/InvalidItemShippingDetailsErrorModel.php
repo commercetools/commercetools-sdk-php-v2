@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel implements InvalidItemShippingDetailsError
 {
     const DISCRIMINATOR_VALUE = 'InvalidItemShippingDetails';
-
     /**
      * @var ?string
      */

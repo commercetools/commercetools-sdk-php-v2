@@ -48,7 +48,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * <p>User-specific unique identifier for the product type (min.
      * 2 and max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */

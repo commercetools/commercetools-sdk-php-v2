@@ -27,18 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $storeKey
-     * @psalm-param scalar $key
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $storeKey
-     * @param mixed $key
      */
-    public function __construct($projectKey, $storeKey, $key, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $storeKey, string $key, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{storeKey}', '{key}'], [$projectKey, $storeKey, $key], '{projectKey}/in-store/key={storeKey}/customers/key={key}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);

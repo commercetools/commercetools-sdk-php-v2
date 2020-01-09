@@ -24,7 +24,7 @@ class ResourceByProjectKeyZonesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyZonesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyZonesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -22,7 +22,6 @@ use stdClass;
 final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implements CustomerDateOfBirthSetMessage
 {
     const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
-
     /**
      * @var ?string
      */

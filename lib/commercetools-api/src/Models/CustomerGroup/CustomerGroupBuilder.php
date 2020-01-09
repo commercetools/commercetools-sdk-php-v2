@@ -43,12 +43,12 @@ final class CustomerGroupBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -63,12 +63,12 @@ final class CustomerGroupBuilder implements Builder
     private $name;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * <p>The unique ID of the customer group.</p>.
+     * <p>The unique ID of the customer group.</p>
      *
      * @return null|string
      */
@@ -78,7 +78,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the customer group.</p>.
+     * <p>The current version of the customer group.</p>
      *
      * @return null|int
      */
@@ -104,7 +104,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -114,7 +114,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -124,7 +124,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */
@@ -276,11 +276,11 @@ final class CustomerGroupBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->name,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

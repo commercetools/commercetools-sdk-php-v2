@@ -22,7 +22,6 @@ use stdClass;
 final class CustomerEmailChangedMessageModel extends JsonObjectModel implements CustomerEmailChangedMessage
 {
     const DISCRIMINATOR_VALUE = 'CustomerEmailChanged';
-
     /**
      * @var ?string
      */

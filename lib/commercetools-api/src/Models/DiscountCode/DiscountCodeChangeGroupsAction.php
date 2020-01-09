@@ -14,7 +14,7 @@ interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction
 
     /**
      * <p>The groups to which this discount code shall belong to.
-     * Use empty array to remove the code from all groups.</p>.
+     * Use empty array to remove the code from all groups.</p>
      *
      * @return null|array
      */

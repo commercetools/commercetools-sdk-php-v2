@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartDiscountKeyReferenceModel extends JsonObjectModel implements CartDiscountKeyReference
 {
     const DISCRIMINATOR_VALUE = 'cart-discount';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CartDiscountKeyReferenceModel extends JsonObjectModel implements Car
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

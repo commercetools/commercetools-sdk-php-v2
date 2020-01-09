@@ -21,7 +21,7 @@ final class OrderEditSetKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|string
      */

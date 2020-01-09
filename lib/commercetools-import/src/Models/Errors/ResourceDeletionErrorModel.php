@@ -15,7 +15,6 @@ use stdClass;
 final class ResourceDeletionErrorModel extends JsonObjectModel implements ResourceDeletionError
 {
     const DISCRIMINATOR_VALUE = 'ResourceDeletion';
-
     /**
      * @var ?string
      */
@@ -58,7 +57,7 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

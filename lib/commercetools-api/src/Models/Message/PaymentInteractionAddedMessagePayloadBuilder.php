@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $interaction;
 
@@ -53,7 +53,7 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     public function build(): PaymentInteractionAddedMessagePayload
     {
         return new PaymentInteractionAddedMessagePayloadModel(
-            ($this->interaction instanceof CustomFieldsBuilder ? $this->interaction->build() : $this->interaction)
+            $this->interaction instanceof CustomFieldsBuilder ? $this->interaction->build() : $this->interaction
         );
     }
 

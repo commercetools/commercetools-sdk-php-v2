@@ -21,7 +21,7 @@ final class CategoryReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Category|?CategoryBuilder
+     * @var null|Category|CategoryBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class CategoryReferenceBuilder implements Builder
     {
         return new CategoryReferenceModel(
             $this->id,
-            ($this->obj instanceof CategoryBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof CategoryBuilder ? $this->obj->build() : $this->obj
         );
     }
 

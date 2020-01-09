@@ -18,7 +18,6 @@ use stdClass;
 final class PaymentSetCustomTypeActionModel extends JsonObjectModel implements PaymentSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */
@@ -62,7 +61,7 @@ final class PaymentSetCustomTypeActionModel extends JsonObjectModel implements P
 
     /**
      * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>.
+     * If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -82,7 +81,7 @@ final class PaymentSetCustomTypeActionModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Sets the custom fields to this value.</p>.
+     * <p>Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */

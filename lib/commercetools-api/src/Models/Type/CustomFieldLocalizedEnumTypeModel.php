@@ -14,7 +14,6 @@ use stdClass;
 final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements CustomFieldLocalizedEnumType
 {
     const DISCRIMINATOR_VALUE = 'LocalizedEnum';
-
     /**
      * @var ?string
      */

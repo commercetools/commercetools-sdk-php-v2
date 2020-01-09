@@ -24,7 +24,6 @@ use stdClass;
 final class LineItemStateTransitionMessageModel extends JsonObjectModel implements LineItemStateTransitionMessage
 {
     const DISCRIMINATOR_VALUE = 'LineItemStateTransition';
-
     /**
      * @var ?string
      */

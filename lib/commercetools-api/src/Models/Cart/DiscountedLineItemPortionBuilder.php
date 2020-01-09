@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class DiscountedLineItemPortionBuilder implements Builder
 {
     /**
-     * @var CartDiscountReference|?CartDiscountReferenceBuilder
+     * @var null|CartDiscountReference|CartDiscountReferenceBuilder
      */
     private $discount;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $discountedAmount;
 
@@ -88,8 +88,8 @@ final class DiscountedLineItemPortionBuilder implements Builder
     public function build(): DiscountedLineItemPortion
     {
         return new DiscountedLineItemPortionModel(
-            ($this->discount instanceof CartDiscountReferenceBuilder ? $this->discount->build() : $this->discount),
-            ($this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount)
+            $this->discount instanceof CartDiscountReferenceBuilder ? $this->discount->build() : $this->discount,
+            $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount
         );
     }
 

@@ -1,117 +1,133 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyPaymentsKeyByKey;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsKeyByKeyPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyPaymentsKeyByKeyTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyPaymentsKeyByKeyGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/payments/key={key}?expand=expand',
             ],
             'ByProjectKeyPaymentsKeyByKeyGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
-                        ->get();
+                        ->withKey('key')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/payments/key={key}',
             ],
             'ByProjectKeyPaymentsKeyByKeyPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/payments/key={key}?expand=expand',
             ],
             'ByProjectKeyPaymentsKeyByKeyPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
-                        ->post(null);
+                        ->withKey('key')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/payments/key={key}',
             ],
             'ByProjectKeyPaymentsKeyByKeyDelete_withDataErasure' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withDataErasure('dataErasure');
+                        ->withDataErasure('dataErasure')
+                    ;
                 },
                 'delete',
                 '{projectKey}/payments/key={key}?dataErasure=dataErasure',
             ],
             'ByProjectKeyPaymentsKeyByKeyDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/payments/key={key}?version=version',
             ],
             'ByProjectKeyPaymentsKeyByKeyDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
+                        ->withKey('key')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/payments/key={key}?expand=expand',
             ],
             'ByProjectKeyPaymentsKeyByKeyDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->payments()
-                        ->withKey("key")
-                        ->delete();
+                        ->withKey('key')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/payments/key={key}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -120,9 +136,9 @@ class ResourceByProjectKeyPaymentsKeyByKeyTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

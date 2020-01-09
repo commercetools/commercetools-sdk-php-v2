@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneChangeNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeName';
-
     /**
      * @var ?string
      */

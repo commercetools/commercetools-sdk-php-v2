@@ -15,7 +15,6 @@ use stdClass;
 final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel implements ProductSetAttributeInAllVariantsAction
 {
     const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
-
     /**
      * @var ?string
      */
@@ -82,7 +81,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>The same update behavior as for Set Attribute applies.</p>.
+     * <p>The same update behavior as for Set Attribute applies.</p>
      *
      * @return null|JsonObject
      */

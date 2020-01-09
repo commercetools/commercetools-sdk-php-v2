@@ -23,7 +23,7 @@ final class TypeChangeFieldDefinitionLabelActionBuilder implements Builder
     private $fieldName;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -77,7 +77,7 @@ final class TypeChangeFieldDefinitionLabelActionBuilder implements Builder
     {
         return new TypeChangeFieldDefinitionLabelActionModel(
             $this->fieldName,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label
         );
     }
 

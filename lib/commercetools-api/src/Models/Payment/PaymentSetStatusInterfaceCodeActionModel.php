@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel implements PaymentSetStatusInterfaceCodeAction
 {
     const DISCRIMINATOR_VALUE = 'setStatusInterfaceCode';
-
     /**
      * @var ?string
      */

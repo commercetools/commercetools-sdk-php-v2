@@ -22,6 +22,6 @@ class ResourceByProjectKeyOrdersImport extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersImportPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersImportPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

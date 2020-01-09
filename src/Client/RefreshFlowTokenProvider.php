@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -50,31 +51,27 @@ class RefreshFlowTokenProvider implements TokenProvider
         return $this->refreshToken();
     }
 
-    /**
-     * @return Token
-     */
     public function refreshToken(): Token
     {
         $refreshToken = $this->tokenStorage->getRefreshToken();
         $data = [
             self::GRANT_TYPE => self::GRANT_TYPE_REFRESH_TOKEN,
-            self::REFRESH_TOKEN => $refreshToken
+            self::REFRESH_TOKEN => $refreshToken,
         ];
         $options = [
             'form_params' => $data,
-            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()]
+            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()],
         ];
 
         $result = $this->client->post($this->accessTokenUrl, $options);
 
         /** @psalm-var array $body */
-        $body = json_decode((string)$result->getBody(), true);
-        $token = new RefreshableTokenModel(
-            (string)$body[self::ACCESS_TOKEN],
-            (int)$body[self::EXPIRES_IN],
+        $body = json_decode((string) $result->getBody(), true);
+
+        return new RefreshableTokenModel(
+            (string) $body[self::ACCESS_TOKEN],
+            (int) $body[self::EXPIRES_IN],
             $refreshToken
         );
-
-        return $token;
     }
 }

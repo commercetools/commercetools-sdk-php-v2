@@ -21,7 +21,7 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     private $parcelId;
 
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
@@ -75,7 +75,7 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     {
         return new OrderSetParcelMeasurementsActionModel(
             $this->parcelId,
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
+            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements
         );
     }
 

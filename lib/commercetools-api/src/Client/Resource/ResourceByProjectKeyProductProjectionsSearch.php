@@ -23,7 +23,7 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductProjectionsSearchPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductProjectionsSearchPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -36,6 +36,6 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductProjectionsSearchGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductProjectionsSearchGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

@@ -18,7 +18,6 @@ use stdClass;
 final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectModel implements MyShoppingListSetTextLineItemCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setTextLineItemCustomType';
-
     /**
      * @var ?string
      */

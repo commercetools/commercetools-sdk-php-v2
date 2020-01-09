@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -28,6 +29,7 @@ class ProviderFactory
             $refreshTokenProvider,
             $anonymousIdProvider
         );
+
         return new TokenStorageProvider($storage, $anonProvider);
     }
 
@@ -65,9 +67,6 @@ class ProviderFactory
         return new RefreshFlowTokenProvider($client, $refreshTokenUrl, $credentials, $storage);
     }
 
-    /**
-     * @return ProviderFactory
-     */
     public static function of(): ProviderFactory
     {
         return new static();

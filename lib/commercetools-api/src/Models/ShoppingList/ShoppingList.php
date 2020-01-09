@@ -30,14 +30,14 @@ interface ShoppingList extends LoggedResource
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
-     * <p>The unique ID of the shopping list.</p>.
+     * <p>The unique ID of the shopping list.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the shopping list.</p>.
+     * <p>The current version of the shopping list.</p>
      *
      * @return null|int
      */
@@ -54,14 +54,14 @@ interface ShoppingList extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -78,7 +78,7 @@ interface ShoppingList extends LoggedResource
     public function getCustomer();
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
      * @return null|int
      */
@@ -90,7 +90,7 @@ interface ShoppingList extends LoggedResource
     public function getDescription();
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */
@@ -109,7 +109,7 @@ interface ShoppingList extends LoggedResource
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
      * @return null|LocalizedString
      */
@@ -121,7 +121,7 @@ interface ShoppingList extends LoggedResource
     public function getTextLineItems();
 
     /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */

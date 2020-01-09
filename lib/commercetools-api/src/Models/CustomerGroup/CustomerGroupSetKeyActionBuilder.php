@@ -21,7 +21,7 @@ final class CustomerGroupSetKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */

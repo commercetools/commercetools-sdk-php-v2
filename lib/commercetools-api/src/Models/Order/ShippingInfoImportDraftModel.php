@@ -126,7 +126,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>The shipping rate used to determine the price.</p>.
+     * <p>The shipping rate used to determine the price.</p>
      *
      * @return null|ShippingRateDraft
      */
@@ -182,7 +182,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Not set if custom shipping method is used.</p>.
+     * <p>Not set if custom shipping method is used.</p>
      *
      * @return null|ShippingMethodResourceIdentifier
      */
@@ -202,7 +202,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>.
+     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
      * @return null|DeliveryCollection
      */
@@ -239,7 +239,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>.
+     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
      * @return null|string
      */

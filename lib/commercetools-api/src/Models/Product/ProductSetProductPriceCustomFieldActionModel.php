@@ -15,7 +15,6 @@ use stdClass;
 final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel implements ProductSetProductPriceCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setProductPriceCustomField';
-
     /**
      * @var ?string
      */

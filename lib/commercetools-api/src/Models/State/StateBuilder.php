@@ -43,12 +43,12 @@ final class StateBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -63,12 +63,12 @@ final class StateBuilder implements Builder
     private $type;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -125,7 +125,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -135,7 +135,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -145,7 +145,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A unique identifier for the state.</p>.
+     * <p>A unique identifier for the state.</p>
      *
      * @return null|string
      */
@@ -163,7 +163,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable name of the state.</p>.
+     * <p>A human-readable name of the state.</p>
      *
      * @return null|LocalizedString
      */
@@ -173,7 +173,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable description of the state.</p>.
+     * <p>A human-readable description of the state.</p>
      *
      * @return null|LocalizedString
      */
@@ -184,7 +184,7 @@ final class StateBuilder implements Builder
 
     /**
      * <p>A state can be declared as an initial state for any state machine.
-     * When a workflow starts, this first state must be an <code>initial</code> state.</p>.
+     * When a workflow starts, this first state must be an <code>initial</code> state.</p>
      *
      * @return null|bool
      */
@@ -194,7 +194,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>.
+     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>
      *
      * @return null|bool
      */
@@ -216,7 +216,7 @@ final class StateBuilder implements Builder
      * When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced state must have a transition to the new state.
      * If <code>transitions</code> is an empty list, it means the current state is a final state and no further transitions are allowed.
      * If <code>transitions</code> is not set, the validation is turned off.
-     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>.
+     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>
      *
      * @return null|StateReferenceCollection
      */
@@ -412,12 +412,12 @@ final class StateBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->type,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->initial,
             $this->builtIn,
             $this->roles,

@@ -22,6 +22,6 @@ class ResourceByProjectKeyCustomersEmailToken extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomersEmailTokenPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomersEmailTokenPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

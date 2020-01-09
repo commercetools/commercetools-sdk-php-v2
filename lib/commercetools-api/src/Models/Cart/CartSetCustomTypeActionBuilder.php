@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class CartSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
@@ -88,8 +88,8 @@ final class CartSetCustomTypeActionBuilder implements Builder
     public function build(): CartSetCustomTypeAction
     {
         return new CartSetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

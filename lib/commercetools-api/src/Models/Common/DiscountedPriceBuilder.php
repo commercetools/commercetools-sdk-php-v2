@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class DiscountedPriceBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
-     * @var ProductDiscountReference|?ProductDiscountReferenceBuilder
+     * @var null|ProductDiscountReference|ProductDiscountReferenceBuilder
      */
     private $discount;
 
@@ -86,8 +86,8 @@ final class DiscountedPriceBuilder implements Builder
     public function build(): DiscountedPrice
     {
         return new DiscountedPriceModel(
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
-            ($this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount)
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount
         );
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -38,7 +39,6 @@ class AnonymousFlowTokenProvider implements TokenProvider
      */
     private $anonymousIdProvider;
 
-
     public function __construct(
         Client $client,
         string $accessTokenUrl,
@@ -63,24 +63,23 @@ class AnonymousFlowTokenProvider implements TokenProvider
         }
         $options = [
             'form_params' => $data,
-            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()]
+            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()],
         ];
 
         $result = $this->client->post($this->accessTokenUrl, $options);
 
         /** @psalm-var array $body */
-        $body = json_decode((string)$result->getBody(), true);
-        $token = new RefreshableTokenModel(
-            (string)$body[self::ACCESS_TOKEN],
-            (int)$body[self::EXPIRES_IN],
-            (string)$body[self::REFRESH_TOKEN]
-        );
+        $body = json_decode((string) $result->getBody(), true);
 
-        return $token;
+        return new RefreshableTokenModel(
+            (string) $body[self::ACCESS_TOKEN],
+            (int) $body[self::EXPIRES_IN],
+            (string) $body[self::REFRESH_TOKEN]
+        );
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function refreshToken(): Token
     {

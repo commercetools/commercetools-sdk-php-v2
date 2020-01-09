@@ -18,7 +18,6 @@ use stdClass;
 final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectModel implements OrderTransitionCustomLineItemStateAction
 {
     const DISCRIMINATOR_VALUE = 'transitionCustomLineItemState';
-
     /**
      * @var ?string
      */

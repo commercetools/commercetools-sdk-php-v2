@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredFieldError
 {
     const DISCRIMINATOR_VALUE = 'RequiredField';
-
     /**
      * @var ?string
      */

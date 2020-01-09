@@ -24,7 +24,7 @@ class ResourceByProjectKeyDiscountCodesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyDiscountCodesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyDiscountCodesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyDiscountCodesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyDiscountCodesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyDiscountCodesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyDiscountCodesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyDiscountCodesByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyDiscountCodesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -20,17 +20,17 @@ use Commercetools\Base\Builder;
 final class CategorySetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -40,7 +40,7 @@ final class CategorySetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type. Sets the custom fields to this value.</p>.
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type. Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */
@@ -92,8 +92,8 @@ final class CategorySetCustomTypeActionBuilder implements Builder
     public function build(): CategorySetCustomTypeAction
     {
         return new CategorySetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

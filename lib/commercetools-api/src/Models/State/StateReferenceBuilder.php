@@ -21,7 +21,7 @@ final class StateReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var State|?StateBuilder
+     * @var null|State|StateBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class StateReferenceBuilder implements Builder
     {
         return new StateReferenceModel(
             $this->id,
-            ($this->obj instanceof StateBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof StateBuilder ? $this->obj->build() : $this->obj
         );
     }
 

@@ -44,17 +44,17 @@ final class ProductDiscountBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -64,12 +64,12 @@ final class ProductDiscountBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var ProductDiscountValue|?ProductDiscountValueBuilder
+     * @var null|ProductDiscountValue|ProductDiscountValueBuilder
      */
     private $value;
 
@@ -104,7 +104,7 @@ final class ProductDiscountBuilder implements Builder
     private $validUntil;
 
     /**
-     * <p>The unique ID of the product discount</p>.
+     * <p>The unique ID of the product discount</p>
      *
      * @return null|string
      */
@@ -114,7 +114,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the product discount.</p>.
+     * <p>The current version of the product discount.</p>
      *
      * @return null|int
      */
@@ -140,7 +140,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -150,7 +150,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -169,7 +169,7 @@ final class ProductDiscountBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for a product discount.
-     * Must be unique across a project.</p>.
+     * Must be unique across a project.</p>
      *
      * @return null|string
      */
@@ -195,7 +195,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>.
+     * <p>A valid ProductDiscount Predicate.</p>
      *
      * @return null|string
      */
@@ -207,7 +207,7 @@ final class ProductDiscountBuilder implements Builder
     /**
      * <p>The string contains a number between 0 and 1.
      * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
-     * A sortOrder must be unambiguous.</p>.
+     * A sortOrder must be unambiguous.</p>
      *
      * @return null|string
      */
@@ -217,7 +217,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Only active discount will be applied to product prices.</p>.
+     * <p>Only active discount will be applied to product prices.</p>
      *
      * @return null|bool
      */
@@ -228,7 +228,7 @@ final class ProductDiscountBuilder implements Builder
 
     /**
      * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     * It contains the references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -239,7 +239,7 @@ final class ProductDiscountBuilder implements Builder
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -250,7 +250,7 @@ final class ProductDiscountBuilder implements Builder
 
     /**
      * <p>The time from which the discount should be ineffective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -476,12 +476,12 @@ final class ProductDiscountBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value,
             $this->predicate,
             $this->sortOrder,
             $this->isActive,

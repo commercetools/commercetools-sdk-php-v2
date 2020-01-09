@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implements TaxCategoryRemoveTaxRateAction
 {
     const DISCRIMINATOR_VALUE = 'removeTaxRate';
-
     /**
      * @var ?string
      */

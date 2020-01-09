@@ -16,7 +16,6 @@ use stdClass;
 final class ShoppingListSetSlugActionModel extends JsonObjectModel implements ShoppingListSetSlugAction
 {
     const DISCRIMINATOR_VALUE = 'setSlug';
-
     /**
      * @var ?string
      */

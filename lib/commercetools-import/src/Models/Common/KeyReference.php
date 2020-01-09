@@ -22,7 +22,7 @@ interface KeyReference extends JsonObject
     public function getKey();
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

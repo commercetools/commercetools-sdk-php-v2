@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyCustomers extends ApiResource
 {
-    /**
-     * @psalm-param scalar $passwordToken
-     *
-     * @param null|mixed $passwordToken
-     */
-    public function withPasswordToken($passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
+    public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
         if (!is_null($passwordToken)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
         return new ResourceByProjectKeyCustomersPasswordTokenByPasswordToken($this->getUri().'/password-token={passwordToken}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $emailToken
-     *
-     * @param null|mixed $emailToken
-     */
-    public function withEmailToken($emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
+    public function withEmailToken(string $emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
         if (!is_null($emailToken)) {
@@ -72,12 +62,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
         return new ResourceByProjectKeyCustomersPasswordToken($this->getUri().'/password-token', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyCustomersKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -87,12 +72,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
         return new ResourceByProjectKeyCustomersKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyCustomersByID
+    public function withId(string $ID = null): ResourceByProjectKeyCustomersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -112,7 +92,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomersGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomersGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -123,6 +103,6 @@ class ResourceByProjectKeyCustomers extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomersPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomersPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

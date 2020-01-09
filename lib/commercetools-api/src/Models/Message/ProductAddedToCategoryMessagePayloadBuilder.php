@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var CategoryReference|?CategoryReferenceBuilder
+     * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $category;
 
@@ -76,7 +76,7 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     public function build(): ProductAddedToCategoryMessagePayload
     {
         return new ProductAddedToCategoryMessagePayloadModel(
-            ($this->category instanceof CategoryReferenceBuilder ? $this->category->build() : $this->category),
+            $this->category instanceof CategoryReferenceBuilder ? $this->category->build() : $this->category,
             $this->staged
         );
     }

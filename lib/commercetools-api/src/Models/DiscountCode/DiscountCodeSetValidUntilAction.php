@@ -15,7 +15,7 @@ interface DiscountCodeSetValidUntilAction extends DiscountCodeUpdateAction
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>
      *
      * @return null|DateTimeImmutable
      */

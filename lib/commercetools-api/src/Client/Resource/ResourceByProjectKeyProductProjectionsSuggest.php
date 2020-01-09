@@ -23,6 +23,6 @@ class ResourceByProjectKeyProductProjectionsSuggest extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductProjectionsSuggestGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductProjectionsSuggestGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

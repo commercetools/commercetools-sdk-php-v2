@@ -16,7 +16,6 @@ use stdClass;
 final class OrderAddReturnInfoActionModel extends JsonObjectModel implements OrderAddReturnInfoAction
 {
     const DISCRIMINATOR_VALUE = 'addReturnInfo';
-
     /**
      * @var ?string
      */

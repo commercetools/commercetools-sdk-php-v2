@@ -16,7 +16,6 @@ use stdClass;
 final class StateSetDescriptionActionModel extends JsonObjectModel implements StateSetDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setDescription';
-
     /**
      * @var ?string
      */

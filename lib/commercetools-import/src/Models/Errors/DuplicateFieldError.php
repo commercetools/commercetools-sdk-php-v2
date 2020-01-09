@@ -16,14 +16,14 @@ interface DuplicateFieldError extends ErrorObject
     const FIELD_DUPLICATE_VALUE = 'duplicateValue';
 
     /**
-     * <p>The name of the field.</p>.
+     * <p>The name of the field.</p>
      *
      * @return null|string
      */
     public function getField();
 
     /**
-     * <p>The offending duplicate value.</p>.
+     * <p>The offending duplicate value.</p>
      *
      * @return null|JsonObject
      */

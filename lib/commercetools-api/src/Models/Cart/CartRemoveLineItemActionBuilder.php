@@ -28,17 +28,17 @@ final class CartRemoveLineItemActionBuilder implements Builder
     private $quantity;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $externalPrice;
 
     /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
+     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetailsToRemove;
 
@@ -167,9 +167,9 @@ final class CartRemoveLineItemActionBuilder implements Builder
         return new CartRemoveLineItemActionModel(
             $this->lineItemId,
             $this->quantity,
-            ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice),
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
-            ($this->shippingDetailsToRemove instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetailsToRemove->build() : $this->shippingDetailsToRemove)
+            $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
+            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
+            $this->shippingDetailsToRemove instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetailsToRemove->build() : $this->shippingDetailsToRemove
         );
     }
 

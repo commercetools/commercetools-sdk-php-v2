@@ -59,22 +59,22 @@ final class ProjectBuilder implements Builder
     private $trialUntil;
 
     /**
-     * @var MessageConfiguration|?MessageConfigurationBuilder
+     * @var null|MessageConfiguration|MessageConfigurationBuilder
      */
     private $messages;
 
     /**
-     * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
+     * @var null|ShippingRateInputType|ShippingRateInputTypeBuilder
      */
     private $shippingRateInputType;
 
     /**
-     * @var ExternalOAuth|?ExternalOAuthBuilder
+     * @var null|ExternalOAuth|ExternalOAuthBuilder
      */
     private $externalOAuth;
 
     /**
-     * <p>The current version of the project.</p>.
+     * <p>The current version of the project.</p>
      *
      * @return null|int
      */
@@ -84,7 +84,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The unique key of the project.</p>.
+     * <p>The unique key of the project.</p>
      *
      * @return null|string
      */
@@ -94,7 +94,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The name of the project.</p>.
+     * <p>The name of the project.</p>
      *
      * @return null|string
      */
@@ -104,7 +104,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|array
      */
@@ -114,7 +114,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|array
      */
@@ -140,7 +140,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>.
+     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>
      *
      * @return null|string
      */
@@ -324,9 +324,9 @@ final class ProjectBuilder implements Builder
             $this->languages,
             $this->createdAt,
             $this->trialUntil,
-            ($this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages),
-            ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType),
-            ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth)
+            $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages,
+            $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
+            $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth
         );
     }
 

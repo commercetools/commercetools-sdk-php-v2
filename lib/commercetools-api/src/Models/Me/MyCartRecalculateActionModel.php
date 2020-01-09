@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCartRecalculateAction
 {
     const DISCRIMINATOR_VALUE = 'recalculate';
-
     /**
      * @var ?string
      */

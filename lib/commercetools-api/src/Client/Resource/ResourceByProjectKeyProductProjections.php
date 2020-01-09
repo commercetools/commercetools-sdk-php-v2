@@ -27,12 +27,7 @@ class ResourceByProjectKeyProductProjections extends ApiResource
         return new ResourceByProjectKeyProductProjectionsSuggest($this->getUri().'/suggest', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyProductProjectionsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyProductProjectionsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -42,12 +37,7 @@ class ResourceByProjectKeyProductProjections extends ApiResource
         return new ResourceByProjectKeyProductProjectionsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyProductProjectionsByID
+    public function withId(string $ID = null): ResourceByProjectKeyProductProjectionsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -67,6 +57,6 @@ class ResourceByProjectKeyProductProjections extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductProjectionsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductProjectionsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

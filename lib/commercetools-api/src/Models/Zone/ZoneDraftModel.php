@@ -48,7 +48,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * <p>User-specific unique identifier for a zone.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>.
+     * The field can be reset using the Set Key UpdateAction.</p>
      *
      * @return null|string
      */

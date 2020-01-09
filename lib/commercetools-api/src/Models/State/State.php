@@ -46,21 +46,21 @@ interface State extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>A unique identifier for the state.</p>.
+     * <p>A unique identifier for the state.</p>
      *
      * @return null|string
      */
@@ -72,14 +72,14 @@ interface State extends LoggedResource
     public function getType();
 
     /**
-     * <p>A human-readable name of the state.</p>.
+     * <p>A human-readable name of the state.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>A human-readable description of the state.</p>.
+     * <p>A human-readable description of the state.</p>
      *
      * @return null|LocalizedString
      */
@@ -87,14 +87,14 @@ interface State extends LoggedResource
 
     /**
      * <p>A state can be declared as an initial state for any state machine.
-     * When a workflow starts, this first state must be an <code>initial</code> state.</p>.
+     * When a workflow starts, this first state must be an <code>initial</code> state.</p>
      *
      * @return null|bool
      */
     public function getInitial();
 
     /**
-     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>.
+     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>
      *
      * @return null|bool
      */
@@ -110,7 +110,7 @@ interface State extends LoggedResource
      * When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced state must have a transition to the new state.
      * If <code>transitions</code> is an empty list, it means the current state is a final state and no further transitions are allowed.
      * If <code>transitions</code> is not set, the validation is turned off.
-     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>.
+     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>
      *
      * @return null|StateReferenceCollection
      */

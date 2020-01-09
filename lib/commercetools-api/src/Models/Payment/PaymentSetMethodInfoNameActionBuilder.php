@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class PaymentSetMethodInfoNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * <p>If not provided, the name is unset.</p>.
+     * <p>If not provided, the name is unset.</p>
      *
      * @return null|LocalizedString
      */
@@ -55,7 +55,7 @@ final class PaymentSetMethodInfoNameActionBuilder implements Builder
     public function build(): PaymentSetMethodInfoNameAction
     {
         return new PaymentSetMethodInfoNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

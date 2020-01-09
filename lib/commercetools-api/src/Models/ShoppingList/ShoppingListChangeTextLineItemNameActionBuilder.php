@@ -23,7 +23,7 @@ final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
     private $textLineItemId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -77,7 +77,7 @@ final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
     {
         return new ShoppingListChangeTextLineItemNameActionModel(
             $this->textLineItemId,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

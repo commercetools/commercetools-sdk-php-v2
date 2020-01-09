@@ -40,7 +40,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
-     * <p>Identifies, which return tracking ID is connected to this particular return.</p>.
+     * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
      * @return null|string
      */

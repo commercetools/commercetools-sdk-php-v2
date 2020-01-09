@@ -15,7 +15,6 @@ use stdClass;
 final class ResourceUpdateErrorModel extends JsonObjectModel implements ResourceUpdateError
 {
     const DISCRIMINATOR_VALUE = 'ResourceUpdate';
-
     /**
      * @var ?string
      */
@@ -58,7 +57,7 @@ final class ResourceUpdateErrorModel extends JsonObjectModel implements Resource
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

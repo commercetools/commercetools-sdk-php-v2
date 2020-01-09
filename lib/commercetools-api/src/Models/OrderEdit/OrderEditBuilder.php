@@ -46,12 +46,12 @@ final class OrderEditBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -61,7 +61,7 @@ final class OrderEditBuilder implements Builder
     private $key;
 
     /**
-     * @var OrderReference|?OrderReferenceBuilder
+     * @var null|OrderReference|OrderReferenceBuilder
      */
     private $resource;
 
@@ -71,12 +71,12 @@ final class OrderEditBuilder implements Builder
     private $stagedActions;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var OrderEditResult|?OrderEditResultBuilder
+     * @var null|OrderEditResult|OrderEditResultBuilder
      */
     private $result;
 
@@ -86,7 +86,7 @@ final class OrderEditBuilder implements Builder
     private $comment;
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>.
+     * <p>The unique ID of the OrderEdit.</p>
      *
      * @return null|string
      */
@@ -96,7 +96,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the OrderEdit.</p>.
+     * <p>The current version of the OrderEdit.</p>
      *
      * @return null|int
      */
@@ -122,7 +122,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -132,7 +132,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -142,7 +142,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>Unique identifier for this edit.</p>.
+     * <p>Unique identifier for this edit.</p>
      *
      * @return null|string
      */
@@ -152,7 +152,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>The order to be updated with this edit.</p>.
+     * <p>The order to be updated with this edit.</p>
      *
      * @return null|OrderReference
      */
@@ -163,7 +163,7 @@ final class OrderEditBuilder implements Builder
 
     /**
      * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>.
+     * Cannot be updated after the edit has been applied.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */
@@ -182,7 +182,7 @@ final class OrderEditBuilder implements Builder
 
     /**
      * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>.
+     * For applied edits, it contains the summary of the changes.</p>
      *
      * @return null|OrderEditResult
      */
@@ -192,7 +192,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>This field can be used to add textual information regarding the edit.</p>.
+     * <p>This field can be used to add textual information regarding the edit.</p>
      *
      * @return null|string
      */
@@ -378,13 +378,13 @@ final class OrderEditBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            ($this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->stagedActions,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result,
             $this->comment
         );
     }

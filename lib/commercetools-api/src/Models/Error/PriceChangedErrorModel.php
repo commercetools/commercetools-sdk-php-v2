@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PriceChangedErrorModel extends JsonObjectModel implements PriceChangedError
 {
     const DISCRIMINATOR_VALUE = 'PriceChanged';
-
     /**
      * @var ?string
      */

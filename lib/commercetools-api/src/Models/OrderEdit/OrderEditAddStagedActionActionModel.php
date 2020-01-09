@@ -16,7 +16,6 @@ use stdClass;
 final class OrderEditAddStagedActionActionModel extends JsonObjectModel implements OrderEditAddStagedActionAction
 {
     const DISCRIMINATOR_VALUE = 'addStagedAction';
-
     /**
      * @var ?string
      */

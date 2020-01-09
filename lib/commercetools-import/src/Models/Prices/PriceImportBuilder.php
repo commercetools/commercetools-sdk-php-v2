@@ -32,7 +32,7 @@ final class PriceImportBuilder implements Builder
     private $key;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -52,22 +52,22 @@ final class PriceImportBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var CustomerGroupKeyReference|?CustomerGroupKeyReferenceBuilder
+     * @var null|CustomerGroupKeyReference|CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ChannelKeyReference|?ChannelKeyReferenceBuilder
+     * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $channel;
 
     /**
-     * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
+     * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
@@ -81,7 +81,7 @@ final class PriceImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>Price.value</code>.</p>
-     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
+     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
      * @return null|Money
      */
@@ -91,7 +91,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Price.county</code>.</p>.
+     * <p>Maps to <code>Price.county</code>.</p>
      *
      * @return null|string
      */
@@ -101,7 +101,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Price.validFrom</code>.</p>.
+     * <p>Maps to <code>Price.validFrom</code>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -111,7 +111,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Price.validUntil</code>.</p>.
+     * <p>Maps to <code>Price.validUntil</code>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -124,7 +124,7 @@ final class PriceImportBuilder implements Builder
      * <p>References a customer group by its key.</p>
      * <p>The customer group referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -137,7 +137,7 @@ final class PriceImportBuilder implements Builder
      * <p>References a channel by its key.</p>
      * <p>The channel referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ChannelKeyReference
      */
@@ -150,7 +150,7 @@ final class PriceImportBuilder implements Builder
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -163,7 +163,7 @@ final class PriceImportBuilder implements Builder
      * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */
@@ -316,14 +316,14 @@ final class PriceImportBuilder implements Builder
     {
         return new PriceImportModel(
             $this->key,
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->validFrom,
             $this->validUntil,
-            ($this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel),
-            ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product)
+            $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
+            $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
+            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );
     }
 

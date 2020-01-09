@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ReturnInfo|?ReturnInfoBuilder
+     * @var null|ReturnInfo|ReturnInfoBuilder
      */
     private $returnInfo;
 
@@ -53,7 +53,7 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
     public function build(): OrderReturnInfoAddedMessagePayload
     {
         return new OrderReturnInfoAddedMessagePayloadModel(
-            ($this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo)
+            $this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo
         );
     }
 

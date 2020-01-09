@@ -15,7 +15,7 @@ interface CustomerSetCustomerGroupAction extends CustomerUpdateAction
     const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
-     * <p>If not defined, the customer group is unset.</p>.
+     * <p>If not defined, the customer group is unset.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductMoveImageToPositionActionModel extends JsonObjectModel implements ProductMoveImageToPositionAction
 {
     const DISCRIMINATOR_VALUE = 'moveImageToPosition';
-
     /**
      * @var ?string
      */
@@ -111,7 +110,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>The URL of the image</p>.
+     * <p>The URL of the image</p>
      *
      * @return null|string
      */

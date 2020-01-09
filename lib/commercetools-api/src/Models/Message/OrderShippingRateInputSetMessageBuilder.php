@@ -45,12 +45,12 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -60,7 +60,7 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     private $sequenceNumber;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
@@ -70,17 +70,17 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
 
@@ -367,14 +367,14 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->sequenceNumber,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
-            ($this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput)
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
+            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
+            $this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput
         );
     }
 

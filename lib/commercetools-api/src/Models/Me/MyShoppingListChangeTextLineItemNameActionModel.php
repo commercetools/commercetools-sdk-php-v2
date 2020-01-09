@@ -16,7 +16,6 @@ use stdClass;
 final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectModel implements MyShoppingListChangeTextLineItemNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeTextLineItemName';
-
     /**
      * @var ?string
      */

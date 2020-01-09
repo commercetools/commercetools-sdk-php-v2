@@ -23,6 +23,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet($args['projectKey'], $args['storeKey'], $args['passwordToken'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['passwordToken'], $body, $headers, $this->getClient());
     }
 }

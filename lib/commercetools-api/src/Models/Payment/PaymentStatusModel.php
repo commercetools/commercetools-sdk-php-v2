@@ -41,7 +41,7 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     }
 
     /**
-     * <p>A code describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */
@@ -60,7 +60,7 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     }
 
     /**
-     * <p>A text describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */

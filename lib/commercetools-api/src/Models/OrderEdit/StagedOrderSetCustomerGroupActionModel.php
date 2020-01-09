@@ -17,7 +17,6 @@ use stdClass;
 final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel implements StagedOrderSetCustomerGroupAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
-
     /**
      * @var ?string
      */

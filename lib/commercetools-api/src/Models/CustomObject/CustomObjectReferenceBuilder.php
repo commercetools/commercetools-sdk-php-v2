@@ -21,7 +21,7 @@ final class CustomObjectReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var CustomObject|?CustomObjectBuilder
+     * @var null|CustomObject|CustomObjectBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class CustomObjectReferenceBuilder implements Builder
     {
         return new CustomObjectReferenceModel(
             $this->id,
-            ($this->obj instanceof CustomObjectBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof CustomObjectBuilder ? $this->obj->build() : $this->obj
         );
     }
 

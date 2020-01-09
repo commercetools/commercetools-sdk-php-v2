@@ -13,7 +13,7 @@ interface ProjectSetShippingRateInputTypeAction extends ProjectUpdateAction
     const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
 
     /**
-     * <p>If not set, removes existing shippingRateInputType.</p>.
+     * <p>If not set, removes existing shippingRateInputType.</p>
      *
      * @return null|ShippingRateInputType
      */

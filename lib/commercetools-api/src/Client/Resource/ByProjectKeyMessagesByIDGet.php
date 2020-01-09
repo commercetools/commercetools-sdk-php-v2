@@ -27,16 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyMessagesByIDGet extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $ID
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $ID
      */
-    public function __construct($projectKey, $ID, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/messages/{ID}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

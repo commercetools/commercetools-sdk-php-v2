@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumValueIsUsedError
 {
     const DISCRIMINATOR_VALUE = 'EnumValueIsUsed';
-
     /**
      * @var ?string
      */

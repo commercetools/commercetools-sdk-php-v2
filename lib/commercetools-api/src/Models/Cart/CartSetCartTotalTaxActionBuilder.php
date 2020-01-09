@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CartSetCartTotalTaxActionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $externalTotalGross;
 
@@ -28,7 +28,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     private $externalTaxPortions;
 
     /**
-     * <p>The total gross amount of the cart (totalNet + taxes).</p>.
+     * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
      * @return null|Money
      */
@@ -78,7 +78,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     public function build(): CartSetCartTotalTaxAction
     {
         return new CartSetCartTotalTaxActionModel(
-            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross),
+            $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross,
             $this->externalTaxPortions
         );
     }

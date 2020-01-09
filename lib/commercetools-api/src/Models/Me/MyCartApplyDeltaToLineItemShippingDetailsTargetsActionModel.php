@@ -15,7 +15,6 @@ use stdClass;
 final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends JsonObjectModel implements MyCartApplyDeltaToLineItemShippingDetailsTargetsAction
 {
     const DISCRIMINATOR_VALUE = 'applyDeltaToLineItemShippingDetailsTargets';
-
     /**
      * @var ?string
      */

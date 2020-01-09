@@ -14,7 +14,7 @@ interface ReviewSetRatingAction extends ReviewUpdateAction
 
     /**
      * <p>Number between -100 and 100 included.
-     * If <code>rating</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * If <code>rating</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|int
      */

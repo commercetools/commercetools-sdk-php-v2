@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductSetProductVariantKeyActionModel extends JsonObjectModel implements ProductSetProductVariantKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setProductVariantKey';
-
     /**
      * @var ?string
      */
@@ -104,7 +103,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>.
+     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
      *
      * @return null|string
      */

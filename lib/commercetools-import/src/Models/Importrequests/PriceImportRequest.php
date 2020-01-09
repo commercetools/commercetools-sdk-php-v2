@@ -15,7 +15,7 @@ interface PriceImportRequest extends ImportRequest
     const FIELD_RESOURCES = 'resources';
 
     /**
-     * <p>The price import resources of this request.</p>.
+     * <p>The price import resources of this request.</p>
      *
      * @return null|PriceImportCollection
      */

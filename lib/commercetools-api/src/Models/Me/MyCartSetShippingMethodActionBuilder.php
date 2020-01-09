@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class MyCartSetShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
@@ -88,8 +88,8 @@ final class MyCartSetShippingMethodActionBuilder implements Builder
     public function build(): MyCartSetShippingMethodAction
     {
         return new MyCartSetShippingMethodActionModel(
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
+            $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
         );
     }
 

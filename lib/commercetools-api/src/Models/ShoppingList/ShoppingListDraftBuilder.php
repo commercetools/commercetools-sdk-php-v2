@@ -22,12 +22,12 @@ use Commercetools\Base\Builder;
 final class ShoppingListDraftBuilder implements Builder
 {
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
@@ -37,7 +37,7 @@ final class ShoppingListDraftBuilder implements Builder
     private $deleteDaysAfterLastModification;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -52,12 +52,12 @@ final class ShoppingListDraftBuilder implements Builder
     private $lineItems;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -72,7 +72,7 @@ final class ShoppingListDraftBuilder implements Builder
     private $anonymousId;
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -90,7 +90,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
      * @return null|int
      */
@@ -108,7 +108,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */
@@ -136,7 +136,7 @@ final class ShoppingListDraftBuilder implements Builder
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
      * @return null|LocalizedString
      */
@@ -154,7 +154,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -316,14 +316,14 @@ final class ShoppingListDraftBuilder implements Builder
     public function build(): ShoppingListDraft
     {
         return new ShoppingListDraftModel(
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer,
             $this->deleteDaysAfterLastModification,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->key,
             $this->lineItems,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->textLineItems,
             $this->anonymousId
         );

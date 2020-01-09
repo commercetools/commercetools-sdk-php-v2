@@ -19,7 +19,6 @@ use stdClass;
 final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel implements StagedOrderChangeLineItemQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class WhitespaceTokenizerModel extends JsonObjectModel implements WhitespaceTokenizer
 {
     const DISCRIMINATOR_VALUE = 'whitespace';
-
     /**
      * @var ?string
      */

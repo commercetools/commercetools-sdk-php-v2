@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implements DiscountCodeNonApplicableError
 {
     const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class FilteredFacetResultModel extends JsonObjectModel implements FilteredFacetResult
 {
     const DISCRIMINATOR_VALUE = 'filter';
-
     /**
      * @var ?string
      */

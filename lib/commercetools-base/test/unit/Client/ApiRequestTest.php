@@ -1,19 +1,22 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Test\Client;
 
 use Commercetools\Client\ApiRequest;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Base\JsonObject;
-use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Commercetools\Client\ApiRequest
+ *
+ * @internal
+ */
 class ApiRequestTest extends TestCase
 {
     public function testWithQueryParam()

@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ChannelSetGeoLocationActionBuilder implements Builder
 {
     /**
-     * @var GeoJson|?GeoJsonBuilder
+     * @var null|GeoJson|GeoJsonBuilder
      */
     private $geoLocation;
 
@@ -53,7 +53,7 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     public function build(): ChannelSetGeoLocationAction
     {
         return new ChannelSetGeoLocationActionModel(
-            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
+            $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation
         );
     }
 

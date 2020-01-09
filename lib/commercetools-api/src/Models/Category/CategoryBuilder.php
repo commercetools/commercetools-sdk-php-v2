@@ -46,27 +46,27 @@ final class CategoryBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -76,7 +76,7 @@ final class CategoryBuilder implements Builder
     private $ancestors;
 
     /**
-     * @var CategoryReference|?CategoryReferenceBuilder
+     * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $parent;
 
@@ -91,22 +91,22 @@ final class CategoryBuilder implements Builder
     private $externalId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -121,7 +121,7 @@ final class CategoryBuilder implements Builder
     private $key;
 
     /**
-     * <p>The unique ID of the category.</p>.
+     * <p>The unique ID of the category.</p>
      *
      * @return null|string
      */
@@ -131,7 +131,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the category.</p>.
+     * <p>The current version of the category.</p>
      *
      * @return null|int
      */
@@ -157,7 +157,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -167,7 +167,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -186,7 +186,7 @@ final class CategoryBuilder implements Builder
 
     /**
      * <p>human-readable identifiers usually used as deep-link URL to the related category.
-     * Each slug is unique across a project, but a category can have the same slug for different languages.</p>.
+     * Each slug is unique across a project, but a category can have the same slug for different languages.</p>
      *
      * @return null|LocalizedString
      */
@@ -204,7 +204,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>Contains the parent path towards the root category.</p>.
+     * <p>Contains the parent path towards the root category.</p>
      *
      * @return null|CategoryReferenceCollection
      */
@@ -214,7 +214,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>A category that is the parent of this category in the category tree.</p>.
+     * <p>A category that is the parent of this category in the category tree.</p>
      *
      * @return null|CategoryReference
      */
@@ -224,7 +224,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>An attribute as base for a custom category order in one level.</p>.
+     * <p>An attribute as base for a custom category order in one level.</p>
      *
      * @return null|string
      */
@@ -274,7 +274,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>Can be used to store images, icons or movies related to this category.</p>.
+     * <p>Can be used to store images, icons or movies related to this category.</p>
      *
      * @return null|AssetCollection
      */
@@ -284,7 +284,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the category.</p>.
+     * <p>User-specific unique identifier for the category.</p>
      *
      * @return null|string
      */
@@ -590,19 +590,19 @@ final class CategoryBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->ancestors,
-            ($this->parent instanceof CategoryReferenceBuilder ? $this->parent->build() : $this->parent),
+            $this->parent instanceof CategoryReferenceBuilder ? $this->parent->build() : $this->parent,
             $this->orderHint,
             $this->externalId,
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->assets,
             $this->key
         );

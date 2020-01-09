@@ -23,7 +23,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     private $sku;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
@@ -77,7 +77,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     {
         return new InventoryEntryDeletedMessagePayloadModel(
             $this->sku,
-            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel)
+            $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 

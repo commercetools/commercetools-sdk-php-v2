@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implements MissingTaxRateForCountryError
 {
     const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
-
     /**
      * @var ?string
      */

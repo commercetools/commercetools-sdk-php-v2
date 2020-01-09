@@ -21,7 +21,7 @@ final class PriceTierBuilder implements Builder
     private $minimumQuantity;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class PriceTierBuilder implements Builder
     {
         return new PriceTierModel(
             $this->minimumQuantity,
-            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

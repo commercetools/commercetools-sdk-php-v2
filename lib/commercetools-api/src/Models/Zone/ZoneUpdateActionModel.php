@@ -14,7 +14,6 @@ use stdClass;
 final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

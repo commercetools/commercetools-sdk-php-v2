@@ -31,12 +31,12 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     private $discountedPricePerQuantity;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
@@ -137,8 +137,8 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
         return new OrderLineItemDiscountSetMessagePayloadModel(
             $this->lineItemId,
             $this->discountedPricePerQuantity,
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice)
+            $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
         );
     }
 

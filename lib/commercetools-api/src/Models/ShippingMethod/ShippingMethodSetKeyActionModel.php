@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements ShippingMethodSetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
      * @return null|string
      */

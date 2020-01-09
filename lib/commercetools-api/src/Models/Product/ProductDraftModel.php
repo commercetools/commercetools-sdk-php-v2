@@ -140,7 +140,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
 
     /**
      * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>.
+     * All products must have a product type.</p>
      *
      * @return null|ProductTypeResourceIdentifier
      */
@@ -181,7 +181,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      * <p>Human-readable identifiers usually used as deep-link URLs for the product.
      * A slug must be unique across a project, but a product can have the same slug for different languages.
      * Slugs have a maximum size of 256.
-     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>.
+     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
      *
      * @return null|LocalizedString
      */
@@ -201,7 +201,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>.
+     * <p>User-specific unique identifier for the product.</p>
      *
      * @return null|string
      */
@@ -238,7 +238,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>Categories assigned to the product.</p>.
+     * <p>Categories assigned to the product.</p>
      *
      * @return null|CategoryResourceIdentifierCollection
      */
@@ -330,7 +330,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
 
     /**
      * <p>The master product variant.
-     * Required if the <code>variants</code> array has product variants.</p>.
+     * Required if the <code>variants</code> array has product variants.</p>
      *
      * @return null|ProductVariantDraft
      */
@@ -350,7 +350,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>An array of related product variants.</p>.
+     * <p>An array of related product variants.</p>
      *
      * @return null|ProductVariantDraftCollection
      */
@@ -423,7 +423,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>If <code>true</code>, the product is published immediately.</p>.
+     * <p>If <code>true</code>, the product is published immediately.</p>
      *
      * @return null|bool
      */

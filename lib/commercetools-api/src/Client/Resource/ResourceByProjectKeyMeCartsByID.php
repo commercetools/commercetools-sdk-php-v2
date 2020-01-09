@@ -24,7 +24,7 @@ class ResourceByProjectKeyMeCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeCartsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeCartsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyMeCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeCartsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeCartsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyMeCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeCartsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeCartsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

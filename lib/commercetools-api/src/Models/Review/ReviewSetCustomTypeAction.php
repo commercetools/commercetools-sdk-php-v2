@@ -17,7 +17,7 @@ interface ReviewSetCustomTypeAction extends ReviewUpdateAction
     const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>If absent, the custom type and any existing custom fields are removed.</p>.
+     * <p>If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -25,7 +25,7 @@ interface ReviewSetCustomTypeAction extends ReviewUpdateAction
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the CustomFields to this value.</p>.
+     * Sets the CustomFields to this value.</p>
      *
      * @return null|FieldContainer
      */

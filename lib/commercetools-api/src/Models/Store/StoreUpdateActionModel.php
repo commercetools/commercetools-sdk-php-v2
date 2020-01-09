@@ -14,7 +14,6 @@ use stdClass;
 final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

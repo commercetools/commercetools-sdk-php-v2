@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implements OrderSetReturnPaymentStateAction
 {
     const DISCRIMINATOR_VALUE = 'setReturnPaymentState';
-
     /**
      * @var ?string
      */

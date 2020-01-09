@@ -15,7 +15,7 @@ interface StoreSetNameAction extends StoreUpdateAction
     const FIELD_NAME = 'name';
 
     /**
-     * <p>The updated name of the store</p>.
+     * <p>The updated name of the store</p>
      *
      * @return null|LocalizedString
      */

@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ChannelChangeDescriptionActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -53,7 +53,7 @@ final class ChannelChangeDescriptionActionBuilder implements Builder
     public function build(): ChannelChangeDescriptionAction
     {
         return new ChannelChangeDescriptionActionModel(
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

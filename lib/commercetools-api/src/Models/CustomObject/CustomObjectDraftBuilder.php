@@ -37,7 +37,7 @@ final class CustomObjectDraftBuilder implements Builder
     private $version;
 
     /**
-     * <p>A namespace to group custom objects.</p>.
+     * <p>A namespace to group custom objects.</p>
      *
      * @return null|string
      */
@@ -47,7 +47,7 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
-     * <p>A user-defined key that is unique within the given container.</p>.
+     * <p>A user-defined key that is unique within the given container.</p>
      *
      * @return null|string
      */

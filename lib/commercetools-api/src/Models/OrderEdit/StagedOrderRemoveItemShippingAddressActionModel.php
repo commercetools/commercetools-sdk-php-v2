@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectModel implements StagedOrderRemoveItemShippingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'removeItemShippingAddress';
-
     /**
      * @var ?string
      */

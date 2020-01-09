@@ -31,7 +31,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     private $availableQuantity;
 
     /**
-     * @var ProductVariantChannelAvailabilityMap|?ProductVariantChannelAvailabilityMapBuilder
+     * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
      */
     private $channels;
 
@@ -123,7 +123,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
             $this->isOnStock,
             $this->restockableInDays,
             $this->availableQuantity,
-            ($this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels)
+            $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels
         );
     }
 

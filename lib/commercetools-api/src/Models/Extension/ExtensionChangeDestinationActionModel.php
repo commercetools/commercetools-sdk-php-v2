@@ -14,7 +14,6 @@ use stdClass;
 final class ExtensionChangeDestinationActionModel extends JsonObjectModel implements ExtensionChangeDestinationAction
 {
     const DISCRIMINATOR_VALUE = 'changeDestination';
-
     /**
      * @var ?string
      */

@@ -1,117 +1,133 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsByID;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsByIDPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyCartsByIDTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyCartsByIDGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartsByIDGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
-                        ->get();
+                        ->withId('ID')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/carts/{ID}',
             ],
             'ByProjectKeyCartsByIDPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartsByIDPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
-                        ->post(null);
+                        ->withId('ID')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/carts/{ID}',
             ],
             'ByProjectKeyCartsByIDDelete_withDataErasure' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure');
+                        ->withDataErasure('dataErasure')
+                    ;
                 },
                 'delete',
                 '{projectKey}/carts/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyCartsByIDDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/carts/{ID}?version=version',
             ],
             'ByProjectKeyCartsByIDDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartsByIDDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->carts()
-                        ->withId("ID")
-                        ->delete();
+                        ->withId('ID')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/carts/{ID}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -120,9 +136,9 @@ class ResourceByProjectKeyCartsByIDTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

@@ -32,7 +32,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>User-specific unique identifier for a product discount.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>.
+     * The field can be reset using the Set Key UpdateAction</p>
      *
      * @return null|string
      */
@@ -49,7 +49,7 @@ interface ProductDiscountDraft extends JsonObject
     public function getValue();
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>.
+     * <p>A valid ProductDiscount Predicate.</p>
      *
      * @return null|string
      */
@@ -57,14 +57,14 @@ interface ProductDiscountDraft extends JsonObject
 
     /**
      * <p>The string must contain a decimal number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>
      *
      * @return null|string
      */
     public function getSortOrder();
 
     /**
-     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>.
+     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>
      *
      * @return null|bool
      */
@@ -72,7 +72,7 @@ interface ProductDiscountDraft extends JsonObject
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -80,7 +80,7 @@ interface ProductDiscountDraft extends JsonObject
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

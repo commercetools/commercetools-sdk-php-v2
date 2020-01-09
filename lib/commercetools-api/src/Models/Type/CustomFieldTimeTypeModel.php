@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFieldTimeType
 {
     const DISCRIMINATOR_VALUE = 'Time';
-
     /**
      * @var ?string
      */

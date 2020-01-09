@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel implements OrderPaymentStateChangedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'OrderPaymentStateChanged';
-
     /**
      * @var ?string
      */

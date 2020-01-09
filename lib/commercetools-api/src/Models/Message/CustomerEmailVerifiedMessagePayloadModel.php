@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerEmailVerifiedMessagePayloadModel extends JsonObjectModel implements CustomerEmailVerifiedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'CustomerEmailVerified';
-
     /**
      * @var ?string
      */

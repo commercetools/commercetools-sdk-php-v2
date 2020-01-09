@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPrecisionMoney
 {
     const DISCRIMINATOR_VALUE = 'centPrecision';
-
     /**
      * @var ?string
      */
@@ -97,7 +96,7 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
     }
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
      */

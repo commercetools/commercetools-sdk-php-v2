@@ -21,7 +21,7 @@ final class PriceTierDraftBuilder implements Builder
     private $minimumQuantity;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class PriceTierDraftBuilder implements Builder
     {
         return new PriceTierDraftModel(
             $this->minimumQuantity,
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

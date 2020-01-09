@@ -21,7 +21,7 @@ final class CartSetCustomLineItemTaxAmountActionBuilder implements Builder
     private $customLineItemId;
 
     /**
-     * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
+     * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
@@ -75,7 +75,7 @@ final class CartSetCustomLineItemTaxAmountActionBuilder implements Builder
     {
         return new CartSetCustomLineItemTaxAmountActionModel(
             $this->customLineItemId,
-            ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
+            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }
 

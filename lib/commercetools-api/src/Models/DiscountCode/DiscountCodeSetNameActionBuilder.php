@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class DiscountCodeSetNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|LocalizedString
      */
@@ -55,7 +55,7 @@ final class DiscountCodeSetNameActionBuilder implements Builder
     public function build(): DiscountCodeSetNameAction
     {
         return new DiscountCodeSetNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

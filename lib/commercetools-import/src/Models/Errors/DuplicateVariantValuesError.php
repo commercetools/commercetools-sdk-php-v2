@@ -13,7 +13,7 @@ interface DuplicateVariantValuesError extends ErrorObject
     const FIELD_VARIANT_VALUES = 'variantValues';
 
     /**
-     * <p>The offending variant values.</p>.
+     * <p>The offending variant values.</p>
      *
      * @return null|VariantValues
      */

@@ -16,17 +16,17 @@ use Commercetools\Base\Builder;
 final class CustomFieldsDraftBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
-     * <p>The <code>id</code> or the <code>key</code> of the type to use.</p>.
+     * <p>The <code>id</code> or the <code>key</code> of the type to use.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -36,7 +36,7 @@ final class CustomFieldsDraftBuilder implements Builder
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type.</p>.
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type.</p>
      *
      * @return null|FieldContainer
      */
@@ -88,8 +88,8 @@ final class CustomFieldsDraftBuilder implements Builder
     public function build(): CustomFieldsDraft
     {
         return new CustomFieldsDraftModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

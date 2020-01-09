@@ -18,7 +18,6 @@ use stdClass;
 final class PaymentSetAuthorizationActionModel extends JsonObjectModel implements PaymentSetAuthorizationAction
 {
     const DISCRIMINATOR_VALUE = 'setAuthorization';
-
     /**
      * @var ?string
      */

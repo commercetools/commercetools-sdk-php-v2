@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShoppingListSetKeyActionModel extends JsonObjectModel implements ShoppingListSetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */

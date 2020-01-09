@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class CategoryChangeParentActionBuilder implements Builder
 {
     /**
-     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $parent;
 
@@ -51,7 +51,7 @@ final class CategoryChangeParentActionBuilder implements Builder
     public function build(): CategoryChangeParentAction
     {
         return new CategoryChangeParentActionModel(
-            ($this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent)
+            $this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent
         );
     }
 

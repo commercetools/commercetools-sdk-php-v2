@@ -15,7 +15,6 @@ use stdClass;
 final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements DuplicatePriceScopeError
 {
     const DISCRIMINATOR_VALUE = 'DuplicatePriceScope';
-
     /**
      * @var ?string
      */

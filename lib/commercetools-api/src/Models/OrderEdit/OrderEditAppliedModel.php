@@ -16,7 +16,6 @@ use stdClass;
 final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditApplied
 {
     const DISCRIMINATOR_VALUE = 'Applied';
-
     /**
      * @var ?string
      */

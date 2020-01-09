@@ -16,7 +16,6 @@ use stdClass;
 final class DiscountCodeSetNameActionModel extends JsonObjectModel implements DiscountCodeSetNameAction
 {
     const DISCRIMINATOR_VALUE = 'setName';
-
     /**
      * @var ?string
      */
@@ -52,7 +51,7 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|LocalizedString
      */

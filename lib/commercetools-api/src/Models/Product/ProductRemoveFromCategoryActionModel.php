@@ -16,7 +16,6 @@ use stdClass;
 final class ProductRemoveFromCategoryActionModel extends JsonObjectModel implements ProductRemoveFromCategoryAction
 {
     const DISCRIMINATOR_VALUE = 'removeFromCategory';
-
     /**
      * @var ?string
      */

@@ -21,7 +21,7 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
     private $addressId;
 
     /**
-     * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>.
+     * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
      *
      * @return null|string
      */

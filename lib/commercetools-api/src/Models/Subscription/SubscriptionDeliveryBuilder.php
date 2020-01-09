@@ -25,12 +25,12 @@ final class SubscriptionDeliveryBuilder implements Builder
     private $projectKey;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
@@ -112,8 +112,8 @@ final class SubscriptionDeliveryBuilder implements Builder
     {
         return new SubscriptionDeliveryModel(
             $this->projectKey,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers)
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers
         );
     }
 

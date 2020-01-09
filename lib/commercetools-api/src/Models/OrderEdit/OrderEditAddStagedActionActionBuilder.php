@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderEditAddStagedActionActionBuilder implements Builder
 {
     /**
-     * @var StagedOrderUpdateAction|?StagedOrderUpdateActionBuilder
+     * @var null|StagedOrderUpdateAction|StagedOrderUpdateActionBuilder
      */
     private $stagedAction;
 
@@ -53,7 +53,7 @@ final class OrderEditAddStagedActionActionBuilder implements Builder
     public function build(): OrderEditAddStagedActionAction
     {
         return new OrderEditAddStagedActionActionModel(
-            ($this->stagedAction instanceof StagedOrderUpdateActionBuilder ? $this->stagedAction->build() : $this->stagedAction)
+            $this->stagedAction instanceof StagedOrderUpdateActionBuilder ? $this->stagedAction->build() : $this->stagedAction
         );
     }
 

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProjectChangeCountriesActionModel extends JsonObjectModel implements ProjectChangeCountriesAction
 {
     const DISCRIMINATOR_VALUE = 'changeCountries';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>A two-digit country code as per country code.</p>.
+     * <p>A two-digit country code as per country code.</p>
      *
      * @return null|array
      */

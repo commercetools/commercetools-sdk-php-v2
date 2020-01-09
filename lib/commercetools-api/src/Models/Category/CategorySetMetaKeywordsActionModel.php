@@ -16,7 +16,6 @@ use stdClass;
 final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implements CategorySetMetaKeywordsAction
 {
     const DISCRIMINATOR_VALUE = 'setMetaKeywords';
-
     /**
      * @var ?string
      */

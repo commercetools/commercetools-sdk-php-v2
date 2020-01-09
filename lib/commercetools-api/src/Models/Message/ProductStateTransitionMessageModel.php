@@ -24,7 +24,6 @@ use stdClass;
 final class ProductStateTransitionMessageModel extends JsonObjectModel implements ProductStateTransitionMessage
 {
     const DISCRIMINATOR_VALUE = 'ProductStateTransition';
-
     /**
      * @var ?string
      */

@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class MyCustomerAddAddressActionBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -53,7 +53,7 @@ final class MyCustomerAddAddressActionBuilder implements Builder
     public function build(): MyCustomerAddAddressAction
     {
         return new MyCustomerAddAddressActionModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }
 

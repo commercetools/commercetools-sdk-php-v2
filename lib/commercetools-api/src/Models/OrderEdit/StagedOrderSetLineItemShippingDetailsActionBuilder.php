@@ -23,7 +23,7 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     private $lineItemId;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     {
         return new StagedOrderSetLineItemShippingDetailsActionModel(
             $this->lineItemId,
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

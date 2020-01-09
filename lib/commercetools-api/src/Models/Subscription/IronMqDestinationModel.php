@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class IronMqDestinationModel extends JsonObjectModel implements IronMqDestination
 {
     const DISCRIMINATOR_VALUE = 'IronMQ';
-
     /**
      * @var ?string
      */

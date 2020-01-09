@@ -101,7 +101,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
 
     /**
      * <p>The amount of a CustomLineItemin the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -155,7 +155,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-     * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>.
+     * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -175,7 +175,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
      * @return null|ExternalTaxRateDraft
      */
@@ -195,7 +195,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFields
      */
@@ -215,7 +215,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-     * <p>Container for custom line item specific address(es).</p>.
+     * <p>Container for custom line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */

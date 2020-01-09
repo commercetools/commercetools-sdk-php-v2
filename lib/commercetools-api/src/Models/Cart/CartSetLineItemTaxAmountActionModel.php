@@ -14,7 +14,6 @@ use stdClass;
 final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implements CartSetLineItemTaxAmountAction
 {
     const DISCRIMINATOR_VALUE = 'setLineItemTaxAmount';
-
     /**
      * @var ?string
      */

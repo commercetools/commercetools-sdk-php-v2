@@ -22,21 +22,21 @@ interface Transaction extends JsonObject
     const FIELD_STATE = 'state';
 
     /**
-     * <p>The unique ID of this object.</p>.
+     * <p>The unique ID of this object.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The time at which the transaction took place.</p>.
+     * <p>The time at which the transaction took place.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();
 
     /**
-     * <p>The type of this transaction.</p>.
+     * <p>The type of this transaction.</p>
      *
      * @return null|string
      */
@@ -49,14 +49,14 @@ interface Transaction extends JsonObject
 
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
      * @return null|string
      */
     public function getInteractionId();
 
     /**
-     * <p>The state of this transaction.</p>.
+     * <p>The state of this transaction.</p>
      *
      * @return null|string
      */

@@ -23,7 +23,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     private $customLineItemId;
 
     /**
-     * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
+     * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     {
         return new StagedOrderSetCustomLineItemTaxAmountActionModel(
             $this->customLineItemId,
-            ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
+            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }
 

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartResourceIdentifierModel extends JsonObjectModel implements CartResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'cart';
-
     /**
      * @var ?string
      */

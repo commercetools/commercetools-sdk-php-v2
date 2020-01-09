@@ -20,7 +20,7 @@ interface Asset extends JsonObject
 
     /**
      * <p>User-defined identifier for the asset.
-     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     * Asset keys are unique inside their container (a product variant or a category).</p>
      *
      * @return null|string
      */

@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class CartDiscountSetValidFromActionModel extends JsonObjectModel implements CartDiscountSetValidFromAction
 {
     const DISCRIMINATOR_VALUE = 'setValidFrom';
-
     /**
      * @var ?string
      */
@@ -51,7 +50,7 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>
      *
      * @return null|DateTimeImmutable
      */

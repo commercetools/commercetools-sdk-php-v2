@@ -16,7 +16,6 @@ use stdClass;
 final class CategoryAddAssetActionModel extends JsonObjectModel implements CategoryAddAssetAction
 {
     const DISCRIMINATOR_VALUE = 'addAsset';
-
     /**
      * @var ?string
      */
@@ -77,7 +76,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     }
 
     /**
-     * <p>When specified, the value might be <code>0</code> and should be lower than the total of the assets list.</p>.
+     * <p>When specified, the value might be <code>0</code> and should be lower than the total of the assets list.</p>
      *
      * @return null|int
      */

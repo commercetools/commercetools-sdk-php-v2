@@ -16,7 +16,6 @@ use stdClass;
 final class PaymentSetCustomerActionModel extends JsonObjectModel implements PaymentSetCustomerAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomer';
-
     /**
      * @var ?string
      */
@@ -52,7 +51,7 @@ final class PaymentSetCustomerActionModel extends JsonObjectModel implements Pay
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerResourceIdentifier
      */

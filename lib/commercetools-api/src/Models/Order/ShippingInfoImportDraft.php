@@ -38,7 +38,7 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getPrice();
 
     /**
-     * <p>The shipping rate used to determine the price.</p>.
+     * <p>The shipping rate used to determine the price.</p>
      *
      * @return null|ShippingRateDraft
      */
@@ -55,14 +55,14 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getTaxCategory();
 
     /**
-     * <p>Not set if custom shipping method is used.</p>.
+     * <p>Not set if custom shipping method is used.</p>
      *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
 
     /**
-     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>.
+     * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
      * @return null|DeliveryCollection
      */
@@ -74,7 +74,7 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getDiscountedPrice();
 
     /**
-     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>.
+     * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
      * @return null|string
      */

@@ -22,14 +22,14 @@ interface TextLineItemDraft extends JsonObject
     const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>Defaults to the current date and time.</p>.
+     * <p>Defaults to the current date and time.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -46,7 +46,7 @@ interface TextLineItemDraft extends JsonObject
     public function getName();
 
     /**
-     * <p>Defaults to <code>1</code>.</p>.
+     * <p>Defaults to <code>1</code>.</p>
      *
      * @return null|int
      */

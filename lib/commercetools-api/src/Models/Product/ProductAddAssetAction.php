@@ -39,7 +39,7 @@ interface ProductAddAssetAction extends ProductUpdateAction
     public function getAsset();
 
     /**
-     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>.
+     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
      * @return null|int
      */

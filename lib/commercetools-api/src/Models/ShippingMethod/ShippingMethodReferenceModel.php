@@ -15,7 +15,6 @@ use stdClass;
 final class ShippingMethodReferenceModel extends JsonObjectModel implements ShippingMethodReference
 {
     const DISCRIMINATOR_VALUE = 'shipping-method';
-
     /**
      * @var ?string
      */

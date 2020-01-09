@@ -35,7 +35,7 @@ interface TypeDraft extends JsonObject
     public function getDescription();
 
     /**
-     * <p>The IDs of the resources that can be customized with this type.</p>.
+     * <p>The IDs of the resources that can be customized with this type.</p>
      *
      * @return null|array
      */

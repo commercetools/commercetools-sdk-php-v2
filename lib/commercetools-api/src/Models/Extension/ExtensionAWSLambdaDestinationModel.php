@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implements ExtensionAWSLambdaDestination
 {
     const DISCRIMINATOR_VALUE = 'AWSLambda';
-
     /**
      * @var ?string
      */

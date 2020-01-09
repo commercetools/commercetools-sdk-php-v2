@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductDiscountValueExternalDraftModel extends JsonObjectModel implements ProductDiscountValueExternalDraft
 {
     const DISCRIMINATOR_VALUE = 'external';
-
     /**
      * @var ?string
      */

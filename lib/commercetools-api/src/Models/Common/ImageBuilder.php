@@ -21,7 +21,7 @@ final class ImageBuilder implements Builder
     private $url;
 
     /**
-     * @var ImageDimensions|?ImageDimensionsBuilder
+     * @var null|ImageDimensions|ImageDimensionsBuilder
      */
     private $dimensions;
 
@@ -98,7 +98,7 @@ final class ImageBuilder implements Builder
     {
         return new ImageModel(
             $this->url,
-            ($this->dimensions instanceof ImageDimensionsBuilder ? $this->dimensions->build() : $this->dimensions),
+            $this->dimensions instanceof ImageDimensionsBuilder ? $this->dimensions->build() : $this->dimensions,
             $this->label
         );
     }

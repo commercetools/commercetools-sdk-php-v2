@@ -15,7 +15,6 @@ use stdClass;
 final class OrderEditPreviewFailureModel extends JsonObjectModel implements OrderEditPreviewFailure
 {
     const DISCRIMINATOR_VALUE = 'PreviewFailure';
-
     /**
      * @var ?string
      */

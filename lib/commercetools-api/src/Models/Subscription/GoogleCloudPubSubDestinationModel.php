@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements GoogleCloudPubSubDestination
 {
     const DISCRIMINATOR_VALUE = 'GoogleCloudPubSub';
-
     /**
      * @var ?string
      */

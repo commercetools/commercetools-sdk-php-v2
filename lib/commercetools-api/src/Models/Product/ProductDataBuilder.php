@@ -19,7 +19,7 @@ use Commercetools\Base\Builder;
 final class ProductDataBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -29,37 +29,37 @@ final class ProductDataBuilder implements Builder
     private $categories;
 
     /**
-     * @var CategoryOrderHints|?CategoryOrderHintsBuilder
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @var null|ProductVariant|ProductVariantBuilder
      */
     private $masterVariant;
 
@@ -69,7 +69,7 @@ final class ProductDataBuilder implements Builder
     private $variants;
 
     /**
-     * @var SearchKeywords|?SearchKeywordsBuilder
+     * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
@@ -364,17 +364,17 @@ final class ProductDataBuilder implements Builder
     public function build(): ProductData
     {
         return new ProductDataModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->categories,
-            ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant),
+            $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant,
             $this->variants,
-            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords)
+            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords
         );
     }
 

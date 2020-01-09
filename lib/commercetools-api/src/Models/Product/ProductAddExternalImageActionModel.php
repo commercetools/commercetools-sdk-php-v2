@@ -16,7 +16,6 @@ use stdClass;
 final class ProductAddExternalImageActionModel extends JsonObjectModel implements ProductAddExternalImageAction
 {
     const DISCRIMINATOR_VALUE = 'addExternalImage';
-
     /**
      * @var ?string
      */

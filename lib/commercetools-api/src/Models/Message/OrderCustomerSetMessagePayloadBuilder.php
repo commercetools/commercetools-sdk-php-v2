@@ -20,22 +20,22 @@ use Commercetools\Base\Builder;
 final class OrderCustomerSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $oldCustomer;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $oldCustomerGroup;
 
@@ -154,10 +154,10 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     public function build(): OrderCustomerSetMessagePayload
     {
         return new OrderCustomerSetMessagePayloadModel(
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),
-            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup)
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer,
+            $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup
         );
     }
 

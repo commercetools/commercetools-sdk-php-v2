@@ -15,7 +15,6 @@ use stdClass;
 final class ResourceCreationErrorModel extends JsonObjectModel implements ResourceCreationError
 {
     const DISCRIMINATOR_VALUE = 'ResourceCreation';
-
     /**
      * @var ?string
      */
@@ -58,7 +57,7 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

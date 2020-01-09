@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductRemoveVariantActionModel extends JsonObjectModel implements ProductRemoveVariantAction
 {
     const DISCRIMINATOR_VALUE = 'removeVariant';
-
     /**
      * @var ?string
      */

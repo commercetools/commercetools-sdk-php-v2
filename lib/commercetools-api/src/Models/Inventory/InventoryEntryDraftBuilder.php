@@ -26,7 +26,7 @@ final class InventoryEntryDraftBuilder implements Builder
     private $sku;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
@@ -46,7 +46,7 @@ final class InventoryEntryDraftBuilder implements Builder
     private $expectedDelivery;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -91,7 +91,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -184,11 +184,11 @@ final class InventoryEntryDraftBuilder implements Builder
     {
         return new InventoryEntryDraftModel(
             $this->sku,
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,
             $this->restockableInDays,
             $this->expectedDelivery,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

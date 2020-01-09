@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodResourceIdentifierModel extends JsonObjectModel implements ShippingMethodResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'shipping-method';
-
     /**
      * @var ?string
      */

@@ -94,7 +94,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -132,7 +132,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
      * @return null|int
      */
@@ -169,7 +169,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>.
+     * <p>User-specific unique identifier for the shopping list.</p>
      *
      * @return null|string
      */
@@ -225,7 +225,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
      * @return null|LocalizedString
      */
@@ -262,7 +262,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */

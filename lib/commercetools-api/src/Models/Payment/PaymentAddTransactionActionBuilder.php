@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class PaymentAddTransactionActionBuilder implements Builder
 {
     /**
-     * @var TransactionDraft|?TransactionDraftBuilder
+     * @var null|TransactionDraft|TransactionDraftBuilder
      */
     private $transaction;
 
@@ -51,7 +51,7 @@ final class PaymentAddTransactionActionBuilder implements Builder
     public function build(): PaymentAddTransactionAction
     {
         return new PaymentAddTransactionActionModel(
-            ($this->transaction instanceof TransactionDraftBuilder ? $this->transaction->build() : $this->transaction)
+            $this->transaction instanceof TransactionDraftBuilder ? $this->transaction->build() : $this->transaction
         );
     }
 

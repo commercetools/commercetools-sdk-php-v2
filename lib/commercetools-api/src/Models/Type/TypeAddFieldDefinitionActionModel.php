@@ -14,7 +14,6 @@ use stdClass;
 final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements TypeAddFieldDefinitionAction
 {
     const DISCRIMINATOR_VALUE = 'addFieldDefinition';
-
     /**
      * @var ?string
      */

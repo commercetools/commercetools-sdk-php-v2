@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
@@ -76,7 +76,7 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     public function build(): OrderStateTransitionMessagePayload
     {
         return new OrderStateTransitionMessagePayloadModel(
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->force
         );
     }

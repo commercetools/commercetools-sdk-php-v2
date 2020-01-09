@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ProductProjection|?ProductProjectionBuilder
+     * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
@@ -53,7 +53,7 @@ final class ProductCreatedMessagePayloadBuilder implements Builder
     public function build(): ProductCreatedMessagePayload
     {
         return new ProductCreatedMessagePayloadModel(
-            ($this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection)
+            $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection
         );
     }
 

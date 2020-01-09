@@ -24,7 +24,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber ext
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet($args['projectKey'], $args['storeKey'], $args['orderNumber'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['orderNumber'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber ext
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost($args['projectKey'], $args['storeKey'], $args['orderNumber'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['orderNumber'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber ext
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete($args['projectKey'], $args['storeKey'], $args['orderNumber'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['orderNumber'], $body, $headers, $this->getClient());
     }
 }

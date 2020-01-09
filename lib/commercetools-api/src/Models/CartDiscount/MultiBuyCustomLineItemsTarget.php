@@ -18,28 +18,28 @@ interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
 
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
-     * matched by the predicate.</p>.
+     * matched by the predicate.</p>
      *
      * @return null|string
      */
     public function getPredicate();
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>.
+     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
      * @return null|int
      */
     public function getTriggerQuantity();
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>.
+     * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
      * @return null|int
      */
     public function getDiscountedQuantity();
 
     /**
-     * <p>Maximum number of applications of this discount.</p>.
+     * <p>Maximum number of applications of this discount.</p>
      *
      * @return null|int
      */

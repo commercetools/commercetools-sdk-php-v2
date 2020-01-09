@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class PaymentCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Payment|?PaymentBuilder
+     * @var null|Payment|PaymentBuilder
      */
     private $payment;
 
@@ -53,7 +53,7 @@ final class PaymentCreatedMessagePayloadBuilder implements Builder
     public function build(): PaymentCreatedMessagePayload
     {
         return new PaymentCreatedMessagePayloadModel(
-            ($this->payment instanceof PaymentBuilder ? $this->payment->build() : $this->payment)
+            $this->payment instanceof PaymentBuilder ? $this->payment->build() : $this->payment
         );
     }
 

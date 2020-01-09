@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StateChangeInitialActionModel extends JsonObjectModel implements StateChangeInitialAction
 {
     const DISCRIMINATOR_VALUE = 'changeInitial';
-
     /**
      * @var ?string
      */

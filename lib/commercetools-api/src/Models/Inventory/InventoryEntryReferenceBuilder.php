@@ -21,7 +21,7 @@ final class InventoryEntryReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var InventoryEntry|?InventoryEntryBuilder
+     * @var null|InventoryEntry|InventoryEntryBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class InventoryEntryReferenceBuilder implements Builder
     {
         return new InventoryEntryReferenceModel(
             $this->id,
-            ($this->obj instanceof InventoryEntryBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof InventoryEntryBuilder ? $this->obj->build() : $this->obj
         );
     }
 

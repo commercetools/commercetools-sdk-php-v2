@@ -64,12 +64,12 @@ final class MyCartBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -89,7 +89,7 @@ final class MyCartBuilder implements Builder
     private $anonymousId;
 
     /**
-     * @var StoreKeyReference|?StoreKeyReferenceBuilder
+     * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
@@ -104,12 +104,12 @@ final class MyCartBuilder implements Builder
     private $customLineItems;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
-     * @var TaxedPrice|?TaxedPriceBuilder
+     * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
@@ -119,12 +119,12 @@ final class MyCartBuilder implements Builder
     private $cartState;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
@@ -149,7 +149,7 @@ final class MyCartBuilder implements Builder
     private $taxCalculationMode;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
@@ -159,7 +159,7 @@ final class MyCartBuilder implements Builder
     private $country;
 
     /**
-     * @var ShippingInfo|?ShippingInfoBuilder
+     * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
@@ -169,12 +169,12 @@ final class MyCartBuilder implements Builder
     private $discountCodes;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var PaymentInfo|?PaymentInfoBuilder
+     * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $paymentInfo;
 
@@ -199,7 +199,7 @@ final class MyCartBuilder implements Builder
     private $origin;
 
     /**
-     * @var ShippingRateInput|?ShippingRateInputBuilder
+     * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
@@ -385,7 +385,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -931,34 +931,34 @@ final class MyCartBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customerId,
             $this->customerEmail,
             $this->anonymousId,
-            ($this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store),
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,
-            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
+            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->cartState,
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
+            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->inventoryMode,
             $this->taxMode,
             $this->taxRoundingMode,
             $this->taxCalculationMode,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->country,
-            ($this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
+            $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->discountCodes,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->locale,
             $this->deleteDaysAfterLastModification,
             $this->refusedGifts,
             $this->origin,
-            ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
+            $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses
         );
     }

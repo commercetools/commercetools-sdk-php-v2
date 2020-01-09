@@ -14,7 +14,6 @@ use stdClass;
 final class ExtensionHttpDestinationModel extends JsonObjectModel implements ExtensionHttpDestination
 {
     const DISCRIMINATOR_VALUE = 'HTTP';
-
     /**
      * @var ?string
      */

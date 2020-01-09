@@ -16,7 +16,6 @@ use stdClass;
 final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements ShippingMethodAddZoneAction
 {
     const DISCRIMINATOR_VALUE = 'addZone';
-
     /**
      * @var ?string
      */

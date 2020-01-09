@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class ExtensionChangeDestinationActionBuilder implements Builder
 {
     /**
-     * @var ExtensionDestination|?ExtensionDestinationBuilder
+     * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
 
@@ -51,7 +51,7 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     public function build(): ExtensionChangeDestinationAction
     {
         return new ExtensionChangeDestinationActionModel(
-            ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination)
+            $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination
         );
     }
 

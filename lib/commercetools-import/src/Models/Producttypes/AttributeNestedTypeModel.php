@@ -16,7 +16,6 @@ use stdClass;
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
 {
     const DISCRIMINATOR_VALUE = 'nested';
-
     /**
      * @var ?string
      */
@@ -52,7 +51,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>References a product type by its key.</p>.
+     * <p>References a product type by its key.</p>
      *
      * @return null|ProductTypeKeyReference
      */

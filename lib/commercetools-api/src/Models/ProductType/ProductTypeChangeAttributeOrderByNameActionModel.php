@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectModel implements ProductTypeChangeAttributeOrderByNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeAttributeOrderByName';
-
     /**
      * @var ?string
      */

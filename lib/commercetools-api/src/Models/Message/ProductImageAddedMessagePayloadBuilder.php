@@ -23,7 +23,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     private $variantId;
 
     /**
-     * @var Image|?ImageBuilder
+     * @var null|Image|ImageBuilder
      */
     private $image;
 
@@ -100,7 +100,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     {
         return new ProductImageAddedMessagePayloadModel(
             $this->variantId,
-            ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
+            $this->image instanceof ImageBuilder ? $this->image->build() : $this->image,
             $this->staged
         );
     }

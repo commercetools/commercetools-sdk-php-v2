@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class SnsDestinationModel extends JsonObjectModel implements SnsDestination
 {
     const DISCRIMINATOR_VALUE = 'SNS';
-
     /**
      * @var ?string
      */

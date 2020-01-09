@@ -14,7 +14,6 @@ use stdClass;
 final class FieldTypeModel extends JsonObjectModel implements FieldType
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

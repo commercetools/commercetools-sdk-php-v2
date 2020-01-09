@@ -42,7 +42,7 @@ interface LineItem extends JsonObject
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     * <p>The unique ID of this LineItem.</p>.
+     * <p>The unique ID of this LineItem.</p>
      *
      * @return null|string
      */
@@ -54,7 +54,7 @@ interface LineItem extends JsonObject
     public function getProductId();
 
     /**
-     * <p>The product name.</p>.
+     * <p>The product name.</p>
      *
      * @return null|LocalizedString
      */
@@ -64,7 +64,7 @@ interface LineItem extends JsonObject
      * <p>The slug of a product is inserted on the fly.
      * It is always up-to-date and can therefore be used to link to the product detail page of the product.
      * It is empty if the product has been deleted.
-     * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>.
+     * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
      *
      * @return null|LocalizedString
      */
@@ -77,7 +77,7 @@ interface LineItem extends JsonObject
 
     /**
      * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
-     * It can manually be updated with the Recalculate update action.</p>.
+     * It can manually be updated with the Recalculate update action.</p>
      *
      * @return null|ProductVariant
      */
@@ -85,14 +85,14 @@ interface LineItem extends JsonObject
 
     /**
      * <p>The price of a line item is selected from the prices array of the product variant.
-     * If the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>.
+     * If the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
      * @return null|Price
      */
     public function getPrice();
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>.
+     * <p>Set once the <code>taxRate</code> is set.</p>
      *
      * @return null|TaxedItemPrice
      */
@@ -102,7 +102,7 @@ interface LineItem extends JsonObject
      * <p>The total price of this line item.
      * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>.
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
      * @return null|TypedMoney
      */
@@ -110,7 +110,7 @@ interface LineItem extends JsonObject
 
     /**
      * <p>The amount of a LineItem in the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -123,7 +123,7 @@ interface LineItem extends JsonObject
 
     /**
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate
      */
@@ -132,7 +132,7 @@ interface LineItem extends JsonObject
     /**
      * <p>The supply channel identifies the inventory entries that should be reserved.
      * The channel has
-     * the role InventorySupply.</p>.
+     * the role InventorySupply.</p>
      *
      * @return null|ChannelReference
      */
@@ -140,7 +140,7 @@ interface LineItem extends JsonObject
 
     /**
      * <p>The distribution channel is used to select a ProductPrice.
-     * The channel has the role ProductDistribution.</p>.
+     * The channel has the role ProductDistribution.</p>
      *
      * @return null|ChannelReference
      */
@@ -167,7 +167,7 @@ interface LineItem extends JsonObject
     public function getCustom();
 
     /**
-     * <p>Container for line item specific address(es).</p>.
+     * <p>Container for line item specific address(es).</p>
      *
      * @return null|ItemShippingDetails
      */

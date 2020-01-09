@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyReference
 {
     const DISCRIMINATOR_VALUE = 'state';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

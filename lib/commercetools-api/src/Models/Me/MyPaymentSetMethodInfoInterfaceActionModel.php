@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyPaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel implements MyPaymentSetMethodInfoInterfaceAction
 {
     const DISCRIMINATOR_VALUE = 'setMethodInfoInterface';
-
     /**
      * @var ?string
      */

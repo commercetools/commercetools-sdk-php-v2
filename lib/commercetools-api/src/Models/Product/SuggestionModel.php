@@ -24,7 +24,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     }
 
     /**
-     * <p>The suggested text.</p>.
+     * <p>The suggested text.</p>
      *
      * @return null|string
      */

@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var OrderEditReference|?OrderEditReferenceBuilder
+     * @var null|OrderEditReference|OrderEditReferenceBuilder
      */
     private $edit;
 
     /**
-     * @var OrderEditApplied|?OrderEditAppliedBuilder
+     * @var null|OrderEditApplied|OrderEditAppliedBuilder
      */
     private $result;
 
@@ -88,8 +88,8 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     public function build(): OrderEditAppliedMessagePayload
     {
         return new OrderEditAppliedMessagePayloadModel(
-            ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit),
-            ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result)
+            $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit,
+            $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result
         );
     }
 

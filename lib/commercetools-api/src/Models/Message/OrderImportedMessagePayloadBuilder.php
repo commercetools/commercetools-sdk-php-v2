@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderImportedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Order|?OrderBuilder
+     * @var null|Order|OrderBuilder
      */
     private $order;
 
@@ -53,7 +53,7 @@ final class OrderImportedMessagePayloadBuilder implements Builder
     public function build(): OrderImportedMessagePayload
     {
         return new OrderImportedMessagePayloadModel(
-            ($this->order instanceof OrderBuilder ? $this->order->build() : $this->order)
+            $this->order instanceof OrderBuilder ? $this->order->build() : $this->order
         );
     }
 

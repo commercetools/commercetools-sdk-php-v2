@@ -31,7 +31,7 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -42,7 +42,7 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -55,6 +55,6 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

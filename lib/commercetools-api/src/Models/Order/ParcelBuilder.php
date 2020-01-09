@@ -27,12 +27,12 @@ final class ParcelBuilder implements Builder
     private $createdAt;
 
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
-     * @var TrackingData|?TrackingDataBuilder
+     * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
@@ -74,7 +74,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>.
+     * <p>The delivery items contained in this parcel.</p>
      *
      * @return null|DeliveryItemCollection
      */
@@ -158,8 +158,8 @@ final class ParcelBuilder implements Builder
         return new ParcelModel(
             $this->id,
             $this->createdAt,
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
+            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
+            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
             $this->items
         );
     }

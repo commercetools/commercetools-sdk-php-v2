@@ -17,7 +17,6 @@ use stdClass;
 final class ExtensionBadResponseErrorModel extends JsonObjectModel implements ExtensionBadResponseError
 {
     const DISCRIMINATOR_VALUE = 'ExtensionBadResponse';
-
     /**
      * @var ?string
      */

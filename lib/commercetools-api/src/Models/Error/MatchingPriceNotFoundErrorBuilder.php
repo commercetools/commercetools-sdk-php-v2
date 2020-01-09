@@ -45,12 +45,12 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     private $country;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
@@ -208,8 +208,8 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
             $this->variantId,
             $this->currency,
             $this->country,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel)
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel
         );
     }
 

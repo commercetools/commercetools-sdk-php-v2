@@ -22,6 +22,6 @@ class ResourceByProjectKeyGraphql extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyGraphqlPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyGraphqlPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

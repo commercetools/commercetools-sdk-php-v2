@@ -22,7 +22,6 @@ use stdClass;
 final class ProductRevertedStagedChangesMessageModel extends JsonObjectModel implements ProductRevertedStagedChangesMessage
 {
     const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
-
     /**
      * @var ?string
      */

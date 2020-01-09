@@ -27,35 +27,35 @@ interface Project extends JsonObject
     const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
 
     /**
-     * <p>The current version of the project.</p>.
+     * <p>The current version of the project.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * <p>The unique key of the project.</p>.
+     * <p>The unique key of the project.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The name of the project.</p>.
+     * <p>The name of the project.</p>
      *
      * @return null|string
      */
     public function getName();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|array
      */
     public function getCountries();
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|array
      */
@@ -72,7 +72,7 @@ interface Project extends JsonObject
     public function getCreatedAt();
 
     /**
-     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>.
+     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>
      *
      * @return null|string
      */

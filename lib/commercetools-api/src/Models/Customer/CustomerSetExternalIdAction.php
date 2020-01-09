@@ -13,7 +13,7 @@ interface CustomerSetExternalIdAction extends CustomerUpdateAction
     const FIELD_EXTERNAL_ID = 'externalId';
 
     /**
-     * <p>If not defined, the external ID is unset.</p>.
+     * <p>If not defined, the external ID is unset.</p>
      *
      * @return null|string
      */

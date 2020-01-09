@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class DeliveryRemovedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Delivery|?DeliveryBuilder
+     * @var null|Delivery|DeliveryBuilder
      */
     private $delivery;
 
@@ -53,7 +53,7 @@ final class DeliveryRemovedMessagePayloadBuilder implements Builder
     public function build(): DeliveryRemovedMessagePayload
     {
         return new DeliveryRemovedMessagePayloadModel(
-            ($this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery)
+            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery
         );
     }
 

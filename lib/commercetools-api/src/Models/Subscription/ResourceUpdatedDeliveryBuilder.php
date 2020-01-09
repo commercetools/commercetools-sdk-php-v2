@@ -26,12 +26,12 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     private $projectKey;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
@@ -182,8 +182,8 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     {
         return new ResourceUpdatedDeliveryModel(
             $this->projectKey,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->version,
             $this->oldVersion,
             $this->modifiedAt

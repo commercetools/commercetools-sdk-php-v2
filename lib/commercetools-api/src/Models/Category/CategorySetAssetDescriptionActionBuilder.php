@@ -28,7 +28,7 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -101,7 +101,7 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
         return new CategorySetAssetDescriptionActionModel(
             $this->assetId,
             $this->assetKey,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

@@ -21,7 +21,7 @@ final class ProductReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Product|?ProductBuilder
+     * @var null|Product|ProductBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ProductReferenceBuilder implements Builder
     {
         return new ProductReferenceModel(
             $this->id,
-            ($this->obj instanceof ProductBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ProductBuilder ? $this->obj->build() : $this->obj
         );
     }
 

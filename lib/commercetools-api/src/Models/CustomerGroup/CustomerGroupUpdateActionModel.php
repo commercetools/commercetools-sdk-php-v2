@@ -14,7 +14,6 @@ use stdClass;
 final class CustomerGroupUpdateActionModel extends JsonObjectModel implements CustomerGroupUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

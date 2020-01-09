@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implements PaymentSetMethodInfoMethodAction
 {
     const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If not provided, the method is unset.</p>.
+     * <p>If not provided, the method is unset.</p>
      *
      * @return null|string
      */

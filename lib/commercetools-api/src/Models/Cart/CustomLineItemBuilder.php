@@ -32,22 +32,22 @@ final class CustomLineItemBuilder implements Builder
     private $id;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $money;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
@@ -67,12 +67,12 @@ final class CustomLineItemBuilder implements Builder
     private $state;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
-     * @var TaxRate|?TaxRateBuilder
+     * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
@@ -82,17 +82,17 @@ final class CustomLineItemBuilder implements Builder
     private $discountedPricePerQuantity;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var ItemShippingDetails|?ItemShippingDetailsBuilder
+     * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $shippingDetails;
 
     /**
-     * <p>The unique ID of this CustomLineItem.</p>.
+     * <p>The unique ID of this CustomLineItem.</p>
      *
      * @return null|string
      */
@@ -102,7 +102,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The name of this CustomLineItem.</p>.
+     * <p>The name of this CustomLineItem.</p>
      *
      * @return null|LocalizedString
      */
@@ -113,7 +113,7 @@ final class CustomLineItemBuilder implements Builder
 
     /**
      * <p>The cost to add to the cart.
-     * The amount can be negative.</p>.
+     * The amount can be negative.</p>
      *
      * @return null|TypedMoney
      */
@@ -123,7 +123,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Set once the <code>taxRate</code> is set.</p>.
+     * <p>Set once the <code>taxRate</code> is set.</p>
      *
      * @return null|TaxedItemPrice
      */
@@ -136,7 +136,7 @@ final class CustomLineItemBuilder implements Builder
      * <p>The total price of this custom line item.
      * If custom line item is discounted, then the <code>totalPrice</code> would be the discounted custom line item price multiplied by <code>quantity</code>.
      * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
-     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>.
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
      * @return null|TypedMoney
      */
@@ -146,7 +146,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * <p>A unique String in the cart to identify this CustomLineItem.</p>.
+     * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
      * @return null|string
      */
@@ -157,7 +157,7 @@ final class CustomLineItemBuilder implements Builder
 
     /**
      * <p>The amount of a CustomLineItem in the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -184,7 +184,7 @@ final class CustomLineItemBuilder implements Builder
 
     /**
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
-     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate
      */
@@ -212,7 +212,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>Container for custom line item specific address(es).
      * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
-     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>.
+     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
      *
      * @return null|ItemShippingDetails
      */
@@ -435,18 +435,18 @@ final class CustomLineItemBuilder implements Builder
     {
         return new CustomLineItemModel(
             $this->id,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money),
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money,
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->slug,
             $this->quantity,
             $this->state,
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
             $this->discountedPricePerQuantity,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

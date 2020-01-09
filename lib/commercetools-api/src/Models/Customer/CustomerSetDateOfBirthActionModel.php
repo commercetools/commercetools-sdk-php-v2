@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements CustomerSetDateOfBirthAction
 {
     const DISCRIMINATOR_VALUE = 'setDateOfBirth';
-
     /**
      * @var ?string
      */
@@ -51,7 +50,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>If not defined, the date of birth is unset.</p>.
+     * <p>If not defined, the date of birth is unset.</p>
      *
      * @return null|DateTimeImmutable
      */

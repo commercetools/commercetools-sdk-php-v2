@@ -19,7 +19,7 @@ use DateTimeImmutable;
 final class ProductDiscountDraftBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -29,12 +29,12 @@ final class ProductDiscountDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var ProductDiscountValueDraft|?ProductDiscountValueDraftBuilder
+     * @var null|ProductDiscountValueDraft|ProductDiscountValueDraftBuilder
      */
     private $value;
 
@@ -74,7 +74,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>User-specific unique identifier for a product discount.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>.
+     * The field can be reset using the Set Key UpdateAction</p>
      *
      * @return null|string
      */
@@ -100,7 +100,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>.
+     * <p>A valid ProductDiscount Predicate.</p>
      *
      * @return null|string
      */
@@ -111,7 +111,7 @@ final class ProductDiscountDraftBuilder implements Builder
 
     /**
      * <p>The string must contain a decimal number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>
      *
      * @return null|string
      */
@@ -121,7 +121,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>.
+     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>
      *
      * @return null|bool
      */
@@ -132,7 +132,7 @@ final class ProductDiscountDraftBuilder implements Builder
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -143,7 +143,7 @@ final class ProductDiscountDraftBuilder implements Builder
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -275,10 +275,10 @@ final class ProductDiscountDraftBuilder implements Builder
     public function build(): ProductDiscountDraft
     {
         return new ProductDiscountDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value),
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value,
             $this->predicate,
             $this->sortOrder,
             $this->isActive,

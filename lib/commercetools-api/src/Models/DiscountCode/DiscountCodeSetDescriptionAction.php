@@ -15,7 +15,7 @@ interface DiscountCodeSetDescriptionAction extends DiscountCodeUpdateAction
     const FIELD_DESCRIPTION = 'description';
 
     /**
-     * <p>If the <code>description</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>description</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|LocalizedString
      */

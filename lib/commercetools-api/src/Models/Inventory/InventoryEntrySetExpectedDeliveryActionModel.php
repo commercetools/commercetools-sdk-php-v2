@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel implements InventoryEntrySetExpectedDeliveryAction
 {
     const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
-
     /**
      * @var ?string
      */

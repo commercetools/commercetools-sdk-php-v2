@@ -108,7 +108,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     }
 
     /**
-     * <p>The IDs of the resources that can be customized with this type.</p>.
+     * <p>The IDs of the resources that can be customized with this type.</p>
      *
      * @return null|array
      */

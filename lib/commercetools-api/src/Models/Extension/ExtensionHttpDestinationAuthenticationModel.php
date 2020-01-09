@@ -14,7 +14,6 @@ use stdClass;
 final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel implements ExtensionHttpDestinationAuthentication
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

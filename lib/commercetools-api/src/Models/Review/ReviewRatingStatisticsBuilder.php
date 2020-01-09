@@ -43,7 +43,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
 
     /**
      * <p>Average rating of one target
-     * This number is rounded with 5 decimals.</p>.
+     * This number is rounded with 5 decimals.</p>
      *
      * @return null|int
      */
@@ -53,7 +53,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * <p>Highest rating of one target</p>.
+     * <p>Highest rating of one target</p>
      *
      * @return null|int
      */
@@ -63,7 +63,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * <p>Lowest rating of one target</p>.
+     * <p>Lowest rating of one target</p>
      *
      * @return null|int
      */
@@ -73,7 +73,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * <p>Number of ratings taken into account</p>.
+     * <p>Number of ratings taken into account</p>
      *
      * @return null|int
      */
@@ -85,7 +85,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * <p>The full distribution of the ratings.
      * The keys are the different ratings and the values are the count of reviews having this rating.
-     * Only the used ratings appear in this object.</p>.
+     * Only the used ratings appear in this object.</p>
      *
      * @return null|JsonObject
      */

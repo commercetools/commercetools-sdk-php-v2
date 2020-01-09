@@ -24,7 +24,6 @@ use stdClass;
 final class ProductDeletedMessageModel extends JsonObjectModel implements ProductDeletedMessage
 {
     const DISCRIMINATOR_VALUE = 'ProductDeleted';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel implements ParcelTrackingDataUpdatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ParcelTrackingDataUpdated';
-
     /**
      * @var ?string
      */

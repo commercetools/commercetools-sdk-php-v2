@@ -14,7 +14,6 @@ use stdClass;
 final class InventoryEntryUpdateActionModel extends JsonObjectModel implements InventoryEntryUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

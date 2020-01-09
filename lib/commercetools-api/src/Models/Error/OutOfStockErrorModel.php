@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockError
 {
     const DISCRIMINATOR_VALUE = 'OutOfStock';
-
     /**
      * @var ?string
      */

@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyStates extends ApiResource
 {
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyStatesByID
+    public function withId(string $ID = null): ResourceByProjectKeyStatesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -39,7 +34,7 @@ class ResourceByProjectKeyStates extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyStatesGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyStatesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -50,6 +45,6 @@ class ResourceByProjectKeyStates extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyStatesPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyStatesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

@@ -22,7 +22,7 @@ final class ProductTypeImportRequestBuilder implements Builder
     private $resources;
 
     /**
-     * <p>The product type import resources of this request.</p>.
+     * <p>The product type import resources of this request.</p>
      *
      * @return null|ProductTypeImportCollection
      */

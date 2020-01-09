@@ -17,7 +17,6 @@ use stdClass;
 final class ExtensionNoResponseErrorModel extends JsonObjectModel implements ExtensionNoResponseError
 {
     const DISCRIMINATOR_VALUE = 'ExtensionNoResponse';
-
     /**
      * @var ?string
      */

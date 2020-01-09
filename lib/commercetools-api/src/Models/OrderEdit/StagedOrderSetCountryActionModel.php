@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderSetCountryActionModel extends JsonObjectModel implements StagedOrderSetCountryAction
 {
     const DISCRIMINATOR_VALUE = 'setCountry';
-
     /**
      * @var ?string
      */

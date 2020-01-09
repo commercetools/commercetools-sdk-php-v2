@@ -20,7 +20,6 @@ use stdClass;
 final class ResourceDeletedDeliveryModel extends JsonObjectModel implements ResourceDeletedDelivery
 {
     const DISCRIMINATOR_VALUE = 'ResourceDeleted';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements ScoreShippingRateInputDraft
 {
     const DISCRIMINATOR_VALUE = 'Score';
-
     /**
      * @var ?string
      */

@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class LineItemReturnItemModel extends JsonObjectModel implements LineItemReturnItem
 {
     const DISCRIMINATOR_VALUE = 'LineItemReturnItem';
-
     /**
      * @var ?string
      */

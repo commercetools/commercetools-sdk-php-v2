@@ -23,6 +23,6 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportItems
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKeyGet($args['projectKey'], $args['importSinkKey'], $args['resourceKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKeyGet((string) $args['projectKey'], (string) $args['importSinkKey'], (string) $args['resourceKey'], $body, $headers, $this->getClient());
     }
 }

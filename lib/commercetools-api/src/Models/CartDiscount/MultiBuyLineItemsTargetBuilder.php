@@ -41,7 +41,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     private $selectionMode;
 
     /**
-     * <p>A valid line item target predicate. The discount will be applied to line items that are matched by the predicate.</p>.
+     * <p>A valid line item target predicate. The discount will be applied to line items that are matched by the predicate.</p>
      *
      * @return null|string
      */
@@ -51,7 +51,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>.
+     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
      * @return null|int
      */
@@ -61,7 +61,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>.
+     * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
      * @return null|int
      */
@@ -71,7 +71,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
-     * <p>Maximum number of applications of this discount.</p>.
+     * <p>Maximum number of applications of this discount.</p>
      *
      * @return null|int
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TaxCategorySetKeyActionModel extends JsonObjectModel implements TaxCategorySetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class TaxCategorySetKeyActionModel extends JsonObjectModel implements TaxC
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
      * @return null|string
      */

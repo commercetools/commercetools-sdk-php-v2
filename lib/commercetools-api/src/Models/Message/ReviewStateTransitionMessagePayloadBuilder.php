@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class ReviewStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $oldState;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $newState;
 
@@ -40,7 +40,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     private $newIncludedInStatistics;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $target;
 
@@ -190,11 +190,11 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function build(): ReviewStateTransitionMessagePayload
     {
         return new ReviewStateTransitionMessagePayloadModel(
-            ($this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState),
-            ($this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState),
+            $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState,
+            $this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState,
             $this->oldIncludedInStatistics,
             $this->newIncludedInStatistics,
-            ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target),
+            $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target,
             $this->force
         );
     }

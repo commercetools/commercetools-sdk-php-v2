@@ -21,7 +21,7 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     private $attributeName;
 
     /**
-     * @var AttributeLocalizedEnumValue|?AttributeLocalizedEnumValueBuilder
+     * @var null|AttributeLocalizedEnumValue|AttributeLocalizedEnumValueBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     {
         return new ProductTypeAddLocalizedEnumValueActionModel(
             $this->attributeName,
-            ($this->value instanceof AttributeLocalizedEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof AttributeLocalizedEnumValueBuilder ? $this->value->build() : $this->value
         );
     }
 

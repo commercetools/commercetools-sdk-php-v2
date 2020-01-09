@@ -20,17 +20,17 @@ use Commercetools\Base\Builder;
 final class InventoryEntrySetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -41,7 +41,7 @@ final class InventoryEntrySetCustomTypeActionBuilder implements Builder
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the custom fields to this value.</p>.
+     * Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */
@@ -93,8 +93,8 @@ final class InventoryEntrySetCustomTypeActionBuilder implements Builder
     public function build(): InventoryEntrySetCustomTypeAction
     {
         return new InventoryEntrySetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

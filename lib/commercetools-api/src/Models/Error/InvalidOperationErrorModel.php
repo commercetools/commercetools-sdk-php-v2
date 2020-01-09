@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidOperationErrorModel extends JsonObjectModel implements InvalidOperationError
 {
     const DISCRIMINATOR_VALUE = 'InvalidOperation';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSetType
 {
     const DISCRIMINATOR_VALUE = 'set';
-
     /**
      * @var ?string
      */

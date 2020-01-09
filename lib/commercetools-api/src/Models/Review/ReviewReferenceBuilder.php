@@ -21,7 +21,7 @@ final class ReviewReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Review|?ReviewBuilder
+     * @var null|Review|ReviewBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ReviewReferenceBuilder implements Builder
     {
         return new ReviewReferenceModel(
             $this->id,
-            ($this->obj instanceof ReviewBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ReviewBuilder ? $this->obj->build() : $this->obj
         );
     }
 

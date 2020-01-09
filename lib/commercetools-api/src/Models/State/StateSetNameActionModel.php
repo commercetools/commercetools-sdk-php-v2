@@ -16,7 +16,6 @@ use stdClass;
 final class StateSetNameActionModel extends JsonObjectModel implements StateSetNameAction
 {
     const DISCRIMINATOR_VALUE = 'setName';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class TaxCategoryAddTaxRateActionBuilder implements Builder
 {
     /**
-     * @var TaxRateDraft|?TaxRateDraftBuilder
+     * @var null|TaxRateDraft|TaxRateDraftBuilder
      */
     private $taxRate;
 
@@ -51,7 +51,7 @@ final class TaxCategoryAddTaxRateActionBuilder implements Builder
     public function build(): TaxCategoryAddTaxRateAction
     {
         return new TaxCategoryAddTaxRateActionModel(
-            ($this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate)
+            $this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate
         );
     }
 

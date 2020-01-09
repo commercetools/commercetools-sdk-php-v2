@@ -21,7 +21,7 @@ final class CartReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Cart|?CartBuilder
+     * @var null|Cart|CartBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class CartReferenceBuilder implements Builder
     {
         return new CartReferenceModel(
             $this->id,
-            ($this->obj instanceof CartBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof CartBuilder ? $this->obj->build() : $this->obj
         );
     }
 

@@ -44,7 +44,7 @@ interface LineItemDraft extends JsonObject
 
     /**
      * <p>The amount of a <code>LineItem</code>in the cart.
-     * Must be a positive integer.</p>.
+     * Must be a positive integer.</p>
      *
      * @return null|int
      */
@@ -54,7 +54,7 @@ interface LineItemDraft extends JsonObject
      * <p>By providing supply channel information, you can unique identify
      * inventory entries that should be reserved.
      * The provided channel should have
-     * the InventorySupply role.</p>.
+     * the InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -62,42 +62,42 @@ interface LineItemDraft extends JsonObject
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
 
     /**
-     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
-     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>.
+     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
      *
      * @return null|Money
      */
     public function getExternalPrice();
 
     /**
-     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>.
+     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
      *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();
 
     /**
-     * <p>Container for line item specific address(es).</p>.
+     * <p>Container for line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */

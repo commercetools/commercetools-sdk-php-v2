@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidCurrentPasswordErrorModel extends JsonObjectModel implements InvalidCurrentPasswordError
 {
     const DISCRIMINATOR_VALUE = 'InvalidCurrentPassword';
-
     /**
      * @var ?string
      */

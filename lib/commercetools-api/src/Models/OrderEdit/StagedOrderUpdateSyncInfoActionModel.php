@@ -19,7 +19,6 @@ use stdClass;
 final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel implements StagedOrderUpdateSyncInfoAction
 {
     const DISCRIMINATOR_VALUE = 'updateSyncInfo';
-
     /**
      * @var ?string
      */

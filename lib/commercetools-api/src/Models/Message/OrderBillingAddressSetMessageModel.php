@@ -24,7 +24,6 @@ use stdClass;
 final class OrderBillingAddressSetMessageModel extends JsonObjectModel implements OrderBillingAddressSetMessage
 {
     const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';
-
     /**
      * @var ?string
      */

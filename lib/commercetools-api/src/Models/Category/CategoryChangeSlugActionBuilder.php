@@ -18,13 +18,13 @@ use Commercetools\Base\Builder;
 final class CategoryChangeSlugActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
      * <p>Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.
-     * Maximum size is {{ site.data.api-limits.slugLength }}.</p>.
+     * Maximum size is  site.data.api-limits.slugLength .</p>
      *
      * @return null|LocalizedString
      */
@@ -56,7 +56,7 @@ final class CategoryChangeSlugActionBuilder implements Builder
     public function build(): CategoryChangeSlugAction
     {
         return new CategoryChangeSlugActionModel(
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
         );
     }
 

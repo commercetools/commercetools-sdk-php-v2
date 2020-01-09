@@ -16,7 +16,6 @@ use stdClass;
 final class PaymentTransitionStateActionModel extends JsonObjectModel implements PaymentTransitionStateAction
 {
     const DISCRIMINATOR_VALUE = 'transitionState';
-
     /**
      * @var ?string
      */

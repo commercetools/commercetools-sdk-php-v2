@@ -48,12 +48,12 @@ final class ReviewBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -103,22 +103,22 @@ final class ReviewBuilder implements Builder
     private $rating;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * <p>The unique ID of the review.</p>.
+     * <p>The unique ID of the review.</p>
      *
      * @return null|string
      */
@@ -128,7 +128,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the review.</p>.
+     * <p>The current version of the review.</p>
      *
      * @return null|int
      */
@@ -154,7 +154,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -164,7 +164,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -174,7 +174,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the review.</p>.
+     * <p>User-specific unique identifier for the review.</p>
      *
      * @return null|string
      */
@@ -225,7 +225,7 @@ final class ReviewBuilder implements Builder
 
     /**
      * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>.
+     * Can be a Product or a Channel</p>
      *
      * @return null|JsonObject
      */
@@ -237,7 +237,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>Indicates if this review is taken into account in the ratings statistics of the target.
      * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
-     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>.
+     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
      *
      * @return null|bool
      */
@@ -247,7 +247,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Number between -100 and 100 included.</p>.
+     * <p>Number between -100 and 100 included.</p>
      *
      * @return null|int
      */
@@ -265,7 +265,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>The customer who created the review.</p>.
+     * <p>The customer who created the review.</p>
      *
      * @return null|CustomerReference
      */
@@ -519,8 +519,8 @@ final class ReviewBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->uniquenessValue,
             $this->locale,
@@ -530,9 +530,9 @@ final class ReviewBuilder implements Builder
             $this->target,
             $this->includedInStatistics,
             $this->rating,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

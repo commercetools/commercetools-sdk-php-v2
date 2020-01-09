@@ -68,7 +68,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     /**
      * <p>If the attribute exists and the value is omitted or set to <code>null</code>, the attribute is removed.
      * If the attribute exists and a value is provided, the new value is applied.
-     * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>.
+     * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
      * @return null|JsonObject
      */

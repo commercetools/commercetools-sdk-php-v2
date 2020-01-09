@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CartDiscountChangeNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -53,7 +53,7 @@ final class CartDiscountChangeNameActionBuilder implements Builder
     public function build(): CartDiscountChangeNameAction
     {
         return new CartDiscountChangeNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

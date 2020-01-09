@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCustomerSetDefaultBillingAddressActionModel extends JsonObjectModel implements MyCustomerSetDefaultBillingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'setDefaultBillingAddress';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldDateTypeModel extends JsonObjectModel implements CustomFieldDateType
 {
     const DISCRIMINATOR_VALUE = 'Date';
-
     /**
      * @var ?string
      */

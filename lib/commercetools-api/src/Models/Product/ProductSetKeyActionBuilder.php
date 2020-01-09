@@ -22,7 +22,7 @@ final class ProductSetKeyActionBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for the product.
-     * If left blank or set to <code>null</code>, the product key is unset/removed.</p>.
+     * If left blank or set to <code>null</code>, the product key is unset/removed.</p>
      *
      * @return null|string
      */

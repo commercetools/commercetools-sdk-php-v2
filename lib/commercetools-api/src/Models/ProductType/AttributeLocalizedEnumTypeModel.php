@@ -14,7 +14,6 @@ use stdClass;
 final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements AttributeLocalizedEnumType
 {
     const DISCRIMINATOR_VALUE = 'lenum';
-
     /**
      * @var ?string
      */

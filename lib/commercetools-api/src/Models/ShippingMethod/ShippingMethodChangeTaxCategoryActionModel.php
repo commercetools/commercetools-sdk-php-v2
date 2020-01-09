@@ -16,7 +16,6 @@ use stdClass;
 final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel implements ShippingMethodChangeTaxCategoryAction
 {
     const DISCRIMINATOR_VALUE = 'changeTaxCategory';
-
     /**
      * @var ?string
      */

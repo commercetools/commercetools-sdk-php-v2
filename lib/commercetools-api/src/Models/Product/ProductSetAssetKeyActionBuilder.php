@@ -74,7 +74,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
 
     /**
      * <p>User-defined identifier for the asset.
-     * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>.
+     * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
      *
      * @return null|string
      */

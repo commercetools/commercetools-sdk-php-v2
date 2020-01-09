@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel implements ProjectChangeMessagesEnabledAction
 {
     const DISCRIMINATOR_VALUE = 'changeMessagesEnabled';
-
     /**
      * @var ?string
      */

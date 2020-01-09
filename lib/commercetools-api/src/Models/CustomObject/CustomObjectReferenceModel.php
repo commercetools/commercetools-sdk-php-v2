@@ -15,7 +15,6 @@ use stdClass;
 final class CustomObjectReferenceModel extends JsonObjectModel implements CustomObjectReference
 {
     const DISCRIMINATOR_VALUE = 'key-value-document';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

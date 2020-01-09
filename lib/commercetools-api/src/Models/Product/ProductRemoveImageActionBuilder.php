@@ -52,7 +52,7 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
-     * <p>The URL of the image.</p>.
+     * <p>The URL of the image.</p>
      *
      * @return null|string
      */

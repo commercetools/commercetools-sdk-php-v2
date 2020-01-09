@@ -22,6 +22,6 @@ class ResourceByProjectKeyCartsReplicate extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsReplicatePost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsReplicatePost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

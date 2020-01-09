@@ -24,7 +24,6 @@ use stdClass;
 final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements InventoryEntryDeletedMessage
 {
     const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
-
     /**
      * @var ?string
      */

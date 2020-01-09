@@ -224,12 +224,7 @@ class ResourceByProjectKey extends ApiResource
         return new ResourceByProjectKeyStores($this->getUri().'/stores', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $storeKey
-     *
-     * @param null|mixed $storeKey
-     */
-    public function inStoreKeyWithStoreKeyValue($storeKey = null): ResourceByProjectKeyInStoreKeyByStoreKey
+    public function inStoreKeyWithStoreKeyValue(string $storeKey = null): ResourceByProjectKeyInStoreKeyByStoreKey
     {
         $args = $this->getArgs();
         if (!is_null($storeKey)) {
@@ -249,7 +244,7 @@ class ResourceByProjectKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -260,6 +255,6 @@ class ResourceByProjectKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

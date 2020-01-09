@@ -15,7 +15,6 @@ use stdClass;
 final class OrderEditReferenceModel extends JsonObjectModel implements OrderEditReference
 {
     const DISCRIMINATOR_VALUE = 'order-edit';
-
     /**
      * @var ?string
      */

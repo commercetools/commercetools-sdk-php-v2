@@ -21,7 +21,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var DiscountCode|?DiscountCodeBuilder
+     * @var null|DiscountCode|DiscountCodeBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     {
         return new DiscountCodeReferenceModel(
             $this->id,
-            ($this->obj instanceof DiscountCodeBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof DiscountCodeBuilder ? $this->obj->build() : $this->obj
         );
     }
 

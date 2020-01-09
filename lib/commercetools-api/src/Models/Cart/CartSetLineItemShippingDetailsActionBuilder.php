@@ -21,7 +21,7 @@ final class CartSetLineItemShippingDetailsActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
@@ -75,7 +75,7 @@ final class CartSetLineItemShippingDetailsActionBuilder implements Builder
     {
         return new CartSetLineItemShippingDetailsActionModel(
             $this->lineItemId,
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

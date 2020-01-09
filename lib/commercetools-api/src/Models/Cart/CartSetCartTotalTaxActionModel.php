@@ -16,7 +16,6 @@ use stdClass;
 final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements CartSetCartTotalTaxAction
 {
     const DISCRIMINATOR_VALUE = 'setCartTotalTax';
-
     /**
      * @var ?string
      */
@@ -59,7 +58,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * <p>The total gross amount of the cart (totalNet + taxes).</p>.
+     * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
      * @return null|Money
      */

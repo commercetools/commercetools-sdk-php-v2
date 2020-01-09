@@ -17,7 +17,7 @@ use Commercetools\Base\JsonObject;
 final class CustomerSignInResultBuilder implements Builder
 {
     /**
-     * @var Customer|?CustomerBuilder
+     * @var null|Customer|CustomerBuilder
      */
     private $customer;
 
@@ -36,7 +36,7 @@ final class CustomerSignInResultBuilder implements Builder
 
     /**
      * <p>A cart that is associated to the customer.
-     * Empty if the customer does not have a cart yet.</p>.
+     * Empty if the customer does not have a cart yet.</p>
      *
      * @return null|JsonObject
      */
@@ -78,7 +78,7 @@ final class CustomerSignInResultBuilder implements Builder
     public function build(): CustomerSignInResult
     {
         return new CustomerSignInResultModel(
-            ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer),
+            $this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer,
             $this->cart
         );
     }

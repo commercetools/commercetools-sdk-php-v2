@@ -23,14 +23,14 @@ final class StoreDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>.
+     * It is used to reference the store.</p>
      *
      * @return null|string
      */
@@ -40,7 +40,7 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
-     * <p>The name of the store</p>.
+     * <p>The name of the store</p>
      *
      * @return null|LocalizedString
      */
@@ -83,7 +83,7 @@ final class StoreDraftBuilder implements Builder
     {
         return new StoreDraftModel(
             $this->key,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

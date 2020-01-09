@@ -36,7 +36,6 @@ use stdClass;
 final class ResourceIdentifierModel extends JsonObjectModel implements ResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

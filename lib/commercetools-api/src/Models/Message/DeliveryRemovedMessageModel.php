@@ -24,7 +24,6 @@ use stdClass;
 final class DeliveryRemovedMessageModel extends JsonObjectModel implements DeliveryRemovedMessage
 {
     const DISCRIMINATOR_VALUE = 'DeliveryRemoved';
-
     /**
      * @var ?string
      */

@@ -28,7 +28,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -101,7 +101,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
         return new CategoryChangeAssetNameActionModel(
             $this->assetId,
             $this->assetKey,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

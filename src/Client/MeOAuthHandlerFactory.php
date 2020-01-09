@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Commercetools\Client;
@@ -16,7 +17,7 @@ class MeOAuthHandlerFactory
             new Client($authConfig->getClientOptions()),
             $tokenStorage
         );
+
         return new OAuth2Handler($provider);
     }
-
 }

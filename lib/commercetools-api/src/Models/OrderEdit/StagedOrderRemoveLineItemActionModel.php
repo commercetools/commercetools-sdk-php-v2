@@ -21,7 +21,6 @@ use stdClass;
 final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel implements StagedOrderRemoveLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'removeLineItem';
-
     /**
      * @var ?string
      */

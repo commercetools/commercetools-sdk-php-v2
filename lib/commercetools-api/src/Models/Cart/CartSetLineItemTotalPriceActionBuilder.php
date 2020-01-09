@@ -21,7 +21,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
+     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
@@ -75,7 +75,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     {
         return new CartSetLineItemTotalPriceActionModel(
             $this->lineItemId,
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice)
+            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice
         );
     }
 

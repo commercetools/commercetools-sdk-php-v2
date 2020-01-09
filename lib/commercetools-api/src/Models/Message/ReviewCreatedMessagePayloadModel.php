@@ -16,7 +16,6 @@ use stdClass;
 final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements ReviewCreatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ReviewCreated';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,7 @@ interface CartSetAnonymousIdAction extends CartUpdateAction
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
-     * <p>If not set, any existing anonymous ID will be removed.</p>.
+     * <p>If not set, any existing anonymous ID will be removed.</p>
      *
      * @return null|string
      */

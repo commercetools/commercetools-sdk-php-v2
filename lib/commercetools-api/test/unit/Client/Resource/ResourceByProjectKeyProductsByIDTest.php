@@ -1,249 +1,276 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsByID;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDDelete
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDPost
+ *
+ * @internal
+ */
 class ResourceByProjectKeyProductsByIDTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyProductsByIDGet_withPriceCurrency' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withPriceCurrency('priceCurrency');
+                        ->withPriceCurrency('priceCurrency')
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDGet_withPriceCountry' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withPriceCountry('priceCountry');
+                        ->withPriceCountry('priceCountry')
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDGet_withPriceCustomerGroup' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withPriceCustomerGroup('priceCustomerGroup');
+                        ->withPriceCustomerGroup('priceCustomerGroup')
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDGet_withPriceChannel' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withPriceChannel('priceChannel');
+                        ->withPriceChannel('priceChannel')
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDGet_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->get()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
-                        ->get();
+                        ->withId('ID')
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/products/{ID}',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCurrency' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withPriceCurrency('priceCurrency');
+                        ->withPriceCurrency('priceCurrency')
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCountry' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withPriceCountry('priceCountry');
+                        ->withPriceCountry('priceCountry')
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCustomerGroup' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withPriceCustomerGroup('priceCustomerGroup');
+                        ->withPriceCustomerGroup('priceCustomerGroup')
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDPost_withPriceChannel' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withPriceChannel('priceChannel');
+                        ->withPriceChannel('priceChannel')
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDPost_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDPost' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
-                        ->post(null);
+                        ->withId('ID')
+                        ->post(null)
+                    ;
                 },
                 'post',
                 '{projectKey}/products/{ID}',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCurrency' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withPriceCurrency('priceCurrency');
+                        ->withPriceCurrency('priceCurrency')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCountry' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withPriceCountry('priceCountry');
+                        ->withPriceCountry('priceCountry')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCustomerGroup' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withPriceCustomerGroup('priceCustomerGroup');
+                        ->withPriceCustomerGroup('priceCustomerGroup')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceChannel' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withPriceChannel('priceChannel');
+                        ->withPriceChannel('priceChannel')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDDelete_withVersion' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withVersion('version');
+                        ->withVersion('version')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?version=version',
             ],
             'ByProjectKeyProductsByIDDelete_withExpand' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
+                        ->withId('ID')
                         ->delete()
-                        ->withExpand('expand');
+                        ->withExpand('expand')
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->products()
-                        ->withId("ID")
-                        ->delete();
+                        ->withId('ID')
+                        ->delete()
+                    ;
                 },
                 'delete',
                 '{projectKey}/products/{ID}',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -252,9 +279,9 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

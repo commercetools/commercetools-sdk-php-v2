@@ -21,7 +21,7 @@ final class ShippingMethodReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var ShippingMethod|?ShippingMethodBuilder
+     * @var null|ShippingMethod|ShippingMethodBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ShippingMethodReferenceBuilder implements Builder
     {
         return new ShippingMethodReferenceModel(
             $this->id,
-            ($this->obj instanceof ShippingMethodBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ShippingMethodBuilder ? $this->obj->build() : $this->obj
         );
     }
 

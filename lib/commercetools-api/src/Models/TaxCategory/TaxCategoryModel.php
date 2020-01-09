@@ -94,7 +94,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>The unique ID of the category.</p>.
+     * <p>The unique ID of the category.</p>
      *
      * @return null|string
      */
@@ -113,7 +113,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>The current version of the category.</p>.
+     * <p>The current version of the category.</p>
      *
      * @return null|int
      */
@@ -174,7 +174,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -194,7 +194,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -248,7 +248,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>The tax rates have unique IDs in the rates list</p>.
+     * <p>The tax rates have unique IDs in the rates list</p>
      *
      * @return null|TaxRateCollection
      */
@@ -267,7 +267,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>User-specific unique identifier for the category.</p>.
+     * <p>User-specific unique identifier for the category.</p>
      *
      * @return null|string
      */

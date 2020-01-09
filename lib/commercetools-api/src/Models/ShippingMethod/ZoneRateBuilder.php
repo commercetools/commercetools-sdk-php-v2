@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ZoneRateBuilder implements Builder
 {
     /**
-     * @var ZoneReference|?ZoneReferenceBuilder
+     * @var null|ZoneReference|ZoneReferenceBuilder
      */
     private $zone;
 
@@ -36,7 +36,7 @@ final class ZoneRateBuilder implements Builder
     }
 
     /**
-     * <p>The array does not contain two shipping rates with the same currency.</p>.
+     * <p>The array does not contain two shipping rates with the same currency.</p>
      *
      * @return null|ShippingRateCollection
      */
@@ -78,7 +78,7 @@ final class ZoneRateBuilder implements Builder
     public function build(): ZoneRate
     {
         return new ZoneRateModel(
-            ($this->zone instanceof ZoneReferenceBuilder ? $this->zone->build() : $this->zone),
+            $this->zone instanceof ZoneReferenceBuilder ? $this->zone->build() : $this->zone,
             $this->shippingRates
         );
     }

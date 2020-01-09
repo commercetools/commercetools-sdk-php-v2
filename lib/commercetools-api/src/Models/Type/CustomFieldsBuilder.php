@@ -16,12 +16,12 @@ use Commercetools\Base\Builder;
 final class CustomFieldsBuilder implements Builder
 {
     /**
-     * @var TypeReference|?TypeReferenceBuilder
+     * @var null|TypeReference|TypeReferenceBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
@@ -34,7 +34,7 @@ final class CustomFieldsBuilder implements Builder
     }
 
     /**
-     * <p>A valid JSON object, based on FieldDefinition.</p>.
+     * <p>A valid JSON object, based on FieldDefinition.</p>
      *
      * @return null|FieldContainer
      */
@@ -86,8 +86,8 @@ final class CustomFieldsBuilder implements Builder
     public function build(): CustomFields
     {
         return new CustomFieldsModel(
-            ($this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

@@ -34,7 +34,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     }
 
     /**
-     * <p>The total gross amount of the item (totalNet + taxes).</p>.
+     * <p>The total gross amount of the item (totalNet + taxes).</p>
      *
      * @return null|Money
      */

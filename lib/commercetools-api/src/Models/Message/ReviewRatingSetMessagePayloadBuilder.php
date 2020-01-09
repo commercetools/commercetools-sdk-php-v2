@@ -33,7 +33,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     private $includedInStatistics;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $target;
 
@@ -125,7 +125,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
             $this->oldRating,
             $this->newRating,
             $this->includedInStatistics,
-            ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
+            $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target
         );
     }
 

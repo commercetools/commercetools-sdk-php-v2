@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeySubscriptions extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeySubscriptionsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeySubscriptionsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeySubscriptions extends ApiResource
         return new ResourceByProjectKeySubscriptionsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeySubscriptionsByID
+    public function withId(string $ID = null): ResourceByProjectKeySubscriptionsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeySubscriptions extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeySubscriptionsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeySubscriptionsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeySubscriptions extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeySubscriptionsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeySubscriptionsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeTextTypeModel extends JsonObjectModel implements AttributeTextType
 {
     const DISCRIMINATOR_VALUE = 'text';
-
     /**
      * @var ?string
      */

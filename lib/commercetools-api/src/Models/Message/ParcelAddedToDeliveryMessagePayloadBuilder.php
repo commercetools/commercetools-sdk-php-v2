@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Delivery|?DeliveryBuilder
+     * @var null|Delivery|DeliveryBuilder
      */
     private $delivery;
 
     /**
-     * @var Parcel|?ParcelBuilder
+     * @var null|Parcel|ParcelBuilder
      */
     private $parcel;
 
@@ -88,8 +88,8 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     public function build(): ParcelAddedToDeliveryMessagePayload
     {
         return new ParcelAddedToDeliveryMessagePayloadModel(
-            ($this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery),
-            ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel)
+            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery,
+            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel
         );
     }
 

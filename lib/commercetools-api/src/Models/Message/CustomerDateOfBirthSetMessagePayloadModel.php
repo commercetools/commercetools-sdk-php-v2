@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel implements CustomerDateOfBirthSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ReviewSetTitleActionModel extends JsonObjectModel implements ReviewSetTitleAction
 {
     const DISCRIMINATOR_VALUE = 'setTitle';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ReviewSetTitleActionModel extends JsonObjectModel implements ReviewS
     }
 
     /**
-     * <p>If <code>title</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * <p>If <code>title</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|string
      */

@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductSlugChangedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -53,7 +53,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     public function build(): ProductSlugChangedMessagePayload
     {
         return new ProductSlugChangedMessagePayloadModel(
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
         );
     }
 

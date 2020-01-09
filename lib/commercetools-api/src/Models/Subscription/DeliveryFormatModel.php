@@ -14,7 +14,6 @@ use stdClass;
 final class DeliveryFormatModel extends JsonObjectModel implements DeliveryFormat
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

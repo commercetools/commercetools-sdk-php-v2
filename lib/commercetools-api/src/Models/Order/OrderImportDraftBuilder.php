@@ -56,27 +56,27 @@ final class OrderImportDraftBuilder implements Builder
     private $customLineItems;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
-     * @var TaxedPriceDraft|?TaxedPriceDraftBuilder
+     * @var null|TaxedPriceDraft|TaxedPriceDraftBuilder
      */
     private $taxedPrice;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
     /**
-     * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
+     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
@@ -101,7 +101,7 @@ final class OrderImportDraftBuilder implements Builder
     private $paymentState;
 
     /**
-     * @var ShippingInfoImportDraft|?ShippingInfoImportDraftBuilder
+     * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
      */
     private $shippingInfo;
 
@@ -111,7 +111,7 @@ final class OrderImportDraftBuilder implements Builder
     private $completedAt;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -131,7 +131,7 @@ final class OrderImportDraftBuilder implements Builder
     private $itemShippingAddresses;
 
     /**
-     * @var StoreResourceIdentifier|?StoreResourceIdentifierBuilder
+     * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
@@ -143,7 +143,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>String that unique identifies an order.
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
-     * It should be unique within a project.</p>.
+     * It should be unique within a project.</p>
      *
      * @return null|string
      */
@@ -153,7 +153,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If given the customer with that ID must exist in the project.</p>.
+     * <p>If given the customer with that ID must exist in the project.</p>
      *
      * @return null|string
      */
@@ -163,7 +163,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>.
+     * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>
      *
      * @return null|string
      */
@@ -173,7 +173,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given <code>customLineItems</code> must not be empty.</p>.
+     * <p>If not given <code>customLineItems</code> must not be empty.</p>
      *
      * @return null|LineItemImportDraftCollection
      */
@@ -183,7 +183,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given <code>lineItems</code> must not be empty.</p>.
+     * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
      * @return null|CustomLineItemDraftCollection
      */
@@ -202,7 +202,7 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
      * <p>Order Import does not support calculation of taxes.
-     * When setting the draft the taxedPrice is to be provided.</p>.
+     * When setting the draft the taxedPrice is to be provided.</p>
      *
      * @return null|TaxedPriceDraft
      */
@@ -229,7 +229,7 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
      * <p>Set when the customer is set and the customer is a member of a customer group.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -240,7 +240,7 @@ final class OrderImportDraftBuilder implements Builder
 
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
-     * Used for product variant price selection.</p>.
+     * Used for product variant price selection.</p>
      *
      * @return null|string
      */
@@ -250,7 +250,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given the <code>Open</code> state will be assigned by default.</p>.
+     * <p>If not given the <code>Open</code> state will be assigned by default.</p>
      *
      * @return null|string
      */
@@ -276,7 +276,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Set if the ShippingMethod is set.</p>.
+     * <p>Set if the ShippingMethod is set.</p>
      *
      * @return null|ShippingInfoImportDraft
      */
@@ -294,7 +294,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -304,7 +304,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given the mode <code>None</code> will be assigned by default.</p>.
+     * <p>If not given the mode <code>None</code> will be assigned by default.</p>
      *
      * @return null|string
      */
@@ -314,7 +314,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>.
+     * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>
      *
      * @return null|string
      */
@@ -324,7 +324,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Contains addresses for orders with multiple shipping addresses.</p>.
+     * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
      * @return null|AddressCollection
      */
@@ -342,7 +342,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The default origin is <code>Customer</code>.</p>.
+     * <p>The default origin is <code>Customer</code>.</p>
      *
      * @return null|string
      */
@@ -659,22 +659,22 @@ final class OrderImportDraftBuilder implements Builder
             $this->customerEmail,
             $this->lineItems,
             $this->customLineItems,
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->country,
             $this->orderState,
             $this->shipmentState,
             $this->paymentState,
-            ($this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
+            $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->completedAt,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->inventoryMode,
             $this->taxRoundingMode,
             $this->itemShippingAddresses,
-            ($this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store),
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
             $this->origin
         );
     }

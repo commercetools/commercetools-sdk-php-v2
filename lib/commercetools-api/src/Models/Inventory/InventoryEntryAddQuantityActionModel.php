@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InventoryEntryAddQuantityActionModel extends JsonObjectModel implements InventoryEntryAddQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'addQuantity';
-
     /**
      * @var ?string
      */

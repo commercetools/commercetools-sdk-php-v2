@@ -24,7 +24,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

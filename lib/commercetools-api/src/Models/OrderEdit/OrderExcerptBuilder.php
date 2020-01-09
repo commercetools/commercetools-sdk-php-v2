@@ -20,12 +20,12 @@ use Commercetools\Base\Builder;
 final class OrderExcerptBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
-     * @var TaxedPrice|?TaxedPriceBuilder
+     * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
@@ -111,8 +111,8 @@ final class OrderExcerptBuilder implements Builder
     public function build(): OrderExcerpt
     {
         return new OrderExcerptModel(
-            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
+            $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
+            $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->version
         );
     }

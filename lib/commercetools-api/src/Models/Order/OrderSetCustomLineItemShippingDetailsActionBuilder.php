@@ -23,7 +23,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     private $customLineItemId;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
@@ -77,7 +77,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     {
         return new OrderSetCustomLineItemShippingDetailsActionModel(
             $this->customLineItemId,
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

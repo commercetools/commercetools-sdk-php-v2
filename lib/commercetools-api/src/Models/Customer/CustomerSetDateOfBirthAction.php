@@ -15,7 +15,7 @@ interface CustomerSetDateOfBirthAction extends CustomerUpdateAction
     const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**
-     * <p>If not defined, the date of birth is unset.</p>.
+     * <p>If not defined, the date of birth is unset.</p>
      *
      * @return null|DateTimeImmutable
      */

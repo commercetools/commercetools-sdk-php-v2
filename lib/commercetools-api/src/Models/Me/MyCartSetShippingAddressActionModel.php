@@ -16,7 +16,6 @@ use stdClass;
 final class MyCartSetShippingAddressActionModel extends JsonObjectModel implements MyCartSetShippingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'setShippingAddress';
-
     /**
      * @var ?string
      */

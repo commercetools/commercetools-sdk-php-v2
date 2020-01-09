@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class ShippingRateDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $freeAbove;
 
@@ -43,7 +43,7 @@ final class ShippingRateDraftBuilder implements Builder
     /**
      * <p>The shipping is free if the order total (the sum of line item prices) exceeds the freeAbove value.
      * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
-     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>
      *
      * @return null|Money
      */
@@ -53,7 +53,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>A list of shipping rate price tiers.</p>.
+     * <p>A list of shipping rate price tiers.</p>
      *
      * @return null|ShippingRatePriceTierCollection
      */
@@ -115,8 +115,8 @@ final class ShippingRateDraftBuilder implements Builder
     public function build(): ShippingRateDraft
     {
         return new ShippingRateDraftModel(
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            ($this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove),
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
+            $this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove,
             $this->tiers
         );
     }

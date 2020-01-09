@@ -34,7 +34,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $duplicateValue;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $conflictingResource;
 
@@ -126,7 +126,7 @@ final class DuplicateFieldErrorBuilder implements Builder
             $this->message,
             $this->field,
             $this->duplicateValue,
-            ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource)
+            $this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource
         );
     }
 

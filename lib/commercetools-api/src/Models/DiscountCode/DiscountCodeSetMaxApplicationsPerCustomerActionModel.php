@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObjectModel implements DiscountCodeSetMaxApplicationsPerCustomerAction
 {
     const DISCRIMINATOR_VALUE = 'setMaxApplicationsPerCustomer';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     }
 
     /**
-     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|int
      */

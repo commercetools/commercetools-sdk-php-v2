@@ -113,7 +113,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>.
+     * <p>The unique ID of the OrderEdit.</p>
      *
      * @return null|string
      */
@@ -132,7 +132,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>The current version of the OrderEdit.</p>.
+     * <p>The current version of the OrderEdit.</p>
      *
      * @return null|int
      */
@@ -193,7 +193,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -213,7 +213,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -233,7 +233,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>Unique identifier for this edit.</p>.
+     * <p>Unique identifier for this edit.</p>
      *
      * @return null|string
      */
@@ -252,7 +252,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>The order to be updated with this edit.</p>.
+     * <p>The order to be updated with this edit.</p>
      *
      * @return null|OrderReference
      */
@@ -273,7 +273,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
 
     /**
      * <p>The actions to apply to the Order.
-     * Cannot be updated after the edit has been applied.</p>.
+     * Cannot be updated after the edit has been applied.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */
@@ -311,7 +311,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
 
     /**
      * <p>Contains a preview of the changes in case of unapplied edit.
-     * For applied edits, it contains the summary of the changes.</p>.
+     * For applied edits, it contains the summary of the changes.</p>
      *
      * @return null|OrderEditResult
      */
@@ -331,7 +331,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>This field can be used to add textual information regarding the edit.</p>.
+     * <p>This field can be used to add textual information regarding the edit.</p>
      *
      * @return null|string
      */

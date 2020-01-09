@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductRemoveImageActionModel extends JsonObjectModel implements ProductRemoveImageAction
 {
     const DISCRIMINATOR_VALUE = 'removeImage';
-
     /**
      * @var ?string
      */
@@ -104,7 +103,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>The URL of the image.</p>.
+     * <p>The URL of the image.</p>
      *
      * @return null|string
      */

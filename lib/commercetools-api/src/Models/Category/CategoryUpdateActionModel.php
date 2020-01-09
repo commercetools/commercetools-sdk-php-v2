@@ -14,7 +14,6 @@ use stdClass;
 final class CategoryUpdateActionModel extends JsonObjectModel implements CategoryUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StateResourceIdentifierModel extends JsonObjectModel implements StateResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'state';
-
     /**
      * @var ?string
      */

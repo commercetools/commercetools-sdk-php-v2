@@ -24,14 +24,14 @@ interface ProductVariantImportDraft extends JsonObject
     /**
      * <p>The sequential ID of the variant within the product.
      * The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set,
-     * or alternatively you can just specify SKU of the product variant.</p>.
+     * or alternatively you can just specify SKU of the product variant.</p>
      *
      * @return null|int
      */
     public function getId();
 
     /**
-     * <p>The SKU of the existing variant.</p>.
+     * <p>The SKU of the existing variant.</p>
      *
      * @return null|string
      */
@@ -40,7 +40,7 @@ interface ProductVariantImportDraft extends JsonObject
     /**
      * <p>The prices of the variant.
      * The prices should not contain two prices for the same price scope (same currency, country and customer group).
-     * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>.
+     * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>
      *
      * @return null|PriceDraftCollection
      */
@@ -48,7 +48,7 @@ interface ProductVariantImportDraft extends JsonObject
 
     /**
      * <p>If this property is defined, then it will override the <code>attributes</code> property from the original
-     * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>.
+     * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>
      *
      * @return null|AttributeCollection
      */
@@ -56,7 +56,7 @@ interface ProductVariantImportDraft extends JsonObject
 
     /**
      * <p>If this property is defined, then it will override the <code>images</code> property from the original
-     * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>.
+     * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>
      *
      * @return null|ImageCollection
      */

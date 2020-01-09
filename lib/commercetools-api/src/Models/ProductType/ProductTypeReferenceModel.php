@@ -15,7 +15,6 @@ use stdClass;
 final class ProductTypeReferenceModel extends JsonObjectModel implements ProductTypeReference
 {
     const DISCRIMINATOR_VALUE = 'product-type';
-
     /**
      * @var ?string
      */

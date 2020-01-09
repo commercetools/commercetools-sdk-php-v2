@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel implements DiscountCodeSetValidUntilAction
 {
     const DISCRIMINATOR_VALUE = 'setValidUntil';
-
     /**
      * @var ?string
      */
@@ -51,7 +50,7 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>
      *
      * @return null|DateTimeImmutable
      */

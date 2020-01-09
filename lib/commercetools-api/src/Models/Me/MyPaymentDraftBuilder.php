@@ -22,28 +22,28 @@ use Commercetools\Base\Builder;
 final class MyPaymentDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
 
     /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
+     * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var MyTransactionDraft|?MyTransactionDraftBuilder
+     * @var null|MyTransactionDraft|MyTransactionDraftBuilder
      */
     private $transaction;
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|Money
      */
@@ -70,7 +70,7 @@ final class MyPaymentDraftBuilder implements Builder
 
     /**
      * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
-     * TransactionTypes.</p>.
+     * TransactionTypes.</p>
      *
      * @return null|MyTransactionDraft
      */
@@ -162,10 +162,10 @@ final class MyPaymentDraftBuilder implements Builder
     public function build(): MyPaymentDraft
     {
         return new MyPaymentDraftModel(
-            ($this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->transaction instanceof MyTransactionDraftBuilder ? $this->transaction->build() : $this->transaction)
+            $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
+            $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->transaction instanceof MyTransactionDraftBuilder ? $this->transaction->build() : $this->transaction
         );
     }
 

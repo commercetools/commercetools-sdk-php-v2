@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerGroupChangeNameActionModel extends JsonObjectModel implements CustomerGroupChangeNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeName';
-
     /**
      * @var ?string
      */

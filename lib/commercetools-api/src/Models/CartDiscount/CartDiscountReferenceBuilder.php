@@ -21,7 +21,7 @@ final class CartDiscountReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var CartDiscount|?CartDiscountBuilder
+     * @var null|CartDiscount|CartDiscountBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class CartDiscountReferenceBuilder implements Builder
     {
         return new CartDiscountReferenceModel(
             $this->id,
-            ($this->obj instanceof CartDiscountBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof CartDiscountBuilder ? $this->obj->build() : $this->obj
         );
     }
 

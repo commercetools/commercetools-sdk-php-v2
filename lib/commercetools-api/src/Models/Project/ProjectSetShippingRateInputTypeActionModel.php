@@ -14,7 +14,6 @@ use stdClass;
 final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel implements ProjectSetShippingRateInputTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setShippingRateInputType';
-
     /**
      * @var ?string
      */
@@ -50,7 +49,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     }
 
     /**
-     * <p>If not set, removes existing shippingRateInputType.</p>.
+     * <p>If not set, removes existing shippingRateInputType.</p>
      *
      * @return null|ShippingRateInputType
      */

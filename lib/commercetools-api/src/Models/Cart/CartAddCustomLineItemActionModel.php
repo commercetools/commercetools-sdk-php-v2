@@ -22,7 +22,6 @@ use stdClass;
 final class CartAddCustomLineItemActionModel extends JsonObjectModel implements CartAddCustomLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'addCustomLineItem';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectModel implements StagedOrderImportCustomLineItemStateAction
 {
     const DISCRIMINATOR_VALUE = 'importCustomLineItemState';
-
     /**
      * @var ?string
      */

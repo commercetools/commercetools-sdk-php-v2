@@ -20,7 +20,6 @@ use stdClass;
 final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel implements MyCartSetCustomShippingMethodAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
-
     /**
      * @var ?string
      */

@@ -15,7 +15,7 @@ interface ProductSetTaxCategoryAction extends ProductUpdateAction
     const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**
-     * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>.
+     * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

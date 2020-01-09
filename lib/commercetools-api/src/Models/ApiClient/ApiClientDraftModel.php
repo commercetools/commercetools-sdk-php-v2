@@ -72,7 +72,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     }
 
     /**
-     * <p>If set, the client will be deleted after the specified amount of days.</p>.
+     * <p>If set, the client will be deleted after the specified amount of days.</p>
      *
      * @return null|int
      */

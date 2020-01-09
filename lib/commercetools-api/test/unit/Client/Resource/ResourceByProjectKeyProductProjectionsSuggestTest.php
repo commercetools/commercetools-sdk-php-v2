@@ -1,119 +1,133 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
 use Commercetools\Api\Client\ApiRoot;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjectionsSuggest;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductProjectionsSuggestGet
+ *
+ * @internal
+ */
 class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
 {
     public function getRequests()
     {
         return [
             'ByProjectKeyProductProjectionsSuggestGet_withFuzzy' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withFuzzy('fuzzy');
+                        ->withFuzzy('fuzzy')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withStaged' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withStaged('staged');
+                        ->withStaged('staged')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withSearchKeywords' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withSearchKeywords('locale', 'searchKeywords.locale');
+                        ->withSearchKeywords('locale', 'searchKeywords.locale')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?searchKeywords.locale=searchKeywords.locale',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withSort' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withSort('sort');
+                        ->withSort('sort')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withLimit('limit');
+                        ->withLimit('limit')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?limit=limit',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withOffset('offset');
+                        ->withOffset('offset')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?offset=offset',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withWithTotal' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withWithTotal('withTotal');
+                        ->withWithTotal('withTotal')
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSuggestGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function (ApiRoot $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey('projectKey')
                         ->productProjections()
                         ->suggest()
-                        ->get();
+                        ->get()
+                    ;
                 },
                 'get',
                 '{projectKey}/product-projections/suggest',
-            ]
+            ],
         ];
     }
-    
+
     /**
      * @dataProvider getRequests()
      */
@@ -122,9 +136,9 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
         $builder = new ApiRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string)$request->getBody());
-        };
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        }
     }
 }

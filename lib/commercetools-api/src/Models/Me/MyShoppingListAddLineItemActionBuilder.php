@@ -44,7 +44,7 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -174,7 +174,7 @@ final class MyShoppingListAddLineItemActionBuilder implements Builder
             $this->variantId,
             $this->quantity,
             $this->addedAt,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

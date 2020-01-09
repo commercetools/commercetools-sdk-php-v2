@@ -25,12 +25,12 @@ final class MyShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
@@ -112,8 +112,8 @@ final class MyShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     {
         return new MyShoppingListSetLineItemCustomTypeActionModel(
             $this->lineItemId,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

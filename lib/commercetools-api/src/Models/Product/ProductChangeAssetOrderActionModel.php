@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductChangeAssetOrderActionModel extends JsonObjectModel implements ProductChangeAssetOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeAssetOrder';
-
     /**
      * @var ?string
      */

@@ -15,7 +15,6 @@ use stdClass;
 final class MyPaymentSetCustomFieldActionModel extends JsonObjectModel implements MyPaymentSetCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomField';
-
     /**
      * @var ?string
      */

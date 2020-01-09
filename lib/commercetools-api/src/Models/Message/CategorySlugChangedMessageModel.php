@@ -24,7 +24,6 @@ use stdClass;
 final class CategorySlugChangedMessageModel extends JsonObjectModel implements CategorySlugChangedMessage
 {
     const DISCRIMINATOR_VALUE = 'CategorySlugChanged';
-
     /**
      * @var ?string
      */

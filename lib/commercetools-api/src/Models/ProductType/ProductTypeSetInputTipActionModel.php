@@ -16,7 +16,6 @@ use stdClass;
 final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements ProductTypeSetInputTipAction
 {
     const DISCRIMINATOR_VALUE = 'setInputTip';
-
     /**
      * @var ?string
      */

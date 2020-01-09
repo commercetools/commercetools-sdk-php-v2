@@ -57,7 +57,7 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
-     * <p>The URL of the image.</p>.
+     * <p>The URL of the image.</p>
      *
      * @return null|string
      */
@@ -68,7 +68,7 @@ final class ProductSetImageLabelActionBuilder implements Builder
 
     /**
      * <p>The new image label.
-     * If left blank or set to null, the label is removed.</p>.
+     * If left blank or set to null, the label is removed.</p>
      *
      * @return null|string
      */

@@ -22,7 +22,7 @@ final class CategoryImportRequestBuilder implements Builder
     private $resources;
 
     /**
-     * <p>The category import resources of this request.</p>.
+     * <p>The category import resources of this request.</p>
      *
      * @return null|CategoryImportCollection
      */

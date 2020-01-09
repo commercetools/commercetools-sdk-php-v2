@@ -169,7 +169,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>The unique ID of the cart discount.</p>.
+     * <p>The unique ID of the cart discount.</p>
      *
      * @return null|string
      */
@@ -188,7 +188,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>The current version of the cart discount.</p>.
+     * <p>The current version of the cart discount.</p>
      *
      * @return null|int
      */
@@ -249,7 +249,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -269,7 +269,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -308,7 +308,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
 
     /**
      * <p>User-specific unique identifier for a cart discount.
-     * Must be unique across a project.</p>.
+     * Must be unique across a project.</p>
      *
      * @return null|string
      */
@@ -363,7 +363,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>A valid Cart predicate.</p>.
+     * <p>A valid Cart predicate.</p>
      *
      * @return null|string
      */
@@ -382,7 +382,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>.
+     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
      * @return null|CartDiscountTarget
      */
@@ -405,7 +405,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
      * <p>The string must contain a number between 0 and 1.
      * All matching cart discounts are applied to a cart in the order defined by this field.
      * A discount with greater sort order is prioritized higher than a discount with lower sort order.
-     * The sort order is unambiguous among all cart discounts.</p>.
+     * The sort order is unambiguous among all cart discounts.</p>
      *
      * @return null|string
      */
@@ -424,7 +424,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>Only active discount can be applied to the cart.</p>.
+     * <p>Only active discount can be applied to the cart.</p>
      *
      * @return null|bool
      */
@@ -485,7 +485,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>.
+     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>
      *
      * @return null|bool
      */
@@ -505,7 +505,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
 
     /**
      * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     * It contains the references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -525,7 +525,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
 
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>.
+     * Defaults to Stacking.</p>
      *
      * @return null|string
      */

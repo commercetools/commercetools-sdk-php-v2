@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductRemoveFromCategoryActionBuilder implements Builder
 {
     /**
-     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $category;
 
@@ -76,7 +76,7 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     public function build(): ProductRemoveFromCategoryAction
     {
         return new ProductRemoveFromCategoryActionModel(
-            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category),
+            $this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category,
             $this->staged
         );
     }

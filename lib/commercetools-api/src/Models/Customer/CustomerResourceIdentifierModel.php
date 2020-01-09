@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerResourceIdentifierModel extends JsonObjectModel implements CustomerResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'customer';
-
     /**
      * @var ?string
      */

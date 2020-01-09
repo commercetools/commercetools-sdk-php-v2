@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class CartDiscountSetDescriptionActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * <p>If the <code>description</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>description</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|LocalizedString
      */
@@ -55,7 +55,7 @@ final class CartDiscountSetDescriptionActionBuilder implements Builder
     public function build(): CartDiscountSetDescriptionAction
     {
         return new CartDiscountSetDescriptionActionModel(
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

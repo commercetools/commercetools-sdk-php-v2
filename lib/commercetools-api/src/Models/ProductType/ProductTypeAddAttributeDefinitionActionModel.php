@@ -14,7 +14,6 @@ use stdClass;
 final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeAddAttributeDefinitionAction
 {
     const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
-
     /**
      * @var ?string
      */

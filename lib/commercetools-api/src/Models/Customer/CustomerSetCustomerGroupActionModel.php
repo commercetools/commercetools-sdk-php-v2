@@ -16,7 +16,6 @@ use stdClass;
 final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implements CustomerSetCustomerGroupAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
-
     /**
      * @var ?string
      */
@@ -52,7 +51,7 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>If not defined, the customer group is unset.</p>.
+     * <p>If not defined, the customer group is unset.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */

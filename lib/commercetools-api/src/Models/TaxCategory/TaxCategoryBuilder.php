@@ -41,12 +41,12 @@ final class TaxCategoryBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -71,7 +71,7 @@ final class TaxCategoryBuilder implements Builder
     private $key;
 
     /**
-     * <p>The unique ID of the category.</p>.
+     * <p>The unique ID of the category.</p>
      *
      * @return null|string
      */
@@ -81,7 +81,7 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the category.</p>.
+     * <p>The current version of the category.</p>
      *
      * @return null|int
      */
@@ -107,7 +107,7 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -117,7 +117,7 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -143,7 +143,7 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * <p>The tax rates have unique IDs in the rates list</p>.
+     * <p>The tax rates have unique IDs in the rates list</p>
      *
      * @return null|TaxRateCollection
      */
@@ -153,7 +153,7 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the category.</p>.
+     * <p>User-specific unique identifier for the category.</p>
      *
      * @return null|string
      */
@@ -289,8 +289,8 @@ final class TaxCategoryBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->name,
             $this->description,
             $this->rates,

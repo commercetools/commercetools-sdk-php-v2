@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeBooleanTypeModel extends JsonObjectModel implements AttributeBooleanType
 {
     const DISCRIMINATOR_VALUE = 'boolean';
-
     /**
      * @var ?string
      */

@@ -17,7 +17,7 @@ use Commercetools\Base\Builder;
 final class OrderEditPreviewSuccessBuilder implements Builder
 {
     /**
-     * @var StagedOrder|?StagedOrderBuilder
+     * @var null|StagedOrder|StagedOrderBuilder
      */
     private $preview;
 
@@ -75,7 +75,7 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     public function build(): OrderEditPreviewSuccess
     {
         return new OrderEditPreviewSuccessModel(
-            ($this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview),
+            $this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview,
             $this->messagePayloads
         );
     }

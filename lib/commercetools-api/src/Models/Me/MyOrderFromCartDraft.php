@@ -16,7 +16,7 @@ interface MyOrderFromCartDraft extends JsonObject
     const FIELD_VERSION = 'version';
 
     /**
-     * <p>The unique ID of the cart from which an order is created.</p>.
+     * <p>The unique ID of the cart from which an order is created.</p>
      *
      * @return null|string
      */

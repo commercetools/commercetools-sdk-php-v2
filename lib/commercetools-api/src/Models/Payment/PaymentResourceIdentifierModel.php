@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PaymentResourceIdentifierModel extends JsonObjectModel implements PaymentResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'payment';
-
     /**
      * @var ?string
      */

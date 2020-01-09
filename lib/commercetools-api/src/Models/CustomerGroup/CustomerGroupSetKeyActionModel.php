@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements CustomerGroupSetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>.
+     * <p>User-specific unique identifier for the customer group.</p>
      *
      * @return null|string
      */

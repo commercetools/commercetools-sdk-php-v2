@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implements DiscountCodeChangeIsActiveAction
 {
     const DISCRIMINATOR_VALUE = 'changeIsActive';
-
     /**
      * @var ?string
      */

@@ -18,7 +18,6 @@ use stdClass;
 final class CategorySetCustomTypeActionModel extends JsonObjectModel implements CategorySetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */
@@ -61,7 +60,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -81,7 +80,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type. Sets the custom fields to this value.</p>.
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type. Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */

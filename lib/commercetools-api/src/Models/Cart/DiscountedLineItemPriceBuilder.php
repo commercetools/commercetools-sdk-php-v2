@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class DiscountedLineItemPriceBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -76,7 +76,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
     public function build(): DiscountedLineItemPrice
     {
         return new DiscountedLineItemPriceModel(
-            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value),
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->includedDiscounts
         );
     }

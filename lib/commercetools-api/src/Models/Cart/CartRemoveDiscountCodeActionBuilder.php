@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CartRemoveDiscountCodeActionBuilder implements Builder
 {
     /**
-     * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
+     * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
@@ -53,7 +53,7 @@ final class CartRemoveDiscountCodeActionBuilder implements Builder
     public function build(): CartRemoveDiscountCodeAction
     {
         return new CartRemoveDiscountCodeActionModel(
-            ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode)
+            $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode
         );
     }
 

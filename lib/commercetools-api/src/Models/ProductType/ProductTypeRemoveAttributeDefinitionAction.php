@@ -13,7 +13,7 @@ interface ProductTypeRemoveAttributeDefinitionAction extends ProductTypeUpdateAc
     const FIELD_NAME = 'name';
 
     /**
-     * <p>The name of the attribute to remove.</p>.
+     * <p>The name of the attribute to remove.</p>
      *
      * @return null|string
      */

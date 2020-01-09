@@ -17,7 +17,6 @@ use stdClass;
 final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements OrderEditSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */
@@ -61,7 +60,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
 
     /**
      * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>.
+     * If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -81,7 +80,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>.
+     * <p>If set, the custom fields are set to this new value.</p>
      *
      * @return null|JsonObject
      */

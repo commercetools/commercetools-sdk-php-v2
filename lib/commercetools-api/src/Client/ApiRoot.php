@@ -22,12 +22,7 @@ class ApiRoot extends ApiResource
         parent::__construct('', $args, $client);
     }
 
-    /**
-     * @psalm-param scalar $projectKey
-     *
-     * @param null|mixed $projectKey
-     */
-    public function withProjectKey($projectKey = null): ResourceByProjectKey
+    public function withProjectKey(string $projectKey = null): ResourceByProjectKey
     {
         $args = $this->getArgs();
         if (!is_null($projectKey)) {

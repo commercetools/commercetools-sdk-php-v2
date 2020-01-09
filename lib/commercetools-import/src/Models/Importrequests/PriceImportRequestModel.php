@@ -15,7 +15,6 @@ use stdClass;
 final class PriceImportRequestModel extends JsonObjectModel implements PriceImportRequest
 {
     const DISCRIMINATOR_VALUE = 'price';
-
     /**
      * @var ?string
      */
@@ -34,7 +33,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     }
 
     /**
-     * <p>The type of the import resource.</p>.
+     * <p>The type of the import resource.</p>
      *
      * @return null|string
      */
@@ -53,7 +52,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     }
 
     /**
-     * <p>The price import resources of this request.</p>.
+     * <p>The price import resources of this request.</p>
      *
      * @return null|PriceImportCollection
      */

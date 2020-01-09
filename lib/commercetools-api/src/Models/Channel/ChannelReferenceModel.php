@@ -15,7 +15,6 @@ use stdClass;
 final class ChannelReferenceModel extends JsonObjectModel implements ChannelReference
 {
     const DISCRIMINATOR_VALUE = 'channel';
-
     /**
      * @var ?string
      */

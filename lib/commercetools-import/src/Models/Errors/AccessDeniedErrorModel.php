@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeniedError
 {
     const DISCRIMINATOR_VALUE = 'access_denied';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

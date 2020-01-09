@@ -24,7 +24,6 @@ use stdClass;
 final class PaymentInteractionAddedMessageModel extends JsonObjectModel implements PaymentInteractionAddedMessage
 {
     const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
-
     /**
      * @var ?string
      */

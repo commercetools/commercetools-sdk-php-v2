@@ -18,7 +18,6 @@ use stdClass;
 final class ChannelSetCustomTypeActionModel extends JsonObjectModel implements ChannelSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */

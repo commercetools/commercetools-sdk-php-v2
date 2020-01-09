@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
 {
     const DISCRIMINATOR_VALUE = 'Point';
-
     /**
      * @var ?string
      */

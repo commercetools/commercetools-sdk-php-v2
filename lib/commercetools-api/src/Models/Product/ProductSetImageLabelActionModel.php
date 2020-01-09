@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductSetImageLabelActionModel extends JsonObjectModel implements ProductSetImageLabelAction
 {
     const DISCRIMINATOR_VALUE = 'setImageLabel';
-
     /**
      * @var ?string
      */
@@ -111,7 +110,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>The URL of the image.</p>.
+     * <p>The URL of the image.</p>
      *
      * @return null|string
      */
@@ -131,7 +130,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
 
     /**
      * <p>The new image label.
-     * If left blank or set to null, the label is removed.</p>.
+     * If left blank or set to null, the label is removed.</p>
      *
      * @return null|string
      */

@@ -49,12 +49,12 @@ final class ProductBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -64,32 +64,32 @@ final class ProductBuilder implements Builder
     private $key;
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
-     * @var ProductCatalogData|?ProductCatalogDataBuilder
+     * @var null|ProductCatalogData|ProductCatalogDataBuilder
      */
     private $masterData;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
-     * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
+     * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
 
     /**
-     * <p>The unique ID of the product.</p>.
+     * <p>The unique ID of the product.</p>
      *
      * @return null|string
      */
@@ -99,7 +99,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the product.</p>.
+     * <p>The current version of the product.</p>
      *
      * @return null|int
      */
@@ -125,7 +125,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -135,7 +135,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -146,7 +146,7 @@ final class ProductBuilder implements Builder
 
     /**
      * <p>User-specific unique identifier for the product.
-     * <em>Product keys are different from product variant keys.</em></p>.
+     * <em>Product keys are different from product variant keys.</em></p>
      *
      * @return null|string
      */
@@ -164,7 +164,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>The product data in the master catalog.</p>.
+     * <p>The product data in the master catalog.</p>
      *
      * @return null|ProductCatalogData
      */
@@ -190,7 +190,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     * <p>Statistics about the review ratings taken into account for this product.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -396,14 +396,14 @@ final class ProductBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
-            ($this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData),
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics)
+            $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
+            $this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData,
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics
         );
     }
 

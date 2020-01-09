@@ -21,7 +21,7 @@ final class ZoneReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var Zone|?ZoneBuilder
+     * @var null|Zone|ZoneBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ZoneReferenceBuilder implements Builder
     {
         return new ZoneReferenceModel(
             $this->id,
-            ($this->obj instanceof ZoneBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ZoneBuilder ? $this->obj->build() : $this->obj
         );
     }
 

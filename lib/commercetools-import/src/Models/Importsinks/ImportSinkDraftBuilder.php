@@ -31,7 +31,7 @@ final class ImportSinkDraftBuilder implements Builder
     private $resourceType;
 
     /**
-     * <p>The version of this resource.</p>.
+     * <p>The version of this resource.</p>
      *
      * @return null|int
      */
@@ -41,7 +41,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
-     * <p>The unique key of the import sink.</p>.
+     * <p>The unique key of the import sink.</p>
      *
      * @return null|string
      */
@@ -51,7 +51,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
-     * <p>The type of import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.</p>
      *
      * @return null|string
      */

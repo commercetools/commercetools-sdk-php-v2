@@ -15,7 +15,6 @@ use stdClass;
 final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implements CartDiscountValueAbsoluteDraft
 {
     const DISCRIMINATOR_VALUE = 'absolute';
-
     /**
      * @var ?string
      */

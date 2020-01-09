@@ -21,7 +21,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     private $attributeName;
 
     /**
-     * @var AttributeLocalizedEnumValue|?AttributeLocalizedEnumValueBuilder
+     * @var null|AttributeLocalizedEnumValue|AttributeLocalizedEnumValueBuilder
      */
     private $newValue;
 
@@ -75,7 +75,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     {
         return new ProductTypeChangeLocalizedEnumValueLabelActionModel(
             $this->attributeName,
-            ($this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue)
+            $this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue
         );
     }
 

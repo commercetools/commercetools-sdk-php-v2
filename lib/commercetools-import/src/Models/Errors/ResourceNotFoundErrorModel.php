@@ -15,7 +15,6 @@ use stdClass;
 final class ResourceNotFoundErrorModel extends JsonObjectModel implements ResourceNotFoundError
 {
     const DISCRIMINATOR_VALUE = 'ResourceNotFound';
-
     /**
      * @var ?string
      */
@@ -58,7 +57,7 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

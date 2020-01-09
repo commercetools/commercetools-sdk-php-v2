@@ -22,7 +22,7 @@ final class ShippingMethodSetPredicateActionBuilder implements Builder
 
     /**
      * <p>A valid Cart predicate.
-     * If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     * If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
      * @return null|string
      */

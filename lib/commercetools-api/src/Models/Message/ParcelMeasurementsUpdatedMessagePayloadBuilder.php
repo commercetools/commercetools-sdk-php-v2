@@ -28,7 +28,7 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     private $parcelId;
 
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
@@ -101,7 +101,7 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
         return new ParcelMeasurementsUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->parcelId,
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
+            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements
         );
     }
 

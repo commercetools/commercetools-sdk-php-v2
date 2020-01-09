@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CategoryCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Category|?CategoryBuilder
+     * @var null|Category|CategoryBuilder
      */
     private $category;
 
@@ -53,7 +53,7 @@ final class CategoryCreatedMessagePayloadBuilder implements Builder
     public function build(): CategoryCreatedMessagePayload
     {
         return new CategoryCreatedMessagePayloadModel(
-            ($this->category instanceof CategoryBuilder ? $this->category->build() : $this->category)
+            $this->category instanceof CategoryBuilder ? $this->category->build() : $this->category
         );
     }
 

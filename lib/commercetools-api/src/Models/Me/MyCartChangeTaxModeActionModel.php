@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCartChangeTaxModeActionModel extends JsonObjectModel implements MyCartChangeTaxModeAction
 {
     const DISCRIMINATOR_VALUE = 'changeTaxMode';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChangeKeyAction
 {
     const DISCRIMINATOR_VALUE = 'changeKey';
-
     /**
      * @var ?string
      */

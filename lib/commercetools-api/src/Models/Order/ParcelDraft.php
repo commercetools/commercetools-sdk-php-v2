@@ -27,7 +27,7 @@ interface ParcelDraft extends JsonObject
     public function getTrackingData();
 
     /**
-     * <p>The delivery items contained in this parcel.</p>.
+     * <p>The delivery items contained in this parcel.</p>
      *
      * @return null|DeliveryItemCollection
      */

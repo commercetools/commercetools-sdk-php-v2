@@ -5,29 +5,29 @@ namespace Commercetools\IntegrationTest;
 use Commercetools\Api\Client\ApiRoot;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config;
-use Commercetools\Api\Models\Me\MyCart;
-use Commercetools\Client\MeOAuthHandlerFactory;
-use Commercetools\Client\MeConfig;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponseModel;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Me\MyCustomer;
 use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Project\ProjectModel;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
+use Commercetools\Client\MeConfig;
+use Commercetools\Client\MeOAuthHandlerFactory;
 use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Client\OAuthHandlerFactory;
-use Commercetools\Client\ProviderFactory;
 use Commercetools\Exception\ApiClientException;
-use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class MiscTest extends TestCase
 {
     /**
@@ -64,7 +64,7 @@ class MiscTest extends TestCase
         $client = $this->client;
         $response = $client->get('');
 
-        $this->assertStringContainsString("This is the commercetools platform project API", (string)$response->getBody());
+        $this->assertStringContainsString('This is the commercetools platform project API', (string) $response->getBody());
     }
 
     public function testGetProject()
@@ -74,7 +74,7 @@ class MiscTest extends TestCase
         $root = new ApiRoot($client);
         $response = $root->withProjectKey($this->projectKey)->get()->send();
 
-        $project = ProjectModel::fromArray(json_decode((string)$response->getBody(), true));
+        $project = ProjectModel::fromArray(json_decode((string) $response->getBody(), true));
 
         $this->assertSame($this->projectKey, $project->getKey());
         $this->assertInstanceOf(\DateTimeImmutable::class, $project->getCreatedAt());
@@ -89,8 +89,7 @@ class MiscTest extends TestCase
 
         $response = $root->withProjectKey($this->projectKey)->categories()->get()->send();
 
-
-        $catResponse = CategoryPagedQueryResponseModel::of(json_decode((string)$response->getBody()));
+        $catResponse = CategoryPagedQueryResponseModel::of(json_decode((string) $response->getBody()));
         $categories = $catResponse->getResults();
         $c1 = $categories->current();
         $this->assertInstanceOf(Category::class, $c1);
@@ -124,7 +123,7 @@ class MiscTest extends TestCase
         $client = $this->client;
         $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);
 
-        $t = $root->withProjectKey()->productProjections()->search()->get()->withFacet("categories.id");
+        $t = $root->withProjectKey()->productProjections()->search()->get()->withFacet('categories.id');
 
         $r = $client->send($t);
         $c = $t->execute();
@@ -168,6 +167,7 @@ class MiscTest extends TestCase
         } catch (\Throwable $e) {
             $this->assertNotNull($instanceTokenStorage->getAccessToken());
             $this->assertNotNull($instanceTokenStorage->getRefreshToken());
+
             throw $e;
         }
     }

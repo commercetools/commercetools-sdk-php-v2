@@ -36,7 +36,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>.
+     * It is used to reference the store.</p>
      *
      * @return null|string
      */
@@ -55,7 +55,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>The name of the store</p>.
+     * <p>The name of the store</p>
      *
      * @return null|LocalizedString
      */

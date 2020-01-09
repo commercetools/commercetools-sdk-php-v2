@@ -23,7 +23,7 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     private $textLineItemId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -77,7 +77,7 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     {
         return new MyShoppingListSetTextLineItemDescriptionActionModel(
             $this->textLineItemId,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description
         );
     }
 

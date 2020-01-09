@@ -69,7 +69,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     /**
      * <p>The ID is always set if the tax rate is part of a TaxCategory.
      * The external tax rates in a
-     * Cart do not contain an <code>id</code>.</p>.
+     * Cart do not contain an <code>id</code>.</p>
      *
      * @return null|string
      */
@@ -106,7 +106,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
 
     /**
      * <p>Percentage in the range of [0..1].
-     * The sum of the amounts of all <code>subRates</code>, if there are any.</p>.
+     * The sum of the amounts of all <code>subRates</code>, if there are any.</p>
      *
      * @return null|int
      */
@@ -142,7 +142,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -161,7 +161,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * <p>The state in the country</p>.
+     * <p>The state in the country</p>
      *
      * @return null|string
      */
@@ -182,7 +182,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     /**
      * <p>For countries (e.g.
      * the US) where the total tax is a combination of multiple taxes (e.g.
-     * state and local taxes).</p>.
+     * state and local taxes).</p>
      *
      * @return null|SubRateCollection
      */

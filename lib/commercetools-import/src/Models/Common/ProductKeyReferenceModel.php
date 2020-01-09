@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductKeyReferenceModel extends JsonObjectModel implements ProductKeyReference
 {
     const DISCRIMINATOR_VALUE = 'product';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ProductKeyReferenceModel extends JsonObjectModel implements ProductK
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

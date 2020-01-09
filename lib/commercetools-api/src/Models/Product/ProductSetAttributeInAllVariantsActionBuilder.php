@@ -40,7 +40,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
-     * <p>The same update behavior as for Set Attribute applies.</p>.
+     * <p>The same update behavior as for Set Attribute applies.</p>
      *
      * @return null|JsonObject
      */

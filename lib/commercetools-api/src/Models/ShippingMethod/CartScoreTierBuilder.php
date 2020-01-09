@@ -23,12 +23,12 @@ final class CartScoreTierBuilder implements Builder
     private $score;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
-     * @var PriceFunction|?PriceFunctionBuilder
+     * @var null|PriceFunction|PriceFunctionBuilder
      */
     private $priceFunction;
 
@@ -133,8 +133,8 @@ final class CartScoreTierBuilder implements Builder
     {
         return new CartScoreTierModel(
             $this->score,
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            ($this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction),
+            $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price,
+            $this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction,
             $this->isMatching
         );
     }

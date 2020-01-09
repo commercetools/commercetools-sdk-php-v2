@@ -21,7 +21,7 @@ final class DiscountCodeSetMaxApplicationsActionBuilder implements Builder
     private $maxApplications;
 
     /**
-     * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|int
      */

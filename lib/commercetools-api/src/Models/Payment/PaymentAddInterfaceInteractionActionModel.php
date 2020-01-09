@@ -18,7 +18,6 @@ use stdClass;
 final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel implements PaymentAddInterfaceInteractionAction
 {
     const DISCRIMINATOR_VALUE = 'addInterfaceInteraction';
-
     /**
      * @var ?string
      */

@@ -19,7 +19,7 @@ use DateTimeImmutable;
 final class StagedOrderUpdateSyncInfoActionBuilder implements Builder
 {
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $channel;
 
@@ -100,7 +100,7 @@ final class StagedOrderUpdateSyncInfoActionBuilder implements Builder
     public function build(): StagedOrderUpdateSyncInfoAction
     {
         return new StagedOrderUpdateSyncInfoActionModel(
-            ($this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel),
+            $this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel,
             $this->externalId,
             $this->syncedAt
         );

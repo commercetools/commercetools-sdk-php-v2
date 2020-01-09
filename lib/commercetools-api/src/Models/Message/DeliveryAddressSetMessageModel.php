@@ -24,7 +24,6 @@ use stdClass;
 final class DeliveryAddressSetMessageModel extends JsonObjectModel implements DeliveryAddressSetMessage
 {
     const DISCRIMINATOR_VALUE = 'DeliveryAddressSet';
-
     /**
      * @var ?string
      */

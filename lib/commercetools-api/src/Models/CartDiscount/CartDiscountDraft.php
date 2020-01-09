@@ -37,7 +37,7 @@ interface CartDiscountDraft extends JsonObject
     /**
      * <p>User-specific unique identifier for a cart discount.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>.
+     * The field can be reset using the Set Key UpdateAction.</p>
      *
      * @return null|string
      */
@@ -54,14 +54,14 @@ interface CartDiscountDraft extends JsonObject
     public function getValue();
 
     /**
-     * <p>A valid Cart predicate.</p>.
+     * <p>A valid Cart predicate.</p>
      *
      * @return null|string
      */
     public function getCartPredicate();
 
     /**
-     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget must be set.</p>.
+     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget must be set.</p>
      *
      * @return null|CartDiscountTarget
      */
@@ -70,7 +70,7 @@ interface CartDiscountDraft extends JsonObject
     /**
      * <p>The string must contain a number between 0 and 1.
      * A discount with greater sort order is prioritized higher than a discount with lower sort order.
-     * The sort order must be unambiguous among all cart discounts.</p>.
+     * The sort order must be unambiguous among all cart discounts.</p>
      *
      * @return null|string
      */
@@ -78,7 +78,7 @@ interface CartDiscountDraft extends JsonObject
 
     /**
      * <p>Only active discount can be applied to the cart.
-     * Defaults to <code>true</code>.</p>.
+     * Defaults to <code>true</code>.</p>
      *
      * @return null|bool
      */
@@ -96,7 +96,7 @@ interface CartDiscountDraft extends JsonObject
 
     /**
      * <p>States whether the discount can only be used in a connection with a DiscountCode.
-     * Defaults to <code>false</code>.</p>.
+     * Defaults to <code>false</code>.</p>
      *
      * @return null|bool
      */
@@ -104,7 +104,7 @@ interface CartDiscountDraft extends JsonObject
 
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>.
+     * Defaults to Stacking.</p>
      *
      * @return null|string
      */

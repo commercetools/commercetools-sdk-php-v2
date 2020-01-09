@@ -33,17 +33,17 @@ final class LineItemImportDraftBuilder implements Builder
     private $productId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var ProductVariantImportDraft|?ProductVariantImportDraftBuilder
+     * @var null|ProductVariantImportDraft|ProductVariantImportDraftBuilder
      */
     private $variant;
 
     /**
-     * @var PriceDraft|?PriceDraftBuilder
+     * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
@@ -58,33 +58,33 @@ final class LineItemImportDraftBuilder implements Builder
     private $state;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
-     * @var TaxRate|?TaxRateBuilder
+     * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
      * <p>ID of the existing product.
-     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>.
+     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
      * @return null|string
      */
@@ -94,7 +94,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The product name.</p>.
+     * <p>The product name.</p>
      *
      * @return null|LocalizedString
      */
@@ -140,7 +140,7 @@ final class LineItemImportDraftBuilder implements Builder
      * By providing supply channel information, you can uniquely identify
      * inventory entries that should be reserved.
      * The provided channel should have the
-     * InventorySupply role.</p>.
+     * InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -151,7 +151,7 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -169,7 +169,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -380,16 +380,16 @@ final class LineItemImportDraftBuilder implements Builder
     {
         return new LineItemImportDraftModel(
             $this->productId,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->variant instanceof ProductVariantImportDraftBuilder ? $this->variant->build() : $this->variant),
-            ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->variant instanceof ProductVariantImportDraftBuilder ? $this->variant->build() : $this->variant,
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->quantity,
             $this->state,
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel),
-            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }
 

@@ -59,7 +59,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>Defaults to the current date and time.</p>.
+     * <p>Defaults to the current date and time.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -82,7 +82,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -138,7 +138,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>Defaults to <code>1</code>.</p>.
+     * <p>Defaults to <code>1</code>.</p>
      *
      * @return null|int
      */

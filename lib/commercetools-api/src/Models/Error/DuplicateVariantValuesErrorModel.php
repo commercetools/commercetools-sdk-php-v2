@@ -14,7 +14,6 @@ use stdClass;
 final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements DuplicateVariantValuesError
 {
     const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';
-
     /**
      * @var ?string
      */

@@ -33,14 +33,14 @@ interface Category extends LoggedResource
     const FIELD_KEY = 'key';
 
     /**
-     * <p>The unique ID of the category.</p>.
+     * <p>The unique ID of the category.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the category.</p>.
+     * <p>The current version of the category.</p>
      *
      * @return null|int
      */
@@ -57,14 +57,14 @@ interface Category extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -77,7 +77,7 @@ interface Category extends LoggedResource
 
     /**
      * <p>human-readable identifiers usually used as deep-link URL to the related category.
-     * Each slug is unique across a project, but a category can have the same slug for different languages.</p>.
+     * Each slug is unique across a project, but a category can have the same slug for different languages.</p>
      *
      * @return null|LocalizedString
      */
@@ -89,21 +89,21 @@ interface Category extends LoggedResource
     public function getDescription();
 
     /**
-     * <p>Contains the parent path towards the root category.</p>.
+     * <p>Contains the parent path towards the root category.</p>
      *
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors();
 
     /**
-     * <p>A category that is the parent of this category in the category tree.</p>.
+     * <p>A category that is the parent of this category in the category tree.</p>
      *
      * @return null|CategoryReference
      */
     public function getParent();
 
     /**
-     * <p>An attribute as base for a custom category order in one level.</p>.
+     * <p>An attribute as base for a custom category order in one level.</p>
      *
      * @return null|string
      */
@@ -135,14 +135,14 @@ interface Category extends LoggedResource
     public function getCustom();
 
     /**
-     * <p>Can be used to store images, icons or movies related to this category.</p>.
+     * <p>Can be used to store images, icons or movies related to this category.</p>
      *
      * @return null|AssetCollection
      */
     public function getAssets();
 
     /**
-     * <p>User-specific unique identifier for the category.</p>.
+     * <p>User-specific unique identifier for the category.</p>
      *
      * @return null|string
      */

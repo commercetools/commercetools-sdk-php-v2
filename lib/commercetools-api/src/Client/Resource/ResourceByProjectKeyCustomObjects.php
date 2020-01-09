@@ -14,19 +14,13 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyCustomObjects extends ApiResource
 {
-    /**
-     * @psalm-param scalar $container
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $container
-     * @param null|mixed $key
-     */
-    public function withContainerAndKey($container = null, $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
+    public function withContainerAndKey(string $container = null, string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
     {
         $args = $this->getArgs();
         if (!is_null($container)) {
             $args['container'] = $container;
         }
+
         if (!is_null($key)) {
             $args['key'] = $key;
         }
@@ -34,12 +28,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
         return new ResourceByProjectKeyCustomObjectsByContainerByKey($this->getUri().'/{container}/{key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyCustomObjectsByID
+    public function withId(string $ID = null): ResourceByProjectKeyCustomObjectsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -59,7 +48,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -70,6 +59,6 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

@@ -15,7 +15,6 @@ use stdClass;
 final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
 {
     const DISCRIMINATOR_VALUE = 'zone';
-
     /**
      * @var ?string
      */

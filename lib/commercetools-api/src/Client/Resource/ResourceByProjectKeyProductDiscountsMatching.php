@@ -22,6 +22,6 @@ class ResourceByProjectKeyProductDiscountsMatching extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductDiscountsMatchingPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductDiscountsMatchingPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

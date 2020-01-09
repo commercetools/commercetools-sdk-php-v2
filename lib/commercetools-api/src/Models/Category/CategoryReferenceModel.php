@@ -15,7 +15,6 @@ use stdClass;
 final class CategoryReferenceModel extends JsonObjectModel implements CategoryReference
 {
     const DISCRIMINATOR_VALUE = 'category';
-
     /**
      * @var ?string
      */

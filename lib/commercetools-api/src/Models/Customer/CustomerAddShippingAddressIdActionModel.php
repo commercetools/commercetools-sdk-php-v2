@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerAddShippingAddressIdActionModel extends JsonObjectModel implements CustomerAddShippingAddressIdAction
 {
     const DISCRIMINATOR_VALUE = 'addShippingAddressId';
-
     /**
      * @var ?string
      */

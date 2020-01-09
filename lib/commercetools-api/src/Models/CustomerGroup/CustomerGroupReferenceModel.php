@@ -15,7 +15,6 @@ use stdClass;
 final class CustomerGroupReferenceModel extends JsonObjectModel implements CustomerGroupReference
 {
     const DISCRIMINATOR_VALUE = 'customer-group';
-
     /**
      * @var ?string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSetCustomerNumberActionModel extends JsonObjectModel implements CustomerSetCustomerNumberAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerNumber';
-
     /**
      * @var ?string
      */
@@ -50,7 +49,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
 
     /**
      * <p>It should be <strong>unique</strong> across a project.
-     * Once it's set, it cannot be changed.</p>.
+     * Once it's set, it cannot be changed.</p>
      *
      * @return null|string
      */

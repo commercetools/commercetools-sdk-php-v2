@@ -23,7 +23,7 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
+     * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     {
         return new StagedOrderSetLineItemTotalPriceActionModel(
             $this->lineItemId,
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice)
+            $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice
         );
     }
 

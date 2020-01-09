@@ -14,7 +14,6 @@ use stdClass;
 final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxCategoryUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

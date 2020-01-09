@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyCustomerSetVatIdAction
 {
     const DISCRIMINATOR_VALUE = 'setVatId';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implements OrderAddParcelToDeliveryAction
 {
     const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
-
     /**
      * @var ?string
      */

@@ -25,16 +25,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyPost extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $importSinkKey
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $importSinkKey
      */
-    public function __construct($projectKey, $importSinkKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/categories/importSinkKey={importSinkKey}');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);

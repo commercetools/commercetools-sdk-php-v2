@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel implements DiscountCodeSetMaxApplicationsAction
 {
     const DISCRIMINATOR_VALUE = 'setMaxApplications';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|int
      */

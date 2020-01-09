@@ -26,7 +26,6 @@ use stdClass;
 final class OrderCustomerSetMessageModel extends JsonObjectModel implements OrderCustomerSetMessage
 {
     const DISCRIMINATOR_VALUE = 'OrderCustomerSet';
-
     /**
      * @var ?string
      */

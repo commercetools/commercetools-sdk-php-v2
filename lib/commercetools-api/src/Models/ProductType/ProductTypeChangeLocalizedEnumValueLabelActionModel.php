@@ -14,7 +14,6 @@ use stdClass;
 final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel implements ProductTypeChangeLocalizedEnumValueLabelAction
 {
     const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
-
     /**
      * @var ?string
      */

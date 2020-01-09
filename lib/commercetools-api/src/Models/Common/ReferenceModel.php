@@ -37,7 +37,6 @@ use stdClass;
 final class ReferenceModel extends JsonObjectModel implements Reference
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

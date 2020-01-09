@@ -21,12 +21,12 @@ final class ProductCatalogDataBuilder implements Builder
     private $published;
 
     /**
-     * @var ProductData|?ProductDataBuilder
+     * @var null|ProductData|ProductDataBuilder
      */
     private $current;
 
     /**
-     * @var ProductData|?ProductDataBuilder
+     * @var null|ProductData|ProductDataBuilder
      */
     private $staged;
 
@@ -131,8 +131,8 @@ final class ProductCatalogDataBuilder implements Builder
     {
         return new ProductCatalogDataModel(
             $this->published,
-            ($this->current instanceof ProductDataBuilder ? $this->current->build() : $this->current),
-            ($this->staged instanceof ProductDataBuilder ? $this->staged->build() : $this->staged),
+            $this->current instanceof ProductDataBuilder ? $this->current->build() : $this->current,
+            $this->staged instanceof ProductDataBuilder ? $this->staged->build() : $this->staged,
             $this->hasStagedChanges
         );
     }

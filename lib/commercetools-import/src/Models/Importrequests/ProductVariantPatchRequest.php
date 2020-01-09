@@ -15,7 +15,7 @@ interface ProductVariantPatchRequest extends ImportRequest
     const FIELD_PATCHES = 'patches';
 
     /**
-     * <p>The product variant patches of this request.</p>.
+     * <p>The product variant patches of this request.</p>
      *
      * @return null|ProductVariantPatchCollection
      */

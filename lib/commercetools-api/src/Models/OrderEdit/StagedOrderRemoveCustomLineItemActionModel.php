@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel implements StagedOrderRemoveCustomLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
-
     /**
      * @var ?string
      */

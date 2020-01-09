@@ -16,12 +16,12 @@ use Commercetools\Base\Builder;
 final class ParcelDraftBuilder implements Builder
 {
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
-     * @var TrackingData|?TrackingDataBuilder
+     * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
@@ -47,7 +47,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
-     * <p>The delivery items contained in this parcel.</p>.
+     * <p>The delivery items contained in this parcel.</p>
      *
      * @return null|DeliveryItemCollection
      */
@@ -109,8 +109,8 @@ final class ParcelDraftBuilder implements Builder
     public function build(): ParcelDraft
     {
         return new ParcelDraftModel(
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
+            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
+            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
             $this->items
         );
     }

@@ -16,7 +16,6 @@ use stdClass;
 final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjectModel implements ProductPriceExternalDiscountSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
-
     /**
      * @var ?string
      */

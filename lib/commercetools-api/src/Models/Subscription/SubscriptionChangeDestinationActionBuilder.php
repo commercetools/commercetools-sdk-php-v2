@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class SubscriptionChangeDestinationActionBuilder implements Builder
 {
     /**
-     * @var Destination|?DestinationBuilder
+     * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
@@ -51,7 +51,7 @@ final class SubscriptionChangeDestinationActionBuilder implements Builder
     public function build(): SubscriptionChangeDestinationAction
     {
         return new SubscriptionChangeDestinationActionModel(
-            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination)
+            $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination
         );
     }
 

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderResourceIdentifierModel extends JsonObjectModel implements OrderResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'order';
-
     /**
      * @var ?string
      */

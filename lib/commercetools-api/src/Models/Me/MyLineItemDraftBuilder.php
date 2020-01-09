@@ -37,22 +37,22 @@ final class MyLineItemDraftBuilder implements Builder
     private $quantity;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
@@ -88,7 +88,7 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * <p>By providing supply channel information, you can unique identify
      * inventory entries that should be reserved.
-     * The provided channel should have the InventorySupply role.</p>.
+     * The provided channel should have the InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -99,7 +99,7 @@ final class MyLineItemDraftBuilder implements Builder
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -109,7 +109,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -119,7 +119,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>Container for line item specific address(es).</p>.
+     * <p>Container for line item specific address(es).</p>
      *
      * @return null|ItemShippingDetailsDraft
      */
@@ -262,10 +262,10 @@ final class MyLineItemDraftBuilder implements Builder
             $this->productId,
             $this->variantId,
             $this->quantity,
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->sku
         );
     }

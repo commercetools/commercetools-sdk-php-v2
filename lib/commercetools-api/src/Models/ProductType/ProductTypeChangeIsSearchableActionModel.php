@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel implements ProductTypeChangeIsSearchableAction
 {
     const DISCRIMINATOR_VALUE = 'changeIsSearchable';
-
     /**
      * @var ?string
      */

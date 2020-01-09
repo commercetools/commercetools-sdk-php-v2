@@ -44,7 +44,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
@@ -95,7 +95,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
 
     /**
      * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>.
+     * If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -105,7 +105,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>.
+     * <p>If set, the custom fields are set to this new value.</p>
      *
      * @return null|JsonObject
      */
@@ -202,7 +202,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
             $this->staged,
             $this->assetId,
             $this->assetKey,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields
         );
     }

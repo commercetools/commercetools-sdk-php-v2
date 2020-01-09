@@ -66,7 +66,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>.
+     * <p>When the text line item was added to the shopping list.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -125,7 +125,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>.
+     * <p>The unique ID of this TextLineItem.</p>
      *
      * @return null|string
      */

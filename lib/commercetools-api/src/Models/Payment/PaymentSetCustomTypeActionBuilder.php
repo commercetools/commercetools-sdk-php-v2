@@ -20,18 +20,18 @@ use Commercetools\Base\Builder;
 final class PaymentSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
      * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>.
+     * If absent, the custom type and any existing custom fields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -41,7 +41,7 @@ final class PaymentSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the custom fields to this value.</p>.
+     * <p>Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */
@@ -93,8 +93,8 @@ final class PaymentSetCustomTypeActionBuilder implements Builder
     public function build(): PaymentSetCustomTypeAction
     {
         return new PaymentSetCustomTypeActionModel(
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

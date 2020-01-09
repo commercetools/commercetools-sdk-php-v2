@@ -132,7 +132,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>The unique ID of the channel.</p>.
+     * <p>The unique ID of the channel.</p>
      *
      * @return null|string
      */
@@ -210,7 +210,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -230,7 +230,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -250,7 +250,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>.
+     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>
      *
      * @return null|string
      */
@@ -270,7 +270,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
 
     /**
      * <p>The roles of this channel.
-     * Each channel must have at least one role.</p>.
+     * Each channel must have at least one role.</p>
      *
      * @return null|array
      */
@@ -289,7 +289,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A human-readable name of the channel.</p>.
+     * <p>A human-readable name of the channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -309,7 +309,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A human-readable description of the channel.</p>.
+     * <p>A human-readable description of the channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -330,7 +330,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
 
     /**
      * <p>The address where this channel is located (e.g.
-     * if the channel is a physical store).</p>.
+     * if the channel is a physical store).</p>
      *
      * @return null|Address
      */
@@ -350,7 +350,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this channel.</p>.
+     * <p>Statistics about the review ratings taken into account for this channel.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -388,7 +388,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>.
+     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>
      *
      * @return null|GeoJson
      */

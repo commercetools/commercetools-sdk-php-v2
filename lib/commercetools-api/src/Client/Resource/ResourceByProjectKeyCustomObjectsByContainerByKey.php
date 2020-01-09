@@ -23,7 +23,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByContainerByKeyGet((string) $args['projectKey'], (string) $args['container'], (string) $args['key'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -36,6 +36,6 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['projectKey'], $args['container'], $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByContainerByKeyDelete((string) $args['projectKey'], (string) $args['container'], (string) $args['key'], $body, $headers, $this->getClient());
     }
 }

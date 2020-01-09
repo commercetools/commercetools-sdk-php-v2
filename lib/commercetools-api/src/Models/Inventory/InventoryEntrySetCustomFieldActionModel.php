@@ -15,7 +15,6 @@ use stdClass;
 final class InventoryEntrySetCustomFieldActionModel extends JsonObjectModel implements InventoryEntrySetCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomField';
-
     /**
      * @var ?string
      */

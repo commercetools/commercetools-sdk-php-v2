@@ -22,7 +22,7 @@ interface ZoneRate extends JsonObject
     public function getZone();
 
     /**
-     * <p>The array does not contain two shipping rates with the same currency.</p>.
+     * <p>The array does not contain two shipping rates with the same currency.</p>
      *
      * @return null|ShippingRateCollection
      */

@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel implements PaymentChangeTransactionTimestampAction
 {
     const DISCRIMINATOR_VALUE = 'changeTransactionTimestamp';
-
     /**
      * @var ?string
      */

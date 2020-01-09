@@ -15,7 +15,6 @@ use stdClass;
 final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 {
     const DISCRIMINATOR_VALUE = 'type';
-
     /**
      * @var ?string
      */

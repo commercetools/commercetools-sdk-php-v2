@@ -22,7 +22,7 @@ interface ProductSetAttributeInAllVariantsAction extends ProductUpdateAction
     public function getName();
 
     /**
-     * <p>The same update behavior as for Set Attribute applies.</p>.
+     * <p>The same update behavior as for Set Attribute applies.</p>
      *
      * @return null|JsonObject
      */

@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class TaxedItemPriceDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalNet;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
@@ -86,8 +86,8 @@ final class TaxedItemPriceDraftBuilder implements Builder
     public function build(): TaxedItemPriceDraft
     {
         return new TaxedItemPriceDraftModel(
-            ($this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet),
-            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross)
+            $this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet,
+            $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross
         );
     }
 

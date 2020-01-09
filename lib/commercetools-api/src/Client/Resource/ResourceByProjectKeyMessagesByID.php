@@ -23,6 +23,6 @@ class ResourceByProjectKeyMessagesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMessagesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMessagesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

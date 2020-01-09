@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingRateInputActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
+     * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
 
@@ -53,7 +53,7 @@ final class StagedOrderSetShippingRateInputActionBuilder implements Builder
     public function build(): StagedOrderSetShippingRateInputAction
     {
         return new StagedOrderSetShippingRateInputActionModel(
-            ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput)
+            $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput
         );
     }
 

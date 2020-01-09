@@ -28,7 +28,7 @@ final class LastModifiedByBuilder implements Builder
     private $externalUserId;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
@@ -124,7 +124,7 @@ final class LastModifiedByBuilder implements Builder
         return new LastModifiedByModel(
             $this->clientId,
             $this->externalUserId,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId
         );
     }

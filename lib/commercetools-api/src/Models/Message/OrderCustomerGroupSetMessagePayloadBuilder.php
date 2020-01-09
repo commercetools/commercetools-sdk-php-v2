@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $oldCustomerGroup;
 
@@ -86,8 +86,8 @@ final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
     public function build(): OrderCustomerGroupSetMessagePayload
     {
         return new OrderCustomerGroupSetMessagePayloadModel(
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup)
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup
         );
     }
 

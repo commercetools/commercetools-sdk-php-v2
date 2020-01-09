@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyAction
 {
     const DISCRIMINATOR_VALUE = 'setKey';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyA
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
      * @return null|string
      */

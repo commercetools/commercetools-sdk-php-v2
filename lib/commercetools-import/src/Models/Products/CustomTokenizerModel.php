@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomTokenizerModel extends JsonObjectModel implements CustomTokenizer
 {
     const DISCRIMINATOR_VALUE = 'custom';
-
     /**
      * @var ?string
      */

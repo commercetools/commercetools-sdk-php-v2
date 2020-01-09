@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetSlugActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -53,7 +53,7 @@ final class ShoppingListSetSlugActionBuilder implements Builder
     public function build(): ShoppingListSetSlugAction
     {
         return new ShoppingListSetSlugActionModel(
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
         );
     }
 

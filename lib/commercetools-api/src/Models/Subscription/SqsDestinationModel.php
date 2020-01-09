@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class SqsDestinationModel extends JsonObjectModel implements SqsDestination
 {
     const DISCRIMINATOR_VALUE = 'SQS';
-
     /**
      * @var ?string
      */

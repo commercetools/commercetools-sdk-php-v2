@@ -23,14 +23,14 @@ interface ProductVariantImport extends ImportResource
     const FIELD_PRODUCT = 'product';
 
     /**
-     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
+     * <p>Maps to <code>ProductVariant.sku</code>.</p>
      *
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
+     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>
      *
      * @return null|bool
      */
@@ -40,21 +40,21 @@ interface ProductVariantImport extends ImportResource
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
      * <p>Each attribute referenced must be defined
      * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>.
+     * item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
-     * <p>Maps to <code>ProductVariant.images</code>.</p>.
+     * <p>Maps to <code>ProductVariant.images</code>.</p>
      *
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
-     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
+     * <p>Maps to <code>ProductVariant.assets</code>.</p>
      *
      * @return null|AssetCollection
      */
@@ -64,7 +64,7 @@ interface ProductVariantImport extends ImportResource
      * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */

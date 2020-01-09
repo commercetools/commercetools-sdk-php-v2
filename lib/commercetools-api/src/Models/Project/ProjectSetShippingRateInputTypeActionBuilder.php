@@ -16,12 +16,12 @@ use Commercetools\Base\Builder;
 final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
+     * @var null|ShippingRateInputType|ShippingRateInputTypeBuilder
      */
     private $shippingRateInputType;
 
     /**
-     * <p>If not set, removes existing shippingRateInputType.</p>.
+     * <p>If not set, removes existing shippingRateInputType.</p>
      *
      * @return null|ShippingRateInputType
      */
@@ -53,7 +53,7 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     public function build(): ProjectSetShippingRateInputTypeAction
     {
         return new ProjectSetShippingRateInputTypeActionModel(
-            ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType)
+            $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType
         );
     }
 

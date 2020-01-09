@@ -15,7 +15,6 @@ use stdClass;
 final class ShoppingListReferenceModel extends JsonObjectModel implements ShoppingListReference
 {
     const DISCRIMINATOR_VALUE = 'shopping-list';
-
     /**
      * @var ?string
      */

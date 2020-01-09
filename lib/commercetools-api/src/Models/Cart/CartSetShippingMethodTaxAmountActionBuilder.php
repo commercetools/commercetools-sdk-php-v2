@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class CartSetShippingMethodTaxAmountActionBuilder implements Builder
 {
     /**
-     * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
+     * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
@@ -51,7 +51,7 @@ final class CartSetShippingMethodTaxAmountActionBuilder implements Builder
     public function build(): CartSetShippingMethodTaxAmountAction
     {
         return new CartSetShippingMethodTaxAmountActionModel(
-            ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
+            $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount
         );
     }
 

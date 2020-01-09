@@ -17,7 +17,6 @@ use stdClass;
 final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel implements ExtensionUpdateActionsFailedError
 {
     const DISCRIMINATOR_VALUE = 'ExtensionUpdateActionsFailed';
-
     /**
      * @var ?string
      */

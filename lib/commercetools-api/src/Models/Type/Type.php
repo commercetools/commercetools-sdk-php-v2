@@ -23,14 +23,14 @@ interface Type extends LoggedResource
     const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
-     * <p>The unique ID of the type.</p>.
+     * <p>The unique ID of the type.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the type.</p>.
+     * <p>The current version of the type.</p>
      *
      * @return null|int
      */
@@ -47,14 +47,14 @@ interface Type extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -62,7 +62,7 @@ interface Type extends LoggedResource
 
     /**
      * <p>Identifier for the type (max.
-     * 256 characters).</p>.
+     * 256 characters).</p>
      *
      * @return null|string
      */
@@ -79,7 +79,7 @@ interface Type extends LoggedResource
     public function getDescription();
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>.
+     * <p>Defines for which resource(s) the type is valid.</p>
      *
      * @return null|array
      */

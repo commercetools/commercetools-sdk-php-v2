@@ -48,22 +48,22 @@ final class MyCartDraftBuilder implements Builder
     private $lineItems;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
     /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -88,7 +88,7 @@ final class MyCartDraftBuilder implements Builder
     private $itemShippingAddresses;
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -106,7 +106,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -116,7 +116,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Default inventory mode is <code>None</code>.</p>.
+     * <p>Default inventory mode is <code>None</code>.</p>
      *
      * @return null|string
      */
@@ -158,7 +158,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -176,7 +176,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>.
+     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
      * @return null|string
      */
@@ -187,7 +187,7 @@ final class MyCartDraftBuilder implements Builder
 
     /**
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
-     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>.
+     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
      * @return null|int
      */
@@ -198,7 +198,7 @@ final class MyCartDraftBuilder implements Builder
 
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.
-     * Each address must contain a key which is unique in this cart.</p>.
+     * Each address must contain a key which is unique in this cart.</p>
      *
      * @return null|AddressCollection
      */
@@ -385,10 +385,10 @@ final class MyCartDraftBuilder implements Builder
             $this->country,
             $this->inventoryMode,
             $this->lineItems,
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->taxMode,
             $this->deleteDaysAfterLastModification,

@@ -13,12 +13,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyProductVariantPatches extends ApiResource
 {
-    /**
-     * @psalm-param scalar $importSinkKey
-     *
-     * @param null|mixed $importSinkKey
-     */
-    public function importSinkKeyWithImportSinkKeyValue($importSinkKey = null): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey
+    public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();
         if (!is_null($importSinkKey)) {

@@ -15,7 +15,6 @@ use stdClass;
 final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements ProductDiscountValueAbsolute
 {
     const DISCRIMINATOR_VALUE = 'absolute';
-
     /**
      * @var ?string
      */

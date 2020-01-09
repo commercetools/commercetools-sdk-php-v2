@@ -16,7 +16,6 @@ use stdClass;
 final class ProductSetMetaDescriptionActionModel extends JsonObjectModel implements ProductSetMetaDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setMetaDescription';
-
     /**
      * @var ?string
      */

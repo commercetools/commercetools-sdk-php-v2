@@ -117,7 +117,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>.
+     * <p>A reference to the customer this payment belongs to.</p>
      *
      * @return null|CustomerReference
      */
@@ -137,7 +137,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
      * @return null|string
      */
@@ -157,7 +157,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
 
     /**
      * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>.
+     * The value usually matches the cart or order gross total.</p>
      *
      * @return null|TypedMoney
      */
@@ -196,7 +196,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
 
     /**
      * <p>A list of financial transactions of different TransactionTypes
-     * with different TransactionStates.</p>.
+     * with different TransactionStates.</p>
      *
      * @return null|TransactionCollection
      */

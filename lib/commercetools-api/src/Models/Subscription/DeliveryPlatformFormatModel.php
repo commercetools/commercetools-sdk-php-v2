@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DeliveryPlatformFormatModel extends JsonObjectModel implements DeliveryPlatformFormat
 {
     const DISCRIMINATOR_VALUE = 'Platform';
-
     /**
      * @var ?string
      */

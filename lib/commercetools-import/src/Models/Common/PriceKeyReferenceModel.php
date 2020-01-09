@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyReference
 {
     const DISCRIMINATOR_VALUE = 'price';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

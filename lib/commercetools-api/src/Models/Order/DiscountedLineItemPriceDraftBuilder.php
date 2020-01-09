@@ -19,7 +19,7 @@ use Commercetools\Base\Builder;
 final class DiscountedLineItemPriceDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -77,7 +77,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     public function build(): DiscountedLineItemPriceDraft
     {
         return new DiscountedLineItemPriceDraftModel(
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->includedDiscounts
         );
     }

@@ -23,7 +23,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     private $attributeName;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -77,7 +77,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     {
         return new ProductTypeChangeLabelActionModel(
             $this->attributeName,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label
         );
     }
 

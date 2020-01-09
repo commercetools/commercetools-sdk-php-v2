@@ -23,7 +23,7 @@ final class ProductChangePriceActionBuilder implements Builder
     private $priceId;
 
     /**
-     * @var PriceDraft|?PriceDraftBuilder
+     * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
@@ -33,7 +33,7 @@ final class ProductChangePriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>ID of the <a href="#price">Price</a></p>.
+     * <p>ID of the <a href="#price">Price</a></p>
      *
      * @return null|string
      */
@@ -102,7 +102,7 @@ final class ProductChangePriceActionBuilder implements Builder
     {
         return new ProductChangePriceActionModel(
             $this->priceId,
-            ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->staged
         );
     }

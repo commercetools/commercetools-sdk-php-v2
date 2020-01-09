@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements CustomerGroupKeyReference
 {
     const DISCRIMINATOR_VALUE = 'customer-group';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AzureServiceBusDestinationModel extends JsonObjectModel implements AzureServiceBusDestination
 {
     const DISCRIMINATOR_VALUE = 'AzureServiceBus';
-
     /**
      * @var ?string
      */

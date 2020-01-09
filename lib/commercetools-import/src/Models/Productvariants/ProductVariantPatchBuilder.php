@@ -20,17 +20,17 @@ use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 final class ProductVariantPatchBuilder implements Builder
 {
     /**
-     * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
+     * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
     /**
-     * @var Attributes|?AttributesBuilder
+     * @var null|Attributes|AttributesBuilder
      */
     private $attributes;
 
@@ -38,7 +38,7 @@ final class ProductVariantPatchBuilder implements Builder
      * <p>The product variant to which this patch is applied.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -51,7 +51,7 @@ final class ProductVariantPatchBuilder implements Builder
      * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * import item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */
@@ -64,7 +64,7 @@ final class ProductVariantPatchBuilder implements Builder
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
      * <p>Each attribute referenced must be defined
      * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>.
+     * item state is set to <code>Unresolved</code>.</p>
      *
      * @return null|Attributes
      */
@@ -136,9 +136,9 @@ final class ProductVariantPatchBuilder implements Builder
     public function build(): ProductVariantPatch
     {
         return new ProductVariantPatchModel(
-            ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
-            ($this->attributes instanceof AttributesBuilder ? $this->attributes->build() : $this->attributes)
+            $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
+            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product,
+            $this->attributes instanceof AttributesBuilder ? $this->attributes->build() : $this->attributes
         );
     }
 

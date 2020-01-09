@@ -28,7 +28,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
@@ -101,7 +101,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
         return new ProductSetDiscountedPriceActionModel(
             $this->priceId,
             $this->staged,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted)
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 

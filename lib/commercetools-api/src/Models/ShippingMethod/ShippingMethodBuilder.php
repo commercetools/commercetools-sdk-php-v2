@@ -43,12 +43,12 @@ final class ShippingMethodBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -68,7 +68,7 @@ final class ShippingMethodBuilder implements Builder
     private $description;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
@@ -88,7 +88,7 @@ final class ShippingMethodBuilder implements Builder
     private $predicate;
 
     /**
-     * <p>The unique ID of the shipping method.</p>.
+     * <p>The unique ID of the shipping method.</p>
      *
      * @return null|string
      */
@@ -98,7 +98,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the shipping method.</p>.
+     * <p>The current version of the shipping method.</p>
      *
      * @return null|int
      */
@@ -140,7 +140,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the shipping method.</p>.
+     * <p>User-specific unique identifier for the shipping method.</p>
      *
      * @return null|string
      */
@@ -182,7 +182,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>One shipping method in a project can be default.</p>.
+     * <p>One shipping method in a project can be default.</p>
      *
      * @return null|bool
      */
@@ -192,7 +192,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
      *
      * @return null|string
      */
@@ -368,12 +368,12 @@ final class ShippingMethodBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->name,
             $this->description,
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,
             $this->predicate

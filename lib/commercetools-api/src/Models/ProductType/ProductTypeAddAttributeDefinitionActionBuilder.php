@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
 {
     /**
-     * @var AttributeDefinitionDraft|?AttributeDefinitionDraftBuilder
+     * @var null|AttributeDefinitionDraft|AttributeDefinitionDraftBuilder
      */
     private $attribute;
 
@@ -51,7 +51,7 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     public function build(): ProductTypeAddAttributeDefinitionAction
     {
         return new ProductTypeAddAttributeDefinitionActionModel(
-            ($this->attribute instanceof AttributeDefinitionDraftBuilder ? $this->attribute->build() : $this->attribute)
+            $this->attribute instanceof AttributeDefinitionDraftBuilder ? $this->attribute->build() : $this->attribute
         );
     }
 

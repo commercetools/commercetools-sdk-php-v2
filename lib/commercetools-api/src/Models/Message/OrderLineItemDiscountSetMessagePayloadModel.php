@@ -19,7 +19,6 @@ use stdClass;
 final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel implements OrderLineItemDiscountSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
-
     /**
      * @var ?string
      */

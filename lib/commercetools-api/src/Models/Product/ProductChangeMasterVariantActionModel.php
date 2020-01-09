@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductChangeMasterVariantActionModel extends JsonObjectModel implements ProductChangeMasterVariantAction
 {
     const DISCRIMINATOR_VALUE = 'changeMasterVariant';
-
     /**
      * @var ?string
      */

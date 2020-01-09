@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetCustomerGroupActionBuilder implements Builder
 {
     /**
-     * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
+     * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
@@ -53,7 +53,7 @@ final class StagedOrderSetCustomerGroupActionBuilder implements Builder
     public function build(): StagedOrderSetCustomerGroupAction
     {
         return new StagedOrderSetCustomerGroupActionModel(
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup)
+            $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup
         );
     }
 

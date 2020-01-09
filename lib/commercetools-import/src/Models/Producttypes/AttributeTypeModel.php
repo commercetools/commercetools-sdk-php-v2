@@ -14,7 +14,6 @@ use stdClass;
 final class AttributeTypeModel extends JsonObjectModel implements AttributeType
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

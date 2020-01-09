@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implements CustomFieldLocalizedStringType
 {
     const DISCRIMINATOR_VALUE = 'LocalizedString';
-
     /**
      * @var ?string
      */

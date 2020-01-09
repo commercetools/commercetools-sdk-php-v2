@@ -30,7 +30,7 @@ final class ShoppingListLineItemBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -45,7 +45,7 @@ final class ShoppingListLineItemBuilder implements Builder
     private $id;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -55,12 +55,12 @@ final class ShoppingListLineItemBuilder implements Builder
     private $productId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $productSlug;
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
@@ -70,7 +70,7 @@ final class ShoppingListLineItemBuilder implements Builder
     private $quantity;
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
@@ -331,15 +331,15 @@ final class ShoppingListLineItemBuilder implements Builder
     {
         return new ShoppingListLineItemModel(
             $this->addedAt,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->deactivatedAt,
             $this->id,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productId,
-            ($this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug),
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug,
+            $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
             $this->quantity,
-            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant),
+            $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
             $this->variantId
         );
     }

@@ -15,7 +15,7 @@ interface DiscountCodeSetNameAction extends DiscountCodeUpdateAction
     const FIELD_NAME = 'name';
 
     /**
-     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|LocalizedString
      */

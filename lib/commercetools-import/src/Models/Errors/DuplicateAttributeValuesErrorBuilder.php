@@ -27,7 +27,7 @@ final class DuplicateAttributeValuesErrorBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

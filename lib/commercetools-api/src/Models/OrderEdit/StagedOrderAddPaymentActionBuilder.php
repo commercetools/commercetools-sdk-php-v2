@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class StagedOrderAddPaymentActionBuilder implements Builder
 {
     /**
-     * @var PaymentResourceIdentifier|?PaymentResourceIdentifierBuilder
+     * @var null|PaymentResourceIdentifier|PaymentResourceIdentifierBuilder
      */
     private $payment;
 
@@ -53,7 +53,7 @@ final class StagedOrderAddPaymentActionBuilder implements Builder
     public function build(): StagedOrderAddPaymentAction
     {
         return new StagedOrderAddPaymentActionModel(
-            ($this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment)
+            $this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment
         );
     }
 

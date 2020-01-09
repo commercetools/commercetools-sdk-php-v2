@@ -26,12 +26,12 @@ final class MessageDeliveryBuilder implements Builder
     private $projectKey;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
@@ -66,7 +66,7 @@ final class MessageDeliveryBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var PayloadNotIncluded|?PayloadNotIncludedBuilder
+     * @var null|PayloadNotIncluded|PayloadNotIncludedBuilder
      */
     private $payloadNotIncluded;
 
@@ -284,15 +284,15 @@ final class MessageDeliveryBuilder implements Builder
     {
         return new MessageDeliveryModel(
             $this->projectKey,
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->id,
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
             $this->sequenceNumber,
             $this->resourceVersion,
-            ($this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded)
+            $this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded
         );
     }
 

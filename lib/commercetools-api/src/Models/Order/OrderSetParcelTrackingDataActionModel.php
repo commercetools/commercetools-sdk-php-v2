@@ -14,7 +14,6 @@ use stdClass;
 final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implements OrderSetParcelTrackingDataAction
 {
     const DISCRIMINATOR_VALUE = 'setParcelTrackingData';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class ExtensionChangeTriggersActionModel extends JsonObjectModel implements ExtensionChangeTriggersAction
 {
     const DISCRIMINATOR_VALUE = 'changeTriggers';
-
     /**
      * @var ?string
      */

@@ -53,22 +53,22 @@ final class ProductProjectionBuilder implements Builder
     private $key;
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
@@ -78,27 +78,27 @@ final class ProductProjectionBuilder implements Builder
     private $categories;
 
     /**
-     * @var CategoryOrderHints|?CategoryOrderHintsBuilder
+     * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
-     * @var SearchKeywords|?SearchKeywordsBuilder
+     * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
@@ -113,7 +113,7 @@ final class ProductProjectionBuilder implements Builder
     private $published;
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @var null|ProductVariant|ProductVariantBuilder
      */
     private $masterVariant;
 
@@ -123,22 +123,22 @@ final class ProductProjectionBuilder implements Builder
     private $variants;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
-     * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
+     * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
 
     /**
-     * <p>The unique ID of the Product.</p>.
+     * <p>The unique ID of the Product.</p>
      *
      * @return null|string
      */
@@ -148,7 +148,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the Product.</p>.
+     * <p>The current version of the Product.</p>
      *
      * @return null|int
      */
@@ -174,7 +174,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier of the Product.</p>.
+     * <p>User-specific unique identifier of the Product.</p>
      *
      * @return null|string
      */
@@ -216,7 +216,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * <p>References to categories the product is in.</p>.
+     * <p>References to categories the product is in.</p>
      *
      * @return null|CategoryReferenceCollection
      */
@@ -314,7 +314,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     * <p>Statistics about the review ratings taken into account for this product.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -681,23 +681,23 @@ final class ProductProjectionBuilder implements Builder
             $this->createdAt,
             $this->lastModifiedAt,
             $this->key,
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->categories,
-            ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
+            $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints,
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
+            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->hasStagedChanges,
             $this->published,
-            ($this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant),
+            $this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant,
             $this->variants,
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics)
+            $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics
         );
     }
 

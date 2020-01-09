@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartSetCustomerIdActionModel extends JsonObjectModel implements CartSetCustomerIdAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerId';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>If set, a customer with the given ID must exist in the project.</p>.
+     * <p>If set, a customer with the given ID must exist in the project.</p>
      *
      * @return null|string
      */

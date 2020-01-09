@@ -21,7 +21,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Bu
     private $maxApplicationsPerCustomer;
 
     /**
-     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>.
+     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>
      *
      * @return null|int
      */

@@ -23,12 +23,12 @@ final class TypeDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -67,7 +67,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
-     * <p>The IDs of the resources that can be customized with this type.</p>.
+     * <p>The IDs of the resources that can be customized with this type.</p>
      *
      * @return null|array
      */
@@ -158,8 +158,8 @@ final class TypeDraftBuilder implements Builder
     {
         return new TypeDraftModel(
             $this->key,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->resourceTypeIds,
             $this->fieldDefinitions
         );

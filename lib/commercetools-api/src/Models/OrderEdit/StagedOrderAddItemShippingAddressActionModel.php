@@ -17,7 +17,6 @@ use stdClass;
 final class StagedOrderAddItemShippingAddressActionModel extends JsonObjectModel implements StagedOrderAddItemShippingAddressAction
 {
     const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
-
     /**
      * @var ?string
      */

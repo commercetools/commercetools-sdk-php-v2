@@ -15,7 +15,6 @@ use stdClass;
 final class ProductImportRequestModel extends JsonObjectModel implements ProductImportRequest
 {
     const DISCRIMINATOR_VALUE = 'product';
-
     /**
      * @var ?string
      */
@@ -34,7 +33,7 @@ final class ProductImportRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The type of the import resource.</p>.
+     * <p>The type of the import resource.</p>
      *
      * @return null|string
      */
@@ -53,7 +52,7 @@ final class ProductImportRequestModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The product import resources of this request.</p>.
+     * <p>The product import resources of this request.</p>
      *
      * @return null|ProductImportCollection
      */

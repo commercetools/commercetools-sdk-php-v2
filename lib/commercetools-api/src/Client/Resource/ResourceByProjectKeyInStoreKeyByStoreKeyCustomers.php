@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
 {
-    /**
-     * @psalm-param scalar $passwordToken
-     *
-     * @param null|mixed $passwordToken
-     */
-    public function withPasswordToken($passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
+    public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
         if (!is_null($passwordToken)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken($this->getUri().'/password-token={passwordToken}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $emailToken
-     *
-     * @param null|mixed $emailToken
-     */
-    public function withEmailToken($emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
+    public function withEmailToken(string $emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
         if (!is_null($emailToken)) {
@@ -72,12 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken($this->getUri().'/password-token', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -87,12 +72,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
+    public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -112,7 +92,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersGet((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -123,6 +103,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPost($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
 }

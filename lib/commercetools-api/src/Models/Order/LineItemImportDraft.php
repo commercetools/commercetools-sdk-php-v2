@@ -32,14 +32,14 @@ interface LineItemImportDraft extends JsonObject
 
     /**
      * <p>ID of the existing product.
-     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>.
+     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
      * @return null|string
      */
     public function getProductId();
 
     /**
-     * <p>The product name.</p>.
+     * <p>The product name.</p>
      *
      * @return null|LocalizedString
      */
@@ -70,7 +70,7 @@ interface LineItemImportDraft extends JsonObject
      * By providing supply channel information, you can uniquely identify
      * inventory entries that should be reserved.
      * The provided channel should have the
-     * InventorySupply role.</p>.
+     * InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -78,7 +78,7 @@ interface LineItemImportDraft extends JsonObject
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -90,7 +90,7 @@ interface LineItemImportDraft extends JsonObject
     public function getTaxRate();
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */

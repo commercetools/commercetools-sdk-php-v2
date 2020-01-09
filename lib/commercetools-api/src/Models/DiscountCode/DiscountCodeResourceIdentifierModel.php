@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DiscountCodeResourceIdentifierModel extends JsonObjectModel implements DiscountCodeResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'discount-code';
-
     /**
      * @var ?string
      */

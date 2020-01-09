@@ -14,7 +14,6 @@ use stdClass;
 final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

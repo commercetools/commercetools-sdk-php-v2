@@ -48,7 +48,7 @@ final class ProductVariantBuilder implements Builder
     private $attributes;
 
     /**
-     * @var Price|?PriceBuilder
+     * @var null|Price|PriceBuilder
      */
     private $price;
 
@@ -63,7 +63,7 @@ final class ProductVariantBuilder implements Builder
     private $assets;
 
     /**
-     * @var ProductVariantAvailability|?ProductVariantAvailabilityBuilder
+     * @var null|ProductVariantAvailability|ProductVariantAvailabilityBuilder
      */
     private $availability;
 
@@ -73,7 +73,7 @@ final class ProductVariantBuilder implements Builder
     private $isMatchingVariant;
 
     /**
-     * @var ScopedPrice|?ScopedPriceBuilder
+     * @var null|ScopedPrice|ScopedPriceBuilder
      */
     private $scopedPrice;
 
@@ -336,12 +336,12 @@ final class ProductVariantBuilder implements Builder
             $this->key,
             $this->prices,
             $this->attributes,
-            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
+            $this->price instanceof PriceBuilder ? $this->price->build() : $this->price,
             $this->images,
             $this->assets,
-            ($this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability),
+            $this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability,
             $this->isMatchingVariant,
-            ($this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice),
+            $this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice,
             $this->scopedPriceDiscounted
         );
     }

@@ -21,7 +21,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     private $fieldName;
 
     /**
-     * @var CustomFieldEnumValue|?CustomFieldEnumValueBuilder
+     * @var null|CustomFieldEnumValue|CustomFieldEnumValueBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     {
         return new TypeChangeEnumValueLabelActionModel(
             $this->fieldName,
-            ($this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value
         );
     }
 

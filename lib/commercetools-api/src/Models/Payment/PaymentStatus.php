@@ -18,14 +18,14 @@ interface PaymentStatus extends JsonObject
     const FIELD_STATE = 'state';
 
     /**
-     * <p>A code describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */
     public function getInterfaceCode();
 
     /**
-     * <p>A text describing the current status returned by the interface that processes the payment.</p>.
+     * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
      * @return null|string
      */

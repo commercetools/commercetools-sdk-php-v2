@@ -24,7 +24,7 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

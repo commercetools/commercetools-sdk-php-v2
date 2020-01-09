@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements ShippingMethodKeyReference
 {
     const DISCRIMINATOR_VALUE = 'shipping-method';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>The type of the referenced resource.</p>.
+     * <p>The type of the referenced resource.</p>
      *
      * @return null|string
      */

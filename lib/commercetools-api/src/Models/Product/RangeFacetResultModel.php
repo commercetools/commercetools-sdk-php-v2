@@ -14,7 +14,6 @@ use stdClass;
 final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetResult
 {
     const DISCRIMINATOR_VALUE = 'range';
-
     /**
      * @var ?string
      */

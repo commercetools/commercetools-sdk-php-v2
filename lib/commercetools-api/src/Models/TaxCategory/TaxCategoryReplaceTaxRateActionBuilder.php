@@ -21,7 +21,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     private $taxRateId;
 
     /**
-     * @var TaxRateDraft|?TaxRateDraftBuilder
+     * @var null|TaxRateDraft|TaxRateDraftBuilder
      */
     private $taxRate;
 
@@ -75,7 +75,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     {
         return new TaxCategoryReplaceTaxRateActionModel(
             $this->taxRateId,
-            ($this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate)
+            $this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate
         );
     }
 

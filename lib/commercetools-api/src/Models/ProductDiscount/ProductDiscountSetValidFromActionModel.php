@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class ProductDiscountSetValidFromActionModel extends JsonObjectModel implements ProductDiscountSetValidFromAction
 {
     const DISCRIMINATOR_VALUE = 'setValidFrom';
-
     /**
      * @var ?string
      */
@@ -52,7 +51,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>
      *
      * @return null|DateTimeImmutable
      */

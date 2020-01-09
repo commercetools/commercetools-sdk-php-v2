@@ -20,7 +20,7 @@ interface FieldDefinition extends JsonObject
     const FIELD_INPUT_HINT = 'inputHint';
 
     /**
-     * <p>Describes the type of the field.</p>.
+     * <p>Describes the type of the field.</p>
      *
      * @return null|FieldType
      */
@@ -30,21 +30,21 @@ interface FieldDefinition extends JsonObject
      * <p>The name of the field.
      * The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
      * The name must be unique for a given resource type ID.
-     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>.
+     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>
      *
      * @return null|string
      */
     public function getName();
 
     /**
-     * <p>A human-readable label for the field.</p>.
+     * <p>A human-readable label for the field.</p>
      *
      * @return null|LocalizedString
      */
     public function getLabel();
 
     /**
-     * <p>Whether the field is required to have a value.</p>.
+     * <p>Whether the field is required to have a value.</p>
      *
      * @return null|bool
      */
@@ -52,7 +52,7 @@ interface FieldDefinition extends JsonObject
 
     /**
      * <p>Provides a visual representation type for this field.
-     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>.
+     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>
      *
      * @return null|string
      */

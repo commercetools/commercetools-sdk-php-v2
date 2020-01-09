@@ -24,7 +24,7 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeySubscriptionsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeySubscriptionsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeySubscriptionsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeySubscriptionsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeySubscriptionsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeySubscriptionsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidCredentialsErrorModel extends JsonObjectModel implements InvalidCredentialsError
 {
     const DISCRIMINATOR_VALUE = 'InvalidCredentials';
-
     /**
      * @var ?string
      */

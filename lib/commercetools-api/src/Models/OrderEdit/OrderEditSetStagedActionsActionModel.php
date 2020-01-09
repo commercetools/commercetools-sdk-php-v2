@@ -15,7 +15,6 @@ use stdClass;
 final class OrderEditSetStagedActionsActionModel extends JsonObjectModel implements OrderEditSetStagedActionsAction
 {
     const DISCRIMINATOR_VALUE = 'setStagedActions';
-
     /**
      * @var ?string
      */
@@ -51,7 +50,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The actions to edit the <code>resource</code>.</p>.
+     * <p>The actions to edit the <code>resource</code>.</p>
      *
      * @return null|StagedOrderUpdateActionCollection
      */

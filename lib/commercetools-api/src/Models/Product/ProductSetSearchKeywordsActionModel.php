@@ -14,7 +14,6 @@ use stdClass;
 final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implements ProductSetSearchKeywordsAction
 {
     const DISCRIMINATOR_VALUE = 'setSearchKeywords';
-
     /**
      * @var ?string
      */

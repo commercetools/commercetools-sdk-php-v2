@@ -14,12 +14,7 @@ use Commercetools\Import\Models\Importrequests\PriceImportRequest;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey extends ApiResource
 {
-    /**
-     * @psalm-param scalar $resourceKey
-     *
-     * @param null|mixed $resourceKey
-     */
-    public function resourceKeyWithResourceKeyValue($resourceKey = null): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
+    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
     {
         $args = $this->getArgs();
         if (!is_null($resourceKey)) {
@@ -44,6 +39,6 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyPricesImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyPricesImportSinkKeyByImportSinkKeyPost((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

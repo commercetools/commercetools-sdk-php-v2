@@ -16,7 +16,7 @@ interface ProductDiscountSetValidFromAction extends ProductDiscountUpdateAction
 
     /**
      * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>
      *
      * @return null|DateTimeImmutable
      */

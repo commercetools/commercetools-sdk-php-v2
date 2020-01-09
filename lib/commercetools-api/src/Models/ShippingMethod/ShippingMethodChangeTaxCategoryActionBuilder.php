@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
 {
     /**
-     * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
+     * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
@@ -53,7 +53,7 @@ final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
     public function build(): ShippingMethodChangeTaxCategoryAction
     {
         return new ShippingMethodChangeTaxCategoryActionModel(
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory
         );
     }
 

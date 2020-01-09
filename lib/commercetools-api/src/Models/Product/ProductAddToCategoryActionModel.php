@@ -16,7 +16,6 @@ use stdClass;
 final class ProductAddToCategoryActionModel extends JsonObjectModel implements ProductAddToCategoryAction
 {
     const DISCRIMINATOR_VALUE = 'addToCategory';
-
     /**
      * @var ?string
      */

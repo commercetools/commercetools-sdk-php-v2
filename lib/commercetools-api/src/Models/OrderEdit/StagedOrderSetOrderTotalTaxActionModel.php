@@ -18,7 +18,6 @@ use stdClass;
 final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel implements StagedOrderSetOrderTotalTaxAction
 {
     const DISCRIMINATOR_VALUE = 'setOrderTotalTax';
-
     /**
      * @var ?string
      */

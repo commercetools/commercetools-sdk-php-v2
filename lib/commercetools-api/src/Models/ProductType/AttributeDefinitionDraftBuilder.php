@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class AttributeDefinitionDraftBuilder implements Builder
 {
     /**
-     * @var AttributeType|?AttributeTypeBuilder
+     * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
@@ -28,7 +28,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -43,7 +43,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     private $attributeConstraint;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
@@ -58,7 +58,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     private $isSearchable;
 
     /**
-     * <p>Describes the type of the attribute.</p>.
+     * <p>Describes the type of the attribute.</p>
      *
      * @return null|AttributeType
      */
@@ -70,7 +70,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>The unique name of the attribute used in the API.
      * The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
-     * When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types.</p>.
+     * When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types.</p>
      *
      * @return null|string
      */
@@ -80,7 +80,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable label for the attribute.</p>.
+     * <p>A human-readable label for the attribute.</p>
      *
      * @return null|LocalizedString
      */
@@ -90,7 +90,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Whether the attribute is required to have a value.</p>.
+     * <p>Whether the attribute is required to have a value.</p>
      *
      * @return null|bool
      */
@@ -100,7 +100,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>.
+     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>
      *
      * @return null|string
      */
@@ -110,7 +110,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
-     * <p>Additional information about the attribute that aids content managers when setting product details.</p>.
+     * <p>Additional information about the attribute that aids content managers when setting product details.</p>
      *
      * @return null|LocalizedString
      */
@@ -121,7 +121,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
 
     /**
      * <p>Provides a visual representation type for this attribute.
-     * only relevant for text-based attribute types like TextType and LocalizableTextType.</p>.
+     * only relevant for text-based attribute types like TextType and LocalizableTextType.</p>
      *
      * @return null|string
      */
@@ -133,7 +133,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Whether the attribute's values should generally be enabled in product search.
      * This determines whether the value is stored in products for matching terms in the context of full-text search queries and can be used in facets &amp; filters as part of product search queries.
-     * The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there.</p>.
+     * The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there.</p>
      *
      * @return null|bool
      */
@@ -255,12 +255,12 @@ final class AttributeDefinitionDraftBuilder implements Builder
     public function build(): AttributeDefinitionDraft
     {
         return new AttributeDefinitionDraftModel(
-            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
             $this->attributeConstraint,
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip),
+            $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,
             $this->isSearchable
         );

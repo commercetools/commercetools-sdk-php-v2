@@ -14,7 +14,6 @@ use stdClass;
 final class StateSetTransitionsActionModel extends JsonObjectModel implements StateSetTransitionsAction
 {
     const DISCRIMINATOR_VALUE = 'setTransitions';
-
     /**
      * @var ?string
      */

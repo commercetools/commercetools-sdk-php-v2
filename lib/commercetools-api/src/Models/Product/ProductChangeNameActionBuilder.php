@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductChangeNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -76,7 +76,7 @@ final class ProductChangeNameActionBuilder implements Builder
     public function build(): ProductChangeNameAction
     {
         return new ProductChangeNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->staged
         );
     }

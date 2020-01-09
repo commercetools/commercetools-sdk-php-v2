@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTokenError
 {
     const DISCRIMINATOR_VALUE = 'invalid_token';
-
     /**
      * @var ?string
      */

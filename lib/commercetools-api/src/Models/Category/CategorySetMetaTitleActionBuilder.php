@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CategorySetMetaTitleActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
@@ -53,7 +53,7 @@ final class CategorySetMetaTitleActionBuilder implements Builder
     public function build(): CategorySetMetaTitleAction
     {
         return new CategorySetMetaTitleActionModel(
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle)
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle
         );
     }
 

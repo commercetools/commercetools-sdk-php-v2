@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeMoneyTypeModel extends JsonObjectModel implements AttributeMoneyType
 {
     const DISCRIMINATOR_VALUE = 'money';
-
     /**
      * @var ?string
      */

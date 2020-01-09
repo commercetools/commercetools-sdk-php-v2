@@ -16,7 +16,6 @@ use stdClass;
 final class ProductTransitionStateActionModel extends JsonObjectModel implements ProductTransitionStateAction
 {
     const DISCRIMINATOR_VALUE = 'transitionState';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class PaymentSetAmountRefundedActionModel extends JsonObjectModel implements PaymentSetAmountRefundedAction
 {
     const DISCRIMINATOR_VALUE = 'setAmountRefunded';
-
     /**
      * @var ?string
      */

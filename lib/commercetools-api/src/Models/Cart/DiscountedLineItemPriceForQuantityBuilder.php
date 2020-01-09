@@ -21,7 +21,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     private $quantity;
 
     /**
-     * @var DiscountedLineItemPrice|?DiscountedLineItemPriceBuilder
+     * @var null|DiscountedLineItemPrice|DiscountedLineItemPriceBuilder
      */
     private $discountedPrice;
 
@@ -75,7 +75,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     {
         return new DiscountedLineItemPriceForQuantityModel(
             $this->quantity,
-            ($this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice)
+            $this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice
         );
     }
 

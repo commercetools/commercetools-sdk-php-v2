@@ -28,7 +28,7 @@ final class ProductAddPriceActionBuilder implements Builder
     private $sku;
 
     /**
-     * @var PriceDraft|?PriceDraftBuilder
+     * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
@@ -124,7 +124,7 @@ final class ProductAddPriceActionBuilder implements Builder
         return new ProductAddPriceActionModel(
             $this->variantId,
             $this->sku,
-            ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->staged
         );
     }

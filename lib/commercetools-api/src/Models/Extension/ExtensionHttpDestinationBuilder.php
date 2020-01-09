@@ -21,7 +21,7 @@ final class ExtensionHttpDestinationBuilder implements Builder
     private $url;
 
     /**
-     * @var ExtensionHttpDestinationAuthentication|?ExtensionHttpDestinationAuthenticationBuilder
+     * @var null|ExtensionHttpDestinationAuthentication|ExtensionHttpDestinationAuthenticationBuilder
      */
     private $authentication;
 
@@ -75,7 +75,7 @@ final class ExtensionHttpDestinationBuilder implements Builder
     {
         return new ExtensionHttpDestinationModel(
             $this->url,
-            ($this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication)
+            $this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication
         );
     }
 

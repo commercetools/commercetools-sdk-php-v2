@@ -108,7 +108,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      * <p>ID of the existing product.
-     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>.
+     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
      * @return null|string
      */
@@ -127,7 +127,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The product name.</p>.
+     * <p>The product name.</p>
      *
      * @return null|LocalizedString
      */
@@ -221,7 +221,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * By providing supply channel information, you can uniquely identify
      * inventory entries that should be reserved.
      * The provided channel should have the
-     * InventorySupply role.</p>.
+     * InventorySupply role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -242,7 +242,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      * <p>The channel is used to select a ProductPrice.
-     * The provided channel should have the ProductDistribution role.</p>.
+     * The provided channel should have the ProductDistribution role.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -280,7 +280,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */

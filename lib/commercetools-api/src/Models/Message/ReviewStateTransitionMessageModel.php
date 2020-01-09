@@ -24,7 +24,6 @@ use stdClass;
 final class ReviewStateTransitionMessageModel extends JsonObjectModel implements ReviewStateTransitionMessage
 {
     const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
-
     /**
      * @var ?string
      */

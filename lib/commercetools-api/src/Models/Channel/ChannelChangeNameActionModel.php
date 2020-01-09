@@ -16,7 +16,6 @@ use stdClass;
 final class ChannelChangeNameActionModel extends JsonObjectModel implements ChannelChangeNameAction
 {
     const DISCRIMINATOR_VALUE = 'changeName';
-
     /**
      * @var ?string
      */

@@ -16,7 +16,7 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
     const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 
     /**
-     * <p>The total gross amount of the cart (totalNet + taxes).</p>.
+     * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
      * @return null|Money
      */

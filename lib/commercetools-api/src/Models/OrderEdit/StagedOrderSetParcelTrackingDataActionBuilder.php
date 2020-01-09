@@ -23,7 +23,7 @@ final class StagedOrderSetParcelTrackingDataActionBuilder implements Builder
     private $parcelId;
 
     /**
-     * @var TrackingData|?TrackingDataBuilder
+     * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
@@ -77,7 +77,7 @@ final class StagedOrderSetParcelTrackingDataActionBuilder implements Builder
     {
         return new StagedOrderSetParcelTrackingDataActionModel(
             $this->parcelId,
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData)
+            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData
         );
     }
 

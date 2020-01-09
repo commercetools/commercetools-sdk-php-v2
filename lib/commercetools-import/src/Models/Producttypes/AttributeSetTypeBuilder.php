@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class AttributeSetTypeBuilder implements Builder
 {
     /**
-     * @var AttributeType|?AttributeTypeBuilder
+     * @var null|AttributeType|AttributeTypeBuilder
      */
     private $elementType;
 
@@ -51,7 +51,7 @@ final class AttributeSetTypeBuilder implements Builder
     public function build(): AttributeSetType
     {
         return new AttributeSetTypeModel(
-            ($this->elementType instanceof AttributeTypeBuilder ? $this->elementType->build() : $this->elementType)
+            $this->elementType instanceof AttributeTypeBuilder ? $this->elementType->build() : $this->elementType
         );
     }
 

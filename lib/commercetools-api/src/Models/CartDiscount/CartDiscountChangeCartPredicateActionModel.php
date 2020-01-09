@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel implements CartDiscountChangeCartPredicateAction
 {
     const DISCRIMINATOR_VALUE = 'changeCartPredicate';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel i
     }
 
     /**
-     * <p>A valid Cart predicate.</p>.
+     * <p>A valid Cart predicate.</p>
      *
      * @return null|string
      */

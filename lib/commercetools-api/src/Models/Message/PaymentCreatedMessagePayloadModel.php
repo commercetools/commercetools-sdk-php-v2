@@ -16,7 +16,6 @@ use stdClass;
 final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements PaymentCreatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'PaymentCreated';
-
     /**
      * @var ?string
      */

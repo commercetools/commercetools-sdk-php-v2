@@ -116,7 +116,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The unique ID of the product.</p>.
+     * <p>The unique ID of the product.</p>
      *
      * @return null|string
      */
@@ -135,7 +135,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The current version of the product.</p>.
+     * <p>The current version of the product.</p>
      *
      * @return null|int
      */
@@ -196,7 +196,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -216,7 +216,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
@@ -237,7 +237,7 @@ final class ProductModel extends JsonObjectModel implements Product
 
     /**
      * <p>User-specific unique identifier for the product.
-     * <em>Product keys are different from product variant keys.</em></p>.
+     * <em>Product keys are different from product variant keys.</em></p>
      *
      * @return null|string
      */
@@ -274,7 +274,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The product data in the master catalog.</p>.
+     * <p>The product data in the master catalog.</p>
      *
      * @return null|ProductCatalogData
      */
@@ -330,7 +330,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     * <p>Statistics about the review ratings taken into account for this product.</p>
      *
      * @return null|ReviewRatingStatistics
      */

@@ -24,7 +24,7 @@ class ResourceByProjectKeyMeShoppingListsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeShoppingListsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeShoppingListsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyMeShoppingListsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeShoppingListsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeShoppingListsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyMeShoppingListsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeShoppingListsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeShoppingListsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

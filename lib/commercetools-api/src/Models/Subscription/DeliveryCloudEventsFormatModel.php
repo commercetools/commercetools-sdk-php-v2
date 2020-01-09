@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements DeliveryCloudEventsFormat
 {
     const DISCRIMINATOR_VALUE = 'CloudEvents';
-
     /**
      * @var ?string
      */

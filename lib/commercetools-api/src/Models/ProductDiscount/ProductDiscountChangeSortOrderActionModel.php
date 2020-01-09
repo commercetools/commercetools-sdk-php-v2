@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel implements ProductDiscountChangeSortOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeSortOrder';
-
     /**
      * @var ?string
      */
@@ -50,7 +49,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
 
     /**
      * <p>The string must contain a number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>
      *
      * @return null|string
      */

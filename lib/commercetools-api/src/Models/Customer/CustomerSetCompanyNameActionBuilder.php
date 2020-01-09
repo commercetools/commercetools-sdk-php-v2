@@ -21,7 +21,7 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     private $companyName;
 
     /**
-     * <p>If not defined, the company name is unset.</p>.
+     * <p>If not defined, the company name is unset.</p>
      *
      * @return null|string
      */

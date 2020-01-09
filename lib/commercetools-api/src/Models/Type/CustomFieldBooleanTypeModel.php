@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomFieldBooleanTypeModel extends JsonObjectModel implements CustomFieldBooleanType
 {
     const DISCRIMINATOR_VALUE = 'Boolean';
-
     /**
      * @var ?string
      */

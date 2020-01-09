@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodSetDescriptionActionModel extends JsonObjectModel implements ShippingMethodSetDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setDescription';
-
     /**
      * @var ?string
      */

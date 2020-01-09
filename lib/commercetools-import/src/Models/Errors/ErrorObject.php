@@ -22,7 +22,7 @@ interface ErrorObject extends JsonObject
     public function getCode();
 
     /**
-     * <p>The error's description.</p>.
+     * <p>The error's description.</p>
      *
      * @return null|string
      */

@@ -16,7 +16,6 @@ use stdClass;
 final class ChannelSetAddressActionModel extends JsonObjectModel implements ChannelSetAddressAction
 {
     const DISCRIMINATOR_VALUE = 'setAddress';
-
     /**
      * @var ?string
      */

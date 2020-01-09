@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingMethodTaxRateActionBuilder implements Builder
 {
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
@@ -53,7 +53,7 @@ final class StagedOrderSetShippingMethodTaxRateActionBuilder implements Builder
     public function build(): StagedOrderSetShippingMethodTaxRateAction
     {
         return new StagedOrderSetShippingMethodTaxRateActionModel(
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
         );
     }
 

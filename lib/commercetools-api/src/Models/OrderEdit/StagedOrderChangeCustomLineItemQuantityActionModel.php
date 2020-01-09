@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjectModel implements StagedOrderChangeCustomLineItemQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'changeCustomLineItemQuantity';
-
     /**
      * @var ?string
      */

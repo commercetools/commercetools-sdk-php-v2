@@ -21,7 +21,7 @@ final class TypeAddLocalizedEnumValueActionBuilder implements Builder
     private $fieldName;
 
     /**
-     * @var CustomFieldLocalizedEnumValue|?CustomFieldLocalizedEnumValueBuilder
+     * @var null|CustomFieldLocalizedEnumValue|CustomFieldLocalizedEnumValueBuilder
      */
     private $value;
 
@@ -75,7 +75,7 @@ final class TypeAddLocalizedEnumValueActionBuilder implements Builder
     {
         return new TypeAddLocalizedEnumValueActionModel(
             $this->fieldName,
-            ($this->value instanceof CustomFieldLocalizedEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof CustomFieldLocalizedEnumValueBuilder ? $this->value->build() : $this->value
         );
     }
 

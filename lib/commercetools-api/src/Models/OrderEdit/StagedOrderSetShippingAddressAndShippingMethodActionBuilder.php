@@ -22,17 +22,17 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
@@ -123,9 +123,9 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     public function build(): StagedOrderSetShippingAddressAndShippingMethodAction
     {
         return new StagedOrderSetShippingAddressAndShippingMethodActionModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
         );
     }
 

@@ -14,7 +14,6 @@ use stdClass;
 final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFieldEnumType
 {
     const DISCRIMINATOR_VALUE = 'Enum';
-
     /**
      * @var ?string
      */

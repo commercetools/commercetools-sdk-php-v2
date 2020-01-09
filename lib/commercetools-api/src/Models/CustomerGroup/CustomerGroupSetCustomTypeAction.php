@@ -17,7 +17,7 @@ interface CustomerGroupSetCustomTypeAction extends CustomerGroupUpdateAction
     const FIELD_FIELDS = 'fields';
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -25,7 +25,7 @@ interface CustomerGroupSetCustomTypeAction extends CustomerGroupUpdateAction
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the custom fields to this value.</p>.
+     * Sets the custom fields to this value.</p>
      *
      * @return null|FieldContainer
      */

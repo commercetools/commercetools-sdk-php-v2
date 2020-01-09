@@ -81,7 +81,7 @@ final class MyCustomerDraftBuilder implements Builder
     private $defaultBillingAddress;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -168,7 +168,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
      * @return null|AddressCollection
      */
@@ -179,7 +179,7 @@ final class MyCustomerDraftBuilder implements Builder
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -190,7 +190,7 @@ final class MyCustomerDraftBuilder implements Builder
 
     /**
      * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
      * @return null|int
      */
@@ -200,7 +200,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFields
      */
@@ -400,7 +400,7 @@ final class MyCustomerDraftBuilder implements Builder
             $this->addresses,
             $this->defaultShippingAddress,
             $this->defaultBillingAddress,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->stores
         );

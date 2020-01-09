@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ReviewResourceIdentifierModel extends JsonObjectModel implements ReviewResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'review';
-
     /**
      * @var ?string
      */

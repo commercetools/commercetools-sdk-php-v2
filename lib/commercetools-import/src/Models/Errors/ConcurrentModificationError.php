@@ -17,21 +17,21 @@ interface ConcurrentModificationError extends ErrorObject
     const FIELD_CONFLICTED_RESOURCE = 'conflictedResource';
 
     /**
-     * <p>The version specified in the failed request.</p>.
+     * <p>The version specified in the failed request.</p>
      *
      * @return null|int
      */
     public function getSpecifiedVersion();
 
     /**
-     * <p>The current version of the resource.</p>.
+     * <p>The current version of the resource.</p>
      *
      * @return null|int
      */
     public function getCurrentVersion();
 
     /**
-     * <p>The conflicted resource.</p>.
+     * <p>The conflicted resource.</p>
      *
      * @return null|JsonObject
      */

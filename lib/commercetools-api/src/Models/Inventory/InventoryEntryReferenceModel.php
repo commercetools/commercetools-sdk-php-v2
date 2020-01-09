@@ -15,7 +15,6 @@ use stdClass;
 final class InventoryEntryReferenceModel extends JsonObjectModel implements InventoryEntryReference
 {
     const DISCRIMINATOR_VALUE = 'inventory-entry';
-
     /**
      * @var ?string
      */

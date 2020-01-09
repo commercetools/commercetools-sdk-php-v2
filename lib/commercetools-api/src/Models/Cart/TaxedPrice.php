@@ -28,7 +28,7 @@ interface TaxedPrice extends JsonObject
     public function getTotalGross();
 
     /**
-     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>.
+     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
      *
      * @return null|TaxPortionCollection
      */

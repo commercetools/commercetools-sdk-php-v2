@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class OrderLineItemAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var LineItem|?LineItemBuilder
+     * @var null|LineItem|LineItemBuilder
      */
     private $lineItem;
 
@@ -76,7 +76,7 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     public function build(): OrderLineItemAddedMessagePayload
     {
         return new OrderLineItemAddedMessagePayloadModel(
-            ($this->lineItem instanceof LineItemBuilder ? $this->lineItem->build() : $this->lineItem),
+            $this->lineItem instanceof LineItemBuilder ? $this->lineItem->build() : $this->lineItem,
             $this->addedQuantity
         );
     }

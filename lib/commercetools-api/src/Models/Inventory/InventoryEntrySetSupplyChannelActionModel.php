@@ -16,7 +16,6 @@ use stdClass;
 final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel implements InventoryEntrySetSupplyChannelAction
 {
     const DISCRIMINATOR_VALUE = 'setSupplyChannel';
-
     /**
      * @var ?string
      */
@@ -53,7 +52,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
 
     /**
      * <p>If absent, the supply channel is removed.
-     * This action will fail if an entry with the combination of sku and supplyChannel already exists.</p>.
+     * This action will fail if an entry with the combination of sku and supplyChannel already exists.</p>
      *
      * @return null|ChannelResourceIdentifier
      */

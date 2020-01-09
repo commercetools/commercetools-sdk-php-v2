@@ -58,7 +58,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
-     * <p>A number in the range [0..1]</p>.
+     * <p>A number in the range [0..1]</p>
      *
      * @return null|int
      */

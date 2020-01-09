@@ -27,14 +27,10 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyExtensionsGet extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
      */
-    public function __construct($projectKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/extensions');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

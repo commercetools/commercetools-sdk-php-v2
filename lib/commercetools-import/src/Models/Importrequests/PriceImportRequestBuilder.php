@@ -22,7 +22,7 @@ final class PriceImportRequestBuilder implements Builder
     private $resources;
 
     /**
-     * <p>The price import resources of this request.</p>.
+     * <p>The price import resources of this request.</p>
      *
      * @return null|PriceImportCollection
      */

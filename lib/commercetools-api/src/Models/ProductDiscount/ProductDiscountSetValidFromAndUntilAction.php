@@ -22,7 +22,7 @@ interface ProductDiscountSetValidFromAndUntilAction extends ProductDiscountUpdat
 
     /**
      * <p>The timeframe for which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

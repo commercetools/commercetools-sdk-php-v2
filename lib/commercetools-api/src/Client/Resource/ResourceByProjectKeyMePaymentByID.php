@@ -22,6 +22,6 @@ class ResourceByProjectKeyMePaymentByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMePaymentByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMePaymentByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

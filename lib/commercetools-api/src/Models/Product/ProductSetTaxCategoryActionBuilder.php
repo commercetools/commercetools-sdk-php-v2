@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class ProductSetTaxCategoryActionBuilder implements Builder
 {
     /**
-     * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
+     * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
-     * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>.
+     * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -55,7 +55,7 @@ final class ProductSetTaxCategoryActionBuilder implements Builder
     public function build(): ProductSetTaxCategoryAction
     {
         return new ProductSetTaxCategoryActionModel(
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory
         );
     }
 

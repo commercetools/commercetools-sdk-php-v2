@@ -26,12 +26,12 @@ final class TextLineItemBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -41,7 +41,7 @@ final class TextLineItemBuilder implements Builder
     private $id;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -51,7 +51,7 @@ final class TextLineItemBuilder implements Builder
     private $quantity;
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>.
+     * <p>When the text line item was added to the shopping list.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -77,7 +77,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>.
+     * <p>The unique ID of this TextLineItem.</p>
      *
      * @return null|string
      */
@@ -196,10 +196,10 @@ final class TextLineItemBuilder implements Builder
     {
         return new TextLineItemModel(
             $this->addedAt,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->id,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->quantity
         );
     }

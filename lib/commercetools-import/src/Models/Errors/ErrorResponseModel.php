@@ -53,7 +53,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
     /**
-     * <p>The http status code of the response.</p>.
+     * <p>The http status code of the response.</p>
      *
      * @return null|int
      */
@@ -72,7 +72,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
     /**
-     * <p>Describes the error.</p>.
+     * <p>Describes the error.</p>
      *
      * @return null|string
      */
@@ -92,7 +92,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 
     /**
      * <p>This property is only used for OAuth2 errors.
-     * Contains the error code.</p>.
+     * Contains the error code.</p>
      *
      * @return null|string
      */
@@ -113,7 +113,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     /**
      * <p>This property is only used for OAuth2 errors.
      * Additional information to assist the client developer in
-     * understanding the error.</p>.
+     * understanding the error.</p>
      *
      * @return null|string
      */
@@ -132,7 +132,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
     /**
-     * <p>The errors that caused this error response.</p>.
+     * <p>The errors that caused this error response.</p>
      *
      * @return null|ErrorObjectCollection
      */

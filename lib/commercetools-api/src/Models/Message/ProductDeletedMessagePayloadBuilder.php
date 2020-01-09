@@ -23,7 +23,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     private $removedImageUrls;
 
     /**
-     * @var ProductProjection|?ProductProjectionBuilder
+     * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $currentProjection;
 
@@ -77,7 +77,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     {
         return new ProductDeletedMessagePayloadModel(
             $this->removedImageUrls,
-            ($this->currentProjection instanceof ProductProjectionBuilder ? $this->currentProjection->build() : $this->currentProjection)
+            $this->currentProjection instanceof ProductProjectionBuilder ? $this->currentProjection->build() : $this->currentProjection
         );
     }
 

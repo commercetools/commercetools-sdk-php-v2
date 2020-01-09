@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectModel implements InventoryEntrySetRestockableInDaysAction
 {
     const DISCRIMINATOR_VALUE = 'setRestockableInDays';
-
     /**
      * @var ?string
      */

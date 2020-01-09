@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel implements ShippingMethodChangeIsDefaultAction
 {
     const DISCRIMINATOR_VALUE = 'changeIsDefault';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Only one ShippingMethod in a project can be default.</p>.
+     * <p>Only one ShippingMethod in a project can be default.</p>
      *
      * @return null|bool
      */

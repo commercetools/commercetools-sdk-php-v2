@@ -33,14 +33,14 @@ interface Review extends LoggedResource
     const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>The unique ID of the review.</p>.
+     * <p>The unique ID of the review.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the review.</p>.
+     * <p>The current version of the review.</p>
      *
      * @return null|int
      */
@@ -57,21 +57,21 @@ interface Review extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>User-specific unique identifier for the review.</p>.
+     * <p>User-specific unique identifier for the review.</p>
      *
      * @return null|string
      */
@@ -104,7 +104,7 @@ interface Review extends LoggedResource
 
     /**
      * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>.
+     * Can be a Product or a Channel</p>
      *
      * @return null|JsonObject
      */
@@ -113,14 +113,14 @@ interface Review extends LoggedResource
     /**
      * <p>Indicates if this review is taken into account in the ratings statistics of the target.
      * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
-     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>.
+     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
      *
      * @return null|bool
      */
     public function getIncludedInStatistics();
 
     /**
-     * <p>Number between -100 and 100 included.</p>.
+     * <p>Number between -100 and 100 included.</p>
      *
      * @return null|int
      */
@@ -132,7 +132,7 @@ interface Review extends LoggedResource
     public function getState();
 
     /**
-     * <p>The customer who created the review.</p>.
+     * <p>The customer who created the review.</p>
      *
      * @return null|CustomerReference
      */

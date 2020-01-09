@@ -15,7 +15,6 @@ use stdClass;
 final class CategoryImportRequestModel extends JsonObjectModel implements CategoryImportRequest
 {
     const DISCRIMINATOR_VALUE = 'category';
-
     /**
      * @var ?string
      */
@@ -34,7 +33,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     }
 
     /**
-     * <p>The type of the import resource.</p>.
+     * <p>The type of the import resource.</p>
      *
      * @return null|string
      */
@@ -53,7 +52,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     }
 
     /**
-     * <p>The category import resources of this request.</p>.
+     * <p>The category import resources of this request.</p>
      *
      * @return null|CategoryImportCollection
      */

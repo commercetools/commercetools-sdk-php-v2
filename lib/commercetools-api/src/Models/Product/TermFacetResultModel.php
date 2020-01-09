@@ -14,7 +14,6 @@ use stdClass;
 final class TermFacetResultModel extends JsonObjectModel implements TermFacetResult
 {
     const DISCRIMINATOR_VALUE = 'terms';
-
     /**
      * @var ?string
      */

@@ -14,7 +14,6 @@ use stdClass;
 final class OrderImportLineItemStateActionModel extends JsonObjectModel implements OrderImportLineItemStateAction
 {
     const DISCRIMINATOR_VALUE = 'importLineItemState';
-
     /**
      * @var ?string
      */

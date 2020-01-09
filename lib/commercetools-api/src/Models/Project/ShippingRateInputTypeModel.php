@@ -14,7 +14,6 @@ use stdClass;
 final class ShippingRateInputTypeModel extends JsonObjectModel implements ShippingRateInputType
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

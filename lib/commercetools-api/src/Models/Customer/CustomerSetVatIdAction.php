@@ -13,7 +13,7 @@ interface CustomerSetVatIdAction extends CustomerUpdateAction
     const FIELD_VAT_ID = 'vatId';
 
     /**
-     * <p>If not defined, the vat Id is unset.</p>.
+     * <p>If not defined, the vat Id is unset.</p>
      *
      * @return null|string
      */

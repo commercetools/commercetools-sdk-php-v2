@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class ProductDiscountChangeValueActionBuilder implements Builder
 {
     /**
-     * @var ProductDiscountValueDraft|?ProductDiscountValueDraftBuilder
+     * @var null|ProductDiscountValueDraft|ProductDiscountValueDraftBuilder
      */
     private $value;
 
@@ -51,7 +51,7 @@ final class ProductDiscountChangeValueActionBuilder implements Builder
     public function build(): ProductDiscountChangeValueAction
     {
         return new ProductDiscountChangeValueActionModel(
-            ($this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value
         );
     }
 

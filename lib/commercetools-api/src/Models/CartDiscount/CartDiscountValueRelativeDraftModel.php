@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CartDiscountValueRelativeDraftModel extends JsonObjectModel implements CartDiscountValueRelativeDraft
 {
     const DISCRIMINATOR_VALUE = 'relative';
-
     /**
      * @var ?string
      */

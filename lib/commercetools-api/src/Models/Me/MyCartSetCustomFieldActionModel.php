@@ -15,7 +15,6 @@ use stdClass;
 final class MyCartSetCustomFieldActionModel extends JsonObjectModel implements MyCartSetCustomFieldAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomField';
-
     /**
      * @var ?string
      */

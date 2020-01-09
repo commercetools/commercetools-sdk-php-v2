@@ -64,7 +64,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>Maps to <code>ProductType.name</code>.</p>.
+     * <p>Maps to <code>ProductType.name</code>.</p>
      *
      * @return null|string
      */
@@ -83,7 +83,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>Maps to <code>ProductType.description</code>.</p>.
+     * <p>Maps to <code>ProductType.description</code>.</p>
      *
      * @return null|string
      */
@@ -102,7 +102,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>The product type's attributes.</p>.
+     * <p>The product type's attributes.</p>
      *
      * @return null|AttributeDefinitionCollection
      */

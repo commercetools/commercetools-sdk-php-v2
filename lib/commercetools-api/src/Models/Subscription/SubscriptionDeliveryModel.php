@@ -18,7 +18,6 @@ use stdClass;
 final class SubscriptionDeliveryModel extends JsonObjectModel implements SubscriptionDelivery
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

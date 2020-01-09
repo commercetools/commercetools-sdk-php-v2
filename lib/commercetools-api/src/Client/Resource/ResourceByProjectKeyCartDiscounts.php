@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyCartDiscounts extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyCartDiscountsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyCartDiscountsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
         return new ResourceByProjectKeyCartDiscountsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyCartDiscountsByID
+    public function withId(string $ID = null): ResourceByProjectKeyCartDiscountsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartDiscountsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartDiscountsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartDiscountsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartDiscountsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

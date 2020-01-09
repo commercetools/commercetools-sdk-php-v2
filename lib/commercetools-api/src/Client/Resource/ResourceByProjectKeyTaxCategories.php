@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyTaxCategories extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyTaxCategoriesKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyTaxCategoriesKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
         return new ResourceByProjectKeyTaxCategoriesKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyTaxCategoriesByID
+    public function withId(string $ID = null): ResourceByProjectKeyTaxCategoriesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

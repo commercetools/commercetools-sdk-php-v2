@@ -21,7 +21,7 @@ interface Attribute extends JsonObject
     public function getName();
 
     /**
-     * <p>A valid JSON value, based on an AttributeDefinition.</p>.
+     * <p>A valid JSON value, based on an AttributeDefinition.</p>
      *
      * @return null|JsonObject
      */

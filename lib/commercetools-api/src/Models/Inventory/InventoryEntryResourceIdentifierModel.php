@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 final class InventoryEntryResourceIdentifierModel extends JsonObjectModel implements InventoryEntryResourceIdentifier
 {
     const DISCRIMINATOR_VALUE = 'inventory-entry';
-
     /**
      * @var ?string
      */

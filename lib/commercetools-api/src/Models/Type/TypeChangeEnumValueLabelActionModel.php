@@ -14,7 +14,6 @@ use stdClass;
 final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implements TypeChangeEnumValueLabelAction
 {
     const DISCRIMINATOR_VALUE = 'changeEnumValueLabel';
-
     /**
      * @var ?string
      */

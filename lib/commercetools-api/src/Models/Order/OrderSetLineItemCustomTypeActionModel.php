@@ -18,7 +18,6 @@ use stdClass;
 final class OrderSetLineItemCustomTypeActionModel extends JsonObjectModel implements OrderSetLineItemCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setLineItemCustomType';
-
     /**
      * @var ?string
      */

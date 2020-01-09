@@ -24,7 +24,7 @@ class ResourceByProjectKeyCustomerGroupsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomerGroupsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomerGroupsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -35,7 +35,7 @@ class ResourceByProjectKeyCustomerGroupsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomerGroupsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomerGroupsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -48,6 +48,6 @@ class ResourceByProjectKeyCustomerGroupsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomerGroupsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomerGroupsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
 }

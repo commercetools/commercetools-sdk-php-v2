@@ -15,7 +15,6 @@ use stdClass;
 final class PaymentReferenceModel extends JsonObjectModel implements PaymentReference
 {
     const DISCRIMINATOR_VALUE = 'payment';
-
     /**
      * @var ?string
      */

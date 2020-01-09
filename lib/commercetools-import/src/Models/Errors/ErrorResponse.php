@@ -19,14 +19,14 @@ interface ErrorResponse extends JsonObject
     const FIELD_ERRORS = 'errors';
 
     /**
-     * <p>The http status code of the response.</p>.
+     * <p>The http status code of the response.</p>
      *
      * @return null|int
      */
     public function getStatusCode();
 
     /**
-     * <p>Describes the error.</p>.
+     * <p>Describes the error.</p>
      *
      * @return null|string
      */
@@ -34,7 +34,7 @@ interface ErrorResponse extends JsonObject
 
     /**
      * <p>This property is only used for OAuth2 errors.
-     * Contains the error code.</p>.
+     * Contains the error code.</p>
      *
      * @return null|string
      */
@@ -43,14 +43,14 @@ interface ErrorResponse extends JsonObject
     /**
      * <p>This property is only used for OAuth2 errors.
      * Additional information to assist the client developer in
-     * understanding the error.</p>.
+     * understanding the error.</p>
      *
      * @return null|string
      */
     public function getError_description();
 
     /**
-     * <p>The errors that caused this error response.</p>.
+     * <p>The errors that caused this error response.</p>
      *
      * @return null|ErrorObjectCollection
      */

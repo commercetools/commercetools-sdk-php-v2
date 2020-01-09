@@ -21,7 +21,7 @@ final class SubscriptionDraftBuilder implements Builder
     private $changes;
 
     /**
-     * @var Destination|?DestinationBuilder
+     * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
@@ -36,7 +36,7 @@ final class SubscriptionDraftBuilder implements Builder
     private $messages;
 
     /**
-     * @var DeliveryFormat|?DeliveryFormatBuilder
+     * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
 
@@ -154,10 +154,10 @@ final class SubscriptionDraftBuilder implements Builder
     {
         return new SubscriptionDraftModel(
             $this->changes,
-            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
+            $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination,
             $this->key,
             $this->messages,
-            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format)
+            $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format
         );
     }
 

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel implements TypeRemoveFieldDefinitionAction
 {
     const DISCRIMINATOR_VALUE = 'removeFieldDefinition';
-
     /**
      * @var ?string
      */

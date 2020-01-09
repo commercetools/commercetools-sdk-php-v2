@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
-     * @var AttributeType|?AttributeTypeBuilder
+     * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
@@ -28,7 +28,7 @@ final class AttributeDefinitionBuilder implements Builder
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
@@ -43,7 +43,7 @@ final class AttributeDefinitionBuilder implements Builder
     private $attributeConstraint;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
@@ -58,7 +58,7 @@ final class AttributeDefinitionBuilder implements Builder
     private $isSearchable;
 
     /**
-     * <p>Describes the type of the attribute.</p>.
+     * <p>Describes the type of the attribute.</p>
      *
      * @return null|AttributeType
      */
@@ -71,7 +71,7 @@ final class AttributeDefinitionBuilder implements Builder
      * <p>The unique name of the attribute used in the API.
      * The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
      * When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types, otherwise an AttributeDefinitionAlreadyExists error code will be returned.
-     * An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>.
+     * An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
      *
      * @return null|string
      */
@@ -81,7 +81,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable label for the attribute.</p>.
+     * <p>A human-readable label for the attribute.</p>
      *
      * @return null|LocalizedString
      */
@@ -91,7 +91,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Whether the attribute is required to have a value.</p>.
+     * <p>Whether the attribute is required to have a value.</p>
      *
      * @return null|bool
      */
@@ -101,7 +101,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>.
+     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>
      *
      * @return null|string
      */
@@ -111,7 +111,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * <p>Additional information about the attribute that aids content managers when setting product details.</p>.
+     * <p>Additional information about the attribute that aids content managers when setting product details.</p>
      *
      * @return null|LocalizedString
      */
@@ -123,7 +123,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Provides a visual representation type for this attribute.
      * only relevant for text-based attribute types
-     * like TextType and LocalizableTextType.</p>.
+     * like TextType and LocalizableTextType.</p>
      *
      * @return null|string
      */
@@ -138,7 +138,7 @@ final class AttributeDefinitionBuilder implements Builder
      * The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there.
      * The max size of a searchable field is <strong>restricted to 10922 characters</strong>.
      * This constraint is enforced at both product creation and product update.
-     * If the length of the input exceeds the maximum size an InvalidField error is returned.</p>.
+     * If the length of the input exceeds the maximum size an InvalidField error is returned.</p>
      *
      * @return null|bool
      */
@@ -260,12 +260,12 @@ final class AttributeDefinitionBuilder implements Builder
     public function build(): AttributeDefinition
     {
         return new AttributeDefinitionModel(
-            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
+            $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
+            $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,
             $this->attributeConstraint,
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip),
+            $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,
             $this->isSearchable
         );

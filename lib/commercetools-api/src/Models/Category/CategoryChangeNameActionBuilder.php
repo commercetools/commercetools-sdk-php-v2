@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CategoryChangeNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
@@ -53,7 +53,7 @@ final class CategoryChangeNameActionBuilder implements Builder
     public function build(): CategoryChangeNameAction
     {
         return new CategoryChangeNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

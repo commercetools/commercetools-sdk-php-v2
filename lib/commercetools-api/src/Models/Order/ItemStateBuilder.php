@@ -23,7 +23,7 @@ final class ItemStateBuilder implements Builder
     private $quantity;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
@@ -77,7 +77,7 @@ final class ItemStateBuilder implements Builder
     {
         return new ItemStateModel(
             $this->quantity,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

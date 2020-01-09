@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyDiscountCodes extends ApiResource
 {
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyDiscountCodesByID
+    public function withId(string $ID = null): ResourceByProjectKeyDiscountCodesByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -39,7 +34,7 @@ class ResourceByProjectKeyDiscountCodes extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyDiscountCodesGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyDiscountCodesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -50,6 +45,6 @@ class ResourceByProjectKeyDiscountCodes extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyDiscountCodesPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyDiscountCodesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

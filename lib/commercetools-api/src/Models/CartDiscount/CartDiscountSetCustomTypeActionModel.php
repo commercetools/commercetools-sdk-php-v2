@@ -17,7 +17,6 @@ use stdClass;
 final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel implements CartDiscountSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */
@@ -60,7 +59,7 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -81,7 +80,7 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
 
     /**
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the custom fields to this value.</p>.
+     * Sets the custom fields to this value.</p>
      *
      * @return null|JsonObject
      */

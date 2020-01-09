@@ -14,7 +14,6 @@ use stdClass;
 final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel implements ProductTypeAddPlainEnumValueAction
 {
     const DISCRIMINATOR_VALUE = 'addPlainEnumValue';
-
     /**
      * @var ?string
      */

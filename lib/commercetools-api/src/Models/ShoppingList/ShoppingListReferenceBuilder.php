@@ -21,7 +21,7 @@ final class ShoppingListReferenceBuilder implements Builder
     private $id;
 
     /**
-     * @var ShoppingList|?ShoppingListBuilder
+     * @var null|ShoppingList|ShoppingListBuilder
      */
     private $obj;
 
@@ -75,7 +75,7 @@ final class ShoppingListReferenceBuilder implements Builder
     {
         return new ShoppingListReferenceModel(
             $this->id,
-            ($this->obj instanceof ShoppingListBuilder ? $this->obj->build() : $this->obj)
+            $this->obj instanceof ShoppingListBuilder ? $this->obj->build() : $this->obj
         );
     }
 

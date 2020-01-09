@@ -23,14 +23,14 @@ final class ReferenceAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var KeyReference|?KeyReferenceBuilder
+     * @var null|KeyReference|KeyReferenceBuilder
      */
     private $value;
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
-     * used in a product variant patch.</p>.
+     * used in a product variant patch.</p>
      *
      * @return null|string
      */
@@ -40,7 +40,7 @@ final class ReferenceAttributeBuilder implements Builder
     }
 
     /**
-     * <p>References a resource by its key.</p>.
+     * <p>References a resource by its key.</p>
      *
      * @return null|KeyReference
      */
@@ -83,7 +83,7 @@ final class ReferenceAttributeBuilder implements Builder
     {
         return new ReferenceAttributeModel(
             $this->name,
-            ($this->value instanceof KeyReferenceBuilder ? $this->value->build() : $this->value)
+            $this->value instanceof KeyReferenceBuilder ? $this->value->build() : $this->value
         );
     }
 

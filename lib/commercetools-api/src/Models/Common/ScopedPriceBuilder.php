@@ -28,12 +28,12 @@ final class ScopedPriceBuilder implements Builder
     private $id;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $currentValue;
 
@@ -43,12 +43,12 @@ final class ScopedPriceBuilder implements Builder
     private $country;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
@@ -63,12 +63,12 @@ final class ScopedPriceBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
@@ -97,7 +97,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -318,15 +318,15 @@ final class ScopedPriceBuilder implements Builder
     {
         return new ScopedPriceModel(
             $this->id,
-            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value),
-            ($this->currentValue instanceof TypedMoneyBuilder ? $this->currentValue->build() : $this->currentValue),
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
+            $this->currentValue instanceof TypedMoneyBuilder ? $this->currentValue->build() : $this->currentValue,
             $this->country,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
+            $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
+            $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

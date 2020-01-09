@@ -18,13 +18,13 @@ use Commercetools\Base\Builder;
 final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
 {
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
      * <p>If absent, the supply channel is removed.
-     * This action will fail if an entry with the combination of sku and supplyChannel already exists.</p>.
+     * This action will fail if an entry with the combination of sku and supplyChannel already exists.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -56,7 +56,7 @@ final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
     public function build(): InventoryEntrySetSupplyChannelAction
     {
         return new InventoryEntrySetSupplyChannelActionModel(
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel)
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 

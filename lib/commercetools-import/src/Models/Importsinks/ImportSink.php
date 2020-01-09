@@ -20,7 +20,7 @@ interface ImportSink extends JsonObject
     const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
-     * <p>The unique key of the import sink.</p>.
+     * <p>The unique key of the import sink.</p>
      *
      * @return null|string
      */
@@ -28,28 +28,28 @@ interface ImportSink extends JsonObject
 
     /**
      * <p>The type of import resource sent to this import sink.
-     * You can only send one resource type per import sink.</p>.
+     * You can only send one resource type per import sink.</p>
      *
      * @return null|string
      */
     public function getResourceType();
 
     /**
-     * <p>The version of this resource.</p>.
+     * <p>The version of this resource.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * <p>When the import sink was created.</p>.
+     * <p>When the import sink was created.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
-     * <p>When the import sink was modified.</p>.
+     * <p>When the import sink was modified.</p>
      *
      * @return null|DateTimeImmutable
      */

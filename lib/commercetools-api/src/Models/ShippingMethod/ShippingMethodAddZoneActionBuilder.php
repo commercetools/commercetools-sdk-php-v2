@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ShippingMethodAddZoneActionBuilder implements Builder
 {
     /**
-     * @var ZoneResourceIdentifier|?ZoneResourceIdentifierBuilder
+     * @var null|ZoneResourceIdentifier|ZoneResourceIdentifierBuilder
      */
     private $zone;
 
@@ -53,7 +53,7 @@ final class ShippingMethodAddZoneActionBuilder implements Builder
     public function build(): ShippingMethodAddZoneAction
     {
         return new ShippingMethodAddZoneActionModel(
-            ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone)
+            $this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone
         );
     }
 

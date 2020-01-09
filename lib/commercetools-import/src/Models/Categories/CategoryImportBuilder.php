@@ -26,22 +26,22 @@ final class CategoryImportBuilder implements Builder
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var CategoryKeyReference|?CategoryKeyReferenceBuilder
+     * @var null|CategoryKeyReference|CategoryKeyReferenceBuilder
      */
     private $parent;
 
@@ -56,17 +56,17 @@ final class CategoryImportBuilder implements Builder
     private $externalId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
@@ -84,7 +84,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.name</code>.</p>.
+     * <p>Maps to <code>Category.name</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -95,7 +95,7 @@ final class CategoryImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>Category.slug</code>.
-     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -105,7 +105,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.description</code>.</p>.
+     * <p>Maps to <code>Category.description</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -118,7 +118,7 @@ final class CategoryImportBuilder implements Builder
      * <p>Maps to <code>Category.parent</code>.
      * The parent category referenced must already exist
      * in the commercetools project, or the import item
-     * will have an <code>Unresolved</code> state.</p>.
+     * will have an <code>Unresolved</code> state.</p>
      *
      * @return null|CategoryKeyReference
      */
@@ -128,7 +128,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.orderHint</code>.</p>.
+     * <p>Maps to <code>Category.orderHint</code>.</p>
      *
      * @return null|string
      */
@@ -138,7 +138,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.externalId</code>.</p>.
+     * <p>Maps to <code>Category.externalId</code>.</p>
      *
      * @return null|string
      */
@@ -148,7 +148,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.metaTitle</code>.</p>.
+     * <p>Maps to <code>Category.metaTitle</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -158,7 +158,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.metaDescription</code>.</p>.
+     * <p>Maps to <code>Category.metaDescription</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -168,7 +168,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -178,7 +178,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>
      *
      * @return null|AssetCollection
      */
@@ -371,15 +371,15 @@ final class CategoryImportBuilder implements Builder
     {
         return new CategoryImportModel(
             $this->key,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent,
             $this->orderHint,
             $this->externalId,
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
+            $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
+            $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
+            $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
             $this->assets
         );
     }

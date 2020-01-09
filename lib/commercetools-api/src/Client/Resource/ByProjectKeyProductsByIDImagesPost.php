@@ -26,16 +26,10 @@ use Psr\Http\Message\UploadedFileInterface;
 class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 {
     /**
-     * @psalm-param scalar $projectKey
-     * @psalm-param scalar $ID
-     *
      * @param ?UploadedFileInterface $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param mixed $projectKey
-     * @param mixed $ID
      */
-    public function __construct($projectKey, $ID, UploadedFileInterface $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $ID, UploadedFileInterface $body = null, array $headers = [], Client $client = null)
     {
         $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/products/{ID}/images');
         if (!is_null($body)) {

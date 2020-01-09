@@ -23,7 +23,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     private $items;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
@@ -100,7 +100,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     {
         return new OrderAddDeliveryActionModel(
             $this->items,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
             $this->parcels
         );
     }

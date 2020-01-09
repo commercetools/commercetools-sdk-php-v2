@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implements ProductTypeChangeEnumKeyAction
 {
     const DISCRIMINATOR_VALUE = 'changeEnumKey';
-
     /**
      * @var ?string
      */

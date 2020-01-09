@@ -83,7 +83,6 @@ use stdClass;
 final class StagedOrderUpdateActionModel extends JsonObjectModel implements StagedOrderUpdateAction
 {
     const DISCRIMINATOR_VALUE = '';
-
     /**
      * @var ?string
      */

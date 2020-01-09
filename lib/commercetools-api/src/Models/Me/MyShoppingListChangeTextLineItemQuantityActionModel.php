@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyShoppingListChangeTextLineItemQuantityActionModel extends JsonObjectModel implements MyShoppingListChangeTextLineItemQuantityAction
 {
     const DISCRIMINATOR_VALUE = 'changeTextLineItemQuantity';
-
     /**
      * @var ?string
      */

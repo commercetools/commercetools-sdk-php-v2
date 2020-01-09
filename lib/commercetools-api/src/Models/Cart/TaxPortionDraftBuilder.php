@@ -28,7 +28,7 @@ final class TaxPortionDraftBuilder implements Builder
     private $rate;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $amount;
 
@@ -101,7 +101,7 @@ final class TaxPortionDraftBuilder implements Builder
         return new TaxPortionDraftModel(
             $this->name,
             $this->rate,
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount)
+            $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount
         );
     }
 

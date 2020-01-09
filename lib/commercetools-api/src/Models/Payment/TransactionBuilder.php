@@ -34,7 +34,7 @@ final class TransactionBuilder implements Builder
     private $type;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amount;
 
@@ -49,7 +49,7 @@ final class TransactionBuilder implements Builder
     private $state;
 
     /**
-     * <p>The unique ID of this object.</p>.
+     * <p>The unique ID of this object.</p>
      *
      * @return null|string
      */
@@ -59,7 +59,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The time at which the transaction took place.</p>.
+     * <p>The time at which the transaction took place.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -69,7 +69,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The type of this transaction.</p>.
+     * <p>The type of this transaction.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,7 @@ final class TransactionBuilder implements Builder
 
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
-     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
      * @return null|string
      */
@@ -98,7 +98,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The state of this transaction.</p>.
+     * <p>The state of this transaction.</p>
      *
      * @return null|string
      */
@@ -183,7 +183,7 @@ final class TransactionBuilder implements Builder
             $this->id,
             $this->timestamp,
             $this->type,
-            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
             $this->state
         );

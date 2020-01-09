@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $oldAddress;
 
@@ -86,8 +86,8 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     public function build(): OrderBillingAddressSetMessagePayload
     {
         return new OrderBillingAddressSetMessagePayloadModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress)
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress
         );
     }
 

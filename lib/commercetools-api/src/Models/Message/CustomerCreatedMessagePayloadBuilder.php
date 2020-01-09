@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class CustomerCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Customer|?CustomerBuilder
+     * @var null|Customer|CustomerBuilder
      */
     private $customer;
 
@@ -53,7 +53,7 @@ final class CustomerCreatedMessagePayloadBuilder implements Builder
     public function build(): CustomerCreatedMessagePayload
     {
         return new CustomerCreatedMessagePayloadModel(
-            ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer)
+            $this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer
         );
     }
 

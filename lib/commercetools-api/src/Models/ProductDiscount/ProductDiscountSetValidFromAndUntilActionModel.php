@@ -15,7 +15,6 @@ use DateTimeImmutable;
 final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectModel implements ProductDiscountSetValidFromAndUntilAction
 {
     const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
-
     /**
      * @var ?string
      */
@@ -80,7 +79,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
 
     /**
      * <p>The timeframe for which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

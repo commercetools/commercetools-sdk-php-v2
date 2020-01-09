@@ -22,7 +22,7 @@ final class ProductVariantPatchRequestBuilder implements Builder
     private $patches;
 
     /**
-     * <p>The product variant patches of this request.</p>.
+     * <p>The product variant patches of this request.</p>
      *
      * @return null|ProductVariantPatchCollection
      */

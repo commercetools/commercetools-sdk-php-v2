@@ -17,7 +17,6 @@ use stdClass;
 final class ProductAddVariantActionModel extends JsonObjectModel implements ProductAddVariantAction
 {
     const DISCRIMINATOR_VALUE = 'addVariant';
-
     /**
      * @var ?string
      */

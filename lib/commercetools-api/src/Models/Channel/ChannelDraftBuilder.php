@@ -34,27 +34,27 @@ final class ChannelDraftBuilder implements Builder
     private $roles;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * @var GeoJson|?GeoJsonBuilder
+     * @var null|GeoJson|GeoJsonBuilder
      */
     private $geoLocation;
 
@@ -67,7 +67,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
-     * <p>If not specified, then channel will get InventorySupply role by default</p>.
+     * <p>If not specified, then channel will get InventorySupply role by default</p>
      *
      * @return null|array
      */
@@ -101,7 +101,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>.
+     * <p>The custom fields.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -243,11 +243,11 @@ final class ChannelDraftBuilder implements Builder
         return new ChannelDraftModel(
             $this->key,
             $this->roles,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation
         );
     }
 

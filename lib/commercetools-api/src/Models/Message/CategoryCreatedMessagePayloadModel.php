@@ -16,7 +16,6 @@ use stdClass;
 final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implements CategoryCreatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'CategoryCreated';
-
     /**
      * @var ?string
      */

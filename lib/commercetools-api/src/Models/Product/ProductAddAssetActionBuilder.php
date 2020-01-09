@@ -33,7 +33,7 @@ final class ProductAddAssetActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var AssetDraft|?AssetDraftBuilder
+     * @var null|AssetDraft|AssetDraftBuilder
      */
     private $asset;
 
@@ -75,7 +75,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
-     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>.
+     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
      * @return null|int
      */
@@ -150,7 +150,7 @@ final class ProductAddAssetActionBuilder implements Builder
             $this->variantId,
             $this->sku,
             $this->staged,
-            ($this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset),
+            $this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset,
             $this->position
         );
     }

@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class ProductSetSearchKeywordsActionBuilder implements Builder
 {
     /**
-     * @var SearchKeywords|?SearchKeywordsBuilder
+     * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
@@ -74,7 +74,7 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     public function build(): ProductSetSearchKeywordsAction
     {
         return new ProductSetSearchKeywordsActionModel(
-            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
+            $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->staged
         );
     }

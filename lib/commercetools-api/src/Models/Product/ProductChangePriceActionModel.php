@@ -16,7 +16,6 @@ use stdClass;
 final class ProductChangePriceActionModel extends JsonObjectModel implements ProductChangePriceAction
 {
     const DISCRIMINATOR_VALUE = 'changePrice';
-
     /**
      * @var ?string
      */
@@ -66,7 +65,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>ID of the <a href="#price">Price</a></p>.
+     * <p>ID of the <a href="#price">Price</a></p>
      *
      * @return null|string
      */

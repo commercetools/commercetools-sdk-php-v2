@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeReferenceTypeModel extends JsonObjectModel implements AttributeReferenceType
 {
     const DISCRIMINATOR_VALUE = 'reference';
-
     /**
      * @var ?string
      */

@@ -19,7 +19,7 @@ use DateTimeImmutable;
 final class SyncInfoBuilder implements Builder
 {
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
@@ -34,7 +34,7 @@ final class SyncInfoBuilder implements Builder
     private $syncedAt;
 
     /**
-     * <p>Connection to a particular synchronization destination.</p>.
+     * <p>Connection to a particular synchronization destination.</p>
      *
      * @return null|ChannelReference
      */
@@ -44,7 +44,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
-     * <p>Can be used to reference an external order instance, file etc.</p>.
+     * <p>Can be used to reference an external order instance, file etc.</p>
      *
      * @return null|string
      */
@@ -104,7 +104,7 @@ final class SyncInfoBuilder implements Builder
     public function build(): SyncInfo
     {
         return new SyncInfoModel(
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
+            $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->externalId,
             $this->syncedAt
         );

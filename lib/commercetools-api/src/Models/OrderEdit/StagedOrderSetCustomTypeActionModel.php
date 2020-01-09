@@ -19,7 +19,6 @@ use stdClass;
 final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implements StagedOrderSetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomType';
-
     /**
      * @var ?string
      */

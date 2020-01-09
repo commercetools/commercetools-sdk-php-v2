@@ -38,7 +38,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     private $priceId;
 
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
@@ -172,7 +172,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
             $this->variantKey,
             $this->sku,
             $this->priceId,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->staged
         );
     }

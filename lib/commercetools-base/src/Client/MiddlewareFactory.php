@@ -54,7 +54,7 @@ class MiddlewareFactory
     }
 
     /**
-     * Middleware that reauthenticates on invalid token error.
+     * Middleware that reauthenticates on invalid token error
      *
      * @return callable returns a function that accepts the next handler
      */

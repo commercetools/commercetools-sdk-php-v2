@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class AttributeDateTimeTypeModel extends JsonObjectModel implements AttributeDateTimeType
 {
     const DISCRIMINATOR_VALUE = 'datetime';
-
     /**
      * @var ?string
      */

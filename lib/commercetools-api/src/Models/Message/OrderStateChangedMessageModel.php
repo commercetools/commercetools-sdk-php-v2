@@ -22,7 +22,6 @@ use stdClass;
 final class OrderStateChangedMessageModel extends JsonObjectModel implements OrderStateChangedMessage
 {
     const DISCRIMINATOR_VALUE = 'OrderStateChanged';
-
     /**
      * @var ?string
      */

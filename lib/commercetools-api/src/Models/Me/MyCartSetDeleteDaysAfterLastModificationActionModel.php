@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObjectModel implements MyCartSetDeleteDaysAfterLastModificationAction
 {
     const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
-
     /**
      * @var ?string
      */

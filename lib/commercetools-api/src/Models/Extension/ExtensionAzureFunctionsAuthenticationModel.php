@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ExtensionAzureFunctionsAuthenticationModel extends JsonObjectModel implements ExtensionAzureFunctionsAuthentication
 {
     const DISCRIMINATOR_VALUE = 'AzureFunctions';
-
     /**
      * @var ?string
      */

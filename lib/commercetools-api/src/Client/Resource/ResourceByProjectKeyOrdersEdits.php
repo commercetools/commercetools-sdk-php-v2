@@ -14,12 +14,7 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyOrdersEdits extends ApiResource
 {
-    /**
-     * @psalm-param scalar $key
-     *
-     * @param null|mixed $key
-     */
-    public function withKey($key = null): ResourceByProjectKeyOrdersEditsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyOrdersEditsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {
@@ -29,12 +24,7 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
         return new ResourceByProjectKeyOrdersEditsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
     }
 
-    /**
-     * @psalm-param scalar $ID
-     *
-     * @param null|mixed $ID
-     */
-    public function withId($ID = null): ResourceByProjectKeyOrdersEditsByID
+    public function withId(string $ID = null): ResourceByProjectKeyOrdersEditsByID
     {
         $args = $this->getArgs();
         if (!is_null($ID)) {
@@ -54,7 +44,7 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsGet($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 
     /**
@@ -65,6 +55,6 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsPost($args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
 }

@@ -29,7 +29,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     private $discountedPricePerQuantity;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
@@ -102,7 +102,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
         return new OrderCustomLineItemDiscountSetMessagePayloadModel(
             $this->customLineItemId,
             $this->discountedPricePerQuantity,
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice)
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
         );
     }
 

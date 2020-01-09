@@ -22,7 +22,6 @@ use stdClass;
 final class ProductUnpublishedMessageModel extends JsonObjectModel implements ProductUnpublishedMessage
 {
     const DISCRIMINATOR_VALUE = 'ProductUnpublished';
-
     /**
      * @var ?string
      */

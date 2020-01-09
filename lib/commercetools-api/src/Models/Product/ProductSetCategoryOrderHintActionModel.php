@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel implements ProductSetCategoryOrderHintAction
 {
     const DISCRIMINATOR_VALUE = 'setCategoryOrderHint';
-
     /**
      * @var ?string
      */

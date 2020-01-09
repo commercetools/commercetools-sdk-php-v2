@@ -14,7 +14,6 @@ use stdClass;
 final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeAddEnumValueAction
 {
     const DISCRIMINATOR_VALUE = 'addEnumValue';
-
     /**
      * @var ?string
      */

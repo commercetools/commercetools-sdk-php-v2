@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSetVatIdActionModel extends JsonObjectModel implements CustomerSetVatIdAction
 {
     const DISCRIMINATOR_VALUE = 'setVatId';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     }
 
     /**
-     * <p>If not defined, the vat Id is unset.</p>.
+     * <p>If not defined, the vat Id is unset.</p>
      *
      * @return null|string
      */

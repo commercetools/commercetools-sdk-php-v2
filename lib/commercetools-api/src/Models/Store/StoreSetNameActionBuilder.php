@@ -18,12 +18,12 @@ use Commercetools\Base\Builder;
 final class StoreSetNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * <p>The updated name of the store</p>.
+     * <p>The updated name of the store</p>
      *
      * @return null|LocalizedString
      */
@@ -55,7 +55,7 @@ final class StoreSetNameActionBuilder implements Builder
     public function build(): StoreSetNameAction
     {
         return new StoreSetNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

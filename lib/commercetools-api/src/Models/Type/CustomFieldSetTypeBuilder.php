@@ -16,7 +16,7 @@ use Commercetools\Base\Builder;
 final class CustomFieldSetTypeBuilder implements Builder
 {
     /**
-     * @var FieldType|?FieldTypeBuilder
+     * @var null|FieldType|FieldTypeBuilder
      */
     private $elementType;
 
@@ -51,7 +51,7 @@ final class CustomFieldSetTypeBuilder implements Builder
     public function build(): CustomFieldSetType
     {
         return new CustomFieldSetTypeModel(
-            ($this->elementType instanceof FieldTypeBuilder ? $this->elementType->build() : $this->elementType)
+            $this->elementType instanceof FieldTypeBuilder ? $this->elementType->build() : $this->elementType
         );
     }
 

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel implements OrderCustomerEmailSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
-
     /**
      * @var ?string
      */

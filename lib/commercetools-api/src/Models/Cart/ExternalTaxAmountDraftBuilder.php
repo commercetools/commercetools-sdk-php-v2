@@ -18,17 +18,17 @@ use Commercetools\Base\Builder;
 final class ExternalTaxAmountDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $taxRate;
 
     /**
-     * <p>The total gross amount of the item (totalNet + taxes).</p>.
+     * <p>The total gross amount of the item (totalNet + taxes).</p>
      *
      * @return null|Money
      */
@@ -88,8 +88,8 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     public function build(): ExternalTaxAmountDraft
     {
         return new ExternalTaxAmountDraftModel(
-            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross),
-            ($this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate)
+            $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross,
+            $this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate
         );
     }
 

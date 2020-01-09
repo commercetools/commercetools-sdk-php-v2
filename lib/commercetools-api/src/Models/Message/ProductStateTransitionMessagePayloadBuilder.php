@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class ProductStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
@@ -76,7 +76,7 @@ final class ProductStateTransitionMessagePayloadBuilder implements Builder
     public function build(): ProductStateTransitionMessagePayload
     {
         return new ProductStateTransitionMessagePayloadModel(
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->force
         );
     }

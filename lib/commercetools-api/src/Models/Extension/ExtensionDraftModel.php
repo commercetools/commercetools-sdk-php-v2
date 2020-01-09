@@ -46,7 +46,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
-     * <p>User-specific unique identifier for the extension</p>.
+     * <p>User-specific unique identifier for the extension</p>
      *
      * @return null|string
      */
@@ -65,7 +65,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
-     * <p>Details where the extension can be reached</p>.
+     * <p>Details where the extension can be reached</p>
      *
      * @return null|ExtensionDestination
      */
@@ -85,7 +85,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
-     * <p>Describes what triggers the extension</p>.
+     * <p>Describes what triggers the extension</p>
      *
      * @return null|ExtensionTriggerCollection
      */
@@ -107,7 +107,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
      * <p>The maximum time the commercetools platform waits for a response from the extension.
      * The maximum value is 2000 ms (2 seconds).
      * This limit can be increased per project after we review the performance impact.
-     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>.
+     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>
      *
      * @return null|int
      */

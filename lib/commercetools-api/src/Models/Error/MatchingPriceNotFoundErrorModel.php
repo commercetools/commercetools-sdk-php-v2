@@ -18,7 +18,6 @@ use stdClass;
 final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements MatchingPriceNotFoundError
 {
     const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';
-
     /**
      * @var ?string
      */

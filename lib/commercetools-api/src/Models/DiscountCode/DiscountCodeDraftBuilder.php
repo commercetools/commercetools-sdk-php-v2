@@ -22,12 +22,12 @@ use DateTimeImmutable;
 final class DiscountCodeDraftBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
@@ -62,7 +62,7 @@ final class DiscountCodeDraftBuilder implements Builder
     private $maxApplicationsPerCustomer;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -100,7 +100,7 @@ final class DiscountCodeDraftBuilder implements Builder
     /**
      * <p>Unique identifier of this discount code.
      * This value is added to the cart
-     * to enable the related cart discounts in the cart.</p>.
+     * to enable the related cart discounts in the cart.</p>
      *
      * @return null|string
      */
@@ -111,7 +111,7 @@ final class DiscountCodeDraftBuilder implements Builder
 
     /**
      * <p>The referenced matching cart discounts can be applied to the cart once the discount code is added.
-     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>.
+     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>
      *
      * @return null|CartDiscountResourceIdentifierCollection
      */
@@ -121,7 +121,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
-     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     * <p>The discount code can only be applied to carts that match this predicate.</p>
      *
      * @return null|string
      */
@@ -163,7 +163,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
-     * <p>The groups to which this discount code shall belong to.</p>.
+     * <p>The groups to which this discount code shall belong to.</p>
      *
      * @return null|array
      */
@@ -174,7 +174,7 @@ final class DiscountCodeDraftBuilder implements Builder
 
     /**
      * <p>The time from which the discount can be applied on a cart.
-     * Before that time the code is invalid.</p>.
+     * Before that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -185,7 +185,7 @@ final class DiscountCodeDraftBuilder implements Builder
 
     /**
      * <p>The time until the discount can be applied on a cart.
-     * After that time the code is invalid.</p>.
+     * After that time the code is invalid.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -347,15 +347,15 @@ final class DiscountCodeDraftBuilder implements Builder
     public function build(): DiscountCodeDraft
     {
         return new DiscountCodeDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->code,
             $this->cartDiscounts,
             $this->cartPredicate,
             $this->isActive,
             $this->maxApplications,
             $this->maxApplicationsPerCustomer,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->groups,
             $this->validFrom,
             $this->validUntil

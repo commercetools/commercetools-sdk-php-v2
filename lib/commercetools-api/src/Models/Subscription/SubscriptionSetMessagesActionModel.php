@@ -14,7 +14,6 @@ use stdClass;
 final class SubscriptionSetMessagesActionModel extends JsonObjectModel implements SubscriptionSetMessagesAction
 {
     const DISCRIMINATOR_VALUE = 'setMessages';
-
     /**
      * @var ?string
      */

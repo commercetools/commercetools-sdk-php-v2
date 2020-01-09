@@ -41,12 +41,12 @@ final class ZoneBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var LastModifiedBy|?LastModifiedByBuilder
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
@@ -71,7 +71,7 @@ final class ZoneBuilder implements Builder
     private $locations;
 
     /**
-     * <p>The unique ID of the zone.</p>.
+     * <p>The unique ID of the zone.</p>
      *
      * @return null|string
      */
@@ -81,7 +81,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the zone.</p>.
+     * <p>The current version of the zone.</p>
      *
      * @return null|int
      */
@@ -125,7 +125,7 @@ final class ZoneBuilder implements Builder
     /**
      * <p>User-specific unique identifier for a zone.
      * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>.
+     * The field can be reset using the Set Key UpdateAction.</p>
      *
      * @return null|string
      */
@@ -285,8 +285,8 @@ final class ZoneBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->name,
             $this->description,

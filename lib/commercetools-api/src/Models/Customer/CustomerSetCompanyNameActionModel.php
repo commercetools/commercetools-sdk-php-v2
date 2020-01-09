@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements CustomerSetCompanyNameAction
 {
     const DISCRIMINATOR_VALUE = 'setCompanyName';
-
     /**
      * @var ?string
      */
@@ -49,7 +48,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>If not defined, the company name is unset.</p>.
+     * <p>If not defined, the company name is unset.</p>
      *
      * @return null|string
      */

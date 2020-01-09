@@ -30,7 +30,7 @@ interface Channel extends LoggedResource
     const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
-     * <p>The unique ID of the channel.</p>.
+     * <p>The unique ID of the channel.</p>
      *
      * @return null|string
      */
@@ -52,21 +52,21 @@ interface Channel extends LoggedResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>.
+     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>
      *
      * @return null|string
      */
@@ -74,21 +74,21 @@ interface Channel extends LoggedResource
 
     /**
      * <p>The roles of this channel.
-     * Each channel must have at least one role.</p>.
+     * Each channel must have at least one role.</p>
      *
      * @return null|array
      */
     public function getRoles();
 
     /**
-     * <p>A human-readable name of the channel.</p>.
+     * <p>A human-readable name of the channel.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>A human-readable description of the channel.</p>.
+     * <p>A human-readable description of the channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -96,14 +96,14 @@ interface Channel extends LoggedResource
 
     /**
      * <p>The address where this channel is located (e.g.
-     * if the channel is a physical store).</p>.
+     * if the channel is a physical store).</p>
      *
      * @return null|Address
      */
     public function getAddress();
 
     /**
-     * <p>Statistics about the review ratings taken into account for this channel.</p>.
+     * <p>Statistics about the review ratings taken into account for this channel.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -115,7 +115,7 @@ interface Channel extends LoggedResource
     public function getCustom();
 
     /**
-     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>.
+     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>
      *
      * @return null|GeoJson
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implements MultiBuyCustomLineItemsTarget
 {
     const DISCRIMINATOR_VALUE = 'multiBuyCustomLineItems';
-
     /**
      * @var ?string
      */
@@ -78,7 +77,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
 
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
-     * matched by the predicate.</p>.
+     * matched by the predicate.</p>
      *
      * @return null|string
      */
@@ -97,7 +96,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>.
+     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
      * @return null|int
      */
@@ -116,7 +115,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>.
+     * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
      * @return null|int
      */
@@ -135,7 +134,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Maximum number of applications of this discount.</p>.
+     * <p>Maximum number of applications of this discount.</p>
      *
      * @return null|int
      */

@@ -33,7 +33,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     private $staged;
 
     /**
-     * @var QueryPrice|?QueryPriceBuilder
+     * @var null|QueryPrice|QueryPriceBuilder
      */
     private $price;
 
@@ -125,7 +125,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
             $this->productId,
             $this->variantId,
             $this->staged,
-            ($this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price)
+            $this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price
         );
     }
 
