@@ -28,10 +28,18 @@ class MiscTest extends TestCase
     {
         $t = new ByProjectKeyGet(null);
 
-        $tr = new Response(500, [], '{"foo" : {"bar": "baz"}, "foos": [{"bars": "bazs"}], "bar": [1, 2, 3], "baz": "boz" }');
+        $tr = new Response(
+            500,
+            [],
+            '{"foo" : {"bar": "baz"}, "foos": [{"bars": "bazs"}], "bar": [1, 2, 3], "baz": "boz" }'
+        );
         $foo = $t->mapFromResponse($tr);
 
-        $tr = new Response(200, [], '{"foo" : {"bar": "baz"}, "foos": [{"bars": "bazs"}], "bar": [1, 2, 3], "baz": "boz" }');
+        $tr = new Response(
+            200,
+            [],
+            '{"foo" : {"bar": "baz"}, "foos": [{"bars": "bazs"}], "bar": [1, 2, 3], "baz": "boz" }'
+        );
         /** @var CartModel $bar */
         $bar = $t->mapFromResponse($tr, CartModel::class);
 
@@ -58,10 +66,7 @@ class MiscTest extends TestCase
         $v->setSku('123');
 
         $t->setDescription(LocalizedStringModel::of()->put('en', 'test'));
-        $t->setVariants(
-            (
-        new ProductVariantDraftCollection())->add($v)
-        );
+        $t->setVariants((new ProductVariantDraftCollection())->add($v));
         $this->assertJsonStringEqualsJsonString(
             '{"description":{"en":"test"},"variants":[{"sku":"123"}]}',
             json_encode($t)

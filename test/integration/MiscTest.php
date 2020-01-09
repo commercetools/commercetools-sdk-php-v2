@@ -43,12 +43,13 @@ class MiscTest extends TestCase
         $this->projectKey = $_SERVER['CTP_PROJECT_KEY'] ?? '';
 
         $authHandler = HandlerStack::create();
-        $authHandler->push(MiddlewareFactory::createLoggerMiddleware(new Logger('auth', [new StreamHandler('./logs/requests.log')])));
-
-        $authConfig = new ClientCredentialsConfig(
-            new ClientCredentials($clientId, $clientSecret),
-            ['handler' => $authHandler]
+        $authHandler->push(
+            MiddlewareFactory::createLoggerMiddleware(new Logger('auth', [new StreamHandler('./logs/requests.log')]))
         );
+
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
+            'handler' => $authHandler,
+        ]);
         $logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
 
         $client = ClientFactory::of()->createGuzzleClientForHandler(
@@ -64,7 +65,10 @@ class MiscTest extends TestCase
         $client = $this->client;
         $response = $client->get('');
 
-        $this->assertStringContainsString('This is the commercetools platform project API', (string) $response->getBody());
+        $this->assertStringContainsString(
+            'This is the commercetools platform project API',
+            (string) $response->getBody()
+        );
     }
 
     public function testGetProject()
@@ -72,7 +76,11 @@ class MiscTest extends TestCase
         $client = $this->client;
 
         $root = new ApiRoot($client);
-        $response = $root->withProjectKey($this->projectKey)->get()->send();
+        $response = $root
+            ->withProjectKey($this->projectKey)
+            ->get()
+            ->send()
+        ;
 
         $project = ProjectModel::fromArray(json_decode((string) $response->getBody(), true));
 
@@ -87,7 +95,12 @@ class MiscTest extends TestCase
 
         $root = new ApiRoot($client);
 
-        $response = $root->withProjectKey($this->projectKey)->categories()->get()->send();
+        $response = $root
+            ->withProjectKey($this->projectKey)
+            ->categories()
+            ->get()
+            ->send()
+        ;
 
         $catResponse = CategoryPagedQueryResponseModel::of(json_decode((string) $response->getBody()));
         $categories = $catResponse->getResults();
@@ -123,7 +136,13 @@ class MiscTest extends TestCase
         $client = $this->client;
         $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);
 
-        $t = $root->withProjectKey()->productProjections()->search()->get()->withFacet('categories.id');
+        $t = $root
+            ->withProjectKey()
+            ->productProjections()
+            ->search()
+            ->get()
+            ->withFacet('categories.id')
+        ;
 
         $r = $client->send($t);
         $c = $t->execute();
@@ -141,23 +160,21 @@ class MiscTest extends TestCase
         $clientSecret = $_SERVER['CTP_ME_CLIENT_SECRET'] ?? '';
         $this->projectKey = $_SERVER['CTP_PROJECT_KEY'] ?? '';
 
-        $authConfig = new MeConfig(
-            $this->projectKey,
-            new ClientCredentials($clientId, $clientSecret)
-        );
+        $authConfig = new MeConfig($this->projectKey, new ClientCredentials($clientId, $clientSecret));
 
         $instanceTokenStorage = new InstanceTokenStorage();
         $handler = MeOAuthHandlerFactory::ofAuthConfig($authConfig, $instanceTokenStorage);
 
-        $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new Config(),
-            $handler,
-            $logger
-        );
+        $client = ClientFactory::of()->createGuzzleClientForHandler(new Config(), $handler, $logger);
 
         $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);
 
-        $t = $root->withProjectKey()->me()->activeCart()->get();
+        $t = $root
+            ->withProjectKey()
+            ->me()
+            ->activeCart()
+            ->get()
+        ;
 
         $this->expectException(ApiClientException::class);
         $this->expectExceptionCode(404);

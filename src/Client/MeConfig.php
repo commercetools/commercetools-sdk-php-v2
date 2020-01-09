@@ -23,8 +23,14 @@ class MeConfig extends AuthConfig implements BaseClientCredentialsConfig
     /** @var string */
     private $refreshUri;
 
-    public function __construct(string $projectKey, ClientCredentials $credentials, array $clientOptions = [], string $anonUri = null, string $refreshUri = null, string $authUri = self::AUTH_URI)
-    {
+    public function __construct(
+        string $projectKey,
+        ClientCredentials $credentials,
+        array $clientOptions = [],
+        string $anonUri = null,
+        string $refreshUri = null,
+        string $authUri = self::AUTH_URI
+    ) {
         parent::__construct($clientOptions, $authUri);
         $anonUri = $anonUri ?? self::ANON_AUTH_URI;
         $anonUri = str_replace('{projectKey}', $projectKey, $anonUri);

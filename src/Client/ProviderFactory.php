@@ -16,12 +16,7 @@ class ProviderFactory
         TokenStorage $storage,
         AnonymousIdProvider $anonymousIdProvider = null
     ): TokenStorageProvider {
-        $refreshTokenProvider = $this->createRefreshFlowProvider(
-            $refreshTokenUrl,
-            $credentials,
-            $client,
-            $storage
-        );
+        $refreshTokenProvider = $this->createRefreshFlowProvider($refreshTokenUrl, $credentials, $client, $storage);
         $anonProvider = $this->createAnonymousFlowProvider(
             $anonTokenUrl,
             $credentials,
