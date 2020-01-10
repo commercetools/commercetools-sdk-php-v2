@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -23,7 +24,8 @@ class MiddlewareFactory
      */
     public static function createDefaultMiddlewares(
         ?OAuth2Handler $handler = null,
-        ?LoggerInterface $logger = null
+        ?LoggerInterface $logger = null,
+        int $maxRetries = 0
     ) {
         $middlewares = [];
         if (!is_null($handler)) {
@@ -33,8 +35,41 @@ class MiddlewareFactory
         if (!is_null($logger)) {
             $middlewares['logger'] = self::createLoggerMiddleware($logger);
         }
+        if ($maxRetries > 0) {
+            $middlewares['retryNA'] = self::createRetryNAMiddleware($maxRetries);
+        }
 
         return $middlewares;
+    }
+
+    /**
+     * @psalm-return callable
+     */
+    public static function createRetryNAMiddleware(int $maxRetries)
+    {
+        return Middleware::retry(
+            function (
+                int $retries,
+                RequestInterface $request,
+                ResponseInterface $response = null,
+                \Exception $error = null
+            ) use ($maxRetries) {
+                if ($response instanceof ResponseInterface && $response->getStatusCode() < 500) {
+                    return false;
+                }
+                if ($retries < $maxRetries) {
+                    return false;
+                }
+                if ($error instanceof ServerException && 503 == $error->getCode()) {
+                    return true;
+                }
+                if ($response instanceof ResponseInterface && 503 == $response->getStatusCode()) {
+                    return true;
+                }
+
+                return false;
+            }
+        );
     }
 
     /**

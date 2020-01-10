@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Test\Client\Resource;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
 use Commercetools\Import\Client\ImportRoot;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
@@ -49,5 +52,34 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         }
+    }
+
+    public function getRequestBuilders()
+    {
+        return [
+            'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost' => [
+                function (ImportRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('projectKey')
+                        ->productVariants()
+                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
+                        ->post(null)
+                    ;
+                },
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getRequests()
+     */
+    public function testMapFromResponse(callable $builderFunction)
+    {
+        $builder = new ImportRoot();
+        $request = $builderFunction($builder);
+        $this->assertInstanceOf(ApiRequest::class, $request);
+
+        $response = new Response(200, [], '{}');
+        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

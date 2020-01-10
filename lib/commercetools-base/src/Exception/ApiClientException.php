@@ -24,7 +24,7 @@ class ApiClientException extends ClientException
      * @param string      $message
      * @param ?JsonObject $result
      */
-    public function __construct($message, $result, RequestInterface $request, ResponseInterface $response = null, \Exception $previous = null, array $handlerContext = [])
+    public function __construct($message, $result, RequestInterface $request, ResponseInterface $response, \Exception $previous = null, array $handlerContext = [])
     {
         $this->result = $result;
         parent::__construct($message, $request, $response, $previous, $handlerContext);

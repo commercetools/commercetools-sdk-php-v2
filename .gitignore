@@ -1,11 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 composer.lock
 vendor
-/lib/LICENSE
-/lib/composer.json
-/lib/phpunit.xml.dist
-/lib/docs/build
 .phpunit.result.cache
-test/unit/cache
-test/integration/cache
-test/integration/logs/requests.log
+cache
+logs

@@ -38,11 +38,11 @@ class ClientFactory
     public function createGuzzleClientForHandler(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
     {
         $middlewares = array_merge(
-            MiddlewareFactory::createDefaultMiddlewares($handler, $logger),
+            MiddlewareFactory::createDefaultMiddlewares($handler, $logger, (int) ($config->getOptions()['maxRetries'] ?? 0)),
             $middlewares
         );
 
-        return $this->createGuzzle6Client($config->getOptions(), $middlewares);
+        return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
     /**
@@ -54,7 +54,7 @@ class ClientFactory
         Config $config,
         array $middlewares = []
     ): HttpClient {
-        return $this->createGuzzle6Client($config->getOptions(), $middlewares);
+        return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
     public static function of(): ClientFactory
@@ -66,7 +66,7 @@ class ClientFactory
      * @throws InvalidArgumentException
      * @psalm-param array<int|string, callable> $middlewares
      */
-    private function createGuzzle6Client(array $options, array $middlewares = []): HttpClient
+    private function createGuzzleClientWithOptions(array $options, array $middlewares = []): HttpClient
     {
         if (isset($options['handler']) && $options['handler'] instanceof HandlerStack) {
             $stack = $options['handler'];
