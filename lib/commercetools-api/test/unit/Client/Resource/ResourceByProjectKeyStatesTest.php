@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
     {
         return [
             'ByProjectKeyStatesGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?expand=expand',
             ],
             'ByProjectKeyStatesGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?where=where',
             ],
             'ByProjectKeyStatesGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?sort=sort',
             ],
             'ByProjectKeyStatesGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?limit=limit',
             ],
             'ByProjectKeyStatesGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?offset=offset',
             ],
             'ByProjectKeyStatesGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?withTotal=withTotal',
             ],
             'ByProjectKeyStatesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states',
             ],
             'ByProjectKeyStatesPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?expand=expand',
             ],
             'ByProjectKeyStatesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
     {
         return [
             'ByProjectKeyStatesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 },
             ],
             'ByProjectKeyStatesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

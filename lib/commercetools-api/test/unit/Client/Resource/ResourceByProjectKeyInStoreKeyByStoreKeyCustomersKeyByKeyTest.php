@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -42,7 +42,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -55,7 +55,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -69,7 +69,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -82,7 +82,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete_withDataErasure' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -96,7 +96,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}?dataErasure=dataErasure',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -110,7 +110,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}?version=version',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -124,7 +124,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 '{projectKey}/in-store/key={storeKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -144,7 +144,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -157,7 +157,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -168,7 +168,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 },
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -179,7 +179,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 },
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
@@ -197,7 +197,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

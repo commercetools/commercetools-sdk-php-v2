@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
     {
         return [
             'ByProjectKeyCartsGet_withCustomerId' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?customerId=customerId',
             ],
             'ByProjectKeyCartsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?expand=expand',
             ],
             'ByProjectKeyCartsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?where=where',
             ],
             'ByProjectKeyCartsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?sort=sort',
             ],
             'ByProjectKeyCartsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?limit=limit',
             ],
             'ByProjectKeyCartsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?offset=offset',
             ],
             'ByProjectKeyCartsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -111,7 +111,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?withTotal=withTotal',
             ],
             'ByProjectKeyCartsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts',
             ],
             'ByProjectKeyCartsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -134,7 +134,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 '{projectKey}/carts?expand=expand',
             ],
             'ByProjectKeyCartsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -152,7 +152,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -165,7 +165,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
     {
         return [
             'ByProjectKeyCartsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -174,7 +174,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 },
             ],
             'ByProjectKeyCartsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
@@ -190,7 +190,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

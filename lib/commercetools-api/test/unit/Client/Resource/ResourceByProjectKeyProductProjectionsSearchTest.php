@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
     {
         return [
             'ByProjectKeyProductProjectionsSearchPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzy' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -52,7 +52,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzyLevel' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -65,7 +65,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?fuzzyLevel=fuzzyLevel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilter' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?filter=filter',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterFacets' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?filter.facets=filter.facets',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterQuery' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -117,7 +117,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?filter.query=filter.query',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFacet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -130,7 +130,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?facet=facet',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withText' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -143,7 +143,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?text.locale=text.locale',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -156,7 +156,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -169,7 +169,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?limit=limit',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -182,7 +182,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?offset=offset',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -195,7 +195,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCurrency' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -208,7 +208,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCountry' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -221,7 +221,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCustomerGroup' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -234,7 +234,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceChannel' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -247,7 +247,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -260,7 +260,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 '{projectKey}/product-projections/search?expand=expand',
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -279,7 +279,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -292,7 +292,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
     {
         return [
             'ByProjectKeyProductProjectionsSearchPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -302,7 +302,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -319,7 +319,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

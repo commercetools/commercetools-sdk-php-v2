@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
     {
         return [
             'ByProjectKeyTypesGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?expand=expand',
             ],
             'ByProjectKeyTypesGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?where=where',
             ],
             'ByProjectKeyTypesGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?sort=sort',
             ],
             'ByProjectKeyTypesGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?limit=limit',
             ],
             'ByProjectKeyTypesGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?offset=offset',
             ],
             'ByProjectKeyTypesGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?withTotal=withTotal',
             ],
             'ByProjectKeyTypesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types',
             ],
             'ByProjectKeyTypesPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 '{projectKey}/types?expand=expand',
             ],
             'ByProjectKeyTypesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
     {
         return [
             'ByProjectKeyTypesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 },
             ],
             'ByProjectKeyTypesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->types()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

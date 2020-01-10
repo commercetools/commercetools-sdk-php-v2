@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
     {
         return [
             'ByProjectKeyZonesGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?expand=expand',
             ],
             'ByProjectKeyZonesGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?where=where',
             ],
             'ByProjectKeyZonesGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?sort=sort',
             ],
             'ByProjectKeyZonesGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?limit=limit',
             ],
             'ByProjectKeyZonesGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?offset=offset',
             ],
             'ByProjectKeyZonesGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?withTotal=withTotal',
             ],
             'ByProjectKeyZonesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones',
             ],
             'ByProjectKeyZonesPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 '{projectKey}/zones?expand=expand',
             ],
             'ByProjectKeyZonesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
     {
         return [
             'ByProjectKeyZonesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 },
             ],
             'ByProjectKeyZonesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

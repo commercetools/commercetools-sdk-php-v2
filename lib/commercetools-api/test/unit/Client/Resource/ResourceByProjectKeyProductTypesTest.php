@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
     {
         return [
             'ByProjectKeyProductTypesGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?where=where',
             ],
             'ByProjectKeyProductTypesGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?sort=sort',
             ],
             'ByProjectKeyProductTypesGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?limit=limit',
             ],
             'ByProjectKeyProductTypesGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?offset=offset',
             ],
             'ByProjectKeyProductTypesGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?withTotal=withTotal',
             ],
             'ByProjectKeyProductTypesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types',
             ],
             'ByProjectKeyProductTypesPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 '{projectKey}/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
     {
         return [
             'ByProjectKeyProductTypesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 },
             ],
             'ByProjectKeyProductTypesPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productTypes()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

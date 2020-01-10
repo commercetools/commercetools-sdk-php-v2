@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
     {
         return [
             'ByProjectKeyShoppingListsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?expand=expand',
             ],
             'ByProjectKeyShoppingListsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?where=where',
             ],
             'ByProjectKeyShoppingListsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?sort=sort',
             ],
             'ByProjectKeyShoppingListsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?limit=limit',
             ],
             'ByProjectKeyShoppingListsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?offset=offset',
             ],
             'ByProjectKeyShoppingListsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?withTotal=withTotal',
             ],
             'ByProjectKeyShoppingListsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists',
             ],
             'ByProjectKeyShoppingListsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 '{projectKey}/shopping-lists?expand=expand',
             ],
             'ByProjectKeyShoppingListsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
     {
         return [
             'ByProjectKeyShoppingListsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 },
             ],
             'ByProjectKeyShoppingListsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

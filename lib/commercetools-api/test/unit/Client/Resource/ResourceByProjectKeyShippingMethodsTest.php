@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
     {
         return [
             'ByProjectKeyShippingMethodsGet_withShippingMethodId' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?shipping-methodId=shipping-methodId',
             ],
             'ByProjectKeyShippingMethodsGet_withCountry' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?country=country',
             ],
             'ByProjectKeyShippingMethodsGet_withState' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?state=state',
             ],
             'ByProjectKeyShippingMethodsGet_withCurrency' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?currency=currency',
             ],
             'ByProjectKeyShippingMethodsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?expand=expand',
             ],
             'ByProjectKeyShippingMethodsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?where=where',
             ],
             'ByProjectKeyShippingMethodsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -111,7 +111,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?sort=sort',
             ],
             'ByProjectKeyShippingMethodsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -123,7 +123,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?limit=limit',
             ],
             'ByProjectKeyShippingMethodsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -135,7 +135,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?offset=offset',
             ],
             'ByProjectKeyShippingMethodsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -147,7 +147,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?withTotal=withTotal',
             ],
             'ByProjectKeyShippingMethodsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -158,7 +158,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods',
             ],
             'ByProjectKeyShippingMethodsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -170,7 +170,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 '{projectKey}/shipping-methods?expand=expand',
             ],
             'ByProjectKeyShippingMethodsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -188,7 +188,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -201,7 +201,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
     {
         return [
             'ByProjectKeyShippingMethodsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -210,7 +210,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 },
             ],
             'ByProjectKeyShippingMethodsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
@@ -226,7 +226,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

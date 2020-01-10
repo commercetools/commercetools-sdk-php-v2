@@ -10,7 +10,7 @@ namespace Commercetools\Import\Test\Client\Resource;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
-use Commercetools\Import\Client\ImportRoot;
+use Commercetools\Import\Client\ImportRequestBuilder;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
     {
         return [
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsGet_withLimit' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productTypes()
@@ -40,7 +40,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
                 '{projectKey}/product-types/importSinkKey={importSinkKey}/import-items?limit=limit',
             ],
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsGet_withOffset' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productTypes()
@@ -54,7 +54,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
                 '{projectKey}/product-types/importSinkKey={importSinkKey}/import-items?offset=offset',
             ],
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsGet' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productTypes()
@@ -74,7 +74,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ImportRoot();
+        $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -87,7 +87,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
     {
         return [
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsGet' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productTypes()
@@ -105,7 +105,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportItemsTes
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ImportRoot();
+        $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

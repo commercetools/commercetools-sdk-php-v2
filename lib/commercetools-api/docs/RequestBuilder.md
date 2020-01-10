@@ -3,9 +3,9 @@
 In order to be able to build request objects you can use the RequestBuilder. The following methods return a HTTP request instance of Guzzle [PSR-7](https://github.com/guzzle/psr7).
 
 ```php
-use CommercetoolsApiClientClientApiRoot;
+use CommercetoolsApiClientClientApiRequestBuilder;
 
-$root = new ApiRoot();
+$root = new ApiRequestBuilder();
 ```
 
 ## `withProjectKey("projectKey")->get()`
@@ -15,7 +15,7 @@ The Endpoint is responding a limited set of information about settings and confi
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->get();
@@ -26,7 +26,7 @@ Update project
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->post(null);
@@ -37,7 +37,7 @@ Query api-clients
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->apiClients()
@@ -49,7 +49,7 @@ Create ApiClient
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->apiClients()
@@ -61,7 +61,7 @@ Get ApiClient by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->apiClients()
@@ -74,7 +74,7 @@ Delete ApiClient by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->apiClients()
@@ -87,7 +87,7 @@ Query cart-discounts
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -99,7 +99,7 @@ Create CartDiscount
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -111,7 +111,7 @@ Get CartDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -124,7 +124,7 @@ Update CartDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -137,7 +137,7 @@ Delete CartDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -150,7 +150,7 @@ Get CartDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -163,7 +163,7 @@ Update CartDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -176,7 +176,7 @@ Delete CartDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->cartDiscounts()
@@ -189,7 +189,7 @@ Query carts
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -203,7 +203,7 @@ CartDraft has a predicate which does not match the cart.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -217,7 +217,7 @@ If you want to ensure they’re up-to-date, send an Update request with the Reca
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -230,7 +230,7 @@ Update Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -243,7 +243,7 @@ Delete Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -256,7 +256,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->carts()
@@ -269,7 +269,7 @@ Query categories
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -281,7 +281,7 @@ Creating a category produces the CategoryCreated message.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -293,7 +293,7 @@ Get Category by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -306,7 +306,7 @@ Update Category by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -319,7 +319,7 @@ Delete Category by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -332,7 +332,7 @@ Get Category by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -345,7 +345,7 @@ Update Category by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -358,7 +358,7 @@ Delete Category by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->categories()
@@ -371,7 +371,7 @@ Query channels
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->channels()
@@ -383,7 +383,7 @@ Create Channel
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->channels()
@@ -395,7 +395,7 @@ Get Channel by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->channels()
@@ -408,7 +408,7 @@ Update Channel by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->channels()
@@ -421,7 +421,7 @@ Delete Channel by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->channels()
@@ -437,7 +437,7 @@ the container field in the where predicate.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -456,7 +456,7 @@ Fields with null values will not be saved.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -468,7 +468,7 @@ Get CustomObject by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -481,7 +481,7 @@ Delete CustomObject by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -494,7 +494,7 @@ Get CustomObject by container
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -508,7 +508,7 @@ The version control is optional. If the query contains a version, then it must m
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
@@ -521,7 +521,7 @@ Query customer-groups
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -533,7 +533,7 @@ Create CustomerGroup
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -545,7 +545,7 @@ Get CustomerGroup by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -558,7 +558,7 @@ Update CustomerGroup by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -571,7 +571,7 @@ Delete CustomerGroup by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -584,7 +584,7 @@ Gets a customer group by Key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -597,7 +597,7 @@ Updates a customer group by Key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -610,7 +610,7 @@ Delete CustomerGroup by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customerGroups()
@@ -623,7 +623,7 @@ Query customers
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -638,7 +638,7 @@ If the ID of an anonymous session is given, all carts and orders will be assigne
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -650,7 +650,7 @@ Get Customer by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -663,7 +663,7 @@ Update Customer by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -676,7 +676,7 @@ Delete Customer by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -689,7 +689,7 @@ Verifies customer's email using a token.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -703,7 +703,7 @@ Create a Token for verifying the Customer's Email
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -716,7 +716,7 @@ Get Customer by emailToken
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -729,7 +729,7 @@ Get Customer by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -742,7 +742,7 @@ Update Customer by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -755,7 +755,7 @@ Delete Customer by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -768,7 +768,7 @@ Change a customers password
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -781,7 +781,7 @@ Set a new password using a token.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -797,7 +797,7 @@ valid only for 10 minutes.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -810,7 +810,7 @@ Get Customer by passwordToken
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
@@ -823,7 +823,7 @@ Query discount-codes
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
@@ -835,7 +835,7 @@ Create DiscountCode
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
@@ -847,7 +847,7 @@ Get DiscountCode by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
@@ -860,7 +860,7 @@ Update DiscountCode by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
@@ -873,7 +873,7 @@ Delete DiscountCode by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->discountCodes()
@@ -886,7 +886,7 @@ Query extensions
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -898,7 +898,7 @@ Currently, a maximum of 25 extensions can be created per project.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -910,7 +910,7 @@ Retrieves the representation of an extension by its id.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -923,7 +923,7 @@ Update Extension by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -936,7 +936,7 @@ Delete Extension by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -949,7 +949,7 @@ Retrieves the representation of an extension by its key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -962,7 +962,7 @@ Update Extension by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -975,7 +975,7 @@ Delete Extension by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->extensions()
@@ -988,7 +988,7 @@ Execute a GraphQL query
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->graphql()
@@ -1000,7 +1000,7 @@ Queries carts in a specific Store. The {storeKey} path parameter maps to a Store
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1017,7 +1017,7 @@ in the CartDraft has a predicate which does not match the cart.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1035,7 +1035,7 @@ If you want to ensure they’re up-to-date, send an Update request with the Reca
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1052,7 +1052,7 @@ or the store field references a different store, this method returns a ResourceN
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1066,7 +1066,7 @@ Delete Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1080,7 +1080,7 @@ Query customers
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1101,7 +1101,7 @@ the store field must reference the same store specified in the {storeKey} path p
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1118,7 +1118,7 @@ this method returns a ResourceNotFound error.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1135,7 +1135,7 @@ this method returns a ResourceNotFound error.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1149,7 +1149,7 @@ Delete Customer by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1163,7 +1163,7 @@ Verifies customer's email using a token.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1178,7 +1178,7 @@ Create a Token for verifying the Customer's Email
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1192,7 +1192,7 @@ Get Customer by emailToken
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1210,7 +1210,7 @@ this method returns a ResourceNotFound error.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1226,7 +1226,7 @@ this method returns a ResourceNotFound error.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1240,7 +1240,7 @@ Delete Customer by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1254,7 +1254,7 @@ Change a customers password
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1268,7 +1268,7 @@ Set a new password using a token.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1285,7 +1285,7 @@ valid only for 10 minutes.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1299,7 +1299,7 @@ Get Customer by passwordToken
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1313,7 +1313,7 @@ Authenticate Customer (Sign In)
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1326,7 +1326,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1340,7 +1340,7 @@ Query carts
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1354,7 +1354,7 @@ Create Cart
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1368,7 +1368,7 @@ Get Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1383,7 +1383,7 @@ Update Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1398,7 +1398,7 @@ Delete Cart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1413,7 +1413,7 @@ Query orders
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1427,7 +1427,7 @@ Create Order
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1441,7 +1441,7 @@ Get Order by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1456,7 +1456,7 @@ Queries orders in a specific Store. The {storeKey} path parameter maps to a Stor
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1473,7 +1473,7 @@ the shipping address is used for tax calculation.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1489,7 +1489,7 @@ or the store field references a different store, this method returns a ResourceN
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1506,7 +1506,7 @@ or the store field references a different store, this method returns a ResourceN
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1520,7 +1520,7 @@ Delete Order by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1540,7 +1540,7 @@ it should be provided in URL-encoded format.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1559,7 +1559,7 @@ it should be provided in URL-encoded format.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1573,7 +1573,7 @@ Delete Order by orderNumber
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -1587,7 +1587,7 @@ Query inventory
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
@@ -1599,7 +1599,7 @@ Create InventoryEntry
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
@@ -1611,7 +1611,7 @@ Get InventoryEntry by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
@@ -1624,7 +1624,7 @@ Update InventoryEntry by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
@@ -1637,7 +1637,7 @@ Delete InventoryEntry by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
@@ -1657,7 +1657,7 @@ and invalid line items have been removed.).
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->login()
@@ -1669,7 +1669,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1681,7 +1681,7 @@ Create a customer
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1693,7 +1693,7 @@ Delete a Customer
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1705,7 +1705,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1718,7 +1718,7 @@ Query carts
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1731,7 +1731,7 @@ Create MyCart
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1744,7 +1744,7 @@ Get MyCart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1758,7 +1758,7 @@ Update MyCart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1772,7 +1772,7 @@ Delete MyCart by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1786,7 +1786,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1800,7 +1800,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1813,7 +1813,7 @@ Query orders
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1826,7 +1826,7 @@ Create MyOrder
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1839,7 +1839,7 @@ Get MyOrder by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1853,7 +1853,7 @@ Update MyOrder by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1867,7 +1867,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1880,7 +1880,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1894,7 +1894,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1908,7 +1908,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1922,7 +1922,7 @@ Query payments
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1935,7 +1935,7 @@ Create MyPayment
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1948,7 +1948,7 @@ Get MyPayment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1962,7 +1962,7 @@ Update MyPayment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1976,7 +1976,7 @@ Delete MyPayment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -1990,7 +1990,7 @@ Query shopping-lists
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2003,7 +2003,7 @@ Create MyShoppingList
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2016,7 +2016,7 @@ Get MyShoppingList by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2030,7 +2030,7 @@ Update MyShoppingList by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2044,7 +2044,7 @@ Delete MyShoppingList by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2058,7 +2058,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2072,7 +2072,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
@@ -2085,7 +2085,7 @@ Query messages
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->messages()
@@ -2097,7 +2097,7 @@ Get Message by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->messages()
@@ -2110,7 +2110,7 @@ Query orders
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2125,7 +2125,7 @@ When using the Platform TaxMode, the shipping address is used for tax calculatio
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2137,7 +2137,7 @@ Get Order by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2150,7 +2150,7 @@ Update Order by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2163,7 +2163,7 @@ Delete Order by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2176,7 +2176,7 @@ Query edits
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2189,7 +2189,7 @@ Create OrderEdit
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2202,7 +2202,7 @@ Get OrderEdit by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2216,7 +2216,7 @@ Update OrderEdit by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2230,7 +2230,7 @@ Delete OrderEdit by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2244,7 +2244,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2259,7 +2259,7 @@ Get OrderEdit by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2273,7 +2273,7 @@ Update OrderEdit by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2287,7 +2287,7 @@ Delete OrderEdit by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2301,7 +2301,7 @@ Create an Order by Import
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2316,7 +2316,7 @@ it should be provided in URL-encoded format.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2329,7 +2329,7 @@ Update Order by orderNumber
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2342,7 +2342,7 @@ Delete Order by orderNumber
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->orders()
@@ -2355,7 +2355,7 @@ Query payments
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2367,7 +2367,7 @@ To create a payment object a payment draft object has to be given with the reque
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2379,7 +2379,7 @@ Get Payment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2392,7 +2392,7 @@ Update Payment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2405,7 +2405,7 @@ Delete Payment by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2418,7 +2418,7 @@ Get Payment by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2431,7 +2431,7 @@ Update Payment by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2444,7 +2444,7 @@ Delete Payment by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->payments()
@@ -2457,7 +2457,7 @@ Query product-discounts
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2469,7 +2469,7 @@ Create ProductDiscount
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2481,7 +2481,7 @@ Get ProductDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2494,7 +2494,7 @@ Update ProductDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2507,7 +2507,7 @@ Delete ProductDiscount by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2520,7 +2520,7 @@ Get ProductDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2533,7 +2533,7 @@ Update ProductDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2546,7 +2546,7 @@ Delete ProductDiscount by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2559,7 +2559,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productDiscounts()
@@ -2575,7 +2575,7 @@ this endpoint only returns published (current) product projections.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2590,7 +2590,7 @@ this endpoint only returns published (current) product projections.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2606,7 +2606,7 @@ this endpoint only returns published (current) product projections.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2619,7 +2619,7 @@ Search Product Projection
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2632,7 +2632,7 @@ Search Product Projection
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2645,7 +2645,7 @@ null
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
@@ -2658,7 +2658,7 @@ Query product-types
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2670,7 +2670,7 @@ Create ProductType
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2682,7 +2682,7 @@ Get ProductType by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2695,7 +2695,7 @@ Update ProductType by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2708,7 +2708,7 @@ Delete ProductType by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2721,7 +2721,7 @@ Get ProductType by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2734,7 +2734,7 @@ Update ProductType by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2747,7 +2747,7 @@ Delete ProductType by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->productTypes()
@@ -2763,7 +2763,7 @@ the query API lacks like sorting on custom attributes, etc.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2778,7 +2778,7 @@ the selected prices will be added to the response.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2790,7 +2790,7 @@ Gets the full representation of a product by ID.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2803,7 +2803,7 @@ Update Product by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2816,7 +2816,7 @@ Delete Product by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2830,7 +2830,7 @@ Uploads a binary image file to a given product variant. The supported image form
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2844,7 +2844,7 @@ Gets the full representation of a product by Key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2857,7 +2857,7 @@ Update Product by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2870,7 +2870,7 @@ Delete Product by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->products()
@@ -2883,7 +2883,7 @@ Query reviews
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2895,7 +2895,7 @@ Create Review
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2907,7 +2907,7 @@ Get Review by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2920,7 +2920,7 @@ Update Review by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2933,7 +2933,7 @@ Delete Review by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2946,7 +2946,7 @@ Get Review by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2959,7 +2959,7 @@ Update Review by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2972,7 +2972,7 @@ Delete Review by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->reviews()
@@ -2985,7 +2985,7 @@ Query shipping-methods
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -2997,7 +2997,7 @@ Create ShippingMethod
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3009,7 +3009,7 @@ Get ShippingMethod by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3022,7 +3022,7 @@ Update ShippingMethod by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3035,7 +3035,7 @@ Delete ShippingMethod by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3048,7 +3048,7 @@ Get ShippingMethod by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3061,7 +3061,7 @@ Update ShippingMethod by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3074,7 +3074,7 @@ Delete ShippingMethod by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shippingMethods()
@@ -3087,7 +3087,7 @@ Query shopping-lists
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3099,7 +3099,7 @@ Create ShoppingList
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3111,7 +3111,7 @@ Gets a shopping list by ID.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3124,7 +3124,7 @@ Update ShoppingList by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3137,7 +3137,7 @@ Delete ShoppingList by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3150,7 +3150,7 @@ Gets a shopping list by Key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3163,7 +3163,7 @@ Update a shopping list found by its Key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3176,7 +3176,7 @@ Delete ShoppingList by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
@@ -3189,7 +3189,7 @@ Query states
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->states()
@@ -3201,7 +3201,7 @@ Create State
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->states()
@@ -3213,7 +3213,7 @@ Get State by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->states()
@@ -3226,7 +3226,7 @@ Update State by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->states()
@@ -3239,7 +3239,7 @@ Delete State by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->states()
@@ -3252,7 +3252,7 @@ Query stores
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3264,7 +3264,7 @@ Create Store
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3276,7 +3276,7 @@ Get Store by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3289,7 +3289,7 @@ Update Store by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3302,7 +3302,7 @@ Delete Store by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3315,7 +3315,7 @@ Get Store by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3328,7 +3328,7 @@ Update Store by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3341,7 +3341,7 @@ Delete Store by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->stores()
@@ -3354,7 +3354,7 @@ Query subscriptions
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3371,7 +3371,7 @@ Currently, a maximum of 25 subscriptions can be created per project.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3383,7 +3383,7 @@ Retrieves the representation of a subscription by its id.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3396,7 +3396,7 @@ Update Subscription by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3409,7 +3409,7 @@ Delete Subscription by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3422,7 +3422,7 @@ Retrieves the representation of a subscription by its key.
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3435,7 +3435,7 @@ Update Subscription by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3448,7 +3448,7 @@ Delete Subscription by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->subscriptions()
@@ -3461,7 +3461,7 @@ Query tax-categories
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3473,7 +3473,7 @@ Create TaxCategory
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3485,7 +3485,7 @@ Get TaxCategory by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3498,7 +3498,7 @@ Update TaxCategory by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3511,7 +3511,7 @@ Delete TaxCategory by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3524,7 +3524,7 @@ Get TaxCategory by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3537,7 +3537,7 @@ Update TaxCategory by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3550,7 +3550,7 @@ Delete TaxCategory by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->taxCategories()
@@ -3563,7 +3563,7 @@ Query types
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3575,7 +3575,7 @@ Create Type
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3587,7 +3587,7 @@ Get Type by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3600,7 +3600,7 @@ Update Type by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3613,7 +3613,7 @@ Delete Type by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3626,7 +3626,7 @@ Get Type by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3639,7 +3639,7 @@ Update Type by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3652,7 +3652,7 @@ Delete Type by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->types()
@@ -3665,7 +3665,7 @@ Query zones
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3677,7 +3677,7 @@ Create Zone
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3689,7 +3689,7 @@ Get Zone by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3702,7 +3702,7 @@ Update Zone by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3715,7 +3715,7 @@ Delete Zone by ID
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3728,7 +3728,7 @@ Get Zone by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3741,7 +3741,7 @@ Update Zone by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()
@@ -3754,7 +3754,7 @@ Delete Zone by key
 
 ### Example
 ```php
-$builder =  new ApiRoot();
+$builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->zones()

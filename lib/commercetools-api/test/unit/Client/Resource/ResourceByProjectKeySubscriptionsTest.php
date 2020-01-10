@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
     {
         return [
             'ByProjectKeySubscriptionsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -39,7 +39,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -51,7 +51,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?where=where',
             ],
             'ByProjectKeySubscriptionsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -63,7 +63,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?sort=sort',
             ],
             'ByProjectKeySubscriptionsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -75,7 +75,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?limit=limit',
             ],
             'ByProjectKeySubscriptionsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -87,7 +87,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?offset=offset',
             ],
             'ByProjectKeySubscriptionsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -99,7 +99,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?withTotal=withTotal',
             ],
             'ByProjectKeySubscriptionsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -110,7 +110,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions',
             ],
             'ByProjectKeySubscriptionsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -122,7 +122,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 '{projectKey}/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -140,7 +140,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
     {
         return [
             'ByProjectKeySubscriptionsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -162,7 +162,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
             ],
             'ByProjectKeySubscriptionsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
@@ -178,7 +178,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

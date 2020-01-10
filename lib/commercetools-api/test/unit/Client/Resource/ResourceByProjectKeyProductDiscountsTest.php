@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
     {
         return [
             'ByProjectKeyProductDiscountsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?where=where',
             ],
             'ByProjectKeyProductDiscountsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?sort=sort',
             ],
             'ByProjectKeyProductDiscountsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?limit=limit',
             ],
             'ByProjectKeyProductDiscountsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?offset=offset',
             ],
             'ByProjectKeyProductDiscountsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?withTotal=withTotal',
             ],
             'ByProjectKeyProductDiscountsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts',
             ],
             'ByProjectKeyProductDiscountsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
     {
         return [
             'ByProjectKeyProductDiscountsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 },
             ],
             'ByProjectKeyProductDiscountsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

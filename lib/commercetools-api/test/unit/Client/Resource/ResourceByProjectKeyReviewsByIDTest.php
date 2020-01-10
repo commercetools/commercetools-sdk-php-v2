@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyReviewsByIDGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -41,7 +41,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -53,7 +53,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}',
             ],
             'ByProjectKeyReviewsByIDPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -66,7 +66,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}',
             ],
             'ByProjectKeyReviewsByIDDelete_withDataErasure' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyReviewsByIDDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}?version=version',
             ],
             'ByProjectKeyReviewsByIDDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -117,7 +117,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 '{projectKey}/reviews/{ID}?expand=expand',
             ],
             'ByProjectKeyReviewsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -149,7 +149,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyReviewsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -159,7 +159,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyReviewsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -169,7 +169,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyReviewsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -186,7 +186,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

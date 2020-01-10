@@ -3,9 +3,9 @@
 In order to be able to build request objects you can use the RequestBuilder. The following methods return a HTTP request instance of Guzzle [PSR-7](https://github.com/guzzle/psr7).
 
 ```php
-use CommercetoolsImportClientClientImportRoot;
+use CommercetoolsImportClientClientImportRequestBuilder;
 
-$root = new ImportRoot();
+$root = new ImportRequestBuilder();
 ```
 
 ## `withProjectKeyValue("projectKey")->categories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
@@ -14,7 +14,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->categories()
@@ -27,7 +27,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->categories()
@@ -41,7 +41,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->categories()
@@ -56,7 +56,7 @@ Deletes the category given by the resource key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->categories()
@@ -70,7 +70,7 @@ Creates a new import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->importSinks()
@@ -82,7 +82,7 @@ Updates the import sink given by the key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->importSinks()
@@ -95,7 +95,7 @@ Retrieves the import sink given by the key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->importSinks()
@@ -108,7 +108,7 @@ Deletes the import sink given by the key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->importSinks()
@@ -121,7 +121,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->prices()
@@ -134,7 +134,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->prices()
@@ -148,7 +148,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->prices()
@@ -163,7 +163,7 @@ Deletes the price given by the resource key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->prices()
@@ -177,7 +177,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productTypes()
@@ -190,7 +190,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productTypes()
@@ -204,7 +204,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productTypes()
@@ -219,7 +219,7 @@ Deletes the product type given by the resource key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productTypes()
@@ -233,7 +233,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariantPatches()
@@ -246,7 +246,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariantPatches()
@@ -260,7 +260,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariantPatches()
@@ -275,7 +275,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariants()
@@ -288,7 +288,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariants()
@@ -302,7 +302,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariants()
@@ -317,7 +317,7 @@ Deletes the product variant given by the resource key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->productVariants()
@@ -331,7 +331,7 @@ Creates a new import request for a catgory
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->products()
@@ -344,7 +344,7 @@ Retrieves all import items of an import sink key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->products()
@@ -358,7 +358,7 @@ Retrieves inidividual import items for the given resource and import sink.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->products()
@@ -373,7 +373,7 @@ Deletes the product given by the resource key.
 
 ### Example
 ```php
-$builder =  new ImportRoot();
+$builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
                 ->products()

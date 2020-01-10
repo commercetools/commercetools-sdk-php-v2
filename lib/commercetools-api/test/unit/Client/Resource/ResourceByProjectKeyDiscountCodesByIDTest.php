@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
     {
         return [
             'ByProjectKeyDiscountCodesByIDGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -41,7 +41,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -53,7 +53,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}',
             ],
             'ByProjectKeyDiscountCodesByIDPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -66,7 +66,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withDataErasure' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}?version=version',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -117,7 +117,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -149,7 +149,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
     {
         return [
             'ByProjectKeyDiscountCodesByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -159,7 +159,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyDiscountCodesByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -169,7 +169,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyDiscountCodesByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->discountCodes()
@@ -186,7 +186,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyChannelsByIDGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -41,7 +41,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -53,7 +53,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}',
             ],
             'ByProjectKeyChannelsByIDPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -66,7 +66,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}',
             ],
             'ByProjectKeyChannelsByIDDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}?version=version',
             ],
             'ByProjectKeyChannelsByIDDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -123,7 +123,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -136,7 +136,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyChannelsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -146,7 +146,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyChannelsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -156,7 +156,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyChannelsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
@@ -173,7 +173,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

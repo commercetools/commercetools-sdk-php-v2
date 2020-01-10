@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
     {
         return [
             'ByProjectKeyCustomerGroupsKeyByKeyGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -41,7 +41,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -53,7 +53,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -66,7 +66,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}?version=version',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -123,7 +123,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -136,7 +136,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
     {
         return [
             'ByProjectKeyCustomerGroupsKeyByKeyGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -146,7 +146,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 },
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -156,7 +156,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                 },
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
@@ -173,7 +173,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

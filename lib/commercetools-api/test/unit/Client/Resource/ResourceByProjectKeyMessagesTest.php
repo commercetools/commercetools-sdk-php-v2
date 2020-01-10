@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -26,7 +26,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
     {
         return [
             'ByProjectKeyMessagesGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -38,7 +38,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?expand=expand',
             ],
             'ByProjectKeyMessagesGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -50,7 +50,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?where=where',
             ],
             'ByProjectKeyMessagesGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -62,7 +62,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?sort=sort',
             ],
             'ByProjectKeyMessagesGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -74,7 +74,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?limit=limit',
             ],
             'ByProjectKeyMessagesGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -86,7 +86,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?offset=offset',
             ],
             'ByProjectKeyMessagesGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -98,7 +98,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 '{projectKey}/messages?withTotal=withTotal',
             ],
             'ByProjectKeyMessagesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -116,7 +116,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -129,7 +129,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
     {
         return [
             'ByProjectKeyMessagesGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
@@ -145,7 +145,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

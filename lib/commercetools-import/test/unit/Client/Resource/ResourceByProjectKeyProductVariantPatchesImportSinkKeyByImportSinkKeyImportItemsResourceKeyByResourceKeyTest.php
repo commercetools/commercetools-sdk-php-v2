@@ -10,7 +10,7 @@ namespace Commercetools\Import\Test\Client\Resource;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
-use Commercetools\Import\Client\ImportRoot;
+use Commercetools\Import\Client\ImportRequestBuilder;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
     {
         return [
             'ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKeyGet' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productVariantPatches()
@@ -47,7 +47,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ImportRoot();
+        $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -60,7 +60,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
     {
         return [
             'ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKeyGet' => [
-                function (ImportRoot $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue('projectKey')
                         ->productVariantPatches()
@@ -79,7 +79,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ImportRoot();
+        $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

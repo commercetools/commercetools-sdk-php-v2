@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client;
+namespace Commercetools\Api\Client;
 
+use Commercetools\Api\Client\Resource\ResourceByProjectKey;
 use Commercetools\Client\ApiResource;
-use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\Client;
 
-class ImportRoot extends ApiResource
+class ApiRequestBuilder extends ApiResource
 {
     /**
      * @psalm-param array<string, scalar> $args
@@ -22,7 +22,7 @@ class ImportRoot extends ApiResource
         parent::__construct('', $args, $client);
     }
 
-    public function withProjectKeyValue(string $projectKey = null): ResourceByProjectKey
+    public function withProjectKey(string $projectKey = null): ResourceByProjectKey
     {
         $args = $this->getArgs();
         if (!is_null($projectKey)) {

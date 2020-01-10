@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
     {
         return [
             'ByProjectKeyCustomObjectsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?expand=expand',
             ],
             'ByProjectKeyCustomObjectsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?where=where',
             ],
             'ByProjectKeyCustomObjectsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?sort=sort',
             ],
             'ByProjectKeyCustomObjectsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?limit=limit',
             ],
             'ByProjectKeyCustomObjectsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?offset=offset',
             ],
             'ByProjectKeyCustomObjectsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?withTotal=withTotal',
             ],
             'ByProjectKeyCustomObjectsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects',
             ],
             'ByProjectKeyCustomObjectsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 '{projectKey}/custom-objects?expand=expand',
             ],
             'ByProjectKeyCustomObjectsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
     {
         return [
             'ByProjectKeyCustomObjectsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 },
             ],
             'ByProjectKeyCustomObjectsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

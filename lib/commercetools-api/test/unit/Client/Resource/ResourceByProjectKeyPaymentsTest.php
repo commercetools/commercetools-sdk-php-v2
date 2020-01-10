@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
     {
         return [
             'ByProjectKeyPaymentsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?expand=expand',
             ],
             'ByProjectKeyPaymentsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?where=where',
             ],
             'ByProjectKeyPaymentsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?sort=sort',
             ],
             'ByProjectKeyPaymentsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?limit=limit',
             ],
             'ByProjectKeyPaymentsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?offset=offset',
             ],
             'ByProjectKeyPaymentsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?withTotal=withTotal',
             ],
             'ByProjectKeyPaymentsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments',
             ],
             'ByProjectKeyPaymentsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 '{projectKey}/payments?expand=expand',
             ],
             'ByProjectKeyPaymentsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
     {
         return [
             'ByProjectKeyPaymentsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 },
             ],
             'ByProjectKeyPaymentsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->payments()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

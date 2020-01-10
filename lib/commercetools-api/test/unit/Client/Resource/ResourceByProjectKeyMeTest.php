@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyMeTest extends TestCase
     {
         return [
             'ByProjectKeyMeGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -40,7 +40,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?where=where',
             ],
             'ByProjectKeyMeGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -52,7 +52,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?sort=sort',
             ],
             'ByProjectKeyMeGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -64,7 +64,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?limit=limit',
             ],
             'ByProjectKeyMeGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -76,7 +76,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?offset=offset',
             ],
             'ByProjectKeyMeGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -88,7 +88,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?withTotal=withTotal',
             ],
             'ByProjectKeyMeGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -100,7 +100,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?expand=expand',
             ],
             'ByProjectKeyMeGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -111,7 +111,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me',
             ],
             'ByProjectKeyMePost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me',
             ],
             'ByProjectKeyMeDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -134,7 +134,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 '{projectKey}/me?version=version',
             ],
             'ByProjectKeyMeDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -152,7 +152,7 @@ class ResourceByProjectKeyMeTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -165,7 +165,7 @@ class ResourceByProjectKeyMeTest extends TestCase
     {
         return [
             'ByProjectKeyMeGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -174,7 +174,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 },
             ],
             'ByProjectKeyMePost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -183,7 +183,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                 },
             ],
             'ByProjectKeyMeDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->me()
@@ -199,7 +199,7 @@ class ResourceByProjectKeyMeTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

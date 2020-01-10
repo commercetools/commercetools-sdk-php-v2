@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
     {
         return [
             'ByProjectKeyProductProjectionsGet_withStaged' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?staged=staged',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCurrency' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -50,7 +50,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCountry' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -62,7 +62,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCustomerGroup' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -74,7 +74,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceChannel' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -86,7 +86,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -98,7 +98,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?expand=expand',
             ],
             'ByProjectKeyProductProjectionsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?where=where',
             ],
             'ByProjectKeyProductProjectionsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?sort=sort',
             ],
             'ByProjectKeyProductProjectionsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -134,7 +134,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?limit=limit',
             ],
             'ByProjectKeyProductProjectionsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -146,7 +146,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?offset=offset',
             ],
             'ByProjectKeyProductProjectionsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -158,7 +158,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 '{projectKey}/product-projections?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -176,7 +176,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -189,7 +189,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
     {
         return [
             'ByProjectKeyProductProjectionsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productProjections()
@@ -205,7 +205,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyCartDiscountsByIDGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -41,7 +41,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -53,7 +53,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}',
             ],
             'ByProjectKeyCartDiscountsByIDPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -66,7 +66,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -78,7 +78,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}',
             ],
             'ByProjectKeyCartDiscountsByIDDelete_withVersion' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -91,7 +91,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}?version=version',
             ],
             'ByProjectKeyCartDiscountsByIDDelete_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -104,7 +104,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -123,7 +123,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -136,7 +136,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyCartDiscountsByIDGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -146,7 +146,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyCartDiscountsByIDPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -156,7 +156,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                 },
             ],
             'ByProjectKeyCartDiscountsByIDDelete' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->cartDiscounts()
@@ -173,7 +173,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

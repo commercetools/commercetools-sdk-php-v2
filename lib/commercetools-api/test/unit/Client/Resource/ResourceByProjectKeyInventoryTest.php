@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
     {
         return [
             'ByProjectKeyInventoryGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?where=where',
             ],
             'ByProjectKeyInventoryGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?sort=sort',
             ],
             'ByProjectKeyInventoryGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?limit=limit',
             ],
             'ByProjectKeyInventoryGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?offset=offset',
             ],
             'ByProjectKeyInventoryGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?withTotal=withTotal',
             ],
             'ByProjectKeyInventoryGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory',
             ],
             'ByProjectKeyInventoryPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 '{projectKey}/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
     {
         return [
             'ByProjectKeyInventoryGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 },
             ],
             'ByProjectKeyInventoryPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

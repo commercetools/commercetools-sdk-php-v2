@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Psr7\Response;
@@ -27,7 +27,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
     {
         return [
             'ByProjectKeyReviewsGet_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -39,7 +39,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsGet_withWhere' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -51,7 +51,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?where=where',
             ],
             'ByProjectKeyReviewsGet_withSort' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -63,7 +63,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?sort=sort',
             ],
             'ByProjectKeyReviewsGet_withLimit' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -75,7 +75,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?limit=limit',
             ],
             'ByProjectKeyReviewsGet_withOffset' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -87,7 +87,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?offset=offset',
             ],
             'ByProjectKeyReviewsGet_withWithTotal' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -99,7 +99,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?withTotal=withTotal',
             ],
             'ByProjectKeyReviewsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -110,7 +110,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews',
             ],
             'ByProjectKeyReviewsPost_withExpand' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -122,7 +122,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 '{projectKey}/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -140,7 +140,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
@@ -153,7 +153,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
     {
         return [
             'ByProjectKeyReviewsGet' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -162,7 +162,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 },
             ],
             'ByProjectKeyReviewsPost' => [
-                function (ApiRoot $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->reviews()
@@ -178,7 +178,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
      */
     public function testMapFromResponse(callable $builderFunction)
     {
-        $builder = new ApiRoot();
+        $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 

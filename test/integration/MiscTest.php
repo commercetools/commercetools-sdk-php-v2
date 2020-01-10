@@ -2,7 +2,7 @@
 
 namespace Commercetools\IntegrationTest;
 
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config;
 use Commercetools\Api\Models\Category\Category;
@@ -75,7 +75,7 @@ class MiscTest extends TestCase
     {
         $client = $this->client;
 
-        $root = new ApiRoot($client);
+        $root = new ApiRequestBuilder($client);
         $response = $root
             ->withProjectKey($this->projectKey)
             ->get()
@@ -93,7 +93,7 @@ class MiscTest extends TestCase
     {
         $client = $this->client;
 
-        $root = new ApiRoot($client);
+        $root = new ApiRequestBuilder($client);
 
         $response = $root
             ->withProjectKey($this->projectKey)
@@ -134,7 +134,7 @@ class MiscTest extends TestCase
     public function testSearch()
     {
         $client = $this->client;
-        $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);
+        $root = new ApiRequestBuilder($client, ['projectKey' => $this->projectKey]);
 
         $t = $root
             ->withProjectKey()
@@ -167,7 +167,7 @@ class MiscTest extends TestCase
 
         $client = ClientFactory::of()->createGuzzleClientForHandler(new Config(), $handler, $logger);
 
-        $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);
+        $root = new ApiRequestBuilder($client, ['projectKey' => $this->projectKey]);
 
         $t = $root
             ->withProjectKey()
