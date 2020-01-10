@@ -3,7 +3,7 @@
 In order to be able to build request objects you can use the RequestBuilder. The following methods return a HTTP request instance of Guzzle [PSR-7](https://github.com/guzzle/psr7).
 
 ```php
-use CommercetoolsImportClientClientImportRequestBuilder;
+use Commercetools\Import\Client\ImportRequestBuilder;
 
 $root = new ImportRequestBuilder();
 ```

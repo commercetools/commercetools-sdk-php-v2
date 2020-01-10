@@ -36,9 +36,9 @@ and for the import API [here](lib/commercetools-import/docs/RequestBuilder.md)
 Examples to retrieve project information
 
 ```php
-use Commercetools\Api\Client\ApiRoot;
+use Commercetools\Api\Client\ApiRequestBuilder;
 
-$root =  new ApiRoot($client);
+$root =  new ApiRequestBuilder($client);
 $request = $root->withProjectKey('your-project-key')->get();
 ```
 
