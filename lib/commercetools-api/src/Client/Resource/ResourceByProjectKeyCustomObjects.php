@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyCustomObjects extends ApiResource
 {
     public function withContainerAndKey(string $container = null, string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey

@@ -10,6 +10,9 @@ namespace Commercetools\Exception;
 
 use Exception;
 
+/**
+ * @psalm-immutable
+ */
 abstract class BaseException extends Exception
 {
 }

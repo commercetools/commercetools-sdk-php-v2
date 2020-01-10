@@ -8,12 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
+/**
+ * @psalm-immutable
+ */
 class TokenModel implements Token
 {
-    /** @psalm-var string */
+    /**
+     * @psalm-var string
+     * @readonly
+     */
     private $value;
 
-    /** @psalm-var int */
+    /**
+     * @psalm-var int
+     * @readonly
+     */
     private $expiresIn;
 
     public function __construct(string $value, int $expiresIn = null)

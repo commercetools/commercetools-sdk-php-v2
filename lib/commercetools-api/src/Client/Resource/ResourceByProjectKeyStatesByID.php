@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\State\StateUpdate;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyStatesByID extends ApiResource
 {
     /**

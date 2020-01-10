@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\OrderEdit\OrderEditDraft;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyOrdersEdits extends ApiResource
 {
     public function withKey(string $key = null): ResourceByProjectKeyOrdersEditsKeyByKey

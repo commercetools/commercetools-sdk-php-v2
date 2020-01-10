@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryUpdate;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
 {
     /**

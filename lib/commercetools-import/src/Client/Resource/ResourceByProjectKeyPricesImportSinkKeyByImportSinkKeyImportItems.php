@@ -10,7 +10,10 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportItems extends ApiResource
 {
     public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportItemsResourceKeyByResourceKey

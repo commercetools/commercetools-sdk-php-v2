@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraft;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyCartDiscounts extends ApiResource
 {
     public function withKey(string $key = null): ResourceByProjectKeyCartDiscountsKeyByKey

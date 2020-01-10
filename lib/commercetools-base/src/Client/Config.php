@@ -15,7 +15,5 @@ interface Config
 
     public function getApiUri(): string;
 
-    public function getClientOptions(): array;
-
     public function getOptions(): array;
 }

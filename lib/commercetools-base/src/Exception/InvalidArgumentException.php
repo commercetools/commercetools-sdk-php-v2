@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Exception;
 
+/**
+ * @psalm-immutable
+ */
 class InvalidArgumentException extends BaseException
 {
 }

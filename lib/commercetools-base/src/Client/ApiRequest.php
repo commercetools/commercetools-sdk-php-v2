@@ -22,7 +22,11 @@ class ApiRequest extends Request
     private $queryParts;
     /** @psalm-var string */
     private $query;
-    /** @psalm-var Client|null */
+
+    /**
+     * @psalm-var Client|null
+     * @readonly
+     */
     private $client;
 
     /**

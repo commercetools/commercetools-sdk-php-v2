@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
+/**
+ * @psalm-immutable
+ */
 class PreAuthTokenProvider implements TokenProvider
 {
     const TOKEN = 'token';

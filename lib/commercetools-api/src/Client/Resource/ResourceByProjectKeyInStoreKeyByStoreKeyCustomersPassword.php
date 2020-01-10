@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\Customer\CustomerChangePassword;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword extends ApiResource
 {
     public function reset(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset

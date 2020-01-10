@@ -30,7 +30,7 @@ class OAuthHandlerFactory
            case $authConfig instanceof ClientCredentialsConfig:
                $provider = new CachedTokenProvider(
                    new ClientCredentialTokenProvider(
-                       new Client($authConfig->getClientOptions()),
+                       new Client($authConfig->getOptions()),
                        $authConfig->getAuthUri(),
                        $authConfig->getCredentials()
                    ),

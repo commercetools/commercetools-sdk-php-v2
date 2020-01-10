@@ -16,7 +16,5 @@ interface AuthConfig
 
     public function getAuthUri(): string;
 
-    public function getClientOptions(): array;
-
     public function getOptions(): array;
 }

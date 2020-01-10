@@ -10,7 +10,10 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyProductProjections extends ApiResource
 {
     public function search(): ResourceByProjectKeyProductProjectionsSearch

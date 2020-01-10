@@ -13,10 +13,14 @@ use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * @psalm-immutable
+ */
 class ApiServerException extends ServerException
 {
     /**
      * @var ?JsonObject
+     * @readonly
      */
     private $result;
 

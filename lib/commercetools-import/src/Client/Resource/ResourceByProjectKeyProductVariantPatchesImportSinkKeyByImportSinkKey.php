@@ -11,7 +11,10 @@ namespace Commercetools\Import\Client\Resource;
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importrequests\ProductVariantPatchRequest;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey extends ApiResource
 {
     public function importItems(): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportItems

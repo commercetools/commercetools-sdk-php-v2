@@ -10,6 +10,9 @@ namespace Commercetools\Client;
 
 use GuzzleHttp\Client;
 
+/**
+ * @psalm-immutable
+ */
 class ApiResource
 {
     /**

@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
+/**
+ * @psalm-immutable
+ */
 class ClientCredentials
 {
     /** @psalm-var string */
@@ -19,11 +22,15 @@ class ClientCredentials
     /** @psalm-var ?string */
     private $scope;
 
+    /** @psalm-var string */
+    private $cacheKey;
+
     public function __construct(string $clientId, string $clientSecret, string $scope = null)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->scope = $scope;
+        $this->cacheKey = sha1($clientId.(string) $scope);
     }
 
     public function getClientId(): string
@@ -43,6 +50,6 @@ class ClientCredentials
 
     public function getCacheKey(): string
     {
-        return sha1($this->clientId.(string) $this->scope);
+        return $this->cacheKey;
     }
 }

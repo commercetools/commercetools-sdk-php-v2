@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\Customer\CustomerDraft;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyCustomers extends ApiResource
 {
     public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken

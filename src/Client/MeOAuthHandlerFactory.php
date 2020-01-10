@@ -14,7 +14,7 @@ class MeOAuthHandlerFactory
             $authConfig->getAnonUri(),
             $authConfig->getRefreshUri(),
             $authConfig->getCredentials(),
-            new Client($authConfig->getClientOptions()),
+            new Client($authConfig->getOptions()),
             $tokenStorage
         );
 

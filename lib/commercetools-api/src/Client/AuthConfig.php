@@ -20,13 +20,16 @@ abstract class AuthConfig implements BaseAuthConfig
     private $authUri;
 
     /** @psalm-var array */
-    private $clientOptions;
+    private $options;
 
     public function __construct(array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
         /** @psalm-var string authUri */
         $this->authUri = $authUri;
-        $this->clientOptions = $clientOptions;
+        $this->options = array_replace(
+            [self::OPT_BASE_URI => $this->authUri],
+            $clientOptions
+        );
     }
 
     public function getGrantType(): string
@@ -40,16 +43,8 @@ abstract class AuthConfig implements BaseAuthConfig
         return $this->authUri;
     }
 
-    public function getClientOptions(): array
-    {
-        return $this->clientOptions;
-    }
-
     public function getOptions(): array
     {
-        return array_replace(
-            [self::OPT_BASE_URI => $this->authUri],
-            $this->clientOptions
-        );
+        return $this->options;
     }
 }

@@ -12,6 +12,9 @@ use Commercetools\Client\ApiResource;
 use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\Client;
 
+/**
+ * @psalm-immutable
+ */
 class ImportRequestBuilder extends ApiResource
 {
     /**

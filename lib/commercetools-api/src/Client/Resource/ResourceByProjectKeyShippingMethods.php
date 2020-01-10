@@ -11,7 +11,10 @@ namespace Commercetools\Api\Client\Resource;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodDraft;
 use Commercetools\Client\ApiResource;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyShippingMethods extends ApiResource
 {
     public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey

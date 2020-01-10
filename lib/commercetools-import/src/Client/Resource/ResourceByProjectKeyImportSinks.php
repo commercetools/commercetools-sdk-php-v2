@@ -11,7 +11,10 @@ namespace Commercetools\Import\Client\Resource;
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-immutable
+ */
 class ResourceByProjectKeyImportSinks extends ApiResource
 {
     public function withImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyImportSinksByImportSinkKey

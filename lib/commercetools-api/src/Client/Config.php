@@ -18,14 +18,17 @@ class Config implements BaseConfig
     private $apiUri;
 
     /** @psalm-var array */
-    private $clientOptions;
+    private $options;
 
     public function __construct(array $clientOptions = [], string $baseUri = null)
     {
         /** @psalm-var string $apiUri */
         $apiUri = $baseUri ?? static::API_URI;
         $this->apiUri = $apiUri;
-        $this->clientOptions = $clientOptions;
+        $this->options = array_replace(
+            [self::OPT_BASE_URI => $this->apiUri],
+            $clientOptions
+        );
     }
 
     public function getApiUri(): string
@@ -33,16 +36,8 @@ class Config implements BaseConfig
         return $this->apiUri;
     }
 
-    public function getClientOptions(): array
-    {
-        return $this->clientOptions;
-    }
-
     public function getOptions(): array
     {
-        return array_replace(
-            [self::OPT_BASE_URI => $this->apiUri],
-            $this->clientOptions
-        );
+        return $this->options;
     }
 }
