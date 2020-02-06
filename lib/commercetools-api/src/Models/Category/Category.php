@@ -9,15 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
-interface Category extends LoggedResource
+interface Category extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_NAME = 'name';
     const FIELD_SLUG = 'slug';
     const FIELD_DESCRIPTION = 'description';

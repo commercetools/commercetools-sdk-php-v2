@@ -33,8 +33,8 @@ final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDr
      * @psalm-var array<string, class-string<TypedMoneyDraft> >
      */
     private static $discriminatorClasses = [
-        'centPrecision' => CentPrecisionMoneyDraftModel::class,
         'highPrecision' => HighPrecisionMoneyDraftModel::class,
+        'centPrecision' => CentPrecisionMoneyDraftModel::class,
     ];
 
     public function __construct(

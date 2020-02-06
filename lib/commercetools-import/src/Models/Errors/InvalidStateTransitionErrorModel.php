@@ -81,7 +81,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */
@@ -100,7 +100,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importrequests;
 
 use Commercetools\Base\Builder;
-use Commercetools\Import\Models\Importitems\ImportItemCollection;
+use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
 
 /**
  * @implements Builder<ImportResponse>
@@ -17,24 +17,24 @@ use Commercetools\Import\Models\Importitems\ImportItemCollection;
 final class ImportResponseBuilder implements Builder
 {
     /**
-     * @var ?ImportItemCollection
+     * @var ?ImportOperationStatusCollection
      */
-    private $items;
+    private $operationStatus;
 
     /**
-     * @return null|ImportItemCollection
+     * @return null|ImportOperationStatusCollection
      */
-    public function getItems()
+    public function getOperationStatus()
     {
-        return $this->items;
+        return $this->operationStatus;
     }
 
     /**
      * @return $this
      */
-    public function withItems(?ImportItemCollection $items)
+    public function withOperationStatus(?ImportOperationStatusCollection $operationStatus)
     {
-        $this->items = $items;
+        $this->operationStatus = $operationStatus;
 
         return $this;
     }
@@ -42,7 +42,7 @@ final class ImportResponseBuilder implements Builder
     public function build(): ImportResponse
     {
         return new ImportResponseModel(
-            $this->items
+            $this->operationStatus
         );
     }
 

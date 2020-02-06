@@ -41,7 +41,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */
@@ -51,7 +51,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */

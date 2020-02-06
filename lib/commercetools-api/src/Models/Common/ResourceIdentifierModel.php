@@ -74,8 +74,8 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
         'type' => TypeResourceIdentifierModel::class,
         'zone' => ZoneResourceIdentifierModel::class,
         'cart-discount' => CartDiscountResourceIdentifierModel::class,
-        'cart' => CartResourceIdentifierModel::class,
         'category' => CategoryResourceIdentifierModel::class,
+        'cart' => CartResourceIdentifierModel::class,
         'channel' => ChannelResourceIdentifierModel::class,
     ];
 

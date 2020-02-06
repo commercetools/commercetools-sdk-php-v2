@@ -51,7 +51,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.parent</code>.
      * The parent category referenced must already exist
-     * in the commercetools project, or the import item
+     * in the commercetools project, or the import operation
      * will have an <code>Unresolved</code> state.</p>
      *
      * @return null|CategoryKeyReference
@@ -94,8 +94,6 @@ interface CategoryImport extends ImportResource
     public function getMetaKeywords();
 
     /**
-     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>
-     *
      * @return null|AssetCollection
      */
     public function getAssets();

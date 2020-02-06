@@ -23,19 +23,19 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
      * @psalm-var array<string, class-string<AttributeType> >
      */
     private static $discriminatorClasses = [
-        'boolean' => AttributeBooleanTypeModel::class,
-        'datetime' => AttributeDateTimeTypeModel::class,
-        'date' => AttributeDateTypeModel::class,
-        'enum' => AttributeEnumTypeModel::class,
-        'ltext' => AttributeLocalizableTextTypeModel::class,
-        'lenum' => AttributeLocalizedEnumTypeModel::class,
-        'money' => AttributeMoneyTypeModel::class,
         'nested' => AttributeNestedTypeModel::class,
-        'number' => AttributeNumberTypeModel::class,
-        'reference' => AttributeReferenceTypeModel::class,
+        'money' => AttributeMoneyTypeModel::class,
         'set' => AttributeSetTypeModel::class,
-        'text' => AttributeTextTypeModel::class,
         'time' => AttributeTimeTypeModel::class,
+        'reference' => AttributeReferenceTypeModel::class,
+        'enum' => AttributeEnumTypeModel::class,
+        'boolean' => AttributeBooleanTypeModel::class,
+        'text' => AttributeTextTypeModel::class,
+        'datetime' => AttributeDateTimeTypeModel::class,
+        'number' => AttributeNumberTypeModel::class,
+        'date' => AttributeDateTypeModel::class,
+        'lenum' => AttributeLocalizedEnumTypeModel::class,
+        'ltext' => AttributeLocalizableTextTypeModel::class,
     ];
 
     public function __construct(

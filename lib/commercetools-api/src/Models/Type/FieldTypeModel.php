@@ -23,18 +23,18 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
      * @psalm-var array<string, class-string<FieldType> >
      */
     private static $discriminatorClasses = [
-        'Boolean' => CustomFieldBooleanTypeModel::class,
-        'DateTime' => CustomFieldDateTimeTypeModel::class,
-        'Date' => CustomFieldDateTypeModel::class,
-        'Enum' => CustomFieldEnumTypeModel::class,
-        'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
         'LocalizedString' => CustomFieldLocalizedStringTypeModel::class,
-        'Money' => CustomFieldMoneyTypeModel::class,
         'Number' => CustomFieldNumberTypeModel::class,
+        'DateTime' => CustomFieldDateTimeTypeModel::class,
         'Reference' => CustomFieldReferenceTypeModel::class,
+        'Boolean' => CustomFieldBooleanTypeModel::class,
+        'Date' => CustomFieldDateTypeModel::class,
+        'Money' => CustomFieldMoneyTypeModel::class,
+        'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
         'Set' => CustomFieldSetTypeModel::class,
-        'String' => CustomFieldStringTypeModel::class,
         'Time' => CustomFieldTimeTypeModel::class,
+        'String' => CustomFieldStringTypeModel::class,
+        'Enum' => CustomFieldEnumTypeModel::class,
     ];
 
     public function __construct(

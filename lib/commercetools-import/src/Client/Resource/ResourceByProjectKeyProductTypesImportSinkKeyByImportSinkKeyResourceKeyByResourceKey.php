@@ -16,6 +16,13 @@ use Commercetools\Client\ApiResource;
  */
 class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey extends ApiResource
 {
+    public function importOperation(): ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyImportOperation
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyImportOperation($this->getUri().'/import-operation', $args, $this->getClient());
+    }
+
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers

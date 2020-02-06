@@ -12,7 +12,7 @@ use Commercetools\Client\AuthConfig as BaseAuthConfig;
 
 abstract class AuthConfig implements BaseAuthConfig
 {
-    const AUTH_URI = 'https://auth.sphere.io/oauth/token';
+    const AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
     const GRANT_TYPE = '';
 

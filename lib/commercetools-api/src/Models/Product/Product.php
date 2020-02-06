@@ -8,17 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use DateTimeImmutable;
 
-interface Product extends LoggedResource
+interface Product extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_KEY = 'key';
     const FIELD_PRODUCT_TYPE = 'productType';
     const FIELD_MASTER_DATA = 'masterData';

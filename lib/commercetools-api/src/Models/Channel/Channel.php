@@ -9,17 +9,19 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
-interface Channel extends LoggedResource
+interface Channel extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_KEY = 'key';
     const FIELD_ROLES = 'roles';
     const FIELD_NAME = 'name';

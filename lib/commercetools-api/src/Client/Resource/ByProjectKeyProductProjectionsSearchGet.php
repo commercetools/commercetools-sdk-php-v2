@@ -127,6 +127,16 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
+     * @psalm-param scalar $markMatchingVariants
+     *
+     * @param mixed $markMatchingVariants
+     */
+    public function withMarkMatchingVariants($markMatchingVariants): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('markMatchingVariants', $markMatchingVariants);
+    }
+
+    /**
      * @psalm-param scalar $staged
      *
      * @param mixed $staged

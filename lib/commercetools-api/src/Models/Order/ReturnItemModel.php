@@ -60,8 +60,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      * @psalm-var array<string, class-string<ReturnItem> >
      */
     private static $discriminatorClasses = [
-        'CustomLineItemReturnItem' => CustomLineItemReturnItemModel::class,
         'LineItemReturnItem' => LineItemReturnItemModel::class,
+        'CustomLineItemReturnItem' => CustomLineItemReturnItemModel::class,
     ];
 
     public function __construct(

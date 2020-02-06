@@ -8,17 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsCollection;
 use DateTimeImmutable;
 
-interface Payment extends LoggedResource
+interface Payment extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_CUSTOMER = 'customer';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
     const FIELD_EXTERNAL_ID = 'externalId';

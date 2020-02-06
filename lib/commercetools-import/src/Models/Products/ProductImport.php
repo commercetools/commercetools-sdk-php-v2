@@ -40,7 +40,7 @@ interface ProductImport extends ImportResource
      * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
      * <p>The product type referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -65,7 +65,7 @@ interface ProductImport extends ImportResource
      * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
      * <p>The categories referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -90,7 +90,7 @@ interface ProductImport extends ImportResource
      * <p>References a tax category by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -105,7 +105,7 @@ interface ProductImport extends ImportResource
      * <p>References a state by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|StateKeyReference
      */

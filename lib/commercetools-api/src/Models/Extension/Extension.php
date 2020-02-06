@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use DateTimeImmutable;
 
-interface Extension extends LoggedResource
+interface Extension extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_KEY = 'key';
     const FIELD_DESTINATION = 'destination';
     const FIELD_TRIGGERS = 'triggers';

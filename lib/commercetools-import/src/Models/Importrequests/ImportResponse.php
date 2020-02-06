@@ -9,16 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importrequests;
 
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Importitems\ImportItemCollection;
+use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
 
 interface ImportResponse extends JsonObject
 {
-    const FIELD_ITEMS = 'items';
+    const FIELD_OPERATION_STATUS = 'operationStatus';
 
     /**
-     * @return null|ImportItemCollection
+     * @return null|ImportOperationStatusCollection
      */
-    public function getItems();
+    public function getOperationStatus();
 
-    public function setItems(?ImportItemCollection $items): void;
+    public function setOperationStatus(?ImportOperationStatusCollection $operationStatus): void;
 }

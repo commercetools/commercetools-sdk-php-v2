@@ -8,15 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use DateTimeImmutable;
 
-interface ProductDiscount extends LoggedResource
+interface ProductDiscount extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_NAME = 'name';
     const FIELD_KEY = 'key';
     const FIELD_DESCRIPTION = 'description';

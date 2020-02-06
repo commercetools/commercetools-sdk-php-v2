@@ -8,17 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface Review extends LoggedResource
+interface Review extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_KEY = 'key';
     const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
     const FIELD_LOCALE = 'locale';

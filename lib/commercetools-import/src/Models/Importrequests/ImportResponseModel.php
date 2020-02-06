@@ -9,41 +9,41 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importrequests;
 
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Import\Models\Importitems\ImportItemCollection;
+use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
 use stdClass;
 
 final class ImportResponseModel extends JsonObjectModel implements ImportResponse
 {
     /**
-     * @var ?ImportItemCollection
+     * @var ?ImportOperationStatusCollection
      */
-    protected $items;
+    protected $operationStatus;
 
     public function __construct(
-        ImportItemCollection $items = null
+        ImportOperationStatusCollection $operationStatus = null
     ) {
-        $this->items = $items;
+        $this->operationStatus = $operationStatus;
     }
 
     /**
-     * @return null|ImportItemCollection
+     * @return null|ImportOperationStatusCollection
      */
-    public function getItems()
+    public function getOperationStatus()
     {
-        if (is_null($this->items)) {
+        if (is_null($this->operationStatus)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportResponse::FIELD_ITEMS);
+            $data = $this->raw(ImportResponse::FIELD_OPERATION_STATUS);
             if (is_null($data)) {
                 return null;
             }
-            $this->items = ImportItemCollection::fromArray($data);
+            $this->operationStatus = ImportOperationStatusCollection::fromArray($data);
         }
 
-        return $this->items;
+        return $this->operationStatus;
     }
 
-    public function setItems(?ImportItemCollection $items): void
+    public function setOperationStatus(?ImportOperationStatusCollection $operationStatus): void
     {
-        $this->items = $items;
+        $this->operationStatus = $operationStatus;
     }
 }

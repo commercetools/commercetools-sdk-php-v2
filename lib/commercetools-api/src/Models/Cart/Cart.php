@@ -11,9 +11,9 @@ namespace Commercetools\Api\Models\Cart;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Order\PaymentInfo;
@@ -21,8 +21,10 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
-interface Cart extends LoggedResource
+interface Cart extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     const FIELD_ANONYMOUS_ID = 'anonymousId';

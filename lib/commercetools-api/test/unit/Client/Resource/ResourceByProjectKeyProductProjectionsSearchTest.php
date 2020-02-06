@@ -64,6 +64,19 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'get',
                 '{projectKey}/product-projections/search?fuzzyLevel=fuzzyLevel',
             ],
+            'ByProjectKeyProductProjectionsSearchGet_withMarkMatchingVariants' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productProjections()
+                        ->search()
+                        ->get()
+                        ->withMarkMatchingVariants('markMatchingVariants')
+                    ;
+                },
+                'get',
+                '{projectKey}/product-projections/search?markMatchingVariants=markMatchingVariants',
+            ],
             'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

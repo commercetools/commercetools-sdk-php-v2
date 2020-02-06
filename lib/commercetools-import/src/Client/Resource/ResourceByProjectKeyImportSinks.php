@@ -37,4 +37,17 @@ class ResourceByProjectKeyImportSinks extends ApiResource
 
         return new ByProjectKeyImportSinksPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
+    /**
+     * @psalm-param ?object $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     *
+     * @param null|mixed $body
+     */
+    public function get($body = null, array $headers = []): ByProjectKeyImportSinksGet
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyImportSinksGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+    }
 }

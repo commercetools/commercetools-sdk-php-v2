@@ -50,16 +50,16 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         'RequiredField' => RequiredFieldErrorModel::class,
         'ResourceNotFound' => ResourceNotFoundErrorModel::class,
         'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
+        'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
         'access_denied' => AccessDeniedErrorModel::class,
-        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
-        'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
+        'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
         'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
         'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
-        'DuplicateField' => DuplicateFieldErrorModel::class,
-        'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
         'DuplicatePriceScope' => DuplicatePriceScopeErrorModel::class,
-        'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
-        'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
+        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
+        'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
+        'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
+        'DuplicateField' => DuplicateFieldErrorModel::class,
     ];
 
     public function __construct(

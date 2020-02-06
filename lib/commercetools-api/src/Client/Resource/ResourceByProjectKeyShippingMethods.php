@@ -17,6 +17,13 @@ use Commercetools\Client\ApiResource;
  */
 class ResourceByProjectKeyShippingMethods extends ApiResource
 {
+    public function matchesCart(): ResourceByProjectKeyShippingMethodsMatchesCart
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyShippingMethodsMatchesCart($this->getUri().'/matches-cart', $args, $this->getClient());
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();

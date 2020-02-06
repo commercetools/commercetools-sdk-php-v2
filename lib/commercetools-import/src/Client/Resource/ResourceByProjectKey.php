@@ -23,6 +23,13 @@ class ResourceByProjectKey extends ApiResource
         return new ResourceByProjectKeyImportSinks($this->getUri().'/import-sinks', $args, $this->getClient());
     }
 
+    public function importSummaries(): ResourceByProjectKeyImportSummaries
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyImportSummaries($this->getUri().'/import-summaries', $args, $this->getClient());
+    }
+
     public function categories(): ResourceByProjectKeyCategories
     {
         $args = $this->getArgs();
@@ -42,6 +49,13 @@ class ResourceByProjectKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyProducts($this->getUri().'/products', $args, $this->getClient());
+    }
+
+    public function productDrafts(): ResourceByProjectKeyProductDrafts
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductDrafts($this->getUri().'/product-drafts', $args, $this->getClient());
     }
 
     public function productTypes(): ResourceByProjectKeyProductTypes

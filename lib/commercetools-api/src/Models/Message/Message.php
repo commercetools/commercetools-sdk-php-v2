@@ -8,15 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\Reference;
 use DateTimeImmutable;
 
-interface Message extends LoggedResource
+interface Message extends BaseResource
 {
     const DISCRIMINATOR_FIELD = 'type';
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
     const FIELD_RESOURCE = 'resource';
     const FIELD_RESOURCE_VERSION = 'resourceVersion';

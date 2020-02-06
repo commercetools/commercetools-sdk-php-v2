@@ -9,16 +9,18 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
-interface DiscountCode extends LoggedResource
+interface DiscountCode extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_CODE = 'code';

@@ -13,7 +13,7 @@ use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class ClientCredentialsConfig extends AuthConfig implements BaseClientCredentialsConfig
 {
-    const AUTH_URI = 'https://auth.sphere.io/oauth/token';
+    const AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
     const GRANT_TYPE = 'client_credentials';
 

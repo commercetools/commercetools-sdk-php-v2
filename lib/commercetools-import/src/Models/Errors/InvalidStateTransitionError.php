@@ -14,14 +14,14 @@ interface InvalidStateTransitionError extends ErrorObject
     const FIELD_NEW_STATE = 'newState';
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */
     public function getCurrentState();
 
     /**
-     * <p>This enumeration describes the processing state of an import item.</p>
+     * <p>This enumeration describes the processing state of an import operation.</p>
      *
      * @return null|string
      */

@@ -27,11 +27,11 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKey extends ApiReso
         return new ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
     }
 
-    public function importItems(): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportItems
+    public function importOperations(): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportItems($this->getUri().'/import-items', $args, $this->getClient());
+        return new ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
     }
 
     /**

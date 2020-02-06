@@ -200,7 +200,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * <p>References a customer group by its key.</p>
      * <p>The customer group referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -223,7 +223,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * <p>References a channel by its key.</p>
      * <p>The channel referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ChannelKeyReference
      */
@@ -246,7 +246,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -269,7 +269,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */

@@ -25,6 +25,7 @@
             <directory suffix=".php">src</directory>
             <directory suffix=".php">lib/commercetools-api/src</directory>
             <directory suffix=".php">lib/commercetools-base/src</directory>
+            <directory suffix=".php">lib/commercetools-import/src</directory>
         </whitelist>
     </filter>
     <php>

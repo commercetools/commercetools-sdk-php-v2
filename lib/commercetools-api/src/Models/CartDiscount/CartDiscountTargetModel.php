@@ -25,9 +25,9 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
     private static $discriminatorClasses = [
         'multiBuyCustomLineItems' => MultiBuyCustomLineItemsTargetModel::class,
         'multiBuyLineItems' => MultiBuyLineItemsTargetModel::class,
-        'customLineItems' => CartDiscountCustomLineItemsTargetModel::class,
-        'lineItems' => CartDiscountLineItemsTargetModel::class,
         'shipping' => CartDiscountShippingCostTargetModel::class,
+        'lineItems' => CartDiscountLineItemsTargetModel::class,
+        'customLineItems' => CartDiscountCustomLineItemsTargetModel::class,
     ];
 
     public function __construct(

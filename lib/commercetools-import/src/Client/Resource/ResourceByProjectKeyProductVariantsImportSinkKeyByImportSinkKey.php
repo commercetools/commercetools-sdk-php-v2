@@ -27,11 +27,11 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
         return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
     }
 
-    public function importItems(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportItems
+    public function importOperations(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportItems($this->getUri().'/import-items', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
     }
 
     /**

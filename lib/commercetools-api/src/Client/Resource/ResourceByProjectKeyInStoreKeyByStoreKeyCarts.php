@@ -17,6 +17,16 @@ use Commercetools\Client\ApiResource;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCarts extends ApiResource
 {
+    public function withCustomerId(string $customerId = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId
+    {
+        $args = $this->getArgs();
+        if (!is_null($customerId)) {
+            $args['customerId'] = $customerId;
+        }
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId($this->getUri().'/customer-id={customerId}', $args, $this->getClient());
+    }
+
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID
     {
         $args = $this->getArgs();

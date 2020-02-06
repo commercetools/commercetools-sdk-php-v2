@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
-interface InventoryEntry extends LoggedResource
+interface InventoryEntry extends BaseResource
 {
+    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    const FIELD_CREATED_BY = 'createdBy';
     const FIELD_SKU = 'sku';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';

@@ -86,7 +86,7 @@ final class ProductVariantImportBuilder implements Builder
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
      * <p>Each attribute referenced must be defined
      * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>
+     * operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|AttributeCollection
      */
@@ -119,7 +119,7 @@ final class ProductVariantImportBuilder implements Builder
      * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductKeyReference
      */

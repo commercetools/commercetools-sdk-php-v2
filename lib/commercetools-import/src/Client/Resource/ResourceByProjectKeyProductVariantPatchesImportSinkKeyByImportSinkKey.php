@@ -17,11 +17,21 @@ use Commercetools\Import\Models\Importrequests\ProductVariantPatchRequest;
  */
 class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey extends ApiResource
 {
-    public function importItems(): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportItems
+    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($resourceKey)) {
+            $args['resourceKey'] = $resourceKey;
+        }
+
+        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
+    }
+
+    public function importOperations(): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportItems($this->getUri().'/import-items', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
     }
 
     /**

@@ -106,7 +106,7 @@ final class ProductImportBuilder implements Builder
      * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
      * <p>The product type referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -140,7 +140,7 @@ final class ProductImportBuilder implements Builder
      * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
      * <p>The categories referenced
      * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -177,7 +177,7 @@ final class ProductImportBuilder implements Builder
      * <p>References a tax category by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -198,7 +198,7 @@ final class ProductImportBuilder implements Builder
      * <p>References a state by its key.</p>
      * <p>The tax category referenced must already exist
      * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|StateKeyReference
      */

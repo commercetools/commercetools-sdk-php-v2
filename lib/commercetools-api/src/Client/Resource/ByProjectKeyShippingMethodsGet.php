@@ -107,16 +107,6 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $shippingMethodId
-     *
-     * @param mixed $shippingMethodId
-     */
-    public function withShippingMethodId($shippingMethodId): ByProjectKeyShippingMethodsGet
-    {
-        return $this->withQueryParam('shipping-methodId', $shippingMethodId);
-    }
-
-    /**
      * @psalm-param scalar $country
      *
      * @param mixed $country
