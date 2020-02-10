@@ -23,9 +23,9 @@ final class ShippingRateInputTypeModel extends JsonObjectModel implements Shippi
      * @psalm-var array<string, class-string<ShippingRateInputType> >
      */
     private static $discriminatorClasses = [
-        'CartClassification' => CartClassificationTypeModel::class,
         'CartScore' => CartScoreTypeModel::class,
         'CartValue' => CartValueTypeModel::class,
+        'CartClassification' => CartClassificationTypeModel::class,
     ];
 
     public function __construct(

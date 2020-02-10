@@ -16,6 +16,7 @@ The Endpoint is responding a limited set of information about settings and confi
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -28,6 +29,7 @@ Update project
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -40,6 +42,7 @@ Query api-clients
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -53,6 +56,7 @@ Create ApiClient
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -66,6 +70,7 @@ Get ApiClient by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -80,6 +85,7 @@ Delete ApiClient by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -94,6 +100,7 @@ Query cart-discounts
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -107,6 +114,7 @@ Create CartDiscount
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -120,6 +128,7 @@ Get CartDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -134,6 +143,7 @@ Update CartDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -148,6 +158,7 @@ Delete CartDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -162,6 +173,7 @@ Get CartDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -176,6 +188,7 @@ Update CartDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -190,6 +203,7 @@ Delete CartDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -204,6 +218,7 @@ Query carts
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -219,6 +234,7 @@ CartDraft has a predicate which does not match the cart.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -234,6 +250,7 @@ If you want to ensure they’re up-to-date, send an Update request with the Reca
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -248,6 +265,7 @@ Update Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -262,6 +280,7 @@ Delete Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -281,6 +300,7 @@ send an Update request with the Recalculate update action instead.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -295,6 +315,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -309,6 +330,7 @@ Query categories
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -322,6 +344,7 @@ Creating a category produces the CategoryCreated message.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -335,6 +358,7 @@ Get Category by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -349,6 +373,7 @@ Update Category by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -363,6 +388,7 @@ Delete Category by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -377,6 +403,7 @@ Get Category by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -391,6 +418,7 @@ Update Category by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -405,6 +433,7 @@ Delete Category by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -419,6 +448,7 @@ Query channels
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -432,6 +462,7 @@ Create Channel
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -445,6 +476,7 @@ Get Channel by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -459,6 +491,7 @@ Update Channel by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -473,6 +506,7 @@ Delete Channel by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -490,6 +524,7 @@ the container field in the where predicate.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -510,6 +545,7 @@ Fields with null values will not be saved.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -523,6 +559,7 @@ Get CustomObject by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -537,6 +574,7 @@ Delete CustomObject by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -551,6 +589,7 @@ Get CustomObject by container
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -566,6 +605,7 @@ The version control is optional. If the query contains a version, then it must m
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -580,6 +620,7 @@ Query customer-groups
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -593,6 +634,7 @@ Create CustomerGroup
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -606,6 +648,7 @@ Get CustomerGroup by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -620,6 +663,7 @@ Update CustomerGroup by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -634,6 +678,7 @@ Delete CustomerGroup by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -648,6 +693,7 @@ Gets a customer group by Key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -662,6 +708,7 @@ Updates a customer group by Key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -676,6 +723,7 @@ Delete CustomerGroup by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -690,6 +738,7 @@ Query customers
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -706,6 +755,7 @@ If the ID of an anonymous session is given, all carts and orders will be assigne
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -719,6 +769,7 @@ Get Customer by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -733,6 +784,7 @@ Update Customer by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -747,6 +799,7 @@ Delete Customer by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -761,6 +814,7 @@ Verifies customer's email using a token.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -776,6 +830,7 @@ Create a Token for verifying the Customer's Email
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -790,6 +845,7 @@ Get Customer by emailToken
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -804,6 +860,7 @@ Get Customer by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -818,6 +875,7 @@ Update Customer by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -832,6 +890,7 @@ Delete Customer by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -846,6 +905,7 @@ Change a customers password
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -860,6 +920,7 @@ Set a new password using a token.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -877,6 +938,7 @@ valid only for 10 minutes.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -891,6 +953,7 @@ Get Customer by passwordToken
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -905,6 +968,7 @@ Query discount-codes
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -918,6 +982,7 @@ Create DiscountCode
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -931,6 +996,7 @@ Get DiscountCode by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -945,6 +1011,7 @@ Update DiscountCode by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -959,6 +1026,7 @@ Delete DiscountCode by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -973,6 +1041,7 @@ Query extensions
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -986,6 +1055,7 @@ Currently, a maximum of 25 extensions can be created per project.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -999,6 +1069,7 @@ Retrieves the representation of an extension by its id.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1013,6 +1084,7 @@ Update Extension by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1027,6 +1099,7 @@ Delete Extension by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1041,6 +1114,7 @@ Retrieves the representation of an extension by its key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1055,6 +1129,7 @@ Update Extension by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1069,6 +1144,7 @@ Delete Extension by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1083,6 +1159,7 @@ Execute a GraphQL query
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1096,6 +1173,7 @@ Queries carts in a specific Store. The {storeKey} path parameter maps to a Store
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1114,6 +1192,7 @@ in the CartDraft has a predicate which does not match the cart.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1133,6 +1212,7 @@ If you want to ensure they’re up-to-date, send an Update request with the Reca
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1151,6 +1231,7 @@ or the store field references a different store, this method returns a ResourceN
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1166,6 +1247,7 @@ Delete Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1189,6 +1271,7 @@ send an Update request with the Recalculate update action instead.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1204,6 +1287,7 @@ Query customers
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1226,6 +1310,7 @@ the store field must reference the same store specified in the {storeKey} path p
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1244,6 +1329,7 @@ this method returns a ResourceNotFound error.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1262,6 +1348,7 @@ this method returns a ResourceNotFound error.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1277,6 +1364,7 @@ Delete Customer by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1292,6 +1380,7 @@ Verifies customer's email using a token.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1308,6 +1397,7 @@ Create a Token for verifying the Customer's Email
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1323,6 +1413,7 @@ Get Customer by emailToken
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1342,6 +1433,7 @@ this method returns a ResourceNotFound error.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1359,6 +1451,7 @@ this method returns a ResourceNotFound error.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1374,6 +1467,7 @@ Delete Customer by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1389,6 +1483,7 @@ Change a customers password
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1404,6 +1499,7 @@ Set a new password using a token.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1422,6 +1518,7 @@ valid only for 10 minutes.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1437,6 +1534,7 @@ Get Customer by passwordToken
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1452,6 +1550,7 @@ Authenticate Customer (Sign In)
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1466,6 +1565,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1481,6 +1581,7 @@ Query carts
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1496,6 +1597,7 @@ Create Cart
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1511,6 +1613,7 @@ Get Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1527,6 +1630,7 @@ Update Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1543,6 +1647,7 @@ Delete Cart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1559,6 +1664,7 @@ Query orders
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1574,6 +1680,7 @@ Create Order
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1589,6 +1696,7 @@ Get Order by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1605,6 +1713,7 @@ Queries orders in a specific Store. The {storeKey} path parameter maps to a Stor
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1623,6 +1732,7 @@ the shipping address is used for tax calculation.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1640,6 +1750,7 @@ or the store field references a different store, this method returns a ResourceN
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1658,6 +1769,7 @@ or the store field references a different store, this method returns a ResourceN
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1673,6 +1785,7 @@ Delete Order by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1694,6 +1807,7 @@ it should be provided in URL-encoded format.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1714,6 +1828,7 @@ it should be provided in URL-encoded format.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1729,6 +1844,7 @@ Delete Order by orderNumber
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1744,6 +1860,7 @@ Query inventory
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1757,6 +1874,7 @@ Create InventoryEntry
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1770,6 +1888,7 @@ Get InventoryEntry by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1784,6 +1903,7 @@ Update InventoryEntry by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1798,6 +1918,7 @@ Delete InventoryEntry by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1819,6 +1940,7 @@ and invalid line items have been removed.).
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1832,6 +1954,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1845,6 +1968,7 @@ Create a customer
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1858,6 +1982,7 @@ Delete a Customer
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1871,6 +1996,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1885,6 +2011,7 @@ Query carts
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1899,6 +2026,7 @@ Create MyCart
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1913,6 +2041,7 @@ Get MyCart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1928,6 +2057,7 @@ Update MyCart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1943,6 +2073,7 @@ Delete MyCart by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1958,6 +2089,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1973,6 +2105,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -1987,6 +2120,7 @@ Query orders
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2001,6 +2135,7 @@ Create MyOrder
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2015,6 +2150,7 @@ Get MyOrder by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2030,6 +2166,7 @@ Update MyOrder by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2045,6 +2182,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2059,6 +2197,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2074,6 +2213,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2089,6 +2229,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2104,6 +2245,7 @@ Query payments
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2118,6 +2260,7 @@ Create MyPayment
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2132,6 +2275,7 @@ Get MyPayment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2147,6 +2291,7 @@ Update MyPayment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2162,6 +2307,7 @@ Delete MyPayment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2177,6 +2323,7 @@ Query shopping-lists
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2191,6 +2338,7 @@ Create MyShoppingList
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2205,6 +2353,7 @@ Get MyShoppingList by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2220,6 +2369,7 @@ Update MyShoppingList by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2235,6 +2385,7 @@ Delete MyShoppingList by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2250,6 +2401,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2265,6 +2417,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2279,6 +2432,7 @@ Query messages
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2292,6 +2446,7 @@ Get Message by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2306,6 +2461,7 @@ Query orders
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2322,6 +2478,7 @@ When using the Platform TaxMode, the shipping address is used for tax calculatio
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2335,6 +2492,7 @@ Get Order by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2349,6 +2507,7 @@ Update Order by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2363,6 +2522,7 @@ Delete Order by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2377,6 +2537,7 @@ Query edits
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2391,6 +2552,7 @@ Create OrderEdit
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2405,6 +2567,7 @@ Get OrderEdit by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2420,6 +2583,7 @@ Update OrderEdit by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2435,6 +2599,7 @@ Delete OrderEdit by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2450,6 +2615,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2466,6 +2632,7 @@ Get OrderEdit by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2481,6 +2648,7 @@ Update OrderEdit by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2496,6 +2664,7 @@ Delete OrderEdit by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2511,6 +2680,7 @@ Create an Order by Import
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2527,6 +2697,7 @@ it should be provided in URL-encoded format.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2541,6 +2712,7 @@ Update Order by orderNumber
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2555,6 +2727,7 @@ Delete Order by orderNumber
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2569,6 +2742,7 @@ Query payments
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2582,6 +2756,7 @@ To create a payment object a payment draft object has to be given with the reque
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2595,6 +2770,7 @@ Get Payment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2609,6 +2785,7 @@ Update Payment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2623,6 +2800,7 @@ Delete Payment by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2637,6 +2815,7 @@ Get Payment by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2651,6 +2830,7 @@ Update Payment by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2665,6 +2845,7 @@ Delete Payment by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2679,6 +2860,7 @@ Query product-discounts
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2692,6 +2874,7 @@ Create ProductDiscount
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2705,6 +2888,7 @@ Get ProductDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2719,6 +2903,7 @@ Update ProductDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2733,6 +2918,7 @@ Delete ProductDiscount by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2747,6 +2933,7 @@ Get ProductDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2761,6 +2948,7 @@ Update ProductDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2775,6 +2963,7 @@ Delete ProductDiscount by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2789,6 +2978,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2806,6 +2996,7 @@ this endpoint only returns published (current) product projections.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2822,6 +3013,7 @@ this endpoint only returns published (current) product projections.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2839,6 +3031,7 @@ this endpoint only returns published (current) product projections.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2853,6 +3046,7 @@ Search Product Projection
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2867,6 +3061,7 @@ Search Product Projection
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2881,6 +3076,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2895,6 +3091,7 @@ Query product-types
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2908,6 +3105,7 @@ Create ProductType
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2921,6 +3119,7 @@ Get ProductType by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2935,6 +3134,7 @@ Update ProductType by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2949,6 +3149,7 @@ Delete ProductType by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2963,6 +3164,7 @@ Get ProductType by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2977,6 +3179,7 @@ Update ProductType by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -2991,6 +3194,7 @@ Delete ProductType by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3008,6 +3212,7 @@ the query API lacks like sorting on custom attributes, etc.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3024,6 +3229,7 @@ the selected prices will be added to the response.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3037,6 +3243,7 @@ Gets the full representation of a product by ID.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3051,6 +3258,7 @@ Update Product by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3065,6 +3273,7 @@ Delete Product by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3080,6 +3289,7 @@ Uploads a binary image file to a given product variant. The supported image form
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3095,6 +3305,7 @@ Gets the full representation of a product by Key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3109,6 +3320,7 @@ Update Product by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3123,6 +3335,7 @@ Delete Product by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3137,6 +3350,7 @@ Query reviews
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3150,6 +3364,7 @@ Create Review
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3163,6 +3378,7 @@ Get Review by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3177,6 +3393,7 @@ Update Review by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3191,6 +3408,7 @@ Delete Review by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3205,6 +3423,7 @@ Get Review by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3219,6 +3438,7 @@ Update Review by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3233,6 +3453,7 @@ Delete Review by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3247,6 +3468,7 @@ Query shipping-methods
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3260,6 +3482,7 @@ Create ShippingMethod
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3273,6 +3496,7 @@ Get ShippingMethod by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3287,6 +3511,7 @@ Update ShippingMethod by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3301,6 +3526,7 @@ Delete ShippingMethod by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3315,6 +3541,7 @@ Get ShippingMethod by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3329,6 +3556,7 @@ Update ShippingMethod by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3343,6 +3571,7 @@ Delete ShippingMethod by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3357,6 +3586,7 @@ null
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3371,6 +3601,7 @@ Query shopping-lists
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3384,6 +3615,7 @@ Create ShoppingList
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3397,6 +3629,7 @@ Gets a shopping list by ID.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3411,6 +3644,7 @@ Update ShoppingList by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3425,6 +3659,7 @@ Delete ShoppingList by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3439,6 +3674,7 @@ Gets a shopping list by Key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3453,6 +3689,7 @@ Update a shopping list found by its Key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3467,6 +3704,7 @@ Delete ShoppingList by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3481,6 +3719,7 @@ Query states
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3494,6 +3733,7 @@ Create State
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3507,6 +3747,7 @@ Get State by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3521,6 +3762,7 @@ Update State by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3535,6 +3777,7 @@ Delete State by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3549,6 +3792,7 @@ Query stores
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3562,6 +3806,7 @@ Create Store
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3575,6 +3820,7 @@ Get Store by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3589,6 +3835,7 @@ Update Store by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3603,6 +3850,7 @@ Delete Store by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3617,6 +3865,7 @@ Get Store by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3631,6 +3880,7 @@ Update Store by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3645,6 +3895,7 @@ Delete Store by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3659,6 +3910,7 @@ Query subscriptions
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3677,6 +3929,7 @@ Currently, a maximum of 25 subscriptions can be created per project.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3690,6 +3943,7 @@ Retrieves the representation of a subscription by its id.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3704,6 +3958,7 @@ Update Subscription by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3718,6 +3973,7 @@ Delete Subscription by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3732,6 +3988,7 @@ Retrieves the representation of a subscription by its key.
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3746,6 +4003,7 @@ Update Subscription by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3760,6 +4018,7 @@ Delete Subscription by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3774,6 +4033,7 @@ Query tax-categories
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3787,6 +4047,7 @@ Create TaxCategory
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3800,6 +4061,7 @@ Get TaxCategory by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3814,6 +4076,7 @@ Update TaxCategory by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3828,6 +4091,7 @@ Delete TaxCategory by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3842,6 +4106,7 @@ Get TaxCategory by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3856,6 +4121,7 @@ Update TaxCategory by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3870,6 +4136,7 @@ Delete TaxCategory by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3884,6 +4151,7 @@ Query types
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3897,6 +4165,7 @@ Create Type
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3910,6 +4179,7 @@ Get Type by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3924,6 +4194,7 @@ Update Type by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3938,6 +4209,7 @@ Delete Type by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3952,6 +4224,7 @@ Get Type by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3966,6 +4239,7 @@ Update Type by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3980,6 +4254,7 @@ Delete Type by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -3994,6 +4269,7 @@ Query zones
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4007,6 +4283,7 @@ Create Zone
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4020,6 +4297,7 @@ Get Zone by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4034,6 +4312,7 @@ Update Zone by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4048,6 +4327,7 @@ Delete Zone by ID
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4062,6 +4342,7 @@ Get Zone by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4076,6 +4357,7 @@ Update Zone by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
@@ -4090,6 +4372,7 @@ Delete Zone by key
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
+
 $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")

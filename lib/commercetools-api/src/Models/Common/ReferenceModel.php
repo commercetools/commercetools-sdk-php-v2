@@ -71,9 +71,9 @@ final class ReferenceModel extends JsonObjectModel implements Reference
         'type' => TypeReferenceModel::class,
         'zone' => ZoneReferenceModel::class,
         'cart-discount' => CartDiscountReferenceModel::class,
+        'channel' => ChannelReferenceModel::class,
         'category' => CategoryReferenceModel::class,
         'cart' => CartReferenceModel::class,
-        'channel' => ChannelReferenceModel::class,
     ];
 
     public function __construct(

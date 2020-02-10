@@ -24,17 +24,17 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
      */
     private static $discriminatorClasses = [
         'LocalizedString' => CustomFieldLocalizedStringTypeModel::class,
-        'Number' => CustomFieldNumberTypeModel::class,
+        'Set' => CustomFieldSetTypeModel::class,
+        'Enum' => CustomFieldEnumTypeModel::class,
+        'Date' => CustomFieldDateTypeModel::class,
         'DateTime' => CustomFieldDateTimeTypeModel::class,
+        'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
+        'Number' => CustomFieldNumberTypeModel::class,
+        'Time' => CustomFieldTimeTypeModel::class,
+        'Money' => CustomFieldMoneyTypeModel::class,
+        'String' => CustomFieldStringTypeModel::class,
         'Reference' => CustomFieldReferenceTypeModel::class,
         'Boolean' => CustomFieldBooleanTypeModel::class,
-        'Date' => CustomFieldDateTypeModel::class,
-        'Money' => CustomFieldMoneyTypeModel::class,
-        'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
-        'Set' => CustomFieldSetTypeModel::class,
-        'Time' => CustomFieldTimeTypeModel::class,
-        'String' => CustomFieldStringTypeModel::class,
-        'Enum' => CustomFieldEnumTypeModel::class,
     ];
 
     public function __construct(

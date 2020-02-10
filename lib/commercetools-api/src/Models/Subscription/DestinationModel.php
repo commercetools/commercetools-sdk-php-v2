@@ -27,8 +27,8 @@ final class DestinationModel extends JsonObjectModel implements Destination
         'IronMQ' => IronMqDestinationModel::class,
         'SNS' => SnsDestinationModel::class,
         'SQS' => SqsDestinationModel::class,
-        'EventGrid' => AzureEventGridDestinationModel::class,
         'AzureServiceBus' => AzureServiceBusDestinationModel::class,
+        'EventGrid' => AzureEventGridDestinationModel::class,
     ];
 
     public function __construct(

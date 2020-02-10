@@ -24,8 +24,8 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
      */
     private static $discriminatorClasses = [
         'CartScore' => CartScoreTierModel::class,
-        'CartValue' => CartValueTierModel::class,
         'CartClassification' => CartClassificationTierModel::class,
+        'CartValue' => CartValueTierModel::class,
     ];
 
     public function __construct(

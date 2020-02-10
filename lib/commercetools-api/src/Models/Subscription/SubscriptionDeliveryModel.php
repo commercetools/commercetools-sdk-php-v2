@@ -42,10 +42,10 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
      * @psalm-var array<string, class-string<SubscriptionDelivery> >
      */
     private static $discriminatorClasses = [
+        'ResourceCreated' => ResourceCreatedDeliveryModel::class,
         'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
         'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
         'Message' => MessageDeliveryModel::class,
-        'ResourceCreated' => ResourceCreatedDeliveryModel::class,
     ];
 
     public function __construct(

@@ -73,10 +73,10 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
         'tax-category' => TaxCategoryResourceIdentifierModel::class,
         'type' => TypeResourceIdentifierModel::class,
         'zone' => ZoneResourceIdentifierModel::class,
-        'cart-discount' => CartDiscountResourceIdentifierModel::class,
         'category' => CategoryResourceIdentifierModel::class,
-        'cart' => CartResourceIdentifierModel::class,
+        'cart-discount' => CartDiscountResourceIdentifierModel::class,
         'channel' => ChannelResourceIdentifierModel::class,
+        'cart' => CartResourceIdentifierModel::class,
     ];
 
     public function __construct(

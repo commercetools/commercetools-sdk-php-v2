@@ -15,6 +15,7 @@ Creates a new import request for a category
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -29,6 +30,7 @@ Retrieves all category import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -45,6 +47,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -61,6 +64,7 @@ Deletes the category given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -76,6 +80,7 @@ Creates a new import sink.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -89,6 +94,7 @@ Retrieves all import sinks of a project key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -102,6 +108,7 @@ Updates the import sink given by the key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -116,6 +123,7 @@ Retrieves the import sink given by the key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -130,6 +138,7 @@ Deletes the import sink given by the key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -147,6 +156,7 @@ The import summary is calculated on demand.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -161,6 +171,7 @@ Creates a new import request for prices
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -175,6 +186,7 @@ Retrieves all price import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -191,6 +203,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -207,6 +220,7 @@ Deletes the price given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -223,6 +237,7 @@ Creates a new import request for product drafts
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -237,6 +252,7 @@ Retrieves all import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -253,6 +269,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -269,6 +286,7 @@ Deletes the product type given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -284,6 +302,7 @@ Creates a new import request for product types
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -298,6 +317,7 @@ Retrieves all import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -314,6 +334,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -330,6 +351,7 @@ Deletes the product type given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -345,6 +367,7 @@ Creates a new import request for product variant patches
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -359,6 +382,7 @@ Retrieves all product-variant-patches import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -375,6 +399,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -391,6 +416,7 @@ Creates a new import request for product variants
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -405,6 +431,7 @@ Retrieves all product-variant import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -421,6 +448,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -437,6 +465,7 @@ Deletes the product variant given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -452,6 +481,7 @@ Creates a new import request for products
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -466,6 +496,7 @@ Retrieves all product import operations of an import sink key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -482,6 +513,7 @@ Retrieves the import operation with the given id.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")
@@ -499,6 +531,7 @@ Deletes the product given by the resource key.
 ### Example
 ```php
 use Commercetools\Import\Client\ImportRequestBuilder;
+
 $builder =  new ImportRequestBuilder();
 $request = $builder
                 ->withProjectKeyValue("projectKey")

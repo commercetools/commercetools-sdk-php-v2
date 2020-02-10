@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client;
 
-use Commercetools\Client\AuthConfig as BaseAuthConfig;
+use Commercetools\Client\AuthConfig;
 
-abstract class AuthConfig implements BaseAuthConfig
+abstract class BaseAuthConfig implements AuthConfig
 {
     const AUTH_URI = 'https://auth.sphere.io/oauth/token';
 

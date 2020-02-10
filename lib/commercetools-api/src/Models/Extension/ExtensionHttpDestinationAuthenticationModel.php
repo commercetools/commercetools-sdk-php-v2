@@ -23,8 +23,8 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
      * @psalm-var array<string, class-string<ExtensionHttpDestinationAuthentication> >
      */
     private static $discriminatorClasses = [
-        'AuthorizationHeader' => ExtensionAuthorizationHeaderAuthenticationModel::class,
         'AzureFunctions' => ExtensionAzureFunctionsAuthenticationModel::class,
+        'AuthorizationHeader' => ExtensionAuthorizationHeaderAuthenticationModel::class,
     ];
 
     public function __construct(

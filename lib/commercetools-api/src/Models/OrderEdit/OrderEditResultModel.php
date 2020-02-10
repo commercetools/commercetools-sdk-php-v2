@@ -23,9 +23,9 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
      * @psalm-var array<string, class-string<OrderEditResult> >
      */
     private static $discriminatorClasses = [
-        'PreviewSuccess' => OrderEditPreviewSuccessModel::class,
-        'Applied' => OrderEditAppliedModel::class,
         'PreviewFailure' => OrderEditPreviewFailureModel::class,
+        'Applied' => OrderEditAppliedModel::class,
+        'PreviewSuccess' => OrderEditPreviewSuccessModel::class,
         'NotProcessed' => OrderEditNotProcessedModel::class,
     ];
 

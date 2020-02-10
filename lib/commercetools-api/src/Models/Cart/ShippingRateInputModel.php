@@ -23,8 +23,8 @@ final class ShippingRateInputModel extends JsonObjectModel implements ShippingRa
      * @psalm-var array<string, class-string<ShippingRateInput> >
      */
     private static $discriminatorClasses = [
-        'Classification' => ClassificationShippingRateInputModel::class,
         'Score' => ScoreShippingRateInputModel::class,
+        'Classification' => ClassificationShippingRateInputModel::class,
     ];
 
     public function __construct(

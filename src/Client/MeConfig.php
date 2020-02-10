@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use Commercetools\Api\Client\AuthConfig;
+use Commercetools\Api\Client\BaseAuthConfig;
 use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
-class MeConfig extends AuthConfig implements BaseClientCredentialsConfig
+class MeConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
 {
-    const ANON_AUTH_URI = 'https://auth.sphere.io/oauth/{projectKey}/anonymous/token';
-    const REFRESH_AUTH_URI = 'https://auth.sphere.io/oauth/token';
+    const ANON_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/{projectKey}/anonymous/token';
+    const REFRESH_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
     const GRANT_TYPE = 'client_credentials';
 
@@ -31,7 +31,7 @@ class MeConfig extends AuthConfig implements BaseClientCredentialsConfig
         string $refreshUri = null,
         string $authUri = self::AUTH_URI
     ) {
-        parent::__construct($clientOptions, $authUri);
+        parent::__construct(self::REFRESH_AUTH_URI, $clientOptions, $authUri);
         $anonUri = $anonUri ?? self::ANON_AUTH_URI;
         $anonUri = str_replace('{projectKey}', $projectKey, $anonUri);
         $this->anonUri = $anonUri;
