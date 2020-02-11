@@ -9,17 +9,18 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ShippingMethodDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_ZONE_RATES = 'zoneRates';
-    const FIELD_IS_DEFAULT = 'isDefault';
-    const FIELD_PREDICATE = 'predicate';
+    public const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_ZONE_RATES = 'zoneRates';
+    public const FIELD_IS_DEFAULT = 'isDefault';
+    public const FIELD_PREDICATE = 'predicate';
 
     /**
      * @return null|string

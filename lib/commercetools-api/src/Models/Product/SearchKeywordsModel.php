@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords
@@ -16,6 +19,8 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
     public function __construct(
     ) {
     }
+
+
 
     /**
      * @return mixed
@@ -26,7 +31,7 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
         if (is_null($data)) {
             return null;
         }
-        if (1 === preg_match(SearchKeywords::FIELD_PATTERN0, $key)) {
+        if (preg_match(SearchKeywords::FIELD_PATTERN0, $key) === 1) {
             /** @psalm-var array<int, stdClass> $data */
             return new SearchKeywordCollection($data);
         }

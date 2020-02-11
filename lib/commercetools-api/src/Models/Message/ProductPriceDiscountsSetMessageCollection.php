@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductPriceDiscountsSetMessage>
- *
  * @method ProductPriceDiscountsSetMessage current()
  * @method ProductPriceDiscountsSetMessage at($offset)
  */
@@ -23,9 +22,6 @@ class ProductPriceDiscountsSetMessageCollection extends MapperSequence
     /**
      * @psalm-assert ProductPriceDiscountsSetMessage $value
      * @psalm-param ProductPriceDiscountsSetMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductPriceDiscountsSetMessageCollection

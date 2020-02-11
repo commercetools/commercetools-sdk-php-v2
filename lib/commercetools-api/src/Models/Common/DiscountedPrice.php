@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountedPrice extends JsonObject
 {
-    const FIELD_VALUE = 'value';
-    const FIELD_DISCOUNT = 'discount';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_DISCOUNT = 'discount';
 
     /**
      * @return null|Money

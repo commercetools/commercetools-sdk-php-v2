@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionSetTimeoutInMsAction extends ExtensionUpdateAction
 {
-    const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
+    public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
 
     /**
      * <p>The maximum time the commercetools platform waits for a response from the extension.

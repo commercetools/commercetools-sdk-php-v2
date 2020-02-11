@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 use Cache\Adapter\Filesystem\FilesystemCachePool;
@@ -20,8 +21,23 @@ class OAuthHandlerFactory
 {
     /**
      * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
-     *
-     * @param null|mixed $cache
+     * @psalm-return CacheItemPoolInterface|CacheInterface
+     */
+    private static function validateCache($cache = null)
+    {
+        if ($cache instanceof CacheItemPoolInterface || $cache instanceof CacheInterface) {
+            return $cache;
+        }
+
+        $filesystemAdapter = new Local(getcwd());
+        $filesystem = new Filesystem($filesystemAdapter);
+        $cache = new FilesystemCachePool($filesystem);
+        
+        return $cache;
+    }
+
+    /**
+     * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
      */
     public static function ofAuthConfig(AuthConfig $authConfig, $cache = null): OAuth2Handler
     {
@@ -37,35 +53,16 @@ class OAuthHandlerFactory
                    $cache,
                    $authConfig->getCredentials()->getCacheKey()
                );
-
                break;
            default:
                throw new InvalidArgumentException('Unknown authorization configuration');
-        }
 
+        }
         return self::ofProvider($provider);
     }
 
     public static function ofProvider(TokenProvider $provider): OAuth2Handler
     {
         return new OAuth2Handler($provider);
-    }
-
-    /**
-     * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
-     * @psalm-return CacheItemPoolInterface|CacheInterface
-     *
-     * @param null|mixed $cache
-     */
-    private static function validateCache($cache = null)
-    {
-        if ($cache instanceof CacheItemPoolInterface || $cache instanceof CacheInterface) {
-            return $cache;
-        }
-
-        $filesystemAdapter = new Local(getcwd());
-        $filesystem = new Filesystem($filesystemAdapter);
-
-        return new FilesystemCachePool($filesystem);
     }
 }

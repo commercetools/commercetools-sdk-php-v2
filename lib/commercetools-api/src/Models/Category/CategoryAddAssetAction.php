@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategoryAddAssetAction extends CategoryUpdateAction
 {
-    const FIELD_ASSET = 'asset';
-    const FIELD_POSITION = 'position';
+    public const FIELD_ASSET = 'asset';
+    public const FIELD_POSITION = 'position';
 
     /**
      * @return null|AssetDraft

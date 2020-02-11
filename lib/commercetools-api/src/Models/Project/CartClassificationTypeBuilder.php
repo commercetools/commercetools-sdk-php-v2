@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Type\CustomFieldLocalizedEnumValueCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<CartClassificationType>
@@ -38,6 +43,7 @@ final class CartClassificationTypeBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): CartClassificationType
     {

@@ -12,12 +12,16 @@ use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implements OrderEditAppliedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderEditApplied';
+    public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
      * @var ?OrderEditApplied
      */
     protected $result;
+
 
     public function __construct(
         OrderEditReference $edit = null,

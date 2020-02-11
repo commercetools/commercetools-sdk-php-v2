@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ItemStateModel extends JsonObjectModel implements ItemState
@@ -24,6 +28,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
      * @var ?StateReference
      */
     protected $state;
+
 
     public function __construct(
         int $quantity = null,

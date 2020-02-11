@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewSetCustomerActionModel extends JsonObjectModel implements ReviewSetCustomerAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomer';
+    public const DISCRIMINATOR_VALUE = 'setCustomer';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
+
 
     public function __construct(
         CustomerResourceIdentifier $customer = null

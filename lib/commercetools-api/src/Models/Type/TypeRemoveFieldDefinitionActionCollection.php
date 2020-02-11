@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeRemoveFieldDefinitionAction>
- *
  * @method TypeRemoveFieldDefinitionAction current()
  * @method TypeRemoveFieldDefinitionAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeRemoveFieldDefinitionActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeRemoveFieldDefinitionAction $value
      * @psalm-param TypeRemoveFieldDefinitionAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeRemoveFieldDefinitionActionCollection

@@ -19,14 +19,6 @@ use stdClass;
 final class LocalizedStringBuilder extends MapperMap implements Builder
 {
     /**
-     * @return LocalizedString
-     */
-    public function build()
-    {
-        return new LocalizedStringModel($this->toArray());
-    }
-
-    /**
      * @psalm-return callable(string):?LocalizedString
      */
     protected function mapper()
@@ -40,8 +32,15 @@ final class LocalizedStringBuilder extends MapperMap implements Builder
                 if ($data instanceof stdClass) {
                     $data = LocalizedStringModel::of($data);
                 }
-
                 return $data;
             };
+    }
+
+    /**
+     * @return LocalizedString
+     */
+    public function build()
+    {
+        return new LocalizedStringModel($this->toArray());
     }
 }

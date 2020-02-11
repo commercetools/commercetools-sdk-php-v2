@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySetExternalIdAction>
- *
  * @method CategorySetExternalIdAction current()
  * @method CategorySetExternalIdAction at($offset)
  */
@@ -23,9 +22,6 @@ class CategorySetExternalIdActionCollection extends MapperSequence
     /**
      * @psalm-assert CategorySetExternalIdAction $value
      * @psalm-param CategorySetExternalIdAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategorySetExternalIdActionCollection

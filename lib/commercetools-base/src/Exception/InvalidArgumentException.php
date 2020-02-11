@@ -6,7 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Exception;
+
+use Exception;
 
 /**
  * @psalm-immutable

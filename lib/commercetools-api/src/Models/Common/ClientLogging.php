@@ -9,14 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ClientLogging extends JsonObject
 {
-    const FIELD_CLIENT_ID = 'clientId';
-    const FIELD_EXTERNAL_USER_ID = 'externalUserId';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_CLIENT_ID = 'clientId';
+    public const FIELD_EXTERNAL_USER_ID = 'externalUserId';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
      * @return null|string

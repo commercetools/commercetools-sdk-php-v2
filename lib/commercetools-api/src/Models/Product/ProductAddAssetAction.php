@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductAddAssetAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SKU = 'sku';
-    const FIELD_STAGED = 'staged';
-    const FIELD_ASSET = 'asset';
-    const FIELD_POSITION = 'position';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_ASSET = 'asset';
+    public const FIELD_POSITION = 'position';
 
     /**
      * @return null|int

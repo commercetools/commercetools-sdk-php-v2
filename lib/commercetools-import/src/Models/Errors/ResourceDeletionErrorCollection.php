@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceDeletionError>
- *
  * @method ResourceDeletionError current()
  * @method ResourceDeletionError at($offset)
  */
@@ -23,9 +22,6 @@ class ResourceDeletionErrorCollection extends MapperSequence
     /**
      * @psalm-assert ResourceDeletionError $value
      * @psalm-param ResourceDeletionError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ResourceDeletionErrorCollection

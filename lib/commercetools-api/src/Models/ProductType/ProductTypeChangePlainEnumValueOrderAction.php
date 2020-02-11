@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductTypeChangePlainEnumValueOrderAction extends ProductTypeUpdateAction
 {
-    const FIELD_ATTRIBUTE_NAME = 'attributeName';
-    const FIELD_VALUES = 'values';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
+    public const FIELD_VALUES = 'values';
 
     /**
      * @return null|string

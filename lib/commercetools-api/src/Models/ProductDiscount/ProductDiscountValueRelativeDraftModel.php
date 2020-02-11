@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductDiscountValueRelativeDraftModel extends JsonObjectModel implements ProductDiscountValueRelativeDraft
 {
-    const DISCRIMINATOR_VALUE = 'relative';
+    public const DISCRIMINATOR_VALUE = 'relative';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductDiscountValueRelativeDraftModel extends JsonObjectModel imple
      * @var ?int
      */
     protected $permyriad;
+
 
     public function __construct(
         int $permyriad = null

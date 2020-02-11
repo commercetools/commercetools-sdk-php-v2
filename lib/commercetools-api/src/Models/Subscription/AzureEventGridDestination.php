@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface AzureEventGridDestination extends Destination
 {
-    const FIELD_URI = 'uri';
-    const FIELD_ACCESS_KEY = 'accessKey';
+    public const FIELD_URI = 'uri';
+    public const FIELD_ACCESS_KEY = 'accessKey';
 
     /**
      * @return null|string

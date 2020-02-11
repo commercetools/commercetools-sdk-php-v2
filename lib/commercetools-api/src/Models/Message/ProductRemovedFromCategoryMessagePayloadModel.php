@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Category\CategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectModel implements ProductRemovedFromCategoryMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductRemovedFromCategory';
+    public const DISCRIMINATOR_VALUE = 'ProductRemovedFromCategory';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         CategoryReference $category = null,

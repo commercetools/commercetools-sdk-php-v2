@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerGroupSetMessagePayload extends MessagePayload
 {
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
      * @return null|CustomerGroupReference

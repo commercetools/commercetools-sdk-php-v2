@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetShippingMethodTaxAmountActionModel extends JsonObjectModel implements StagedOrderSetShippingMethodTaxAmountAction
 {
-    const DISCRIMINATOR_VALUE = 'setShippingMethodTaxAmount';
+    public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxAmount';
     /**
      * @var ?string
      */
@@ -26,6 +31,7 @@ final class StagedOrderSetShippingMethodTaxAmountActionModel extends JsonObjectM
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
+
 
     public function __construct(
         ExternalTaxAmountDraft $externalTaxAmount = null

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Prices;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface SubRate extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_AMOUNT = 'amount';
+    public const FIELD_NAME = 'name';
+    public const FIELD_AMOUNT = 'amount';
 
     /**
      * @return null|string

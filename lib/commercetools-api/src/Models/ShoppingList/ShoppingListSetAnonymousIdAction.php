@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ShoppingListSetAnonymousIdAction extends ShoppingListUpdateAction
 {
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
      * <p>Anonymous ID of the anonymous customer that this shopping list belongs to.

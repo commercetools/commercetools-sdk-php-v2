@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ErrorByExtension>
- *
  * @method ErrorByExtension current()
  * @method ErrorByExtension at($offset)
  */
@@ -23,9 +22,6 @@ class ErrorByExtensionCollection extends MapperSequence
     /**
      * @psalm-assert ErrorByExtension $value
      * @psalm-param ErrorByExtension|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ErrorByExtensionCollection

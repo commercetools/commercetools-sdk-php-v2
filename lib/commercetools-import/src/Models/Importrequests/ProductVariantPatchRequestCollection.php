@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductVariantPatchRequest>
- *
  * @method ProductVariantPatchRequest current()
  * @method ProductVariantPatchRequest at($offset)
  */
@@ -23,9 +22,6 @@ class ProductVariantPatchRequestCollection extends MapperSequence
     /**
      * @psalm-assert ProductVariantPatchRequest $value
      * @psalm-param ProductVariantPatchRequest|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductVariantPatchRequestCollection

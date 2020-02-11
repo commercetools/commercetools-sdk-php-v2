@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectModel implements OrderSetCustomLineItemShippingDetailsAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';
+    public const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         string $customLineItemId = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartResourceIdentifier>
- *
  * @method CartResourceIdentifier current()
  * @method CartResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class CartResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert CartResourceIdentifier $value
      * @psalm-param CartResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartResourceIdentifierCollection

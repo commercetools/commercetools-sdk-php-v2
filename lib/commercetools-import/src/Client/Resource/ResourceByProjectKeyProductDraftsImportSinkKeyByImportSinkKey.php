@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importrequests\ProductDraftImportRequest;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,13 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey extends ApiR
             $args['resourceKey'] = $resourceKey;
         }
 
-        return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri() . '/resourceKey={resourceKey}', $args, $this->getClient());
     }
-
     public function importOperations(): ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
+        return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperations($this->getUri() . '/import-operations', $args, $this->getClient());
     }
 
     /**

@@ -9,11 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class DateSetAttributeModel extends JsonObjectModel implements DateSetAttribute
 {
-    const DISCRIMINATOR_VALUE = 'date-set';
+    public const DISCRIMINATOR_VALUE = 'date-set';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class DateSetAttributeModel extends JsonObjectModel implements DateSetAttr
      * @var ?DateTimeImmutableCollection
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

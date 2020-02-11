@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AttributeNumberTypeModel extends JsonObjectModel implements AttributeNumberType
 {
-    const DISCRIMINATOR_VALUE = 'number';
+    public const DISCRIMINATOR_VALUE = 'number';
     /**
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
     ) {

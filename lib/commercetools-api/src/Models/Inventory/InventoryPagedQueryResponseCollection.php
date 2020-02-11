@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryPagedQueryResponse>
- *
  * @method InventoryPagedQueryResponse current()
  * @method InventoryPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert InventoryPagedQueryResponse $value
      * @psalm-param InventoryPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryPagedQueryResponseCollection

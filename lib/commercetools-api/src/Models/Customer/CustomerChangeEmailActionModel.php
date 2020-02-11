@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerChangeEmailActionModel extends JsonObjectModel implements CustomerChangeEmailAction
 {
-    const DISCRIMINATOR_VALUE = 'changeEmail';
+    public const DISCRIMINATOR_VALUE = 'changeEmail';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
      * @var ?string
      */
     protected $email;
+
 
     public function __construct(
         string $email = null

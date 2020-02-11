@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentSetAmountPaidActionModel extends JsonObjectModel implements PaymentSetAmountPaidAction
 {
-    const DISCRIMINATOR_VALUE = 'setAmountPaid';
+    public const DISCRIMINATOR_VALUE = 'setAmountPaid';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class PaymentSetAmountPaidActionModel extends JsonObjectModel implements P
      * @var ?Money
      */
     protected $amount;
+
 
     public function __construct(
         Money $amount = null

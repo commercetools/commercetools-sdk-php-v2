@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartScoreTier>
- *
  * @method CartScoreTier current()
  * @method CartScoreTier at($offset)
  */
@@ -23,9 +22,6 @@ class CartScoreTierCollection extends MapperSequence
     /**
      * @psalm-assert CartScoreTier $value
      * @psalm-param CartScoreTier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartScoreTierCollection

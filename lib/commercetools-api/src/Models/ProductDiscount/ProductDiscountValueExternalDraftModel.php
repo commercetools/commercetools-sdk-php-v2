@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductDiscountValueExternalDraftModel extends JsonObjectModel implements ProductDiscountValueExternalDraft
 {
-    const DISCRIMINATOR_VALUE = 'external';
+    public const DISCRIMINATOR_VALUE = 'external';
     /**
      * @var ?string
      */
     protected $type;
+
 
     public function __construct(
     ) {

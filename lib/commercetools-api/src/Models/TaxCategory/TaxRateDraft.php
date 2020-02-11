@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TaxRateDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_AMOUNT = 'amount';
-    const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_STATE = 'state';
-    const FIELD_SUB_RATES = 'subRates';
+    public const FIELD_NAME = 'name';
+    public const FIELD_AMOUNT = 'amount';
+    public const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_STATE = 'state';
+    public const FIELD_SUB_RATES = 'subRates';
 
     /**
      * @return null|string

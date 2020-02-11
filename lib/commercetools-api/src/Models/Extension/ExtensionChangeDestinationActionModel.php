@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionChangeDestinationActionModel extends JsonObjectModel implements ExtensionChangeDestinationAction
 {
-    const DISCRIMINATOR_VALUE = 'changeDestination';
+    public const DISCRIMINATOR_VALUE = 'changeDestination';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
      * @var ?ExtensionDestination
      */
     protected $destination;
+
 
     public function __construct(
         ExtensionDestination $destination = null

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectModel implements ExtensionAuthorizationHeaderAuthentication
 {
-    const DISCRIMINATOR_VALUE = 'AuthorizationHeader';
+    public const DISCRIMINATOR_VALUE = 'AuthorizationHeader';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
      * @var ?string
      */
     protected $headerValue;
+
 
     public function __construct(
         string $headerValue = null

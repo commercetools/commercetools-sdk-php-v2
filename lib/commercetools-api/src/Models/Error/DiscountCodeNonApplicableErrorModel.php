@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implements DiscountCodeNonApplicableError
 {
-    const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';
+    public const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';
     /**
      * @var ?string
      */
@@ -54,6 +59,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
      * @var ?DateTimeImmutable
      */
     protected $validityCheckTime;
+
 
     public function __construct(
         string $message = null,
@@ -257,6 +263,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->validityCheckTime = $validityCheckTime;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -271,7 +278,6 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         if (isset($data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]) && $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] instanceof \DateTimeImmutable) {
             $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] = $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -8,9 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
+use stdClass;
 
 final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 {
@@ -43,6 +48,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
      * @var ?string
      */
     protected $value;
+
 
     public function __construct(
         string $id = null,
@@ -204,6 +210,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         $this->value = $value;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -218,7 +225,6 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         if (isset($data[CustomerToken::FIELD_EXPIRES_AT]) && $data[CustomerToken::FIELD_EXPIRES_AT] instanceof \DateTimeImmutable) {
             $data[CustomerToken::FIELD_EXPIRES_AT] = $data[CustomerToken::FIELD_EXPIRES_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel implements InventoryEntrySetSupplyChannelAction
 {
-    const DISCRIMINATOR_VALUE = 'setSupplyChannel';
+    public const DISCRIMINATOR_VALUE = 'setSupplyChannel';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
+
 
     public function __construct(
         ChannelResourceIdentifier $supplyChannel = null

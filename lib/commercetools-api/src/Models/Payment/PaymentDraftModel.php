@@ -13,9 +13,13 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
@@ -94,6 +98,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         CustomerResourceIdentifier $customer = null,

@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetCustomFieldAction extends StagedOrderUpdateAction
 {
-    const FIELD_NAME = 'name';
-    const FIELD_VALUE = 'value';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

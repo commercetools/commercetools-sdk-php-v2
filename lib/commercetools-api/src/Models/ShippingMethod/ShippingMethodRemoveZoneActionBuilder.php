@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\ShippingMethod;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ShippingMethodRemoveZoneAction>

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LocalizableEnumSetAttribute>
- *
  * @method LocalizableEnumSetAttribute current()
  * @method LocalizableEnumSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class LocalizableEnumSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert LocalizableEnumSetAttribute $value
      * @psalm-param LocalizableEnumSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return LocalizableEnumSetAttributeCollection

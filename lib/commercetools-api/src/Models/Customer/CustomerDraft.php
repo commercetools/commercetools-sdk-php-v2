@@ -12,36 +12,37 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomerDraft extends JsonObject
 {
-    const FIELD_CUSTOMER_NUMBER = 'customerNumber';
-    const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
-    const FIELD_FIRST_NAME = 'firstName';
-    const FIELD_LAST_NAME = 'lastName';
-    const FIELD_MIDDLE_NAME = 'middleName';
-    const FIELD_TITLE = 'title';
-    const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
-    const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
-    const FIELD_COMPANY_NAME = 'companyName';
-    const FIELD_VAT_ID = 'vatId';
-    const FIELD_ADDRESSES = 'addresses';
-    const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
-    const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
-    const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
-    const FIELD_BILLING_ADDRESSES = 'billingAddresses';
-    const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_SALUTATION = 'salutation';
-    const FIELD_KEY = 'key';
-    const FIELD_STORES = 'stores';
+    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_PASSWORD = 'password';
+    public const FIELD_FIRST_NAME = 'firstName';
+    public const FIELD_LAST_NAME = 'lastName';
+    public const FIELD_MIDDLE_NAME = 'middleName';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
+    public const FIELD_COMPANY_NAME = 'companyName';
+    public const FIELD_VAT_ID = 'vatId';
+    public const FIELD_ADDRESSES = 'addresses';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
+    public const FIELD_SHIPPING_ADDRESSES = 'shippingAddresses';
+    public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
+    public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
+    public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_SALUTATION = 'salutation';
+    public const FIELD_KEY = 'key';
+    public const FIELD_STORES = 'stores';
 
     /**
      * <p>String that uniquely identifies a customer.

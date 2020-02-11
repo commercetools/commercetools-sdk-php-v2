@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomerGroupReferenceModel extends JsonObjectModel implements CustomerGroupReference
 {
-    const DISCRIMINATOR_VALUE = 'customer-group';
+    public const DISCRIMINATOR_VALUE = 'customer-group';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
      * @var ?CustomerGroup
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldLocalizedStringType>
- *
  * @method CustomFieldLocalizedStringType current()
  * @method CustomFieldLocalizedStringType at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldLocalizedStringTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldLocalizedStringType $value
      * @psalm-param CustomFieldLocalizedStringType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldLocalizedStringTypeCollection

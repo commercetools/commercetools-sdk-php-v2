@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductDiscountValueModel extends JsonObjectModel implements ProductDiscountValue
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,11 +24,12 @@ final class ProductDiscountValueModel extends JsonObjectModel implements Product
 
     /**
      * @psalm-var array<string, class-string<ProductDiscountValue> >
+     *
      */
     private static $discriminatorClasses = [
-        'absolute' => ProductDiscountValueAbsoluteModel::class,
-        'external' => ProductDiscountValueExternalModel::class,
-        'relative' => ProductDiscountValueRelativeModel::class,
+       'absolute' => ProductDiscountValueAbsoluteModel::class,
+       'external' => ProductDiscountValueExternalModel::class,
+       'relative' => ProductDiscountValueRelativeModel::class,
     ];
 
     public function __construct(
@@ -50,18 +54,19 @@ final class ProductDiscountValueModel extends JsonObjectModel implements Product
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ProductDiscountValue>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ProductDiscountValue::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -76,7 +81,6 @@ final class ProductDiscountValueModel extends JsonObjectModel implements Product
 
         /** @psalm-var class-string<ProductDiscountValue> */
         $type = ProductDiscountValueModel::class;
-
         return $type;
     }
 }

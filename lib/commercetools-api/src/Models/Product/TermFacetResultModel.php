@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TermFacetResultModel extends JsonObjectModel implements TermFacetResult
 {
-    const DISCRIMINATOR_VALUE = 'terms';
+    public const DISCRIMINATOR_VALUE = 'terms';
     /**
      * @var ?string
      */
@@ -43,6 +46,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
      * @var ?FacetResultTermCollection
      */
     protected $terms;
+
 
     public function __construct(
         string $dataType = null,

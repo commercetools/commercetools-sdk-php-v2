@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel implements StagedOrderRemoveParcelFromDeliveryAction
 {
-    const DISCRIMINATOR_VALUE = 'removeParcelFromDelivery';
+    public const DISCRIMINATOR_VALUE = 'removeParcelFromDelivery';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
      * @var ?string
      */
     protected $parcelId;
+
 
     public function __construct(
         string $parcelId = null

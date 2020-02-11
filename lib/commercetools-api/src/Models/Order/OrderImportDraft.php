@@ -16,33 +16,34 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderImportDraft extends JsonObject
 {
-    const FIELD_ORDER_NUMBER = 'orderNumber';
-    const FIELD_CUSTOMER_ID = 'customerId';
-    const FIELD_CUSTOMER_EMAIL = 'customerEmail';
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
-    const FIELD_TOTAL_PRICE = 'totalPrice';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
-    const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    const FIELD_BILLING_ADDRESS = 'billingAddress';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_ORDER_STATE = 'orderState';
-    const FIELD_SHIPMENT_STATE = 'shipmentState';
-    const FIELD_PAYMENT_STATE = 'paymentState';
-    const FIELD_SHIPPING_INFO = 'shippingInfo';
-    const FIELD_COMPLETED_AT = 'completedAt';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_INVENTORY_MODE = 'inventoryMode';
-    const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
-    const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
-    const FIELD_STORE = 'store';
-    const FIELD_ORIGIN = 'origin';
+    public const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_ORDER_STATE = 'orderState';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_SHIPPING_INFO = 'shippingInfo';
+    public const FIELD_COMPLETED_AT = 'completedAt';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
+    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_STORE = 'store';
+    public const FIELD_ORIGIN = 'origin';
 
     /**
      * <p>String that unique identifies an order.

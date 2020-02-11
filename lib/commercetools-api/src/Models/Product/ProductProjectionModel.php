@@ -10,8 +10,10 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
@@ -20,9 +22,12 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductProjectionModel extends JsonObjectModel implements ProductProjection
@@ -136,6 +141,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
+
 
     public function __construct(
         string $id = null,
@@ -700,6 +706,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -710,7 +717,6 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

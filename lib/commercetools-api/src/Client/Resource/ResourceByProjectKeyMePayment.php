@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -23,9 +24,8 @@ class ResourceByProjectKeyMePayment extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyMePaymentKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyMePaymentKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withIDValue(string $ID = null): ResourceByProjectKeyMePaymentByID
     {
         $args = $this->getArgs();
@@ -33,6 +33,6 @@ class ResourceByProjectKeyMePayment extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyMePaymentByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyMePaymentByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 }

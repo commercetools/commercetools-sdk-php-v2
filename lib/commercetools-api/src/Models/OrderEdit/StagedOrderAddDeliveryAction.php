@@ -12,12 +12,14 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
 {
-    const FIELD_ITEMS = 'items';
-    const FIELD_ADDRESS = 'address';
-    const FIELD_PARCELS = 'parcels';
+    public const FIELD_ITEMS = 'items';
+    public const FIELD_ADDRESS = 'address';
+    public const FIELD_PARCELS = 'parcels';
 
     /**
      * @return null|DeliveryItemCollection

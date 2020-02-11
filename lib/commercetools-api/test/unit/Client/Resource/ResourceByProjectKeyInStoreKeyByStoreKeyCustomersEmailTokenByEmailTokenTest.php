@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet
- *
- * @internal
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
                         ->customers()
                         ->withEmailToken('emailToken')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/email-token={emailToken}?expand=expand',
@@ -42,16 +39,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withEmailToken('emailToken')
-                        ->get()
-                    ;
+                        ->withEmailToken("emailToken")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/email-token={emailToken}',
-            ],
+            ]
         ];
     }
 
@@ -66,7 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -75,14 +71,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withEmailToken('emailToken')
-                        ->get()
-                    ;
-                },
-            ],
+                        ->withEmailToken("emailToken")
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -95,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

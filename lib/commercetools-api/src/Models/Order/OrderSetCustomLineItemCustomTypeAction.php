@@ -10,12 +10,14 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderSetCustomLineItemCustomTypeAction extends OrderUpdateAction
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|string

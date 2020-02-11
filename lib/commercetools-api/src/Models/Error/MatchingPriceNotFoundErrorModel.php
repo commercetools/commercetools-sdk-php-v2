@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements MatchingPriceNotFoundError
 {
-    const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';
+    public const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';
     /**
      * @var ?string
      */
@@ -57,6 +61,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
      * @var ?ChannelReference
      */
     protected $channel;
+
 
     public function __construct(
         string $message = null,

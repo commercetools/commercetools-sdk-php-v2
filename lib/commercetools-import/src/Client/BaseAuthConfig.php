@@ -6,15 +6,17 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Import\Client;
 
 use Commercetools\Client\AuthConfig;
 
 abstract class BaseAuthConfig implements AuthConfig
 {
-    const AUTH_URI = 'https://auth.sphere.io/oauth/token';
+    public const AUTH_URI = 'https://auth.sphere.io/oauth/token';
 
-    const GRANT_TYPE = '';
+
+    public const GRANT_TYPE = '';
 
     /** @psalm-var string */
     private $authUri;

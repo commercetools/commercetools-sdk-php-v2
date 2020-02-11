@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShippingMethodChangeTaxCategoryAction extends ShippingMethodUpdateAction
 {
-    const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**
      * @return null|TaxCategoryResourceIdentifier

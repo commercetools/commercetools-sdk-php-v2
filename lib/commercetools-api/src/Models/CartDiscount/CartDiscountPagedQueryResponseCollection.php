@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountPagedQueryResponse>
- *
  * @method CartDiscountPagedQueryResponse current()
  * @method CartDiscountPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class CartDiscountPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountPagedQueryResponse $value
      * @psalm-param CartDiscountPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartDiscountPagedQueryResponseCollection

@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel implements ProductPriceDiscountsSetUpdatedPrice
@@ -44,6 +48,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

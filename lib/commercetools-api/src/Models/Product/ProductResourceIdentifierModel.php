@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductResourceIdentifierModel extends JsonObjectModel implements ProductResourceIdentifier
 {
-    const DISCRIMINATOR_VALUE = 'product';
+    public const DISCRIMINATOR_VALUE = 'product';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class ProductResourceIdentifierModel extends JsonObjectModel implements Pr
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

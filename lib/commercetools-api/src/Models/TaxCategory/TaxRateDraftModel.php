@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
@@ -42,6 +45,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
      * @var ?SubRateCollection
      */
     protected $subRates;
+
 
     public function __construct(
         string $name = null,

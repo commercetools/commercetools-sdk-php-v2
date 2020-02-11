@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implements ProductTypeChangeEnumKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'changeEnumKey';
+    public const DISCRIMINATOR_VALUE = 'changeEnumKey';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
      * @var ?string
      */
     protected $newKey;
+
 
     public function __construct(
         string $attributeName = null,

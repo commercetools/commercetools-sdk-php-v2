@@ -8,35 +8,62 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
+use Commercetools\Api\Models\Category\CategoryReference;
+
 use Commercetools\Api\Models\Category\CategoryReferenceModel;
+use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Api\Models\CustomObject\CustomObjectReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReferenceModel;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReferenceModel;
+use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
+use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
+use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Payment\PaymentReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceModel;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\Review\ReviewReferenceModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceModel;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Api\Models\Store\StoreReference;
 use Commercetools\Api\Models\Store\StoreReferenceModel;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Api\Models\Type\TypeReference;
 use Commercetools\Api\Models\Type\TypeReferenceModel;
+use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Api\Models\Zone\ZoneReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReferenceModel extends JsonObjectModel implements Reference
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -49,31 +76,32 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
     /**
      * @psalm-var array<string, class-string<Reference> >
+     *
      */
     private static $discriminatorClasses = [
-        'key-value-document' => CustomObjectReferenceModel::class,
-        'customer-group' => CustomerGroupReferenceModel::class,
-        'customer' => CustomerReferenceModel::class,
-        'discount-code' => DiscountCodeReferenceModel::class,
-        'inventory-entry' => InventoryEntryReferenceModel::class,
-        'order-edit' => OrderEditReferenceModel::class,
-        'order' => OrderReferenceModel::class,
-        'payment' => PaymentReferenceModel::class,
-        'product-discount' => ProductDiscountReferenceModel::class,
-        'product-type' => ProductTypeReferenceModel::class,
-        'product' => ProductReferenceModel::class,
-        'review' => ReviewReferenceModel::class,
-        'shipping-method' => ShippingMethodReferenceModel::class,
-        'shopping-list' => ShoppingListReferenceModel::class,
-        'state' => StateReferenceModel::class,
-        'store' => StoreReferenceModel::class,
-        'tax-category' => TaxCategoryReferenceModel::class,
-        'type' => TypeReferenceModel::class,
-        'zone' => ZoneReferenceModel::class,
-        'cart-discount' => CartDiscountReferenceModel::class,
-        'channel' => ChannelReferenceModel::class,
-        'category' => CategoryReferenceModel::class,
-        'cart' => CartReferenceModel::class,
+       'key-value-document' => CustomObjectReferenceModel::class,
+       'customer-group' => CustomerGroupReferenceModel::class,
+       'customer' => CustomerReferenceModel::class,
+       'discount-code' => DiscountCodeReferenceModel::class,
+       'inventory-entry' => InventoryEntryReferenceModel::class,
+       'order-edit' => OrderEditReferenceModel::class,
+       'order' => OrderReferenceModel::class,
+       'payment' => PaymentReferenceModel::class,
+       'product-discount' => ProductDiscountReferenceModel::class,
+       'product-type' => ProductTypeReferenceModel::class,
+       'product' => ProductReferenceModel::class,
+       'review' => ReviewReferenceModel::class,
+       'shipping-method' => ShippingMethodReferenceModel::class,
+       'shopping-list' => ShoppingListReferenceModel::class,
+       'state' => StateReferenceModel::class,
+       'store' => StoreReferenceModel::class,
+       'tax-category' => TaxCategoryReferenceModel::class,
+       'type' => TypeReferenceModel::class,
+       'zone' => ZoneReferenceModel::class,
+       'cart' => CartReferenceModel::class,
+       'category' => CategoryReferenceModel::class,
+       'cart-discount' => CartDiscountReferenceModel::class,
+       'channel' => ChannelReferenceModel::class,
     ];
 
     public function __construct(
@@ -122,18 +150,18 @@ final class ReferenceModel extends JsonObjectModel implements Reference
         $this->id = $id;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<Reference>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = Reference::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -148,7 +176,6 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
         /** @psalm-var class-string<Reference> */
         $type = ReferenceModel::class;
-
         return $type;
     }
 }

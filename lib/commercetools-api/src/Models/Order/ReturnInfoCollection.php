@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReturnInfo>
- *
  * @method ReturnInfo current()
  * @method ReturnInfo at($offset)
  */
@@ -23,9 +22,6 @@ class ReturnInfoCollection extends MapperSequence
     /**
      * @psalm-assert ReturnInfo $value
      * @psalm-param ReturnInfo|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReturnInfoCollection

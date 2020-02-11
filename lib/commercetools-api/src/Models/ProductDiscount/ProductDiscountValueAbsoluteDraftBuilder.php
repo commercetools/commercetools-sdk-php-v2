@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductDiscountValueAbsoluteDraft>
@@ -38,6 +43,7 @@ final class ProductDiscountValueAbsoluteDraftBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductDiscountValueAbsoluteDraft
     {

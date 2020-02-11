@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface Suggestion extends JsonObject
 {
-    const FIELD_TEXT = 'text';
+    public const FIELD_TEXT = 'text';
 
     /**
      * <p>The suggested text.</p>

@@ -10,13 +10,14 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface VariantValues extends JsonObject
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_PRICES = 'prices';
-    const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * @return null|string

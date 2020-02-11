@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionChangeTriggersAction extends ExtensionUpdateAction
 {
-    const FIELD_TRIGGERS = 'triggers';
+    public const FIELD_TRIGGERS = 'triggers';
 
     /**
      * @return null|ExtensionTriggerCollection

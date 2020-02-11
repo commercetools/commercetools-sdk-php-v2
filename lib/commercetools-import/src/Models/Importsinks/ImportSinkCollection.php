@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportSink>
- *
  * @method ImportSink current()
  * @method ImportSink at($offset)
  */
@@ -23,9 +22,6 @@ class ImportSinkCollection extends MapperSequence
     /**
      * @psalm-assert ImportSink $value
      * @psalm-param ImportSink|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportSinkCollection

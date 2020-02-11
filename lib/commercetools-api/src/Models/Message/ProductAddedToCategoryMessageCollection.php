@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductAddedToCategoryMessage>
- *
  * @method ProductAddedToCategoryMessage current()
  * @method ProductAddedToCategoryMessage at($offset)
  */
@@ -23,9 +22,6 @@ class ProductAddedToCategoryMessageCollection extends MapperSequence
     /**
      * @psalm-assert ProductAddedToCategoryMessage $value
      * @psalm-param ProductAddedToCategoryMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductAddedToCategoryMessageCollection

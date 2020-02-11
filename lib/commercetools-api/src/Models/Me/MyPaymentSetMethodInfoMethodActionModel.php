@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel implements MyPaymentSetMethodInfoMethodAction
 {
-    const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
+    public const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
      * @var ?string
      */
     protected $method;
+
 
     public function __construct(
         string $method = null

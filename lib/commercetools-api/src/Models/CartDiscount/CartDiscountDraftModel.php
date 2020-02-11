@@ -12,9 +12,13 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft
@@ -83,6 +87,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
      * @var ?CustomFields
      */
     protected $custom;
+
 
     public function __construct(
         LocalizedString $name = null,
@@ -434,6 +439,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -444,7 +450,6 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         if (isset($data[CartDiscountDraft::FIELD_VALID_UNTIL]) && $data[CartDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[CartDiscountDraft::FIELD_VALID_UNTIL] = $data[CartDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

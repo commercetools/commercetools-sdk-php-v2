@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShoppingListSetLineItemCustomFieldAction>
- *
  * @method ShoppingListSetLineItemCustomFieldAction current()
  * @method ShoppingListSetLineItemCustomFieldAction at($offset)
  */
@@ -23,9 +22,6 @@ class ShoppingListSetLineItemCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert ShoppingListSetLineItemCustomFieldAction $value
      * @psalm-param ShoppingListSetLineItemCustomFieldAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShoppingListSetLineItemCustomFieldActionCollection

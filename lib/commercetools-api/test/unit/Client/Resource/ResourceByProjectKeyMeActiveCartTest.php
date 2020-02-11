@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeActiveCartGet
- *
- * @internal
  */
 class ResourceByProjectKeyMeActiveCartTest extends TestCase
 {
@@ -28,15 +26,14 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
             'ByProjectKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->activeCart()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/me/active-cart',
-            ],
+            ]
         ];
     }
 
@@ -51,7 +48,7 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -60,13 +57,12 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
             'ByProjectKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->activeCart()
-                        ->get()
-                    ;
-                },
-            ],
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -79,7 +75,7 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

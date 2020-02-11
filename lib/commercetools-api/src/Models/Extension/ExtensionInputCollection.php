@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionInput>
- *
  * @method ExtensionInput current()
  * @method ExtensionInput at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionInputCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionInput $value
      * @psalm-param ExtensionInput|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionInputCollection

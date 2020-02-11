@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Inventory\InventoryEntryDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,12 @@ class ResourceByProjectKeyInventory extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyInventoryByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyInventoryByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyInventoryGet
     {
@@ -39,7 +38,6 @@ class ResourceByProjectKeyInventory extends ApiResource
 
         return new ByProjectKeyInventoryGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?InventoryEntryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

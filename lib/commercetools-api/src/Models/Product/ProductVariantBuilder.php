@@ -16,6 +16,11 @@ use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Api\Models\Common\ScopedPriceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductVariant>

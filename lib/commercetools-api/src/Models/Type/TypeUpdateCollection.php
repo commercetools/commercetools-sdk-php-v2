@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeUpdate>
- *
  * @method TypeUpdate current()
  * @method TypeUpdate at($offset)
  */
@@ -23,9 +22,6 @@ class TypeUpdateCollection extends MapperSequence
     /**
      * @psalm-assert TypeUpdate $value
      * @psalm-param TypeUpdate|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeUpdateCollection

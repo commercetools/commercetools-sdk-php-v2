@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartClassificationTier extends ShippingRatePriceTier
 {
-    const FIELD_VALUE = 'value';
-    const FIELD_PRICE = 'price';
-    const FIELD_IS_MATCHING = 'isMatching';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
      * @return null|string

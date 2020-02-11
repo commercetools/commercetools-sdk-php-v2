@@ -11,14 +11,19 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel implements StagedOrderUpdateSyncInfoAction
 {
-    const DISCRIMINATOR_VALUE = 'updateSyncInfo';
+    public const DISCRIMINATOR_VALUE = 'updateSyncInfo';
     /**
      * @var ?string
      */
@@ -38,6 +43,7 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
+
 
     public function __construct(
         ChannelResourceIdentifier $channel = null,
@@ -138,13 +144,13 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
         $this->syncedAt = $syncedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[StagedOrderUpdateSyncInfoAction::FIELD_SYNCED_AT]) && $data[StagedOrderUpdateSyncInfoAction::FIELD_SYNCED_AT] instanceof \DateTimeImmutable) {
             $data[StagedOrderUpdateSyncInfoAction::FIELD_SYNCED_AT] = $data[StagedOrderUpdateSyncInfoAction::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

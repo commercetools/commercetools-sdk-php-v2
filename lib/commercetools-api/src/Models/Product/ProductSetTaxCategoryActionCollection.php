@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetTaxCategoryAction>
- *
  * @method ProductSetTaxCategoryAction current()
  * @method ProductSetTaxCategoryAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductSetTaxCategoryActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetTaxCategoryAction $value
      * @psalm-param ProductSetTaxCategoryAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductSetTaxCategoryActionCollection

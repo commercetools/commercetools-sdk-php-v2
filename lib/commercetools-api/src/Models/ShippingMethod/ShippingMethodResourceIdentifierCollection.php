@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodResourceIdentifier>
- *
  * @method ShippingMethodResourceIdentifier current()
  * @method ShippingMethodResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingMethodResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodResourceIdentifier $value
      * @psalm-param ShippingMethodResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingMethodResourceIdentifierCollection

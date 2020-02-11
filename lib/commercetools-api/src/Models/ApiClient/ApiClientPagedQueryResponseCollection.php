@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ApiClientPagedQueryResponse>
- *
  * @method ApiClientPagedQueryResponse current()
  * @method ApiClientPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ApiClientPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert ApiClientPagedQueryResponse $value
      * @psalm-param ApiClientPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ApiClientPagedQueryResponseCollection

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,18 +24,19 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
 
     /**
      * @psalm-var array<string, class-string<ChannelUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addRoles' => ChannelAddRolesActionModel::class,
-        'changeDescription' => ChannelChangeDescriptionActionModel::class,
-        'changeKey' => ChannelChangeKeyActionModel::class,
-        'changeName' => ChannelChangeNameActionModel::class,
-        'removeRoles' => ChannelRemoveRolesActionModel::class,
-        'setAddress' => ChannelSetAddressActionModel::class,
-        'setCustomField' => ChannelSetCustomFieldActionModel::class,
-        'setCustomType' => ChannelSetCustomTypeActionModel::class,
-        'setGeoLocation' => ChannelSetGeoLocationActionModel::class,
-        'setRoles' => ChannelSetRolesActionModel::class,
+       'addRoles' => ChannelAddRolesActionModel::class,
+       'changeDescription' => ChannelChangeDescriptionActionModel::class,
+       'changeKey' => ChannelChangeKeyActionModel::class,
+       'changeName' => ChannelChangeNameActionModel::class,
+       'removeRoles' => ChannelRemoveRolesActionModel::class,
+       'setAddress' => ChannelSetAddressActionModel::class,
+       'setCustomField' => ChannelSetCustomFieldActionModel::class,
+       'setCustomType' => ChannelSetCustomTypeActionModel::class,
+       'setGeoLocation' => ChannelSetGeoLocationActionModel::class,
+       'setRoles' => ChannelSetRolesActionModel::class,
     ];
 
     public function __construct(
@@ -57,18 +61,19 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ChannelUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ChannelUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -83,7 +88,6 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
 
         /** @psalm-var class-string<ChannelUpdateAction> */
         $type = ChannelUpdateActionModel::class;
-
         return $type;
     }
 }

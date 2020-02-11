@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface AttributeType extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'name';
-    const FIELD_NAME = 'name';
+    public const DISCRIMINATOR_FIELD = 'name';
+    public const FIELD_NAME = 'name';
 
     /**
      * @return null|string

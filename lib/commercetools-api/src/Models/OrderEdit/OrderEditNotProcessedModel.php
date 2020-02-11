@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderEditNotProcessed
 {
-    const DISCRIMINATOR_VALUE = 'NotProcessed';
+    public const DISCRIMINATOR_VALUE = 'NotProcessed';
     /**
      * @var ?string
      */
     protected $type;
+
 
     public function __construct(
     ) {

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerKeyReference>
- *
  * @method CustomerKeyReference current()
  * @method CustomerKeyReference at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerKeyReferenceCollection extends MapperSequence
     /**
      * @psalm-assert CustomerKeyReference $value
      * @psalm-param CustomerKeyReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerKeyReferenceCollection

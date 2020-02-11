@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -98,6 +102,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
      * @var ?bool
      */
     protected $publish;
+
 
     public function __construct(
         ProductTypeKeyReference $productType = null,

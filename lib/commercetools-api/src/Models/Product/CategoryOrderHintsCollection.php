@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryOrderHints>
- *
  * @method CategoryOrderHints current()
  * @method CategoryOrderHints at($offset)
  */
@@ -23,9 +22,6 @@ class CategoryOrderHintsCollection extends MapperSequence
     /**
      * @psalm-assert CategoryOrderHints $value
      * @psalm-param CategoryOrderHints|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategoryOrderHintsCollection

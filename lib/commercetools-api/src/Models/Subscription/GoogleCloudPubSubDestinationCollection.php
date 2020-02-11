@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GoogleCloudPubSubDestination>
- *
  * @method GoogleCloudPubSubDestination current()
  * @method GoogleCloudPubSubDestination at($offset)
  */
@@ -23,9 +22,6 @@ class GoogleCloudPubSubDestinationCollection extends MapperSequence
     /**
      * @psalm-assert GoogleCloudPubSubDestination $value
      * @psalm-param GoogleCloudPubSubDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GoogleCloudPubSubDestinationCollection

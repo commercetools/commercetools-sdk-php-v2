@@ -8,13 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class SubscriptionModel extends JsonObjectModel implements Subscription
@@ -78,6 +84,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
      * @var ?string
      */
     protected $status;
+
 
     public function __construct(
         string $id = null,
@@ -387,6 +394,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         $this->status = $status;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -397,7 +405,6 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         if (isset($data[Subscription::FIELD_LAST_MODIFIED_AT]) && $data[Subscription::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Subscription::FIELD_LAST_MODIFIED_AT] = $data[Subscription::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

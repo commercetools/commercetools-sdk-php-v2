@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel implements ProjectChangeMessagesEnabledAction
 {
-    const DISCRIMINATOR_VALUE = 'changeMessagesEnabled';
+    public const DISCRIMINATOR_VALUE = 'changeMessagesEnabled';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
      * @var ?bool
      */
     protected $messagesEnabled;
+
 
     public function __construct(
         bool $messagesEnabled = null

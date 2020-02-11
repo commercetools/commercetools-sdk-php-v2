@@ -11,7 +11,11 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
@@ -45,6 +49,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
      * @var ?AssetDraftCollection
      */
     protected $assets;
+
 
     public function __construct(
         string $sku = null,

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface RequiredFieldError extends ErrorObject
 {
-    const FIELD_FIELD = 'field';
+    public const FIELD_FIELD = 'field';
 
     /**
      * <p>The name of the field.</p>

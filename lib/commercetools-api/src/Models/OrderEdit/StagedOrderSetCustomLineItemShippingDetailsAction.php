@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetCustomLineItemShippingDetailsAction extends StagedOrderUpdateAction
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
      * @return null|string

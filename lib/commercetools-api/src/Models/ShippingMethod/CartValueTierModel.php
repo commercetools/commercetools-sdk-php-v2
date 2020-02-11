@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartValueTierModel extends JsonObjectModel implements CartValueTier
 {
-    const DISCRIMINATOR_VALUE = 'CartValue';
+    public const DISCRIMINATOR_VALUE = 'CartValue';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
      * @var ?bool
      */
     protected $isMatching;
+
 
     public function __construct(
         int $minimumCentAmount = null,

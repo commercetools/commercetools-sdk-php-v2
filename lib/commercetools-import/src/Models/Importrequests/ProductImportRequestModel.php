@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Products\ProductImportCollection;
+
 use stdClass;
 
 final class ProductImportRequestModel extends JsonObjectModel implements ProductImportRequest
 {
-    const DISCRIMINATOR_VALUE = 'product';
+    public const DISCRIMINATOR_VALUE = 'product';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class ProductImportRequestModel extends JsonObjectModel implements Product
      * @var ?ProductImportCollection
      */
     protected $resources;
+
 
     public function __construct(
         ProductImportCollection $resources = null

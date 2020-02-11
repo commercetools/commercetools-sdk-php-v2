@@ -15,18 +15,20 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Product extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_PRODUCT_TYPE = 'productType';
-    const FIELD_MASTER_DATA = 'masterData';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_STATE = 'state';
-    const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_PRODUCT_TYPE = 'productType';
+    public const FIELD_MASTER_DATA = 'masterData';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_STATE = 'state';
+    public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
 
     /**
      * <p>The unique ID of the product.</p>

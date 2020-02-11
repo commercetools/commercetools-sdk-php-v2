@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TaxCategoryChangeNameAction extends TaxCategoryUpdateAction
 {
-    const FIELD_NAME = 'name';
+    public const FIELD_NAME = 'name';
 
     /**
      * @return null|string

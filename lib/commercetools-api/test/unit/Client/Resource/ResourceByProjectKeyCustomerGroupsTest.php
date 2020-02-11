@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsPost
- *
- * @internal
  */
 class ResourceByProjectKeyCustomerGroupsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/customer-groups?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/customer-groups?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/customer-groups?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/customer-groups?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/customer-groups?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/customer-groups?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
             'ByProjectKeyCustomerGroupsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customerGroups()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/customer-groups',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/customer-groups?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
             'ByProjectKeyCustomerGroupsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customerGroups()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/customer-groups',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
             'ByProjectKeyCustomerGroupsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customerGroups()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyCustomerGroupsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customerGroups()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

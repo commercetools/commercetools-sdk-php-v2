@@ -8,7 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Categories\CategoryImport;
+
+use Commercetools\Import\Models\Categories\CategoryImportModel;
+use Commercetools\Import\Models\Prices\PriceImport;
+use Commercetools\Import\Models\Prices\PriceImportModel;
+use Commercetools\Import\Models\Products\ProductImport;
+use Commercetools\Import\Models\Products\ProductImportModel;
+use Commercetools\Import\Models\Producttypes\ProductTypeImport;
+use Commercetools\Import\Models\Producttypes\ProductTypeImportModel;
+use Commercetools\Import\Models\Productvariants\ProductVariantImport;
+use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
+use stdClass;
 
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
@@ -16,6 +31,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

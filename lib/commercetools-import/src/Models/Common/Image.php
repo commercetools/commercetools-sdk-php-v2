@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface Image extends JsonObject
 {
-    const FIELD_URL = 'url';
-    const FIELD_DIMENSIONS = 'dimensions';
-    const FIELD_LABEL = 'label';
+    public const FIELD_URL = 'url';
+    public const FIELD_DIMENSIONS = 'dimensions';
+    public const FIELD_LABEL = 'label';
 
     /**
      * @return null|string

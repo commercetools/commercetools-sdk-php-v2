@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<QueryPrice>
- *
  * @method QueryPrice current()
  * @method QueryPrice at($offset)
  */
@@ -23,9 +22,6 @@ class QueryPriceCollection extends MapperSequence
     /**
      * @psalm-assert QueryPrice $value
      * @psalm-param QueryPrice|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return QueryPriceCollection

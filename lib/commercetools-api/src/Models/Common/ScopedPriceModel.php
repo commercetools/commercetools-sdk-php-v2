@@ -13,10 +13,14 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
+
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
@@ -70,6 +74,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
      * @var ?CustomFields
      */
     protected $custom;
+
 
     public function __construct(
         string $id = null,
@@ -331,6 +336,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -341,7 +347,6 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
         if (isset($data[ScopedPrice::FIELD_VALID_UNTIL]) && $data[ScopedPrice::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[ScopedPrice::FIELD_VALID_UNTIL] = $data[ScopedPrice::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

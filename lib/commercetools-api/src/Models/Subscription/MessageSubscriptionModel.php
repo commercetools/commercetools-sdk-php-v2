@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MessageSubscriptionModel extends JsonObjectModel implements MessageSubscription
 {
@@ -21,6 +25,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
      * @var ?array
      */
     protected $types;
+
 
     public function __construct(
         string $resourceTypeId = null,

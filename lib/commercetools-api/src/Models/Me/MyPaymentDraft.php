@@ -11,14 +11,15 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyPaymentDraft extends JsonObject
 {
-    const FIELD_AMOUNT_PLANNED = 'amountPlanned';
-    const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_TRANSACTION = 'transaction';
+    public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
+    public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_TRANSACTION = 'transaction';
 
     /**
      * <p>How much money this payment intends to receive from the customer.

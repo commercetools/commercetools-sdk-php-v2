@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesByIDDelete
  */
 class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->taxCategories()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/tax-categories/{ID}?expand=expand',
@@ -43,11 +40,10 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
             'ByProjectKeyTaxCategoriesByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/tax-categories/{ID}',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->taxCategories()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/tax-categories/{ID}?expand=expand',
@@ -68,11 +63,10 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
             'ByProjectKeyTaxCategoriesByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/tax-categories/{ID}',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->taxCategories()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/tax-categories/{ID}?version=version',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->taxCategories()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/tax-categories/{ID}?expand=expand',
@@ -106,15 +98,14 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
             'ByProjectKeyTaxCategoriesByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/tax-categories/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -129,7 +120,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -138,33 +129,30 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
             'ByProjectKeyTaxCategoriesByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyTaxCategoriesByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyTaxCategoriesByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -177,7 +165,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

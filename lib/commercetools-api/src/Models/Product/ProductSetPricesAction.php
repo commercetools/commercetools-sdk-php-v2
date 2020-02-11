@@ -9,13 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetPricesAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SKU = 'sku';
-    const FIELD_PRICES = 'prices';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|int

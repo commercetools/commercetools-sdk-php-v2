@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidItemShippingDetailsError>
- *
  * @method InvalidItemShippingDetailsError current()
  * @method InvalidItemShippingDetailsError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidItemShippingDetailsErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidItemShippingDetailsError $value
      * @psalm-param InvalidItemShippingDetailsError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidItemShippingDetailsErrorCollection

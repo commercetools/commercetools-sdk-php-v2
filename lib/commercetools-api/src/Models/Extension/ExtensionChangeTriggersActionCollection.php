@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionChangeTriggersAction>
- *
  * @method ExtensionChangeTriggersAction current()
  * @method ExtensionChangeTriggersAction at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionChangeTriggersActionCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionChangeTriggersAction $value
      * @psalm-param ExtensionChangeTriggersAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionChangeTriggersActionCollection

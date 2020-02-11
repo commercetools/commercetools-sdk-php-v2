@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExternalOAuth extends JsonObject
 {
-    const FIELD_URL = 'url';
-    const FIELD_AUTHORIZATION_HEADER = 'authorizationHeader';
+    public const FIELD_URL = 'url';
+    public const FIELD_AUTHORIZATION_HEADER = 'authorizationHeader';
 
     /**
      * @return null|string

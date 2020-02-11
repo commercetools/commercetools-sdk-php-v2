@@ -9,15 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderTransitionLineItemStateAction extends OrderUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_FROM_STATE = 'fromState';
-    const FIELD_TO_STATE = 'toState';
-    const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_FROM_STATE = 'fromState';
+    public const FIELD_TO_STATE = 'toState';
+    public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
      * @return null|string

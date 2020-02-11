@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersPasswordTokenPost
- *
- * @internal
  */
 class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
 {
@@ -28,15 +26,14 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
             'ByProjectKeyCustomersPasswordTokenPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
                         ->passwordToken()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/customers/password-token',
-            ],
+            ]
         ];
     }
 
@@ -51,7 +48,7 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -60,13 +57,12 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
             'ByProjectKeyCustomersPasswordTokenPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
                         ->passwordToken()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -79,7 +75,7 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

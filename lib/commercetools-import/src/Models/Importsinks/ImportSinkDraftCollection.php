@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportSinkDraft>
- *
  * @method ImportSinkDraft current()
  * @method ImportSinkDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ImportSinkDraftCollection extends MapperSequence
     /**
      * @psalm-assert ImportSinkDraft $value
      * @psalm-param ImportSinkDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportSinkDraftCollection

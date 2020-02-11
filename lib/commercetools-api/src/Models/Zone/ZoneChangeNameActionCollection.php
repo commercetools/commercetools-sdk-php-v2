@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneChangeNameAction>
- *
  * @method ZoneChangeNameAction current()
  * @method ZoneChangeNameAction at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert ZoneChangeNameAction $value
      * @psalm-param ZoneChangeNameAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneChangeNameActionCollection

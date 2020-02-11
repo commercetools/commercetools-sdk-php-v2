@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateAttributeValuesError>
- *
  * @method DuplicateAttributeValuesError current()
  * @method DuplicateAttributeValuesError at($offset)
  */
@@ -23,9 +22,6 @@ class DuplicateAttributeValuesErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicateAttributeValuesError $value
      * @psalm-param DuplicateAttributeValuesError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DuplicateAttributeValuesErrorCollection

@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel implements ProductSetProductPriceCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setProductPriceCustomType';
+    public const DISCRIMINATOR_VALUE = 'setProductPriceCustomType';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         string $priceId = null,

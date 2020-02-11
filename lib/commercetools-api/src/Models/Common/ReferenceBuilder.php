@@ -8,7 +8,58 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Cart\CartReference;
+use Commercetools\Api\Models\Cart\CartReferenceBuilder;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceBuilder;
+use Commercetools\Api\Models\Category\CategoryReference;
+use Commercetools\Api\Models\Category\CategoryReferenceBuilder;
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObjectReference;
+use Commercetools\Api\Models\CustomObject\CustomObjectReferenceBuilder;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceBuilder;
+use Commercetools\Api\Models\Inventory\InventoryEntryReference;
+use Commercetools\Api\Models\Inventory\InventoryEntryReferenceBuilder;
+use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Order\OrderReferenceBuilder;
+use Commercetools\Api\Models\OrderEdit\OrderEditReference;
+use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
+use Commercetools\Api\Models\Payment\PaymentReference;
+use Commercetools\Api\Models\Payment\PaymentReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceBuilder;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
+use Commercetools\Api\Models\Review\ReviewReference;
+use Commercetools\Api\Models\Review\ReviewReferenceBuilder;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
+use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
+use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Api\Models\Store\StoreReference;
+use Commercetools\Api\Models\Store\StoreReferenceBuilder;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
+use Commercetools\Api\Models\Type\TypeReference;
+use Commercetools\Api\Models\Type\TypeReferenceBuilder;
+use Commercetools\Api\Models\Zone\ZoneReference;
+use Commercetools\Api\Models\Zone\ZoneReferenceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<Reference>
@@ -37,6 +88,7 @@ final class ReferenceBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): Reference
     {

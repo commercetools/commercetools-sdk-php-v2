@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface InventoryEntryRemoveQuantityAction extends InventoryEntryUpdateAction
 {
-    const FIELD_QUANTITY = 'quantity';
+    public const FIELD_QUANTITY = 'quantity';
 
     /**
      * @return null|int

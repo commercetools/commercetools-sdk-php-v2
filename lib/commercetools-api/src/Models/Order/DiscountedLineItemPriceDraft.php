@@ -10,12 +10,13 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountedLineItemPriceDraft extends JsonObject
 {
-    const FIELD_VALUE = 'value';
-    const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
 
     /**
      * @return null|Money

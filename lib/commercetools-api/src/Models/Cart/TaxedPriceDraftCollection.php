@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxedPriceDraft>
- *
  * @method TaxedPriceDraft current()
  * @method TaxedPriceDraft at($offset)
  */
@@ -23,9 +22,6 @@ class TaxedPriceDraftCollection extends MapperSequence
     /**
      * @psalm-assert TaxedPriceDraft $value
      * @psalm-param TaxedPriceDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxedPriceDraftCollection

@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsPost
- *
- * @internal
  */
 class ResourceByProjectKeyProductsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'get',
                 '{projectKey}/products?priceCurrency=priceCurrency',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'get',
                 '{projectKey}/products?priceCountry=priceCountry',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
                 '{projectKey}/products?priceCustomerGroup=priceCustomerGroup',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'get',
                 '{projectKey}/products?priceChannel=priceChannel',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/products?expand=expand',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/products?where=where',
@@ -104,8 +96,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/products?sort=sort',
@@ -116,8 +107,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/products?limit=limit',
@@ -128,8 +118,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/products?offset=offset',
@@ -140,8 +129,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/products?withTotal=withTotal',
@@ -149,10 +137,9 @@ class ResourceByProjectKeyProductsTest extends TestCase
             'ByProjectKeyProductsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/products',
@@ -163,8 +150,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->post(null)
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'post',
                 '{projectKey}/products?priceCurrency=priceCurrency',
@@ -175,8 +161,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->post(null)
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'post',
                 '{projectKey}/products?priceCountry=priceCountry',
@@ -187,8 +172,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->post(null)
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'post',
                 '{projectKey}/products?priceCustomerGroup=priceCustomerGroup',
@@ -199,8 +183,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->post(null)
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'post',
                 '{projectKey}/products?priceChannel=priceChannel',
@@ -211,8 +194,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->products()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/products?expand=expand',
@@ -220,14 +202,13 @@ class ResourceByProjectKeyProductsTest extends TestCase
             'ByProjectKeyProductsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/products',
-            ],
+            ]
         ];
     }
 
@@ -242,7 +223,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -251,21 +232,19 @@ class ResourceByProjectKeyProductsTest extends TestCase
             'ByProjectKeyProductsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyProductsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -278,7 +257,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

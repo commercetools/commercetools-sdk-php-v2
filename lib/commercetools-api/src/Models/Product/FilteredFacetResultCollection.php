@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FilteredFacetResult>
- *
  * @method FilteredFacetResult current()
  * @method FilteredFacetResult at($offset)
  */
@@ -23,9 +22,6 @@ class FilteredFacetResultCollection extends MapperSequence
     /**
      * @psalm-assert FilteredFacetResult $value
      * @psalm-param FilteredFacetResult|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return FilteredFacetResultCollection

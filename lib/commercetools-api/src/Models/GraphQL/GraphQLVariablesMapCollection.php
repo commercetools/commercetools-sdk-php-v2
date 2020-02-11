@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GraphQLVariablesMap>
- *
  * @method GraphQLVariablesMap current()
  * @method GraphQLVariablesMap at($offset)
  */
@@ -23,9 +22,6 @@ class GraphQLVariablesMapCollection extends MapperSequence
     /**
      * @psalm-assert GraphQLVariablesMap $value
      * @psalm-param GraphQLVariablesMap|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GraphQLVariablesMapCollection

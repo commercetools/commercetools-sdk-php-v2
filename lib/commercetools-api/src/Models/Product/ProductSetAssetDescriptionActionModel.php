@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implements ProductSetAssetDescriptionAction
 {
-    const DISCRIMINATOR_VALUE = 'setAssetDescription';
+    public const DISCRIMINATOR_VALUE = 'setAssetDescription';
     /**
      * @var ?string
      */
@@ -50,6 +54,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
      * @var ?LocalizedString
      */
     protected $description;
+
 
     public function __construct(
         int $variantId = null,

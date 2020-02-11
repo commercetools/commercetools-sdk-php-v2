@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AzureServiceBusDestinationModel extends JsonObjectModel implements AzureServiceBusDestination
 {
-    const DISCRIMINATOR_VALUE = 'AzureServiceBus';
+    public const DISCRIMINATOR_VALUE = 'AzureServiceBus';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
      * @var ?string
      */
     protected $connectionString;
+
 
     public function __construct(
         string $connectionString = null

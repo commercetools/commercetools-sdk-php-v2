@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 class MapperIterator extends \IteratorIterator

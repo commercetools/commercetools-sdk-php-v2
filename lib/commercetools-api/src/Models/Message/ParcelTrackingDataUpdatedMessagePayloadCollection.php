@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ParcelTrackingDataUpdatedMessagePayload>
- *
  * @method ParcelTrackingDataUpdatedMessagePayload current()
  * @method ParcelTrackingDataUpdatedMessagePayload at($offset)
  */
@@ -23,9 +22,6 @@ class ParcelTrackingDataUpdatedMessagePayloadCollection extends MapperSequence
     /**
      * @psalm-assert ParcelTrackingDataUpdatedMessagePayload $value
      * @psalm-param ParcelTrackingDataUpdatedMessagePayload|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ParcelTrackingDataUpdatedMessagePayloadCollection

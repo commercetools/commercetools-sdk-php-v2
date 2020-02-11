@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
 {
-    const FIELD_IS_DEFAULT = 'isDefault';
+    public const FIELD_IS_DEFAULT = 'isDefault';
 
     /**
      * <p>Only one ShippingMethod in a project can be default.</p>

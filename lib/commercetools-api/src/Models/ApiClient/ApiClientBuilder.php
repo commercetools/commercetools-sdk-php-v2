@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ApiClient;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<ApiClient>
@@ -189,6 +194,7 @@ final class ApiClientBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ApiClient
     {

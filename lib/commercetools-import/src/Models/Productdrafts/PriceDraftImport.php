@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
@@ -16,12 +17,12 @@ use DateTimeImmutable;
 
 interface PriceDraftImport extends JsonObject
 {
-    const FIELD_VALUE = 'value';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CHANNEL = 'channel';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CHANNEL = 'channel';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
      * @return null|Money

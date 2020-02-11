@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomFieldStringTypeModel extends JsonObjectModel implements CustomFieldStringType
 {
-    const DISCRIMINATOR_VALUE = 'String';
+    public const DISCRIMINATOR_VALUE = 'String';
     /**
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
     ) {

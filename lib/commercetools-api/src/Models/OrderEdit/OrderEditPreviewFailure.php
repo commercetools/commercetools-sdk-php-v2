@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Error\ErrorObjectCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditPreviewFailure extends OrderEditResult
 {
-    const FIELD_ERRORS = 'errors';
+    public const FIELD_ERRORS = 'errors';
 
     /**
      * @return null|ErrorObjectCollection

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldLocalizedEnumValue>
- *
  * @method CustomFieldLocalizedEnumValue current()
  * @method CustomFieldLocalizedEnumValue at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldLocalizedEnumValueCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldLocalizedEnumValue $value
      * @psalm-param CustomFieldLocalizedEnumValue|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldLocalizedEnumValueCollection

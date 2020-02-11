@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements MyPaymentPagedQueryResponse
@@ -37,6 +40,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
      * @var ?MyPaymentCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

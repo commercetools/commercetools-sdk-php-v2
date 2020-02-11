@@ -6,7 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
+
+use stdClass;
 
 /**
  * @template TScalar
@@ -22,6 +25,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @psalm-param ?array<int, TScalar|scalar> $data
+     * @param array|null $data
      */
     public function __construct(array $data = null)
     {
@@ -36,7 +40,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     {
         return $this->data;
     }
-
+    
     public function jsonSerialize(): ?array
     {
         return $this->data;
@@ -45,7 +49,6 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     /**
      * @template T
      * @psalm-param array<int, T|scalar> $data
-     *
      * @return static
      */
     final public static function fromArray(array $data)
@@ -54,10 +57,38 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
+     * @param mixed $data
+     */
+    protected function index($data): void
+    {
+    }
+
+    /**
+     * @psalm-return TScalar|scalar|null
+     */
+    final protected function get(int $index)
+    {
+        if (isset($this->data[$index])) {
+            return $this->data[$index];
+        }
+        return null;
+    }
+
+    /**
+     * @psalm-param TScalar|scalar $data
+     */
+    final protected function set($data, ?int $index): void
+    {
+        if (is_null($index)) {
+            $this->data[] = $data;
+        } else {
+            $this->data[$index] = $data;
+        }
+    }
+
+    /**
      * @psalm-param TScalar|scalar $value
-     *
      * @param $value
-     *
      * @return Collection
      */
     public function add($value)
@@ -66,11 +97,42 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
+     * @psalm-param TScalar|scalar $value
+     * @param $value
+     * @return Collection
+     */
+    final protected function store($value)
+    {
+        $this->set($value, null);
+        $this->iterator = $this->getIterator();
+
+        return $this;
+    }
+
+    /**
      * @psalm-return ?TScalar
      */
     public function at(int $index)
     {
         return $this->mapper()($index);
+    }
+
+    /**
+     * @psalm-return callable(int): ?TScalar
+     */
+    abstract protected function mapper();
+
+    final protected function addToIndex(string $field, string $key, int $index): void
+    {
+        $this->indexes[$field][$key] = $index;
+    }
+
+    /**
+     * @psalm-return ?TScalar
+     */
+    final protected function valueByKey(string $field, string $key)
+    {
+        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 
     public function getIterator(): MapperIterator
@@ -130,7 +192,6 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @param int $offset
-     *
      * @return bool
      */
     public function offsetExists($offset)
@@ -140,7 +201,6 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @param int $offset
-     *
      * @return ?TScalar
      */
     public function offsetGet($offset)
@@ -151,9 +211,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     /**
      * @param int $offset
      * @psalm-param TScalar|scalar $value
-     *
      * @param mixed $value
-     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -164,7 +222,6 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @param int $offset
-     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -174,71 +231,5 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }
-    }
-
-    /**
-     * @param mixed $data
-     */
-    protected function index($data): void
-    {
-    }
-
-    /**
-     * @psalm-return TScalar|scalar|null
-     */
-    final protected function get(int $index)
-    {
-        if (isset($this->data[$index])) {
-            return $this->data[$index];
-        }
-
-        return null;
-    }
-
-    /**
-     * @psalm-param TScalar|scalar $data
-     *
-     * @param mixed $data
-     */
-    final protected function set($data, ?int $index): void
-    {
-        if (is_null($index)) {
-            $this->data[] = $data;
-        } else {
-            $this->data[$index] = $data;
-        }
-    }
-
-    /**
-     * @psalm-param TScalar|scalar $value
-     *
-     * @param $value
-     *
-     * @return Collection
-     */
-    final protected function store($value)
-    {
-        $this->set($value, null);
-        $this->iterator = $this->getIterator();
-
-        return $this;
-    }
-
-    /**
-     * @psalm-return callable(int): ?TScalar
-     */
-    abstract protected function mapper();
-
-    final protected function addToIndex(string $field, string $key, int $index): void
-    {
-        $this->indexes[$field][$key] = $index;
-    }
-
-    /**
-     * @psalm-return ?TScalar
-     */
-    final protected function valueByKey(string $field, string $key)
-    {
-        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 }

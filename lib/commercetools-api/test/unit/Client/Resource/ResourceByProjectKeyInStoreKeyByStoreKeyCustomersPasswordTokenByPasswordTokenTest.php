@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet
- *
- * @internal
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
                         ->customers()
                         ->withPasswordToken('passwordToken')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}?expand=expand',
@@ -42,16 +39,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withPasswordToken('passwordToken')
-                        ->get()
-                    ;
+                        ->withPasswordToken("passwordToken")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}',
-            ],
+            ]
         ];
     }
 
@@ -66,7 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -75,14 +71,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withPasswordToken('passwordToken')
-                        ->get()
-                    ;
-                },
-            ],
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -95,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

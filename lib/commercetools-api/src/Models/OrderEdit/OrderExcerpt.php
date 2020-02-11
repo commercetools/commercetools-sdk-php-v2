@@ -10,13 +10,14 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface OrderExcerpt extends JsonObject
 {
-    const FIELD_TOTAL_PRICE = 'totalPrice';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
-    const FIELD_VERSION = 'version';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_VERSION = 'version';
 
     /**
      * @return null|TypedMoney

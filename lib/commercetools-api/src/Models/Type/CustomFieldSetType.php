@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomFieldSetType extends FieldType
 {
-    const FIELD_ELEMENT_TYPE = 'elementType';
+    public const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**
      * @return null|FieldType

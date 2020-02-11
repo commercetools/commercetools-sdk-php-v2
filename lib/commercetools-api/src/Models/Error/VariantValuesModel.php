@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
@@ -29,6 +33,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
      * @var ?AttributeCollection
      */
     protected $attributes;
+
 
     public function __construct(
         string $sku = null,

@@ -13,19 +13,23 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderCustomerSetMessageModel extends JsonObjectModel implements OrderCustomerSetMessage
 {
-    const DISCRIMINATOR_VALUE = 'OrderCustomerSet';
+    public const DISCRIMINATOR_VALUE = 'OrderCustomerSet';
     /**
      * @var ?string
      */
@@ -100,6 +104,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
      * @var ?CustomerGroupReference
      */
     protected $oldCustomerGroup;
+
 
     public function __construct(
         string $id = null,
@@ -475,6 +480,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
         $this->oldCustomerGroup = $oldCustomerGroup;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -485,7 +491,6 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

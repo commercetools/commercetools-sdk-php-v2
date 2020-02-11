@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeFieldDefinitionLabelAction>
- *
  * @method TypeChangeFieldDefinitionLabelAction current()
  * @method TypeChangeFieldDefinitionLabelAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeFieldDefinitionLabelActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeFieldDefinitionLabelAction $value
      * @psalm-param TypeChangeFieldDefinitionLabelAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeFieldDefinitionLabelActionCollection

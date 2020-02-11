@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use Commercetools\Exception\InvalidArgumentException;
@@ -15,7 +16,7 @@ use ReflectionException;
 use ReflectionParameter;
 use stdClass;
 
-class ResultMapper implements MapperInterface
+class ResultMapper
 {
     /**
      * @template T of JsonObject
@@ -28,11 +29,24 @@ class ResultMapper implements MapperInterface
     }
 
     /**
+     * @psalm-return stdClass
+     */
+    private function responseData(ResponseInterface $response)
+    {
+        $body = (string)$response->getBody();
+        /** @psalm-var ?stdClass $data */
+        $data = json_decode($body);
+        if (is_null($data)) {
+            throw new InvalidArgumentException();
+        }
+        return $data;
+    }
+    
+    /**
      * @template T
      * @psalm-param class-string<T> $type
      * @psalm-param array<string, mixed> $data
      * @psalm-return T
-     *
      * @throws InvalidArgumentException
      * @throws ReflectionException
      */
@@ -48,26 +62,10 @@ class ResultMapper implements MapperInterface
         /** @psalm-var array<int, mixed> $args */
         $args = array_map(
             function (ReflectionParameter $param) use ($data) {
-                return $data[$param->name] ?? null;
+                return ($data[$param->name] ?? null);
             },
             $params
         );
-
         return $typeClass->newInstanceArgs($args);
-    }
-
-    /**
-     * @psalm-return stdClass
-     */
-    private function responseData(ResponseInterface $response)
-    {
-        $body = (string) $response->getBody();
-        /** @psalm-var ?stdClass $data */
-        $data = json_decode($body);
-        if (is_null($data)) {
-            throw new InvalidArgumentException();
-        }
-
-        return $data;
     }
 }

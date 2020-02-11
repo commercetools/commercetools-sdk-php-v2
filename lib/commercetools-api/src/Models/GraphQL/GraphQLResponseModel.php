@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class GraphQLResponseModel extends JsonObjectModel implements GraphQLResponse
@@ -23,6 +25,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
      * @var ?GraphQLErrorCollection
      */
     protected $errors;
+
 
     public function __construct(
         JsonObject $data = null,

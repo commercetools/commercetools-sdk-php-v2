@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZonePagedQueryResponse
@@ -37,6 +40,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
      * @var ?ZoneCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldsDraft>
- *
  * @method CustomFieldsDraft current()
  * @method CustomFieldsDraft at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldsDraftCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldsDraft $value
      * @psalm-param CustomFieldsDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldsDraftCollection

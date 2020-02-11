@@ -12,12 +12,17 @@ use Commercetools\Api\Models\Cart\TaxPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel implements StagedOrderSetOrderTotalTaxAction
 {
-    const DISCRIMINATOR_VALUE = 'setOrderTotalTax';
+    public const DISCRIMINATOR_VALUE = 'setOrderTotalTax';
     /**
      * @var ?string
      */
@@ -32,6 +37,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
      * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
+
 
     public function __construct(
         Money $externalTotalGross = null,

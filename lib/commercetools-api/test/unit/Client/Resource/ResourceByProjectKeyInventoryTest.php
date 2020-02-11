@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryPost
- *
- * @internal
  */
 class ResourceByProjectKeyInventoryTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/inventory?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/inventory?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/inventory?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/inventory?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/inventory?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/inventory?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyInventoryTest extends TestCase
             'ByProjectKeyInventoryGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->inventory()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/inventory',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/inventory?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyInventoryTest extends TestCase
             'ByProjectKeyInventoryPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->inventory()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/inventory',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyInventoryTest extends TestCase
             'ByProjectKeyInventoryGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->inventory()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyInventoryPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->inventory()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

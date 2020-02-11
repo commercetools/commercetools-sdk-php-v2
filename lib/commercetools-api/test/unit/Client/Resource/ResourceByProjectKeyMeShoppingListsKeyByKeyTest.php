@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeShoppingListsKeyByKeyPost
- *
- * @internal
  */
 class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
 {
@@ -28,16 +26,15 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
             'ByProjectKeyMeShoppingListsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->shoppingLists()
-                        ->keyWithKeyValue('key')
-                        ->post(null)
-                    ;
+                        ->keyWithKeyValue("key")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/me/shopping-lists/key={key}',
-            ],
+            ]
         ];
     }
 
@@ -52,7 +49,7 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -61,14 +58,13 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
             'ByProjectKeyMeShoppingListsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->shoppingLists()
-                        ->keyWithKeyValue('key')
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->keyWithKeyValue("key")
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -81,7 +77,7 @@ class ResourceByProjectKeyMeShoppingListsKeyByKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

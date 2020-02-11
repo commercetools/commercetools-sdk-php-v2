@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ImageModel extends JsonObjectModel implements Image
@@ -27,6 +30,7 @@ final class ImageModel extends JsonObjectModel implements Image
      * @var ?string
      */
     protected $label;
+
 
     public function __construct(
         string $url = null,

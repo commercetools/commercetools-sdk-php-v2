@@ -11,16 +11,17 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductVariantDraft extends JsonObject
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_KEY = 'key';
-    const FIELD_PRICES = 'prices';
-    const FIELD_ATTRIBUTES = 'attributes';
-    const FIELD_IMAGES = 'images';
-    const FIELD_ASSETS = 'assets';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_KEY = 'key';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_IMAGES = 'images';
+    public const FIELD_ASSETS = 'assets';
 
     /**
      * @return null|string

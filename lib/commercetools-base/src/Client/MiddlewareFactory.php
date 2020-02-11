@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 use GuzzleHttp\Exception\ServerException;
@@ -38,7 +39,7 @@ class MiddlewareFactory
         if ($maxRetries > 0) {
             $middlewares['retryNA'] = self::createRetryNAMiddleware($maxRetries);
         }
-
+        
         return $middlewares;
     }
 
@@ -60,13 +61,12 @@ class MiddlewareFactory
                 if ($retries < $maxRetries) {
                     return false;
                 }
-                if ($error instanceof ServerException && 503 == $error->getCode()) {
+                if ($error instanceof ServerException && $error->getCode() == 503) {
                     return true;
                 }
-                if ($response instanceof ResponseInterface && 503 == $response->getStatusCode()) {
+                if ($response instanceof ResponseInterface && $response->getStatusCode() == 503) {
                     return true;
                 }
-
                 return false;
             }
         );
@@ -91,7 +91,7 @@ class MiddlewareFactory
     /**
      * Middleware that reauthenticates on invalid token error
      *
-     * @return callable returns a function that accepts the next handler
+     * @return callable Returns a function that accepts the next handler.
      */
     public static function createReauthenticateMiddleware(OAuth2Handler $oauthHandler, int $maxRetries = 1)
     {
@@ -115,22 +115,20 @@ class MiddlewareFactory
                                 $options,
                                 $maxRetries
                             ) {
-                                if (401 == $response->getStatusCode()) {
+                                if ($response->getStatusCode() == 401) {
                                     if (!isset($options['reauth'])) {
                                         $options['reauth'] = 0;
                                     }
                                     if ($options['reauth'] < $maxRetries) {
-                                        ++$options['reauth'];
+                                        $options['reauth']++;
                                         $token = $oauthHandler->refreshToken();
                                         $request = $request->withHeader(
                                             'Authorization',
-                                            'Bearer '.$token->getValue()
+                                            'Bearer ' . $token->getValue()
                                         );
-
                                         return $handler($request, $options);
                                     }
                                 }
-
                                 return $response;
                             }
                         );

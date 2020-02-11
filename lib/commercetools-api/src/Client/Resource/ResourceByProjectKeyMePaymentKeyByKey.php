@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Me\MyPaymentUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor

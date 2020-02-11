@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Productvariants\Attribute;
+
 use Commercetools\Import\Models\Productvariants\AttributeModel;
 use stdClass;
 
 final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements DuplicateAttributeValueError
 {
-    const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
+    public const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
      * @var ?Attribute
      */
     protected $attribute;
+
 
     public function __construct(
         string $message = null,

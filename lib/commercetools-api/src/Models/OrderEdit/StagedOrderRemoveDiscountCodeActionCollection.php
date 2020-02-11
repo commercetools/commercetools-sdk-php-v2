@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderRemoveDiscountCodeAction>
- *
  * @method StagedOrderRemoveDiscountCodeAction current()
  * @method StagedOrderRemoveDiscountCodeAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderRemoveDiscountCodeActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderRemoveDiscountCodeAction $value
      * @psalm-param StagedOrderRemoveDiscountCodeAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderRemoveDiscountCodeActionCollection

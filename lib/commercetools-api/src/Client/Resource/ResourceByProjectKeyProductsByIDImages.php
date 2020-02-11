@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use File;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**

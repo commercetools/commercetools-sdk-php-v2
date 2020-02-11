@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\TypedMoneyCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartDiscountValueAbsolute extends CartDiscountValue
 {
-    const FIELD_MONEY = 'money';
+    public const FIELD_MONEY = 'money';
 
     /**
      * @return null|TypedMoneyCollection

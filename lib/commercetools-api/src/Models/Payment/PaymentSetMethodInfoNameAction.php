@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentSetMethodInfoNameAction extends PaymentUpdateAction
 {
-    const FIELD_NAME = 'name';
+    public const FIELD_NAME = 'name';
 
     /**
      * <p>If not provided, the name is unset.</p>

@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use stdClass;
@@ -24,6 +25,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @psalm-param ?array<string, TObject|stdClass> $data
+     * @param array|null $data
      */
     public function __construct(array $data = null)
     {
@@ -37,9 +39,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     /**
      * @template T
      * @psalm-param ?stdClass|array<string, T|stdClass> $data
-     *
-     * @param null|mixed $data
-     *
      * @return static
      */
     final public static function of($data = null)
@@ -74,15 +73,13 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     final public static function fromStdClass(stdClass $data = null)
     {
         /** @psalm-var array<string, TObject|stdClass> $t */
-        $t = (array) $data;
-
+        $t = (array)$data;
         return new static($t);
     }
 
     /**
      * @template T
      * @psalm-param array<string, T|stdClass> $data
-     *
      * @return static
      */
     final public static function fromArray(array $data)
@@ -91,10 +88,34 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
+     * @param mixed $data
+     */
+    protected function index($data): void
+    {
+    }
+
+    /**
+     * @psalm-return TObject|stdClass|null
+     */
+    final protected function get(string $key)
+    {
+        if (isset($this->data[$key])) {
+            return $this->data[$key];
+        }
+        return null;
+    }
+
+    /**
+     * @psalm-param TObject|stdClass $data
+     */
+    final protected function set($data, string $key): void
+    {
+        $this->data[$key] = $data;
+    }
+
+    /**
      * @psalm-param TObject|stdClass $value
-     *
      * @param $value
-     *
      * @return $this
      */
     public function put(string $key, $value)
@@ -103,11 +124,46 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
+     * @psalm-param TObject|stdClass $value
+     * @param string $key
+     * @param $value
+     * @return $this
+     */
+    final protected function store(string $key, $value)
+    {
+        $this->set($value, $key);
+        $this->iterator = $this->getIterator();
+
+        return $this;
+    }
+
+    /**
      * @psalm-return ?TObject
      */
     public function at(string $key)
     {
         return $this->mapper()($key);
+    }
+
+    /**
+     * @psalm-return callable(string): ?TObject
+     */
+    abstract protected function mapper();
+
+    /**
+     * @psalm-param TObject|stdClass $value
+     */
+    final protected function addToIndex(string $field, string $key, string $indexKey): void
+    {
+        $this->indexes[$field][$key] = $indexKey;
+    }
+
+    /**
+     * @psalm-return ?TObject
+     */
+    final protected function valueByKey(string $field, string $key)
+    {
+        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 
     public function getIterator(): MapperIterator
@@ -167,7 +223,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @param string $offset
-     *
      * @return bool
      */
     public function offsetExists($offset)
@@ -177,7 +232,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @param string $offset
-     *
      * @return ?TObject
      */
     public function offsetGet($offset)
@@ -188,9 +242,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     /**
      * @param string $offset
      * @psalm-param TObject|stdClass $value
-     *
      * @param mixed $value
-     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -200,7 +252,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @param string $offset
-     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -210,70 +261,5 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }
-    }
-
-    /**
-     * @param mixed $data
-     */
-    protected function index($data): void
-    {
-    }
-
-    /**
-     * @psalm-return TObject|stdClass|null
-     */
-    final protected function get(string $key)
-    {
-        if (isset($this->data[$key])) {
-            return $this->data[$key];
-        }
-
-        return null;
-    }
-
-    /**
-     * @psalm-param TObject|stdClass $data
-     *
-     * @param mixed $data
-     */
-    final protected function set($data, string $key): void
-    {
-        $this->data[$key] = $data;
-    }
-
-    /**
-     * @psalm-param TObject|stdClass $value
-     *
-     * @param $value
-     *
-     * @return $this
-     */
-    final protected function store(string $key, $value)
-    {
-        $this->set($value, $key);
-        $this->iterator = $this->getIterator();
-
-        return $this;
-    }
-
-    /**
-     * @psalm-return callable(string): ?TObject
-     */
-    abstract protected function mapper();
-
-    /**
-     * @psalm-param TObject|stdClass $value
-     */
-    final protected function addToIndex(string $field, string $key, string $indexKey): void
-    {
-        $this->indexes[$field][$key] = $indexKey;
-    }
-
-    /**
-     * @psalm-return ?TObject
-     */
-    final protected function valueByKey(string $field, string $key)
-    {
-        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 }

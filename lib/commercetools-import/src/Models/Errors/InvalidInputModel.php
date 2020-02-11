@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InvalidInputModel extends JsonObjectModel implements InvalidInput
 {
-    const DISCRIMINATOR_VALUE = 'InvalidInput';
+    public const DISCRIMINATOR_VALUE = 'InvalidInput';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

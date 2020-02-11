@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Payment\Payment;
 use Commercetools\Api\Models\Payment\PaymentModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements PaymentCreatedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'PaymentCreated';
+    public const DISCRIMINATOR_VALUE = 'PaymentCreated';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
      * @var ?Payment
      */
     protected $payment;
+
 
     public function __construct(
         Payment $payment = null

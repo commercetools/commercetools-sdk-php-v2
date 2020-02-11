@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsPost
- *
- * @internal
  */
 class ResourceByProjectKeyOrdersEditsTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/orders/edits?expand=expand',
@@ -46,8 +43,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/orders/edits?where=where',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/orders/edits?sort=sort',
@@ -72,8 +67,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/orders/edits?limit=limit',
@@ -85,8 +79,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/orders/edits?offset=offset',
@@ -98,8 +91,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/orders/edits?withTotal=withTotal',
@@ -107,11 +99,10 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
             'ByProjectKeyOrdersEditsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/orders/edits',
@@ -123,8 +114,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->orders()
                         ->edits()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/orders/edits?expand=expand',
@@ -132,15 +122,14 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
             'ByProjectKeyOrdersEditsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/orders/edits',
-            ],
+            ]
         ];
     }
 
@@ -155,7 +144,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -164,23 +153,21 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
             'ByProjectKeyOrdersEditsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyOrdersEditsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -193,7 +180,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

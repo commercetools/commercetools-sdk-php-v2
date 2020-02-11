@@ -8,35 +8,36 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface Address extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_KEY = 'key';
-    const FIELD_TITLE = 'title';
-    const FIELD_SALUTATION = 'salutation';
-    const FIELD_FIRST_NAME = 'firstName';
-    const FIELD_LAST_NAME = 'lastName';
-    const FIELD_STREET_NAME = 'streetName';
-    const FIELD_STREET_NUMBER = 'streetNumber';
-    const FIELD_ADDITIONAL_STREET_INFO = 'additionalStreetInfo';
-    const FIELD_POSTAL_CODE = 'postalCode';
-    const FIELD_CITY = 'city';
-    const FIELD_REGION = 'region';
-    const FIELD_STATE = 'state';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_COMPANY = 'company';
-    const FIELD_DEPARTMENT = 'department';
-    const FIELD_BUILDING = 'building';
-    const FIELD_APARTMENT = 'apartment';
-    const FIELD_P_O_BOX = 'pOBox';
-    const FIELD_PHONE = 'phone';
-    const FIELD_MOBILE = 'mobile';
-    const FIELD_EMAIL = 'email';
-    const FIELD_FAX = 'fax';
-    const FIELD_ADDITIONAL_ADDRESS_INFO = 'additionalAddressInfo';
-    const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_SALUTATION = 'salutation';
+    public const FIELD_FIRST_NAME = 'firstName';
+    public const FIELD_LAST_NAME = 'lastName';
+    public const FIELD_STREET_NAME = 'streetName';
+    public const FIELD_STREET_NUMBER = 'streetNumber';
+    public const FIELD_ADDITIONAL_STREET_INFO = 'additionalStreetInfo';
+    public const FIELD_POSTAL_CODE = 'postalCode';
+    public const FIELD_CITY = 'city';
+    public const FIELD_REGION = 'region';
+    public const FIELD_STATE = 'state';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_COMPANY = 'company';
+    public const FIELD_DEPARTMENT = 'department';
+    public const FIELD_BUILDING = 'building';
+    public const FIELD_APARTMENT = 'apartment';
+    public const FIELD_P_O_BOX = 'pOBox';
+    public const FIELD_PHONE = 'phone';
+    public const FIELD_MOBILE = 'mobile';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_FAX = 'fax';
+    public const FIELD_ADDITIONAL_ADDRESS_INFO = 'additionalAddressInfo';
+    public const FIELD_EXTERNAL_ID = 'externalId';
 
     /**
      * @return null|string

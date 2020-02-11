@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SyncInfo>
- *
  * @method SyncInfo current()
  * @method SyncInfo at($offset)
  */
@@ -23,9 +22,6 @@ class SyncInfoCollection extends MapperSequence
     /**
      * @psalm-assert SyncInfo $value
      * @psalm-param SyncInfo|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SyncInfoCollection

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
@@ -22,6 +25,7 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
      * @var ?PaymentUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

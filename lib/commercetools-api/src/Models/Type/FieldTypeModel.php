@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class FieldTypeModel extends JsonObjectModel implements FieldType
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,20 +24,21 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
 
     /**
      * @psalm-var array<string, class-string<FieldType> >
+     *
      */
     private static $discriminatorClasses = [
-        'LocalizedString' => CustomFieldLocalizedStringTypeModel::class,
-        'Set' => CustomFieldSetTypeModel::class,
-        'Enum' => CustomFieldEnumTypeModel::class,
-        'Date' => CustomFieldDateTypeModel::class,
-        'DateTime' => CustomFieldDateTimeTypeModel::class,
-        'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
-        'Number' => CustomFieldNumberTypeModel::class,
-        'Time' => CustomFieldTimeTypeModel::class,
-        'Money' => CustomFieldMoneyTypeModel::class,
-        'String' => CustomFieldStringTypeModel::class,
-        'Reference' => CustomFieldReferenceTypeModel::class,
-        'Boolean' => CustomFieldBooleanTypeModel::class,
+       'Money' => CustomFieldMoneyTypeModel::class,
+       'Date' => CustomFieldDateTypeModel::class,
+       'LocalizedEnum' => CustomFieldLocalizedEnumTypeModel::class,
+       'String' => CustomFieldStringTypeModel::class,
+       'LocalizedString' => CustomFieldLocalizedStringTypeModel::class,
+       'Number' => CustomFieldNumberTypeModel::class,
+       'Time' => CustomFieldTimeTypeModel::class,
+       'Enum' => CustomFieldEnumTypeModel::class,
+       'Reference' => CustomFieldReferenceTypeModel::class,
+       'Set' => CustomFieldSetTypeModel::class,
+       'DateTime' => CustomFieldDateTimeTypeModel::class,
+       'Boolean' => CustomFieldBooleanTypeModel::class,
     ];
 
     public function __construct(
@@ -59,18 +63,19 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
         return $this->name;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<FieldType>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = FieldType::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -85,7 +90,6 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
 
         /** @psalm-var class-string<FieldType> */
         $type = FieldTypeModel::class;
-
         return $type;
     }
 }

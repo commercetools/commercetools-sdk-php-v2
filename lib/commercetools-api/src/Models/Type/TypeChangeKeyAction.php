@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TypeChangeKeyAction extends TypeUpdateAction
 {
-    const FIELD_KEY = 'key';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

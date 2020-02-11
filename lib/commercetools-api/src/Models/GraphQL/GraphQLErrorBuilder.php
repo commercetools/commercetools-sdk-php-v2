@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\GraphQL;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<GraphQLError>
@@ -83,6 +88,7 @@ final class GraphQLErrorBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): GraphQLError
     {

@@ -10,15 +10,17 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyShoppingListAddTextLineItemAction extends MyShoppingListUpdateAction
 {
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_ADDED_AT = 'addedAt';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|LocalizedString

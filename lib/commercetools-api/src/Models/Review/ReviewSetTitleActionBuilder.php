@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ReviewSetTitleAction>
@@ -39,6 +44,7 @@ final class ReviewSetTitleActionBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ReviewSetTitleAction
     {

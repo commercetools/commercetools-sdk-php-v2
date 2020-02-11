@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Payment\Payment;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentCreatedMessagePayload extends MessagePayload
 {
-    const FIELD_PAYMENT = 'payment';
+    public const FIELD_PAYMENT = 'payment';
 
     /**
      * @return null|Payment

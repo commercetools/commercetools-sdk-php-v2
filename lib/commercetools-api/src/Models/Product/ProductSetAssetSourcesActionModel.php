@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetSourceCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements ProductSetAssetSourcesAction
 {
-    const DISCRIMINATOR_VALUE = 'setAssetSources';
+    public const DISCRIMINATOR_VALUE = 'setAssetSources';
     /**
      * @var ?string
      */
@@ -49,6 +53,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
      * @var ?AssetSourceCollection
      */
     protected $sources;
+
 
     public function __construct(
         int $variantId = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeAddPlainEnumValueAction>
- *
  * @method ProductTypeAddPlainEnumValueAction current()
  * @method ProductTypeAddPlainEnumValueAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeAddPlainEnumValueActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeAddPlainEnumValueAction $value
      * @psalm-param ProductTypeAddPlainEnumValueAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeAddPlainEnumValueActionCollection

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderAddItemShippingAddressActionModel extends JsonObjectModel implements OrderAddItemShippingAddressAction
 {
-    const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
+    public const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
      * @var ?Address
      */
     protected $address;
+
 
     public function __construct(
         Address $address = null

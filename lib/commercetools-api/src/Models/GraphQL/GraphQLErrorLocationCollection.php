@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GraphQLErrorLocation>
- *
  * @method GraphQLErrorLocation current()
  * @method GraphQLErrorLocation at($offset)
  */
@@ -23,9 +22,6 @@ class GraphQLErrorLocationCollection extends MapperSequence
     /**
      * @psalm-assert GraphQLErrorLocation $value
      * @psalm-param GraphQLErrorLocation|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GraphQLErrorLocationCollection

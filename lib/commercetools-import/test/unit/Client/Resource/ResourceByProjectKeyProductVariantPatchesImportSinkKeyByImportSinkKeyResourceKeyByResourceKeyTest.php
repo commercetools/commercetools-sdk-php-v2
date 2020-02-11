@@ -13,10 +13,9 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
- * @internal
- * @coversNothing
  */
 class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyTest extends TestCase
 {
@@ -37,7 +36,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResou
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -55,7 +54,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResou
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

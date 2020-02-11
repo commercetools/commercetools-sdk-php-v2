@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MatchingPriceNotFoundError>
- *
  * @method MatchingPriceNotFoundError current()
  * @method MatchingPriceNotFoundError at($offset)
  */
@@ -23,9 +22,6 @@ class MatchingPriceNotFoundErrorCollection extends MapperSequence
     /**
      * @psalm-assert MatchingPriceNotFoundError $value
      * @psalm-param MatchingPriceNotFoundError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MatchingPriceNotFoundErrorCollection

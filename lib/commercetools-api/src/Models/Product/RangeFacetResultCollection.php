@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<RangeFacetResult>
- *
  * @method RangeFacetResult current()
  * @method RangeFacetResult at($offset)
  */
@@ -23,9 +22,6 @@ class RangeFacetResultCollection extends MapperSequence
     /**
      * @psalm-assert RangeFacetResult $value
      * @psalm-param RangeFacetResult|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return RangeFacetResultCollection

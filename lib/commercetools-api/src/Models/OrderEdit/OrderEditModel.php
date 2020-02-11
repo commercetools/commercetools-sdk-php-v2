@@ -8,18 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderEditModel extends JsonObjectModel implements OrderEdit
@@ -83,6 +89,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
      * @var ?string
      */
     protected $comment;
+
 
     public function __construct(
         string $id = null,
@@ -409,6 +416,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
         $this->comment = $comment;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -419,7 +427,6 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
         if (isset($data[OrderEdit::FIELD_LAST_MODIFIED_AT]) && $data[OrderEdit::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[OrderEdit::FIELD_LAST_MODIFIED_AT] = $data[OrderEdit::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

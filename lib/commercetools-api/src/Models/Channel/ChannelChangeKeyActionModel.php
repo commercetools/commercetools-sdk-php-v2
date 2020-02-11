@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ChannelChangeKeyActionModel extends JsonObjectModel implements ChannelChangeKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'changeKey';
+    public const DISCRIMINATOR_VALUE = 'changeKey';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ChannelChangeKeyActionModel extends JsonObjectModel implements Chann
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

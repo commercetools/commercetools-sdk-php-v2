@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySetCustomTypeAction>
- *
  * @method CategorySetCustomTypeAction current()
  * @method CategorySetCustomTypeAction at($offset)
  */
@@ -23,9 +22,6 @@ class CategorySetCustomTypeActionCollection extends MapperSequence
     /**
      * @psalm-assert CategorySetCustomTypeAction $value
      * @psalm-param CategorySetCustomTypeAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategorySetCustomTypeActionCollection

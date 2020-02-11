@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditAddStagedActionAction extends OrderEditUpdateAction
 {
-    const FIELD_STAGED_ACTION = 'stagedAction';
+    public const FIELD_STAGED_ACTION = 'stagedAction';
 
     /**
      * @return null|StagedOrderUpdateAction

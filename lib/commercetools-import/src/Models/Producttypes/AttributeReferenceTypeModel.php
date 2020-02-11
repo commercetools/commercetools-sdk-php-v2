@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AttributeReferenceTypeModel extends JsonObjectModel implements AttributeReferenceType
 {
-    const DISCRIMINATOR_VALUE = 'reference';
+    public const DISCRIMINATOR_VALUE = 'reference';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
      * @var ?string
      */
     protected $referenceTypeId;
+
 
     public function __construct(
         string $referenceTypeId = null

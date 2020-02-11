@@ -8,18 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ApiClient;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ApiClient extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_NAME = 'name';
-    const FIELD_SCOPE = 'scope';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_LAST_USED_AT = 'lastUsedAt';
-    const FIELD_DELETE_AT = 'deleteAt';
-    const FIELD_SECRET = 'secret';
+    public const FIELD_ID = 'id';
+    public const FIELD_NAME = 'name';
+    public const FIELD_SCOPE = 'scope';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_LAST_USED_AT = 'lastUsedAt';
+    public const FIELD_DELETE_AT = 'deleteAt';
+    public const FIELD_SECRET = 'secret';
 
     /**
      * <p>The unique ID of the API client.

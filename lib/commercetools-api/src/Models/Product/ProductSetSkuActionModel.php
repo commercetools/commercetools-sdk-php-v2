@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductSetSkuActionModel extends JsonObjectModel implements ProductSetSkuAction
 {
-    const DISCRIMINATOR_VALUE = 'setSku';
+    public const DISCRIMINATOR_VALUE = 'setSku';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ContentionError>
- *
  * @method ContentionError current()
  * @method ContentionError at($offset)
  */
@@ -23,9 +22,6 @@ class ContentionErrorCollection extends MapperSequence
     /**
      * @psalm-assert ContentionError $value
      * @psalm-param ContentionError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ContentionErrorCollection

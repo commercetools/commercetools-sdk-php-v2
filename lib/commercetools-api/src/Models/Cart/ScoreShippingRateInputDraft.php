@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ScoreShippingRateInputDraft extends ShippingRateInputDraft
 {
-    const FIELD_SCORE = 'score';
+    public const FIELD_SCORE = 'score';
 
     /**
      * @return null|int

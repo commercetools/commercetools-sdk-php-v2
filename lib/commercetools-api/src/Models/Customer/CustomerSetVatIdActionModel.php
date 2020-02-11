@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerSetVatIdActionModel extends JsonObjectModel implements CustomerSetVatIdAction
 {
-    const DISCRIMINATOR_VALUE = 'setVatId';
+    public const DISCRIMINATOR_VALUE = 'setVatId';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
      * @var ?string
      */
     protected $vatId;
+
 
     public function __construct(
         string $vatId = null

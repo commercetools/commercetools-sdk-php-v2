@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Type\CustomFieldLocalizedEnumValueCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class CartClassificationTypeModel extends JsonObjectModel implements CartClassificationType
 {
-    const DISCRIMINATOR_VALUE = 'CartClassification';
+    public const DISCRIMINATOR_VALUE = 'CartClassification';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
     protected $values;
+
 
     public function __construct(
         CustomFieldLocalizedEnumValueCollection $values = null

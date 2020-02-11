@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerResetPassword>
- *
  * @method CustomerResetPassword current()
  * @method CustomerResetPassword at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerResetPasswordCollection extends MapperSequence
     /**
      * @psalm-assert CustomerResetPassword $value
      * @psalm-param CustomerResetPassword|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerResetPasswordCollection

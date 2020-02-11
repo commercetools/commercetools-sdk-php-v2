@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemoveItemShippingAddressAction extends StagedOrderUpdateAction
 {
-    const FIELD_ADDRESS_KEY = 'addressKey';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
      * @return null|string

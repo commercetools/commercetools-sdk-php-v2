@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePasswordResetPost
- *
- * @internal
  */
 class ResourceByProjectKeyMePasswordResetTest extends TestCase
 {
@@ -28,16 +26,15 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
             'ByProjectKeyMePasswordResetPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->password()
                         ->reset()
-                        ->post()
-                    ;
+                        ->post();
                 },
                 'post',
                 '{projectKey}/me/password/reset',
-            ],
+            ]
         ];
     }
 
@@ -52,7 +49,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -61,14 +58,13 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
             'ByProjectKeyMePasswordResetPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->password()
                         ->reset()
-                        ->post()
-                    ;
-                },
-            ],
+                        ->post();
+                }
+            ]
         ];
     }
 
@@ -81,7 +77,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

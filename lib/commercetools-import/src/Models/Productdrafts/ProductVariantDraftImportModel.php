@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\AssetCollection;
+
 use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
@@ -45,6 +49,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
      * @var ?AssetCollection
      */
     protected $assets;
+
 
     public function __construct(
         string $sku = null,

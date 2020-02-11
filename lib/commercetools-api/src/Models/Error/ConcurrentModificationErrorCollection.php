@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ConcurrentModificationError>
- *
  * @method ConcurrentModificationError current()
  * @method ConcurrentModificationError at($offset)
  */
@@ -23,9 +22,6 @@ class ConcurrentModificationErrorCollection extends MapperSequence
     /**
      * @psalm-assert ConcurrentModificationError $value
      * @psalm-param ConcurrentModificationError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ConcurrentModificationErrorCollection

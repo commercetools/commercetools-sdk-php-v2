@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredFieldError
 {
-    const DISCRIMINATOR_VALUE = 'RequiredField';
+    public const DISCRIMINATOR_VALUE = 'RequiredField';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
      * @var ?string
      */
     protected $field;
+
 
     public function __construct(
         string $message = null,

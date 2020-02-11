@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersPost
- *
- * @internal
  */
 class ResourceByProjectKeyMeOrdersTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/me/orders?expand=expand',
@@ -46,8 +43,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/me/orders?where=where',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/me/orders?sort=sort',
@@ -72,8 +67,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/me/orders?limit=limit',
@@ -85,8 +79,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/me/orders?offset=offset',
@@ -98,8 +91,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/me/orders?withTotal=withTotal',
@@ -107,11 +99,10 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
             'ByProjectKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/me/orders',
@@ -123,8 +114,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/me/orders?expand=expand',
@@ -132,15 +122,14 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
             'ByProjectKeyMeOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/me/orders',
-            ],
+            ]
         ];
     }
 
@@ -155,7 +144,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -164,23 +153,21 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
             'ByProjectKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyMeOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->orders()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -193,7 +180,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implements ExtensionSetTimeoutInMsAction
 {
-    const DISCRIMINATOR_VALUE = 'setTimeoutInMs';
+    public const DISCRIMINATOR_VALUE = 'setTimeoutInMs';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
      * @var ?int
      */
     protected $timeoutInMs;
+
 
     public function __construct(
         int $timeoutInMs = null

@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implements MyCustomerSetDateOfBirthAction
 {
-    const DISCRIMINATOR_VALUE = 'setDateOfBirth';
+    public const DISCRIMINATOR_VALUE = 'setDateOfBirth';
     /**
      * @var ?string
      */
@@ -24,6 +29,7 @@ final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implemen
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
+
 
     public function __construct(
         DateTimeImmutable $dateOfBirth = null
@@ -75,13 +81,13 @@ final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implemen
         $this->dateOfBirth = $dateOfBirth;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[MyCustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH]) && $data[MyCustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH] instanceof \DateTimeImmutable) {
             $data[MyCustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH] = $data[MyCustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
         }
-
         return (object) $data;
     }
 }

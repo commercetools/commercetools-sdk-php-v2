@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDraft
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?int
      */
@@ -31,10 +34,11 @@ final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDr
 
     /**
      * @psalm-var array<string, class-string<TypedMoneyDraft> >
+     *
      */
     private static $discriminatorClasses = [
-        'highPrecision' => HighPrecisionMoneyDraftModel::class,
-        'centPrecision' => CentPrecisionMoneyDraftModel::class,
+       'highPrecision' => HighPrecisionMoneyDraftModel::class,
+       'centPrecision' => CentPrecisionMoneyDraftModel::class,
     ];
 
     public function __construct(
@@ -109,18 +113,18 @@ final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDr
         $this->currencyCode = $currencyCode;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<TypedMoneyDraft>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = TypedMoneyDraft::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -135,7 +139,6 @@ final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDr
 
         /** @psalm-var class-string<TypedMoneyDraft> */
         $type = TypedMoneyDraftModel::class;
-
         return $type;
     }
 }

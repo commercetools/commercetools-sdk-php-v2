@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implements TypeChangeEnumValueOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeEnumValueOrder';
+    public const DISCRIMINATOR_VALUE = 'changeEnumValueOrder';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
      * @var ?array
      */
     protected $keys;
+
 
     public function __construct(
         string $fieldName = null,

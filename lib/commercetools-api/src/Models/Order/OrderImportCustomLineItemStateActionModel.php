@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel implements OrderImportCustomLineItemStateAction
 {
-    const DISCRIMINATOR_VALUE = 'importCustomLineItemState';
+    public const DISCRIMINATOR_VALUE = 'importCustomLineItemState';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
      * @var ?ItemStateCollection
      */
     protected $state;
+
 
     public function __construct(
         string $customLineItemId = null,

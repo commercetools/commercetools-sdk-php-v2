@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneRateDraft>
- *
  * @method ZoneRateDraft current()
  * @method ZoneRateDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneRateDraftCollection extends MapperSequence
     /**
      * @psalm-assert ZoneRateDraft $value
      * @psalm-param ZoneRateDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneRateDraftCollection

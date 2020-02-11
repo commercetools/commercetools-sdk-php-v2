@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CategoryChangeOrderHintAction extends CategoryUpdateAction
 {
-    const FIELD_ORDER_HINT = 'orderHint';
+    public const FIELD_ORDER_HINT = 'orderHint';
 
     /**
      * @return null|string

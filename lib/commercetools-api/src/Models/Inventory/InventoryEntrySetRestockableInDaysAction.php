@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface InventoryEntrySetRestockableInDaysAction extends InventoryEntryUpdateAction
 {
-    const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
+    public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
 
     /**
      * @return null|int

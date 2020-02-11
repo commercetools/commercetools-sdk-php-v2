@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PriceImportRequest>
- *
  * @method PriceImportRequest current()
  * @method PriceImportRequest at($offset)
  */
@@ -23,9 +22,6 @@ class PriceImportRequestCollection extends MapperSequence
     /**
      * @psalm-assert PriceImportRequest $value
      * @psalm-param PriceImportRequest|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PriceImportRequestCollection

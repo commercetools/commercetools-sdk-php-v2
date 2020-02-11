@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersKeyByKeyDelete
  */
 class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey('key')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/customers/key={key}?expand=expand',
@@ -43,11 +40,10 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
             'ByProjectKeyCustomersKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->get()
-                    ;
+                        ->withKey("key")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/customers/key={key}',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey('key')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/customers/key={key}?expand=expand',
@@ -68,11 +63,10 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
             'ByProjectKeyCustomersKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->post(null)
-                    ;
+                        ->withKey("key")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/customers/key={key}',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey('key')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?dataErasure=dataErasure',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey('key')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?version=version',
@@ -110,8 +102,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->customers()
                         ->withKey('key')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/customers/key={key}?expand=expand',
@@ -119,15 +110,14 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
             'ByProjectKeyCustomersKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->delete()
-                    ;
+                        ->withKey("key")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/customers/key={key}',
-            ],
+            ]
         ];
     }
 
@@ -142,7 +132,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -151,33 +141,30 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
             'ByProjectKeyCustomersKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->get()
-                    ;
-                },
+                        ->withKey("key")
+                        ->get();
+                }
             ],
             'ByProjectKeyCustomersKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->post(null)
-                    ;
-                },
+                        ->withKey("key")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyCustomersKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customers()
-                        ->withKey('key')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withKey("key")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -190,7 +177,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

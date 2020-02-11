@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetDeleteDaysAfterLastModificationAction>
- *
  * @method CartSetDeleteDaysAfterLastModificationAction current()
  * @method CartSetDeleteDaysAfterLastModificationAction at($offset)
  */
@@ -23,9 +22,6 @@ class CartSetDeleteDaysAfterLastModificationActionCollection extends MapperSeque
     /**
      * @psalm-assert CartSetDeleteDaysAfterLastModificationAction $value
      * @psalm-param CartSetDeleteDaysAfterLastModificationAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartSetDeleteDaysAfterLastModificationActionCollection

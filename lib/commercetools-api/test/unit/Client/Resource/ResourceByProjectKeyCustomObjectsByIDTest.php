@@ -16,10 +16,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByIDGet
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByIDDelete
  */
 class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->customObjects()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/custom-objects/{ID}?expand=expand',
@@ -42,11 +39,10 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
             'ByProjectKeyCustomObjectsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/custom-objects/{ID}',
@@ -58,8 +54,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->customObjects()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{ID}?version=version',
@@ -71,8 +66,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->customObjects()
                         ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->customObjects()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{ID}?expand=expand',
@@ -93,15 +86,14 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
             'ByProjectKeyCustomObjectsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/custom-objects/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -116,7 +108,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -125,23 +117,21 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
             'ByProjectKeyCustomObjectsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyCustomObjectsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -154,7 +144,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

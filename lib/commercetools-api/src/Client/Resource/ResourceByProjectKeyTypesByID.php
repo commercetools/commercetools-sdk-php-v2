@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Type\TypeUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -20,8 +21,6 @@ class ResourceByProjectKeyTypesByID extends ApiResource
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyTypesByIDGet
     {
@@ -29,7 +28,6 @@ class ResourceByProjectKeyTypesByID extends ApiResource
 
         return new ByProjectKeyTypesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?TypeUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -40,12 +38,9 @@ class ResourceByProjectKeyTypesByID extends ApiResource
 
         return new ByProjectKeyTypesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyTypesByIDDelete
     {

@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductPriceDiscountsSetUpdatedPrice>

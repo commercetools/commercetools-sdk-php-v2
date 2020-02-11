@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class MyTransactionDraftModel extends JsonObjectModel implements MyTransactionDraft
@@ -36,6 +40,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
      * @var ?string
      */
     protected $interactionId;
+
 
     public function __construct(
         DateTimeImmutable $timestamp = null,
@@ -153,13 +158,13 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         $this->interactionId = $interactionId;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[MyTransactionDraft::FIELD_TIMESTAMP]) && $data[MyTransactionDraft::FIELD_TIMESTAMP] instanceof \DateTimeImmutable) {
             $data[MyTransactionDraft::FIELD_TIMESTAMP] = $data[MyTransactionDraft::FIELD_TIMESTAMP]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

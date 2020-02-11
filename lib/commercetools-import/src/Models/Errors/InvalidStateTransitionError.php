@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface InvalidStateTransitionError extends ErrorObject
 {
-    const FIELD_CURRENT_STATE = 'currentState';
-    const FIELD_NEW_STATE = 'newState';
+    public const FIELD_CURRENT_STATE = 'currentState';
+    public const FIELD_NEW_STATE = 'newState';
 
     /**
      * <p>This enumeration describes the processing state of an import operation.</p>

@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductLegacySetSkuAction extends ProductUpdateAction
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_VARIANT_ID = 'variantId';
 
     /**
      * @return null|string

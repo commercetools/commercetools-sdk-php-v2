@@ -11,7 +11,11 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft
@@ -40,6 +44,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
      * @var ?ImageCollection
      */
     protected $images;
+
 
     public function __construct(
         int $id = null,

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Product\Attribute;
 use Commercetools\Api\Models\Product\AttributeModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements DuplicateAttributeValueError
 {
-    const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
+    public const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
      * @var ?Attribute
      */
     protected $attribute;
+
 
     public function __construct(
         string $message = null,

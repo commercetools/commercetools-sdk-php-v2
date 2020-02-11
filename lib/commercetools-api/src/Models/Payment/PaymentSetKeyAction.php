@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface PaymentSetKeyAction extends PaymentUpdateAction
 {
-    const FIELD_KEY = 'key';
+    public const FIELD_KEY = 'key';
 
     /**
      * <p>User-specific unique identifier for the payment (max.

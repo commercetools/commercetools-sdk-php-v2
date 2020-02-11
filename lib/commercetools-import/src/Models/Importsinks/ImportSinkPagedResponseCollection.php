@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportSinkPagedResponse>
- *
  * @method ImportSinkPagedResponse current()
  * @method ImportSinkPagedResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ImportSinkPagedResponseCollection extends MapperSequence
     /**
      * @psalm-assert ImportSinkPagedResponse $value
      * @psalm-param ImportSinkPagedResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportSinkPagedResponseCollection

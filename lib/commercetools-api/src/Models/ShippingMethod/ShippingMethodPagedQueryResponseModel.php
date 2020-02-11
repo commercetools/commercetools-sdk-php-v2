@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodPagedQueryResponseModel extends JsonObjectModel implements ShippingMethodPagedQueryResponse
@@ -37,6 +40,7 @@ final class ShippingMethodPagedQueryResponseModel extends JsonObjectModel implem
      * @var ?ShippingMethodCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -19,8 +20,6 @@ class ResourceByProjectKeyMeLogin extends ApiResource
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function post($body = null, array $headers = []): ByProjectKeyMeLoginPost
     {

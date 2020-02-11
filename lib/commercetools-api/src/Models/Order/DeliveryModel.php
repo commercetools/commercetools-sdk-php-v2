@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class DeliveryModel extends JsonObjectModel implements Delivery
@@ -41,6 +45,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
      * @var ?Address
      */
     protected $address;
+
 
     public function __construct(
         string $id = null,
@@ -174,13 +179,13 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
         $this->address = $address;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[Delivery::FIELD_CREATED_AT]) && $data[Delivery::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
             $data[Delivery::FIELD_CREATED_AT] = $data[Delivery::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

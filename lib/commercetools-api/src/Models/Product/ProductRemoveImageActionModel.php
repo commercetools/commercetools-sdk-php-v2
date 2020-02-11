@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductRemoveImageActionModel extends JsonObjectModel implements ProductRemoveImageAction
 {
-    const DISCRIMINATOR_VALUE = 'removeImage';
+    public const DISCRIMINATOR_VALUE = 'removeImage';
     /**
      * @var ?string
      */
@@ -37,6 +41,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

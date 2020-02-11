@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<PaymentSetStatusInterfaceCodeAction>
@@ -37,6 +42,7 @@ final class PaymentSetStatusInterfaceCodeActionBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): PaymentSetStatusInterfaceCodeAction
     {

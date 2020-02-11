@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomFieldsModel extends JsonObjectModel implements CustomFields
@@ -22,6 +25,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         TypeReference $type = null,

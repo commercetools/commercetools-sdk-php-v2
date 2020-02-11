@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryUpdate>
- *
  * @method TaxCategoryUpdate current()
  * @method TaxCategoryUpdate at($offset)
  */
@@ -23,9 +22,6 @@ class TaxCategoryUpdateCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryUpdate $value
      * @psalm-param TaxCategoryUpdate|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxCategoryUpdateCollection

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderSetCustomerIdAction extends OrderUpdateAction
 {
-    const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
      * @return null|string

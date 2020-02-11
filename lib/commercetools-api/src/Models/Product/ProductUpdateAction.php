@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductUpdateAction extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'action';
-    const FIELD_ACTION = 'action';
+    public const DISCRIMINATOR_FIELD = 'action';
+    public const FIELD_ACTION = 'action';
 
     /**
      * @return null|string

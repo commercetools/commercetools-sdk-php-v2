@@ -14,18 +14,20 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderEdit extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_RESOURCE = 'resource';
-    const FIELD_STAGED_ACTIONS = 'stagedActions';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_RESULT = 'result';
-    const FIELD_COMMENT = 'comment';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_RESOURCE = 'resource';
+    public const FIELD_STAGED_ACTIONS = 'stagedActions';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_RESULT = 'result';
+    public const FIELD_COMMENT = 'comment';
 
     /**
      * <p>The unique ID of the OrderEdit.</p>

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
@@ -22,6 +25,7 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
      * @var ?ReviewUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

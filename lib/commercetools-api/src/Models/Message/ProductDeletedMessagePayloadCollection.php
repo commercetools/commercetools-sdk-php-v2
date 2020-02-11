@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDeletedMessagePayload>
- *
  * @method ProductDeletedMessagePayload current()
  * @method ProductDeletedMessagePayload at($offset)
  */
@@ -23,9 +22,6 @@ class ProductDeletedMessagePayloadCollection extends MapperSequence
     /**
      * @psalm-assert ProductDeletedMessagePayload $value
      * @psalm-param ProductDeletedMessagePayload|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductDeletedMessagePayloadCollection

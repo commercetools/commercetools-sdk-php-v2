@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DestinationModel extends JsonObjectModel implements Destination
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,14 +24,15 @@ final class DestinationModel extends JsonObjectModel implements Destination
 
     /**
      * @psalm-var array<string, class-string<Destination> >
+     *
      */
     private static $discriminatorClasses = [
-        'GoogleCloudPubSub' => GoogleCloudPubSubDestinationModel::class,
-        'IronMQ' => IronMqDestinationModel::class,
-        'SNS' => SnsDestinationModel::class,
-        'SQS' => SqsDestinationModel::class,
-        'AzureServiceBus' => AzureServiceBusDestinationModel::class,
-        'EventGrid' => AzureEventGridDestinationModel::class,
+       'GoogleCloudPubSub' => GoogleCloudPubSubDestinationModel::class,
+       'IronMQ' => IronMqDestinationModel::class,
+       'SNS' => SnsDestinationModel::class,
+       'SQS' => SqsDestinationModel::class,
+       'AzureServiceBus' => AzureServiceBusDestinationModel::class,
+       'EventGrid' => AzureEventGridDestinationModel::class,
     ];
 
     public function __construct(
@@ -53,18 +57,19 @@ final class DestinationModel extends JsonObjectModel implements Destination
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<Destination>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = Destination::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -79,7 +84,6 @@ final class DestinationModel extends JsonObjectModel implements Destination
 
         /** @psalm-var class-string<Destination> */
         $type = DestinationModel::class;
-
         return $type;
     }
 }

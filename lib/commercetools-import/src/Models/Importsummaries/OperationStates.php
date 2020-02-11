@@ -8,20 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsummaries;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface OperationStates extends JsonObject
 {
-    const FIELD_ACCEPTED = 'Accepted';
-    const FIELD_VALIDATION_FAILED = 'ValidationFailed';
-    const FIELD_UNRESOLVED = 'Unresolved';
-    const FIELD_RESOLVED = 'Resolved';
-    const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
-    const FIELD_IMPORTED = 'Imported';
-    const FIELD_DELETED = 'Deleted';
-    const FIELD_REJECTED = 'Rejected';
-    const FIELD_SKIPPED = 'Skipped';
-    const FIELD_EXPIRED = 'Expired';
+    public const FIELD_ACCEPTED = 'Accepted';
+    public const FIELD_VALIDATION_FAILED = 'ValidationFailed';
+    public const FIELD_UNRESOLVED = 'Unresolved';
+    public const FIELD_RESOLVED = 'Resolved';
+    public const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
+    public const FIELD_IMPORTED = 'Imported';
+    public const FIELD_DELETED = 'Deleted';
+    public const FIELD_REJECTED = 'Rejected';
+    public const FIELD_SKIPPED = 'Skipped';
+    public const FIELD_EXPIRED = 'Expired';
 
     /**
      * <p>The number of import operations that are in the state <code>Accepted</code>.</p>

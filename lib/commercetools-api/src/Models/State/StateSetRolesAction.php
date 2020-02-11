@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface StateSetRolesAction extends StateUpdateAction
 {
-    const FIELD_ROLES = 'roles';
+    public const FIELD_ROLES = 'roles';
 
     /**
      * @return null|array

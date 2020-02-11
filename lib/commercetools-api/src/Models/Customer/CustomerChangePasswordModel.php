@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerChangePasswordModel extends JsonObjectModel implements CustomerChangePassword
 {
@@ -31,6 +35,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
      * @var ?string
      */
     protected $newPassword;
+
 
     public function __construct(
         string $id = null,

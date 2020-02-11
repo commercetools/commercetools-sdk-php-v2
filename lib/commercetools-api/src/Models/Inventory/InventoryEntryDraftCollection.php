@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryDraft>
- *
  * @method InventoryEntryDraft current()
  * @method InventoryEntryDraft at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntryDraftCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryDraft $value
      * @psalm-param InventoryEntryDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntryDraftCollection

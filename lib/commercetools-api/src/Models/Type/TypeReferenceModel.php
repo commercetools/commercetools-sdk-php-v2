@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 {
-    const DISCRIMINATOR_VALUE = 'type';
+    public const DISCRIMINATOR_VALUE = 'type';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
      * @var ?Type
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel implements ProductSetAttributeInAllVariantsAction
 {
-    const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
+    public const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
     /**
      * @var ?string
      */
@@ -34,6 +36,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         string $name = null,

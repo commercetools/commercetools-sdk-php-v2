@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetImageLabelAction>
- *
  * @method ProductSetImageLabelAction current()
  * @method ProductSetImageLabelAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductSetImageLabelActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetImageLabelAction $value
      * @psalm-param ProductSetImageLabelAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductSetImageLabelActionCollection

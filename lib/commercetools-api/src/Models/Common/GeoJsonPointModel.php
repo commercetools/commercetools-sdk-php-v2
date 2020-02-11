@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
 {
-    const DISCRIMINATOR_VALUE = 'Point';
+    public const DISCRIMINATOR_VALUE = 'Point';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
      * @var ?array
      */
     protected $coordinates;
+
 
     public function __construct(
         array $coordinates = null

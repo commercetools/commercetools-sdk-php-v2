@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\OrderEdit\OrderEditDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,9 +25,8 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyOrdersEditsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersEditsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyOrdersEditsByID
     {
         $args = $this->getArgs();
@@ -34,14 +34,12 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyOrdersEditsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersEditsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersEditsGet
     {
@@ -49,7 +47,6 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
 
         return new ByProjectKeyOrdersEditsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?OrderEditDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

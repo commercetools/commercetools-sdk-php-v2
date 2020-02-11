@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implements ExtensionAWSLambdaDestination
 {
-    const DISCRIMINATOR_VALUE = 'AWSLambda';
+    public const DISCRIMINATOR_VALUE = 'AWSLambda';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
      * @var ?string
      */
     protected $accessSecret;
+
 
     public function __construct(
         string $arn = null,

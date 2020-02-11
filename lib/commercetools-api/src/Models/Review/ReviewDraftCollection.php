@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewDraft>
- *
  * @method ReviewDraft current()
  * @method ReviewDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewDraftCollection extends MapperSequence
     /**
      * @psalm-assert ReviewDraft $value
      * @psalm-param ReviewDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewDraftCollection

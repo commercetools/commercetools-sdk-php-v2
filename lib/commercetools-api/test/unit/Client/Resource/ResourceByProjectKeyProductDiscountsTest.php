@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsPost
- *
- * @internal
  */
 class ResourceByProjectKeyProductDiscountsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/product-discounts?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/product-discounts?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/product-discounts?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/product-discounts?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/product-discounts?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/product-discounts?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
             'ByProjectKeyProductDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productDiscounts()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/product-discounts',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/product-discounts?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
             'ByProjectKeyProductDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productDiscounts()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/product-discounts',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
             'ByProjectKeyProductDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productDiscounts()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyProductDiscountsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productDiscounts()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

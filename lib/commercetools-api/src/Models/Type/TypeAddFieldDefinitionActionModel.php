@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements TypeAddFieldDefinitionAction
 {
-    const DISCRIMINATOR_VALUE = 'addFieldDefinition';
+    public const DISCRIMINATOR_VALUE = 'addFieldDefinition';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
      * @var ?FieldDefinition
      */
     protected $fieldDefinition;
+
 
     public function __construct(
         FieldDefinition $fieldDefinition = null

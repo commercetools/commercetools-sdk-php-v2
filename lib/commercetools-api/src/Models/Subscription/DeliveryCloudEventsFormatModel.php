@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements DeliveryCloudEventsFormat
 {
-    const DISCRIMINATOR_VALUE = 'CloudEvents';
+    public const DISCRIMINATOR_VALUE = 'CloudEvents';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
      * @var ?string
      */
     protected $cloudEventsVersion;
+
 
     public function __construct(
         string $cloudEventsVersion = null

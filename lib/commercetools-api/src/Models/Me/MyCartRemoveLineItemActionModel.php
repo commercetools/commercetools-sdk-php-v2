@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Common\Money;
+
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartRemoveLineItemActionModel extends JsonObjectModel implements MyCartRemoveLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'removeLineItem';
+    public const DISCRIMINATOR_VALUE = 'removeLineItem';
     /**
      * @var ?string
      */
@@ -49,6 +53,7 @@ final class MyCartRemoveLineItemActionModel extends JsonObjectModel implements M
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetailsToRemove;
+
 
     public function __construct(
         string $lineItemId = null,

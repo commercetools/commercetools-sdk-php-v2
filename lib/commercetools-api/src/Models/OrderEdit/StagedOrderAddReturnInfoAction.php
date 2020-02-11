@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\ReturnItemDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface StagedOrderAddReturnInfoAction extends StagedOrderUpdateAction
 {
-    const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';
-    const FIELD_ITEMS = 'items';
-    const FIELD_RETURN_DATE = 'returnDate';
+    public const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';
+    public const FIELD_ITEMS = 'items';
+    public const FIELD_RETURN_DATE = 'returnDate';
 
     /**
      * @return null|string

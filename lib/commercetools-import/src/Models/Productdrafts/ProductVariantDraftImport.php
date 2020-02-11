@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
@@ -15,12 +16,12 @@ use Commercetools\Import\Models\Productvariants\AttributeCollection;
 
 interface ProductVariantDraftImport extends JsonObject
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_KEY = 'key';
-    const FIELD_PRICES = 'prices';
-    const FIELD_ATTRIBUTES = 'attributes';
-    const FIELD_IMAGES = 'images';
-    const FIELD_ASSETS = 'assets';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_KEY = 'key';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_IMAGES = 'images';
+    public const FIELD_ASSETS = 'assets';
 
     /**
      * @return null|string

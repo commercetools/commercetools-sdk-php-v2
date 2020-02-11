@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectModel implements PaymentStatusInterfaceCodeSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'PaymentStatusInterfaceCodeSet';
+    public const DISCRIMINATOR_VALUE = 'PaymentStatusInterfaceCodeSet';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
      * @var ?string
      */
     protected $interfaceCode;
+
 
     public function __construct(
         string $paymentId = null,

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartReference extends Reference
 {
-    const FIELD_OBJ = 'obj';
+    public const FIELD_OBJ = 'obj';
 
     /**
      * @return null|Cart

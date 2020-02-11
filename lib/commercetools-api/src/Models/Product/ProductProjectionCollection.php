@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductProjection>
- *
  * @method ProductProjection current()
  * @method ProductProjection at($offset)
  */
@@ -23,9 +22,6 @@ class ProductProjectionCollection extends MapperSequence
     /**
      * @psalm-assert ProductProjection $value
      * @psalm-param ProductProjection|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductProjectionCollection

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
 
-vendor/bin/php-cs-fixer fix
+php -dmemory_limit=-1 vendor/bin/ecs check --fix

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductSetAssetKeyActionModel extends JsonObjectModel implements ProductSetAssetKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'setAssetKey';
+    public const DISCRIMINATOR_VALUE = 'setAssetKey';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
      * @var ?string
      */
     protected $assetKey;
+
 
     public function __construct(
         int $variantId = null,

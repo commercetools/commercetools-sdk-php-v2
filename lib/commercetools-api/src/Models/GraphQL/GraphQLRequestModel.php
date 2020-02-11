@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class GraphQLRequestModel extends JsonObjectModel implements GraphQLRequest
@@ -27,6 +30,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
      * @var ?GraphQLVariablesMap
      */
     protected $variables;
+
 
     public function __construct(
         string $query = null,

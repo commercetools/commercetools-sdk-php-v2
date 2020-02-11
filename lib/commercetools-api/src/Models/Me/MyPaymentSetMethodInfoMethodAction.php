@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyPaymentSetMethodInfoMethodAction extends MyPaymentUpdateAction
 {
-    const FIELD_METHOD = 'method';
+    public const FIELD_METHOD = 'method';
 
     /**
      * @return null|string

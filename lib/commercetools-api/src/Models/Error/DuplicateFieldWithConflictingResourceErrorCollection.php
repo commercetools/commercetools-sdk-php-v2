@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateFieldWithConflictingResourceError>
- *
  * @method DuplicateFieldWithConflictingResourceError current()
  * @method DuplicateFieldWithConflictingResourceError at($offset)
  */
@@ -23,9 +22,6 @@ class DuplicateFieldWithConflictingResourceErrorCollection extends MapperSequenc
     /**
      * @psalm-assert DuplicateFieldWithConflictingResourceError $value
      * @psalm-param DuplicateFieldWithConflictingResourceError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DuplicateFieldWithConflictingResourceErrorCollection

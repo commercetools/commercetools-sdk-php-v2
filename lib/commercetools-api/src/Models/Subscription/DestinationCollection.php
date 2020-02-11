@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Destination>
- *
  * @method Destination current()
  * @method Destination at($offset)
  */
@@ -23,9 +22,6 @@ class DestinationCollection extends MapperSequence
     /**
      * @psalm-assert Destination $value
      * @psalm-param Destination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DestinationCollection

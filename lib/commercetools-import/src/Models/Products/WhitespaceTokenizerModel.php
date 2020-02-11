@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class WhitespaceTokenizerModel extends JsonObjectModel implements WhitespaceTokenizer
 {
-    const DISCRIMINATOR_VALUE = 'whitespace';
+    public const DISCRIMINATOR_VALUE = 'whitespace';
     /**
      * @var ?string
      */
     protected $type;
+
 
     public function __construct(
     ) {

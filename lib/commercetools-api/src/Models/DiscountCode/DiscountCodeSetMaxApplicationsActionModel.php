@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel implements DiscountCodeSetMaxApplicationsAction
 {
-    const DISCRIMINATOR_VALUE = 'setMaxApplications';
+    public const DISCRIMINATOR_VALUE = 'setMaxApplications';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
      * @var ?int
      */
     protected $maxApplications;
+
 
     public function __construct(
         int $maxApplications = null

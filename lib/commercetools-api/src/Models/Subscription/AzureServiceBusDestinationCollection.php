@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AzureServiceBusDestination>
- *
  * @method AzureServiceBusDestination current()
  * @method AzureServiceBusDestination at($offset)
  */
@@ -23,9 +22,6 @@ class AzureServiceBusDestinationCollection extends MapperSequence
     /**
      * @psalm-assert AzureServiceBusDestination $value
      * @psalm-param AzureServiceBusDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AzureServiceBusDestinationCollection

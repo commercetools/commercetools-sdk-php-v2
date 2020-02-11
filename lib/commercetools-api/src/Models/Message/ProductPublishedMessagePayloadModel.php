@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Product\ProductProjectionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductPublishedMessagePayloadModel extends JsonObjectModel implements ProductPublishedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductPublished';
+    public const DISCRIMINATOR_VALUE = 'ProductPublished';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
      * @var ?string
      */
     protected $scope;
+
 
     public function __construct(
         array $removedImageUrls = null,

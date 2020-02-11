@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Import\Client\Resource\ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost
- *
- * @internal
  */
 class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extends TestCase
 {
@@ -28,15 +26,14 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
             'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->productVariants()
-                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
-                        ->post(null)
-                    ;
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/product-variants/importSinkKey={importSinkKey}',
-            ],
+            ]
         ];
     }
 
@@ -51,7 +48,7 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -60,13 +57,12 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
             'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->productVariants()
-                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -79,7 +75,7 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

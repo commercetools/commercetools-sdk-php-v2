@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AccessDeniedError>
- *
  * @method AccessDeniedError current()
  * @method AccessDeniedError at($offset)
  */
@@ -23,9 +22,6 @@ class AccessDeniedErrorCollection extends MapperSequence
     /**
      * @psalm-assert AccessDeniedError $value
      * @psalm-param AccessDeniedError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AccessDeniedErrorCollection

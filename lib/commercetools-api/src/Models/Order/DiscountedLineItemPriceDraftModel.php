@@ -11,7 +11,11 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements DiscountedLineItemPriceDraft
@@ -25,6 +29,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
      * @var ?DiscountedLineItemPortionCollection
      */
     protected $includedDiscounts;
+
 
     public function __construct(
         Money $value = null,

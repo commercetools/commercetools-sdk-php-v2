@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionUpdate>
- *
  * @method ExtensionUpdate current()
  * @method ExtensionUpdate at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionUpdateCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionUpdate $value
      * @psalm-param ExtensionUpdate|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionUpdateCollection

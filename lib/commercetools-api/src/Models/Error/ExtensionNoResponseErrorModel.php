@@ -10,13 +10,16 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionNoResponseErrorModel extends JsonObjectModel implements ExtensionNoResponseError
 {
-    const DISCRIMINATOR_VALUE = 'ExtensionNoResponse';
+    public const DISCRIMINATOR_VALUE = 'ExtensionNoResponse';
     /**
      * @var ?string
      */
@@ -41,6 +44,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
      * @var ?ErrorByExtension
      */
     protected $errorByExtension;
+
 
     public function __construct(
         string $message = null,

@@ -9,14 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface SyncInfo extends JsonObject
 {
-    const FIELD_CHANNEL = 'channel';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_SYNCED_AT = 'syncedAt';
+    public const FIELD_CHANNEL = 'channel';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_SYNCED_AT = 'syncedAt';
 
     /**
      * <p>Connection to a particular synchronization destination.</p>

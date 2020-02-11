@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductTypeDraft>
@@ -110,6 +115,7 @@ final class ProductTypeDraftBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductTypeDraft
     {

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface DiscountCodeSetCartPredicateAction extends DiscountCodeUpdateAction
 {
-    const FIELD_CART_PREDICATE = 'cartPredicate';
+    public const FIELD_CART_PREDICATE = 'cartPredicate';
 
     /**
      * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>

@@ -8,8 +8,75 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartBuilder;
+use Commercetools\Api\Models\CartDiscount\CartDiscount;
+use Commercetools\Api\Models\CartDiscount\CartDiscountBuilder;
+use Commercetools\Api\Models\Category\Category;
+use Commercetools\Api\Models\Category\CategoryBuilder;
+use Commercetools\Api\Models\Channel\Channel;
+use Commercetools\Api\Models\Channel\ChannelBuilder;
+use Commercetools\Api\Models\Customer\Customer;
+use Commercetools\Api\Models\Customer\CustomerBuilder;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroup;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObject;
+use Commercetools\Api\Models\CustomObject\CustomObjectBuilder;
+use Commercetools\Api\Models\DiscountCode\DiscountCode;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeBuilder;
+use Commercetools\Api\Models\Extension\Extension;
+use Commercetools\Api\Models\Extension\ExtensionBuilder;
+use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Inventory\InventoryEntryBuilder;
+use Commercetools\Api\Models\Me\MyCart;
+use Commercetools\Api\Models\Me\MyCartBuilder;
+use Commercetools\Api\Models\Me\MyCustomer;
+use Commercetools\Api\Models\Me\MyCustomerBuilder;
+use Commercetools\Api\Models\Me\MyOrder;
+use Commercetools\Api\Models\Me\MyOrderBuilder;
+use Commercetools\Api\Models\Message\Message;
+use Commercetools\Api\Models\Message\MessageBuilder;
+use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderBuilder;
+use Commercetools\Api\Models\OrderEdit\OrderEdit;
+use Commercetools\Api\Models\OrderEdit\OrderEditBuilder;
+use Commercetools\Api\Models\Payment\Payment;
+use Commercetools\Api\Models\Payment\PaymentBuilder;
+use Commercetools\Api\Models\Product\Product;
+use Commercetools\Api\Models\Product\ProductBuilder;
+use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Api\Models\Product\ProductProjectionBuilder;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscount;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountBuilder;
+use Commercetools\Api\Models\ProductType\ProductType;
+use Commercetools\Api\Models\ProductType\ProductTypeBuilder;
+use Commercetools\Api\Models\Review\Review;
+use Commercetools\Api\Models\Review\ReviewBuilder;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodBuilder;
+use Commercetools\Api\Models\ShoppingList\MyShoppingList;
+use Commercetools\Api\Models\ShoppingList\MyShoppingListBuilder;
+use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\ShoppingList\ShoppingListBuilder;
+use Commercetools\Api\Models\State\State;
+use Commercetools\Api\Models\State\StateBuilder;
+use Commercetools\Api\Models\Store\Store;
+use Commercetools\Api\Models\Store\StoreBuilder;
+use Commercetools\Api\Models\Subscription\Subscription;
+use Commercetools\Api\Models\Subscription\SubscriptionBuilder;
+use Commercetools\Api\Models\TaxCategory\TaxCategory;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryBuilder;
+use Commercetools\Api\Models\Type\Type;
+use Commercetools\Api\Models\Type\TypeBuilder;
+use Commercetools\Api\Models\Zone\Zone;
+use Commercetools\Api\Models\Zone\ZoneBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<BaseResource>
@@ -107,6 +174,7 @@ final class BaseResourceBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): BaseResource
     {

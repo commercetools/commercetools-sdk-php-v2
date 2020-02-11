@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Error\ErrorObjectCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class OrderEditPreviewFailureModel extends JsonObjectModel implements OrderEditPreviewFailure
 {
-    const DISCRIMINATOR_VALUE = 'PreviewFailure';
+    public const DISCRIMINATOR_VALUE = 'PreviewFailure';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
      * @var ?ErrorObjectCollection
      */
     protected $errors;
+
 
     public function __construct(
         ErrorObjectCollection $errors = null

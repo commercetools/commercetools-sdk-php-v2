@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentPagedQueryResponse>
- *
  * @method PaymentPagedQueryResponse current()
  * @method PaymentPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class PaymentPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert PaymentPagedQueryResponse $value
      * @psalm-param PaymentPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PaymentPagedQueryResponseCollection

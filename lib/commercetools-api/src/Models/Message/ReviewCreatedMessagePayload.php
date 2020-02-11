@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Review\Review;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewCreatedMessagePayload extends MessagePayload
 {
-    const FIELD_REVIEW = 'review';
+    public const FIELD_REVIEW = 'review';
 
     /**
      * @return null|Review

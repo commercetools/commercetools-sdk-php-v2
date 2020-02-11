@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FieldDefinition>
- *
  * @method FieldDefinition current()
  * @method FieldDefinition at($offset)
  */
@@ -23,9 +22,6 @@ class FieldDefinitionCollection extends MapperSequence
     /**
      * @psalm-assert FieldDefinition $value
      * @psalm-param FieldDefinition|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return FieldDefinitionCollection

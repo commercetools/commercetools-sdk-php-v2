@@ -8,9 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface FacetResults extends JsonObject
 {
-    const FIELD_PATTERN0 = '/^[a-z].*$/';
+    public const FIELD_PATTERN0 = '/^[a-z].*$/';
 }

@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface StagedOrderUpdateSyncInfoAction extends StagedOrderUpdateAction
 {
-    const FIELD_CHANNEL = 'channel';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_SYNCED_AT = 'syncedAt';
+    public const FIELD_CHANNEL = 'channel';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_SYNCED_AT = 'syncedAt';
 
     /**
      * @return null|ChannelResourceIdentifier

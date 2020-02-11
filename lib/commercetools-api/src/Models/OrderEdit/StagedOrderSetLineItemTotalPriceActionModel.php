@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel implements StagedOrderSetLineItemTotalPriceAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemTotalPrice';
+    public const DISCRIMINATOR_VALUE = 'setLineItemTotalPrice';
     /**
      * @var ?string
      */
@@ -31,6 +36,7 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
+
 
     public function __construct(
         string $lineItemId = null,

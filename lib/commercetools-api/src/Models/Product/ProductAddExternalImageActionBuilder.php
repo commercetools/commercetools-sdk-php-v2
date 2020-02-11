@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\Image;
 use Commercetools\Api\Models\Common\ImageBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductAddExternalImageAction>

@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderDiscountCodeAddedMessageModel extends JsonObjectModel implements OrderDiscountCodeAddedMessage
 {
-    const DISCRIMINATOR_VALUE = 'OrderDiscountCodeAdded';
+    public const DISCRIMINATOR_VALUE = 'OrderDiscountCodeAdded';
     /**
      * @var ?string
      */
@@ -83,6 +87,7 @@ final class OrderDiscountCodeAddedMessageModel extends JsonObjectModel implement
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
+
 
     public function __construct(
         string $id = null,
@@ -383,6 +388,7 @@ final class OrderDiscountCodeAddedMessageModel extends JsonObjectModel implement
         $this->discountCode = $discountCode;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -393,7 +399,6 @@ final class OrderDiscountCodeAddedMessageModel extends JsonObjectModel implement
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

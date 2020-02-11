@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductImageAddedMessage>
- *
  * @method ProductImageAddedMessage current()
  * @method ProductImageAddedMessage at($offset)
  */
@@ -23,9 +22,6 @@ class ProductImageAddedMessageCollection extends MapperSequence
     /**
      * @psalm-assert ProductImageAddedMessage $value
      * @psalm-param ProductImageAddedMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductImageAddedMessageCollection

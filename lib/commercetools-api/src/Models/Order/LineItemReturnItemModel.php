@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class LineItemReturnItemModel extends JsonObjectModel implements LineItemReturnItem
 {
-    const DISCRIMINATOR_VALUE = 'LineItemReturnItem';
+    public const DISCRIMINATOR_VALUE = 'LineItemReturnItem';
     /**
      * @var ?string
      */
@@ -59,6 +64,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
      * @var ?string
      */
     protected $lineItemId;
+
 
     public function __construct(
         string $id = null,
@@ -282,6 +288,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
         $this->lineItemId = $lineItemId;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -292,7 +299,6 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
         if (isset($data[ReturnItem::FIELD_CREATED_AT]) && $data[ReturnItem::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
             $data[ReturnItem::FIELD_CREATED_AT] = $data[ReturnItem::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

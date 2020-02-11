@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingRatePriceTierModel extends JsonObjectModel implements ShippingRatePriceTier
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,11 +24,12 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
 
     /**
      * @psalm-var array<string, class-string<ShippingRatePriceTier> >
+     *
      */
     private static $discriminatorClasses = [
-        'CartScore' => CartScoreTierModel::class,
-        'CartClassification' => CartClassificationTierModel::class,
-        'CartValue' => CartValueTierModel::class,
+       'CartScore' => CartScoreTierModel::class,
+       'CartValue' => CartValueTierModel::class,
+       'CartClassification' => CartClassificationTierModel::class,
     ];
 
     public function __construct(
@@ -50,18 +54,19 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ShippingRatePriceTier>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ShippingRatePriceTier::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -76,7 +81,6 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
 
         /** @psalm-var class-string<ShippingRatePriceTier> */
         $type = ShippingRatePriceTierModel::class;
-
         return $type;
     }
 }

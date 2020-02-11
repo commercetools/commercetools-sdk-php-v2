@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductSetImageLabelActionModel extends JsonObjectModel implements ProductSetImageLabelAction
 {
-    const DISCRIMINATOR_VALUE = 'setImageLabel';
+    public const DISCRIMINATOR_VALUE = 'setImageLabel';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         string $sku = null,

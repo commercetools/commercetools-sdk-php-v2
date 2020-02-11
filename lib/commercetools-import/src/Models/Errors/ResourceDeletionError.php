@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ResourceDeletionError extends ErrorObject
 {
-    const FIELD_RESOURCE = 'resource';
+    public const FIELD_RESOURCE = 'resource';
 
     /**
      * @return null|JsonObject

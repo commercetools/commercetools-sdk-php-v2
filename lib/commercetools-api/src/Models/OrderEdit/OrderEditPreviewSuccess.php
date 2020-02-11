@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Message\MessagePayloadCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditPreviewSuccess extends OrderEditResult
 {
-    const FIELD_PREVIEW = 'preview';
-    const FIELD_MESSAGE_PAYLOADS = 'messagePayloads';
+    public const FIELD_PREVIEW = 'preview';
+    public const FIELD_MESSAGE_PAYLOADS = 'messagePayloads';
 
     /**
      * @return null|StagedOrder

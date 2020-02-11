@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductDiscountValueRelative extends ProductDiscountValue
 {
-    const FIELD_PERMYRIAD = 'permyriad';
+    public const FIELD_PERMYRIAD = 'permyriad';
 
     /**
      * @return null|int

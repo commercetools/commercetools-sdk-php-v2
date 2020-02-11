@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
@@ -31,6 +35,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
+
 
     public function __construct(
         ChannelReference $channel = null,
@@ -117,13 +122,13 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
         $this->syncedAt = $syncedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[SyncInfo::FIELD_SYNCED_AT]) && $data[SyncInfo::FIELD_SYNCED_AT] instanceof \DateTimeImmutable) {
             $data[SyncInfo::FIELD_SYNCED_AT] = $data[SyncInfo::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

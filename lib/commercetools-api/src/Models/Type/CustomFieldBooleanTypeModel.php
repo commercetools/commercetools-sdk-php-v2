@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomFieldBooleanTypeModel extends JsonObjectModel implements CustomFieldBooleanType
 {
-    const DISCRIMINATOR_VALUE = 'Boolean';
+    public const DISCRIMINATOR_VALUE = 'Boolean';
     /**
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
     ) {

@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\ShippingInfo;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderShippingInfoSetMessage extends Message
 {
-    const FIELD_SHIPPING_INFO = 'shippingInfo';
-    const FIELD_OLD_SHIPPING_INFO = 'oldShippingInfo';
+    public const FIELD_SHIPPING_INFO = 'shippingInfo';
+    public const FIELD_OLD_SHIPPING_INFO = 'oldShippingInfo';
 
     /**
      * @return null|ShippingInfo

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderShippingInfoSetMessage>
- *
  * @method OrderShippingInfoSetMessage current()
  * @method OrderShippingInfoSetMessage at($offset)
  */
@@ -23,9 +22,6 @@ class OrderShippingInfoSetMessageCollection extends MapperSequence
     /**
      * @psalm-assert OrderShippingInfoSetMessage $value
      * @psalm-param OrderShippingInfoSetMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderShippingInfoSetMessageCollection

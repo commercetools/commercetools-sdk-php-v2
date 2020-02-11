@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StateSetDescriptionAction extends StateUpdateAction
 {
-    const FIELD_DESCRIPTION = 'description';
+    public const FIELD_DESCRIPTION = 'description';
 
     /**
      * @return null|LocalizedString

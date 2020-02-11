@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel implements MyShoppingListRemoveTextLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'removeTextLineItem';
+    public const DISCRIMINATOR_VALUE = 'removeTextLineItem';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
      * @var ?int
      */
     protected $quantity;
+
 
     public function __construct(
         string $textLineItemId = null,

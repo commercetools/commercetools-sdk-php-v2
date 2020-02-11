@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface PriceFunction extends JsonObject
 {
-    const FIELD_CURRENCY_CODE = 'currencyCode';
-    const FIELD_FUNCTION = 'function';
+    public const FIELD_CURRENCY_CODE = 'currencyCode';
+    public const FIELD_FUNCTION = 'function';
 
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>

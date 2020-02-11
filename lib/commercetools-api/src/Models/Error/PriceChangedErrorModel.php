@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PriceChangedErrorModel extends JsonObjectModel implements PriceChangedError
 {
-    const DISCRIMINATOR_VALUE = 'PriceChanged';
+    public const DISCRIMINATOR_VALUE = 'PriceChanged';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
      * @var ?bool
      */
     protected $shipping;
+
 
     public function __construct(
         string $message = null,

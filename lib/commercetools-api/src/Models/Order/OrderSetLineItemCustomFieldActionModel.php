@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderSetLineItemCustomFieldActionModel extends JsonObjectModel implements OrderSetLineItemCustomFieldAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemCustomField';
+    public const DISCRIMINATOR_VALUE = 'setLineItemCustomField';
     /**
      * @var ?string
      */
@@ -34,6 +36,7 @@ final class OrderSetLineItemCustomFieldActionModel extends JsonObjectModel imple
      * @var ?JsonObject
      */
     protected $value;
+
 
     public function __construct(
         string $lineItemId = null,

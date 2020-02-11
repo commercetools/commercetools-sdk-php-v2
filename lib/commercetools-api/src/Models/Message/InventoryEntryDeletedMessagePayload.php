@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface InventoryEntryDeletedMessagePayload extends MessagePayload
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
      * @return null|string

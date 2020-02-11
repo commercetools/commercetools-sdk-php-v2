@@ -14,25 +14,27 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Category extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_NAME = 'name';
-    const FIELD_SLUG = 'slug';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_ANCESTORS = 'ancestors';
-    const FIELD_PARENT = 'parent';
-    const FIELD_ORDER_HINT = 'orderHint';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_META_TITLE = 'metaTitle';
-    const FIELD_META_DESCRIPTION = 'metaDescription';
-    const FIELD_META_KEYWORDS = 'metaKeywords';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_ASSETS = 'assets';
-    const FIELD_KEY = 'key';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_NAME = 'name';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_ANCESTORS = 'ancestors';
+    public const FIELD_PARENT = 'parent';
+    public const FIELD_ORDER_HINT = 'orderHint';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ASSETS = 'assets';
+    public const FIELD_KEY = 'key';
 
     /**
      * <p>The unique ID of the category.</p>

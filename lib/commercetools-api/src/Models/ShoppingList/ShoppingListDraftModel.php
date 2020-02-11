@@ -13,8 +13,12 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingListDraft
@@ -68,6 +72,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
      * @var ?string
      */
     protected $anonymousId;
+
 
     public function __construct(
         CustomFieldsDraft $custom = null,

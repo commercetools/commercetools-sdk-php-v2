@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectModel implements PaymentChangeTransactionInteractionIdAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTransactionInteractionId';
+    public const DISCRIMINATOR_VALUE = 'changeTransactionInteractionId';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
      * @var ?string
      */
     protected $interactionId;
+
 
     public function __construct(
         string $transactionId = null,

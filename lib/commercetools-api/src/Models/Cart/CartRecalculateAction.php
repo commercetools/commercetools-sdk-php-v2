@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartRecalculateAction extends CartUpdateAction
 {
-    const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
+    public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
      * <p>If set to <code>true</code>, the line item product data (<code>name</code>, <code>variant</code> and <code>productType</code>) will also be updated.

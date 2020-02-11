@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Categories\CategoryImportCollection;
+
 use stdClass;
 
 final class CategoryImportRequestModel extends JsonObjectModel implements CategoryImportRequest
 {
-    const DISCRIMINATOR_VALUE = 'category';
+    public const DISCRIMINATOR_VALUE = 'category';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
      * @var ?CategoryImportCollection
      */
     protected $resources;
+
 
     public function __construct(
         CategoryImportCollection $resources = null

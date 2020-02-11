@@ -10,12 +10,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel implements StagedOrderSetDeliveryItemsAction
 {
-    const DISCRIMINATOR_VALUE = 'setDeliveryItems';
+    public const DISCRIMINATOR_VALUE = 'setDeliveryItems';
     /**
      * @var ?string
      */
@@ -30,6 +35,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
      * @var ?DeliveryItemCollection
      */
     protected $items;
+
 
     public function __construct(
         string $deliveryId = null,

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductTypeSetKeyAction extends ProductTypeUpdateAction
 {
-    const FIELD_KEY = 'key';
+    public const FIELD_KEY = 'key';
 
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>

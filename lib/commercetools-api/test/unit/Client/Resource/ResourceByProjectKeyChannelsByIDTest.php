@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsByIDDelete
  */
 class ResourceByProjectKeyChannelsByIDTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/channels/{ID}?expand=expand',
@@ -43,11 +40,10 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
             'ByProjectKeyChannelsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/channels/{ID}',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/channels/{ID}?expand=expand',
@@ -68,11 +63,10 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
             'ByProjectKeyChannelsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/channels/{ID}',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/channels/{ID}?version=version',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->channels()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/channels/{ID}?expand=expand',
@@ -106,15 +98,14 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
             'ByProjectKeyChannelsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/channels/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -129,7 +120,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -138,33 +129,30 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
             'ByProjectKeyChannelsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyChannelsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyChannelsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->channels()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -177,7 +165,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

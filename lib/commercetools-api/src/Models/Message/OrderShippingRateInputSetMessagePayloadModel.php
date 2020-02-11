@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\ShippingRateInputModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel implements OrderShippingRateInputSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderShippingRateInputSet';
+    public const DISCRIMINATOR_VALUE = 'OrderShippingRateInputSet';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
      * @var ?ShippingRateInput
      */
     protected $oldShippingRateInput;
+
 
     public function __construct(
         ShippingRateInput $shippingRateInput = null,

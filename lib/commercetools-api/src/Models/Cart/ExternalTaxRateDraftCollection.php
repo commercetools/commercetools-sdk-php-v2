@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExternalTaxRateDraft>
- *
  * @method ExternalTaxRateDraft current()
  * @method ExternalTaxRateDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ExternalTaxRateDraftCollection extends MapperSequence
     /**
      * @psalm-assert ExternalTaxRateDraft $value
      * @psalm-param ExternalTaxRateDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExternalTaxRateDraftCollection

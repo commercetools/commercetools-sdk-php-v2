@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCustomerSetFirstNameAction extends MyCustomerUpdateAction
 {
-    const FIELD_FIRST_NAME = 'firstName';
+    public const FIELD_FIRST_NAME = 'firstName';
 
     /**
      * @return null|string

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements DuplicateVariantValuesError
 {
-    const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';
+    public const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
      * @var ?VariantValues
      */
     protected $variantValues;
+
 
     public function __construct(
         string $message = null,

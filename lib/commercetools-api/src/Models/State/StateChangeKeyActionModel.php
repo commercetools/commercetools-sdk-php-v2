@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StateChangeKeyActionModel extends JsonObjectModel implements StateChangeKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'changeKey';
+    public const DISCRIMINATOR_VALUE = 'changeKey';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

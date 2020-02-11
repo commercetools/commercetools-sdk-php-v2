@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartChangeTaxRoundingModeAction>
- *
  * @method CartChangeTaxRoundingModeAction current()
  * @method CartChangeTaxRoundingModeAction at($offset)
  */
@@ -23,9 +22,6 @@ class CartChangeTaxRoundingModeActionCollection extends MapperSequence
     /**
      * @psalm-assert CartChangeTaxRoundingModeAction $value
      * @psalm-param CartChangeTaxRoundingModeAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartChangeTaxRoundingModeActionCollection

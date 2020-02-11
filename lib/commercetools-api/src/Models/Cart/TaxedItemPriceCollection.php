@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxedItemPrice>
- *
  * @method TaxedItemPrice current()
  * @method TaxedItemPrice at($offset)
  */
@@ -23,9 +22,6 @@ class TaxedItemPriceCollection extends MapperSequence
     /**
      * @psalm-assert TaxedItemPrice $value
      * @psalm-param TaxedItemPrice|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxedItemPriceCollection

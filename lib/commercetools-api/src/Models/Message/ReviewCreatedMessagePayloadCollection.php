@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewCreatedMessagePayload>
- *
  * @method ReviewCreatedMessagePayload current()
  * @method ReviewCreatedMessagePayload at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewCreatedMessagePayloadCollection extends MapperSequence
     /**
      * @psalm-assert ReviewCreatedMessagePayload $value
      * @psalm-param ReviewCreatedMessagePayload|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewCreatedMessagePayloadCollection

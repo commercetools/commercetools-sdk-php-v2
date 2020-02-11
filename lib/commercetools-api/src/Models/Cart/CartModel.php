@@ -12,6 +12,9 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseResource;
+
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -26,9 +29,12 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CartModel extends JsonObjectModel implements Cart
@@ -197,6 +203,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
+
 
     public function __construct(
         string $id = null,
@@ -1060,6 +1067,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -1070,7 +1078,6 @@ final class CartModel extends JsonObjectModel implements Cart
         if (isset($data[Cart::FIELD_LAST_MODIFIED_AT]) && $data[Cart::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Cart::FIELD_LAST_MODIFIED_AT] = $data[Cart::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

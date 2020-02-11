@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Zone\ZoneDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,9 +25,8 @@ class ResourceByProjectKeyZones extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyZonesKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyZonesKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyZonesByID
     {
         $args = $this->getArgs();
@@ -34,14 +34,12 @@ class ResourceByProjectKeyZones extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyZonesByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyZonesByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyZonesGet
     {
@@ -49,7 +47,6 @@ class ResourceByProjectKeyZones extends ApiResource
 
         return new ByProjectKeyZonesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ZoneDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

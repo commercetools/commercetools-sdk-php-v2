@@ -13,9 +13,13 @@ use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\PriceModel;
+
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Api\Models\Common\ScopedPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductVariantModel extends JsonObjectModel implements ProductVariant
@@ -79,6 +83,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
      * @var ?bool
      */
     protected $scopedPriceDiscounted;
+
 
     public function __construct(
         int $id = null,

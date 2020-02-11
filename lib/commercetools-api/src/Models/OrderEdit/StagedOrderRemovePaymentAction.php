@@ -10,10 +10,12 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemovePaymentAction extends StagedOrderUpdateAction
 {
-    const FIELD_PAYMENT = 'payment';
+    public const FIELD_PAYMENT = 'payment';
 
     /**
      * @return null|PaymentResourceIdentifier

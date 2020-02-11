@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements ProductSetTaxCategoryAction
 {
-    const DISCRIMINATOR_VALUE = 'setTaxCategory';
+    public const DISCRIMINATOR_VALUE = 'setTaxCategory';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
+
 
     public function __construct(
         TaxCategoryResourceIdentifier $taxCategory = null

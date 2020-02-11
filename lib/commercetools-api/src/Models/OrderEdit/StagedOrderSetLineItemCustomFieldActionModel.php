@@ -9,13 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetLineItemCustomFieldActionModel extends JsonObjectModel implements StagedOrderSetLineItemCustomFieldAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemCustomField';
+    public const DISCRIMINATOR_VALUE = 'setLineItemCustomField';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class StagedOrderSetLineItemCustomFieldActionModel extends JsonObjectModel
      * @var ?JsonObject
      */
     protected $value;
+
 
     public function __construct(
         string $lineItemId = null,

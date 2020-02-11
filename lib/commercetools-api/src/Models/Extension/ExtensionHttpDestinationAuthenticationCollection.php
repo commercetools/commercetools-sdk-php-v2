@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionHttpDestinationAuthentication>
- *
  * @method ExtensionHttpDestinationAuthentication current()
  * @method ExtensionHttpDestinationAuthentication at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionHttpDestinationAuthenticationCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionHttpDestinationAuthentication $value
      * @psalm-param ExtensionHttpDestinationAuthentication|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionHttpDestinationAuthenticationCollection

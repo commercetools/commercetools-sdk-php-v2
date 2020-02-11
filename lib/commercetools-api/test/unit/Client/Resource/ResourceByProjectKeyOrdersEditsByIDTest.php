@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDDelete
  */
 class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/orders/edits/{ID}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
             'ByProjectKeyOrdersEditsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/orders/edits/{ID}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/orders/edits/{ID}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
             'ByProjectKeyOrdersEditsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/orders/edits/{ID}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/orders/edits/{ID}?version=version',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->edits()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/orders/edits/{ID}?expand=expand',
@@ -112,16 +104,15 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
             'ByProjectKeyOrdersEditsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/orders/edits/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -136,7 +127,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -145,36 +136,33 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
             'ByProjectKeyOrdersEditsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyOrdersEditsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyOrdersEditsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -187,7 +175,7 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductProjectionsByIDGet
- *
- * @internal
  */
 class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withStaged('staged')
-                    ;
+                        ->withStaged('staged');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?staged=staged',
@@ -45,8 +42,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?priceCurrency=priceCurrency',
@@ -58,8 +54,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?priceCountry=priceCountry',
@@ -71,8 +66,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?priceCustomerGroup=priceCustomerGroup',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?priceChannel=priceChannel',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
                         ->productProjections()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}?expand=expand',
@@ -106,15 +98,14 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
             'ByProjectKeyProductProjectionsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productProjections()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/product-projections/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -129,7 +120,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -138,13 +129,12 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
             'ByProjectKeyProductProjectionsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productProjections()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -157,7 +147,7 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

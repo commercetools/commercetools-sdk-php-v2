@@ -14,25 +14,26 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Review extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_AUTHOR_NAME = 'authorName';
-    const FIELD_TITLE = 'title';
-    const FIELD_TEXT = 'text';
-    const FIELD_TARGET = 'target';
-    const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';
-    const FIELD_RATING = 'rating';
-    const FIELD_STATE = 'state';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_AUTHOR_NAME = 'authorName';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_TEXT = 'text';
+    public const FIELD_TARGET = 'target';
+    public const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';
+    public const FIELD_RATING = 'rating';
+    public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The unique ID of the review.</p>

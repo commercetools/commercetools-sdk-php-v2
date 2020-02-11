@@ -6,12 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 interface Config
 {
-    const OPT_BASE_URI = 'base_uri';
-    const OPT_CLIENT_OPTIONS = 'options';
+    public const OPT_BASE_URI = 'base_uri';
+    public const OPT_CLIENT_OPTIONS = 'options';
 
     public function getApiUri(): string;
 

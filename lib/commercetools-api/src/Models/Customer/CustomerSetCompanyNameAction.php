@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerSetCompanyNameAction extends CustomerUpdateAction
 {
-    const FIELD_COMPANY_NAME = 'companyName';
+    public const FIELD_COMPANY_NAME = 'companyName';
 
     /**
      * <p>If not defined, the company name is unset.</p>

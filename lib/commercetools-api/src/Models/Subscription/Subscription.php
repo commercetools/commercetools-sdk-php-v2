@@ -11,18 +11,20 @@ namespace Commercetools\Api\Models\Subscription;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Subscription extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_CHANGES = 'changes';
-    const FIELD_DESTINATION = 'destination';
-    const FIELD_KEY = 'key';
-    const FIELD_MESSAGES = 'messages';
-    const FIELD_FORMAT = 'format';
-    const FIELD_STATUS = 'status';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_CHANGES = 'changes';
+    public const FIELD_DESTINATION = 'destination';
+    public const FIELD_KEY = 'key';
+    public const FIELD_MESSAGES = 'messages';
+    public const FIELD_FORMAT = 'format';
+    public const FIELD_STATUS = 'status';
 
     /**
      * @return null|string

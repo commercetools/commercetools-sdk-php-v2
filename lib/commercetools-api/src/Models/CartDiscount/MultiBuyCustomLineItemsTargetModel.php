@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implements MultiBuyCustomLineItemsTarget
 {
-    const DISCRIMINATOR_VALUE = 'multiBuyCustomLineItems';
+    public const DISCRIMINATOR_VALUE = 'multiBuyCustomLineItems';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
      * @var ?string
      */
     protected $selectionMode;
+
 
     public function __construct(
         string $predicate = null,

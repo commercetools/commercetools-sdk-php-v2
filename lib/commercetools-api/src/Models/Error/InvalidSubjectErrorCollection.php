@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidSubjectError>
- *
  * @method InvalidSubjectError current()
  * @method InvalidSubjectError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidSubjectErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidSubjectError $value
      * @psalm-param InvalidSubjectError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidSubjectErrorCollection

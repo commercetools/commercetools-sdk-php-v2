@@ -14,13 +14,16 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponse;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -107,9 +110,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $country
      *
-     * @param mixed $country
+     * @psalm-param scalar $country
      */
     public function withCountry($country): ByProjectKeyShippingMethodsGet
     {
@@ -117,9 +119,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $state
      *
-     * @param mixed $state
+     * @psalm-param scalar $state
      */
     public function withState($state): ByProjectKeyShippingMethodsGet
     {
@@ -127,9 +128,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $currency
      *
-     * @param mixed $currency
+     * @psalm-param scalar $currency
      */
     public function withCurrency($currency): ByProjectKeyShippingMethodsGet
     {
@@ -137,9 +137,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyShippingMethodsGet
     {
@@ -147,9 +146,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $where
      *
-     * @param mixed $where
+     * @psalm-param scalar $where
      */
     public function withWhere($where): ByProjectKeyShippingMethodsGet
     {
@@ -157,9 +155,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $sort
      *
-     * @param mixed $sort
+     * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyShippingMethodsGet
     {
@@ -167,9 +164,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $limit
      *
-     * @param mixed $limit
+     * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyShippingMethodsGet
     {
@@ -177,9 +173,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $offset
      *
-     * @param mixed $offset
+     * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyShippingMethodsGet
     {
@@ -187,9 +182,8 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $withTotal
      *
-     * @param mixed $withTotal
+     * @psalm-param scalar $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyShippingMethodsGet
     {

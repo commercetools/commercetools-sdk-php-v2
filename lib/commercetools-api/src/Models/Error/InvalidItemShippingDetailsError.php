@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface InvalidItemShippingDetailsError extends ErrorObject
 {
-    const FIELD_SUBJECT = 'subject';
-    const FIELD_ITEM_ID = 'itemId';
+    public const FIELD_SUBJECT = 'subject';
+    public const FIELD_ITEM_ID = 'itemId';
 
     /**
      * @return null|string

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel implements CartSetShippingMethodTaxAmountAction
 {
-    const DISCRIMINATOR_VALUE = 'setShippingMethodTaxAmount';
+    public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxAmount';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
+
 
     public function __construct(
         ExternalTaxAmountDraft $externalTaxAmount = null

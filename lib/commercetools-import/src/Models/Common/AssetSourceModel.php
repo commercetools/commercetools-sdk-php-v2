@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AssetSourceModel extends JsonObjectModel implements AssetSource
@@ -32,6 +35,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
      * @var ?string
      */
     protected $contentType;
+
 
     public function __construct(
         string $uri = null,

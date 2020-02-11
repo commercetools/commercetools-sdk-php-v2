@@ -10,13 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel implements ProductSetAssetCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setAssetCustomType';
+    public const DISCRIMINATOR_VALUE = 'setAssetCustomType';
     /**
      * @var ?string
      */
@@ -56,6 +59,7 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
      * @var ?JsonObject
      */
     protected $fields;
+
 
     public function __construct(
         int $variantId = null,

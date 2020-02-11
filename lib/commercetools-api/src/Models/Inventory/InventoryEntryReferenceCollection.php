@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryReference>
- *
  * @method InventoryEntryReference current()
  * @method InventoryEntryReference at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntryReferenceCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryReference $value
      * @psalm-param InventoryEntryReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntryReferenceCollection

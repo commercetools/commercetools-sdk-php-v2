@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class ProductDiscountSetValidFromActionModel extends JsonObjectModel implements ProductDiscountSetValidFromAction
 {
-    const DISCRIMINATOR_VALUE = 'setValidFrom';
+    public const DISCRIMINATOR_VALUE = 'setValidFrom';
     /**
      * @var ?string
      */
@@ -24,6 +29,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
+
 
     public function __construct(
         DateTimeImmutable $validFrom = null
@@ -78,13 +84,13 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
         $this->validFrom = $validFrom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[ProductDiscountSetValidFromAction::FIELD_VALID_FROM]) && $data[ProductDiscountSetValidFromAction::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[ProductDiscountSetValidFromAction::FIELD_VALID_FROM] = $data[ProductDiscountSetValidFromAction::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

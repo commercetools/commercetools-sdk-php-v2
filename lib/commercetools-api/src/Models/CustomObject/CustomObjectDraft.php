@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomObject;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomObjectDraft extends JsonObject
 {
-    const FIELD_CONTAINER = 'container';
-    const FIELD_KEY = 'key';
-    const FIELD_VALUE = 'value';
-    const FIELD_VERSION = 'version';
+    public const FIELD_CONTAINER = 'container';
+    public const FIELD_KEY = 'key';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_VERSION = 'version';
 
     /**
      * <p>A namespace to group custom objects.</p>

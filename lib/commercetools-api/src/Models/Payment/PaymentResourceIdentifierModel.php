@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PaymentResourceIdentifierModel extends JsonObjectModel implements PaymentResourceIdentifier
 {
-    const DISCRIMINATOR_VALUE = 'payment';
+    public const DISCRIMINATOR_VALUE = 'payment';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class PaymentResourceIdentifierModel extends JsonObjectModel implements Pa
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

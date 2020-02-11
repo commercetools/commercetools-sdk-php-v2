@@ -10,17 +10,18 @@ namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface TextLineItem extends JsonObject
 {
-    const FIELD_ADDED_AT = 'addedAt';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_ID = 'id';
-    const FIELD_NAME = 'name';
-    const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_ID = 'id';
+    public const FIELD_NAME = 'name';
+    public const FIELD_QUANTITY = 'quantity';
 
     /**
      * <p>When the text line item was added to the shopping list.</p>

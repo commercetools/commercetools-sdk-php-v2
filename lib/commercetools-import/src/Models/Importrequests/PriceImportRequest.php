@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Prices\PriceImportCollection;
 
 interface PriceImportRequest extends ImportRequest
 {
-    const FIELD_RESOURCES = 'resources';
+    public const FIELD_RESOURCES = 'resources';
 
     /**
      * <p>The price import resources of this request.</p>

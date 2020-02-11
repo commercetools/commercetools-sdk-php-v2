@@ -8,8 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ImportResource;
+
+use Commercetools\Import\Models\Common\ImportResourceModel;
 use stdClass;
 
 final class ProductTypeImportModel extends JsonObjectModel implements ProductTypeImport
@@ -33,6 +38,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
      * @var ?AttributeDefinitionCollection
      */
     protected $attributes;
+
 
     public function __construct(
         string $key = null,

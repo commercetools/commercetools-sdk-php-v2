@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -20,8 +21,6 @@ class ResourceByProjectKeyProductDiscountsKeyByKey extends ApiResource
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductDiscountsKeyByKeyGet
     {
@@ -29,7 +28,6 @@ class ResourceByProjectKeyProductDiscountsKeyByKey extends ApiResource
 
         return new ByProjectKeyProductDiscountsKeyByKeyGet((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ProductDiscountUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -40,12 +38,9 @@ class ResourceByProjectKeyProductDiscountsKeyByKey extends ApiResource
 
         return new ByProjectKeyProductDiscountsKeyByKeyPost((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyProductDiscountsKeyByKeyDelete
     {

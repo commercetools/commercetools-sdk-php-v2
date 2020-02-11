@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Common\ImportResource;
@@ -15,12 +17,12 @@ use Commercetools\Import\Models\Common\ProductKeyReference;
 
 interface ProductVariantImport extends ImportResource
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_IS_MASTER_VARIANT = 'isMasterVariant';
-    const FIELD_ATTRIBUTES = 'attributes';
-    const FIELD_IMAGES = 'images';
-    const FIELD_ASSETS = 'assets';
-    const FIELD_PRODUCT = 'product';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_IS_MASTER_VARIANT = 'isMasterVariant';
+    public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_IMAGES = 'images';
+    public const FIELD_ASSETS = 'assets';
+    public const FIELD_PRODUCT = 'product';
 
     /**
      * <p>Maps to <code>ProductVariant.sku</code>.</p>

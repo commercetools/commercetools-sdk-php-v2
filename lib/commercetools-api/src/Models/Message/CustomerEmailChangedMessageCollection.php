@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerEmailChangedMessage>
- *
  * @method CustomerEmailChangedMessage current()
  * @method CustomerEmailChangedMessage at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerEmailChangedMessageCollection extends MapperSequence
     /**
      * @psalm-assert CustomerEmailChangedMessage $value
      * @psalm-param CustomerEmailChangedMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerEmailChangedMessageCollection

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface GraphQLErrorLocation extends JsonObject
 {
-    const FIELD_LINE = 'line';
-    const FIELD_COLUMN = 'column';
+    public const FIELD_LINE = 'line';
+    public const FIELD_COLUMN = 'column';
 
     /**
      * @return null|int

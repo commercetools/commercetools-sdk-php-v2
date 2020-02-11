@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MoneyModel extends JsonObjectModel implements Money
 {
@@ -21,6 +25,7 @@ final class MoneyModel extends JsonObjectModel implements Money
      * @var ?string
      */
     protected $currencyCode;
+
 
     public function __construct(
         int $centAmount = null,

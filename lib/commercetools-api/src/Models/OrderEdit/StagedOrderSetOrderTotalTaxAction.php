@@ -11,11 +11,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\TaxPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetOrderTotalTaxAction extends StagedOrderUpdateAction
 {
-    const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
-    const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
+    public const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
+    public const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 
     /**
      * @return null|Money

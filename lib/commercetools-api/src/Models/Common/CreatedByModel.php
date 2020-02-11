@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CreatedByModel extends JsonObjectModel implements CreatedBy
@@ -34,6 +38,7 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
      * @var ?string
      */
     protected $anonymousId;
+
 
     public function __construct(
         string $clientId = null,

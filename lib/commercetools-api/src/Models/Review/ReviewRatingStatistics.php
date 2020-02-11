@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ReviewRatingStatistics extends JsonObject
 {
-    const FIELD_AVERAGE_RATING = 'averageRating';
-    const FIELD_HIGHEST_RATING = 'highestRating';
-    const FIELD_LOWEST_RATING = 'lowestRating';
-    const FIELD_COUNT = 'count';
-    const FIELD_RATINGS_DISTRIBUTION = 'ratingsDistribution';
+    public const FIELD_AVERAGE_RATING = 'averageRating';
+    public const FIELD_HIGHEST_RATING = 'highestRating';
+    public const FIELD_LOWEST_RATING = 'lowestRating';
+    public const FIELD_COUNT = 'count';
+    public const FIELD_RATINGS_DISTRIBUTION = 'ratingsDistribution';
 
     /**
      * <p>Average rating of one target

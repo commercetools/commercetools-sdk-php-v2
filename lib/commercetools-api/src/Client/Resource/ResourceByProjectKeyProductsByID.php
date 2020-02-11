@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Product\ProductUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,14 +22,12 @@ class ResourceByProjectKeyProductsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductsByIDImages($this->getUri().'/images', $args, $this->getClient());
+        return new ResourceByProjectKeyProductsByIDImages($this->getUri() . '/images', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductsByIDGet
     {
@@ -36,7 +35,6 @@ class ResourceByProjectKeyProductsByID extends ApiResource
 
         return new ByProjectKeyProductsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ProductUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -47,12 +45,9 @@ class ResourceByProjectKeyProductsByID extends ApiResource
 
         return new ByProjectKeyProductsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyProductsByIDDelete
     {

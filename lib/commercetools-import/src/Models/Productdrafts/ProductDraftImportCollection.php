@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDraftImport>
- *
  * @method ProductDraftImport current()
  * @method ProductDraftImport at($offset)
  */
@@ -23,9 +22,6 @@ class ProductDraftImportCollection extends MapperSequence
     /**
      * @psalm-assert ProductDraftImport $value
      * @psalm-param ProductDraftImport|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductDraftImportCollection

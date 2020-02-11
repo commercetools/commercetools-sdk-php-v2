@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implements ProjectSetExternalOAuthAction
 {
-    const DISCRIMINATOR_VALUE = 'setExternalOAuth';
+    public const DISCRIMINATOR_VALUE = 'setExternalOAuth';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
      * @var ?ExternalOAuth
      */
     protected $externalOAuth;
+
 
     public function __construct(
         ExternalOAuth $externalOAuth = null

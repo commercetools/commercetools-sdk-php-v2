@@ -12,17 +12,19 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Type extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_RESOURCE_TYPE_IDS = 'resourceTypeIds';
-    const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_RESOURCE_TYPE_IDS = 'resourceTypeIds';
+    public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
      * <p>The unique ID of the type.</p>

@@ -9,16 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Delivery extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_ITEMS = 'items';
-    const FIELD_PARCELS = 'parcels';
-    const FIELD_ADDRESS = 'address';
+    public const FIELD_ID = 'id';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_ITEMS = 'items';
+    public const FIELD_PARCELS = 'parcels';
+    public const FIELD_ADDRESS = 'address';
 
     /**
      * @return null|string

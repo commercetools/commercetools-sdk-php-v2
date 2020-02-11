@@ -9,8 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
@@ -18,9 +21,12 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CustomerModel extends JsonObjectModel implements Customer
@@ -169,6 +175,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
      * @var ?StoreKeyReferenceCollection
      */
     protected $stores;
+
 
     public function __construct(
         string $id = null,
@@ -920,6 +927,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->stores = $stores;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -934,7 +942,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
         if (isset($data[Customer::FIELD_DATE_OF_BIRTH]) && $data[Customer::FIELD_DATE_OF_BIRTH] instanceof \DateTimeImmutable) {
             $data[Customer::FIELD_DATE_OF_BIRTH] = $data[Customer::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
         }
-
         return (object) $data;
     }
 }

@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger
 {
@@ -21,6 +25,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
      * @var ?array
      */
     protected $actions;
+
 
     public function __construct(
         string $resourceTypeId = null,

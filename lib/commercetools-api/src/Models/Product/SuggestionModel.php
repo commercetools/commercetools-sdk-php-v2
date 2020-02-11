@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class SuggestionModel extends JsonObjectModel implements Suggestion
 {
@@ -16,6 +20,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
      * @var ?string
      */
     protected $text;
+
 
     public function __construct(
         string $text = null

@@ -8,13 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ExtensionModel extends JsonObjectModel implements Extension
@@ -68,6 +74,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
      * @var ?int
      */
     protected $timeoutInMs;
+
 
     public function __construct(
         string $id = null,
@@ -331,6 +338,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->timeoutInMs = $timeoutInMs;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -341,7 +349,6 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         if (isset($data[Extension::FIELD_LAST_MODIFIED_AT]) && $data[Extension::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Extension::FIELD_LAST_MODIFIED_AT] = $data[Extension::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

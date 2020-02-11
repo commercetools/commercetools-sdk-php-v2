@@ -10,12 +10,14 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MyShoppingListSetTextLineItemCustomTypeAction extends MyShoppingListUpdateAction
 {
-    const FIELD_TEXT_LINE_ITEM_ID = 'textLineItemId';
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_TEXT_LINE_ITEM_ID = 'textLineItemId';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|string

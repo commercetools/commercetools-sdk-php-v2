@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeImport>
- *
  * @method ProductTypeImport current()
  * @method ProductTypeImport at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeImportCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeImport $value
      * @psalm-param ProductTypeImport|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeImportCollection

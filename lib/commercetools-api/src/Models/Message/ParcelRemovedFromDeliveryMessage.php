@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\Parcel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ParcelRemovedFromDeliveryMessage extends Message
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_PARCEL = 'parcel';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_PARCEL = 'parcel';
 
     /**
      * @return null|string

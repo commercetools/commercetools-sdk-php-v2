@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TrackingData>
- *
  * @method TrackingData current()
  * @method TrackingData at($offset)
  */
@@ -23,9 +22,6 @@ class TrackingDataCollection extends MapperSequence
     /**
      * @psalm-assert TrackingData $value
      * @psalm-param TrackingData|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TrackingDataCollection

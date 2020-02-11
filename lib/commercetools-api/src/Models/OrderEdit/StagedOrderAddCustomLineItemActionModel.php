@@ -13,18 +13,23 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
+
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel implements StagedOrderAddCustomLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'addCustomLineItem';
+    public const DISCRIMINATOR_VALUE = 'addCustomLineItem';
     /**
      * @var ?string
      */
@@ -64,6 +69,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         Money $money = null,

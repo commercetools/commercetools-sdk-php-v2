@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeChangeLabelAction
 {
-    const DISCRIMINATOR_VALUE = 'changeLabel';
+    public const DISCRIMINATOR_VALUE = 'changeLabel';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
      * @var ?LocalizedString
      */
     protected $label;
+
 
     public function __construct(
         string $fieldName = null,

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel implements ProductProjectionPagedQueryResponse
@@ -37,6 +40,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
      * @var ?ProductProjectionCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

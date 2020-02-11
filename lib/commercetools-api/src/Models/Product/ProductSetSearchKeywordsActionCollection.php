@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetSearchKeywordsAction>
- *
  * @method ProductSetSearchKeywordsAction current()
  * @method ProductSetSearchKeywordsAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductSetSearchKeywordsActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetSearchKeywordsAction $value
      * @psalm-param ProductSetSearchKeywordsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductSetSearchKeywordsActionCollection

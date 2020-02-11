@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class DeliveryPlatformFormatModel extends JsonObjectModel implements DeliveryPlatformFormat
 {
-    const DISCRIMINATOR_VALUE = 'Platform';
+    public const DISCRIMINATOR_VALUE = 'Platform';
     /**
      * @var ?string
      */
     protected $type;
+
 
     public function __construct(
     ) {

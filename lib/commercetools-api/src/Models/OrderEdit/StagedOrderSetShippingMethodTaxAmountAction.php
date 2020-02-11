@@ -10,10 +10,12 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingMethodTaxAmountAction extends StagedOrderUpdateAction
 {
-    const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
+    public const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
 
     /**
      * @return null|ExternalTaxAmountDraft

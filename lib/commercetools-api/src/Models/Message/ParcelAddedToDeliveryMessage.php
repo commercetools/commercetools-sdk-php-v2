@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\Delivery;
 use Commercetools\Api\Models\Order\Parcel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ParcelAddedToDeliveryMessage extends Message
 {
-    const FIELD_DELIVERY = 'delivery';
-    const FIELD_PARCEL = 'parcel';
+    public const FIELD_DELIVERY = 'delivery';
+    public const FIELD_PARCEL = 'parcel';
 
     /**
      * @return null|Delivery

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountValueGiftLineItemDraft>
- *
  * @method CartDiscountValueGiftLineItemDraft current()
  * @method CartDiscountValueGiftLineItemDraft at($offset)
  */
@@ -23,9 +22,6 @@ class CartDiscountValueGiftLineItemDraftCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountValueGiftLineItemDraft $value
      * @psalm-param CartDiscountValueGiftLineItemDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartDiscountValueGiftLineItemDraftCollection

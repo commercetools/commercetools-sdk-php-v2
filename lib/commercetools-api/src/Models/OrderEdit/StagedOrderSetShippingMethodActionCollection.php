@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetShippingMethodAction>
- *
  * @method StagedOrderSetShippingMethodAction current()
  * @method StagedOrderSetShippingMethodAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderSetShippingMethodActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderSetShippingMethodAction $value
      * @psalm-param StagedOrderSetShippingMethodAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderSetShippingMethodActionCollection

@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\Cart;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<CartAddPaymentAction>

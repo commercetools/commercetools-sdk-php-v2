@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSetType
 {
-    const DISCRIMINATOR_VALUE = 'set';
+    public const DISCRIMINATOR_VALUE = 'set';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
      * @var ?AttributeType
      */
     protected $elementType;
+
 
     public function __construct(
         AttributeType $elementType = null

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategoryChangeSlugAction extends CategoryUpdateAction
 {
-    const FIELD_SLUG = 'slug';
+    public const FIELD_SLUG = 'slug';
 
     /**
      * <p>Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ChannelSetAddressActionModel extends JsonObjectModel implements ChannelSetAddressAction
 {
-    const DISCRIMINATOR_VALUE = 'setAddress';
+    public const DISCRIMINATOR_VALUE = 'setAddress';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
      * @var ?Address
      */
     protected $address;
+
 
     public function __construct(
         Address $address = null

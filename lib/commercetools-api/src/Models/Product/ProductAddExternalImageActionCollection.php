@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductAddExternalImageAction>
- *
  * @method ProductAddExternalImageAction current()
  * @method ProductAddExternalImageAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductAddExternalImageActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductAddExternalImageAction $value
      * @psalm-param ProductAddExternalImageAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductAddExternalImageActionCollection

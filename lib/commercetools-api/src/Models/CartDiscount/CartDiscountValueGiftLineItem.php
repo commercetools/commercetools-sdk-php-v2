@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartDiscountValueGiftLineItem extends CartDiscountValue
 {
-    const FIELD_PRODUCT = 'product';
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_PRODUCT = 'product';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
      * @return null|ProductReference

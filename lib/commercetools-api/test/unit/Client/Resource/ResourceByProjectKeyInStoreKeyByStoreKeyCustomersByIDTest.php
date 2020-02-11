@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
                         ->customers()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
                         ->customers()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
                         ->customers()
                         ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}?dataErasure=dataErasure',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
                         ->customers()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}?version=version',
@@ -117,8 +109,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
                         ->customers()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}?expand=expand',
@@ -126,16 +117,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/customers/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -150,7 +140,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -159,36 +149,33 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -201,7 +188,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

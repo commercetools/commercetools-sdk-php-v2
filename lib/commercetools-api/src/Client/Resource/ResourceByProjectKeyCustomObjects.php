@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,9 +29,8 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyCustomObjectsByContainerByKey($this->getUri().'/{container}/{key}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomObjectsByContainerByKey($this->getUri() . '/{container}/{key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyCustomObjectsByID
     {
         $args = $this->getArgs();
@@ -38,14 +38,12 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCustomObjectsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomObjectsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyCustomObjectsGet
     {
@@ -53,7 +51,6 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
 
         return new ByProjectKeyCustomObjectsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?CustomObjectDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

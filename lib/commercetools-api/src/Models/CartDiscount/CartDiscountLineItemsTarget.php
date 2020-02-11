@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartDiscountLineItemsTarget extends CartDiscountTarget
 {
-    const FIELD_PREDICATE = 'predicate';
+    public const FIELD_PREDICATE = 'predicate';
 
     /**
      * @return null|string

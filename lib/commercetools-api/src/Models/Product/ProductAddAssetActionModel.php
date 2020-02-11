@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraft;
 use Commercetools\Api\Models\Common\AssetDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductAddAssetActionModel extends JsonObjectModel implements ProductAddAssetAction
 {
-    const DISCRIMINATOR_VALUE = 'addAsset';
+    public const DISCRIMINATOR_VALUE = 'addAsset';
     /**
      * @var ?string
      */
@@ -45,6 +49,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
      * @var ?int
      */
     protected $position;
+
 
     public function __construct(
         int $variantId = null,

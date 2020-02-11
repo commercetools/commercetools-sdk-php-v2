@@ -9,10 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DateTimeSetAttribute extends Attribute
 {
-    const FIELD_VALUE = 'value';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|DateTimeImmutableCollection

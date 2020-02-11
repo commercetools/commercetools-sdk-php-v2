@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentStatusInterfaceCodeSetMessage>
- *
  * @method PaymentStatusInterfaceCodeSetMessage current()
  * @method PaymentStatusInterfaceCodeSetMessage at($offset)
  */
@@ -23,9 +22,6 @@ class PaymentStatusInterfaceCodeSetMessageCollection extends MapperSequence
     /**
      * @psalm-assert PaymentStatusInterfaceCodeSetMessage $value
      * @psalm-param PaymentStatusInterfaceCodeSetMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PaymentStatusInterfaceCodeSetMessageCollection

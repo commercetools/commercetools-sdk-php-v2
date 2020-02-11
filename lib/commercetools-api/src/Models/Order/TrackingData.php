@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TrackingData extends JsonObject
 {
-    const FIELD_TRACKING_ID = 'trackingId';
-    const FIELD_CARRIER = 'carrier';
-    const FIELD_PROVIDER = 'provider';
-    const FIELD_PROVIDER_TRANSACTION = 'providerTransaction';
-    const FIELD_IS_RETURN = 'isReturn';
+    public const FIELD_TRACKING_ID = 'trackingId';
+    public const FIELD_CARRIER = 'carrier';
+    public const FIELD_PROVIDER = 'provider';
+    public const FIELD_PROVIDER_TRANSACTION = 'providerTransaction';
+    public const FIELD_IS_RETURN = 'isReturn';
 
     /**
      * <p>The ID to track one parcel.</p>

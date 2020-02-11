@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel implements MyCartChangeLineItemQuantityAction
 {
-    const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
+    public const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
+
 
     public function __construct(
         string $lineItemId = null,

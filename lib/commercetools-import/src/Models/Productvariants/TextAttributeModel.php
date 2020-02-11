@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TextAttributeModel extends JsonObjectModel implements TextAttribute
 {
-    const DISCRIMINATOR_VALUE = 'text';
+    public const DISCRIMINATOR_VALUE = 'text';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class TextAttributeModel extends JsonObjectModel implements TextAttribute
      * @var ?string
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

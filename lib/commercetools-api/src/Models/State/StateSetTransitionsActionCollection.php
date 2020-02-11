@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateSetTransitionsAction>
- *
  * @method StateSetTransitionsAction current()
  * @method StateSetTransitionsAction at($offset)
  */
@@ -23,9 +22,6 @@ class StateSetTransitionsActionCollection extends MapperSequence
     /**
      * @psalm-assert StateSetTransitionsAction $value
      * @psalm-param StateSetTransitionsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateSetTransitionsActionCollection

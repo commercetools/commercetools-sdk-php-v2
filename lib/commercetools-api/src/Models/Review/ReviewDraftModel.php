@@ -13,9 +13,12 @@ use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
@@ -74,6 +77,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
 
     public function __construct(
         string $key = null,

@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\KeyReferenceCollection;
+
 use stdClass;
 
 final class ReferenceSetAttributeModel extends JsonObjectModel implements ReferenceSetAttribute
 {
-    const DISCRIMINATOR_VALUE = 'reference-set';
+    public const DISCRIMINATOR_VALUE = 'reference-set';
     /**
      * @var ?string
      */
@@ -29,6 +33,7 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
      * @var ?KeyReferenceCollection
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

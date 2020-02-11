@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryRemoveAssetAction>
- *
  * @method CategoryRemoveAssetAction current()
  * @method CategoryRemoveAssetAction at($offset)
  */
@@ -23,9 +22,6 @@ class CategoryRemoveAssetActionCollection extends MapperSequence
     /**
      * @psalm-assert CategoryRemoveAssetAction $value
      * @psalm-param CategoryRemoveAssetAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategoryRemoveAssetActionCollection

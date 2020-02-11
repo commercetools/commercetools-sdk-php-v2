@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TypeChangeInputHintActionModel extends JsonObjectModel implements TypeChangeInputHintAction
 {
-    const DISCRIMINATOR_VALUE = 'changeInputHint';
+    public const DISCRIMINATOR_VALUE = 'changeInputHint';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
      * @var ?string
      */
     protected $inputHint;
+
 
     public function __construct(
         string $fieldName = null,

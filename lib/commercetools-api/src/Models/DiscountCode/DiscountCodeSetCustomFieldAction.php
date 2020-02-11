@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountCodeSetCustomFieldAction extends DiscountCodeUpdateAction
 {
-    const FIELD_NAME = 'name';
-    const FIELD_VALUE = 'value';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetCustomerEmailAction extends StagedOrderUpdateAction
 {
-    const FIELD_EMAIL = 'email';
+    public const FIELD_EMAIL = 'email';
 
     /**
      * @return null|string

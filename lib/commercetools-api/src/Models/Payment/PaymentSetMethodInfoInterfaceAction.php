@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface PaymentSetMethodInfoInterfaceAction extends PaymentUpdateAction
 {
-    const FIELD_INTERFACE = 'interface';
+    public const FIELD_INTERFACE = 'interface';
 
     /**
      * @return null|string

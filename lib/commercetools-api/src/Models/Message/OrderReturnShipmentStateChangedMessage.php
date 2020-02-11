@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderReturnShipmentStateChangedMessage extends Message
 {
-    const FIELD_RETURN_ITEM_ID = 'returnItemId';
-    const FIELD_RETURN_SHIPMENT_STATE = 'returnShipmentState';
+    public const FIELD_RETURN_ITEM_ID = 'returnItemId';
+    public const FIELD_RETURN_SHIPMENT_STATE = 'returnShipmentState';
 
     /**
      * @return null|string

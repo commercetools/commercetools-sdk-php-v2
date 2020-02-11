@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<CustomerGroupPagedQueryResponse>
@@ -129,6 +134,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): CustomerGroupPagedQueryResponse
     {

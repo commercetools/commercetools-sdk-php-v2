@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ChannelChangeDescriptionAction extends ChannelUpdateAction
 {
-    const FIELD_DESCRIPTION = 'description';
+    public const FIELD_DESCRIPTION = 'description';
 
     /**
      * @return null|LocalizedString

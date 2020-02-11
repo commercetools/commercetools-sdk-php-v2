@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetLineItemTaxRateAction>
- *
  * @method StagedOrderSetLineItemTaxRateAction current()
  * @method StagedOrderSetLineItemTaxRateAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderSetLineItemTaxRateActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderSetLineItemTaxRateAction $value
      * @psalm-param StagedOrderSetLineItemTaxRateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderSetLineItemTaxRateActionCollection

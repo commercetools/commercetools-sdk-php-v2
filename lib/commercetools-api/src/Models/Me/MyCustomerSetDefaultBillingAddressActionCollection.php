@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyCustomerSetDefaultBillingAddressAction>
- *
  * @method MyCustomerSetDefaultBillingAddressAction current()
  * @method MyCustomerSetDefaultBillingAddressAction at($offset)
  */
@@ -23,9 +22,6 @@ class MyCustomerSetDefaultBillingAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert MyCustomerSetDefaultBillingAddressAction $value
      * @psalm-param MyCustomerSetDefaultBillingAddressAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MyCustomerSetDefaultBillingAddressActionCollection

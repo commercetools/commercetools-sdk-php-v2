@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsPost
- *
- * @internal
  */
 class ResourceByProjectKeyPaymentsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/payments?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/payments?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/payments?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/payments?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/payments?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/payments?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
             'ByProjectKeyPaymentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->payments()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/payments',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->payments()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/payments?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
             'ByProjectKeyPaymentsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->payments()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/payments',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
             'ByProjectKeyPaymentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->payments()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyPaymentsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->payments()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

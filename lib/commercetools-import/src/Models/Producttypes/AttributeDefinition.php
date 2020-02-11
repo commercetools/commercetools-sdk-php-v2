@@ -8,19 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\LocalizedString;
 
 interface AttributeDefinition extends JsonObject
 {
-    const FIELD_TYPE = 'type';
-    const FIELD_NAME = 'name';
-    const FIELD_LABEL = 'label';
-    const FIELD_IS_REQUIRED = 'isRequired';
-    const FIELD_ATTRIBUTE_CONSTRAINT = 'attributeConstraint';
-    const FIELD_INPUT_TIP = 'inputTip';
-    const FIELD_INPUT_HINT = 'inputHint';
-    const FIELD_IS_SEARCHABLE = 'isSearchable';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_NAME = 'name';
+    public const FIELD_LABEL = 'label';
+    public const FIELD_IS_REQUIRED = 'isRequired';
+    public const FIELD_ATTRIBUTE_CONSTRAINT = 'attributeConstraint';
+    public const FIELD_INPUT_TIP = 'inputTip';
+    public const FIELD_INPUT_HINT = 'inputHint';
+    public const FIELD_IS_SEARCHABLE = 'isSearchable';
 
     /**
      * @return null|AttributeType

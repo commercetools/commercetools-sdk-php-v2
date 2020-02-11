@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerSetCustomerGroupAction extends CustomerUpdateAction
 {
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
      * <p>If not defined, the customer group is unset.</p>

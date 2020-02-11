@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StateAddRolesActionModel extends JsonObjectModel implements StateAddRolesAction
 {
-    const DISCRIMINATOR_VALUE = 'addRoles';
+    public const DISCRIMINATOR_VALUE = 'addRoles';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class StateAddRolesActionModel extends JsonObjectModel implements StateAdd
      * @var ?array
      */
     protected $roles;
+
 
     public function __construct(
         array $roles = null

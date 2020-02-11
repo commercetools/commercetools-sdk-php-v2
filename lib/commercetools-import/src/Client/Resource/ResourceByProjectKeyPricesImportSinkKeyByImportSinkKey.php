@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importrequests\PriceImportRequest;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,13 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey extends ApiResource
             $args['resourceKey'] = $resourceKey;
         }
 
-        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri() . '/resourceKey={resourceKey}', $args, $this->getClient());
     }
-
     public function importOperations(): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
+        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperations($this->getUri() . '/import-operations', $args, $this->getClient());
     }
 
     /**

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Parcel>
- *
  * @method Parcel current()
  * @method Parcel at($offset)
  */
@@ -23,9 +22,6 @@ class ParcelCollection extends MapperSequence
     /**
      * @psalm-assert Parcel $value
      * @psalm-param Parcel|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ParcelCollection

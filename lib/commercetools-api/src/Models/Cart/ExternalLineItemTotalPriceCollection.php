@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExternalLineItemTotalPrice>
- *
  * @method ExternalLineItemTotalPrice current()
  * @method ExternalLineItemTotalPrice at($offset)
  */
@@ -23,9 +22,6 @@ class ExternalLineItemTotalPriceCollection extends MapperSequence
     /**
      * @psalm-assert ExternalLineItemTotalPrice $value
      * @psalm-param ExternalLineItemTotalPrice|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExternalLineItemTotalPriceCollection

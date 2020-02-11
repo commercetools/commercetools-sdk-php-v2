@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductPublishActionModel extends JsonObjectModel implements ProductPublishAction
 {
-    const DISCRIMINATOR_VALUE = 'publish';
+    public const DISCRIMINATOR_VALUE = 'publish';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
      * @var ?string
      */
     protected $scope;
+
 
     public function __construct(
         string $scope = null

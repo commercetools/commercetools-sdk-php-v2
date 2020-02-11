@@ -14,33 +14,34 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CartDraft extends JsonObject
 {
-    const FIELD_CURRENCY = 'currency';
-    const FIELD_CUSTOMER_ID = 'customerId';
-    const FIELD_CUSTOMER_EMAIL = 'customerEmail';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
-    const FIELD_STORE = 'store';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_INVENTORY_MODE = 'inventoryMode';
-    const FIELD_TAX_MODE = 'taxMode';
-    const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
-    const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
-    const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    const FIELD_BILLING_ADDRESS = 'billingAddress';
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD = 'externalTaxRateForShippingMethod';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    const FIELD_ORIGIN = 'origin';
-    const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
-    const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_CURRENCY = 'currency';
+    public const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_STORE = 'store';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
+    public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD = 'externalTaxRateForShippingMethod';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_ORIGIN = 'origin';
+    public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
+    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>

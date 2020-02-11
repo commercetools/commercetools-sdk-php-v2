@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsPost
- *
- * @internal
  */
 class ResourceByProjectKeyShoppingListsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/shopping-lists?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/shopping-lists?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/shopping-lists?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/shopping-lists?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/shopping-lists?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/shopping-lists?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
             'ByProjectKeyShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/shopping-lists',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/shopping-lists?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
             'ByProjectKeyShoppingListsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/shopping-lists',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
             'ByProjectKeyShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyShoppingListsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

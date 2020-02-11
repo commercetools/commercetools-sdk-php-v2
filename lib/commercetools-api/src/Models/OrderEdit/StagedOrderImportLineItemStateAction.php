@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderImportLineItemStateAction extends StagedOrderUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_STATE = 'state';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_STATE = 'state';
 
     /**
      * @return null|string

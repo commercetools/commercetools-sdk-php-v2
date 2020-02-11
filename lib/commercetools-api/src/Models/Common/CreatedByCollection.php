@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CreatedBy>
- *
  * @method CreatedBy current()
  * @method CreatedBy at($offset)
  */
@@ -23,9 +22,6 @@ class CreatedByCollection extends MapperSequence
     /**
      * @psalm-assert CreatedBy $value
      * @psalm-param CreatedBy|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CreatedByCollection

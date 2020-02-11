@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductVariantChannelAvailabilityMap>
- *
  * @method ProductVariantChannelAvailabilityMap current()
  * @method ProductVariantChannelAvailabilityMap at($offset)
  */
@@ -23,9 +22,6 @@ class ProductVariantChannelAvailabilityMapCollection extends MapperSequence
     /**
      * @psalm-assert ProductVariantChannelAvailabilityMap $value
      * @psalm-param ProductVariantChannelAvailabilityMap|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductVariantChannelAvailabilityMapCollection

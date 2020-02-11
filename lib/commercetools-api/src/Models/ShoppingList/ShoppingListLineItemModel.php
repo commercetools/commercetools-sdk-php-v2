@@ -13,12 +13,16 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
+
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ShoppingListLineItemModel extends JsonObjectModel implements ShoppingListLineItem
@@ -77,6 +81,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
      * @var ?int
      */
     protected $variantId;
+
 
     public function __construct(
         DateTimeImmutable $addedAt = null,
@@ -359,6 +364,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->variantId = $variantId;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -369,7 +375,6 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         if (isset($data[ShoppingListLineItem::FIELD_DEACTIVATED_AT]) && $data[ShoppingListLineItem::FIELD_DEACTIVATED_AT] instanceof \DateTimeImmutable) {
             $data[ShoppingListLineItem::FIELD_DEACTIVATED_AT] = $data[ShoppingListLineItem::FIELD_DEACTIVATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

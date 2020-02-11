@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomerDateOfBirthSetMessagePayload extends MessagePayload
 {
-    const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
+    public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**
      * @return null|DateTimeImmutable

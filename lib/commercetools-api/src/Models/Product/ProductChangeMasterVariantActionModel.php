@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductChangeMasterVariantActionModel extends JsonObjectModel implements ProductChangeMasterVariantAction
 {
-    const DISCRIMINATOR_VALUE = 'changeMasterVariant';
+    public const DISCRIMINATOR_VALUE = 'changeMasterVariant';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomerGroupUpdateActionModel extends JsonObjectModel implements CustomerGroupUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,12 +24,13 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
 
     /**
      * @psalm-var array<string, class-string<CustomerGroupUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'changeName' => CustomerGroupChangeNameActionModel::class,
-        'setCustomField' => CustomerGroupSetCustomFieldActionModel::class,
-        'setCustomType' => CustomerGroupSetCustomTypeActionModel::class,
-        'setKey' => CustomerGroupSetKeyActionModel::class,
+       'changeName' => CustomerGroupChangeNameActionModel::class,
+       'setCustomField' => CustomerGroupSetCustomFieldActionModel::class,
+       'setCustomType' => CustomerGroupSetCustomTypeActionModel::class,
+       'setKey' => CustomerGroupSetKeyActionModel::class,
     ];
 
     public function __construct(
@@ -51,18 +55,19 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<CustomerGroupUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = CustomerGroupUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -77,7 +82,6 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
 
         /** @psalm-var class-string<CustomerGroupUpdateAction> */
         $type = CustomerGroupUpdateActionModel::class;
-
         return $type;
     }
 }

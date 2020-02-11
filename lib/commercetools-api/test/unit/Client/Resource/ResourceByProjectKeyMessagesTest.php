@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMessagesGet
- *
- * @internal
  */
 class ResourceByProjectKeyMessagesTest extends TestCase
 {
@@ -31,8 +29,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/messages?expand=expand',
@@ -43,8 +40,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/messages?where=where',
@@ -55,8 +51,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/messages?sort=sort',
@@ -67,8 +62,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/messages?limit=limit',
@@ -79,8 +73,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/messages?offset=offset',
@@ -91,8 +84,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/messages?withTotal=withTotal',
@@ -100,14 +92,13 @@ class ResourceByProjectKeyMessagesTest extends TestCase
             'ByProjectKeyMessagesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->messages()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/messages',
-            ],
+            ]
         ];
     }
 
@@ -122,7 +113,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -131,12 +122,11 @@ class ResourceByProjectKeyMessagesTest extends TestCase
             'ByProjectKeyMessagesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->messages()
-                        ->get()
-                    ;
-                },
-            ],
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -149,7 +139,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductRemoveFromCategoryAction extends ProductUpdateAction
 {
-    const FIELD_CATEGORY = 'category';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_CATEGORY = 'category';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|CategoryResourceIdentifier

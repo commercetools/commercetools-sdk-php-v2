@@ -10,21 +10,22 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductData extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_CATEGORIES = 'categories';
-    const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_SLUG = 'slug';
-    const FIELD_META_TITLE = 'metaTitle';
-    const FIELD_META_DESCRIPTION = 'metaDescription';
-    const FIELD_META_KEYWORDS = 'metaKeywords';
-    const FIELD_MASTER_VARIANT = 'masterVariant';
-    const FIELD_VARIANTS = 'variants';
-    const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
+    public const FIELD_NAME = 'name';
+    public const FIELD_CATEGORIES = 'categories';
+    public const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_MASTER_VARIANT = 'masterVariant';
+    public const FIELD_VARIANTS = 'variants';
+    public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
 
     /**
      * @return null|LocalizedString

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SearchKeywords>
- *
  * @method SearchKeywords current()
  * @method SearchKeywords at($offset)
  */
@@ -23,9 +22,6 @@ class SearchKeywordsCollection extends MapperSequence
     /**
      * @psalm-assert SearchKeywords $value
      * @psalm-param SearchKeywords|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SearchKeywordsCollection

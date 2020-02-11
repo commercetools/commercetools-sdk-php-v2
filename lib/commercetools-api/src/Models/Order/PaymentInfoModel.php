@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
@@ -18,6 +22,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
      * @var ?PaymentReferenceCollection
      */
     protected $payments;
+
 
     public function __construct(
         PaymentReferenceCollection $payments = null

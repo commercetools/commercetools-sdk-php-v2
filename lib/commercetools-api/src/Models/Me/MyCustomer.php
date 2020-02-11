@@ -15,35 +15,37 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyCustomer extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_CUSTOMER_NUMBER = 'customerNumber';
-    const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
-    const FIELD_FIRST_NAME = 'firstName';
-    const FIELD_LAST_NAME = 'lastName';
-    const FIELD_MIDDLE_NAME = 'middleName';
-    const FIELD_TITLE = 'title';
-    const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
-    const FIELD_COMPANY_NAME = 'companyName';
-    const FIELD_VAT_ID = 'vatId';
-    const FIELD_ADDRESSES = 'addresses';
-    const FIELD_DEFAULT_SHIPPING_ADDRESS_ID = 'defaultShippingAddressId';
-    const FIELD_SHIPPING_ADDRESS_IDS = 'shippingAddressIds';
-    const FIELD_DEFAULT_BILLING_ADDRESS_ID = 'defaultBillingAddressId';
-    const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
-    const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_SALUTATION = 'salutation';
-    const FIELD_KEY = 'key';
-    const FIELD_STORES = 'stores';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_PASSWORD = 'password';
+    public const FIELD_FIRST_NAME = 'firstName';
+    public const FIELD_LAST_NAME = 'lastName';
+    public const FIELD_MIDDLE_NAME = 'middleName';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
+    public const FIELD_COMPANY_NAME = 'companyName';
+    public const FIELD_VAT_ID = 'vatId';
+    public const FIELD_ADDRESSES = 'addresses';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS_ID = 'defaultShippingAddressId';
+    public const FIELD_SHIPPING_ADDRESS_IDS = 'shippingAddressIds';
+    public const FIELD_DEFAULT_BILLING_ADDRESS_ID = 'defaultBillingAddressId';
+    public const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
+    public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_SALUTATION = 'salutation';
+    public const FIELD_KEY = 'key';
+    public const FIELD_STORES = 'stores';
 
     /**
      * @return null|string

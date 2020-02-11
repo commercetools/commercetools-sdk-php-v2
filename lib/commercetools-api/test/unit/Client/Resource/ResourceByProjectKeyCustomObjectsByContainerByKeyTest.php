@@ -16,10 +16,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByContainerByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByContainerByKeyGet
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomObjectsByContainerByKeyDelete
  */
 class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->customObjects()
                         ->withContainerAndKey('container', 'key')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/custom-objects/{container}/{key}?expand=expand',
@@ -42,11 +39,10 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
             'ByProjectKeyCustomObjectsByContainerByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
-                        ->get()
-                    ;
+                        ->withContainerAndKey("container", "key")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/custom-objects/{container}/{key}',
@@ -58,8 +54,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->customObjects()
                         ->withContainerAndKey('container', 'key')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{container}/{key}?version=version',
@@ -71,8 +66,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->customObjects()
                         ->withContainerAndKey('container', 'key')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{container}/{key}?dataErasure=dataErasure',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->customObjects()
                         ->withContainerAndKey('container', 'key')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/custom-objects/{container}/{key}?expand=expand',
@@ -93,15 +86,14 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
             'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
-                        ->delete()
-                    ;
+                        ->withContainerAndKey("container", "key")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/custom-objects/{container}/{key}',
-            ],
+            ]
         ];
     }
 
@@ -116,7 +108,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -125,23 +117,21 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
             'ByProjectKeyCustomObjectsByContainerByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
-                        ->get()
-                    ;
-                },
+                        ->withContainerAndKey("container", "key")
+                        ->get();
+                }
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withContainerAndKey("container", "key")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -154,7 +144,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

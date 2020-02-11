@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewSetCustomerAction extends ReviewUpdateAction
 {
-    const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOMER = 'customer';
 
     /**
      * <p>The customer who created the review.

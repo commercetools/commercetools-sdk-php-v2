@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingRateModel extends JsonObjectModel implements ShippingRate
@@ -34,6 +38,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * @var ?ShippingRatePriceTierCollection
      */
     protected $tiers;
+
 
     public function __construct(
         TypedMoney $price = null,

@@ -11,16 +11,17 @@ namespace Commercetools\Api\Models\CustomObject;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomObject extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_CONTAINER = 'container';
-    const FIELD_KEY = 'key';
-    const FIELD_VALUE = 'value';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_CONTAINER = 'container';
+    public const FIELD_KEY = 'key';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

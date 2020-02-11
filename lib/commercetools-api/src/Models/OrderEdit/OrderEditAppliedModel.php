@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditApplied
 {
-    const DISCRIMINATOR_VALUE = 'Applied';
+    public const DISCRIMINATOR_VALUE = 'Applied';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
      * @var ?OrderExcerpt
      */
     protected $excerptAfterEdit;
+
 
     public function __construct(
         DateTimeImmutable $appliedAt = null,
@@ -136,13 +141,13 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
         $this->excerptAfterEdit = $excerptAfterEdit;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[OrderEditApplied::FIELD_APPLIED_AT]) && $data[OrderEditApplied::FIELD_APPLIED_AT] instanceof \DateTimeImmutable) {
             $data[OrderEditApplied::FIELD_APPLIED_AT] = $data[OrderEditApplied::FIELD_APPLIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

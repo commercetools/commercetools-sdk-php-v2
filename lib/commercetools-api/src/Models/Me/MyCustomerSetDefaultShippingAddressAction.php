@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCustomerSetDefaultShippingAddressAction extends MyCustomerUpdateAction
 {
-    const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * @return null|string

@@ -8,9 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsinks;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
+use stdClass;
 
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
@@ -38,6 +43,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
+
 
     public function __construct(
         string $key = null,
@@ -182,6 +188,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -192,7 +199,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         if (isset($data[ImportSink::FIELD_LAST_MODIFIED_AT]) && $data[ImportSink::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ImportSink::FIELD_LAST_MODIFIED_AT] = $data[ImportSink::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

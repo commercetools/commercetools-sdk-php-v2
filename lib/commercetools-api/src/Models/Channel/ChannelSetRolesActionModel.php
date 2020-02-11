@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ChannelSetRolesActionModel extends JsonObjectModel implements ChannelSetRolesAction
 {
-    const DISCRIMINATOR_VALUE = 'setRoles';
+    public const DISCRIMINATOR_VALUE = 'setRoles';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
      * @var ?array
      */
     protected $roles;
+
 
     public function __construct(
         array $roles = null

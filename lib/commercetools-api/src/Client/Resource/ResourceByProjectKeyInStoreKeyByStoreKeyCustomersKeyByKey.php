@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Common\Update;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -20,8 +21,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet
     {
@@ -29,7 +28,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
 
         return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?Update $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -40,12 +38,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
 
         return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete
     {

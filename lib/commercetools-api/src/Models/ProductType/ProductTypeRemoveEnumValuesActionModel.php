@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel implements ProductTypeRemoveEnumValuesAction
 {
-    const DISCRIMINATOR_VALUE = 'removeEnumValues';
+    public const DISCRIMINATOR_VALUE = 'removeEnumValues';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
      * @var ?array
      */
     protected $keys;
+
 
     public function __construct(
         string $attributeName = null,

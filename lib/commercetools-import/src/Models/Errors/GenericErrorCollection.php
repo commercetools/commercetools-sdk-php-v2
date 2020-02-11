@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GenericError>
- *
  * @method GenericError current()
  * @method GenericError at($offset)
  */
@@ -23,9 +22,6 @@ class GenericErrorCollection extends MapperSequence
     /**
      * @psalm-assert GenericError $value
      * @psalm-param GenericError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GenericErrorCollection

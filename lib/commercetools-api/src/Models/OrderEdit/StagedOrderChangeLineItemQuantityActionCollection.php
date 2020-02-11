@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderChangeLineItemQuantityAction>
- *
  * @method StagedOrderChangeLineItemQuantityAction current()
  * @method StagedOrderChangeLineItemQuantityAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderChangeLineItemQuantityActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderChangeLineItemQuantityAction $value
      * @psalm-param StagedOrderChangeLineItemQuantityAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderChangeLineItemQuantityActionCollection

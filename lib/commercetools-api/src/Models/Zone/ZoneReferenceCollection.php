@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneReference>
- *
  * @method ZoneReference current()
  * @method ZoneReference at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneReferenceCollection extends MapperSequence
     /**
      * @psalm-assert ZoneReference $value
      * @psalm-param ZoneReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneReferenceCollection

@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewReferenceModel extends JsonObjectModel implements ReviewReference
 {
-    const DISCRIMINATOR_VALUE = 'review';
+    public const DISCRIMINATOR_VALUE = 'review';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class ReviewReferenceModel extends JsonObjectModel implements ReviewRefere
      * @var ?Review
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

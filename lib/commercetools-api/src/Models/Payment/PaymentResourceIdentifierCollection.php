@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentResourceIdentifier>
- *
  * @method PaymentResourceIdentifier current()
  * @method PaymentResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class PaymentResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert PaymentResourceIdentifier $value
      * @psalm-param PaymentResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PaymentResourceIdentifierCollection

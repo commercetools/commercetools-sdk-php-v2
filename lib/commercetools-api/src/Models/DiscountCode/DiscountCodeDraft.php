@@ -11,23 +11,24 @@ namespace Commercetools\Api\Models\DiscountCode;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface DiscountCodeDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_CODE = 'code';
-    const FIELD_CART_DISCOUNTS = 'cartDiscounts';
-    const FIELD_CART_PREDICATE = 'cartPredicate';
-    const FIELD_IS_ACTIVE = 'isActive';
-    const FIELD_MAX_APPLICATIONS = 'maxApplications';
-    const FIELD_MAX_APPLICATIONS_PER_CUSTOMER = 'maxApplicationsPerCustomer';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_GROUPS = 'groups';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_CODE = 'code';
+    public const FIELD_CART_DISCOUNTS = 'cartDiscounts';
+    public const FIELD_CART_PREDICATE = 'cartPredicate';
+    public const FIELD_IS_ACTIVE = 'isActive';
+    public const FIELD_MAX_APPLICATIONS = 'maxApplications';
+    public const FIELD_MAX_APPLICATIONS_PER_CUSTOMER = 'maxApplicationsPerCustomer';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_GROUPS = 'groups';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
      * @return null|LocalizedString

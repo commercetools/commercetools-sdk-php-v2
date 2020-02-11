@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface PaymentStatus extends JsonObject
 {
-    const FIELD_INTERFACE_CODE = 'interfaceCode';
-    const FIELD_INTERFACE_TEXT = 'interfaceText';
-    const FIELD_STATE = 'state';
+    public const FIELD_INTERFACE_CODE = 'interfaceCode';
+    public const FIELD_INTERFACE_TEXT = 'interfaceText';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>A code describing the current status returned by the interface that processes the payment.</p>

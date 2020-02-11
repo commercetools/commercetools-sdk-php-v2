@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeDraft>
- *
  * @method TypeDraft current()
  * @method TypeDraft at($offset)
  */
@@ -23,9 +22,6 @@ class TypeDraftCollection extends MapperSequence
     /**
      * @psalm-assert TypeDraft $value
      * @psalm-param TypeDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeDraftCollection

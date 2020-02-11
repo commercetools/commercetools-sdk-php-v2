@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface SubscriptionChangeDestinationAction extends SubscriptionUpdateAction
 {
-    const FIELD_DESTINATION = 'destination';
+    public const FIELD_DESTINATION = 'destination';
 
     /**
      * @return null|Destination

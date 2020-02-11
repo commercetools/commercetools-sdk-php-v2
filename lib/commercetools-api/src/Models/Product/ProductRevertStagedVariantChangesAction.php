@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductRevertStagedVariantChangesAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_VARIANT_ID = 'variantId';
 
     /**
      * @return null|int

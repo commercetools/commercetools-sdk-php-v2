@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductDiscountSetKeyAction extends ProductDiscountUpdateAction
 {
-    const FIELD_KEY = 'key';
+    public const FIELD_KEY = 'key';
 
     /**
      * <p>The key to set.

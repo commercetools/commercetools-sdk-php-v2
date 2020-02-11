@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class SqsDestinationModel extends JsonObjectModel implements SqsDestination
 {
-    const DISCRIMINATOR_VALUE = 'SQS';
+    public const DISCRIMINATOR_VALUE = 'SQS';
     /**
      * @var ?string
      */
@@ -37,6 +41,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
      * @var ?string
      */
     protected $region;
+
 
     public function __construct(
         string $accessKey = null,

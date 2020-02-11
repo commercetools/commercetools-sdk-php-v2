@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateAction
 {
-    const FIELD_IS_ACTIVE = 'isActive';
+    public const FIELD_IS_ACTIVE = 'isActive';
 
     /**
      * @return null|bool

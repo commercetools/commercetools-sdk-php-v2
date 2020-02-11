@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountCodeInfo extends JsonObject
 {
-    const FIELD_DISCOUNT_CODE = 'discountCode';
-    const FIELD_STATE = 'state';
+    public const FIELD_DISCOUNT_CODE = 'discountCode';
+    public const FIELD_STATE = 'state';
 
     /**
      * @return null|DiscountCodeReference

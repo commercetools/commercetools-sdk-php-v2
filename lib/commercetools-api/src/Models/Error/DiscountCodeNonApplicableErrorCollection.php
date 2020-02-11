@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeNonApplicableError>
- *
  * @method DiscountCodeNonApplicableError current()
  * @method DiscountCodeNonApplicableError at($offset)
  */
@@ -23,9 +22,6 @@ class DiscountCodeNonApplicableErrorCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeNonApplicableError $value
      * @psalm-param DiscountCodeNonApplicableError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DiscountCodeNonApplicableErrorCollection

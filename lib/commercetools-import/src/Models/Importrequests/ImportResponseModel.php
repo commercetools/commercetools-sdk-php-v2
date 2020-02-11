@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
+
 use stdClass;
 
 final class ImportResponseModel extends JsonObjectModel implements ImportResponse
@@ -18,6 +22,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
      * @var ?ImportOperationStatusCollection
      */
     protected $operationStatus;
+
 
     public function __construct(
         ImportOperationStatusCollection $operationStatus = null

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface StateChangeInitialAction extends StateUpdateAction
 {
-    const FIELD_INITIAL = 'initial';
+    public const FIELD_INITIAL = 'initial';
 
     /**
      * @return null|bool

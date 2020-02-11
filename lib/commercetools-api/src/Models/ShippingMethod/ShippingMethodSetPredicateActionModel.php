@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implements ShippingMethodSetPredicateAction
 {
-    const DISCRIMINATOR_VALUE = 'setPredicate';
+    public const DISCRIMINATOR_VALUE = 'setPredicate';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
      * @var ?string
      */
     protected $predicate;
+
 
     public function __construct(
         string $predicate = null

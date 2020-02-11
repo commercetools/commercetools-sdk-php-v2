@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomerCreateEmailToken extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_VERSION = 'version';
-    const FIELD_TTL_MINUTES = 'ttlMinutes';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_TTL_MINUTES = 'ttlMinutes';
 
     /**
      * @return null|string

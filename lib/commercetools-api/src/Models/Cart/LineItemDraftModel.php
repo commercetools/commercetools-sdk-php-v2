@@ -13,8 +13,12 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
@@ -73,6 +77,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         string $productId = null,

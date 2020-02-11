@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceNotFoundError>
- *
  * @method ResourceNotFoundError current()
  * @method ResourceNotFoundError at($offset)
  */
@@ -23,9 +22,6 @@ class ResourceNotFoundErrorCollection extends MapperSequence
     /**
      * @psalm-assert ResourceNotFoundError $value
      * @psalm-param ResourceNotFoundError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ResourceNotFoundErrorCollection

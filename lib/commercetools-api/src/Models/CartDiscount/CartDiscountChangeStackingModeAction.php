@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartDiscountChangeStackingModeAction extends CartDiscountUpdateAction
 {
-    const FIELD_STACKING_MODE = 'stackingMode';
+    public const FIELD_STACKING_MODE = 'stackingMode';
 
     /**
      * @return null|string

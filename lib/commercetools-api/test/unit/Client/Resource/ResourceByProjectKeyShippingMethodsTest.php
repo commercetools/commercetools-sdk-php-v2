@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShippingMethodsPost
- *
- * @internal
  */
 class ResourceByProjectKeyShippingMethodsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withCountry('country')
-                    ;
+                        ->withCountry('country');
                 },
                 'get',
                 '{projectKey}/shipping-methods?country=country',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withState('state')
-                    ;
+                        ->withState('state');
                 },
                 'get',
                 '{projectKey}/shipping-methods?state=state',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withCurrency('currency')
-                    ;
+                        ->withCurrency('currency');
                 },
                 'get',
                 '{projectKey}/shipping-methods?currency=currency',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/shipping-methods?expand=expand',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/shipping-methods?where=where',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/shipping-methods?sort=sort',
@@ -104,8 +96,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/shipping-methods?limit=limit',
@@ -116,8 +107,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/shipping-methods?offset=offset',
@@ -128,8 +118,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/shipping-methods?withTotal=withTotal',
@@ -137,10 +126,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
             'ByProjectKeyShippingMethodsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shippingMethods()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/shipping-methods',
@@ -151,8 +139,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/shipping-methods?expand=expand',
@@ -160,14 +147,13 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
             'ByProjectKeyShippingMethodsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shippingMethods()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/shipping-methods',
-            ],
+            ]
         ];
     }
 
@@ -182,7 +168,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -191,21 +177,19 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
             'ByProjectKeyShippingMethodsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shippingMethods()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyShippingMethodsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shippingMethods()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -218,7 +202,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

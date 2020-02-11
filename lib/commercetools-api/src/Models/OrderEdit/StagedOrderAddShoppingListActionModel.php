@@ -11,14 +11,19 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implements StagedOrderAddShoppingListAction
 {
-    const DISCRIMINATOR_VALUE = 'addShoppingList';
+    public const DISCRIMINATOR_VALUE = 'addShoppingList';
     /**
      * @var ?string
      */
@@ -38,6 +43,7 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
+
 
     public function __construct(
         ShoppingListResourceIdentifier $shoppingList = null,

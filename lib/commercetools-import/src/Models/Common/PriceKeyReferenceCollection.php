@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PriceKeyReference>
- *
  * @method PriceKeyReference current()
  * @method PriceKeyReference at($offset)
  */
@@ -23,9 +22,6 @@ class PriceKeyReferenceCollection extends MapperSequence
     /**
      * @psalm-assert PriceKeyReference $value
      * @psalm-param PriceKeyReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PriceKeyReferenceCollection

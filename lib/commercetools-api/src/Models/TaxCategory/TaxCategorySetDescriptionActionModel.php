@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TaxCategorySetDescriptionActionModel extends JsonObjectModel implements TaxCategorySetDescriptionAction
 {
-    const DISCRIMINATOR_VALUE = 'setDescription';
+    public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
      * @var ?string
      */
     protected $description;
+
 
     public function __construct(
         string $description = null

@@ -4,3 +4,4 @@ vendor
 .phpunit.result.cache
 cache
 logs
+.ecs_cache

@@ -10,15 +10,17 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MatchingPriceNotFoundError extends ErrorObject
 {
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_CURRENCY = 'currency';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CHANNEL = 'channel';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_CURRENCY = 'currency';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CHANNEL = 'channel';
 
     /**
      * @return null|string

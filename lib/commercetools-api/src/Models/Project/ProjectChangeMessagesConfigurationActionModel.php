@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Message\MessageConfigurationDraft;
 use Commercetools\Api\Models\Message\MessageConfigurationDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectModel implements ProjectChangeMessagesConfigurationAction
 {
-    const DISCRIMINATOR_VALUE = 'changeMessagesConfiguration';
+    public const DISCRIMINATOR_VALUE = 'changeMessagesConfiguration';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
      * @var ?MessageConfigurationDraft
      */
     protected $messagesConfiguration;
+
 
     public function __construct(
         MessageConfigurationDraft $messagesConfiguration = null

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderEditSetCommentActionModel extends JsonObjectModel implements OrderEditSetCommentAction
 {
-    const DISCRIMINATOR_VALUE = 'setComment';
+    public const DISCRIMINATOR_VALUE = 'setComment';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
      * @var ?string
      */
     protected $comment;
+
 
     public function __construct(
         string $comment = null

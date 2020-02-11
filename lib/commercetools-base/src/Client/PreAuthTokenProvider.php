@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 /**
@@ -13,7 +14,7 @@ namespace Commercetools\Client;
  */
 class PreAuthTokenProvider implements TokenProvider
 {
-    const TOKEN = 'token';
+    public const TOKEN = 'token';
 
     /** @psalm-var Token */
     private $token;

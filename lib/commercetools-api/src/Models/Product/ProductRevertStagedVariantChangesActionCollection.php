@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductRevertStagedVariantChangesAction>
- *
  * @method ProductRevertStagedVariantChangesAction current()
  * @method ProductRevertStagedVariantChangesAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductRevertStagedVariantChangesActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductRevertStagedVariantChangesAction $value
      * @psalm-param ProductRevertStagedVariantChangesAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductRevertStagedVariantChangesActionCollection

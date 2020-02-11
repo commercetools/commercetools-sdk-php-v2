@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetLocaleAction>
- *
  * @method CartSetLocaleAction current()
  * @method CartSetLocaleAction at($offset)
  */
@@ -23,9 +22,6 @@ class CartSetLocaleActionCollection extends MapperSequence
     /**
      * @psalm-assert CartSetLocaleAction $value
      * @psalm-param CartSetLocaleAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartSetLocaleActionCollection

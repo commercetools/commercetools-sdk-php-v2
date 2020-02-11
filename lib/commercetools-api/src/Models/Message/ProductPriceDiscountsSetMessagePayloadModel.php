@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel implements ProductPriceDiscountsSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';
+    public const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     protected $updatedPrices;
+
 
     public function __construct(
         ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerSetCustomerNumberAction extends CustomerUpdateAction
 {
-    const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
 
     /**
      * <p>It should be <strong>unique</strong> across a project.

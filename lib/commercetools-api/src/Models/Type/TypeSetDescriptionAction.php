@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TypeSetDescriptionAction extends TypeUpdateAction
 {
-    const FIELD_DESCRIPTION = 'description';
+    public const FIELD_DESCRIPTION = 'description';
 
     /**
      * @return null|LocalizedString

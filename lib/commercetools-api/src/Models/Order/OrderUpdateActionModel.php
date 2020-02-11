@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,48 +24,49 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
 
     /**
      * @psalm-var array<string, class-string<OrderUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addDelivery' => OrderAddDeliveryActionModel::class,
-        'addItemShippingAddress' => OrderAddItemShippingAddressActionModel::class,
-        'addParcelToDelivery' => OrderAddParcelToDeliveryActionModel::class,
-        'addPayment' => OrderAddPaymentActionModel::class,
-        'addReturnInfo' => OrderAddReturnInfoActionModel::class,
-        'changeOrderState' => OrderChangeOrderStateActionModel::class,
-        'changePaymentState' => OrderChangePaymentStateActionModel::class,
-        'changeShipmentState' => OrderChangeShipmentStateActionModel::class,
-        'importCustomLineItemState' => OrderImportCustomLineItemStateActionModel::class,
-        'importLineItemState' => OrderImportLineItemStateActionModel::class,
-        'removeDelivery' => OrderRemoveDeliveryActionModel::class,
-        'removeItemShippingAddress' => OrderRemoveItemShippingAddressActionModel::class,
-        'removeParcelFromDelivery' => OrderRemoveParcelFromDeliveryActionModel::class,
-        'removePayment' => OrderRemovePaymentActionModel::class,
-        'setBillingAddress' => OrderSetBillingAddressActionModel::class,
-        'setCustomField' => OrderSetCustomFieldActionModel::class,
-        'setCustomLineItemCustomField' => OrderSetCustomLineItemCustomFieldActionModel::class,
-        'setCustomLineItemCustomType' => OrderSetCustomLineItemCustomTypeActionModel::class,
-        'setCustomLineItemShippingDetails' => OrderSetCustomLineItemShippingDetailsActionModel::class,
-        'setCustomType' => OrderSetCustomTypeActionModel::class,
-        'setCustomerEmail' => OrderSetCustomerEmailActionModel::class,
-        'setCustomerId' => OrderSetCustomerIdActionModel::class,
-        'setDeliveryAddress' => OrderSetDeliveryAddressActionModel::class,
-        'setDeliveryItems' => OrderSetDeliveryItemsActionModel::class,
-        'setLineItemCustomField' => OrderSetLineItemCustomFieldActionModel::class,
-        'setLineItemCustomType' => OrderSetLineItemCustomTypeActionModel::class,
-        'setLineItemShippingDetails' => OrderSetLineItemShippingDetailsActionModel::class,
-        'setLocale' => OrderSetLocaleActionModel::class,
-        'setOrderNumber' => OrderSetOrderNumberActionModel::class,
-        'setParcelItems' => OrderSetParcelItemsActionModel::class,
-        'setParcelMeasurements' => OrderSetParcelMeasurementsActionModel::class,
-        'setParcelTrackingData' => OrderSetParcelTrackingDataActionModel::class,
-        'setReturnPaymentState' => OrderSetReturnPaymentStateActionModel::class,
-        'setReturnShipmentState' => OrderSetReturnShipmentStateActionModel::class,
-        'setShippingAddress' => OrderSetShippingAddressActionModel::class,
-        'transitionCustomLineItemState' => OrderTransitionCustomLineItemStateActionModel::class,
-        'transitionLineItemState' => OrderTransitionLineItemStateActionModel::class,
-        'transitionState' => OrderTransitionStateActionModel::class,
-        'updateItemShippingAddress' => OrderUpdateItemShippingAddressActionModel::class,
-        'updateSyncInfo' => OrderUpdateSyncInfoActionModel::class,
+       'addDelivery' => OrderAddDeliveryActionModel::class,
+       'addItemShippingAddress' => OrderAddItemShippingAddressActionModel::class,
+       'addParcelToDelivery' => OrderAddParcelToDeliveryActionModel::class,
+       'addPayment' => OrderAddPaymentActionModel::class,
+       'addReturnInfo' => OrderAddReturnInfoActionModel::class,
+       'changeOrderState' => OrderChangeOrderStateActionModel::class,
+       'changePaymentState' => OrderChangePaymentStateActionModel::class,
+       'changeShipmentState' => OrderChangeShipmentStateActionModel::class,
+       'importCustomLineItemState' => OrderImportCustomLineItemStateActionModel::class,
+       'importLineItemState' => OrderImportLineItemStateActionModel::class,
+       'removeDelivery' => OrderRemoveDeliveryActionModel::class,
+       'removeItemShippingAddress' => OrderRemoveItemShippingAddressActionModel::class,
+       'removeParcelFromDelivery' => OrderRemoveParcelFromDeliveryActionModel::class,
+       'removePayment' => OrderRemovePaymentActionModel::class,
+       'setBillingAddress' => OrderSetBillingAddressActionModel::class,
+       'setCustomField' => OrderSetCustomFieldActionModel::class,
+       'setCustomLineItemCustomField' => OrderSetCustomLineItemCustomFieldActionModel::class,
+       'setCustomLineItemCustomType' => OrderSetCustomLineItemCustomTypeActionModel::class,
+       'setCustomLineItemShippingDetails' => OrderSetCustomLineItemShippingDetailsActionModel::class,
+       'setCustomType' => OrderSetCustomTypeActionModel::class,
+       'setCustomerEmail' => OrderSetCustomerEmailActionModel::class,
+       'setCustomerId' => OrderSetCustomerIdActionModel::class,
+       'setDeliveryAddress' => OrderSetDeliveryAddressActionModel::class,
+       'setDeliveryItems' => OrderSetDeliveryItemsActionModel::class,
+       'setLineItemCustomField' => OrderSetLineItemCustomFieldActionModel::class,
+       'setLineItemCustomType' => OrderSetLineItemCustomTypeActionModel::class,
+       'setLineItemShippingDetails' => OrderSetLineItemShippingDetailsActionModel::class,
+       'setLocale' => OrderSetLocaleActionModel::class,
+       'setOrderNumber' => OrderSetOrderNumberActionModel::class,
+       'setParcelItems' => OrderSetParcelItemsActionModel::class,
+       'setParcelMeasurements' => OrderSetParcelMeasurementsActionModel::class,
+       'setParcelTrackingData' => OrderSetParcelTrackingDataActionModel::class,
+       'setReturnPaymentState' => OrderSetReturnPaymentStateActionModel::class,
+       'setReturnShipmentState' => OrderSetReturnShipmentStateActionModel::class,
+       'setShippingAddress' => OrderSetShippingAddressActionModel::class,
+       'transitionCustomLineItemState' => OrderTransitionCustomLineItemStateActionModel::class,
+       'transitionLineItemState' => OrderTransitionLineItemStateActionModel::class,
+       'transitionState' => OrderTransitionStateActionModel::class,
+       'updateItemShippingAddress' => OrderUpdateItemShippingAddressActionModel::class,
+       'updateSyncInfo' => OrderUpdateSyncInfoActionModel::class,
     ];
 
     public function __construct(
@@ -87,18 +91,19 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<OrderUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = OrderUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -113,7 +118,6 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
 
         /** @psalm-var class-string<OrderUpdateAction> */
         $type = OrderUpdateActionModel::class;
-
         return $type;
     }
 }

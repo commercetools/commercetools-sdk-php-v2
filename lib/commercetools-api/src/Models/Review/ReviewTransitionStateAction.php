@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewTransitionStateAction extends ReviewUpdateAction
 {
-    const FIELD_STATE = 'state';
-    const FIELD_FORCE = 'force';
+    public const FIELD_STATE = 'state';
+    public const FIELD_FORCE = 'force';
 
     /**
      * @return null|StateResourceIdentifier

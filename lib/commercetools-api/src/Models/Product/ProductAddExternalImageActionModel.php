@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\Image;
 use Commercetools\Api\Models\Common\ImageModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductAddExternalImageActionModel extends JsonObjectModel implements ProductAddExternalImageAction
 {
-    const DISCRIMINATOR_VALUE = 'addExternalImage';
+    public const DISCRIMINATOR_VALUE = 'addExternalImage';
     /**
      * @var ?string
      */
@@ -40,6 +44,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

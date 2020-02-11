@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidCredentialsError>
- *
  * @method InvalidCredentialsError current()
  * @method InvalidCredentialsError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidCredentialsErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidCredentialsError $value
      * @psalm-param InvalidCredentialsError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidCredentialsErrorCollection

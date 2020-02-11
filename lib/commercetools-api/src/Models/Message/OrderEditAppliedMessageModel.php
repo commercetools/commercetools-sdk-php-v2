@@ -13,19 +13,23 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderEditAppliedMessageModel extends JsonObjectModel implements OrderEditAppliedMessage
 {
-    const DISCRIMINATOR_VALUE = 'OrderEditApplied';
+    public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
     /**
      * @var ?string
      */
@@ -90,6 +94,7 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
      * @var ?OrderEditApplied
      */
     protected $result;
+
 
     public function __construct(
         string $id = null,
@@ -415,6 +420,7 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         $this->result = $result;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -425,7 +431,6 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

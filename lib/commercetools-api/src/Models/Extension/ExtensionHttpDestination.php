@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionHttpDestination extends ExtensionDestination
 {
-    const FIELD_URL = 'url';
-    const FIELD_AUTHENTICATION = 'authentication';
+    public const FIELD_URL = 'url';
+    public const FIELD_AUTHENTICATION = 'authentication';
 
     /**
      * @return null|string

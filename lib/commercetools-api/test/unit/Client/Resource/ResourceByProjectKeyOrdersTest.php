@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersPost
- *
- * @internal
  */
 class ResourceByProjectKeyOrdersTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/orders?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/orders?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/orders?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/orders?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/orders?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/orders?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyOrdersTest extends TestCase
             'ByProjectKeyOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/orders',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/orders?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyOrdersTest extends TestCase
             'ByProjectKeyOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/orders',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyOrdersTest extends TestCase
             'ByProjectKeyOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

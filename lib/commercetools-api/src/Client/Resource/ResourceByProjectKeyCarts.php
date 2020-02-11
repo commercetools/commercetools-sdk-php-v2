@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Cart\CartDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,9 +22,8 @@ class ResourceByProjectKeyCarts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCartsReplicate($this->getUri().'/replicate', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsReplicate($this->getUri() . '/replicate', $args, $this->getClient());
     }
-
     public function withCustomerId(string $customerId = null): ResourceByProjectKeyCartsCustomerIdByCustomerId
     {
         $args = $this->getArgs();
@@ -31,9 +31,8 @@ class ResourceByProjectKeyCarts extends ApiResource
             $args['customerId'] = $customerId;
         }
 
-        return new ResourceByProjectKeyCartsCustomerIdByCustomerId($this->getUri().'/customer-id={customerId}', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsCustomerIdByCustomerId($this->getUri() . '/customer-id={customerId}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyCartsByID
     {
         $args = $this->getArgs();
@@ -41,14 +40,12 @@ class ResourceByProjectKeyCarts extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCartsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyCartsGet
     {
@@ -56,7 +53,6 @@ class ResourceByProjectKeyCarts extends ApiResource
 
         return new ByProjectKeyCartsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?CartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

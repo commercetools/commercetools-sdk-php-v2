@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DiscountCodeResourceIdentifier extends ResourceIdentifier
 {

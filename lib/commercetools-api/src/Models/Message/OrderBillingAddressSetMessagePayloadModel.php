@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel implements OrderBillingAddressSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';
+    public const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
      * @var ?Address
      */
     protected $oldAddress;
+
 
     public function __construct(
         Address $address = null,

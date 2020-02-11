@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerCreatePasswordResetToken>
- *
  * @method CustomerCreatePasswordResetToken current()
  * @method CustomerCreatePasswordResetToken at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerCreatePasswordResetTokenCollection extends MapperSequence
     /**
      * @psalm-assert CustomerCreatePasswordResetToken $value
      * @psalm-param CustomerCreatePasswordResetToken|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerCreatePasswordResetTokenCollection

@@ -8,9 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
@@ -29,6 +33,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
      * @var ?DateTimeImmutable
      */
     protected $returnDate;
+
 
     public function __construct(
         ReturnItemCollection $items = null,
@@ -112,13 +117,13 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
         $this->returnDate = $returnDate;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[ReturnInfo::FIELD_RETURN_DATE]) && $data[ReturnInfo::FIELD_RETURN_DATE] instanceof \DateTimeImmutable) {
             $data[ReturnInfo::FIELD_RETURN_DATE] = $data[ReturnInfo::FIELD_RETURN_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

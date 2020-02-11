@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetOrderNumberAction extends StagedOrderUpdateAction
 {
-    const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_ORDER_NUMBER = 'orderNumber';
 
     /**
      * @return null|string

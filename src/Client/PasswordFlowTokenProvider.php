@@ -8,11 +8,11 @@ use GuzzleHttp\Client;
 
 class PasswordFlowTokenProvider
 {
-    const GRANT_TYPE = 'grant_type';
-    const GRANT_TYPE_PASSWORD = 'password';
-    const REFRESH_TOKEN = 'refresh_token';
-    const ACCESS_TOKEN = 'access_token';
-    const EXPIRES_IN = 'expires_in';
+    public const GRANT_TYPE = 'grant_type';
+    public const GRANT_TYPE_PASSWORD = 'password';
+    public const REFRESH_TOKEN = 'refresh_token';
+    public const ACCESS_TOKEN = 'access_token';
+    public const EXPIRES_IN = 'expires_in';
 
     /**
      * @var Client

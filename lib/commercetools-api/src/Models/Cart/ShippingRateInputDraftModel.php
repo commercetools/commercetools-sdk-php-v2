@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingRateInputDraftModel extends JsonObjectModel implements ShippingRateInputDraft
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,10 +24,11 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
 
     /**
      * @psalm-var array<string, class-string<ShippingRateInputDraft> >
+     *
      */
     private static $discriminatorClasses = [
-        'Classification' => ClassificationShippingRateInputDraftModel::class,
-        'Score' => ScoreShippingRateInputDraftModel::class,
+       'Classification' => ClassificationShippingRateInputDraftModel::class,
+       'Score' => ScoreShippingRateInputDraftModel::class,
     ];
 
     public function __construct(
@@ -49,18 +53,19 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ShippingRateInputDraft>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ShippingRateInputDraft::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -75,7 +80,6 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
 
         /** @psalm-var class-string<ShippingRateInputDraft> */
         $type = ShippingRateInputDraftModel::class;
-
         return $type;
     }
 }

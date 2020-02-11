@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShoppingListUpdateActionModel extends JsonObjectModel implements ShoppingListUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,31 +24,32 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
 
     /**
      * @psalm-var array<string, class-string<ShoppingListUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addLineItem' => ShoppingListAddLineItemActionModel::class,
-        'addTextLineItem' => ShoppingListAddTextLineItemActionModel::class,
-        'changeLineItemQuantity' => ShoppingListChangeLineItemQuantityActionModel::class,
-        'changeLineItemsOrder' => ShoppingListChangeLineItemsOrderActionModel::class,
-        'changeName' => ShoppingListChangeNameActionModel::class,
-        'changeTextLineItemName' => ShoppingListChangeTextLineItemNameActionModel::class,
-        'changeTextLineItemQuantity' => ShoppingListChangeTextLineItemQuantityActionModel::class,
-        'changeTextLineItemsOrder' => ShoppingListChangeTextLineItemsOrderActionModel::class,
-        'removeLineItem' => ShoppingListRemoveLineItemActionModel::class,
-        'removeTextLineItem' => ShoppingListRemoveTextLineItemActionModel::class,
-        'setAnonymousId' => ShoppingListSetAnonymousIdActionModel::class,
-        'setCustomField' => ShoppingListSetCustomFieldActionModel::class,
-        'setCustomType' => ShoppingListSetCustomTypeActionModel::class,
-        'setCustomer' => ShoppingListSetCustomerActionModel::class,
-        'setDeleteDaysAfterLastModification' => ShoppingListSetDeleteDaysAfterLastModificationActionModel::class,
-        'setDescription' => ShoppingListSetDescriptionActionModel::class,
-        'setKey' => ShoppingListSetKeyActionModel::class,
-        'setLineItemCustomField' => ShoppingListSetLineItemCustomFieldActionModel::class,
-        'setLineItemCustomType' => ShoppingListSetLineItemCustomTypeActionModel::class,
-        'setSlug' => ShoppingListSetSlugActionModel::class,
-        'setTextLineItemCustomField' => ShoppingListSetTextLineItemCustomFieldActionModel::class,
-        'setTextLineItemCustomType' => ShoppingListSetTextLineItemCustomTypeActionModel::class,
-        'setTextLineItemDescription' => ShoppingListSetTextLineItemDescriptionActionModel::class,
+       'addLineItem' => ShoppingListAddLineItemActionModel::class,
+       'addTextLineItem' => ShoppingListAddTextLineItemActionModel::class,
+       'changeLineItemQuantity' => ShoppingListChangeLineItemQuantityActionModel::class,
+       'changeLineItemsOrder' => ShoppingListChangeLineItemsOrderActionModel::class,
+       'changeName' => ShoppingListChangeNameActionModel::class,
+       'changeTextLineItemName' => ShoppingListChangeTextLineItemNameActionModel::class,
+       'changeTextLineItemQuantity' => ShoppingListChangeTextLineItemQuantityActionModel::class,
+       'changeTextLineItemsOrder' => ShoppingListChangeTextLineItemsOrderActionModel::class,
+       'removeLineItem' => ShoppingListRemoveLineItemActionModel::class,
+       'removeTextLineItem' => ShoppingListRemoveTextLineItemActionModel::class,
+       'setAnonymousId' => ShoppingListSetAnonymousIdActionModel::class,
+       'setCustomField' => ShoppingListSetCustomFieldActionModel::class,
+       'setCustomType' => ShoppingListSetCustomTypeActionModel::class,
+       'setCustomer' => ShoppingListSetCustomerActionModel::class,
+       'setDeleteDaysAfterLastModification' => ShoppingListSetDeleteDaysAfterLastModificationActionModel::class,
+       'setDescription' => ShoppingListSetDescriptionActionModel::class,
+       'setKey' => ShoppingListSetKeyActionModel::class,
+       'setLineItemCustomField' => ShoppingListSetLineItemCustomFieldActionModel::class,
+       'setLineItemCustomType' => ShoppingListSetLineItemCustomTypeActionModel::class,
+       'setSlug' => ShoppingListSetSlugActionModel::class,
+       'setTextLineItemCustomField' => ShoppingListSetTextLineItemCustomFieldActionModel::class,
+       'setTextLineItemCustomType' => ShoppingListSetTextLineItemCustomTypeActionModel::class,
+       'setTextLineItemDescription' => ShoppingListSetTextLineItemDescriptionActionModel::class,
     ];
 
     public function __construct(
@@ -70,18 +74,19 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ShoppingListUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ShoppingListUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -96,7 +101,6 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
 
         /** @psalm-var class-string<ShoppingListUpdateAction> */
         $type = ShoppingListUpdateActionModel::class;
-
         return $type;
     }
 }

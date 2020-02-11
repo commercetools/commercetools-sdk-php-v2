@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderEditResourceIdentifier>
- *
  * @method OrderEditResourceIdentifier current()
  * @method OrderEditResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class OrderEditResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert OrderEditResourceIdentifier $value
      * @psalm-param OrderEditResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderEditResourceIdentifierCollection

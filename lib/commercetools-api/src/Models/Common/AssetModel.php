@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AssetModel extends JsonObjectModel implements Asset
@@ -49,6 +53,7 @@ final class AssetModel extends JsonObjectModel implements Asset
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

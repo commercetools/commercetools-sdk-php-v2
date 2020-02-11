@@ -13,8 +13,12 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraft
@@ -38,6 +42,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
      * @var ?MyTransactionDraft
      */
     protected $transaction;
+
 
     public function __construct(
         Money $amountPlanned = null,

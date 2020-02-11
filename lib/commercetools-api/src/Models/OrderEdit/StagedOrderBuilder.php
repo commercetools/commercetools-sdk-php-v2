@@ -32,6 +32,7 @@ use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderBuilder;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Order\PaymentInfoBuilder;
 use Commercetools\Api\Models\Order\ReturnInfoCollection;
@@ -43,7 +44,12 @@ use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<StagedOrder>

@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyPaymentSetCustomFieldActionModel extends JsonObjectModel implements MyPaymentSetCustomFieldAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomField';
+    public const DISCRIMINATOR_VALUE = 'setCustomField';
     /**
      * @var ?string
      */
@@ -29,6 +31,7 @@ final class MyPaymentSetCustomFieldActionModel extends JsonObjectModel implement
      * @var ?JsonObject
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

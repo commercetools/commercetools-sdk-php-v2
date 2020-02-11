@@ -12,13 +12,16 @@ use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -105,9 +108,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $customerId
      *
-     * @param mixed $customerId
+     * @psalm-param scalar $customerId
      */
     public function withCustomerId($customerId): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -115,9 +117,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -125,9 +126,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $where
      *
-     * @param mixed $where
+     * @psalm-param scalar $where
      */
     public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -135,9 +135,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $sort
      *
-     * @param mixed $sort
+     * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -145,9 +144,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $limit
      *
-     * @param mixed $limit
+     * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -155,9 +153,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $offset
      *
-     * @param mixed $offset
+     * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {
@@ -165,9 +162,8 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $withTotal
      *
-     * @param mixed $withTotal
+     * @psalm-param scalar $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyInStoreKeyByStoreKeyCartsGet
     {

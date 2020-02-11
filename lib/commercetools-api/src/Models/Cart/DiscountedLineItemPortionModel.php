@@ -12,7 +12,11 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
@@ -26,6 +30,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
      * @var ?TypedMoney
      */
     protected $discountedAmount;
+
 
     public function __construct(
         CartDiscountReference $discount = null,

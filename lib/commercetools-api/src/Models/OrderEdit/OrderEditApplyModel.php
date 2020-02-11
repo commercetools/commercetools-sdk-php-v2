@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderEditApplyModel extends JsonObjectModel implements OrderEditApply
 {
@@ -21,6 +25,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
      * @var ?int
      */
     protected $resourceVersion;
+
 
     public function __construct(
         int $editVersion = null,

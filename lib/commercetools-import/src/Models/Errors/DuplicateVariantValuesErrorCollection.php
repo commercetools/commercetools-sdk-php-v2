@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateVariantValuesError>
- *
  * @method DuplicateVariantValuesError current()
  * @method DuplicateVariantValuesError at($offset)
  */
@@ -23,9 +22,6 @@ class DuplicateVariantValuesErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicateVariantValuesError $value
      * @psalm-param DuplicateVariantValuesError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DuplicateVariantValuesErrorCollection

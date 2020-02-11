@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomFieldEnumType extends FieldType
 {
-    const FIELD_VALUES = 'values';
+    public const FIELD_VALUES = 'values';
 
     /**
      * @return null|CustomFieldEnumValueCollection

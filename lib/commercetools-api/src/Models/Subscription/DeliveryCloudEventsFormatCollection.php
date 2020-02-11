@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DeliveryCloudEventsFormat>
- *
  * @method DeliveryCloudEventsFormat current()
  * @method DeliveryCloudEventsFormat at($offset)
  */
@@ -23,9 +22,6 @@ class DeliveryCloudEventsFormatCollection extends MapperSequence
     /**
      * @psalm-assert DeliveryCloudEventsFormat $value
      * @psalm-param DeliveryCloudEventsFormat|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DeliveryCloudEventsFormatCollection

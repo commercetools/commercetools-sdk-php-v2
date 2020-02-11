@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface InvalidFieldError extends ErrorObject
 {
-    const FIELD_FIELD = 'field';
-    const FIELD_INVALID_VALUE = 'invalidValue';
-    const FIELD_ALLOWED_VALUES = 'allowedValues';
+    public const FIELD_FIELD = 'field';
+    public const FIELD_INVALID_VALUE = 'invalidValue';
+    public const FIELD_ALLOWED_VALUES = 'allowedValues';
 
     /**
      * <p>The name of the field.</p>

@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ReplicaCartDraft extends JsonObject
 {
-    const FIELD_REFERENCE = 'reference';
+    public const FIELD_REFERENCE = 'reference';
 
     /**
      * @return null|JsonObject

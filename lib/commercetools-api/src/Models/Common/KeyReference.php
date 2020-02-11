@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface KeyReference extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'typeId';
-    const FIELD_TYPE_ID = 'typeId';
-    const FIELD_KEY = 'key';
+    public const DISCRIMINATOR_FIELD = 'typeId';
+    public const FIELD_TYPE_ID = 'typeId';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

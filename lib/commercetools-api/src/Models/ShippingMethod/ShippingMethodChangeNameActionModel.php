@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ShippingMethodChangeNameActionModel extends JsonObjectModel implements ShippingMethodChangeNameAction
 {
-    const DISCRIMINATOR_VALUE = 'changeName';
+    public const DISCRIMINATOR_VALUE = 'changeName';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
         string $name = null

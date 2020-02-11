@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderCustomerEmailSetMessagePayload extends MessagePayload
 {
-    const FIELD_EMAIL = 'email';
-    const FIELD_OLD_EMAIL = 'oldEmail';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_OLD_EMAIL = 'oldEmail';
 
     /**
      * @return null|string

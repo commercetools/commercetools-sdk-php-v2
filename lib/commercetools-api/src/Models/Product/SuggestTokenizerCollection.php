@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SuggestTokenizer>
- *
  * @method SuggestTokenizer current()
  * @method SuggestTokenizer at($offset)
  */
@@ -23,9 +22,6 @@ class SuggestTokenizerCollection extends MapperSequence
     /**
      * @psalm-assert SuggestTokenizer $value
      * @psalm-param SuggestTokenizer|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SuggestTokenizerCollection

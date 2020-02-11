@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectModel implements ProductRevertedStagedChangesMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
+    public const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
      * @var ?array
      */
     protected $removedImageUrls;
+
 
     public function __construct(
         array $removedImageUrls = null

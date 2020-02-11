@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicatePriceScopeError>
- *
  * @method DuplicatePriceScopeError current()
  * @method DuplicatePriceScopeError at($offset)
  */
@@ -23,9 +22,6 @@ class DuplicatePriceScopeErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicatePriceScopeError $value
      * @psalm-param DuplicatePriceScopeError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DuplicatePriceScopeErrorCollection

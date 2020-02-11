@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implements CategoryChangeAssetOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeAssetOrder';
+    public const DISCRIMINATOR_VALUE = 'changeAssetOrder';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
      * @var ?array
      */
     protected $assetOrder;
+
 
     public function __construct(
         array $assetOrder = null

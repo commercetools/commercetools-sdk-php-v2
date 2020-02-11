@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class SubscriptionUpdateActionModel extends JsonObjectModel implements SubscriptionUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,12 +24,13 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
 
     /**
      * @psalm-var array<string, class-string<SubscriptionUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'changeDestination' => SubscriptionChangeDestinationActionModel::class,
-        'setChanges' => SubscriptionSetChangesActionModel::class,
-        'setKey' => SubscriptionSetKeyActionModel::class,
-        'setMessages' => SubscriptionSetMessagesActionModel::class,
+       'changeDestination' => SubscriptionChangeDestinationActionModel::class,
+       'setChanges' => SubscriptionSetChangesActionModel::class,
+       'setKey' => SubscriptionSetKeyActionModel::class,
+       'setMessages' => SubscriptionSetMessagesActionModel::class,
     ];
 
     public function __construct(
@@ -51,18 +55,19 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<SubscriptionUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = SubscriptionUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -77,7 +82,6 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
 
         /** @psalm-var class-string<SubscriptionUpdateAction> */
         $type = SubscriptionUpdateActionModel::class;
-
         return $type;
     }
 }

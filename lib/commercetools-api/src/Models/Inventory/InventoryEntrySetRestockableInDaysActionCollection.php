@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntrySetRestockableInDaysAction>
- *
  * @method InventoryEntrySetRestockableInDaysAction current()
  * @method InventoryEntrySetRestockableInDaysAction at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntrySetRestockableInDaysActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntrySetRestockableInDaysAction $value
      * @psalm-param InventoryEntrySetRestockableInDaysAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntrySetRestockableInDaysActionCollection

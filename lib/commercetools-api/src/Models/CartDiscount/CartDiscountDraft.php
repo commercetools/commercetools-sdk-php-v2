@@ -10,24 +10,25 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CartDiscountDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_KEY = 'key';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_VALUE = 'value';
-    const FIELD_CART_PREDICATE = 'cartPredicate';
-    const FIELD_TARGET = 'target';
-    const FIELD_SORT_ORDER = 'sortOrder';
-    const FIELD_IS_ACTIVE = 'isActive';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
-    const FIELD_REQUIRES_DISCOUNT_CODE = 'requiresDiscountCode';
-    const FIELD_STACKING_MODE = 'stackingMode';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_CART_PREDICATE = 'cartPredicate';
+    public const FIELD_TARGET = 'target';
+    public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_IS_ACTIVE = 'isActive';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_REQUIRES_DISCOUNT_CODE = 'requiresDiscountCode';
+    public const FIELD_STACKING_MODE = 'stackingMode';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|LocalizedString

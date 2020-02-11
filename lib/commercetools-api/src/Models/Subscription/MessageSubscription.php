@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MessageSubscription extends JsonObject
 {
-    const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
-    const FIELD_TYPES = 'types';
+    public const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
+    public const FIELD_TYPES = 'types';
 
     /**
      * @return null|string

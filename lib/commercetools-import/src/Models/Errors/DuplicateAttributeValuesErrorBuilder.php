@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Errors;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use stdClass;
 
 /**
  * @implements Builder<DuplicateAttributeValuesError>
@@ -63,6 +68,7 @@ final class DuplicateAttributeValuesErrorBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): DuplicateAttributeValuesError
     {

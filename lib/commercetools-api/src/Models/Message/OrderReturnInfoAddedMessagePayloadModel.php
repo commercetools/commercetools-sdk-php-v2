@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\ReturnInfo;
 use Commercetools\Api\Models\Order\ReturnInfoModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel implements OrderReturnInfoAddedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ReturnInfoAdded';
+    public const DISCRIMINATOR_VALUE = 'ReturnInfoAdded';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
      * @var ?ReturnInfo
      */
     protected $returnInfo;
+
 
     public function __construct(
         ReturnInfo $returnInfo = null

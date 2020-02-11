@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StateSetTransitionsActionModel extends JsonObjectModel implements StateSetTransitionsAction
 {
-    const DISCRIMINATOR_VALUE = 'setTransitions';
+    public const DISCRIMINATOR_VALUE = 'setTransitions';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
      * @var ?StateResourceIdentifierCollection
      */
     protected $transitions;
+
 
     public function __construct(
         StateResourceIdentifierCollection $transitions = null

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<EnumValueIsUsedError>
- *
  * @method EnumValueIsUsedError current()
  * @method EnumValueIsUsedError at($offset)
  */
@@ -23,9 +22,6 @@ class EnumValueIsUsedErrorCollection extends MapperSequence
     /**
      * @psalm-assert EnumValueIsUsedError $value
      * @psalm-param EnumValueIsUsedError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return EnumValueIsUsedErrorCollection

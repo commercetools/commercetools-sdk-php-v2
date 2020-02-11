@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeReference>
- *
  * @method DiscountCodeReference current()
  * @method DiscountCodeReference at($offset)
  */
@@ -23,9 +22,6 @@ class DiscountCodeReferenceCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeReference $value
      * @psalm-param DiscountCodeReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DiscountCodeReferenceCollection

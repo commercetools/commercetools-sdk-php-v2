@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeFieldDefinitionOrderAction>
- *
  * @method TypeChangeFieldDefinitionOrderAction current()
  * @method TypeChangeFieldDefinitionOrderAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeFieldDefinitionOrderActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeFieldDefinitionOrderAction $value
      * @psalm-param TypeChangeFieldDefinitionOrderAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeFieldDefinitionOrderActionCollection

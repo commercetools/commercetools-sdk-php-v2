@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionInputModel extends JsonObjectModel implements ExtensionInput
@@ -24,6 +28,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
      * @var ?Reference
      */
     protected $resource;
+
 
     public function __construct(
         string $action = null,

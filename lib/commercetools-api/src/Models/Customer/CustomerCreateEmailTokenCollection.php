@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerCreateEmailToken>
- *
  * @method CustomerCreateEmailToken current()
  * @method CustomerCreateEmailToken at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerCreateEmailTokenCollection extends MapperSequence
     /**
      * @psalm-assert CustomerCreateEmailToken $value
      * @psalm-param CustomerCreateEmailToken|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerCreateEmailTokenCollection

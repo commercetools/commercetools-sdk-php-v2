@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyShoppingListUpdate>
- *
  * @method MyShoppingListUpdate current()
  * @method MyShoppingListUpdate at($offset)
  */
@@ -23,9 +22,6 @@ class MyShoppingListUpdateCollection extends MapperSequence
     /**
      * @psalm-assert MyShoppingListUpdate $value
      * @psalm-param MyShoppingListUpdate|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MyShoppingListUpdateCollection

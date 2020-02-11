@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingRatePriceTier>
- *
  * @method ShippingRatePriceTier current()
  * @method ShippingRatePriceTier at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingRatePriceTierCollection extends MapperSequence
     /**
      * @psalm-assert ShippingRatePriceTier $value
      * @psalm-param ShippingRatePriceTier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingRatePriceTierCollection

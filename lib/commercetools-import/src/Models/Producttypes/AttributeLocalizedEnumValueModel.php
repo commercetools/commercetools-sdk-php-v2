@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\LocalizedString;
+
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
 
@@ -24,6 +28,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
      * @var ?LocalizedString
      */
     protected $label;
+
 
     public function __construct(
         string $key = null,

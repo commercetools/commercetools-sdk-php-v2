@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerKeyReferenceModel extends JsonObjectModel implements CustomerKeyReference
 {
-    const DISCRIMINATOR_VALUE = 'customer';
+    public const DISCRIMINATOR_VALUE = 'customer';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
      * @var ?string
      */
     protected $typeId;
+
 
     public function __construct(
         string $key = null

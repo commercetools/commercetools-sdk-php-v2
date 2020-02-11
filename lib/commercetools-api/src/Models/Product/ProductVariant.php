@@ -13,22 +13,23 @@ use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\ScopedPrice;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductVariant extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_SKU = 'sku';
-    const FIELD_KEY = 'key';
-    const FIELD_PRICES = 'prices';
-    const FIELD_ATTRIBUTES = 'attributes';
-    const FIELD_PRICE = 'price';
-    const FIELD_IMAGES = 'images';
-    const FIELD_ASSETS = 'assets';
-    const FIELD_AVAILABILITY = 'availability';
-    const FIELD_IS_MATCHING_VARIANT = 'isMatchingVariant';
-    const FIELD_SCOPED_PRICE = 'scopedPrice';
-    const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
+    public const FIELD_ID = 'id';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_KEY = 'key';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_IMAGES = 'images';
+    public const FIELD_ASSETS = 'assets';
+    public const FIELD_AVAILABILITY = 'availability';
+    public const FIELD_IS_MATCHING_VARIANT = 'isMatchingVariant';
+    public const FIELD_SCOPED_PRICE = 'scopedPrice';
+    public const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
 
     /**
      * @return null|int

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProjectSetExternalOAuthAction extends ProjectUpdateAction
 {
-    const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
+    public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
 
     /**
      * <p>If you do not provide the <code>externalOAuth</code> field or provide a value

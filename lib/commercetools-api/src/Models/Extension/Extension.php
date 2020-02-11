@@ -11,16 +11,18 @@ namespace Commercetools\Api\Models\Extension;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Extension extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_DESTINATION = 'destination';
-    const FIELD_TRIGGERS = 'triggers';
-    const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_DESTINATION = 'destination';
+    public const FIELD_TRIGGERS = 'triggers';
+    public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
 
     /**
      * @return null|string

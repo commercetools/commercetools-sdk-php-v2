@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CustomObject;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<CustomObjectDraft>
@@ -111,6 +115,7 @@ final class CustomObjectDraftBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): CustomObjectDraft
     {

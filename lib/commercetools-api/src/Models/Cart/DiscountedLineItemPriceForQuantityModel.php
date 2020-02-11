@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel implements DiscountedLineItemPriceForQuantity
@@ -22,6 +25,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
      * @var ?DiscountedLineItemPrice
      */
     protected $discountedPrice;
+
 
     public function __construct(
         int $quantity = null,

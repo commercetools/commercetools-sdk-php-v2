@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerSetDefaultBillingAddressAction extends CustomerUpdateAction
 {
-    const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>

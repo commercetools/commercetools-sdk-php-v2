@@ -9,15 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomLineItemStateTransitionMessage extends Message
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_TRANSITION_DATE = 'transitionDate';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_FROM_STATE = 'fromState';
-    const FIELD_TO_STATE = 'toState';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_TRANSITION_DATE = 'transitionDate';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_FROM_STATE = 'fromState';
+    public const FIELD_TO_STATE = 'toState';
 
     /**
      * @return null|string

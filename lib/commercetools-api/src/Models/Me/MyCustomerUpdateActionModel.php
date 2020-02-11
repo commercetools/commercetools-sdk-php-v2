@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCustomerUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,29 +24,30 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
 
     /**
      * @psalm-var array<string, class-string<MyCustomerUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addAddress' => MyCustomerAddAddressActionModel::class,
-        'addBillingAddressId' => MyCustomerAddBillingAddressIdActionModel::class,
-        'addShippingAddressId' => MyCustomerAddShippingAddressIdActionModel::class,
-        'changeAddress' => MyCustomerChangeAddressActionModel::class,
-        'changeEmail' => MyCustomerChangeEmailActionModel::class,
-        'removeAddress' => MyCustomerRemoveAddressActionModel::class,
-        'removeBillingAddressId' => MyCustomerRemoveBillingAddressIdActionModel::class,
-        'removeShippingAddressId' => MyCustomerRemoveShippingAddressIdActionModel::class,
-        'setCompanyName' => MyCustomerSetCompanyNameActionModel::class,
-        'setCustomField' => MyCustomerSetCustomFieldActionModel::class,
-        'setCustomType' => MyCustomerSetCustomTypeActionModel::class,
-        'setDateOfBirth' => MyCustomerSetDateOfBirthActionModel::class,
-        'setDefaultBillingAddress' => MyCustomerSetDefaultBillingAddressActionModel::class,
-        'setDefaultShippingAddress' => MyCustomerSetDefaultShippingAddressActionModel::class,
-        'setFirstName' => MyCustomerSetFirstNameActionModel::class,
-        'setLastName' => MyCustomerSetLastNameActionModel::class,
-        'setLocale' => MyCustomerSetLocaleActionModel::class,
-        'setMiddleName' => MyCustomerSetMiddleNameActionModel::class,
-        'setSalutation' => MyCustomerSetSalutationActionModel::class,
-        'setTitle' => MyCustomerSetTitleActionModel::class,
-        'setVatId' => MyCustomerSetVatIdActionModel::class,
+       'addAddress' => MyCustomerAddAddressActionModel::class,
+       'addBillingAddressId' => MyCustomerAddBillingAddressIdActionModel::class,
+       'addShippingAddressId' => MyCustomerAddShippingAddressIdActionModel::class,
+       'changeAddress' => MyCustomerChangeAddressActionModel::class,
+       'changeEmail' => MyCustomerChangeEmailActionModel::class,
+       'removeAddress' => MyCustomerRemoveAddressActionModel::class,
+       'removeBillingAddressId' => MyCustomerRemoveBillingAddressIdActionModel::class,
+       'removeShippingAddressId' => MyCustomerRemoveShippingAddressIdActionModel::class,
+       'setCompanyName' => MyCustomerSetCompanyNameActionModel::class,
+       'setCustomField' => MyCustomerSetCustomFieldActionModel::class,
+       'setCustomType' => MyCustomerSetCustomTypeActionModel::class,
+       'setDateOfBirth' => MyCustomerSetDateOfBirthActionModel::class,
+       'setDefaultBillingAddress' => MyCustomerSetDefaultBillingAddressActionModel::class,
+       'setDefaultShippingAddress' => MyCustomerSetDefaultShippingAddressActionModel::class,
+       'setFirstName' => MyCustomerSetFirstNameActionModel::class,
+       'setLastName' => MyCustomerSetLastNameActionModel::class,
+       'setLocale' => MyCustomerSetLocaleActionModel::class,
+       'setMiddleName' => MyCustomerSetMiddleNameActionModel::class,
+       'setSalutation' => MyCustomerSetSalutationActionModel::class,
+       'setTitle' => MyCustomerSetTitleActionModel::class,
+       'setVatId' => MyCustomerSetVatIdActionModel::class,
     ];
 
     public function __construct(
@@ -68,18 +72,19 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<MyCustomerUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = MyCustomerUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -94,7 +99,6 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
 
         /** @psalm-var class-string<MyCustomerUpdateAction> */
         $type = MyCustomerUpdateActionModel::class;
-
         return $type;
     }
 }

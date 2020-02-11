@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LocalizedString>
- *
  * @method LocalizedString current()
  * @method LocalizedString at($offset)
  */
@@ -23,9 +22,6 @@ class LocalizedStringCollection extends MapperSequence
     /**
      * @psalm-assert LocalizedString $value
      * @psalm-param LocalizedString|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return LocalizedStringCollection

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeAddFieldDefinitionAction>
- *
  * @method TypeAddFieldDefinitionAction current()
  * @method TypeAddFieldDefinitionAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeAddFieldDefinitionActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeAddFieldDefinitionAction $value
      * @psalm-param TypeAddFieldDefinitionAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeAddFieldDefinitionActionCollection

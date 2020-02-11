@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Project>
- *
  * @method Project current()
  * @method Project at($offset)
  */
@@ -23,9 +22,6 @@ class ProjectCollection extends MapperSequence
     /**
      * @psalm-assert Project $value
      * @psalm-param Project|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProjectCollection

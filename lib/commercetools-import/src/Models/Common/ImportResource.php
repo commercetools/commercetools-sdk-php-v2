@@ -8,11 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Categories\CategoryImport;
+use Commercetools\Import\Models\Prices\PriceImport;
+use Commercetools\Import\Models\Products\ProductImport;
+use Commercetools\Import\Models\Producttypes\ProductTypeImport;
+use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 
 interface ImportResource extends JsonObject
 {
-    const FIELD_KEY = 'key';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

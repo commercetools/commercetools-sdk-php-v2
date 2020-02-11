@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ShoppingListSetTextLineItemCustomFieldAction>
@@ -84,6 +88,7 @@ final class ShoppingListSetTextLineItemCustomFieldActionBuilder implements Build
 
         return $this;
     }
+
 
     public function build(): ShoppingListSetTextLineItemCustomFieldAction
     {

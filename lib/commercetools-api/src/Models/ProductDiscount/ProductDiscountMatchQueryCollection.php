@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDiscountMatchQuery>
- *
  * @method ProductDiscountMatchQuery current()
  * @method ProductDiscountMatchQuery at($offset)
  */
@@ -23,9 +22,6 @@ class ProductDiscountMatchQueryCollection extends MapperSequence
     /**
      * @psalm-assert ProductDiscountMatchQuery $value
      * @psalm-param ProductDiscountMatchQuery|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductDiscountMatchQueryCollection

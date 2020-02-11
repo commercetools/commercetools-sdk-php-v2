@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction
 {
-    const FIELD_ATTRIBUTE_NAME = 'attributeName';
-    const FIELD_INPUT_TIP = 'inputTip';
+    public const FIELD_ATTRIBUTE_NAME = 'attributeName';
+    public const FIELD_INPUT_TIP = 'inputTip';
 
     /**
      * @return null|string

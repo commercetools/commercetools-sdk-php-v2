@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CategoryChangeParentActionModel extends JsonObjectModel implements CategoryChangeParentAction
 {
-    const DISCRIMINATOR_VALUE = 'changeParent';
+    public const DISCRIMINATOR_VALUE = 'changeParent';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
      * @var ?CategoryResourceIdentifier
      */
     protected $parent;
+
 
     public function __construct(
         CategoryResourceIdentifier $parent = null

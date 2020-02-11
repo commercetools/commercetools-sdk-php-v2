@@ -11,12 +11,16 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObjectModel implements OrderCustomLineItemDiscountSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderCustomLineItemDiscountSet';
+    public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemDiscountSet';
     /**
      * @var ?string
      */
@@ -36,6 +40,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
+
 
     public function __construct(
         string $customLineItemId = null,

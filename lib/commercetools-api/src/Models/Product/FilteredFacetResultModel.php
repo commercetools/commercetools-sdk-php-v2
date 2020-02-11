@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class FilteredFacetResultModel extends JsonObjectModel implements FilteredFacetResult
 {
-    const DISCRIMINATOR_VALUE = 'filter';
+    public const DISCRIMINATOR_VALUE = 'filter';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
      * @var ?int
      */
     protected $productCount;
+
 
     public function __construct(
         int $count = null,

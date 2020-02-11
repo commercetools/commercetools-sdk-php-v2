@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DateTimeAttribute>
- *
  * @method DateTimeAttribute current()
  * @method DateTimeAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class DateTimeAttributeCollection extends MapperSequence
     /**
      * @psalm-assert DateTimeAttribute $value
      * @psalm-param DateTimeAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DateTimeAttributeCollection

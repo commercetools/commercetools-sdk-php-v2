@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements GoogleCloudPubSubDestination
 {
-    const DISCRIMINATOR_VALUE = 'GoogleCloudPubSub';
+    public const DISCRIMINATOR_VALUE = 'GoogleCloudPubSub';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
      * @var ?string
      */
     protected $topic;
+
 
     public function __construct(
         string $projectId = null,

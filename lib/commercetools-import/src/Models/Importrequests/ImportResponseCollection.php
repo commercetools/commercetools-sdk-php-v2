@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportResponse>
- *
  * @method ImportResponse current()
  * @method ImportResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ImportResponseCollection extends MapperSequence
     /**
      * @psalm-assert ImportResponse $value
      * @psalm-param ImportResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportResponseCollection

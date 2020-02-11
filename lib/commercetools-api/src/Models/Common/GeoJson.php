@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface GeoJson extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_TYPE = 'type';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_TYPE = 'type';
 
     /**
      * @return null|string

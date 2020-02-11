@@ -12,19 +12,21 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ShippingMethod extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_ZONE_RATES = 'zoneRates';
-    const FIELD_IS_DEFAULT = 'isDefault';
-    const FIELD_PREDICATE = 'predicate';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_ZONE_RATES = 'zoneRates';
+    public const FIELD_IS_DEFAULT = 'isDefault';
+    public const FIELD_PREDICATE = 'predicate';
 
     /**
      * <p>The unique ID of the shipping method.</p>

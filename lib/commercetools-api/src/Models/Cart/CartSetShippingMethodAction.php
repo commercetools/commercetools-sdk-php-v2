@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetShippingMethodAction extends CartUpdateAction
 {
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|ShippingMethodResourceIdentifier

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FieldType>
- *
  * @method FieldType current()
  * @method FieldType at($offset)
  */
@@ -23,9 +22,6 @@ class FieldTypeCollection extends MapperSequence
     /**
      * @psalm-assert FieldType $value
      * @psalm-param FieldType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return FieldTypeCollection

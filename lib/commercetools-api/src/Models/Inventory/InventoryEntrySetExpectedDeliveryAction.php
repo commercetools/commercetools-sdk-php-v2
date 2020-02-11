@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface InventoryEntrySetExpectedDeliveryAction extends InventoryEntryUpdateAction
 {
-    const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
+    public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
 
     /**
      * @return null|DateTimeImmutable

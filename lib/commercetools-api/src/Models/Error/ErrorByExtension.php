@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ErrorByExtension extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_KEY = 'key';
+    public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

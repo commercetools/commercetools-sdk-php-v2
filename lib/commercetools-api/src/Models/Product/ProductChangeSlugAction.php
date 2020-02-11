@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductChangeSlugAction extends ProductUpdateAction
 {
-    const FIELD_SLUG = 'slug';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * <p>Every slug must be unique across a project, but a product can have the same slug for different languages.

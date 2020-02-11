@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryEntryUpdateActionModel extends JsonObjectModel implements InventoryEntryUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,16 +24,17 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
 
     /**
      * @psalm-var array<string, class-string<InventoryEntryUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addQuantity' => InventoryEntryAddQuantityActionModel::class,
-        'changeQuantity' => InventoryEntryChangeQuantityActionModel::class,
-        'removeQuantity' => InventoryEntryRemoveQuantityActionModel::class,
-        'setCustomField' => InventoryEntrySetCustomFieldActionModel::class,
-        'setCustomType' => InventoryEntrySetCustomTypeActionModel::class,
-        'setExpectedDelivery' => InventoryEntrySetExpectedDeliveryActionModel::class,
-        'setRestockableInDays' => InventoryEntrySetRestockableInDaysActionModel::class,
-        'setSupplyChannel' => InventoryEntrySetSupplyChannelActionModel::class,
+       'addQuantity' => InventoryEntryAddQuantityActionModel::class,
+       'changeQuantity' => InventoryEntryChangeQuantityActionModel::class,
+       'removeQuantity' => InventoryEntryRemoveQuantityActionModel::class,
+       'setCustomField' => InventoryEntrySetCustomFieldActionModel::class,
+       'setCustomType' => InventoryEntrySetCustomTypeActionModel::class,
+       'setExpectedDelivery' => InventoryEntrySetExpectedDeliveryActionModel::class,
+       'setRestockableInDays' => InventoryEntrySetRestockableInDaysActionModel::class,
+       'setSupplyChannel' => InventoryEntrySetSupplyChannelActionModel::class,
     ];
 
     public function __construct(
@@ -55,18 +59,19 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<InventoryEntryUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = InventoryEntryUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -81,7 +86,6 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
 
         /** @psalm-var class-string<InventoryEntryUpdateAction> */
         $type = InventoryEntryUpdateActionModel::class;
-
         return $type;
     }
 }

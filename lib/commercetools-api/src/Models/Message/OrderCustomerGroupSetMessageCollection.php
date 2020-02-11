@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderCustomerGroupSetMessage>
- *
  * @method OrderCustomerGroupSetMessage current()
  * @method OrderCustomerGroupSetMessage at($offset)
  */
@@ -23,9 +22,6 @@ class OrderCustomerGroupSetMessageCollection extends MapperSequence
     /**
      * @psalm-assert OrderCustomerGroupSetMessage $value
      * @psalm-param OrderCustomerGroupSetMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderCustomerGroupSetMessageCollection

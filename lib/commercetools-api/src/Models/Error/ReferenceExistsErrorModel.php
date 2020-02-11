@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ReferenceExistsErrorModel extends JsonObjectModel implements ReferenceExistsError
 {
-    const DISCRIMINATOR_VALUE = 'ReferenceExists';
+    public const DISCRIMINATOR_VALUE = 'ReferenceExists';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
      * @var ?string
      */
     protected $referencedBy;
+
 
     public function __construct(
         string $message = null,

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\Common\PriceDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductChangePriceActionModel extends JsonObjectModel implements ProductChangePriceAction
 {
-    const DISCRIMINATOR_VALUE = 'changePrice';
+    public const DISCRIMINATOR_VALUE = 'changePrice';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         string $priceId = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodSetKeyAction>
- *
  * @method ShippingMethodSetKeyAction current()
  * @method ShippingMethodSetKeyAction at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingMethodSetKeyActionCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodSetKeyAction $value
      * @psalm-param ShippingMethodSetKeyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingMethodSetKeyActionCollection

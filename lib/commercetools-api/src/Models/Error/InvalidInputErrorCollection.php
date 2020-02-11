@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidInputError>
- *
  * @method InvalidInputError current()
  * @method InvalidInputError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidInputErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidInputError $value
      * @psalm-param InvalidInputError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidInputErrorCollection

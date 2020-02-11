@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\Review\ReviewModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements ReviewCreatedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ReviewCreated';
+    public const DISCRIMINATOR_VALUE = 'ReviewCreated';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
      * @var ?Review
      */
     protected $review;
+
 
     public function __construct(
         Review $review = null

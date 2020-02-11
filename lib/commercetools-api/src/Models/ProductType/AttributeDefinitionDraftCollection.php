@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeDefinitionDraft>
- *
  * @method AttributeDefinitionDraft current()
  * @method AttributeDefinitionDraft at($offset)
  */
@@ -23,9 +22,6 @@ class AttributeDefinitionDraftCollection extends MapperSequence
     /**
      * @psalm-assert AttributeDefinitionDraft $value
      * @psalm-param AttributeDefinitionDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AttributeDefinitionDraftCollection

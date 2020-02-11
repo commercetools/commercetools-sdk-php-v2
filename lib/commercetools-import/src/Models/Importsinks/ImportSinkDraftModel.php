@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsinks;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDraft
 {
@@ -26,6 +30,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
      * @var ?string
      */
     protected $resourceType;
+
 
     public function __construct(
         int $version = null,

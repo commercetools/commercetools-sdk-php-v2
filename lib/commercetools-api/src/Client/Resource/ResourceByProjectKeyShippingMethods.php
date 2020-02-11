@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,9 +22,8 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyShippingMethodsMatchesCart($this->getUri().'/matches-cart', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsMatchesCart($this->getUri() . '/matches-cart', $args, $this->getClient());
     }
-
     public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();
@@ -31,9 +31,8 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyShippingMethodsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
         $args = $this->getArgs();
@@ -41,14 +40,12 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyShippingMethodsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyShippingMethodsGet
     {
@@ -56,7 +53,6 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
 
         return new ByProjectKeyShippingMethodsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ShippingMethodDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

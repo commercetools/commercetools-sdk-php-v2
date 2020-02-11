@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
 {
-    const FIELD_TAX_RATE_ID = 'taxRateId';
-    const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TAX_RATE_ID = 'taxRateId';
+    public const FIELD_TAX_RATE = 'taxRate';
 
     /**
      * @return null|string

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implements OrderSetReturnPaymentStateAction
 {
-    const DISCRIMINATOR_VALUE = 'setReturnPaymentState';
+    public const DISCRIMINATOR_VALUE = 'setReturnPaymentState';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
      * @var ?string
      */
     protected $paymentState;
+
 
     public function __construct(
         string $returnItemId = null,

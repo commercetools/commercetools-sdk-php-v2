@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\LocalizedString;
+
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
 
 final class LocalizableTextAttributeModel extends JsonObjectModel implements LocalizableTextAttribute
 {
-    const DISCRIMINATOR_VALUE = 'ltext';
+    public const DISCRIMINATOR_VALUE = 'ltext';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
      * @var ?LocalizedString
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

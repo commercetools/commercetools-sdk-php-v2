@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\MoneyCollection;
+
 use stdClass;
 
 final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAttribute
 {
-    const DISCRIMINATOR_VALUE = 'money-set';
+    public const DISCRIMINATOR_VALUE = 'money-set';
     /**
      * @var ?string
      */
@@ -29,6 +33,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
      * @var ?MoneyCollection
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

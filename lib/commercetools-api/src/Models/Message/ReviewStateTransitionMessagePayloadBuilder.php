@@ -13,6 +13,11 @@ use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ReviewStateTransitionMessagePayload>

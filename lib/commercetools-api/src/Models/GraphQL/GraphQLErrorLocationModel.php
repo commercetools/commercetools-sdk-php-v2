@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQLErrorLocation
 {
@@ -21,6 +25,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
      * @var ?int
      */
     protected $column;
+
 
     public function __construct(
         int $line = null,

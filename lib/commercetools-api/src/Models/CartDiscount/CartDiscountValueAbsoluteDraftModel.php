@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implements CartDiscountValueAbsoluteDraft
 {
-    const DISCRIMINATOR_VALUE = 'absolute';
+    public const DISCRIMINATOR_VALUE = 'absolute';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
      * @var ?MoneyCollection
      */
     protected $money;
+
 
     public function __construct(
         MoneyCollection $money = null

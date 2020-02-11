@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCartSetLocaleAction extends MyCartUpdateAction
 {
-    const FIELD_LOCALE = 'locale';
+    public const FIELD_LOCALE = 'locale';
 
     /**
      * @return null|string

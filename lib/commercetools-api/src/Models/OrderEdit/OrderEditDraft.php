@@ -11,16 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface OrderEditDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_RESOURCE = 'resource';
-    const FIELD_STAGED_ACTIONS = 'stagedActions';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_COMMENT = 'comment';
-    const FIELD_DRY_RUN = 'dryRun';
+    public const FIELD_KEY = 'key';
+    public const FIELD_RESOURCE = 'resource';
+    public const FIELD_STAGED_ACTIONS = 'stagedActions';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_COMMENT = 'comment';
+    public const FIELD_DRY_RUN = 'dryRun';
 
     /**
      * <p>Unique identifier for this edit.</p>

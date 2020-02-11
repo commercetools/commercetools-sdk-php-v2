@@ -16,10 +16,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsByIDGet
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyApiClientsByIDDelete
  */
 class ResourceByProjectKeyApiClientsByIDTest extends TestCase
 {
@@ -29,11 +27,10 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
             'ByProjectKeyApiClientsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->apiClients()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/api-clients/{ID}',
@@ -41,15 +38,14 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
             'ByProjectKeyApiClientsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->apiClients()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/api-clients/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -64,7 +60,7 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -73,23 +69,21 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
             'ByProjectKeyApiClientsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->apiClients()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyApiClientsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->apiClients()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -102,7 +96,7 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

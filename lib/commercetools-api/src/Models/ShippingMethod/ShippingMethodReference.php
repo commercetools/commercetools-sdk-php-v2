@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShippingMethodReference extends Reference
 {
-    const FIELD_OBJ = 'obj';
+    public const FIELD_OBJ = 'obj';
 
     /**
      * @return null|ShippingMethod

@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<DateTimeAttribute>
@@ -65,6 +70,7 @@ final class DateTimeAttributeBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): DateTimeAttribute
     {

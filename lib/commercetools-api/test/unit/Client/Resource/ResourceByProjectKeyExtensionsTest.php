@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsPost
- *
- * @internal
  */
 class ResourceByProjectKeyExtensionsTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/extensions?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/extensions?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/extensions?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/extensions?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/extensions?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/extensions?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
             'ByProjectKeyExtensionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->extensions()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/extensions',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->extensions()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/extensions?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
             'ByProjectKeyExtensionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->extensions()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/extensions',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
             'ByProjectKeyExtensionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->extensions()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyExtensionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->extensions()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

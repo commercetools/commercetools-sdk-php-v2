@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Api\Models\Common\QueryPrice;
 use Commercetools\Api\Models\Common\QueryPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductDiscountMatchQueryModel extends JsonObjectModel implements ProductDiscountMatchQuery
@@ -34,6 +38,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
      * @var ?QueryPrice
      */
     protected $price;
+
 
     public function __construct(
         string $productId = null,

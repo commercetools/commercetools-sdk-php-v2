@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
@@ -32,6 +35,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
      * @var ?LocationCollection
      */
     protected $locations;
+
 
     public function __construct(
         string $key = null,

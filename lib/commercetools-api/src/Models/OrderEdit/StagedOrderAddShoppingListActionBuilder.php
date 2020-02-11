@@ -10,9 +10,16 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<StagedOrderAddShoppingListAction>

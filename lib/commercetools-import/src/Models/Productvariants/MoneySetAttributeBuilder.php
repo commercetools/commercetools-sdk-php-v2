@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\MoneyCollection;
+use stdClass;
 
 /**
  * @implements Builder<MoneySetAttribute>
@@ -65,6 +70,7 @@ final class MoneySetAttributeBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): MoneySetAttribute
     {

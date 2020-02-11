@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodReferenceModel extends JsonObjectModel implements ShippingMethodReference
 {
-    const DISCRIMINATOR_VALUE = 'shipping-method';
+    public const DISCRIMINATOR_VALUE = 'shipping-method';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
      * @var ?ShippingMethod
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

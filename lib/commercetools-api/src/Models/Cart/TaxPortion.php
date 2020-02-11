@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TaxPortion extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_RATE = 'rate';
-    const FIELD_AMOUNT = 'amount';
+    public const FIELD_NAME = 'name';
+    public const FIELD_RATE = 'rate';
+    public const FIELD_AMOUNT = 'amount';
 
     /**
      * @return null|string

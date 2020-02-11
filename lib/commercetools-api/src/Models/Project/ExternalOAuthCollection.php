@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExternalOAuth>
- *
  * @method ExternalOAuth current()
  * @method ExternalOAuth at($offset)
  */
@@ -23,9 +22,6 @@ class ExternalOAuthCollection extends MapperSequence
     /**
      * @psalm-assert ExternalOAuth $value
      * @psalm-param ExternalOAuth|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExternalOAuthCollection

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelDraft>
- *
  * @method ChannelDraft current()
  * @method ChannelDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelDraftCollection extends MapperSequence
     /**
      * @psalm-assert ChannelDraft $value
      * @psalm-param ChannelDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelDraftCollection

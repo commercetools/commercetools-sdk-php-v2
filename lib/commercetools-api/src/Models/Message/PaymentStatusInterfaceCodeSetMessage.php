@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface PaymentStatusInterfaceCodeSetMessage extends Message
 {
-    const FIELD_PAYMENT_ID = 'paymentId';
-    const FIELD_INTERFACE_CODE = 'interfaceCode';
+    public const FIELD_PAYMENT_ID = 'paymentId';
+    public const FIELD_INTERFACE_CODE = 'interfaceCode';
 
     /**
      * @return null|string

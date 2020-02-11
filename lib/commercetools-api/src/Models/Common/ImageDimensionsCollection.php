@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImageDimensions>
- *
  * @method ImageDimensions current()
  * @method ImageDimensions at($offset)
  */
@@ -23,9 +22,6 @@ class ImageDimensionsCollection extends MapperSequence
     /**
      * @psalm-assert ImageDimensions $value
      * @psalm-param ImageDimensions|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImageDimensionsCollection

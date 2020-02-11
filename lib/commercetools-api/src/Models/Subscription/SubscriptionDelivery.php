@@ -10,15 +10,16 @@ namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface SubscriptionDelivery extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'notificationType';
-    const FIELD_PROJECT_KEY = 'projectKey';
-    const FIELD_NOTIFICATION_TYPE = 'notificationType';
-    const FIELD_RESOURCE = 'resource';
-    const FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS = 'resourceUserProvidedIdentifiers';
+    public const DISCRIMINATOR_FIELD = 'notificationType';
+    public const FIELD_PROJECT_KEY = 'projectKey';
+    public const FIELD_NOTIFICATION_TYPE = 'notificationType';
+    public const FIELD_RESOURCE = 'resource';
+    public const FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS = 'resourceUserProvidedIdentifiers';
 
     /**
      * @return null|string

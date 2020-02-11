@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\ReturnInfo;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderReturnInfoAddedMessagePayload extends MessagePayload
 {
-    const FIELD_RETURN_INFO = 'returnInfo';
+    public const FIELD_RETURN_INFO = 'returnInfo';
 
     /**
      * @return null|ReturnInfo

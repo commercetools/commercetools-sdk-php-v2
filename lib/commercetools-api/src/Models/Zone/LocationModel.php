@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class LocationModel extends JsonObjectModel implements Location
 {
@@ -21,6 +25,7 @@ final class LocationModel extends JsonObjectModel implements Location
      * @var ?string
      */
     protected $state;
+
 
     public function __construct(
         string $country = null,

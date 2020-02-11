@@ -11,26 +11,27 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyCustomerDraft extends JsonObject
 {
-    const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
-    const FIELD_FIRST_NAME = 'firstName';
-    const FIELD_LAST_NAME = 'lastName';
-    const FIELD_MIDDLE_NAME = 'middleName';
-    const FIELD_TITLE = 'title';
-    const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
-    const FIELD_COMPANY_NAME = 'companyName';
-    const FIELD_VAT_ID = 'vatId';
-    const FIELD_ADDRESSES = 'addresses';
-    const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
-    const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_STORES = 'stores';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_PASSWORD = 'password';
+    public const FIELD_FIRST_NAME = 'firstName';
+    public const FIELD_LAST_NAME = 'lastName';
+    public const FIELD_MIDDLE_NAME = 'middleName';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
+    public const FIELD_COMPANY_NAME = 'companyName';
+    public const FIELD_VAT_ID = 'vatId';
+    public const FIELD_ADDRESSES = 'addresses';
+    public const FIELD_DEFAULT_SHIPPING_ADDRESS = 'defaultShippingAddress';
+    public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_STORES = 'stores';
 
     /**
      * @return null|string

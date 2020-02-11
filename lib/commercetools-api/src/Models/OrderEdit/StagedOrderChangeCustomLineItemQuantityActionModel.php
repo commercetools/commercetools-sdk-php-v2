@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjectModel implements StagedOrderChangeCustomLineItemQuantityAction
 {
-    const DISCRIMINATOR_VALUE = 'changeCustomLineItemQuantity';
+    public const DISCRIMINATOR_VALUE = 'changeCustomLineItemQuantity';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
      * @var ?int
      */
     protected $quantity;
+
 
     public function __construct(
         string $customLineItemId = null,

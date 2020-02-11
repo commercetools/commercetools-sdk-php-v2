@@ -11,20 +11,21 @@ namespace Commercetools\Api\Models\Common;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface PriceDraft extends JsonObject
 {
-    const FIELD_VALUE = 'value';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CHANNEL = 'channel';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_TIERS = 'tiers';
-    const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CHANNEL = 'channel';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_TIERS = 'tiers';
+    public const FIELD_DISCOUNTED = 'discounted';
 
     /**
      * @return null|Money

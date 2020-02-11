@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Product\ProductProjectionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductDeletedMessageModel extends JsonObjectModel implements ProductDeletedMessage
 {
-    const DISCRIMINATOR_VALUE = 'ProductDeleted';
+    public const DISCRIMINATOR_VALUE = 'ProductDeleted';
     /**
      * @var ?string
      */
@@ -88,6 +92,7 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
      * @var ?ProductProjection
      */
     protected $currentProjection;
+
 
     public function __construct(
         string $id = null,
@@ -412,6 +417,7 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
         $this->currentProjection = $currentProjection;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -422,7 +428,6 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

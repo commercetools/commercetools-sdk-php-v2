@@ -19,14 +19,6 @@ use stdClass;
 final class FieldContainerBuilder extends MapperMap implements Builder
 {
     /**
-     * @return FieldContainer
-     */
-    public function build()
-    {
-        return new FieldContainerModel($this->toArray());
-    }
-
-    /**
      * @psalm-return callable(string):?FieldContainer
      */
     protected function mapper()
@@ -40,8 +32,15 @@ final class FieldContainerBuilder extends MapperMap implements Builder
                 if ($data instanceof stdClass) {
                     $data = FieldContainerModel::of($data);
                 }
-
                 return $data;
             };
+    }
+
+    /**
+     * @return FieldContainer
+     */
+    public function build()
+    {
+        return new FieldContainerModel($this->toArray());
     }
 }

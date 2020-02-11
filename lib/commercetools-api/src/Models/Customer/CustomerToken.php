@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomerToken extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
-    const FIELD_CUSTOMER_ID = 'customerId';
-    const FIELD_EXPIRES_AT = 'expiresAt';
-    const FIELD_VALUE = 'value';
+    public const FIELD_ID = 'id';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_EXPIRES_AT = 'expiresAt';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

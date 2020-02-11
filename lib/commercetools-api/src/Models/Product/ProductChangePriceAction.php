@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductChangePriceAction extends ProductUpdateAction
 {
-    const FIELD_PRICE_ID = 'priceId';
-    const FIELD_PRICE = 'price';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_PRICE_ID = 'priceId';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * <p>ID of the <a href="#price">Price</a></p>

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel implements TaxCategoryReplaceTaxRateAction
 {
-    const DISCRIMINATOR_VALUE = 'replaceTaxRate';
+    public const DISCRIMINATOR_VALUE = 'replaceTaxRate';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
      * @var ?TaxRateDraft
      */
     protected $taxRate;
+
 
     public function __construct(
         string $taxRateId = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetMetaKeywordsAction>
- *
  * @method ProductSetMetaKeywordsAction current()
  * @method ProductSetMetaKeywordsAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductSetMetaKeywordsActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetMetaKeywordsAction $value
      * @psalm-param ProductSetMetaKeywordsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductSetMetaKeywordsActionCollection

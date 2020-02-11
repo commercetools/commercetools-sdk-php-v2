@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryKeyReference>
- *
  * @method TaxCategoryKeyReference current()
  * @method TaxCategoryKeyReference at($offset)
  */
@@ -23,9 +22,6 @@ class TaxCategoryKeyReferenceCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryKeyReference $value
      * @psalm-param TaxCategoryKeyReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxCategoryKeyReferenceCollection

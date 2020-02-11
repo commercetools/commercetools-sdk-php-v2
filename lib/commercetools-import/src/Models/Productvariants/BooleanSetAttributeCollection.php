@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<BooleanSetAttribute>
- *
  * @method BooleanSetAttribute current()
  * @method BooleanSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class BooleanSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert BooleanSetAttribute $value
      * @psalm-param BooleanSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return BooleanSetAttributeCollection

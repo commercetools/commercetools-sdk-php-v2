@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Api\Models\Zone\ZoneReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZoneRateModel extends JsonObjectModel implements ZoneRate
@@ -24,6 +28,7 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
      * @var ?ShippingRateCollection
      */
     protected $shippingRates;
+
 
     public function __construct(
         ZoneReference $zone = null,

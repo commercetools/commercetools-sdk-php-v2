@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneResourceIdentifier
 {
-    const DISCRIMINATOR_VALUE = 'zone';
+    public const DISCRIMINATOR_VALUE = 'zone';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

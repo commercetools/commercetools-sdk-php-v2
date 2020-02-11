@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ItemShippingDetailsDraft extends JsonObject
 {
-    const FIELD_TARGETS = 'targets';
+    public const FIELD_TARGETS = 'targets';
 
     /**
      * <p>Used to capture one or more (custom) line item specific shipping addresses.

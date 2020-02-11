@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Image;
 use Commercetools\Api\Models\Common\ImageModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductImageAddedMessagePayloadModel extends JsonObjectModel implements ProductImageAddedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductImageAdded';
+    public const DISCRIMINATOR_VALUE = 'ProductImageAdded';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ImportResource;
 
 interface ProductTypeImport extends ImportResource
 {
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>Maps to <code>ProductType.name</code>.</p>

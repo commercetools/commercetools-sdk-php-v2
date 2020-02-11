@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountSetKeyAction>
- *
  * @method CartDiscountSetKeyAction current()
  * @method CartDiscountSetKeyAction at($offset)
  */
@@ -23,9 +22,6 @@ class CartDiscountSetKeyActionCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountSetKeyAction $value
      * @psalm-param CartDiscountSetKeyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartDiscountSetKeyActionCollection

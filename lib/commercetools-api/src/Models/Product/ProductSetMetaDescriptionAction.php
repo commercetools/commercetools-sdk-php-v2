@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetMetaDescriptionAction extends ProductUpdateAction
 {
-    const FIELD_META_DESCRIPTION = 'metaDescription';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|LocalizedString

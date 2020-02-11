@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportOperationStatus>
- *
  * @method ImportOperationStatus current()
  * @method ImportOperationStatus at($offset)
  */
@@ -23,9 +22,6 @@ class ImportOperationStatusCollection extends MapperSequence
     /**
      * @psalm-assert ImportOperationStatus $value
      * @psalm-param ImportOperationStatus|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportOperationStatusCollection

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StateRemoveRolesActionModel extends JsonObjectModel implements StateRemoveRolesAction
 {
-    const DISCRIMINATOR_VALUE = 'removeRoles';
+    public const DISCRIMINATOR_VALUE = 'removeRoles';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
      * @var ?array
      */
     protected $roles;
+
 
     public function __construct(
         array $roles = null

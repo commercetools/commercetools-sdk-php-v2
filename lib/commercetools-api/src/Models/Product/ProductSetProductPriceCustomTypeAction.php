@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetProductPriceCustomTypeAction extends ProductUpdateAction
 {
-    const FIELD_PRICE_ID = 'priceId';
-    const FIELD_STAGED = 'staged';
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_PRICE_ID = 'priceId';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|string

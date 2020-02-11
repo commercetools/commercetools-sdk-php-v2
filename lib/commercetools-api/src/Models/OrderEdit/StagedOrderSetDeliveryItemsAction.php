@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetDeliveryItemsAction extends StagedOrderUpdateAction
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_ITEMS = 'items';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_ITEMS = 'items';
 
     /**
      * @return null|string

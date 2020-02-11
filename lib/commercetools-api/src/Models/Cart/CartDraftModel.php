@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartDraftModel extends JsonObjectModel implements CartDraft
@@ -138,6 +142,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
+
 
     public function __construct(
         string $currency = null,

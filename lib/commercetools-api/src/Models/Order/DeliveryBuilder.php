@@ -11,7 +11,12 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<Delivery>

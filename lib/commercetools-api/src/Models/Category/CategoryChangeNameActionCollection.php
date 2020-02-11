@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryChangeNameAction>
- *
  * @method CategoryChangeNameAction current()
  * @method CategoryChangeNameAction at($offset)
  */
@@ -23,9 +22,6 @@ class CategoryChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert CategoryChangeNameAction $value
      * @psalm-param CategoryChangeNameAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategoryChangeNameActionCollection

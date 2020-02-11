@@ -17,29 +17,30 @@ use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface LineItem extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_NAME = 'name';
-    const FIELD_PRODUCT_SLUG = 'productSlug';
-    const FIELD_PRODUCT_TYPE = 'productType';
-    const FIELD_VARIANT = 'variant';
-    const FIELD_PRICE = 'price';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
-    const FIELD_TOTAL_PRICE = 'totalPrice';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_STATE = 'state';
-    const FIELD_TAX_RATE = 'taxRate';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
-    const FIELD_PRICE_MODE = 'priceMode';
-    const FIELD_LINE_ITEM_MODE = 'lineItemMode';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_ID = 'id';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_NAME = 'name';
+    public const FIELD_PRODUCT_SLUG = 'productSlug';
+    public const FIELD_PRODUCT_TYPE = 'productType';
+    public const FIELD_VARIANT = 'variant';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_STATE = 'state';
+    public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
+    public const FIELD_PRICE_MODE = 'priceMode';
+    public const FIELD_LINE_ITEM_MODE = 'lineItemMode';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
      * <p>The unique ID of this LineItem.</p>

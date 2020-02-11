@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<VariantValues>
- *
  * @method VariantValues current()
  * @method VariantValues at($offset)
  */
@@ -23,9 +22,6 @@ class VariantValuesCollection extends MapperSequence
     /**
      * @psalm-assert VariantValues $value
      * @psalm-param VariantValues|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return VariantValuesCollection

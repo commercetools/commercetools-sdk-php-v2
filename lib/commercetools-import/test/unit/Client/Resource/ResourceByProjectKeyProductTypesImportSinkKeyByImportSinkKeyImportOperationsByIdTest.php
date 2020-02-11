@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Import\Client\Resource\ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsByIdGet
- *
- * @internal
  */
 class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsByIdTest extends TestCase
 {
@@ -28,17 +26,16 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperatio
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsByIdGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->productTypes()
-                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->importOperations()
-                        ->withIdValue('id')
-                        ->get()
-                    ;
+                        ->withIdValue("id")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/product-types/importSinkKey={importSinkKey}/import-operations/{id}',
-            ],
+            ]
         ];
     }
 
@@ -53,7 +50,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperatio
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -62,15 +59,14 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperatio
             'ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsByIdGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->productTypes()
-                        ->importSinkKeyWithImportSinkKeyValue('importSinkKey')
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->importOperations()
-                        ->withIdValue('id')
-                        ->get()
-                    ;
-                },
-            ],
+                        ->withIdValue("id")
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -83,7 +79,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperatio
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewSetTargetAction>
- *
  * @method ReviewSetTargetAction current()
  * @method ReviewSetTargetAction at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewSetTargetActionCollection extends MapperSequence
     /**
      * @psalm-assert ReviewSetTargetAction $value
      * @psalm-param ReviewSetTargetAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewSetTargetActionCollection

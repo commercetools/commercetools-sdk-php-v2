@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneSetKeyAction>
- *
  * @method ZoneSetKeyAction current()
  * @method ZoneSetKeyAction at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneSetKeyActionCollection extends MapperSequence
     /**
      * @psalm-assert ZoneSetKeyAction $value
      * @psalm-param ZoneSetKeyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneSetKeyActionCollection

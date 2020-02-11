@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Prices;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
@@ -21,6 +25,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
      * @var ?int
      */
     protected $amount;
+
 
     public function __construct(
         string $name = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldMoneyType>
- *
  * @method CustomFieldMoneyType current()
  * @method CustomFieldMoneyType at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldMoneyTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldMoneyType $value
      * @psalm-param CustomFieldMoneyType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldMoneyTypeCollection

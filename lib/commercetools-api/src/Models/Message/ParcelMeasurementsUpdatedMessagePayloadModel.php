@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel implements ParcelMeasurementsUpdatedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ParcelMeasurementsUpdated';
+    public const DISCRIMINATOR_VALUE = 'ParcelMeasurementsUpdated';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
      * @var ?ParcelMeasurements
      */
     protected $measurements;
+
 
     public function __construct(
         string $deliveryId = null,

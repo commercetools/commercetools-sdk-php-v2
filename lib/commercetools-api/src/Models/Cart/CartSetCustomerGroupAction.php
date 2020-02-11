@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetCustomerGroupAction extends CartUpdateAction
 {
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
      * @return null|CustomerGroupResourceIdentifier

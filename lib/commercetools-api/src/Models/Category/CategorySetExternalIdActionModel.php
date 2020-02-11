@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CategorySetExternalIdActionModel extends JsonObjectModel implements CategorySetExternalIdAction
 {
-    const DISCRIMINATOR_VALUE = 'setExternalId';
+    public const DISCRIMINATOR_VALUE = 'setExternalId';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $externalId;
+
 
     public function __construct(
         string $externalId = null

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductPublishAction extends ProductUpdateAction
 {
-    const FIELD_SCOPE = 'scope';
+    public const FIELD_SCOPE = 'scope';
 
     /**
      * @return null|string

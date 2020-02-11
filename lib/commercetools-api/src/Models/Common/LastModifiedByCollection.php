@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LastModifiedBy>
- *
  * @method LastModifiedBy current()
  * @method LastModifiedBy at($offset)
  */
@@ -23,9 +22,6 @@ class LastModifiedByCollection extends MapperSequence
     /**
      * @psalm-assert LastModifiedBy $value
      * @psalm-param LastModifiedBy|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return LastModifiedByCollection

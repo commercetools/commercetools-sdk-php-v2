@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetAnonymousIdAction extends CartUpdateAction
 {
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
      * <p>If not set, any existing anonymous ID will be removed.</p>

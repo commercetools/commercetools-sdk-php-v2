@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderSetCountryActionModel extends JsonObjectModel implements StagedOrderSetCountryAction
 {
-    const DISCRIMINATOR_VALUE = 'setCountry';
+    public const DISCRIMINATOR_VALUE = 'setCountry';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $country;
+
 
     public function __construct(
         string $country = null

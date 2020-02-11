@@ -10,14 +10,18 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectModel implements CustomLineItemStateTransitionMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'CustomLineItemStateTransition';
+    public const DISCRIMINATOR_VALUE = 'CustomLineItemStateTransition';
     /**
      * @var ?string
      */
@@ -47,6 +51,7 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
      * @var ?StateReference
      */
     protected $toState;
+
 
     public function __construct(
         string $customLineItemId = null,
@@ -196,13 +201,13 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
         $this->toState = $toState;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[CustomLineItemStateTransitionMessagePayload::FIELD_TRANSITION_DATE]) && $data[CustomLineItemStateTransitionMessagePayload::FIELD_TRANSITION_DATE] instanceof \DateTimeImmutable) {
             $data[CustomLineItemStateTransitionMessagePayload::FIELD_TRANSITION_DATE] = $data[CustomLineItemStateTransitionMessagePayload::FIELD_TRANSITION_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeNameAction>
- *
  * @method TypeChangeNameAction current()
  * @method TypeChangeNameAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeNameAction $value
      * @psalm-param TypeChangeNameAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeNameActionCollection

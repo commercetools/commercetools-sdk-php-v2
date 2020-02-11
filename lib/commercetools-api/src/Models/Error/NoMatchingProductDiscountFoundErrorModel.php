@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel implements NoMatchingProductDiscountFoundError
 {
-    const DISCRIMINATOR_VALUE = 'NoMatchingProductDiscountFound';
+    public const DISCRIMINATOR_VALUE = 'NoMatchingProductDiscountFound';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShoppingListReference extends Reference
 {
-    const FIELD_OBJ = 'obj';
+    public const FIELD_OBJ = 'obj';
 
     /**
      * @return null|ShoppingList

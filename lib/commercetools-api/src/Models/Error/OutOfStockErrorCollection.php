@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OutOfStockError>
- *
  * @method OutOfStockError current()
  * @method OutOfStockError at($offset)
  */
@@ -23,9 +22,6 @@ class OutOfStockErrorCollection extends MapperSequence
     /**
      * @psalm-assert OutOfStockError $value
      * @psalm-param OutOfStockError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OutOfStockErrorCollection

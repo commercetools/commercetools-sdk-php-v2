@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Channel\ChannelDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,12 @@ class ResourceByProjectKeyChannels extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyChannelsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyChannelsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyChannelsGet
     {
@@ -39,7 +38,6 @@ class ResourceByProjectKeyChannels extends ApiResource
 
         return new ByProjectKeyChannelsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ChannelDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

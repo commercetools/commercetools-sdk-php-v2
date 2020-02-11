@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\TrackingData;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetParcelTrackingDataAction extends StagedOrderUpdateAction
 {
-    const FIELD_PARCEL_ID = 'parcelId';
-    const FIELD_TRACKING_DATA = 'trackingData';
+    public const FIELD_PARCEL_ID = 'parcelId';
+    public const FIELD_TRACKING_DATA = 'trackingData';
 
     /**
      * @return null|string

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceDeletedDelivery>
- *
  * @method ResourceDeletedDelivery current()
  * @method ResourceDeletedDelivery at($offset)
  */
@@ -23,9 +22,6 @@ class ResourceDeletedDeliveryCollection extends MapperSequence
     /**
      * @psalm-assert ResourceDeletedDelivery $value
      * @psalm-param ResourceDeletedDelivery|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ResourceDeletedDeliveryCollection

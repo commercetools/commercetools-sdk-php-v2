@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements CartSetCartTotalTaxAction
 {
-    const DISCRIMINATOR_VALUE = 'setCartTotalTax';
+    public const DISCRIMINATOR_VALUE = 'setCartTotalTax';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
      * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
+
 
     public function __construct(
         Money $externalTotalGross = null,

@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ShippingRateInputDraft;
 use Commercetools\Api\Models\Cart\ShippingRateInputDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel implements StagedOrderSetShippingRateInputAction
 {
-    const DISCRIMINATOR_VALUE = 'setShippingRateInput';
+    public const DISCRIMINATOR_VALUE = 'setShippingRateInput';
     /**
      * @var ?string
      */
@@ -26,6 +31,7 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
      * @var ?ShippingRateInputDraft
      */
     protected $shippingRateInput;
+
 
     public function __construct(
         ShippingRateInputDraft $shippingRateInput = null

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implements OrderSetParcelMeasurementsAction
 {
-    const DISCRIMINATOR_VALUE = 'setParcelMeasurements';
+    public const DISCRIMINATOR_VALUE = 'setParcelMeasurements';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
      * @var ?ParcelMeasurements
      */
     protected $measurements;
+
 
     public function __construct(
         string $parcelId = null,

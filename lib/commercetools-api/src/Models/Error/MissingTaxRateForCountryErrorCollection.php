@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MissingTaxRateForCountryError>
- *
  * @method MissingTaxRateForCountryError current()
  * @method MissingTaxRateForCountryError at($offset)
  */
@@ -23,9 +22,6 @@ class MissingTaxRateForCountryErrorCollection extends MapperSequence
     /**
      * @psalm-assert MissingTaxRateForCountryError $value
      * @psalm-param MissingTaxRateForCountryError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MissingTaxRateForCountryErrorCollection

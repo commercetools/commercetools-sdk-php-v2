@@ -12,9 +12,13 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft
@@ -48,6 +52,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
 
     public function __construct(
         string $sku = null,
@@ -205,13 +210,13 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[InventoryEntryDraft::FIELD_EXPECTED_DELIVERY]) && $data[InventoryEntryDraft::FIELD_EXPECTED_DELIVERY] instanceof \DateTimeImmutable) {
             $data[InventoryEntryDraft::FIELD_EXPECTED_DELIVERY] = $data[InventoryEntryDraft::FIELD_EXPECTED_DELIVERY]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

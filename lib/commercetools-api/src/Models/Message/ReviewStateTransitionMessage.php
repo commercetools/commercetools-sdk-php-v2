@@ -10,15 +10,17 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewStateTransitionMessage extends Message
 {
-    const FIELD_OLD_STATE = 'oldState';
-    const FIELD_NEW_STATE = 'newState';
-    const FIELD_OLD_INCLUDED_IN_STATISTICS = 'oldIncludedInStatistics';
-    const FIELD_NEW_INCLUDED_IN_STATISTICS = 'newIncludedInStatistics';
-    const FIELD_TARGET = 'target';
-    const FIELD_FORCE = 'force';
+    public const FIELD_OLD_STATE = 'oldState';
+    public const FIELD_NEW_STATE = 'newState';
+    public const FIELD_OLD_INCLUDED_IN_STATISTICS = 'oldIncludedInStatistics';
+    public const FIELD_NEW_INCLUDED_IN_STATISTICS = 'newIncludedInStatistics';
+    public const FIELD_TARGET = 'target';
+    public const FIELD_FORCE = 'force';
 
     /**
      * @return null|StateReference

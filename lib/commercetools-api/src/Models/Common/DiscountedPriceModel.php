@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
@@ -24,6 +28,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
      * @var ?ProductDiscountReference
      */
     protected $discount;
+
 
     public function __construct(
         Money $value = null,

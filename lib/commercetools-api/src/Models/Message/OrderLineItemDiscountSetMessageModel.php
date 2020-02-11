@@ -13,20 +13,24 @@ use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel implements OrderLineItemDiscountSetMessage
 {
-    const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
+    public const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
     /**
      * @var ?string
      */
@@ -101,6 +105,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
+
 
     public function __construct(
         string $id = null,
@@ -474,6 +479,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
         $this->taxedPrice = $taxedPrice;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -484,7 +490,6 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

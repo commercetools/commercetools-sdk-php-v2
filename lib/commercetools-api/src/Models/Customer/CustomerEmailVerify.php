@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomerEmailVerify extends JsonObject
 {
-    const FIELD_VERSION = 'version';
-    const FIELD_TOKEN_VALUE = 'tokenValue';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_TOKEN_VALUE = 'tokenValue';
 
     /**
      * @return null|int

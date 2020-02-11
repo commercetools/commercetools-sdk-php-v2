@@ -9,17 +9,18 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface StateDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_TYPE = 'type';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_INITIAL = 'initial';
-    const FIELD_ROLES = 'roles';
-    const FIELD_TRANSITIONS = 'transitions';
+    public const FIELD_KEY = 'key';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_INITIAL = 'initial';
+    public const FIELD_ROLES = 'roles';
+    public const FIELD_TRANSITIONS = 'transitions';
 
     /**
      * @return null|string

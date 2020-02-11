@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionAWSLambdaDestination extends ExtensionDestination
 {
-    const FIELD_ARN = 'arn';
-    const FIELD_ACCESS_KEY = 'accessKey';
-    const FIELD_ACCESS_SECRET = 'accessSecret';
+    public const FIELD_ARN = 'arn';
+    public const FIELD_ACCESS_KEY = 'accessKey';
+    public const FIELD_ACCESS_SECRET = 'accessSecret';
 
     /**
      * @return null|string

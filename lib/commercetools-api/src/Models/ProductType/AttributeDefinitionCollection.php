@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeDefinition>
- *
  * @method AttributeDefinition current()
  * @method AttributeDefinition at($offset)
  */
@@ -23,9 +22,6 @@ class AttributeDefinitionCollection extends MapperSequence
     /**
      * @psalm-assert AttributeDefinition $value
      * @psalm-param AttributeDefinition|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AttributeDefinitionCollection

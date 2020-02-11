@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel implements ShippingMethodChangeTaxCategoryAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTaxCategory';
+    public const DISCRIMINATOR_VALUE = 'changeTaxCategory';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
+
 
     public function __construct(
         TaxCategoryResourceIdentifier $taxCategory = null

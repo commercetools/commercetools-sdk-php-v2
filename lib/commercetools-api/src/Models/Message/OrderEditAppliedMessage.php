@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditAppliedMessage extends Message
 {
-    const FIELD_EDIT = 'edit';
-    const FIELD_RESULT = 'result';
+    public const FIELD_EDIT = 'edit';
+    public const FIELD_RESULT = 'result';
 
     /**
      * @return null|OrderEditReference

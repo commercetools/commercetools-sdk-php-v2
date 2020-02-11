@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CartDiscountPagedQueryResponse extends JsonObject
 {
-    const FIELD_LIMIT = 'limit';
-    const FIELD_COUNT = 'count';
-    const FIELD_TOTAL = 'total';
-    const FIELD_OFFSET = 'offset';
-    const FIELD_RESULTS = 'results';
+    public const FIELD_LIMIT = 'limit';
+    public const FIELD_COUNT = 'count';
+    public const FIELD_TOTAL = 'total';
+    public const FIELD_OFFSET = 'offset';
+    public const FIELD_RESULTS = 'results';
 
     /**
      * @return null|int

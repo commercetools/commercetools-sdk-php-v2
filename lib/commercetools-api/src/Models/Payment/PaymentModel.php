@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
@@ -19,9 +22,12 @@ use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsCollection;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PaymentModel extends JsonObjectModel implements Payment
@@ -130,6 +136,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,
@@ -682,6 +689,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
         $this->key = $key;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -692,7 +700,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
         if (isset($data[Payment::FIELD_LAST_MODIFIED_AT]) && $data[Payment::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Payment::FIELD_LAST_MODIFIED_AT] = $data[Payment::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

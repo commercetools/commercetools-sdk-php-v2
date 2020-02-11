@@ -13,12 +13,16 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
+
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingInfoImportDraftModel extends JsonObjectModel implements ShippingInfoImportDraft
@@ -67,6 +71,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
      * @var ?string
      */
     protected $shippingMethodState;
+
 
     public function __construct(
         string $shippingMethodName = null,

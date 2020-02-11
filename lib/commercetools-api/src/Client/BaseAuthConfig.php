@@ -6,17 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Api\Client;
 
 use Commercetools\Client\AuthConfig;
 
 abstract class BaseAuthConfig implements AuthConfig
 {
-    const AUTH_URI = '{accessTokenUri}';
+    public const AUTH_URI = '{accessTokenUri}';
 
-    const OPT_ACCESS_TOKEN_URI = '{accessTokenUri}';
+    public const OPT_ACCESS_TOKEN_URI = '{accessTokenUri}';
 
-    const GRANT_TYPE = '';
+    public const GRANT_TYPE = '';
 
     /** @psalm-var string */
     private $authUri;
@@ -24,15 +25,15 @@ abstract class BaseAuthConfig implements AuthConfig
     /** @psalm-var array */
     private $options;
 
-    public function __construct(string $accessTokenUri = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token', array $clientOptions = [], string $authUri = self::AUTH_URI)
+    public function __construct(string $accessTokenUri = "https://auth.europe-west1.gcp.commercetools.com/oauth/token", array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
         /** @psalm-var string authUri */
         $authUri = str_replace(
             [
-                self::OPT_ACCESS_TOKEN_URI,
+                self::OPT_ACCESS_TOKEN_URI
             ],
             [
-                $accessTokenUri,
+                $accessTokenUri
             ],
             $authUri
         );

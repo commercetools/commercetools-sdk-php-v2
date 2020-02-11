@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCustomerSetTitleAction extends MyCustomerUpdateAction
 {
-    const FIELD_TITLE = 'title';
+    public const FIELD_TITLE = 'title';
 
     /**
      * @return null|string

@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountCodeReferenceModel extends JsonObjectModel implements DiscountCodeReference
 {
-    const DISCRIMINATOR_VALUE = 'discount-code';
+    public const DISCRIMINATOR_VALUE = 'discount-code';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
      * @var ?DiscountCode
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

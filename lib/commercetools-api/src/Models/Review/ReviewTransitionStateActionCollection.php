@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewTransitionStateAction>
- *
  * @method ReviewTransitionStateAction current()
  * @method ReviewTransitionStateAction at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewTransitionStateActionCollection extends MapperSequence
     /**
      * @psalm-assert ReviewTransitionStateAction $value
      * @psalm-param ReviewTransitionStateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewTransitionStateActionCollection

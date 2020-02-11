@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel implements StagedOrderSetCustomerGroupAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomerGroup';
+    public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
      * @var ?string
      */
@@ -26,6 +31,7 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
+
 
     public function __construct(
         CustomerGroupResourceIdentifier $customerGroup = null

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionAzureFunctionsAuthentication>
- *
  * @method ExtensionAzureFunctionsAuthentication current()
  * @method ExtensionAzureFunctionsAuthentication at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionAzureFunctionsAuthenticationCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionAzureFunctionsAuthentication $value
      * @psalm-param ExtensionAzureFunctionsAuthentication|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionAzureFunctionsAuthenticationCollection

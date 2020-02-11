@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddDiscountCodeAction extends StagedOrderUpdateAction
 {
-    const FIELD_CODE = 'code';
+    public const FIELD_CODE = 'code';
 
     /**
      * @return null|string

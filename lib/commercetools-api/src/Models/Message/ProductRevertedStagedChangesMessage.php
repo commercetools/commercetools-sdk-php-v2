@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductRevertedStagedChangesMessage extends Message
 {
-    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
+    public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
      * @return null|array

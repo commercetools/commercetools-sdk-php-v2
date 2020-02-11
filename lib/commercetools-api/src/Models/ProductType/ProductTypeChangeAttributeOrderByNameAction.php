@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductTypeChangeAttributeOrderByNameAction extends ProductTypeUpdateAction
 {
-    const FIELD_ATTRIBUTE_NAMES = 'attributeNames';
+    public const FIELD_ATTRIBUTE_NAMES = 'attributeNames';
 
     /**
      * @return null|array

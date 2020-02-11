@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomerCreatePasswordResetToken extends JsonObject
 {
-    const FIELD_EMAIL = 'email';
-    const FIELD_TTL_MINUTES = 'ttlMinutes';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_TTL_MINUTES = 'ttlMinutes';
 
     /**
      * @return null|string

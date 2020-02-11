@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectModel implements InventoryEntrySetRestockableInDaysAction
 {
-    const DISCRIMINATOR_VALUE = 'setRestockableInDays';
+    public const DISCRIMINATOR_VALUE = 'setRestockableInDays';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
      * @var ?int
      */
     protected $restockableInDays;
+
 
     public function __construct(
         int $restockableInDays = null

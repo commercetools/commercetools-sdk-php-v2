@@ -19,6 +19,11 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ShippingInfoImportDraft>

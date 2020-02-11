@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class NumberAttributeModel extends JsonObjectModel implements NumberAttribute
 {
-    const DISCRIMINATOR_VALUE = 'number';
+    public const DISCRIMINATOR_VALUE = 'number';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
      * @var ?int
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

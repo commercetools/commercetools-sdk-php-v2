@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryPagedQueryResponseModel extends JsonObjectModel implements InventoryPagedQueryResponse
@@ -37,6 +40,7 @@ final class InventoryPagedQueryResponseModel extends JsonObjectModel implements 
      * @var ?InventoryEntryCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

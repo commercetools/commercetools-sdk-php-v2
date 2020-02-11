@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelSetAddressAction>
- *
  * @method ChannelSetAddressAction current()
  * @method ChannelSetAddressAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelSetAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelSetAddressAction $value
      * @psalm-param ChannelSetAddressAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelSetAddressActionCollection

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class SubscriptionUpdateModel extends JsonObjectModel implements SubscriptionUpdate
@@ -22,6 +25,7 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
      * @var ?SubscriptionUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

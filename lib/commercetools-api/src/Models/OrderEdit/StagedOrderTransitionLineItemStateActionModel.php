@@ -9,16 +9,21 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectModel implements StagedOrderTransitionLineItemStateAction
 {
-    const DISCRIMINATOR_VALUE = 'transitionLineItemState';
+    public const DISCRIMINATOR_VALUE = 'transitionLineItemState';
     /**
      * @var ?string
      */
@@ -48,6 +53,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
      * @var ?DateTimeImmutable
      */
     protected $actualTransitionDate;
+
 
     public function __construct(
         string $lineItemId = null,
@@ -197,13 +203,13 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
         $this->actualTransitionDate = $actualTransitionDate;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[StagedOrderTransitionLineItemStateAction::FIELD_ACTUAL_TRANSITION_DATE]) && $data[StagedOrderTransitionLineItemStateAction::FIELD_ACTUAL_TRANSITION_DATE] instanceof \DateTimeImmutable) {
             $data[StagedOrderTransitionLineItemStateAction::FIELD_ACTUAL_TRANSITION_DATE] = $data[StagedOrderTransitionLineItemStateAction::FIELD_ACTUAL_TRANSITION_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

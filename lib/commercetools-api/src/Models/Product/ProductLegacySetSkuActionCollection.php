@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductLegacySetSkuAction>
- *
  * @method ProductLegacySetSkuAction current()
  * @method ProductLegacySetSkuAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductLegacySetSkuActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductLegacySetSkuAction $value
      * @psalm-param ProductLegacySetSkuAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductLegacySetSkuActionCollection

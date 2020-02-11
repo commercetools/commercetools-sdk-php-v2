@@ -9,15 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface FieldDefinition extends JsonObject
 {
-    const FIELD_TYPE = 'type';
-    const FIELD_NAME = 'name';
-    const FIELD_LABEL = 'label';
-    const FIELD_REQUIRED = 'required';
-    const FIELD_INPUT_HINT = 'inputHint';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_NAME = 'name';
+    public const FIELD_LABEL = 'label';
+    public const FIELD_REQUIRED = 'required';
+    public const FIELD_INPUT_HINT = 'inputHint';
 
     /**
      * <p>Describes the type of the field.</p>

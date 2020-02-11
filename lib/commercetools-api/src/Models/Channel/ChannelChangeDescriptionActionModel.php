@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ChannelChangeDescriptionActionModel extends JsonObjectModel implements ChannelChangeDescriptionAction
 {
-    const DISCRIMINATOR_VALUE = 'changeDescription';
+    public const DISCRIMINATOR_VALUE = 'changeDescription';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class ChannelChangeDescriptionActionModel extends JsonObjectModel implemen
      * @var ?LocalizedString
      */
     protected $description;
+
 
     public function __construct(
         LocalizedString $description = null

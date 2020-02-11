@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductProjectionPagedQueryResponse>
- *
  * @method ProductProjectionPagedQueryResponse current()
  * @method ProductProjectionPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ProductProjectionPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert ProductProjectionPagedQueryResponse $value
      * @psalm-param ProductProjectionPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductProjectionPagedQueryResponseCollection

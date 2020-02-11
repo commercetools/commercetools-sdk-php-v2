@@ -8,13 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
@@ -68,6 +74,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,
@@ -335,6 +342,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         $this->key = $key;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -345,7 +353,6 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         if (isset($data[TaxCategory::FIELD_LAST_MODIFIED_AT]) && $data[TaxCategory::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[TaxCategory::FIELD_LAST_MODIFIED_AT] = $data[TaxCategory::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -10,12 +10,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel implements StagedOrderImportLineItemStateAction
 {
-    const DISCRIMINATOR_VALUE = 'importLineItemState';
+    public const DISCRIMINATOR_VALUE = 'importLineItemState';
     /**
      * @var ?string
      */
@@ -30,6 +35,7 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
      * @var ?ItemStateCollection
      */
     protected $state;
+
 
     public function __construct(
         string $lineItemId = null,

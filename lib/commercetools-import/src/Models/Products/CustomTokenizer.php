@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomTokenizer extends SuggestTokenizer
 {
-    const FIELD_INPUTS = 'inputs';
+    public const FIELD_INPUTS = 'inputs';
 
     /**
      * @return null|array

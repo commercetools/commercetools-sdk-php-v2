@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductProjectionsSuggestGet
- *
- * @internal
  */
 class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withFuzzy('fuzzy')
-                    ;
+                        ->withFuzzy('fuzzy');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?fuzzy=fuzzy',
@@ -45,8 +42,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withStaged('staged')
-                    ;
+                        ->withStaged('staged');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?staged=staged',
@@ -58,8 +54,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withSearchKeywords('locale', 'searchKeywords.locale')
-                    ;
+                        ->withSearchKeywords('locale', 'searchKeywords.locale');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?searchKeywords.locale=searchKeywords.locale',
@@ -71,8 +66,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?sort=sort',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?limit=limit',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?offset=offset',
@@ -110,8 +102,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->productProjections()
                         ->suggest()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/product-projections/suggest?withTotal=withTotal',
@@ -119,15 +110,14 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
             'ByProjectKeyProductProjectionsSuggestGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productProjections()
                         ->suggest()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/product-projections/suggest',
-            ],
+            ]
         ];
     }
 
@@ -142,7 +132,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -151,13 +141,12 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
             'ByProjectKeyProductProjectionsSuggestGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->productProjections()
                         ->suggest()
-                        ->get()
-                    ;
-                },
-            ],
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -170,7 +159,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

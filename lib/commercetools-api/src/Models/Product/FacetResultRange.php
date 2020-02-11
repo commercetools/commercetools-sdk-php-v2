@@ -8,20 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface FacetResultRange extends JsonObject
 {
-    const FIELD_FROM = 'from';
-    const FIELD_FROM_STR = 'fromStr';
-    const FIELD_TO = 'to';
-    const FIELD_TO_STR = 'toStr';
-    const FIELD_COUNT = 'count';
-    const FIELD_PRODUCT_COUNT = 'productCount';
-    const FIELD_TOTAL = 'total';
-    const FIELD_MIN = 'min';
-    const FIELD_MAX = 'max';
-    const FIELD_MEAN = 'mean';
+    public const FIELD_FROM = 'from';
+    public const FIELD_FROM_STR = 'fromStr';
+    public const FIELD_TO = 'to';
+    public const FIELD_TO_STR = 'toStr';
+    public const FIELD_COUNT = 'count';
+    public const FIELD_PRODUCT_COUNT = 'productCount';
+    public const FIELD_TOTAL = 'total';
+    public const FIELD_MIN = 'min';
+    public const FIELD_MAX = 'max';
+    public const FIELD_MEAN = 'mean';
 
     /**
      * @return null|int

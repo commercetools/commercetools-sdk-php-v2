@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CategoryChangeOrderHintActionModel extends JsonObjectModel implements CategoryChangeOrderHintAction
 {
-    const DISCRIMINATOR_VALUE = 'changeOrderHint';
+    public const DISCRIMINATOR_VALUE = 'changeOrderHint';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
      * @var ?string
      */
     protected $orderHint;
+
 
     public function __construct(
         string $orderHint = null

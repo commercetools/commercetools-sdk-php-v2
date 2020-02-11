@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ErrorResponse>
- *
  * @method ErrorResponse current()
  * @method ErrorResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ErrorResponseCollection extends MapperSequence
     /**
      * @psalm-assert ErrorResponse $value
      * @psalm-param ErrorResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ErrorResponseCollection

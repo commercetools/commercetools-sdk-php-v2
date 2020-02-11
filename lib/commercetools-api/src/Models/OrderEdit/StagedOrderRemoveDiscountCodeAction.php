@@ -10,10 +10,12 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemoveDiscountCodeAction extends StagedOrderUpdateAction
 {
-    const FIELD_DISCOUNT_CODE = 'discountCode';
+    public const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**
      * @return null|DiscountCodeReference

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
@@ -20,9 +23,12 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductModel extends JsonObjectModel implements Product
@@ -86,6 +92,7 @@ final class ProductModel extends JsonObjectModel implements Product
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
+
 
     public function __construct(
         string $id = null,
@@ -409,6 +416,7 @@ final class ProductModel extends JsonObjectModel implements Product
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -419,7 +427,6 @@ final class ProductModel extends JsonObjectModel implements Product
         if (isset($data[Product::FIELD_LAST_MODIFIED_AT]) && $data[Product::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Product::FIELD_LAST_MODIFIED_AT] = $data[Product::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

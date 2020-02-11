@@ -12,10 +12,12 @@ use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -26,7 +28,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 {
     /**
-     * @param ?UploadedFileInterface $body
+     * @param ?UploadedFileInterface  $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $ID, UploadedFileInterface $body = null, array $headers = [], Client $client = null)
@@ -92,9 +94,8 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $filename
      *
-     * @param mixed $filename
+     * @psalm-param scalar $filename
      */
     public function withFilename($filename): ByProjectKeyProductsByIDImagesPost
     {
@@ -102,9 +103,8 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $variant
      *
-     * @param mixed $variant
+     * @psalm-param scalar $variant
      */
     public function withVariant($variant): ByProjectKeyProductsByIDImagesPost
     {
@@ -112,9 +112,8 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $sku
      *
-     * @param mixed $sku
+     * @psalm-param scalar $sku
      */
     public function withSku($sku): ByProjectKeyProductsByIDImagesPost
     {
@@ -122,9 +121,8 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $staged
      *
-     * @param mixed $staged
+     * @psalm-param scalar $staged
      */
     public function withStaged($staged): ByProjectKeyProductsByIDImagesPost
     {

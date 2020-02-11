@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Errors;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ConcurrentModificationError>
@@ -115,6 +119,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ConcurrentModificationError
     {

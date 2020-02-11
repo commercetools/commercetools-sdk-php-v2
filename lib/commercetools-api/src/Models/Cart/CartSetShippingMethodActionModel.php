@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartSetShippingMethodActionModel extends JsonObjectModel implements CartSetShippingMethodAction
 {
-    const DISCRIMINATOR_VALUE = 'setShippingMethod';
+    public const DISCRIMINATOR_VALUE = 'setShippingMethod';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         ShippingMethodResourceIdentifier $shippingMethod = null,

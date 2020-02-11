@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel implements ProductVariantDeletedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
+    public const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
      * @var ?ProductVariant
      */
     protected $variant;
+
 
     public function __construct(
         array $removedImageUrls = null,

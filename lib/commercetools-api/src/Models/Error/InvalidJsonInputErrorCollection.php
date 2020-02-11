@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidJsonInputError>
- *
  * @method InvalidJsonInputError current()
  * @method InvalidJsonInputError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidJsonInputErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidJsonInputError $value
      * @psalm-param InvalidJsonInputError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidJsonInputErrorCollection

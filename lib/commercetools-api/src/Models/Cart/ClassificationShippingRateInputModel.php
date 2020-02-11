@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ClassificationShippingRateInputModel extends JsonObjectModel implements ClassificationShippingRateInput
 {
-    const DISCRIMINATOR_VALUE = 'Classification';
+    public const DISCRIMINATOR_VALUE = 'Classification';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
      * @var ?LocalizedString
      */
     protected $label;
+
 
     public function __construct(
         string $key = null,

@@ -14,23 +14,24 @@ use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomLineItem extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_NAME = 'name';
-    const FIELD_MONEY = 'money';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
-    const FIELD_TOTAL_PRICE = 'totalPrice';
-    const FIELD_SLUG = 'slug';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_STATE = 'state';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_TAX_RATE = 'taxRate';
-    const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_ID = 'id';
+    public const FIELD_NAME = 'name';
+    public const FIELD_MONEY = 'money';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_STATE = 'state';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
      * <p>The unique ID of this CustomLineItem.</p>

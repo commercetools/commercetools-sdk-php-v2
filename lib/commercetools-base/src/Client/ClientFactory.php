@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 use Commercetools\Exception\InvalidArgumentException;
@@ -17,7 +18,6 @@ class ClientFactory
 {
     /**
      * @psalm-param array<string, callable> $middlewares
-     *
      * @throws InvalidArgumentException
      */
     public function createGuzzleClient(Config $config, ?AuthConfig $authConfig = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
@@ -32,7 +32,6 @@ class ClientFactory
 
     /**
      * @psalm-param array<string, callable> $middlewares
-     *
      * @throws InvalidArgumentException
      */
     public function createGuzzleClientForHandler(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
@@ -41,13 +40,11 @@ class ClientFactory
             MiddlewareFactory::createDefaultMiddlewares($handler, $logger, (int) ($config->getOptions()['maxRetries'] ?? 0)),
             $middlewares
         );
-
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
     /**
      * @psalm-param array<string, callable> $middlewares
-     *
      * @throws InvalidArgumentException
      */
     public function createGuzzleClientForMiddlewares(
@@ -55,11 +52,6 @@ class ClientFactory
         array $middlewares = []
     ): HttpClient {
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
-    }
-
-    public static function of(): ClientFactory
-    {
-        return new self();
     }
 
     /**
@@ -81,7 +73,7 @@ class ClientFactory
                 'verify' => true,
                 'timeout' => 60,
                 'connect_timeout' => 10,
-                'pool_size' => 25,
+                'pool_size' => 25
             ],
             $options
         );
@@ -93,6 +85,13 @@ class ClientFactory
             $stack->push($middleware, $name);
         }
 
-        return new HttpClient($options);
+        $client = new HttpClient($options);
+
+        return $client;
+    }
+
+    public static function of(): ClientFactory
+    {
+        return new self();
     }
 }

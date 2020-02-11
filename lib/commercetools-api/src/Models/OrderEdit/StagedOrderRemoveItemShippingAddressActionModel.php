@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectModel implements StagedOrderRemoveItemShippingAddressAction
 {
-    const DISCRIMINATOR_VALUE = 'removeItemShippingAddress';
+    public const DISCRIMINATOR_VALUE = 'removeItemShippingAddress';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
      * @var ?string
      */
     protected $addressKey;
+
 
     public function __construct(
         string $addressKey = null

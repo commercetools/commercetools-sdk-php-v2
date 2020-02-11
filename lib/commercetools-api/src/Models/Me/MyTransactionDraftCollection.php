@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyTransactionDraft>
- *
  * @method MyTransactionDraft current()
  * @method MyTransactionDraft at($offset)
  */
@@ -23,9 +22,6 @@ class MyTransactionDraftCollection extends MapperSequence
     /**
      * @psalm-assert MyTransactionDraft $value
      * @psalm-param MyTransactionDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MyTransactionDraftCollection

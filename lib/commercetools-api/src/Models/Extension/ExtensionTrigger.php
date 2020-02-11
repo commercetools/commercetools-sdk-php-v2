@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExtensionTrigger extends JsonObject
 {
-    const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
-    const FIELD_ACTIONS = 'actions';
+    public const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
+    public const FIELD_ACTIONS = 'actions';
 
     /**
      * @return null|string

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReferenceSetAttribute>
- *
  * @method ReferenceSetAttribute current()
  * @method ReferenceSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class ReferenceSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert ReferenceSetAttribute $value
      * @psalm-param ReferenceSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReferenceSetAttributeCollection

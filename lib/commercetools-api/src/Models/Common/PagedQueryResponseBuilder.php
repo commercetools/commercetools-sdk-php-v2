@@ -11,7 +11,11 @@ namespace Commercetools\Api\Models\Common;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\FacetResultsBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<PagedQueryResponse>

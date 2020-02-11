@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GraphQLRequest>
- *
  * @method GraphQLRequest current()
  * @method GraphQLRequest at($offset)
  */
@@ -23,9 +22,6 @@ class GraphQLRequestCollection extends MapperSequence
     /**
      * @psalm-assert GraphQLRequest $value
      * @psalm-param GraphQLRequest|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GraphQLRequestCollection

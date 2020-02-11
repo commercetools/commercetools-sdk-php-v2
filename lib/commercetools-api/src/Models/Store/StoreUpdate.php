@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface StoreUpdate extends JsonObject
 {
-    const FIELD_VERSION = 'version';
-    const FIELD_ACTIONS = 'actions';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_ACTIONS = 'actions';
 
     /**
      * @return null|int

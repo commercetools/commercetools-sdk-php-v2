@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryEntrySetCustomTypeActionModel extends JsonObjectModel implements InventoryEntrySetCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomType';
+    public const DISCRIMINATOR_VALUE = 'setCustomType';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class InventoryEntrySetCustomTypeActionModel extends JsonObjectModel imple
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         TypeResourceIdentifier $type = null,

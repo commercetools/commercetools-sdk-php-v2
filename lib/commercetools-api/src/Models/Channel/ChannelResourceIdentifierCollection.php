@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelResourceIdentifier>
- *
  * @method ChannelResourceIdentifier current()
  * @method ChannelResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ChannelResourceIdentifier $value
      * @psalm-param ChannelResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelResourceIdentifierCollection

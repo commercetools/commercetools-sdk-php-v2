@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartChangeTaxModeAction extends CartUpdateAction
 {
-    const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_TAX_MODE = 'taxMode';
 
     /**
      * @return null|string

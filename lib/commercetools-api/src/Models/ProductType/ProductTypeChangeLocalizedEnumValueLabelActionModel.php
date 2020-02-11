@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel implements ProductTypeChangeLocalizedEnumValueLabelAction
 {
-    const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
+    public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
      * @var ?AttributeLocalizedEnumValue
      */
     protected $newValue;
+
 
     public function __construct(
         string $attributeName = null,

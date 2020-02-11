@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Message\MessageConfigurationModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProjectModel extends JsonObjectModel implements Project
@@ -71,6 +75,7 @@ final class ProjectModel extends JsonObjectModel implements Project
      * @var ?ExternalOAuth
      */
     protected $externalOAuth;
+
 
     public function __construct(
         int $version = null,
@@ -359,13 +364,13 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->externalOAuth = $externalOAuth;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[Project::FIELD_CREATED_AT]) && $data[Project::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
             $data[Project::FIELD_CREATED_AT] = $data[Project::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implements DiscountCodePagedQueryResponse
@@ -37,6 +40,7 @@ final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implemen
      * @var ?DiscountCodeCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

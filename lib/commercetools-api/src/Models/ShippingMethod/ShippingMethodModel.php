@@ -8,15 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ShippingMethodModel extends JsonObjectModel implements ShippingMethod
@@ -85,6 +91,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
      * @var ?string
      */
     protected $predicate;
+
 
     public function __construct(
         string $id = null,
@@ -423,6 +430,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->predicate = $predicate;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -433,7 +441,6 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         if (isset($data[ShippingMethod::FIELD_LAST_MODIFIED_AT]) && $data[ShippingMethod::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ShippingMethod::FIELD_LAST_MODIFIED_AT] = $data[ShippingMethod::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

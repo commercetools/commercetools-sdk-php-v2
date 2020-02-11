@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeSetCustomTypeAction>
- *
  * @method DiscountCodeSetCustomTypeAction current()
  * @method DiscountCodeSetCustomTypeAction at($offset)
  */
@@ -23,9 +22,6 @@ class DiscountCodeSetCustomTypeActionCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeSetCustomTypeAction $value
      * @psalm-param DiscountCodeSetCustomTypeAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DiscountCodeSetCustomTypeActionCollection

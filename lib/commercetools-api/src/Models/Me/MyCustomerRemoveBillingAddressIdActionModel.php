@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel implements MyCustomerRemoveBillingAddressIdAction
 {
-    const DISCRIMINATOR_VALUE = 'removeBillingAddressId';
+    public const DISCRIMINATOR_VALUE = 'removeBillingAddressId';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
      * @var ?string
      */
     protected $addressId;
+
 
     public function __construct(
         string $addressId = null

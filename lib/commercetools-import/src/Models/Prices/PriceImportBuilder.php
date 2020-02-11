@@ -9,10 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Prices;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
 use Commercetools\Import\Models\Common\ProductKeyReference;
@@ -20,6 +26,7 @@ use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<PriceImport>

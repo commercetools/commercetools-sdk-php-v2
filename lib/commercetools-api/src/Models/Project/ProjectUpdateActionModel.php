@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,16 +24,17 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
 
     /**
      * @psalm-var array<string, class-string<ProjectUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'changeCountries' => ProjectChangeCountriesActionModel::class,
-        'changeCurrencies' => ProjectChangeCurrenciesActionModel::class,
-        'changeLanguages' => ProjectChangeLanguagesActionModel::class,
-        'changeMessagesConfiguration' => ProjectChangeMessagesConfigurationActionModel::class,
-        'changeMessagesEnabled' => ProjectChangeMessagesEnabledActionModel::class,
-        'changeName' => ProjectChangeNameActionModel::class,
-        'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
-        'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,
+       'changeCountries' => ProjectChangeCountriesActionModel::class,
+       'changeCurrencies' => ProjectChangeCurrenciesActionModel::class,
+       'changeLanguages' => ProjectChangeLanguagesActionModel::class,
+       'changeMessagesConfiguration' => ProjectChangeMessagesConfigurationActionModel::class,
+       'changeMessagesEnabled' => ProjectChangeMessagesEnabledActionModel::class,
+       'changeName' => ProjectChangeNameActionModel::class,
+       'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
+       'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,
     ];
 
     public function __construct(
@@ -55,18 +59,19 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ProjectUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ProjectUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -81,7 +86,6 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
 
         /** @psalm-var class-string<ProjectUpdateAction> */
         $type = ProjectUpdateActionModel::class;
-
         return $type;
     }
 }

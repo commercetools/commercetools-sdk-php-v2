@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderChangeTaxCalculationModeAction extends StagedOrderUpdateAction
 {
-    const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
+    public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
 
     /**
      * @return null|string

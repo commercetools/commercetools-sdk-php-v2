@@ -14,20 +14,21 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingRate;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ShippingInfo extends JsonObject
 {
-    const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
-    const FIELD_PRICE = 'price';
-    const FIELD_SHIPPING_RATE = 'shippingRate';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
-    const FIELD_TAX_RATE = 'taxRate';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_DELIVERIES = 'deliveries';
-    const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
-    const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
+    public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_SHIPPING_RATE = 'shippingRate';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_DELIVERIES = 'deliveries';
+    public const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
+    public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
      * @return null|string

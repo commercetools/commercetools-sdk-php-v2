@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\DeliveryCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceModel;
+
 use Commercetools\Api\Models\ShippingMethod\ShippingRate;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
@@ -73,6 +77,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
      * @var ?string
      */
     protected $shippingMethodState;
+
 
     public function __construct(
         string $shippingMethodName = null,

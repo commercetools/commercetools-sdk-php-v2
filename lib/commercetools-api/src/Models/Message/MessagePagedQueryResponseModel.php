@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MessagePagedQueryResponseModel extends JsonObjectModel implements MessagePagedQueryResponse
@@ -37,6 +40,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
      * @var ?MessageCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

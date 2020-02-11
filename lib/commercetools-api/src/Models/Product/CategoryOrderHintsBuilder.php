@@ -19,14 +19,6 @@ use stdClass;
 final class CategoryOrderHintsBuilder extends MapperMap implements Builder
 {
     /**
-     * @return CategoryOrderHints
-     */
-    public function build()
-    {
-        return new CategoryOrderHintsModel($this->toArray());
-    }
-
-    /**
      * @psalm-return callable(string):?CategoryOrderHints
      */
     protected function mapper()
@@ -40,8 +32,15 @@ final class CategoryOrderHintsBuilder extends MapperMap implements Builder
                 if ($data instanceof stdClass) {
                     $data = CategoryOrderHintsModel::of($data);
                 }
-
                 return $data;
             };
+    }
+
+    /**
+     * @return CategoryOrderHints
+     */
+    public function build()
+    {
+        return new CategoryOrderHintsModel($this->toArray());
     }
 }

@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\TaxCategory\SubRateCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
@@ -43,6 +47,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      * @var ?bool
      */
     protected $includedInPrice;
+
 
     public function __construct(
         string $name = null,

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartRemoveLineItemActionModel extends JsonObjectModel implements CartRemoveLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'removeLineItem';
+    public const DISCRIMINATOR_VALUE = 'removeLineItem';
     /**
      * @var ?string
      */
@@ -45,6 +49,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetailsToRemove;
+
 
     public function __construct(
         string $lineItemId = null,

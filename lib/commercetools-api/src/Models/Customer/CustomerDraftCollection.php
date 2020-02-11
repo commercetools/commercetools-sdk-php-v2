@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerDraft>
- *
  * @method CustomerDraft current()
  * @method CustomerDraft at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerDraftCollection extends MapperSequence
     /**
      * @psalm-assert CustomerDraft $value
      * @psalm-param CustomerDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerDraftCollection

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel implements PaymentInteractionAddedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
+    public const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
      * @var ?CustomFields
      */
     protected $interaction;
+
 
     public function __construct(
         CustomFields $interaction = null

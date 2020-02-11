@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectModel implements ProductTypeChangePlainEnumValueOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changePlainEnumValueOrder';
+    public const DISCRIMINATOR_VALUE = 'changePlainEnumValueOrder';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
      * @var ?AttributePlainEnumValueCollection
      */
     protected $values;
+
 
     public function __construct(
         string $attributeName = null,

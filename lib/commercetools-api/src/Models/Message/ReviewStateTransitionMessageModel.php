@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ReviewStateTransitionMessageModel extends JsonObjectModel implements ReviewStateTransitionMessage
 {
-    const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
+    public const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
     /**
      * @var ?string
      */
@@ -108,6 +112,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
      * @var ?bool
      */
     protected $force;
+
 
     public function __construct(
         string $id = null,
@@ -530,6 +535,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         $this->force = $force;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -540,7 +546,6 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCartSetCountryAction
 {
-    const DISCRIMINATOR_VALUE = 'setCountry';
+    public const DISCRIMINATOR_VALUE = 'setCountry';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
      * @var ?string
      */
     protected $country;
+
 
     public function __construct(
         string $country = null

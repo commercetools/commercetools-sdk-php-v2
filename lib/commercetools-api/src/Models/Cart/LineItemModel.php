@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Price;
+
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
@@ -25,7 +26,10 @@ use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class LineItemModel extends JsonObjectModel implements LineItem
@@ -124,6 +128,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
+
 
     public function __construct(
         string $id = null,

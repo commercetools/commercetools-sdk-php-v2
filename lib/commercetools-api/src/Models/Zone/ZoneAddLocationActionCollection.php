@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneAddLocationAction>
- *
  * @method ZoneAddLocationAction current()
  * @method ZoneAddLocationAction at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneAddLocationActionCollection extends MapperSequence
     /**
      * @psalm-assert ZoneAddLocationAction $value
      * @psalm-param ZoneAddLocationAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneAddLocationActionCollection

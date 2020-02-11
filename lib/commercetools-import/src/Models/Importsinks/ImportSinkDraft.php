@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsinks;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ImportSinkDraft extends JsonObject
 {
-    const FIELD_VERSION = 'version';
-    const FIELD_KEY = 'key';
-    const FIELD_RESOURCE_TYPE = 'resourceType';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_KEY = 'key';
+    public const FIELD_RESOURCE_TYPE = 'resourceType';
 
     /**
      * <p>The version of this resource.</p>

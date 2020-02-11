@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypeDraftModel extends JsonObjectModel implements TypeDraft
@@ -39,6 +43,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
      * @var ?FieldDefinitionCollection
      */
     protected $fieldDefinitions;
+
 
     public function __construct(
         string $key = null,

@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartChangeTaxRoundingModeAction extends CartUpdateAction
 {
-    const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
+    public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
 
     /**
      * @return null|string

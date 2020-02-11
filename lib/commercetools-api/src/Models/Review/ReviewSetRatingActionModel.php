@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ReviewSetRatingActionModel extends JsonObjectModel implements ReviewSetRatingAction
 {
-    const DISCRIMINATOR_VALUE = 'setRating';
+    public const DISCRIMINATOR_VALUE = 'setRating';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
      * @var ?int
      */
     protected $rating;
+
 
     public function __construct(
         int $rating = null

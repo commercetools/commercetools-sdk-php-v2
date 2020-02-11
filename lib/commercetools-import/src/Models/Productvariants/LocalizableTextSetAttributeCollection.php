@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LocalizableTextSetAttribute>
- *
  * @method LocalizableTextSetAttribute current()
  * @method LocalizableTextSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class LocalizableTextSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert LocalizableTextSetAttribute $value
      * @psalm-param LocalizableTextSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return LocalizableTextSetAttributeCollection

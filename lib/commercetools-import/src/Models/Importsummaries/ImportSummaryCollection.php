@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImportSummary>
- *
  * @method ImportSummary current()
  * @method ImportSummary at($offset)
  */
@@ -23,9 +22,6 @@ class ImportSummaryCollection extends MapperSequence
     /**
      * @psalm-assert ImportSummary $value
      * @psalm-param ImportSummary|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImportSummaryCollection

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeLocalizableTextType>
- *
  * @method AttributeLocalizableTextType current()
  * @method AttributeLocalizableTextType at($offset)
  */
@@ -23,9 +22,6 @@ class AttributeLocalizableTextTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeLocalizableTextType $value
      * @psalm-param AttributeLocalizableTextType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AttributeLocalizableTextTypeCollection

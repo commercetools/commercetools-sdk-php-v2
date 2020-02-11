@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetParcelMeasurementsAction extends StagedOrderUpdateAction
 {
-    const FIELD_PARCEL_ID = 'parcelId';
-    const FIELD_MEASUREMENTS = 'measurements';
+    public const FIELD_PARCEL_ID = 'parcelId';
+    public const FIELD_MEASUREMENTS = 'measurements';
 
     /**
      * @return null|string

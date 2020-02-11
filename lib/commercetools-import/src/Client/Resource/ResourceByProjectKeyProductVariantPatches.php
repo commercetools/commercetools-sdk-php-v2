@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -23,6 +24,6 @@ class ResourceByProjectKeyProductVariantPatches extends ApiResource
             $args['importSinkKey'] = $importSinkKey;
         }
 
-        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey($this->getUri().'/importSinkKey={importSinkKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey($this->getUri() . '/importSinkKey={importSinkKey}', $args, $this->getClient());
     }
 }

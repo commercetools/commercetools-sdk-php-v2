@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\Parcel;
 use Commercetools\Api\Models\Order\ParcelModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel implements ParcelRemovedFromDeliveryMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
+    public const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
      * @var ?Parcel
      */
     protected $parcel;
+
 
     public function __construct(
         string $deliveryId = null,

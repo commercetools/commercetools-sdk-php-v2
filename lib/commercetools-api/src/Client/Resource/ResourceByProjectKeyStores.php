@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Store\StoreDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,9 +25,8 @@ class ResourceByProjectKeyStores extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyStoresKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyStoresKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyStoresByID
     {
         $args = $this->getArgs();
@@ -34,14 +34,12 @@ class ResourceByProjectKeyStores extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyStoresByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyStoresByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyStoresGet
     {
@@ -49,7 +47,6 @@ class ResourceByProjectKeyStores extends ApiResource
 
         return new ByProjectKeyStoresGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?StoreDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

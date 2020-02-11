@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AssetDimensions>
- *
  * @method AssetDimensions current()
  * @method AssetDimensions at($offset)
  */
@@ -23,9 +22,6 @@ class AssetDimensionsCollection extends MapperSequence
     /**
      * @psalm-assert AssetDimensions $value
      * @psalm-param AssetDimensions|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AssetDimensionsCollection

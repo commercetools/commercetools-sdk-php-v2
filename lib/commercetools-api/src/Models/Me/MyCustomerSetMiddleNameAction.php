@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCustomerSetMiddleNameAction extends MyCustomerUpdateAction
 {
-    const FIELD_MIDDLE_NAME = 'middleName';
+    public const FIELD_MIDDLE_NAME = 'middleName';
 
     /**
      * @return null|string

@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductRemoveFromCategoryAction>

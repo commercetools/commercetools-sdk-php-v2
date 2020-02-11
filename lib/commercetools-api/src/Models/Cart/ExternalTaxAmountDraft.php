@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExternalTaxAmountDraft extends JsonObject
 {
-    const FIELD_TOTAL_GROSS = 'totalGross';
-    const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TOTAL_GROSS = 'totalGross';
+    public const FIELD_TAX_RATE = 'taxRate';
 
     /**
      * <p>The total gross amount of the item (totalNet + taxes).</p>

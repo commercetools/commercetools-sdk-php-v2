@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel implements ShippingMethodChangeIsDefaultAction
 {
-    const DISCRIMINATOR_VALUE = 'changeIsDefault';
+    public const DISCRIMINATOR_VALUE = 'changeIsDefault';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
      * @var ?bool
      */
     protected $isDefault;
+
 
     public function __construct(
         bool $isDefault = null

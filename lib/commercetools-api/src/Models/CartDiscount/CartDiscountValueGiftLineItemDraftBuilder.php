@@ -13,6 +13,11 @@ use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<CartDiscountValueGiftLineItemDraft>

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryPagedQueryResponse>
- *
  * @method TaxCategoryPagedQueryResponse current()
  * @method TaxCategoryPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class TaxCategoryPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryPagedQueryResponse $value
      * @psalm-param TaxCategoryPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxCategoryPagedQueryResponseCollection

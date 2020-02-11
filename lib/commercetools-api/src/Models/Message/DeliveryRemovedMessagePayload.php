@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\Delivery;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DeliveryRemovedMessagePayload extends MessagePayload
 {
-    const FIELD_DELIVERY = 'delivery';
+    public const FIELD_DELIVERY = 'delivery';
 
     /**
      * @return null|Delivery

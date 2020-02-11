@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,9 +24,10 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 
     /**
      * @psalm-var array<string, class-string<GeoJson> >
+     *
      */
     private static $discriminatorClasses = [
-        'Point' => GeoJsonPointModel::class,
+       'Point' => GeoJsonPointModel::class,
     ];
 
     public function __construct(
@@ -48,18 +52,19 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<GeoJson>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = GeoJson::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -74,7 +79,6 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 
         /** @psalm-var class-string<GeoJson> */
         $type = GeoJsonModel::class;
-
         return $type;
     }
 }

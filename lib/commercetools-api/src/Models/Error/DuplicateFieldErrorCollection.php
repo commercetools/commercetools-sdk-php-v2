@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateFieldError>
- *
  * @method DuplicateFieldError current()
  * @method DuplicateFieldError at($offset)
  */
@@ -23,9 +22,6 @@ class DuplicateFieldErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicateFieldError $value
      * @psalm-param DuplicateFieldError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DuplicateFieldErrorCollection

@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AssetDraftModel extends JsonObjectModel implements AssetDraft
@@ -44,6 +48,7 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         AssetSourceCollection $sources = null,

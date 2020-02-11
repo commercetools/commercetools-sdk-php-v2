@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
+
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
@@ -22,9 +23,12 @@ use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft
@@ -138,6 +142,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * @var ?string
      */
     protected $origin;
+
 
     public function __construct(
         string $orderNumber = null,
@@ -718,13 +723,13 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->origin = $origin;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[OrderImportDraft::FIELD_COMPLETED_AT]) && $data[OrderImportDraft::FIELD_COMPLETED_AT] instanceof \DateTimeImmutable) {
             $data[OrderImportDraft::FIELD_COMPLETED_AT] = $data[OrderImportDraft::FIELD_COMPLETED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

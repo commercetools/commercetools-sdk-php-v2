@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ConcurrentModificationError extends ErrorObject
 {
-    const FIELD_CURRENT_VERSION = 'currentVersion';
+    public const FIELD_CURRENT_VERSION = 'currentVersion';
 
     /**
      * @return null|int

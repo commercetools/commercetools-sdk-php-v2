@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Productvariants\ProductVariantPatchCollection;
 
 interface ProductVariantPatchRequest extends ImportRequest
 {
-    const FIELD_PATCHES = 'patches';
+    public const FIELD_PATCHES = 'patches';
 
     /**
      * <p>The product variant patches of this request.</p>

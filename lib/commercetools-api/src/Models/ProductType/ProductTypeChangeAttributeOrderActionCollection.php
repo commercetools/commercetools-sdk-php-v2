@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeAttributeOrderAction>
- *
  * @method ProductTypeChangeAttributeOrderAction current()
  * @method ProductTypeChangeAttributeOrderAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeChangeAttributeOrderActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeChangeAttributeOrderAction $value
      * @psalm-param ProductTypeChangeAttributeOrderAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeChangeAttributeOrderActionCollection

@@ -12,13 +12,15 @@ use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\TrackingData;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_MEASUREMENTS = 'measurements';
-    const FIELD_TRACKING_DATA = 'trackingData';
-    const FIELD_ITEMS = 'items';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_MEASUREMENTS = 'measurements';
+    public const FIELD_TRACKING_DATA = 'trackingData';
+    public const FIELD_ITEMS = 'items';
 
     /**
      * @return null|string

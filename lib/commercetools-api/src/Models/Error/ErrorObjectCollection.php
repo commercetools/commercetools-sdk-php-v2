@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ErrorObject>
- *
  * @method ErrorObject current()
  * @method ErrorObject at($offset)
  */
@@ -23,9 +22,6 @@ class ErrorObjectCollection extends MapperSequence
     /**
      * @psalm-assert ErrorObject $value
      * @psalm-param ErrorObject|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ErrorObjectCollection

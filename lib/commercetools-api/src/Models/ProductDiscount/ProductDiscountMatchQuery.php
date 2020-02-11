@@ -9,14 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Api\Models\Common\QueryPrice;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductDiscountMatchQuery extends JsonObject
 {
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_STAGED = 'staged';
-    const FIELD_PRICE = 'price';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_PRICE = 'price';
 
     /**
      * @return null|string

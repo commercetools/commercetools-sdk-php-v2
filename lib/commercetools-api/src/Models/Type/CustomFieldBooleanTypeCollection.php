@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldBooleanType>
- *
  * @method CustomFieldBooleanType current()
  * @method CustomFieldBooleanType at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldBooleanTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldBooleanType $value
      * @psalm-param CustomFieldBooleanType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldBooleanTypeCollection

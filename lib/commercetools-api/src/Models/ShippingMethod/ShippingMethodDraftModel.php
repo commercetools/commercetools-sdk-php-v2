@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft
@@ -49,6 +53,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
      * @var ?string
      */
     protected $predicate;
+
 
     public function __construct(
         string $key = null,

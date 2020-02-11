@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerSetVatIdAction extends CustomerUpdateAction
 {
-    const FIELD_VAT_ID = 'vatId';
+    public const FIELD_VAT_ID = 'vatId';
 
     /**
      * <p>If not defined, the vat Id is unset.</p>

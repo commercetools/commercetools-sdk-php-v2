@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implements ProductSetAssetCustomFieldAction
 {
-    const DISCRIMINATOR_VALUE = 'setAssetCustomField';
+    public const DISCRIMINATOR_VALUE = 'setAssetCustomField';
     /**
      * @var ?string
      */
@@ -54,6 +56,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
      * @var ?JsonObject
      */
     protected $value;
+
 
     public function __construct(
         int $variantId = null,

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MessageConfigurationDraft extends JsonObject
 {
-    const FIELD_ENABLED = 'enabled';
-    const FIELD_DELETE_DAYS_AFTER_CREATION = 'deleteDaysAfterCreation';
+    public const FIELD_ENABLED = 'enabled';
+    public const FIELD_DELETE_DAYS_AFTER_CREATION = 'deleteDaysAfterCreation';
 
     /**
      * @return null|bool

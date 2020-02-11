@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderExcerpt>
- *
  * @method OrderExcerpt current()
  * @method OrderExcerpt at($offset)
  */
@@ -23,9 +22,6 @@ class OrderExcerptCollection extends MapperSequence
     /**
      * @psalm-assert OrderExcerpt $value
      * @psalm-param OrderExcerpt|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderExcerptCollection

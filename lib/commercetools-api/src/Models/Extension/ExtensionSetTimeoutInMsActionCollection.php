@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionSetTimeoutInMsAction>
- *
  * @method ExtensionSetTimeoutInMsAction current()
  * @method ExtensionSetTimeoutInMsAction at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionSetTimeoutInMsActionCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionSetTimeoutInMsAction $value
      * @psalm-param ExtensionSetTimeoutInMsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionSetTimeoutInMsActionCollection

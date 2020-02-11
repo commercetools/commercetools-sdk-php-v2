@@ -10,14 +10,18 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class MyShoppingListAddLineItemActionModel extends JsonObjectModel implements MyShoppingListAddLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'addLineItem';
+    public const DISCRIMINATOR_VALUE = 'addLineItem';
     /**
      * @var ?string
      */
@@ -52,6 +56,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
 
     public function __construct(
         string $sku = null,
@@ -224,13 +229,13 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[MyShoppingListAddLineItemAction::FIELD_ADDED_AT]) && $data[MyShoppingListAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
             $data[MyShoppingListAddLineItemAction::FIELD_ADDED_AT] = $data[MyShoppingListAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

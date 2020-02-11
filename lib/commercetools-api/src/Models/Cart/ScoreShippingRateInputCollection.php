@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ScoreShippingRateInput>
- *
  * @method ScoreShippingRateInput current()
  * @method ScoreShippingRateInput at($offset)
  */
@@ -23,9 +22,6 @@ class ScoreShippingRateInputCollection extends MapperSequence
     /**
      * @psalm-assert ScoreShippingRateInput $value
      * @psalm-param ScoreShippingRateInput|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ScoreShippingRateInputCollection

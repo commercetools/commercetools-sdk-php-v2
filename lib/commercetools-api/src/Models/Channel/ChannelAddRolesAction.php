@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ChannelAddRolesAction extends ChannelUpdateAction
 {
-    const FIELD_ROLES = 'roles';
+    public const FIELD_ROLES = 'roles';
 
     /**
      * @return null|array

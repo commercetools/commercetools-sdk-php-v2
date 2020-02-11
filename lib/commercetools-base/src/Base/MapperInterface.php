@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use Psr\Http\Message\ResponseInterface;

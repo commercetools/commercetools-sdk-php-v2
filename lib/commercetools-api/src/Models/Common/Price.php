@@ -11,21 +11,22 @@ namespace Commercetools\Api\Models\Common;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Price extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_VALUE = 'value';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_CHANNEL = 'channel';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
-    const FIELD_DISCOUNTED = 'discounted';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_TIERS = 'tiers';
+    public const FIELD_ID = 'id';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CHANNEL = 'channel';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_TIERS = 'tiers';
 
     /**
      * @return null|string

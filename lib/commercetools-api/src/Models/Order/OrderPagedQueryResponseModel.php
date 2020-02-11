@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderPagedQueryResponseModel extends JsonObjectModel implements OrderPagedQueryResponse
@@ -37,6 +40,7 @@ final class OrderPagedQueryResponseModel extends JsonObjectModel implements Orde
      * @var ?OrderCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

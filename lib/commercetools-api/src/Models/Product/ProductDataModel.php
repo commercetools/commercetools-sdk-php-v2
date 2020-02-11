@@ -11,7 +11,11 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductDataModel extends JsonObjectModel implements ProductData
@@ -70,6 +74,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
+
 
     public function __construct(
         LocalizedString $name = null,

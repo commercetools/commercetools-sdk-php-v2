@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodUpdateActionModel extends JsonObjectModel implements ShippingMethodUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,18 +24,19 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
 
     /**
      * @psalm-var array<string, class-string<ShippingMethodUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addShippingRate' => ShippingMethodAddShippingRateActionModel::class,
-        'addZone' => ShippingMethodAddZoneActionModel::class,
-        'changeIsDefault' => ShippingMethodChangeIsDefaultActionModel::class,
-        'changeName' => ShippingMethodChangeNameActionModel::class,
-        'changeTaxCategory' => ShippingMethodChangeTaxCategoryActionModel::class,
-        'removeShippingRate' => ShippingMethodRemoveShippingRateActionModel::class,
-        'removeZone' => ShippingMethodRemoveZoneActionModel::class,
-        'setDescription' => ShippingMethodSetDescriptionActionModel::class,
-        'setKey' => ShippingMethodSetKeyActionModel::class,
-        'setPredicate' => ShippingMethodSetPredicateActionModel::class,
+       'addShippingRate' => ShippingMethodAddShippingRateActionModel::class,
+       'addZone' => ShippingMethodAddZoneActionModel::class,
+       'changeIsDefault' => ShippingMethodChangeIsDefaultActionModel::class,
+       'changeName' => ShippingMethodChangeNameActionModel::class,
+       'changeTaxCategory' => ShippingMethodChangeTaxCategoryActionModel::class,
+       'removeShippingRate' => ShippingMethodRemoveShippingRateActionModel::class,
+       'removeZone' => ShippingMethodRemoveZoneActionModel::class,
+       'setDescription' => ShippingMethodSetDescriptionActionModel::class,
+       'setKey' => ShippingMethodSetKeyActionModel::class,
+       'setPredicate' => ShippingMethodSetPredicateActionModel::class,
     ];
 
     public function __construct(
@@ -57,18 +61,19 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ShippingMethodUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ShippingMethodUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -83,7 +88,6 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
 
         /** @psalm-var class-string<ShippingMethodUpdateAction> */
         $type = ShippingMethodUpdateActionModel::class;
-
         return $type;
     }
 }

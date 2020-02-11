@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyOrderFromCartDraft extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_VERSION = 'version';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
 
     /**
      * <p>The unique ID of the cart from which an order is created.</p>

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodChangeTaxCategoryAction>
- *
  * @method ShippingMethodChangeTaxCategoryAction current()
  * @method ShippingMethodChangeTaxCategoryAction at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingMethodChangeTaxCategoryActionCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodChangeTaxCategoryAction $value
      * @psalm-param ShippingMethodChangeTaxCategoryAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingMethodChangeTaxCategoryActionCollection

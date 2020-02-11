@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductDeletedMessagePayload extends MessagePayload
 {
-    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
-    const FIELD_CURRENT_PROJECTION = 'currentProjection';
+    public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
+    public const FIELD_CURRENT_PROJECTION = 'currentProjection';
 
     /**
      * @return null|array

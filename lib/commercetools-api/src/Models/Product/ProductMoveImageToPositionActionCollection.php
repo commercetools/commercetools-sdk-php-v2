@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductMoveImageToPositionAction>
- *
  * @method ProductMoveImageToPositionAction current()
  * @method ProductMoveImageToPositionAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductMoveImageToPositionActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductMoveImageToPositionAction $value
      * @psalm-param ProductMoveImageToPositionAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductMoveImageToPositionActionCollection

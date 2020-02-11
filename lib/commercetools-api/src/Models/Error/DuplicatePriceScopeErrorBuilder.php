@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<DuplicatePriceScopeError>
@@ -61,6 +66,7 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): DuplicatePriceScopeError
     {

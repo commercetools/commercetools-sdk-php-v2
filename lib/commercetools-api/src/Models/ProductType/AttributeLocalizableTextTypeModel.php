@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements AttributeLocalizableTextType
 {
-    const DISCRIMINATOR_VALUE = 'ltext';
+    public const DISCRIMINATOR_VALUE = 'ltext';
     /**
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
     ) {

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShippingDetails
@@ -22,6 +25,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
      * @var ?bool
      */
     protected $valid;
+
 
     public function __construct(
         ItemShippingTargetCollection $targets = null,

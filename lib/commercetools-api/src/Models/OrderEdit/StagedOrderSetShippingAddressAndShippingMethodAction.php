@@ -12,12 +12,14 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingAddressAndShippingMethodAction extends StagedOrderUpdateAction
 {
-    const FIELD_ADDRESS = 'address';
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_ADDRESS = 'address';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|Address

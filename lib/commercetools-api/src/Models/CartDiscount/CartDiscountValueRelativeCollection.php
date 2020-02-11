@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountValueRelative>
- *
  * @method CartDiscountValueRelative current()
  * @method CartDiscountValueRelative at($offset)
  */
@@ -23,9 +22,6 @@ class CartDiscountValueRelativeCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountValueRelative $value
      * @psalm-param CartDiscountValueRelative|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CartDiscountValueRelativeCollection

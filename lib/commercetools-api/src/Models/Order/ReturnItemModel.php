@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -58,10 +62,11 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
     /**
      * @psalm-var array<string, class-string<ReturnItem> >
+     *
      */
     private static $discriminatorClasses = [
-        'CustomLineItemReturnItem' => CustomLineItemReturnItemModel::class,
-        'LineItemReturnItem' => LineItemReturnItemModel::class,
+       'CustomLineItemReturnItem' => CustomLineItemReturnItemModel::class,
+       'LineItemReturnItem' => LineItemReturnItemModel::class,
     ];
 
     public function __construct(
@@ -262,6 +267,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->createdAt = $createdAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -272,22 +278,19 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         if (isset($data[ReturnItem::FIELD_CREATED_AT]) && $data[ReturnItem::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
             $data[ReturnItem::FIELD_CREATED_AT] = $data[ReturnItem::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ReturnItem>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ReturnItem::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -302,7 +305,6 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
         /** @psalm-var class-string<ReturnItem> */
         $type = ReturnItemModel::class;
-
         return $type;
     }
 }

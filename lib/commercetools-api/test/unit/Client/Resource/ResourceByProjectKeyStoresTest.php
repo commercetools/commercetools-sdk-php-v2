@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresPost
- *
- * @internal
  */
 class ResourceByProjectKeyStoresTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/stores?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/stores?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/stores?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/stores?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/stores?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/stores?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyStoresTest extends TestCase
             'ByProjectKeyStoresGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->stores()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/stores',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/stores?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyStoresTest extends TestCase
             'ByProjectKeyStoresPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->stores()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/stores',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyStoresTest extends TestCase
             'ByProjectKeyStoresGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->stores()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyStoresPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->stores()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

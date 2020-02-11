@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelSetGeoLocationAction>
- *
  * @method ChannelSetGeoLocationAction current()
  * @method ChannelSetGeoLocationAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelSetGeoLocationActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelSetGeoLocationAction $value
      * @psalm-param ChannelSetGeoLocationAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelSetGeoLocationActionCollection

@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use stdClass;
@@ -16,12 +17,10 @@ interface JsonObject extends \JsonSerializable
      * @psalm-return scalar|array<int|string, mixed>|JsonObject|JsonObjectCollection|null
      */
     public function get(string $field);
-
+    
     /**
      * @psalm-param stdClass|array<string, mixed>|null $data
      * @psalm-return static
-     *
-     * @param null|mixed $data
      */
     public static function of($data = null);
 

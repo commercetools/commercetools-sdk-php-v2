@@ -8,18 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CartDiscountModel extends JsonObjectModel implements CartDiscount
@@ -123,6 +129,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
      * @var ?CustomFields
      */
     protected $custom;
+
 
     public function __construct(
         string $id = null,
@@ -661,6 +668,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -679,7 +687,6 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         if (isset($data[CartDiscount::FIELD_VALID_UNTIL]) && $data[CartDiscount::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[CartDiscount::FIELD_VALID_UNTIL] = $data[CartDiscount::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

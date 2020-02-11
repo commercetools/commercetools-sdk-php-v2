@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDDelete
  */
 class ResourceByProjectKeyProductsByIDTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
@@ -47,8 +44,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
@@ -60,8 +56,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->get()
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
@@ -73,8 +68,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->get()
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'get',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
@@ -86,8 +80,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/products/{ID}?expand=expand',
@@ -95,11 +88,10 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
             'ByProjectKeyProductsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/products/{ID}',
@@ -111,8 +103,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->post(null)
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
@@ -124,8 +115,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->post(null)
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
@@ -137,8 +127,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->post(null)
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
@@ -150,8 +139,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->post(null)
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'post',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
@@ -163,8 +151,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/products/{ID}?expand=expand',
@@ -172,11 +159,10 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
             'ByProjectKeyProductsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/products/{ID}',
@@ -188,8 +174,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withPriceCurrency('priceCurrency')
-                    ;
+                        ->withPriceCurrency('priceCurrency');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
@@ -201,8 +186,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withPriceCountry('priceCountry')
-                    ;
+                        ->withPriceCountry('priceCountry');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCountry=priceCountry',
@@ -214,8 +198,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withPriceCustomerGroup('priceCustomerGroup')
-                    ;
+                        ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
@@ -227,8 +210,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withPriceChannel('priceChannel')
-                    ;
+                        ->withPriceChannel('priceChannel');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?priceChannel=priceChannel',
@@ -240,8 +222,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?version=version',
@@ -253,8 +234,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->products()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/products/{ID}?expand=expand',
@@ -262,15 +242,14 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
             'ByProjectKeyProductsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/products/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -285,7 +264,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -294,33 +273,30 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
             'ByProjectKeyProductsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyProductsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyProductsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -333,7 +309,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

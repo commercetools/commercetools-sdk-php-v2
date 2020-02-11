@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidTokenError>
- *
  * @method InvalidTokenError current()
  * @method InvalidTokenError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidTokenErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidTokenError $value
      * @psalm-param InvalidTokenError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidTokenErrorCollection

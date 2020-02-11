@@ -13,11 +13,15 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
+
 use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
 use Commercetools\Api\Models\Payment\TransactionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyPaymentModel extends JsonObjectModel implements MyPayment
@@ -61,6 +65,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
      * @var ?CustomFields
      */
     protected $custom;
+
 
     public function __construct(
         string $id = null,

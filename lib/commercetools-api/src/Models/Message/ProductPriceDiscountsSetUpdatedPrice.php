@@ -9,16 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductPriceDiscountsSetUpdatedPrice extends JsonObject
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_VARIANT_KEY = 'variantKey';
-    const FIELD_SKU = 'sku';
-    const FIELD_PRICE_ID = 'priceId';
-    const FIELD_DISCOUNTED = 'discounted';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_VARIANT_KEY = 'variantKey';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_PRICE_ID = 'priceId';
+    public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|int

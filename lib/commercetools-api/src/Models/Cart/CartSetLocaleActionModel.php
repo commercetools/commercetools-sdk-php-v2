@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetLocaleAction
 {
-    const DISCRIMINATOR_VALUE = 'setLocale';
+    public const DISCRIMINATOR_VALUE = 'setLocale';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
      * @var ?string
      */
     protected $locale;
+
 
     public function __construct(
         string $locale = null

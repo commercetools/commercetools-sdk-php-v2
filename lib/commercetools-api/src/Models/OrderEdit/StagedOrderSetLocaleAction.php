@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetLocaleAction extends StagedOrderUpdateAction
 {
-    const FIELD_LOCALE = 'locale';
+    public const FIELD_LOCALE = 'locale';
 
     /**
      * @return null|string

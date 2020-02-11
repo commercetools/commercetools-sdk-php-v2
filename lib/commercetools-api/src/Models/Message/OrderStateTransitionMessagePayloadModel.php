@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel implements OrderStateTransitionMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderStateTransition';
+    public const DISCRIMINATOR_VALUE = 'OrderStateTransition';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
      * @var ?bool
      */
     protected $force;
+
 
     public function __construct(
         StateReference $state = null,

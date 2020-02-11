@@ -13,10 +13,14 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft
@@ -60,6 +64,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         LocalizedString $name = null,

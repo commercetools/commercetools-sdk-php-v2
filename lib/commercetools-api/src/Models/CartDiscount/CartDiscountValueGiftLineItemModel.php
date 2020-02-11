@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implements CartDiscountValueGiftLineItem
 {
-    const DISCRIMINATOR_VALUE = 'giftLineItem';
+    public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
      * @var ?ChannelReference
      */
     protected $distributionChannel;
+
 
     public function __construct(
         ProductReference $product = null,

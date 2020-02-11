@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemoveDeliveryAction extends StagedOrderUpdateAction
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
 
     /**
      * @return null|string

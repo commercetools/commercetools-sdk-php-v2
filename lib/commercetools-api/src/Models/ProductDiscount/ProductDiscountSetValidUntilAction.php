@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction
 {
-    const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
      * <p>The time from which the discount should be ineffective.

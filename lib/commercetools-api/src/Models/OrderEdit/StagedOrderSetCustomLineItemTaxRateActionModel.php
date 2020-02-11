@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectModel implements StagedOrderSetCustomLineItemTaxRateAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxRate';
+    public const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxRate';
     /**
      * @var ?string
      */
@@ -31,6 +36,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         string $customLineItemId = null,

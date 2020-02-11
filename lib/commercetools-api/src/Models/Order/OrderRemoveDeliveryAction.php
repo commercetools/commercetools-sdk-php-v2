@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderRemoveDeliveryAction extends OrderUpdateAction
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
 
     /**
      * @return null|string

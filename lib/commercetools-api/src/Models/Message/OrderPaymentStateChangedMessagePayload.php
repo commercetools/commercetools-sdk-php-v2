@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderPaymentStateChangedMessagePayload extends MessagePayload
 {
-    const FIELD_PAYMENT_STATE = 'paymentState';
-    const FIELD_OLD_PAYMENT_STATE = 'oldPaymentState';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_OLD_PAYMENT_STATE = 'oldPaymentState';
 
     /**
      * @return null|string

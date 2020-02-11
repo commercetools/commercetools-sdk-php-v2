@@ -6,8 +6,11 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\ResultMapper;
 use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -31,8 +34,7 @@ class ApiRequest extends Request
 
     /**
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|\Psr\Http\Message\StreamInterface|resource|string $body
+     * @param string|null|resource|\Psr\Http\Message\StreamInterface $body
      */
     public function __construct(?Client $client, string $method, string $uri, array $headers = [], $body = null, string $version = '1.1')
     {
@@ -43,8 +45,32 @@ class ApiRequest extends Request
     }
 
     /**
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     * @psalm-param string|string[] $defaultValue
+     * @psalm-return array<string, scalar|scalar[]>
+     * @param array $headers
+     * @param string $header
+     * @param scalar|array $defaultValue
+     * @return array
+     */
+    protected function ensureHeader(array $headers, string $header, $defaultValue): array
+    {
+        $normalizedHeader = strtolower($header);
+        foreach ($headers as $headerName => $value) {
+            $normalized = strtolower($headerName);
+            if ($normalized !== $normalizedHeader) {
+                continue;
+            }
+            return $headers;
+        }
+        $headers[$header] = $defaultValue;
+
+        return $headers;
+    }
+
+    /**
+     * @param string $parameterName
      * @psalm-param scalar $value
-     *
      * @param mixed $value
      * @psalm-return static
      */
@@ -57,14 +83,11 @@ class ApiRequest extends Request
                 /**
                  * @psalm-param scalar|scalar[] $value
                  * @psalm-return scalar[]
-                 *
-                 * @param mixed $value
                  */
                 function ($value): array {
                     if (is_array($value)) {
                         return $value;
                     }
-
                     return [$value];
                 },
                 Psr7\parse_query($query)
@@ -76,12 +99,12 @@ class ApiRequest extends Request
 
         return $this->withUri($this->getUri()->withQuery($this->query));
     }
-
+    
     /**
+     * @param array $options
+     * @return ResponseInterface
      * @throws InvalidArgumentException
      * @throws GuzzleException
-     *
-     * @return ResponseInterface
      * @psalm-suppress InvalidThrow
      */
     public function send(array $options = [])
@@ -89,35 +112,11 @@ class ApiRequest extends Request
         if (is_null($this->client)) {
             throw new InvalidArgumentException();
         }
-
         return $this->client->send($this, $options);
     }
 
     public function getClient(): ?Client
     {
         return $this->client;
-    }
-
-    /**
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     * @psalm-param string|string[] $defaultValue
-     * @psalm-return array<string, scalar|scalar[]>
-     *
-     * @param array|scalar $defaultValue
-     */
-    protected function ensureHeader(array $headers, string $header, $defaultValue): array
-    {
-        $normalizedHeader = strtolower($header);
-        foreach ($headers as $headerName => $value) {
-            $normalized = strtolower($headerName);
-            if ($normalized !== $normalizedHeader) {
-                continue;
-            }
-
-            return $headers;
-        }
-        $headers[$header] = $defaultValue;
-
-        return $headers;
     }
 }

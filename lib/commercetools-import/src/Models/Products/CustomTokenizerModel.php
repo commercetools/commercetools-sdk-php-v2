@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomTokenizerModel extends JsonObjectModel implements CustomTokenizer
 {
-    const DISCRIMINATOR_VALUE = 'custom';
+    public const DISCRIMINATOR_VALUE = 'custom';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
      * @var ?array
      */
     protected $inputs;
+
 
     public function __construct(
         array $inputs = null

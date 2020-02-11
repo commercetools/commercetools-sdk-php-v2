@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\PriceCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DuplicatePriceScopeError extends ErrorObject
 {
-    const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
+    public const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
 
     /**
      * @return null|PriceCollection

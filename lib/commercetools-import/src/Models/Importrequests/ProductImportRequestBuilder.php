@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importrequests;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Products\ProductImportCollection;
+use stdClass;
 
 /**
  * @implements Builder<ProductImportRequest>
@@ -40,6 +45,7 @@ final class ProductImportRequestBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductImportRequest
     {

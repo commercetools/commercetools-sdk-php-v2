@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZoneUpdateModel extends JsonObjectModel implements ZoneUpdate
@@ -22,6 +25,7 @@ final class ZoneUpdateModel extends JsonObjectModel implements ZoneUpdate
      * @var ?ZoneUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

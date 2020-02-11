@@ -9,8 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importoperations;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<ImportOperation>
@@ -292,6 +297,7 @@ final class ImportOperationBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ImportOperation
     {

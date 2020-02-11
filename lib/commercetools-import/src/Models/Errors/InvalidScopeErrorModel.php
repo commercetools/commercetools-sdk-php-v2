@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidScopeError
 {
-    const DISCRIMINATOR_VALUE = 'invalid_scope';
+    public const DISCRIMINATOR_VALUE = 'invalid_scope';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

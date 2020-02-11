@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsByIDDelete
  */
 class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/shopping-lists/{ID}?expand=expand',
@@ -43,11 +40,10 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
             'ByProjectKeyShoppingListsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/shopping-lists/{ID}',
@@ -59,8 +55,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/shopping-lists/{ID}?expand=expand',
@@ -68,11 +63,10 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
             'ByProjectKeyShoppingListsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/shopping-lists/{ID}',
@@ -84,8 +78,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId('ID')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/shopping-lists/{ID}?dataErasure=dataErasure',
@@ -97,8 +90,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/shopping-lists/{ID}?version=version',
@@ -110,8 +102,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
                         ->shoppingLists()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/shopping-lists/{ID}?expand=expand',
@@ -119,15 +110,14 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
             'ByProjectKeyShoppingListsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/shopping-lists/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -142,7 +132,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -151,33 +141,30 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
             'ByProjectKeyShoppingListsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyShoppingListsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyShoppingListsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->shoppingLists()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -190,7 +177,7 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

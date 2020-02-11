@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Category\CategoryReferenceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductRemovedFromCategoryMessageModel extends JsonObjectModel implements ProductRemovedFromCategoryMessage
 {
-    const DISCRIMINATOR_VALUE = 'ProductRemovedFromCategory';
+    public const DISCRIMINATOR_VALUE = 'ProductRemovedFromCategory';
     /**
      * @var ?string
      */
@@ -88,6 +92,7 @@ final class ProductRemovedFromCategoryMessageModel extends JsonObjectModel imple
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         string $id = null,
@@ -412,6 +417,7 @@ final class ProductRemovedFromCategoryMessageModel extends JsonObjectModel imple
         $this->staged = $staged;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -422,7 +428,6 @@ final class ProductRemovedFromCategoryMessageModel extends JsonObjectModel imple
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

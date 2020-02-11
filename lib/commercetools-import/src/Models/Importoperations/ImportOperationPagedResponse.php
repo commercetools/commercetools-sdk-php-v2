@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ImportOperationPagedResponse extends JsonObject
 {
-    const FIELD_LIMIT = 'limit';
-    const FIELD_OFFSET = 'offset';
-    const FIELD_COUNT = 'count';
-    const FIELD_RESULTS = 'results';
+    public const FIELD_LIMIT = 'limit';
+    public const FIELD_OFFSET = 'offset';
+    public const FIELD_COUNT = 'count';
+    public const FIELD_RESULTS = 'results';
 
     /**
      * <p>The maximum number of import operations returned for a page.</p>

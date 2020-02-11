@@ -6,16 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Test\Client;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @covers \Commercetools\Client\ApiRequest
- *
- * @internal
  */
 class ApiRequestTest extends TestCase
 {

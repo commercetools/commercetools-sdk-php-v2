@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryEntryUpdateModel extends JsonObjectModel implements InventoryEntryUpdate
@@ -22,6 +25,7 @@ final class InventoryEntryUpdateModel extends JsonObjectModel implements Invento
      * @var ?InventoryEntryUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

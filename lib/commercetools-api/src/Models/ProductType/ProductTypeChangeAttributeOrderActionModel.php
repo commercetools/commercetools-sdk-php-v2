@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel implements ProductTypeChangeAttributeOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeAttributeOrder';
+    public const DISCRIMINATOR_VALUE = 'changeAttributeOrder';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
      * @var ?AttributeDefinitionCollection
      */
     protected $attributes;
+
 
     public function __construct(
         AttributeDefinitionCollection $attributes = null

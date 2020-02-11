@@ -9,6 +9,21 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Common;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Categories\CategoryImport;
+use Commercetools\Import\Models\Categories\CategoryImportBuilder;
+use Commercetools\Import\Models\Prices\PriceImport;
+use Commercetools\Import\Models\Prices\PriceImportBuilder;
+use Commercetools\Import\Models\Products\ProductImport;
+use Commercetools\Import\Models\Products\ProductImportBuilder;
+use Commercetools\Import\Models\Producttypes\ProductTypeImport;
+use Commercetools\Import\Models\Producttypes\ProductTypeImportBuilder;
+use Commercetools\Import\Models\Productvariants\ProductVariantImport;
+use Commercetools\Import\Models\Productvariants\ProductVariantImportBuilder;
+use stdClass;
 
 /**
  * @implements Builder<ImportResource>
@@ -37,6 +52,7 @@ final class ImportResourceBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ImportResource
     {

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CartDiscountChangeIsActiveActionModel extends JsonObjectModel implements CartDiscountChangeIsActiveAction
 {
-    const DISCRIMINATOR_VALUE = 'changeIsActive';
+    public const DISCRIMINATOR_VALUE = 'changeIsActive';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CartDiscountChangeIsActiveActionModel extends JsonObjectModel implem
      * @var ?bool
      */
     protected $isActive;
+
 
     public function __construct(
         bool $isActive = null

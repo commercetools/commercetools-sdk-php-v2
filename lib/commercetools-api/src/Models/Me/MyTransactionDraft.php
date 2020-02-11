@@ -9,15 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyTransactionDraft extends JsonObject
 {
-    const FIELD_TIMESTAMP = 'timestamp';
-    const FIELD_TYPE = 'type';
-    const FIELD_AMOUNT = 'amount';
-    const FIELD_INTERACTION_ID = 'interactionId';
+    public const FIELD_TIMESTAMP = 'timestamp';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_AMOUNT = 'amount';
+    public const FIELD_INTERACTION_ID = 'interactionId';
 
     /**
      * <p>The time at which the transaction took place.</p>

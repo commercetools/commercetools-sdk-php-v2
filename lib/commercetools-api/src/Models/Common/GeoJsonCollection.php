@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GeoJson>
- *
  * @method GeoJson current()
  * @method GeoJson at($offset)
  */
@@ -23,9 +22,6 @@ class GeoJsonCollection extends MapperSequence
     /**
      * @psalm-assert GeoJson $value
      * @psalm-param GeoJson|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GeoJsonCollection

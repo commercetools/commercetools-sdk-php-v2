@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -20,16 +21,14 @@ class ResourceByProjectKeyProductProjections extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductProjectionsSearch($this->getUri().'/search', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsSearch($this->getUri() . '/search', $args, $this->getClient());
     }
-
     public function suggest(): ResourceByProjectKeyProductProjectionsSuggest
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductProjectionsSuggest($this->getUri().'/suggest', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsSuggest($this->getUri() . '/suggest', $args, $this->getClient());
     }
-
     public function withKey(string $key = null): ResourceByProjectKeyProductProjectionsKeyByKey
     {
         $args = $this->getArgs();
@@ -37,9 +36,8 @@ class ResourceByProjectKeyProductProjections extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyProductProjectionsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyProductProjectionsByID
     {
         $args = $this->getArgs();
@@ -47,14 +45,12 @@ class ResourceByProjectKeyProductProjections extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyProductProjectionsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductProjectionsGet
     {

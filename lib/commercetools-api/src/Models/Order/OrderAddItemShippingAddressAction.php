@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderAddItemShippingAddressAction extends OrderUpdateAction
 {
-    const FIELD_ADDRESS = 'address';
+    public const FIELD_ADDRESS = 'address';
 
     /**
      * @return null|Address

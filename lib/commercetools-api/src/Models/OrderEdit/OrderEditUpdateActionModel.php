@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderEditUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,14 +24,15 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
 
     /**
      * @psalm-var array<string, class-string<OrderEditUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addStagedAction' => OrderEditAddStagedActionActionModel::class,
-        'setComment' => OrderEditSetCommentActionModel::class,
-        'setCustomField' => OrderEditSetCustomFieldActionModel::class,
-        'setCustomType' => OrderEditSetCustomTypeActionModel::class,
-        'setKey' => OrderEditSetKeyActionModel::class,
-        'setStagedActions' => OrderEditSetStagedActionsActionModel::class,
+       'addStagedAction' => OrderEditAddStagedActionActionModel::class,
+       'setComment' => OrderEditSetCommentActionModel::class,
+       'setCustomField' => OrderEditSetCustomFieldActionModel::class,
+       'setCustomType' => OrderEditSetCustomTypeActionModel::class,
+       'setKey' => OrderEditSetKeyActionModel::class,
+       'setStagedActions' => OrderEditSetStagedActionsActionModel::class,
     ];
 
     public function __construct(
@@ -53,18 +57,19 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<OrderEditUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = OrderEditUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -79,7 +84,6 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
 
         /** @psalm-var class-string<OrderEditUpdateAction> */
         $type = OrderEditUpdateActionModel::class;
-
         return $type;
     }
 }

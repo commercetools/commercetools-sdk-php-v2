@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductDiscountChangeSortOrderAction extends ProductDiscountUpdateAction
 {
-    const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_SORT_ORDER = 'sortOrder';
 
     /**
      * <p>The string must contain a number between 0 and 1.

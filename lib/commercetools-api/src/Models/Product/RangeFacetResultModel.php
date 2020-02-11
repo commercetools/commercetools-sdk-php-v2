@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetResult
 {
-    const DISCRIMINATOR_VALUE = 'range';
+    public const DISCRIMINATOR_VALUE = 'range';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
      * @var ?FacetResultRangeCollection
      */
     protected $ranges;
+
 
     public function __construct(
         FacetResultRangeCollection $ranges = null

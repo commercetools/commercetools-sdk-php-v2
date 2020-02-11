@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
+
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
@@ -88,6 +92,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
+
 
     public function __construct(
         string $id = null,

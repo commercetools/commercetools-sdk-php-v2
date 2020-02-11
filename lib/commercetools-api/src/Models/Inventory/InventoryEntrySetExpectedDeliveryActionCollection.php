@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntrySetExpectedDeliveryAction>
- *
  * @method InventoryEntrySetExpectedDeliveryAction current()
  * @method InventoryEntrySetExpectedDeliveryAction at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntrySetExpectedDeliveryActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntrySetExpectedDeliveryAction $value
      * @psalm-param InventoryEntrySetExpectedDeliveryAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntrySetExpectedDeliveryActionCollection

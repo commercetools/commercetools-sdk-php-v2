@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductDiscountChangePredicateActionModel extends JsonObjectModel implements ProductDiscountChangePredicateAction
 {
-    const DISCRIMINATOR_VALUE = 'changePredicate';
+    public const DISCRIMINATOR_VALUE = 'changePredicate';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
      * @var ?string
      */
     protected $predicate;
+
 
     public function __construct(
         string $predicate = null

@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel implements PaymentAddInterfaceInteractionAction
 {
-    const DISCRIMINATOR_VALUE = 'addInterfaceInteraction';
+    public const DISCRIMINATOR_VALUE = 'addInterfaceInteraction';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         TypeResourceIdentifier $type = null,

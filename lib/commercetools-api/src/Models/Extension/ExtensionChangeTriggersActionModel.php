@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionChangeTriggersActionModel extends JsonObjectModel implements ExtensionChangeTriggersAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTriggers';
+    public const DISCRIMINATOR_VALUE = 'changeTriggers';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
      * @var ?ExtensionTriggerCollection
      */
     protected $triggers;
+
 
     public function __construct(
         ExtensionTriggerCollection $triggers = null

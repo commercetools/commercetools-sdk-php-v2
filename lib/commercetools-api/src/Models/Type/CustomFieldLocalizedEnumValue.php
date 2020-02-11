@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomFieldLocalizedEnumValue extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_LABEL = 'label';
+    public const FIELD_KEY = 'key';
+    public const FIELD_LABEL = 'label';
 
     /**
      * @return null|string

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\LineItem;
 use Commercetools\Api\Models\Cart\LineItemModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implements OrderLineItemAddedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderLineItemAdded';
+    public const DISCRIMINATOR_VALUE = 'OrderLineItemAdded';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
      * @var ?int
      */
     protected $addedQuantity;
+
 
     public function __construct(
         LineItem $lineItem = null,

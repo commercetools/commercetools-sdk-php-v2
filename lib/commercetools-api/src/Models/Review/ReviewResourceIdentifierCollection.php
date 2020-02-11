@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewResourceIdentifier>
- *
  * @method ReviewResourceIdentifier current()
  * @method ReviewResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ReviewResourceIdentifier $value
      * @psalm-param ReviewResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewResourceIdentifierCollection

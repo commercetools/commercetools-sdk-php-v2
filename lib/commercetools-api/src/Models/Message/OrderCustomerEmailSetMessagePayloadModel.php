@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel implements OrderCustomerEmailSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
+    public const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
      * @var ?string
      */
     protected $oldEmail;
+
 
     public function __construct(
         string $email = null,

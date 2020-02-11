@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Exception;
 
 use Commercetools\Base\JsonObject;
@@ -23,9 +24,9 @@ class ApiServerException extends ServerException
      * @readonly
      */
     private $result;
-
+    
     /**
-     * @param string      $message
+     * @param string $message
      * @param ?JsonObject $result
      */
     public function __construct($message, $result, RequestInterface $request, ResponseInterface $response, \Exception $previous = null, array $handlerContext = [])

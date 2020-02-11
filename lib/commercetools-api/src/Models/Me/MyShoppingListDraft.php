@@ -12,16 +12,17 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyShoppingListDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
 
     /**
      * @return null|LocalizedString

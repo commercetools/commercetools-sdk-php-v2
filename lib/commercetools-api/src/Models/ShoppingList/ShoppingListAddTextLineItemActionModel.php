@@ -12,14 +12,18 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel implements ShoppingListAddTextLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'addTextLineItem';
+    public const DISCRIMINATOR_VALUE = 'addTextLineItem';
     /**
      * @var ?string
      */
@@ -49,6 +53,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
 
     public function __construct(
         LocalizedString $name = null,
@@ -199,13 +204,13 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[ShoppingListAddTextLineItemAction::FIELD_ADDED_AT]) && $data[ShoppingListAddTextLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
             $data[ShoppingListAddTextLineItemAction::FIELD_ADDED_AT] = $data[ShoppingListAddTextLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetLineItemPriceAction extends CartUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_EXTERNAL_PRICE = 'externalPrice';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_EXTERNAL_PRICE = 'externalPrice';
 
     /**
      * @return null|string

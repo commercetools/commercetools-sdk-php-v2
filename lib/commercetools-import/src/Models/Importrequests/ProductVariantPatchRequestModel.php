@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Productvariants\ProductVariantPatchCollection;
+
 use stdClass;
 
 final class ProductVariantPatchRequestModel extends JsonObjectModel implements ProductVariantPatchRequest
 {
-    const DISCRIMINATOR_VALUE = 'product-variant-patch';
+    public const DISCRIMINATOR_VALUE = 'product-variant-patch';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
      * @var ?ProductVariantPatchCollection
      */
     protected $patches;
+
 
     public function __construct(
         ProductVariantPatchCollection $patches = null

@@ -11,13 +11,15 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderLineItemDiscountSetMessage extends Message
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
-    const FIELD_TOTAL_PRICE = 'totalPrice';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
+    public const FIELD_TOTAL_PRICE = 'totalPrice';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
 
     /**
      * @return null|string

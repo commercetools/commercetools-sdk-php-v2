@@ -10,10 +10,12 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetCustomerGroupAction extends StagedOrderUpdateAction
 {
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
      * @return null|CustomerGroupResourceIdentifier

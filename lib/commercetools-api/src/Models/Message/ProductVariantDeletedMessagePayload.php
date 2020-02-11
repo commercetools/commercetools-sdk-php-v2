@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductVariant;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductVariantDeletedMessagePayload extends MessagePayload
 {
-    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
-    const FIELD_VARIANT = 'variant';
+    public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
+    public const FIELD_VARIANT = 'variant';
 
     /**
      * @return null|array

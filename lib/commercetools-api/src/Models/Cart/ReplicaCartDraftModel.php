@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft
@@ -18,6 +20,7 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
      * @var ?JsonObject
      */
     protected $reference;
+
 
     public function __construct(
         JsonObject $reference = null

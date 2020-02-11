@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReferenceExistsError>
- *
  * @method ReferenceExistsError current()
  * @method ReferenceExistsError at($offset)
  */
@@ -23,9 +22,6 @@ class ReferenceExistsErrorCollection extends MapperSequence
     /**
      * @psalm-assert ReferenceExistsError $value
      * @psalm-param ReferenceExistsError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReferenceExistsErrorCollection

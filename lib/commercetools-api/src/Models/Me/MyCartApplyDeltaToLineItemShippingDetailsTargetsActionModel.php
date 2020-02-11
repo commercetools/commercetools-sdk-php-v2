@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\ItemShippingTargetCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends JsonObjectModel implements MyCartApplyDeltaToLineItemShippingDetailsTargetsAction
 {
-    const DISCRIMINATOR_VALUE = 'applyDeltaToLineItemShippingDetailsTargets';
+    public const DISCRIMINATOR_VALUE = 'applyDeltaToLineItemShippingDetailsTargets';
     /**
      * @var ?string
      */
@@ -29,6 +33,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
      * @var ?ItemShippingTargetCollection
      */
     protected $targetsDelta;
+
 
     public function __construct(
         string $lineItemId = null,

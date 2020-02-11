@@ -10,15 +10,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpdateAction
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_FROM_STATE = 'fromState';
-    const FIELD_TO_STATE = 'toState';
-    const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_FROM_STATE = 'fromState';
+    public const FIELD_TO_STATE = 'toState';
+    public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
      * @return null|string

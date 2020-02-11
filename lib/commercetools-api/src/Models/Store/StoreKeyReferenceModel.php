@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Common\KeyReference;
+use Commercetools\Api\Models\Common\KeyReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyReference
 {
-    const DISCRIMINATOR_VALUE = 'store';
+    public const DISCRIMINATOR_VALUE = 'store';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

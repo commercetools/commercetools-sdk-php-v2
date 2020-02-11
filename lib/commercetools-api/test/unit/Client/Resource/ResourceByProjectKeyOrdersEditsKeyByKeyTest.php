@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsKeyByKeyDelete
  */
 class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey('key')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/orders/edits/key={key}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
             'ByProjectKeyOrdersEditsKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->get()
-                    ;
+                        ->withKey("key")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/orders/edits/key={key}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey('key')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/orders/edits/key={key}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
             'ByProjectKeyOrdersEditsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->post(null)
-                    ;
+                        ->withKey("key")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/orders/edits/key={key}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey('key')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/orders/edits/key={key}?version=version',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->edits()
                         ->withKey('key')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/orders/edits/key={key}?expand=expand',
@@ -112,16 +104,15 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
             'ByProjectKeyOrdersEditsKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->delete()
-                    ;
+                        ->withKey("key")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/orders/edits/key={key}',
-            ],
+            ]
         ];
     }
 
@@ -136,7 +127,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -145,36 +136,33 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
             'ByProjectKeyOrdersEditsKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->get()
-                    ;
-                },
+                        ->withKey("key")
+                        ->get();
+                }
             ],
             'ByProjectKeyOrdersEditsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->post(null)
-                    ;
-                },
+                        ->withKey("key")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyOrdersEditsKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withKey('key')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withKey("key")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -187,7 +175,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

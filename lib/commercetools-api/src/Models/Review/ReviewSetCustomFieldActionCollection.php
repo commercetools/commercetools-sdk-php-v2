@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewSetCustomFieldAction>
- *
  * @method ReviewSetCustomFieldAction current()
  * @method ReviewSetCustomFieldAction at($offset)
  */
@@ -23,9 +22,6 @@ class ReviewSetCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert ReviewSetCustomFieldAction $value
      * @psalm-param ReviewSetCustomFieldAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ReviewSetCustomFieldActionCollection

@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class ProductSetPricesActionModel extends JsonObjectModel implements ProductSetPricesAction
 {
-    const DISCRIMINATOR_VALUE = 'setPrices';
+    public const DISCRIMINATOR_VALUE = 'setPrices';
     /**
      * @var ?string
      */
@@ -39,6 +43,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

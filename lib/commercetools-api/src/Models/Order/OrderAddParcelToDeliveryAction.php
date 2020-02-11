@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_MEASUREMENTS = 'measurements';
-    const FIELD_TRACKING_DATA = 'trackingData';
-    const FIELD_ITEMS = 'items';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_MEASUREMENTS = 'measurements';
+    public const FIELD_TRACKING_DATA = 'trackingData';
+    public const FIELD_ITEMS = 'items';
 
     /**
      * @return null|string

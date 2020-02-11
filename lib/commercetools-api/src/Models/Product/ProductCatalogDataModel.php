@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductCatalogDataModel extends JsonObjectModel implements ProductCatalogData
@@ -32,6 +35,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
      * @var ?bool
      */
     protected $hasStagedChanges;
+
 
     public function __construct(
         bool $published = null,

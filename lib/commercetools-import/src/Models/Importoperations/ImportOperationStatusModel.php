@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
+
 use stdClass;
 
 final class ImportOperationStatusModel extends JsonObjectModel implements ImportOperationStatus
@@ -28,6 +32,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
      * @var ?ErrorObjectCollection
      */
     protected $errors;
+
 
     public function __construct(
         string $operationId = null,

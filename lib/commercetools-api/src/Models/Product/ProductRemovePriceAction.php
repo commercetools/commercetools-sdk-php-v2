@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductRemovePriceAction extends ProductUpdateAction
 {
-    const FIELD_PRICE_ID = 'priceId';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_PRICE_ID = 'priceId';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * <p>ID of the <a href="#price">Price</a></p>

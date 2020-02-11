@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetLineItemTaxRateAction extends StagedOrderUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|string

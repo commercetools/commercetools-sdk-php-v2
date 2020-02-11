@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SqsDestination>
- *
  * @method SqsDestination current()
  * @method SqsDestination at($offset)
  */
@@ -23,9 +22,6 @@ class SqsDestinationCollection extends MapperSequence
     /**
      * @psalm-assert SqsDestination $value
      * @psalm-param SqsDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SqsDestinationCollection

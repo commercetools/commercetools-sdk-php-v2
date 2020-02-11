@@ -13,15 +13,19 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implements CustomerDateOfBirthSetMessage
 {
-    const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
+    public const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
     /**
      * @var ?string
      */
@@ -81,6 +85,7 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
+
 
     public function __construct(
         string $id = null,
@@ -384,6 +389,7 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
         $this->dateOfBirth = $dateOfBirth;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -398,7 +404,6 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
         if (isset($data[CustomerDateOfBirthSetMessage::FIELD_DATE_OF_BIRTH]) && $data[CustomerDateOfBirthSetMessage::FIELD_DATE_OF_BIRTH] instanceof \DateTimeImmutable) {
             $data[CustomerDateOfBirthSetMessage::FIELD_DATE_OF_BIRTH] = $data[CustomerDateOfBirthSetMessage::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
         }
-
         return (object) $data;
     }
 }

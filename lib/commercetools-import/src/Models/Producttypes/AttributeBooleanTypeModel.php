@@ -8,15 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AttributeBooleanTypeModel extends JsonObjectModel implements AttributeBooleanType
 {
-    const DISCRIMINATOR_VALUE = 'boolean';
+    public const DISCRIMINATOR_VALUE = 'boolean';
     /**
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
     ) {

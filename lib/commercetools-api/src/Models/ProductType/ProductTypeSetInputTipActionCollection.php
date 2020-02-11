@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeSetInputTipAction>
- *
  * @method ProductTypeSetInputTipAction current()
  * @method ProductTypeSetInputTipAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeSetInputTipActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeSetInputTipAction $value
      * @psalm-param ProductTypeSetInputTipAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeSetInputTipActionCollection

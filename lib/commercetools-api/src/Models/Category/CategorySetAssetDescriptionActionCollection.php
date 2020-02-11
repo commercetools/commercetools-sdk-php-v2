@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySetAssetDescriptionAction>
- *
  * @method CategorySetAssetDescriptionAction current()
  * @method CategorySetAssetDescriptionAction at($offset)
  */
@@ -23,9 +22,6 @@ class CategorySetAssetDescriptionActionCollection extends MapperSequence
     /**
      * @psalm-assert CategorySetAssetDescriptionAction $value
      * @psalm-param CategorySetAssetDescriptionAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CategorySetAssetDescriptionActionCollection

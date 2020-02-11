@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ApiClient>
- *
  * @method ApiClient current()
  * @method ApiClient at($offset)
  */
@@ -23,9 +22,6 @@ class ApiClientCollection extends MapperSequence
     /**
      * @psalm-assert ApiClient $value
      * @psalm-param ApiClient|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ApiClientCollection

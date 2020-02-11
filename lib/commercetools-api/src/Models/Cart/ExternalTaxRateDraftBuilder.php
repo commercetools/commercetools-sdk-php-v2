@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\TaxCategory\SubRateCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ExternalTaxRateDraft>
@@ -168,6 +173,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ExternalTaxRateDraft
     {

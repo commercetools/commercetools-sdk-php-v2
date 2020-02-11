@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFields>
- *
  * @method CustomFields current()
  * @method CustomFields at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldsCollection extends MapperSequence
     /**
      * @psalm-assert CustomFields $value
      * @psalm-param CustomFields|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldsCollection

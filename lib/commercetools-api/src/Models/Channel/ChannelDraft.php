@@ -12,17 +12,18 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ChannelDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_ROLES = 'roles';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_ADDRESS = 'address';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_GEO_LOCATION = 'geoLocation';
+    public const FIELD_KEY = 'key';
+    public const FIELD_ROLES = 'roles';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_ADDRESS = 'address';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
      * @return null|string

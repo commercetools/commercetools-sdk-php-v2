@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
 {
-    const FIELD_VALUE = 'value';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|CartDiscountValueDraft

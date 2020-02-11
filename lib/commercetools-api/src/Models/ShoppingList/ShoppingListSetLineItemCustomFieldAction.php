@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ShoppingListSetLineItemCustomFieldAction extends ShoppingListUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_NAME = 'name';
-    const FIELD_VALUE = 'value';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

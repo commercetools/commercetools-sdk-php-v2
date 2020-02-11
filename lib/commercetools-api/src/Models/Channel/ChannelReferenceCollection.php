@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelReference>
- *
  * @method ChannelReference current()
  * @method ChannelReference at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelReferenceCollection extends MapperSequence
     /**
      * @psalm-assert ChannelReference $value
      * @psalm-param ChannelReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelReferenceCollection

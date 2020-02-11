@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<EnumValue>
- *
  * @method EnumValue current()
  * @method EnumValue at($offset)
  */
@@ -23,9 +22,6 @@ class EnumValueCollection extends MapperSequence
     /**
      * @psalm-assert EnumValue $value
      * @psalm-param EnumValue|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return EnumValueCollection

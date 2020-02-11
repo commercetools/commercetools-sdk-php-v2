@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProjectChangeCountriesAction>
- *
  * @method ProjectChangeCountriesAction current()
  * @method ProjectChangeCountriesAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProjectChangeCountriesActionCollection extends MapperSequence
     /**
      * @psalm-assert ProjectChangeCountriesAction $value
      * @psalm-param ProjectChangeCountriesAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProjectChangeCountriesActionCollection

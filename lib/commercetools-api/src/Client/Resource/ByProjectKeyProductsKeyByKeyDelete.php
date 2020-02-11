@@ -14,13 +14,16 @@ use Commercetools\Api\Models\Product\Product;
 use Commercetools\Api\Models\Product\ProductModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -111,9 +114,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $priceCurrency
      *
-     * @param mixed $priceCurrency
+     * @psalm-param scalar $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductsKeyByKeyDelete
     {
@@ -121,9 +123,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $priceCountry
      *
-     * @param mixed $priceCountry
+     * @psalm-param scalar $priceCountry
      */
     public function withPriceCountry($priceCountry): ByProjectKeyProductsKeyByKeyDelete
     {
@@ -131,9 +132,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $priceCustomerGroup
      *
-     * @param mixed $priceCustomerGroup
+     * @psalm-param scalar $priceCustomerGroup
      */
     public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductsKeyByKeyDelete
     {
@@ -141,9 +141,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $priceChannel
      *
-     * @param mixed $priceChannel
+     * @psalm-param scalar $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductsKeyByKeyDelete
     {
@@ -151,9 +150,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $version
      *
-     * @param mixed $version
+     * @psalm-param scalar $version
      */
     public function withVersion($version): ByProjectKeyProductsKeyByKeyDelete
     {
@@ -161,9 +159,8 @@ class ByProjectKeyProductsKeyByKeyDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyProductsKeyByKeyDelete
     {

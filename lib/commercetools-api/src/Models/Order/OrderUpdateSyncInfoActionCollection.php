@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderUpdateSyncInfoAction>
- *
  * @method OrderUpdateSyncInfoAction current()
  * @method OrderUpdateSyncInfoAction at($offset)
  */
@@ -23,9 +22,6 @@ class OrderUpdateSyncInfoActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderUpdateSyncInfoAction $value
      * @psalm-param OrderUpdateSyncInfoAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderUpdateSyncInfoActionCollection

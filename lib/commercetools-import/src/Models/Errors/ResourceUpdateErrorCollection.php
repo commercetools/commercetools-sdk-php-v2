@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceUpdateError>
- *
  * @method ResourceUpdateError current()
  * @method ResourceUpdateError at($offset)
  */
@@ -23,9 +22,6 @@ class ResourceUpdateErrorCollection extends MapperSequence
     /**
      * @psalm-assert ResourceUpdateError $value
      * @psalm-param ResourceUpdateError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ResourceUpdateErrorCollection

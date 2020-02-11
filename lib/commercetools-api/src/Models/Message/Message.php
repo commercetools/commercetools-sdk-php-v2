@@ -12,18 +12,20 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Message extends BaseResource
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
-    const FIELD_RESOURCE = 'resource';
-    const FIELD_RESOURCE_VERSION = 'resourceVersion';
-    const FIELD_TYPE = 'type';
-    const FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS = 'resourceUserProvidedIdentifiers';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
+    public const FIELD_RESOURCE = 'resource';
+    public const FIELD_RESOURCE_VERSION = 'resourceVersion';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS = 'resourceUserProvidedIdentifiers';
 
     /**
      * @return null|string

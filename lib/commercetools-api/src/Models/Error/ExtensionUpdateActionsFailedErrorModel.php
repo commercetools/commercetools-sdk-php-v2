@@ -10,13 +10,16 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel implements ExtensionUpdateActionsFailedError
 {
-    const DISCRIMINATOR_VALUE = 'ExtensionUpdateActionsFailed';
+    public const DISCRIMINATOR_VALUE = 'ExtensionUpdateActionsFailed';
     /**
      * @var ?string
      */
@@ -41,6 +44,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
      * @var ?ErrorByExtension
      */
     protected $errorByExtension;
+
 
     public function __construct(
         string $message = null,

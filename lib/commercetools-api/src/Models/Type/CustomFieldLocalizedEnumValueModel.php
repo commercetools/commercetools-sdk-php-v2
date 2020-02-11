@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implements CustomFieldLocalizedEnumValue
@@ -24,6 +28,7 @@ final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implement
      * @var ?LocalizedString
      */
     protected $label;
+
 
     public function __construct(
         string $key = null,

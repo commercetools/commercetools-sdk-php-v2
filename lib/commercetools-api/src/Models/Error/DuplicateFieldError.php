@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DuplicateFieldError extends ErrorObject
 {
-    const FIELD_FIELD = 'field';
-    const FIELD_DUPLICATE_VALUE = 'duplicateValue';
-    const FIELD_CONFLICTING_RESOURCE = 'conflictingResource';
+    public const FIELD_FIELD = 'field';
+    public const FIELD_DUPLICATE_VALUE = 'duplicateValue';
+    public const FIELD_CONFLICTING_RESOURCE = 'conflictingResource';
 
     /**
      * @return null|string

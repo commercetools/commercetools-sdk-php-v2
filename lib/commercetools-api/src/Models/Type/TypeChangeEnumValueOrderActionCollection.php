@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeEnumValueOrderAction>
- *
  * @method TypeChangeEnumValueOrderAction current()
  * @method TypeChangeEnumValueOrderAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeEnumValueOrderActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeEnumValueOrderAction $value
      * @psalm-param TypeChangeEnumValueOrderAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeEnumValueOrderActionCollection

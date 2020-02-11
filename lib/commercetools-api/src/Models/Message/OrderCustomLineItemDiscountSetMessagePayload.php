@@ -10,12 +10,14 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderCustomLineItemDiscountSetMessagePayload extends MessagePayload
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
-    const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
 
     /**
      * @return null|string

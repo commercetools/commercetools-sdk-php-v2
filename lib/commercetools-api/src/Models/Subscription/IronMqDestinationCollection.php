@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<IronMqDestination>
- *
  * @method IronMqDestination current()
  * @method IronMqDestination at($offset)
  */
@@ -23,9 +22,6 @@ class IronMqDestinationCollection extends MapperSequence
     /**
      * @psalm-assert IronMqDestination $value
      * @psalm-param IronMqDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return IronMqDestinationCollection

@@ -10,15 +10,18 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Import\Models\Importoperations\ImportOperationPagedResponse;
 use Commercetools\Import\Models\Importoperations\ImportOperationPagedResponseModel;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -85,9 +88,8 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     * @psalm-param scalar $limit
      *
-     * @param mixed $limit
+     * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -95,9 +97,8 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     * @psalm-param scalar $offset
      *
-     * @param mixed $offset
+     * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -105,9 +106,8 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     * @psalm-param scalar $resourceKey
      *
-     * @param mixed $resourceKey
+     * @psalm-param scalar $resourceKey
      */
     public function withResourceKey($resourceKey): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -115,9 +115,8 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     * @psalm-param scalar $state
      *
-     * @param mixed $state
+     * @psalm-param scalar $state
      */
     public function withState($state): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {

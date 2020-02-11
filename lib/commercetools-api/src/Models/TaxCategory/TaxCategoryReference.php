@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TaxCategoryReference extends Reference
 {
-    const FIELD_OBJ = 'obj';
+    public const FIELD_OBJ = 'obj';
 
     /**
      * @return null|TaxCategory

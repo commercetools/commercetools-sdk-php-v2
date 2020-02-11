@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo
@@ -24,6 +28,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
      * @var ?string
      */
     protected $state;
+
 
     public function __construct(
         DiscountCodeReference $discountCode = null,

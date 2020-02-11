@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetTaxCategoryAction extends ProductUpdateAction
 {
-    const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**
      * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>

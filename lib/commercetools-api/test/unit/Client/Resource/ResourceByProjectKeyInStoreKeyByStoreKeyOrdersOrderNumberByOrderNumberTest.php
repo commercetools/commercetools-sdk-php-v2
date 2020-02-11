@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber('orderNumber')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->get()
-                    ;
+                        ->withOrderNumber("orderNumber")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber('orderNumber')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->post(null)
-                    ;
+                        ->withOrderNumber("orderNumber")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber('orderNumber')
                         ->delete()
-                        ->withDataErasure('dataErasure')
-                    ;
+                        ->withDataErasure('dataErasure');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber('orderNumber')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?version=version',
@@ -117,8 +109,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->orders()
                         ->withOrderNumber('orderNumber')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
@@ -126,16 +117,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->delete()
-                    ;
+                        ->withOrderNumber("orderNumber")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
-            ],
+            ]
         ];
     }
 
@@ -150,7 +140,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -159,36 +149,33 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->get()
-                    ;
-                },
+                        ->withOrderNumber("orderNumber")
+                        ->get();
+                }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->post(null)
-                    ;
-                },
+                        ->withOrderNumber("orderNumber")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders()
-                        ->withOrderNumber('orderNumber')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withOrderNumber("orderNumber")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -201,7 +188,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

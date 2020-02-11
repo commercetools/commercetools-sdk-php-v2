@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyShoppingListSetCustomFieldAction extends MyShoppingListUpdateAction
 {
-    const FIELD_NAME = 'name';
-    const FIELD_VALUE = 'value';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string

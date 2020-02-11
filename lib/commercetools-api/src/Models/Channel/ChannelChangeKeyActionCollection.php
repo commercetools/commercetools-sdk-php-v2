@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelChangeKeyAction>
- *
  * @method ChannelChangeKeyAction current()
  * @method ChannelChangeKeyAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelChangeKeyActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelChangeKeyAction $value
      * @psalm-param ChannelChangeKeyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelChangeKeyActionCollection

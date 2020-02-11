@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceCreationError>
- *
  * @method ResourceCreationError current()
  * @method ResourceCreationError at($offset)
  */
@@ -23,9 +22,6 @@ class ResourceCreationErrorCollection extends MapperSequence
     /**
      * @psalm-assert ResourceCreationError $value
      * @psalm-param ResourceCreationError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ResourceCreationErrorCollection

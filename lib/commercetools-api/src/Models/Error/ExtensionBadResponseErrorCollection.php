@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionBadResponseError>
- *
  * @method ExtensionBadResponseError current()
  * @method ExtensionBadResponseError at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionBadResponseErrorCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionBadResponseError $value
      * @psalm-param ExtensionBadResponseError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionBadResponseErrorCollection

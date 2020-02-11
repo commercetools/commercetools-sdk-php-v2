@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Message\MessageConfigurationDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProjectChangeMessagesConfigurationAction extends ProjectUpdateAction
 {
-    const FIELD_MESSAGES_CONFIGURATION = 'messagesConfiguration';
+    public const FIELD_MESSAGES_CONFIGURATION = 'messagesConfiguration';
 
     /**
      * @return null|MessageConfigurationDraft

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\Order\OrderModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderImportedMessagePayloadModel extends JsonObjectModel implements OrderImportedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderImported';
+    public const DISCRIMINATOR_VALUE = 'OrderImported';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class OrderImportedMessagePayloadModel extends JsonObjectModel implements 
      * @var ?Order
      */
     protected $order;
+
 
     public function __construct(
         Order $order = null

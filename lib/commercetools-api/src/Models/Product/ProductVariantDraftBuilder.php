@@ -12,6 +12,11 @@ use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductVariantDraft>
@@ -155,6 +160,7 @@ final class ProductVariantDraftBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductVariantDraft
     {

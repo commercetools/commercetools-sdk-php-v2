@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderResourceIdentifierModel extends JsonObjectModel implements OrderResourceIdentifier
 {
-    const DISCRIMINATOR_VALUE = 'order';
+    public const DISCRIMINATOR_VALUE = 'order';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class OrderResourceIdentifierModel extends JsonObjectModel implements Orde
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPost
- *
- * @internal
  */
 class ResourceByProjectKeyTest extends TestCase
 {
@@ -29,9 +27,8 @@ class ResourceByProjectKeyTest extends TestCase
             'ByProjectKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->get()
-                    ;
+                        ->withProjectKey("projectKey")
+                        ->get();
                 },
                 'get',
                 '{projectKey}',
@@ -39,13 +36,12 @@ class ResourceByProjectKeyTest extends TestCase
             'ByProjectKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->post(null)
-                    ;
+                        ->withProjectKey("projectKey")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}',
-            ],
+            ]
         ];
     }
 
@@ -60,7 +56,7 @@ class ResourceByProjectKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -69,19 +65,17 @@ class ResourceByProjectKeyTest extends TestCase
             'ByProjectKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->get()
-                    ;
-                },
+                        ->withProjectKey("projectKey")
+                        ->get();
+                }
             ],
             'ByProjectKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->withProjectKey("projectKey")
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -94,7 +88,7 @@ class ResourceByProjectKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

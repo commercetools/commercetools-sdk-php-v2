@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductChangeNameAction extends ProductUpdateAction
 {
-    const FIELD_NAME = 'name';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_NAME = 'name';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|LocalizedString

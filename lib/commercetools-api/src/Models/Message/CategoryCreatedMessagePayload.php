@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Category\Category;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategoryCreatedMessagePayload extends MessagePayload
 {
-    const FIELD_CATEGORY = 'category';
+    public const FIELD_CATEGORY = 'category';
 
     /**
      * @return null|Category

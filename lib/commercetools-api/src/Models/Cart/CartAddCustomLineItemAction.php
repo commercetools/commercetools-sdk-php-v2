@@ -12,16 +12,18 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartAddCustomLineItemAction extends CartUpdateAction
 {
-    const FIELD_MONEY = 'money';
-    const FIELD_NAME = 'name';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_SLUG = 'slug';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_MONEY = 'money';
+    public const FIELD_NAME = 'name';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|Money

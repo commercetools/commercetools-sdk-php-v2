@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TypedMoney extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_TYPE = 'type';
-    const FIELD_FRACTION_DIGITS = 'fractionDigits';
-    const FIELD_CENT_AMOUNT = 'centAmount';
-    const FIELD_CURRENCY_CODE = 'currencyCode';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FRACTION_DIGITS = 'fractionDigits';
+    public const FIELD_CENT_AMOUNT = 'centAmount';
+    public const FIELD_CURRENCY_CODE = 'currencyCode';
 
     /**
      * @return null|string

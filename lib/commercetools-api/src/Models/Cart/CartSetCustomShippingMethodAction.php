@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetCustomShippingMethodAction extends CartUpdateAction
 {
-    const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
-    const FIELD_SHIPPING_RATE = 'shippingRate';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
+    public const FIELD_SHIPPING_RATE = 'shippingRate';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|string

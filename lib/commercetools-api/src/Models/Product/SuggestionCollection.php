@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Suggestion>
- *
  * @method Suggestion current()
  * @method Suggestion at($offset)
  */
@@ -23,9 +22,6 @@ class SuggestionCollection extends MapperSequence
     /**
      * @psalm-assert Suggestion $value
      * @psalm-param Suggestion|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SuggestionCollection

@@ -11,16 +11,21 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
+
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectModel implements StagedOrderSetCustomShippingMethodAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
+    public const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
     /**
      * @var ?string
      */
@@ -45,6 +50,7 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         string $shippingMethodName = null,

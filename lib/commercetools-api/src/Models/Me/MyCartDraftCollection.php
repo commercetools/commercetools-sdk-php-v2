@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyCartDraft>
- *
  * @method MyCartDraft current()
  * @method MyCartDraft at($offset)
  */
@@ -23,9 +22,6 @@ class MyCartDraftCollection extends MapperSequence
     /**
      * @psalm-assert MyCartDraft $value
      * @psalm-param MyCartDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MyCartDraftCollection

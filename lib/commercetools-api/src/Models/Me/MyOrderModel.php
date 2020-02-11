@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
+
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
@@ -23,6 +24,8 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -41,9 +44,12 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class MyOrderModel extends JsonObjectModel implements MyOrder
@@ -252,6 +258,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
      * @var ?CartDiscountReferenceCollection
      */
     protected $refusedGifts;
+
 
     public function __construct(
         string $id = null,
@@ -1267,6 +1274,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
         $this->refusedGifts = $refusedGifts;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -1281,7 +1289,6 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
         if (isset($data[MyOrder::FIELD_COMPLETED_AT]) && $data[MyOrder::FIELD_COMPLETED_AT] instanceof \DateTimeImmutable) {
             $data[MyOrder::FIELD_COMPLETED_AT] = $data[MyOrder::FIELD_COMPLETED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface UpdateAction extends JsonObject
 {
-    const FIELD_ACTION = 'action';
+    public const FIELD_ACTION = 'action';
 
     /**
      * @return null|string

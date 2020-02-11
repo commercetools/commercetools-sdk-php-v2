@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CategoryChangeSlugActionModel extends JsonObjectModel implements CategoryChangeSlugAction
 {
-    const DISCRIMINATOR_VALUE = 'changeSlug';
+    public const DISCRIMINATOR_VALUE = 'changeSlug';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
      * @var ?LocalizedString
      */
     protected $slug;
+
 
     public function __construct(
         LocalizedString $slug = null

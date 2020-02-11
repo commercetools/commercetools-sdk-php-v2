@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentReference>
- *
  * @method PaymentReference current()
  * @method PaymentReference at($offset)
  */
@@ -23,9 +22,6 @@ class PaymentReferenceCollection extends MapperSequence
     /**
      * @psalm-assert PaymentReference $value
      * @psalm-param PaymentReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PaymentReferenceCollection

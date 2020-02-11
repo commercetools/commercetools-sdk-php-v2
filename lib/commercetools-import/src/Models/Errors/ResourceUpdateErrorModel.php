@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ResourceUpdateErrorModel extends JsonObjectModel implements ResourceUpdateError
 {
-    const DISCRIMINATOR_VALUE = 'ResourceUpdate';
+    public const DISCRIMINATOR_VALUE = 'ResourceUpdate';
     /**
      * @var ?string
      */
@@ -29,6 +31,7 @@ final class ResourceUpdateErrorModel extends JsonObjectModel implements Resource
      * @var ?JsonObject
      */
     protected $resource;
+
 
     public function __construct(
         string $message = null,

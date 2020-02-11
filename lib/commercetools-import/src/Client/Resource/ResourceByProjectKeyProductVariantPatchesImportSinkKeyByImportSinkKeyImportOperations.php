@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -23,14 +24,12 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
             $args['id'] = $id;
         }
 
-        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsById($this->getUri().'/{id}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsById($this->getUri() . '/{id}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsGet
     {

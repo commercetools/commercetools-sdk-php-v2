@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DiscountCodeSetNameAction extends DiscountCodeUpdateAction
 {
-    const FIELD_NAME = 'name';
+    public const FIELD_NAME = 'name';
 
     /**
      * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>

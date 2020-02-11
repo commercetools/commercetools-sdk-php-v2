@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Zone\ZoneReference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ZoneRate extends JsonObject
 {
-    const FIELD_ZONE = 'zone';
-    const FIELD_SHIPPING_RATES = 'shippingRates';
+    public const FIELD_ZONE = 'zone';
+    public const FIELD_SHIPPING_RATES = 'shippingRates';
 
     /**
      * @return null|ZoneReference

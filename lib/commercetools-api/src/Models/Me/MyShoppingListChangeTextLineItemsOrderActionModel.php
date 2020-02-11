@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectModel implements MyShoppingListChangeTextLineItemsOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTextLineItemsOrder';
+    public const DISCRIMINATOR_VALUE = 'changeTextLineItemsOrder';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyShoppingListChangeTextLineItemsOrderActionModel extends JsonObject
      * @var ?array
      */
     protected $textLineItemOrder;
+
 
     public function __construct(
         array $textLineItemOrder = null

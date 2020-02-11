@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFieldError
 {
-    const DISCRIMINATOR_VALUE = 'InvalidField';
+    public const DISCRIMINATOR_VALUE = 'InvalidField';
     /**
      * @var ?string
      */
@@ -39,6 +41,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
      * @var ?array
      */
     protected $allowedValues;
+
 
     public function __construct(
         string $message = null,

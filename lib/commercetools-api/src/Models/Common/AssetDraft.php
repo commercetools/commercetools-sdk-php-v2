@@ -9,16 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface AssetDraft extends JsonObject
 {
-    const FIELD_SOURCES = 'sources';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_TAGS = 'tags';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_KEY = 'key';
+    public const FIELD_SOURCES = 'sources';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_TAGS = 'tags';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|AssetSourceCollection

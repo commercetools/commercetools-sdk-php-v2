@@ -9,17 +9,18 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface OrderFromCartDraft extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_VERSION = 'version';
-    const FIELD_ORDER_NUMBER = 'orderNumber';
-    const FIELD_PAYMENT_STATE = 'paymentState';
-    const FIELD_SHIPMENT_STATE = 'shipmentState';
-    const FIELD_ORDER_STATE = 'orderState';
-    const FIELD_STATE = 'state';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_ORDER_STATE = 'orderState';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>The unique id of the cart from which an order is created.</p>

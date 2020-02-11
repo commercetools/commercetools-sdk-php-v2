@@ -9,14 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ShippingRate extends JsonObject
 {
-    const FIELD_PRICE = 'price';
-    const FIELD_FREE_ABOVE = 'freeAbove';
-    const FIELD_IS_MATCHING = 'isMatching';
-    const FIELD_TIERS = 'tiers';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_FREE_ABOVE = 'freeAbove';
+    public const FIELD_IS_MATCHING = 'isMatching';
+    public const FIELD_TIERS = 'tiers';
 
     /**
      * @return null|TypedMoney

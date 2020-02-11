@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet
- *
- * @internal
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                         ->carts()
                         ->withCustomerId('customerId')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}?expand=expand',
@@ -42,16 +39,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->carts()
-                        ->withCustomerId('customerId')
-                        ->get()
-                    ;
+                        ->withCustomerId("customerId")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}',
-            ],
+            ]
         ];
     }
 
@@ -66,7 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -75,14 +71,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->carts()
-                        ->withCustomerId('customerId')
-                        ->get()
-                    ;
-                },
-            ],
+                        ->withCustomerId("customerId")
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -95,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

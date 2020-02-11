@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StateChangeInitialActionModel extends JsonObjectModel implements StateChangeInitialAction
 {
-    const DISCRIMINATOR_VALUE = 'changeInitial';
+    public const DISCRIMINATOR_VALUE = 'changeInitial';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
      * @var ?bool
      */
     protected $initial;
+
 
     public function __construct(
         bool $initial = null

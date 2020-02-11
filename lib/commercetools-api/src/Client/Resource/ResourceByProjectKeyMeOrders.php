@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Me\MyOrderFromCartDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,12 @@ class ResourceByProjectKeyMeOrders extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyMeOrdersByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyMeOrdersByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyMeOrdersGet
     {
@@ -39,7 +38,6 @@ class ResourceByProjectKeyMeOrders extends ApiResource
 
         return new ByProjectKeyMeOrdersGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?MyOrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel implements StagedOrderSetLineItemPriceAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemPrice';
+    public const DISCRIMINATOR_VALUE = 'setLineItemPrice';
     /**
      * @var ?string
      */
@@ -31,6 +36,7 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
      * @var ?Money
      */
     protected $externalPrice;
+
 
     public function __construct(
         string $lineItemId = null,

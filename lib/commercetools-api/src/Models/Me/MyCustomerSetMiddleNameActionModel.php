@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implements MyCustomerSetMiddleNameAction
 {
-    const DISCRIMINATOR_VALUE = 'setMiddleName';
+    public const DISCRIMINATOR_VALUE = 'setMiddleName';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
      * @var ?string
      */
     protected $middleName;
+
 
     public function __construct(
         string $middleName = null

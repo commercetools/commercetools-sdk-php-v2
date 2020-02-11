@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,23 +24,24 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
 
     /**
      * @psalm-var array<string, class-string<TypeUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addEnumValue' => TypeAddEnumValueActionModel::class,
-        'addFieldDefinition' => TypeAddFieldDefinitionActionModel::class,
-        'addLocalizedEnumValue' => TypeAddLocalizedEnumValueActionModel::class,
-        'changeEnumValueLabel' => TypeChangeEnumValueLabelActionModel::class,
-        'changeEnumValueOrder' => TypeChangeEnumValueOrderActionModel::class,
-        'changeFieldDefinitionLabel' => TypeChangeFieldDefinitionLabelActionModel::class,
-        'changeFieldDefinitionOrder' => TypeChangeFieldDefinitionOrderActionModel::class,
-        'changeInputHint' => TypeChangeInputHintActionModel::class,
-        'changeKey' => TypeChangeKeyActionModel::class,
-        'changeLabel' => TypeChangeLabelActionModel::class,
-        'changeLocalizedEnumValueLabel' => TypeChangeLocalizedEnumValueLabelActionModel::class,
-        'changeLocalizedEnumValueOrder' => TypeChangeLocalizedEnumValueOrderActionModel::class,
-        'changeName' => TypeChangeNameActionModel::class,
-        'removeFieldDefinition' => TypeRemoveFieldDefinitionActionModel::class,
-        'setDescription' => TypeSetDescriptionActionModel::class,
+       'addEnumValue' => TypeAddEnumValueActionModel::class,
+       'addFieldDefinition' => TypeAddFieldDefinitionActionModel::class,
+       'addLocalizedEnumValue' => TypeAddLocalizedEnumValueActionModel::class,
+       'changeEnumValueLabel' => TypeChangeEnumValueLabelActionModel::class,
+       'changeEnumValueOrder' => TypeChangeEnumValueOrderActionModel::class,
+       'changeFieldDefinitionLabel' => TypeChangeFieldDefinitionLabelActionModel::class,
+       'changeFieldDefinitionOrder' => TypeChangeFieldDefinitionOrderActionModel::class,
+       'changeInputHint' => TypeChangeInputHintActionModel::class,
+       'changeKey' => TypeChangeKeyActionModel::class,
+       'changeLabel' => TypeChangeLabelActionModel::class,
+       'changeLocalizedEnumValueLabel' => TypeChangeLocalizedEnumValueLabelActionModel::class,
+       'changeLocalizedEnumValueOrder' => TypeChangeLocalizedEnumValueOrderActionModel::class,
+       'changeName' => TypeChangeNameActionModel::class,
+       'removeFieldDefinition' => TypeRemoveFieldDefinitionActionModel::class,
+       'setDescription' => TypeSetDescriptionActionModel::class,
     ];
 
     public function __construct(
@@ -62,18 +66,19 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<TypeUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = TypeUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -88,7 +93,6 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
 
         /** @psalm-var class-string<TypeUpdateAction> */
         $type = TypeUpdateActionModel::class;
-
         return $type;
     }
 }

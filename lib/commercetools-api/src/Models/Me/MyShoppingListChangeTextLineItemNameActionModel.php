@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectModel implements MyShoppingListChangeTextLineItemNameAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTextLineItemName';
+    public const DISCRIMINATOR_VALUE = 'changeTextLineItemName';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
      * @var ?LocalizedString
      */
     protected $name;
+
 
     public function __construct(
         string $textLineItemId = null,

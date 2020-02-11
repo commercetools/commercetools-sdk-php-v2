@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCartRemoveItemShippingAddressAction extends MyCartUpdateAction
 {
-    const FIELD_ADDRESS_KEY = 'addressKey';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
      * @return null|string

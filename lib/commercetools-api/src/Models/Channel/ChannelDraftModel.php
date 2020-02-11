@@ -13,10 +13,14 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Api\Models\Common\LocalizedString;
+
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
@@ -55,6 +59,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
      * @var ?GeoJson
      */
     protected $geoLocation;
+
 
     public function __construct(
         string $key = null,

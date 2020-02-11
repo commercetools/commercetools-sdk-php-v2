@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ReviewSetTitleAction extends ReviewUpdateAction
 {
-    const FIELD_TITLE = 'title';
+    public const FIELD_TITLE = 'title';
 
     /**
      * <p>If <code>title</code> is absent or <code>null</code>, this field will be removed if it exists.</p>

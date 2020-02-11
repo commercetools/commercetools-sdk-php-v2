@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ResourceNotFoundErrorModel extends JsonObjectModel implements ResourceNotFoundError
 {
-    const DISCRIMINATOR_VALUE = 'ResourceNotFound';
+    public const DISCRIMINATOR_VALUE = 'ResourceNotFound';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartAddLineItemActionModel extends JsonObjectModel implements CartAddLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'addLineItem';
+    public const DISCRIMINATOR_VALUE = 'addLineItem';
     /**
      * @var ?string
      */
@@ -79,6 +83,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         CustomFieldsDraft $custom = null,

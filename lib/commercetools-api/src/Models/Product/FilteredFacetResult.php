@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface FilteredFacetResult extends FacetResult
 {
-    const FIELD_COUNT = 'count';
-    const FIELD_PRODUCT_COUNT = 'productCount';
+    public const FIELD_COUNT = 'count';
+    public const FIELD_PRODUCT_COUNT = 'productCount';
 
     /**
      * @return null|int

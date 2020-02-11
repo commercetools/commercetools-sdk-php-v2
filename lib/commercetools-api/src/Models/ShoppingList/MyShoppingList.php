@@ -14,22 +14,24 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyShoppingList extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_KEY = 'key';
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_NAME = 'name';
-    const FIELD_SLUG = 'slug';
-    const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_KEY = 'key';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_NAME = 'name';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
      * @return null|string

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MultiBuyCustomLineItemsTarget>
- *
  * @method MultiBuyCustomLineItemsTarget current()
  * @method MultiBuyCustomLineItemsTarget at($offset)
  */
@@ -23,9 +22,6 @@ class MultiBuyCustomLineItemsTargetCollection extends MapperSequence
     /**
      * @psalm-assert MultiBuyCustomLineItemsTarget $value
      * @psalm-param MultiBuyCustomLineItemsTarget|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MultiBuyCustomLineItemsTargetCollection

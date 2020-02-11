@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomObjectReference>
- *
  * @method CustomObjectReference current()
  * @method CustomObjectReference at($offset)
  */
@@ -23,9 +22,6 @@ class CustomObjectReferenceCollection extends MapperSequence
     /**
      * @psalm-assert CustomObjectReference $value
      * @psalm-param CustomObjectReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomObjectReferenceCollection

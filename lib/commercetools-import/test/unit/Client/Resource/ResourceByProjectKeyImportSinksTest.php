@@ -16,10 +16,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksGet
  * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksPost
- *
- * @internal
+ * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksGet
  */
 class ResourceByProjectKeyImportSinksTest extends TestCase
 {
@@ -29,10 +27,9 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
             'ByProjectKeyImportSinksPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/import-sinks',
@@ -43,8 +40,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                         ->withProjectKeyValue('projectKey')
                         ->importSinks()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/import-sinks?limit=limit',
@@ -55,8 +51,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                         ->withProjectKeyValue('projectKey')
                         ->importSinks()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/import-sinks?offset=offset',
@@ -64,14 +59,13 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
             'ByProjectKeyImportSinksGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/import-sinks',
-            ],
+            ]
         ];
     }
 
@@ -86,7 +80,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -95,21 +89,19 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
             'ByProjectKeyImportSinksPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->post(null)
-                    ;
-                },
+                        ->post(null);
+                }
             ],
             'ByProjectKeyImportSinksGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->get()
-                    ;
-                },
-            ],
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -122,7 +114,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

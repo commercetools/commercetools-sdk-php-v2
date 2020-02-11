@@ -10,14 +10,18 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements OrderUpdateSyncInfoAction
 {
-    const DISCRIMINATOR_VALUE = 'updateSyncInfo';
+    public const DISCRIMINATOR_VALUE = 'updateSyncInfo';
     /**
      * @var ?string
      */
@@ -37,6 +41,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
+
 
     public function __construct(
         ChannelResourceIdentifier $channel = null,
@@ -137,13 +142,13 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
         $this->syncedAt = $syncedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[OrderUpdateSyncInfoAction::FIELD_SYNCED_AT]) && $data[OrderUpdateSyncInfoAction::FIELD_SYNCED_AT] instanceof \DateTimeImmutable) {
             $data[OrderUpdateSyncInfoAction::FIELD_SYNCED_AT] = $data[OrderUpdateSyncInfoAction::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

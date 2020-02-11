@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implements ProductVariantChannelAvailabilityMap
@@ -16,6 +19,8 @@ final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel im
     public function __construct(
     ) {
     }
+
+
 
     /**
      * @return mixed
@@ -26,7 +31,7 @@ final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel im
         if (is_null($data)) {
             return null;
         }
-        if (1 === preg_match(ProductVariantChannelAvailabilityMap::FIELD_PATTERN0, $key)) {
+        if (preg_match(ProductVariantChannelAvailabilityMap::FIELD_PATTERN0, $key) === 1) {
             /** @psalm-var stdClass|array<string, mixed> $data */
 
             return ProductVariantChannelAvailabilityModel::of($data);

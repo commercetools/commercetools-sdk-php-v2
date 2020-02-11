@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements CartDiscountLineItemsTarget
 {
-    const DISCRIMINATOR_VALUE = 'lineItems';
+    public const DISCRIMINATOR_VALUE = 'lineItems';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $predicate;
+
 
     public function __construct(
         string $predicate = null

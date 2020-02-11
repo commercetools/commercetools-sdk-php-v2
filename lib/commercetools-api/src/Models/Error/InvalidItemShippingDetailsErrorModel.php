@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel implements InvalidItemShippingDetailsError
 {
-    const DISCRIMINATOR_VALUE = 'InvalidItemShippingDetails';
+    public const DISCRIMINATOR_VALUE = 'InvalidItemShippingDetails';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
      * @var ?string
      */
     protected $itemId;
+
 
     public function __construct(
         string $message = null,

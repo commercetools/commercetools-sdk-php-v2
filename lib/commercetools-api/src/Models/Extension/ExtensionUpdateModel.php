@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpdate
@@ -22,6 +25,7 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
      * @var ?ExtensionUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

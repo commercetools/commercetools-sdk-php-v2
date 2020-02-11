@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCategoryReference
 {
-    const DISCRIMINATOR_VALUE = 'tax-category';
+    public const DISCRIMINATOR_VALUE = 'tax-category';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
      * @var ?TaxCategory
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

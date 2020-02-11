@@ -14,13 +14,16 @@ use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -111,9 +114,8 @@ class ByProjectKeyCartsByIDDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $dataErasure
      *
-     * @param mixed $dataErasure
+     * @psalm-param scalar $dataErasure
      */
     public function withDataErasure($dataErasure): ByProjectKeyCartsByIDDelete
     {
@@ -121,9 +123,8 @@ class ByProjectKeyCartsByIDDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $version
      *
-     * @param mixed $version
+     * @psalm-param scalar $version
      */
     public function withVersion($version): ByProjectKeyCartsByIDDelete
     {
@@ -131,9 +132,8 @@ class ByProjectKeyCartsByIDDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyCartsByIDDelete
     {

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodChangeIsDefaultAction>
- *
  * @method ShippingMethodChangeIsDefaultAction current()
  * @method ShippingMethodChangeIsDefaultAction at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingMethodChangeIsDefaultActionCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodChangeIsDefaultAction $value
      * @psalm-param ShippingMethodChangeIsDefaultAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingMethodChangeIsDefaultActionCollection

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjectModel implements OrderReturnShipmentStateChangedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderReturnShipmentStateChanged';
+    public const DISCRIMINATOR_VALUE = 'OrderReturnShipmentStateChanged';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
      * @var ?string
      */
     protected $returnShipmentState;
+
 
     public function __construct(
         string $returnItemId = null,

@@ -11,12 +11,17 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectModel implements StagedOrderSetLineItemShippingDetailsAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemShippingDetails';
+    public const DISCRIMINATOR_VALUE = 'setLineItemShippingDetails';
     /**
      * @var ?string
      */
@@ -31,6 +36,7 @@ final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectM
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         string $lineItemId = null,

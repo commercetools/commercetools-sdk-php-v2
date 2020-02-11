@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class OrderEditSetStagedActionsActionModel extends JsonObjectModel implements OrderEditSetStagedActionsAction
 {
-    const DISCRIMINATOR_VALUE = 'setStagedActions';
+    public const DISCRIMINATOR_VALUE = 'setStagedActions';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
      * @var ?StagedOrderUpdateActionCollection
      */
     protected $stagedActions;
+
 
     public function __construct(
         StagedOrderUpdateActionCollection $stagedActions = null

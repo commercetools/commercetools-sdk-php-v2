@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<PaymentInfo>
@@ -38,6 +43,7 @@ final class PaymentInfoBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): PaymentInfo
     {

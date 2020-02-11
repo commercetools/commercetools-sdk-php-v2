@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,7 +25,7 @@ class ResourceByProjectKeyImportSinks extends ApiResource
             $args['importSinkKey'] = $importSinkKey;
         }
 
-        return new ResourceByProjectKeyImportSinksByImportSinkKey($this->getUri().'/{importSinkKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyImportSinksByImportSinkKey($this->getUri() . '/{importSinkKey}', $args, $this->getClient());
     }
 
     /**
@@ -37,12 +38,9 @@ class ResourceByProjectKeyImportSinks extends ApiResource
 
         return new ByProjectKeyImportSinksPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyImportSinksGet
     {

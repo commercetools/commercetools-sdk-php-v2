@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeSetMaxApplicationsAction>
- *
  * @method DiscountCodeSetMaxApplicationsAction current()
  * @method DiscountCodeSetMaxApplicationsAction at($offset)
  */
@@ -23,9 +22,6 @@ class DiscountCodeSetMaxApplicationsActionCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeSetMaxApplicationsAction $value
      * @psalm-param DiscountCodeSetMaxApplicationsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DiscountCodeSetMaxApplicationsActionCollection

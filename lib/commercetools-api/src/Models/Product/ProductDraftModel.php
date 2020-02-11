@@ -13,11 +13,15 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
+
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductDraftModel extends JsonObjectModel implements ProductDraft
@@ -101,6 +105,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      * @var ?bool
      */
     protected $publish;
+
 
     public function __construct(
         ProductTypeResourceIdentifier $productType = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateRemoveRolesAction>
- *
  * @method StateRemoveRolesAction current()
  * @method StateRemoveRolesAction at($offset)
  */
@@ -23,9 +22,6 @@ class StateRemoveRolesActionCollection extends MapperSequence
     /**
      * @psalm-assert StateRemoveRolesAction $value
      * @psalm-param StateRemoveRolesAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateRemoveRolesActionCollection

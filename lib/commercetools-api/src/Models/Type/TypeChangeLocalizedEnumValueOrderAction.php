@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TypeChangeLocalizedEnumValueOrderAction extends TypeUpdateAction
 {
-    const FIELD_FIELD_NAME = 'fieldName';
-    const FIELD_KEYS = 'keys';
+    public const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_KEYS = 'keys';
 
     /**
      * @return null|string

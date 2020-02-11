@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DeliveryAddressSetMessagePayload extends MessagePayload
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_ADDRESS = 'address';
-    const FIELD_OLD_ADDRESS = 'oldAddress';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_ADDRESS = 'address';
+    public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
      * @return null|string

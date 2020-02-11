@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartSetCustomerGroupActionModel extends JsonObjectModel implements CartSetCustomerGroupAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomerGroup';
+    public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
+
 
     public function __construct(
         CustomerGroupResourceIdentifier $customerGroup = null

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction
 {
-    const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOMER = 'customer';
 
     /**
      * @return null|CustomerResourceIdentifier

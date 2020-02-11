@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Delivery>
- *
  * @method Delivery current()
  * @method Delivery at($offset)
  */
@@ -23,9 +22,6 @@ class DeliveryCollection extends MapperSequence
     /**
      * @psalm-assert Delivery $value
      * @psalm-param Delivery|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DeliveryCollection

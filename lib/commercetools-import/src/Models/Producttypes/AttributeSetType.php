@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface AttributeSetType extends AttributeType
 {
-    const FIELD_ELEMENT_TYPE = 'elementType';
+    public const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**
      * @return null|AttributeType

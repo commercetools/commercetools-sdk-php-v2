@@ -10,17 +10,18 @@ namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface InventoryEntryDraft extends JsonObject
 {
-    const FIELD_SKU = 'sku';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
-    const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
-    const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
+    public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
+    public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|string

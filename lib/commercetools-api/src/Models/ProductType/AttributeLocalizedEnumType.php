@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface AttributeLocalizedEnumType extends AttributeType
 {
-    const FIELD_VALUES = 'values';
+    public const FIELD_VALUES = 'values';
 
     /**
      * @return null|AttributeLocalizedEnumValueCollection

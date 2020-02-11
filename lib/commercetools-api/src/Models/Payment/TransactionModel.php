@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class TransactionModel extends JsonObjectModel implements Transaction
@@ -46,6 +50,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
      * @var ?string
      */
     protected $state;
+
 
     public function __construct(
         string $id = null,
@@ -211,13 +216,13 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->state = $state;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[Transaction::FIELD_TIMESTAMP]) && $data[Transaction::FIELD_TIMESTAMP] instanceof \DateTimeImmutable) {
             $data[Transaction::FIELD_TIMESTAMP] = $data[Transaction::FIELD_TIMESTAMP]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

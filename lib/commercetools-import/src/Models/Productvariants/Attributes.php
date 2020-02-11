@@ -8,9 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface Attributes extends JsonObject
 {
-    const FIELD_PATTERN0 = '//';
+    public const FIELD_PATTERN0 = '//';
 }

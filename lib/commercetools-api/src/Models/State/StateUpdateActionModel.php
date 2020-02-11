@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StateUpdateActionModel extends JsonObjectModel implements StateUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,17 +24,18 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
 
     /**
      * @psalm-var array<string, class-string<StateUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addRoles' => StateAddRolesActionModel::class,
-        'changeInitial' => StateChangeInitialActionModel::class,
-        'changeKey' => StateChangeKeyActionModel::class,
-        'changeType' => StateChangeTypeActionModel::class,
-        'removeRoles' => StateRemoveRolesActionModel::class,
-        'setDescription' => StateSetDescriptionActionModel::class,
-        'setName' => StateSetNameActionModel::class,
-        'setRoles' => StateSetRolesActionModel::class,
-        'setTransitions' => StateSetTransitionsActionModel::class,
+       'addRoles' => StateAddRolesActionModel::class,
+       'changeInitial' => StateChangeInitialActionModel::class,
+       'changeKey' => StateChangeKeyActionModel::class,
+       'changeType' => StateChangeTypeActionModel::class,
+       'removeRoles' => StateRemoveRolesActionModel::class,
+       'setDescription' => StateSetDescriptionActionModel::class,
+       'setName' => StateSetNameActionModel::class,
+       'setRoles' => StateSetRolesActionModel::class,
+       'setTransitions' => StateSetTransitionsActionModel::class,
     ];
 
     public function __construct(
@@ -56,18 +60,19 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<StateUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = StateUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -82,7 +87,6 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
 
         /** @psalm-var class-string<StateUpdateAction> */
         $type = StateUpdateActionModel::class;
-
         return $type;
     }
 }

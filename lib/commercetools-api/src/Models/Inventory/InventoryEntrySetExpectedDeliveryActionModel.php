@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel implements InventoryEntrySetExpectedDeliveryAction
 {
-    const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
+    public const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
     /**
      * @var ?string
      */
@@ -24,6 +29,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
+
 
     public function __construct(
         DateTimeImmutable $expectedDelivery = null
@@ -75,13 +81,13 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
         $this->expectedDelivery = $expectedDelivery;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[InventoryEntrySetExpectedDeliveryAction::FIELD_EXPECTED_DELIVERY]) && $data[InventoryEntrySetExpectedDeliveryAction::FIELD_EXPECTED_DELIVERY] instanceof \DateTimeImmutable) {
             $data[InventoryEntrySetExpectedDeliveryAction::FIELD_EXPECTED_DELIVERY] = $data[InventoryEntrySetExpectedDeliveryAction::FIELD_EXPECTED_DELIVERY]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

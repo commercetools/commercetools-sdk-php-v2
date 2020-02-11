@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategorySetMetaDescriptionAction extends CategoryUpdateAction
 {
-    const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
 
     /**
      * @return null|LocalizedString

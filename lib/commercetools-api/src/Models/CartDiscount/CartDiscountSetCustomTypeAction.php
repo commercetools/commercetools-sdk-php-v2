@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CartDiscountSetCustomTypeAction extends CartDiscountUpdateAction
 {
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * <p>If absent, the custom type and any existing CustomFields are removed.</p>

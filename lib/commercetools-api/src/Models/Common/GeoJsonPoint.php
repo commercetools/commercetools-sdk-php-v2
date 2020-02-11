@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface GeoJsonPoint extends GeoJson
 {
-    const FIELD_COORDINATES = 'coordinates';
+    public const FIELD_COORDINATES = 'coordinates';
 
     /**
      * @return null|array

@@ -10,13 +10,16 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements OrderEditSetCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomType';
+    public const DISCRIMINATOR_VALUE = 'setCustomType';
     /**
      * @var ?string
      */
@@ -31,6 +34,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
      * @var ?JsonObject
      */
     protected $fields;
+
 
     public function __construct(
         TypeResourceIdentifier $type = null,

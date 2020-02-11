@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel implements DiscountCodeSetValidUntilAction
 {
-    const DISCRIMINATOR_VALUE = 'setValidUntil';
+    public const DISCRIMINATOR_VALUE = 'setValidUntil';
     /**
      * @var ?string
      */
@@ -24,6 +29,7 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         DateTimeImmutable $validUntil = null
@@ -77,13 +83,13 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL]) && $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL] = $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

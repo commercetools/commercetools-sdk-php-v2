@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomLineItemReturnItem>
- *
  * @method CustomLineItemReturnItem current()
  * @method CustomLineItemReturnItem at($offset)
  */
@@ -23,9 +22,6 @@ class CustomLineItemReturnItemCollection extends MapperSequence
     /**
      * @psalm-assert CustomLineItemReturnItem $value
      * @psalm-param CustomLineItemReturnItem|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomLineItemReturnItemCollection

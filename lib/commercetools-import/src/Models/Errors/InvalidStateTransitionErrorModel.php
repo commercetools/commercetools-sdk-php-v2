@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InvalidStateTransitionErrorModel extends JsonObjectModel implements InvalidStateTransitionError
 {
-    const DISCRIMINATOR_VALUE = 'InvalidTransition';
+    public const DISCRIMINATOR_VALUE = 'InvalidTransition';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $newState;
+
 
     public function __construct(
         string $message = null,

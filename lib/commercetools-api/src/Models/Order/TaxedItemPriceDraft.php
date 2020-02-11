@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TaxedItemPriceDraft extends JsonObject
 {
-    const FIELD_TOTAL_NET = 'totalNet';
-    const FIELD_TOTAL_GROSS = 'totalGross';
+    public const FIELD_TOTAL_NET = 'totalNet';
+    public const FIELD_TOTAL_GROSS = 'totalGross';
 
     /**
      * @return null|Money

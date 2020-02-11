@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomObject;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomObjectDraftModel extends JsonObjectModel implements CustomObjectDraft
@@ -33,6 +35,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
      * @var ?int
      */
     protected $version;
+
 
     public function __construct(
         string $container = null,

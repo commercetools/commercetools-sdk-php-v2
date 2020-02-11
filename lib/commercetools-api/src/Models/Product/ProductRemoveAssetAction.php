@@ -8,13 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProductRemoveAssetAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SKU = 'sku';
-    const FIELD_STAGED = 'staged';
-    const FIELD_ASSET_ID = 'assetId';
-    const FIELD_ASSET_KEY = 'assetKey';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_ASSET_ID = 'assetId';
+    public const FIELD_ASSET_KEY = 'assetKey';
 
     /**
      * @return null|int

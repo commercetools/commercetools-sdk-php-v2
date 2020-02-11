@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -26,29 +29,30 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 
     /**
      * @psalm-var array<string, class-string<ErrorObject> >
+     *
      */
     private static $discriminatorClasses = [
-        'access_denied' => AccessDeniedErrorModel::class,
-        'invalid_scope' => InvalidScopeErrorModel::class,
-        'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
-        'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
-        'DuplicateField' => DuplicateFieldErrorModel::class,
-        'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
-        'insufficient_scope' => InsufficientScopeErrorModel::class,
-        'InvalidCredentials' => InvalidCredentialsErrorModel::class,
-        'invalid_token' => InvalidTokenErrorModel::class,
-        'InvalidField' => InvalidFieldErrorModel::class,
-        'InvalidJsonInput' => InvalidJsonInputModel::class,
-        'InvalidInput' => InvalidInputModel::class,
-        'ResourceNotFound' => ResourceNotFoundErrorModel::class,
-        'ResourceCreation' => ResourceCreationErrorModel::class,
-        'ResourceUpdate' => ResourceUpdateErrorModel::class,
-        'ResourceDeletion' => ResourceDeletionErrorModel::class,
-        'RequiredField' => RequiredFieldErrorModel::class,
-        'InvalidTransition' => InvalidStateTransitionErrorModel::class,
-        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
-        'Contention' => ContentionErrorModel::class,
-        'Generic' => GenericErrorModel::class,
+       'access_denied' => AccessDeniedErrorModel::class,
+       'invalid_scope' => InvalidScopeErrorModel::class,
+       'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
+       'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
+       'DuplicateField' => DuplicateFieldErrorModel::class,
+       'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
+       'insufficient_scope' => InsufficientScopeErrorModel::class,
+       'InvalidCredentials' => InvalidCredentialsErrorModel::class,
+       'invalid_token' => InvalidTokenErrorModel::class,
+       'InvalidField' => InvalidFieldErrorModel::class,
+       'InvalidJsonInput' => InvalidJsonInputModel::class,
+       'InvalidInput' => InvalidInputModel::class,
+       'ResourceNotFound' => ResourceNotFoundErrorModel::class,
+       'ResourceCreation' => ResourceCreationErrorModel::class,
+       'ResourceUpdate' => ResourceUpdateErrorModel::class,
+       'ResourceDeletion' => ResourceDeletionErrorModel::class,
+       'RequiredField' => RequiredFieldErrorModel::class,
+       'InvalidTransition' => InvalidStateTransitionErrorModel::class,
+       'ConcurrentModification' => ConcurrentModificationErrorModel::class,
+       'Contention' => ContentionErrorModel::class,
+       'Generic' => GenericErrorModel::class,
     ];
 
     public function __construct(
@@ -99,18 +103,18 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         $this->message = $message;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ErrorObject>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ErrorObject::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -125,7 +129,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 
         /** @psalm-var class-string<ErrorObject> */
         $type = ErrorObjectModel::class;
-
         return $type;
     }
 }

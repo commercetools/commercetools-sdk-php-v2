@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Address>
- *
  * @method Address current()
  * @method Address at($offset)
  */
@@ -23,9 +22,6 @@ class AddressCollection extends MapperSequence
     /**
      * @psalm-assert Address $value
      * @psalm-param Address|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AddressCollection

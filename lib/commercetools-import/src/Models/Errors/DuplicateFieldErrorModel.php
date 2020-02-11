@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DuplicateFieldErrorModel extends JsonObjectModel implements DuplicateFieldError
 {
-    const DISCRIMINATOR_VALUE = 'DuplicateField';
+    public const DISCRIMINATOR_VALUE = 'DuplicateField';
     /**
      * @var ?string
      */
@@ -34,6 +36,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
      * @var ?JsonObject
      */
     protected $duplicateValue;
+
 
     public function __construct(
         string $message = null,

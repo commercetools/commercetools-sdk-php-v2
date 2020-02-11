@@ -11,11 +11,13 @@ namespace Commercetools\Api\Models\OrderEdit;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingMethodAction extends StagedOrderUpdateAction
 {
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
      * @return null|ShippingMethodResourceIdentifier

@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentStatusDraft
@@ -29,6 +33,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
      * @var ?StateResourceIdentifier
      */
     protected $state;
+
 
     public function __construct(
         string $interfaceCode = null,

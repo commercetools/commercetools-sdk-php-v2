@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<WhitespaceTokenizer>
- *
  * @method WhitespaceTokenizer current()
  * @method WhitespaceTokenizer at($offset)
  */
@@ -23,9 +22,6 @@ class WhitespaceTokenizerCollection extends MapperSequence
     /**
      * @psalm-assert WhitespaceTokenizer $value
      * @psalm-param WhitespaceTokenizer|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return WhitespaceTokenizerCollection

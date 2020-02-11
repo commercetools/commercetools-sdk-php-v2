@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ChannelSetCustomFieldAction>
@@ -61,6 +65,7 @@ final class ChannelSetCustomFieldActionBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ChannelSetCustomFieldAction
     {

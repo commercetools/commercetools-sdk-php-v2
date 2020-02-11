@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DateSetAttribute>
- *
  * @method DateSetAttribute current()
  * @method DateSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class DateSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert DateSetAttribute $value
      * @psalm-param DateSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return DateSetAttributeCollection

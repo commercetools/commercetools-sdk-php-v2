@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DuplicateAttributeValuesError extends ErrorObject
 {
-    const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * @return null|AttributeCollection

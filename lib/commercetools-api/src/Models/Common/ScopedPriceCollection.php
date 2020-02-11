@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ScopedPrice>
- *
  * @method ScopedPrice current()
  * @method ScopedPrice at($offset)
  */
@@ -23,9 +22,6 @@ class ScopedPriceCollection extends MapperSequence
     /**
      * @psalm-assert ScopedPrice $value
      * @psalm-param ScopedPrice|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ScopedPriceCollection

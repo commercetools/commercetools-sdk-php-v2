@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel implements ShippingMethodRemoveShippingRateAction
 {
-    const DISCRIMINATOR_VALUE = 'removeShippingRate';
+    public const DISCRIMINATOR_VALUE = 'removeShippingRate';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
+
 
     public function __construct(
         ZoneResourceIdentifier $zone = null,

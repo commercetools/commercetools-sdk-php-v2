@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
@@ -37,6 +40,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
      * @var ?ErrorObjectCollection
      */
     protected $errors;
+
 
     public function __construct(
         int $statusCode = null,

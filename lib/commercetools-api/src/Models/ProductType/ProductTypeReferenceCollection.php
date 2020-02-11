@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeReference>
- *
  * @method ProductTypeReference current()
  * @method ProductTypeReference at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeReferenceCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeReference $value
      * @psalm-param ProductTypeReference|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeReferenceCollection

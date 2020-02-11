@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductSetPricesAction>
@@ -107,6 +112,7 @@ final class ProductSetPricesActionBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductSetPricesAction
     {

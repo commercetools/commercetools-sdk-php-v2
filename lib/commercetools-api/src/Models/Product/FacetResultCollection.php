@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FacetResult>
- *
  * @method FacetResult current()
  * @method FacetResult at($offset)
  */
@@ -23,9 +22,6 @@ class FacetResultCollection extends MapperSequence
     /**
      * @psalm-assert FacetResult $value
      * @psalm-param FacetResult|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return FacetResultCollection

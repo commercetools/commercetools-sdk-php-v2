@@ -19,7 +19,12 @@ use Commercetools\Api\Models\OrderEdit\OrderEditAppliedBuilder;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<OrderEditAppliedMessage>

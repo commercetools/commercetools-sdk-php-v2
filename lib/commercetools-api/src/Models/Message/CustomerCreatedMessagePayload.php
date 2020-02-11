@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Customer\Customer;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerCreatedMessagePayload extends MessagePayload
 {
-    const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOMER = 'customer';
 
     /**
      * @return null|Customer

@@ -11,7 +11,12 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<MyTransactionDraft>

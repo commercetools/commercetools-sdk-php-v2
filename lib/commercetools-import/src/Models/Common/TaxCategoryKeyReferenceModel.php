@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxCategoryKeyReference
 {
-    const DISCRIMINATOR_VALUE = 'tax-category';
+    public const DISCRIMINATOR_VALUE = 'tax-category';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxC
      * @var ?string
      */
     protected $typeId;
+
 
     public function __construct(
         string $key = null

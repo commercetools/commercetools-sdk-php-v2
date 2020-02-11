@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<RequiredFieldError>
- *
  * @method RequiredFieldError current()
  * @method RequiredFieldError at($offset)
  */
@@ -23,9 +22,6 @@ class RequiredFieldErrorCollection extends MapperSequence
     /**
      * @psalm-assert RequiredFieldError $value
      * @psalm-param RequiredFieldError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return RequiredFieldErrorCollection

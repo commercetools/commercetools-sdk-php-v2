@@ -9,8 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -18,9 +21,12 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
@@ -119,6 +125,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         string $id = null,
@@ -630,6 +637,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -648,7 +656,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         if (isset($data[DiscountCode::FIELD_VALID_UNTIL]) && $data[DiscountCode::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[DiscountCode::FIELD_VALID_UNTIL] = $data[DiscountCode::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

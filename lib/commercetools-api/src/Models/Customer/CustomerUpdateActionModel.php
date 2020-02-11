@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomerUpdateActionModel extends JsonObjectModel implements CustomerUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,33 +24,34 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
 
     /**
      * @psalm-var array<string, class-string<CustomerUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addAddress' => CustomerAddAddressActionModel::class,
-        'addBillingAddressId' => CustomerAddBillingAddressIdActionModel::class,
-        'addShippingAddressId' => CustomerAddShippingAddressIdActionModel::class,
-        'changeAddress' => CustomerChangeAddressActionModel::class,
-        'changeEmail' => CustomerChangeEmailActionModel::class,
-        'removeAddress' => CustomerRemoveAddressActionModel::class,
-        'removeBillingAddressId' => CustomerRemoveBillingAddressIdActionModel::class,
-        'removeShippingAddressId' => CustomerRemoveShippingAddressIdActionModel::class,
-        'setCompanyName' => CustomerSetCompanyNameActionModel::class,
-        'setCustomField' => CustomerSetCustomFieldActionModel::class,
-        'setCustomType' => CustomerSetCustomTypeActionModel::class,
-        'setCustomerGroup' => CustomerSetCustomerGroupActionModel::class,
-        'setCustomerNumber' => CustomerSetCustomerNumberActionModel::class,
-        'setDateOfBirth' => CustomerSetDateOfBirthActionModel::class,
-        'setDefaultBillingAddress' => CustomerSetDefaultBillingAddressActionModel::class,
-        'setDefaultShippingAddress' => CustomerSetDefaultShippingAddressActionModel::class,
-        'setExternalId' => CustomerSetExternalIdActionModel::class,
-        'setFirstName' => CustomerSetFirstNameActionModel::class,
-        'setKey' => CustomerSetKeyActionModel::class,
-        'setLastName' => CustomerSetLastNameActionModel::class,
-        'setLocale' => CustomerSetLocaleActionModel::class,
-        'setMiddleName' => CustomerSetMiddleNameActionModel::class,
-        'setSalutation' => CustomerSetSalutationActionModel::class,
-        'setTitle' => CustomerSetTitleActionModel::class,
-        'setVatId' => CustomerSetVatIdActionModel::class,
+       'addAddress' => CustomerAddAddressActionModel::class,
+       'addBillingAddressId' => CustomerAddBillingAddressIdActionModel::class,
+       'addShippingAddressId' => CustomerAddShippingAddressIdActionModel::class,
+       'changeAddress' => CustomerChangeAddressActionModel::class,
+       'changeEmail' => CustomerChangeEmailActionModel::class,
+       'removeAddress' => CustomerRemoveAddressActionModel::class,
+       'removeBillingAddressId' => CustomerRemoveBillingAddressIdActionModel::class,
+       'removeShippingAddressId' => CustomerRemoveShippingAddressIdActionModel::class,
+       'setCompanyName' => CustomerSetCompanyNameActionModel::class,
+       'setCustomField' => CustomerSetCustomFieldActionModel::class,
+       'setCustomType' => CustomerSetCustomTypeActionModel::class,
+       'setCustomerGroup' => CustomerSetCustomerGroupActionModel::class,
+       'setCustomerNumber' => CustomerSetCustomerNumberActionModel::class,
+       'setDateOfBirth' => CustomerSetDateOfBirthActionModel::class,
+       'setDefaultBillingAddress' => CustomerSetDefaultBillingAddressActionModel::class,
+       'setDefaultShippingAddress' => CustomerSetDefaultShippingAddressActionModel::class,
+       'setExternalId' => CustomerSetExternalIdActionModel::class,
+       'setFirstName' => CustomerSetFirstNameActionModel::class,
+       'setKey' => CustomerSetKeyActionModel::class,
+       'setLastName' => CustomerSetLastNameActionModel::class,
+       'setLocale' => CustomerSetLocaleActionModel::class,
+       'setMiddleName' => CustomerSetMiddleNameActionModel::class,
+       'setSalutation' => CustomerSetSalutationActionModel::class,
+       'setTitle' => CustomerSetTitleActionModel::class,
+       'setVatId' => CustomerSetVatIdActionModel::class,
     ];
 
     public function __construct(
@@ -72,18 +76,19 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<CustomerUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = CustomerUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -98,7 +103,6 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
 
         /** @psalm-var class-string<CustomerUpdateAction> */
         $type = CustomerUpdateActionModel::class;
-
         return $type;
     }
 }

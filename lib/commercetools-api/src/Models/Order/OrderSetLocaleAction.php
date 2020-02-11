@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderSetLocaleAction extends OrderUpdateAction
 {
-    const FIELD_LOCALE = 'locale';
+    public const FIELD_LOCALE = 'locale';
 
     /**
      * @return null|string

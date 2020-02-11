@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Order\Parcel;
 use Commercetools\Api\Models\Order\ParcelModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implements ParcelRemovedFromDeliveryMessage
 {
-    const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
+    public const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
     /**
      * @var ?string
      */
@@ -88,6 +92,7 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
      * @var ?Parcel
      */
     protected $parcel;
+
 
     public function __construct(
         string $id = null,
@@ -412,6 +417,7 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
         $this->parcel = $parcel;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -422,7 +428,6 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

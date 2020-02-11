@@ -8,13 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
 {
-    const FIELD_PREDICATE = 'predicate';
-    const FIELD_TRIGGER_QUANTITY = 'triggerQuantity';
-    const FIELD_DISCOUNTED_QUANTITY = 'discountedQuantity';
-    const FIELD_MAX_OCCURRENCE = 'maxOccurrence';
-    const FIELD_SELECTION_MODE = 'selectionMode';
+    public const FIELD_PREDICATE = 'predicate';
+    public const FIELD_TRIGGER_QUANTITY = 'triggerQuantity';
+    public const FIELD_DISCOUNTED_QUANTITY = 'discountedQuantity';
+    public const FIELD_MAX_OCCURRENCE = 'maxOccurrence';
+    public const FIELD_SELECTION_MODE = 'selectionMode';
 
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are

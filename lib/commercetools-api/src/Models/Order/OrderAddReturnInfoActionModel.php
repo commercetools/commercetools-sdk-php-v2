@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderAddReturnInfoActionModel extends JsonObjectModel implements OrderAddReturnInfoAction
 {
-    const DISCRIMINATOR_VALUE = 'addReturnInfo';
+    public const DISCRIMINATOR_VALUE = 'addReturnInfo';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
      * @var ?DateTimeImmutable
      */
     protected $returnDate;
+
 
     public function __construct(
         string $returnTrackingId = null,
@@ -134,13 +139,13 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
         $this->returnDate = $returnDate;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[OrderAddReturnInfoAction::FIELD_RETURN_DATE]) && $data[OrderAddReturnInfoAction::FIELD_RETURN_DATE] instanceof \DateTimeImmutable) {
             $data[OrderAddReturnInfoAction::FIELD_RETURN_DATE] = $data[OrderAddReturnInfoAction::FIELD_RETURN_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

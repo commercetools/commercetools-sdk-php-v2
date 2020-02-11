@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CartDiscountChangeSortOrderActionModel extends JsonObjectModel implements CartDiscountChangeSortOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeSortOrder';
+    public const DISCRIMINATOR_VALUE = 'changeSortOrder';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CartDiscountChangeSortOrderActionModel extends JsonObjectModel imple
      * @var ?string
      */
     protected $sortOrder;
+
 
     public function __construct(
         string $sortOrder = null

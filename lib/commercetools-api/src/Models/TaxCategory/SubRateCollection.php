@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SubRate>
- *
  * @method SubRate current()
  * @method SubRate at($offset)
  */
@@ -23,9 +22,6 @@ class SubRateCollection extends MapperSequence
     /**
      * @psalm-assert SubRate $value
      * @psalm-param SubRate|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SubRateCollection

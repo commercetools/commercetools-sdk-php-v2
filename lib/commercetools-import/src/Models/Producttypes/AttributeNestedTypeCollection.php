@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeNestedType>
- *
  * @method AttributeNestedType current()
  * @method AttributeNestedType at($offset)
  */
@@ -23,9 +22,6 @@ class AttributeNestedTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeNestedType $value
      * @psalm-param AttributeNestedType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AttributeNestedTypeCollection

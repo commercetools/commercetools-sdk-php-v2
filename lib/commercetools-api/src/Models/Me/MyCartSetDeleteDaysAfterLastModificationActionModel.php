@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObjectModel implements MyCartSetDeleteDaysAfterLastModificationAction
 {
-    const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
+    public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
+
 
     public function __construct(
         int $deleteDaysAfterLastModification = null

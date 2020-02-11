@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ReviewSetTargetAction extends ReviewUpdateAction
 {
-    const FIELD_TARGET = 'target';
+    public const FIELD_TARGET = 'target';
 
     /**
      * <p>Identifies the target of the review.

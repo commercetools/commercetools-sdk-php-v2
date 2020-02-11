@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TextLineItemDraft>
- *
  * @method TextLineItemDraft current()
  * @method TextLineItemDraft at($offset)
  */
@@ -23,9 +22,6 @@ class TextLineItemDraftCollection extends MapperSequence
     /**
      * @psalm-assert TextLineItemDraft $value
      * @psalm-param TextLineItemDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TextLineItemDraftCollection

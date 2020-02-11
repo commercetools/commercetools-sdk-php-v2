@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributePlainEnumValue>
- *
  * @method AttributePlainEnumValue current()
  * @method AttributePlainEnumValue at($offset)
  */
@@ -23,9 +22,6 @@ class AttributePlainEnumValueCollection extends MapperSequence
     /**
      * @psalm-assert AttributePlainEnumValue $value
      * @psalm-param AttributePlainEnumValue|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AttributePlainEnumValueCollection

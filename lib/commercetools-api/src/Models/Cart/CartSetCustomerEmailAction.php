@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetCustomerEmailAction extends CartUpdateAction
 {
-    const FIELD_EMAIL = 'email';
+    public const FIELD_EMAIL = 'email';
 
     /**
      * @return null|string

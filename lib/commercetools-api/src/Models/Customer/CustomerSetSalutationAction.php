@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerSetSalutationAction extends CustomerUpdateAction
 {
-    const FIELD_SALUTATION = 'salutation';
+    public const FIELD_SALUTATION = 'salutation';
 
     /**
      * @return null|string

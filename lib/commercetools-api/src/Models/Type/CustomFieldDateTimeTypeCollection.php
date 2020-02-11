@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldDateTimeType>
- *
  * @method CustomFieldDateTimeType current()
  * @method CustomFieldDateTimeType at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldDateTimeTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldDateTimeType $value
      * @psalm-param CustomFieldDateTimeType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldDateTimeTypeCollection

@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomerSignInResultModel extends JsonObjectModel implements CustomerSignInResult
@@ -23,6 +25,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
      * @var ?JsonObject
      */
     protected $cart;
+
 
     public function __construct(
         Customer $customer = null,

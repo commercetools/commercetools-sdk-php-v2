@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel implements ReviewStateTransitionMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
+    public const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
     /**
      * @var ?string
      */
@@ -52,6 +56,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
      * @var ?bool
      */
     protected $force;
+
 
     public function __construct(
         StateReference $oldState = null,

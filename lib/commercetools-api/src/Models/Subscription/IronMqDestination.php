@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface IronMqDestination extends Destination
 {
-    const FIELD_URI = 'uri';
+    public const FIELD_URI = 'uri';
 
     /**
      * @return null|string

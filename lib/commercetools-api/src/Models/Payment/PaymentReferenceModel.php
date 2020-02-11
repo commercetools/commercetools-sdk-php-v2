@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PaymentReferenceModel extends JsonObjectModel implements PaymentReference
 {
-    const DISCRIMINATOR_VALUE = 'payment';
+    public const DISCRIMINATOR_VALUE = 'payment';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
      * @var ?Payment
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

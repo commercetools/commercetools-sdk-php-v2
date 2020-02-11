@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntrySetCustomFieldAction>
- *
  * @method InventoryEntrySetCustomFieldAction current()
  * @method InventoryEntrySetCustomFieldAction at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntrySetCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntrySetCustomFieldAction $value
      * @psalm-param InventoryEntrySetCustomFieldAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntrySetCustomFieldActionCollection

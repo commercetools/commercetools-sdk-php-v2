@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionAWSLambdaDestination>
- *
  * @method ExtensionAWSLambdaDestination current()
  * @method ExtensionAWSLambdaDestination at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionAWSLambdaDestinationCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionAWSLambdaDestination $value
      * @psalm-param ExtensionAWSLambdaDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionAWSLambdaDestinationCollection

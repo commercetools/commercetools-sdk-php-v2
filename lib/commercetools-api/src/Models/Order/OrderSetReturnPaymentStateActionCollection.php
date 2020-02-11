@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderSetReturnPaymentStateAction>
- *
  * @method OrderSetReturnPaymentStateAction current()
  * @method OrderSetReturnPaymentStateAction at($offset)
  */
@@ -23,9 +22,6 @@ class OrderSetReturnPaymentStateActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderSetReturnPaymentStateAction $value
      * @psalm-param OrderSetReturnPaymentStateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderSetReturnPaymentStateActionCollection

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartDiscountPagedQueryResponseModel extends JsonObjectModel implements CartDiscountPagedQueryResponse
@@ -37,6 +40,7 @@ final class CartDiscountPagedQueryResponseModel extends JsonObjectModel implemen
      * @var ?CartDiscountCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

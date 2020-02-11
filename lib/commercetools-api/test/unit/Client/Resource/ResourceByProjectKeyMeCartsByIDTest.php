@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeCartsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeCartsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeCartsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeCartsByIDDelete
  */
 class ResourceByProjectKeyMeCartsByIDTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                         ->carts()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/me/carts/{ID}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
             'ByProjectKeyMeCartsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/me/carts/{ID}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                         ->carts()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/me/carts/{ID}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
             'ByProjectKeyMeCartsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/me/carts/{ID}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                         ->carts()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/me/carts/{ID}?version=version',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                         ->carts()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/me/carts/{ID}?expand=expand',
@@ -112,16 +104,15 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
             'ByProjectKeyMeCartsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/me/carts/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -136,7 +127,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -145,36 +136,33 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
             'ByProjectKeyMeCartsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyMeCartsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyMeCartsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->carts()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -187,7 +175,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

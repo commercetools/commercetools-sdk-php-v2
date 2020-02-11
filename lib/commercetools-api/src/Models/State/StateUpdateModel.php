@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StateUpdateModel extends JsonObjectModel implements StateUpdate
@@ -22,6 +25,7 @@ final class StateUpdateModel extends JsonObjectModel implements StateUpdate
      * @var ?StateUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

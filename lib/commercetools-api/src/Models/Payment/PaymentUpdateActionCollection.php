@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentUpdateAction>
- *
  * @method PaymentUpdateAction current()
  * @method PaymentUpdateAction at($offset)
  */
@@ -23,9 +22,6 @@ class PaymentUpdateActionCollection extends MapperSequence
     /**
      * @psalm-assert PaymentUpdateAction $value
      * @psalm-param PaymentUpdateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PaymentUpdateActionCollection

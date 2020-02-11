@@ -8,9 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -82,6 +87,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * @var ?StateKeyReference
      */
     protected $state;
+
 
     public function __construct(
         string $key = null,

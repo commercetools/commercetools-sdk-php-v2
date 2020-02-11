@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AttributeDefinitionDraftModel extends JsonObjectModel implements AttributeDefinitionDraft
@@ -54,6 +58,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
      * @var ?bool
      */
     protected $isSearchable;
+
 
     public function __construct(
         AttributeType $type = null,

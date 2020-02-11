@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategoryChangeAssetNameAction extends CategoryUpdateAction
 {
-    const FIELD_ASSET_ID = 'assetId';
-    const FIELD_ASSET_KEY = 'assetKey';
-    const FIELD_NAME = 'name';
+    public const FIELD_ASSET_ID = 'assetId';
+    public const FIELD_ASSET_KEY = 'assetKey';
+    public const FIELD_NAME = 'name';
 
     /**
      * @return null|string

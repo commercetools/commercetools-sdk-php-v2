@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface AzureServiceBusDestination extends Destination
 {
-    const FIELD_CONNECTION_STRING = 'connectionString';
+    public const FIELD_CONNECTION_STRING = 'connectionString';
 
     /**
      * @return null|string

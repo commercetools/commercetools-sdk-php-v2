@@ -8,20 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ReturnItem extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_ID = 'id';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_TYPE = 'type';
-    const FIELD_COMMENT = 'comment';
-    const FIELD_SHIPMENT_STATE = 'shipmentState';
-    const FIELD_PAYMENT_STATE = 'paymentState';
-    const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
-    const FIELD_CREATED_AT = 'createdAt';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_ID = 'id';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_COMMENT = 'comment';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_CREATED_AT = 'createdAt';
 
     /**
      * @return null|string

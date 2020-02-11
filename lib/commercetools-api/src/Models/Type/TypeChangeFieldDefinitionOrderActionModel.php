@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionOrderAction
 {
-    const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
+    public const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
      * @var ?array
      */
     protected $fieldNames;
+
 
     public function __construct(
         array $fieldNames = null

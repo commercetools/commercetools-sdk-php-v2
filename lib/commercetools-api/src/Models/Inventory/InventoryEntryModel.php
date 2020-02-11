@@ -10,15 +10,21 @@ namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
+
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class InventoryEntryModel extends JsonObjectModel implements InventoryEntry
@@ -87,6 +93,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
      * @var ?CustomFields
      */
     protected $custom;
+
 
     public function __construct(
         string $id = null,
@@ -438,6 +445,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->custom = $custom;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -452,7 +460,6 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         if (isset($data[InventoryEntry::FIELD_EXPECTED_DELIVERY]) && $data[InventoryEntry::FIELD_EXPECTED_DELIVERY] instanceof \DateTimeImmutable) {
             $data[InventoryEntry::FIELD_EXPECTED_DELIVERY] = $data[InventoryEntry::FIELD_EXPECTED_DELIVERY]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

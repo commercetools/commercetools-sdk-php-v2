@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AssetModel extends JsonObjectModel implements Asset
@@ -37,6 +40,7 @@ final class AssetModel extends JsonObjectModel implements Asset
      * @var ?array
      */
     protected $tags;
+
 
     public function __construct(
         string $key = null,

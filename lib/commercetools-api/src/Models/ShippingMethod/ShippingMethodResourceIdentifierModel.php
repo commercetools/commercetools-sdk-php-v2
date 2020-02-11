@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ShippingMethodResourceIdentifierModel extends JsonObjectModel implements ShippingMethodResourceIdentifier
 {
-    const DISCRIMINATOR_VALUE = 'shipping-method';
+    public const DISCRIMINATOR_VALUE = 'shipping-method';
     /**
      * @var ?string
      */
@@ -28,6 +34,7 @@ final class ShippingMethodResourceIdentifierModel extends JsonObjectModel implem
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

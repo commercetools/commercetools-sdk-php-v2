@@ -9,9 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productdrafts;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use stdClass;
 
 /**
  * @implements Builder<ProductVariantDraftImport>
@@ -155,6 +160,7 @@ final class ProductVariantDraftImportBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductVariantDraftImport
     {

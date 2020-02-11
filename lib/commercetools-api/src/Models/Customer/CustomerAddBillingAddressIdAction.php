@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerAddBillingAddressIdAction extends CustomerUpdateAction
 {
-    const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_ID = 'addressId';
 
     /**
      * @return null|string

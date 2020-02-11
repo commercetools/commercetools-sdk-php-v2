@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importrequests\ProductVariantImportRequest;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,13 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
             $args['resourceKey'] = $resourceKey;
         }
 
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri().'/resourceKey={resourceKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri() . '/resourceKey={resourceKey}', $args, $this->getClient());
     }
-
     public function importOperations(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations($this->getUri().'/import-operations', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations($this->getUri() . '/import-operations', $args, $this->getClient());
     }
 
     /**

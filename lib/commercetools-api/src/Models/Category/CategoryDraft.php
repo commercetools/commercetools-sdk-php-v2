@@ -11,22 +11,23 @@ namespace Commercetools\Api\Models\Category;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CategoryDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_SLUG = 'slug';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_PARENT = 'parent';
-    const FIELD_ORDER_HINT = 'orderHint';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_META_TITLE = 'metaTitle';
-    const FIELD_META_DESCRIPTION = 'metaDescription';
-    const FIELD_META_KEYWORDS = 'metaKeywords';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_ASSETS = 'assets';
-    const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_PARENT = 'parent';
+    public const FIELD_ORDER_HINT = 'orderHint';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_ASSETS = 'assets';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|LocalizedString

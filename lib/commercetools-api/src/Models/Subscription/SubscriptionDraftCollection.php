@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SubscriptionDraft>
- *
  * @method SubscriptionDraft current()
  * @method SubscriptionDraft at($offset)
  */
@@ -23,9 +22,6 @@ class SubscriptionDraftCollection extends MapperSequence
     /**
      * @psalm-assert SubscriptionDraft $value
      * @psalm-param SubscriptionDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return SubscriptionDraftCollection

@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
@@ -24,6 +28,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
      * @var ?ShippingRateDraftCollection
      */
     protected $shippingRates;
+
 
     public function __construct(
         ZoneResourceIdentifier $zone = null,

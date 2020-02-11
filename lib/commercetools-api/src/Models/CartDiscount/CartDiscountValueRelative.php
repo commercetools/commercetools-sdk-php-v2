@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartDiscountValueRelative extends CartDiscountValue
 {
-    const FIELD_PERMYRIAD = 'permyriad';
+    public const FIELD_PERMYRIAD = 'permyriad';
 
     /**
      * @return null|int

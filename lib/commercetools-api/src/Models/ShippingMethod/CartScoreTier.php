@@ -9,13 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartScoreTier extends ShippingRatePriceTier
 {
-    const FIELD_SCORE = 'score';
-    const FIELD_PRICE = 'price';
-    const FIELD_PRICE_FUNCTION = 'priceFunction';
-    const FIELD_IS_MATCHING = 'isMatching';
+    public const FIELD_SCORE = 'score';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_PRICE_FUNCTION = 'priceFunction';
+    public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
      * @return null|int

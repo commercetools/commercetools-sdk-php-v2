@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductVariantChannelAvailabilityModel extends JsonObjectModel implements ProductVariantChannelAvailability
 {
@@ -26,6 +30,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
      * @var ?int
      */
     protected $availableQuantity;
+
 
     public function __construct(
         bool $isOnStock = null,

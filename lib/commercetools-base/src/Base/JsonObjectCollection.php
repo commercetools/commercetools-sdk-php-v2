@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use Commercetools\Exception\InvalidArgumentException;
 
 /**
  * @extends MapperSequence<JsonObject>
- *
  * @method JsonObject current()
  * @method JsonObject at($offset)
  */
@@ -21,12 +21,8 @@ class JsonObjectCollection extends MapperSequence
     /**
      * @psalm-assert JsonObject $value
      * @psalm-param JsonObject|object $value
-     *
-     * @param mixed $value
-     *
-     * @throws InvalidArgumentException
-     *
      * @return JsonObjectCollection
+     * @throws InvalidArgumentException
      */
     public function add($value)
     {
@@ -49,7 +45,6 @@ class JsonObjectCollection extends MapperSequence
                 $data = JsonObjectModel::of($data);
                 $this->set($data, $index);
             }
-
             return $data;
         };
     }

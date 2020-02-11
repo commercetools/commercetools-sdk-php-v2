@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeIsSearchableAction>
- *
  * @method ProductTypeChangeIsSearchableAction current()
  * @method ProductTypeChangeIsSearchableAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeChangeIsSearchableActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeChangeIsSearchableAction $value
      * @psalm-param ProductTypeChangeIsSearchableAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeChangeIsSearchableActionCollection

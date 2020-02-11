@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountedLineItemPriceForQuantity extends JsonObject
 {
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
 
     /**
      * @return null|int

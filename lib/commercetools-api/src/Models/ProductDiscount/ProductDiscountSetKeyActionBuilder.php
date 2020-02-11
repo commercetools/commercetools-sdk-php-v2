@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProductDiscountSetKeyAction>
@@ -40,6 +45,7 @@ final class ProductDiscountSetKeyActionBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ProductDiscountSetKeyAction
     {

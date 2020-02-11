@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ApiClientDraft>
- *
  * @method ApiClientDraft current()
  * @method ApiClientDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ApiClientDraftCollection extends MapperSequence
     /**
      * @psalm-assert ApiClientDraft $value
      * @psalm-param ApiClientDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ApiClientDraftCollection

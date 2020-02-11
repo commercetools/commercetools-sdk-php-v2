@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
 {
@@ -21,6 +25,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
      * @var ?string
      */
     protected $label;
+
 
     public function __construct(
         string $key = null,

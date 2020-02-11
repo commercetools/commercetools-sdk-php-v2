@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft
@@ -24,6 +28,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
      * @var ?ExternalTaxRateDraft
      */
     protected $taxRate;
+
 
     public function __construct(
         Money $totalGross = null,

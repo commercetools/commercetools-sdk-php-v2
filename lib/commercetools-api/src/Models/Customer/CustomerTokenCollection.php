@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerToken>
- *
  * @method CustomerToken current()
  * @method CustomerToken at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerTokenCollection extends MapperSequence
     /**
      * @psalm-assert CustomerToken $value
      * @psalm-param CustomerToken|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerTokenCollection

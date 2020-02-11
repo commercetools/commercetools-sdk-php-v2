@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface TaxCategoryDraft extends JsonObject
 {
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_RATES = 'rates';
-    const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_RATES = 'rates';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

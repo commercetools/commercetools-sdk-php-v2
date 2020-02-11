@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface SnsDestination extends Destination
 {
-    const FIELD_ACCESS_KEY = 'accessKey';
-    const FIELD_ACCESS_SECRET = 'accessSecret';
-    const FIELD_TOPIC_ARN = 'topicArn';
+    public const FIELD_ACCESS_KEY = 'accessKey';
+    public const FIELD_ACCESS_SECRET = 'accessSecret';
+    public const FIELD_TOPIC_ARN = 'topicArn';
 
     /**
      * @return null|string

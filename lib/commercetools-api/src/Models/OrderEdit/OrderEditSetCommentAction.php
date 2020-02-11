@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderEditSetCommentAction extends OrderEditUpdateAction
 {
-    const FIELD_COMMENT = 'comment';
+    public const FIELD_COMMENT = 'comment';
 
     /**
      * @return null|string

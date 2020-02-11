@@ -8,11 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Categories;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\AssetCollection;
+
 use Commercetools\Import\Models\Common\CategoryKeyReference;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
@@ -73,6 +78,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
      * @var ?AssetCollection
      */
     protected $assets;
+
 
     public function __construct(
         string $key = null,

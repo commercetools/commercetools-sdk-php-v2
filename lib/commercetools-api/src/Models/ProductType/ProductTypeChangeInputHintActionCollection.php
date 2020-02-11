@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeInputHintAction>
- *
  * @method ProductTypeChangeInputHintAction current()
  * @method ProductTypeChangeInputHintAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeChangeInputHintActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeChangeInputHintAction $value
      * @psalm-param ProductTypeChangeInputHintAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeChangeInputHintActionCollection

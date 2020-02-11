@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Order\OrderUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -20,8 +21,6 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumber extends ApiResource
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersOrderNumberByOrderNumberGet
     {
@@ -29,7 +28,6 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumber extends ApiResource
 
         return new ByProjectKeyOrdersOrderNumberByOrderNumberGet((string) $args['projectKey'], (string) $args['orderNumber'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?OrderUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -40,12 +38,9 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumber extends ApiResource
 
         return new ByProjectKeyOrdersOrderNumberByOrderNumberPost((string) $args['projectKey'], (string) $args['orderNumber'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyOrdersOrderNumberByOrderNumberDelete
     {

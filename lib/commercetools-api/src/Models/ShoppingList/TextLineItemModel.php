@@ -12,9 +12,13 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class TextLineItemModel extends JsonObjectModel implements TextLineItem
@@ -48,6 +52,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
      * @var ?int
      */
     protected $quantity;
+
 
     public function __construct(
         DateTimeImmutable $addedAt = null,
@@ -208,13 +213,13 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         $this->quantity = $quantity;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[TextLineItem::FIELD_ADDED_AT]) && $data[TextLineItem::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
             $data[TextLineItem::FIELD_ADDED_AT] = $data[TextLineItem::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

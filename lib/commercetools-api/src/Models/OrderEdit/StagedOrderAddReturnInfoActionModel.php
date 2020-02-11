@@ -10,14 +10,19 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\ReturnItemDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implements StagedOrderAddReturnInfoAction
 {
-    const DISCRIMINATOR_VALUE = 'addReturnInfo';
+    public const DISCRIMINATOR_VALUE = 'addReturnInfo';
     /**
      * @var ?string
      */
@@ -37,6 +42,7 @@ final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implemen
      * @var ?DateTimeImmutable
      */
     protected $returnDate;
+
 
     public function __construct(
         string $returnTrackingId = null,
@@ -136,13 +142,13 @@ final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implemen
         $this->returnDate = $returnDate;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[StagedOrderAddReturnInfoAction::FIELD_RETURN_DATE]) && $data[StagedOrderAddReturnInfoAction::FIELD_RETURN_DATE] instanceof \DateTimeImmutable) {
             $data[StagedOrderAddReturnInfoAction::FIELD_RETURN_DATE] = $data[StagedOrderAddReturnInfoAction::FIELD_RETURN_DATE]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

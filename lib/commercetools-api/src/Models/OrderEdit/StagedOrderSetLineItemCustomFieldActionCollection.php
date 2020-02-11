@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetLineItemCustomFieldAction>
- *
  * @method StagedOrderSetLineItemCustomFieldAction current()
  * @method StagedOrderSetLineItemCustomFieldAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderSetLineItemCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderSetLineItemCustomFieldAction $value
      * @psalm-param StagedOrderSetLineItemCustomFieldAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderSetLineItemCustomFieldActionCollection

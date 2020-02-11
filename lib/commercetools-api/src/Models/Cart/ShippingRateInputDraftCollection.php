@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingRateInputDraft>
- *
  * @method ShippingRateInputDraft current()
  * @method ShippingRateInputDraft at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingRateInputDraftCollection extends MapperSequence
     /**
      * @psalm-assert ShippingRateInputDraft $value
      * @psalm-param ShippingRateInputDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingRateInputDraftCollection

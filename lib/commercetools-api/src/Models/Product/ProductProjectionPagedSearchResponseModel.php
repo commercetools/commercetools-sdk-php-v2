@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel implements ProductProjectionPagedSearchResponse
@@ -37,6 +40,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
      * @var ?FacetResults
      */
     protected $facets;
+
 
     public function __construct(
         int $count = null,

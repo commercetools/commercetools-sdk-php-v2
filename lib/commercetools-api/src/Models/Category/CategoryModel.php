@@ -9,17 +9,23 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class CategoryModel extends JsonObjectModel implements Category
@@ -118,6 +124,7 @@ final class CategoryModel extends JsonObjectModel implements Category
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,
@@ -618,6 +625,7 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->key = $key;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -628,7 +636,6 @@ final class CategoryModel extends JsonObjectModel implements Category
         if (isset($data[Category::FIELD_LAST_MODIFIED_AT]) && $data[Category::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Category::FIELD_LAST_MODIFIED_AT] = $data[Category::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

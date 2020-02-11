@@ -16,20 +16,22 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Channel extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_ROLES = 'roles';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_ADDRESS = 'address';
-    const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_GEO_LOCATION = 'geoLocation';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_ROLES = 'roles';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_ADDRESS = 'address';
+    public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
      * <p>The unique ID of the channel.</p>

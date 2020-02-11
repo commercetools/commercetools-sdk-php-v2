@@ -9,16 +9,21 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implements StagedOrderSetCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomType';
+    public const DISCRIMINATOR_VALUE = 'setCustomType';
     /**
      * @var ?string
      */
@@ -33,6 +38,7 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         TypeResourceIdentifier $type = null,

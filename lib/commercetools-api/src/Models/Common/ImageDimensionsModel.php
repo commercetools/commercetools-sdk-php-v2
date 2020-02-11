@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensions
 {
@@ -21,6 +25,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
      * @var ?int
      */
     protected $h;
+
 
     public function __construct(
         int $w = null,

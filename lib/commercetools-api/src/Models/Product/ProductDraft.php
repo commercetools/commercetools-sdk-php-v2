@@ -13,26 +13,27 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductDraft extends JsonObject
 {
-    const FIELD_PRODUCT_TYPE = 'productType';
-    const FIELD_NAME = 'name';
-    const FIELD_SLUG = 'slug';
-    const FIELD_KEY = 'key';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_CATEGORIES = 'categories';
-    const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
-    const FIELD_META_TITLE = 'metaTitle';
-    const FIELD_META_DESCRIPTION = 'metaDescription';
-    const FIELD_META_KEYWORDS = 'metaKeywords';
-    const FIELD_MASTER_VARIANT = 'masterVariant';
-    const FIELD_VARIANTS = 'variants';
-    const FIELD_TAX_CATEGORY = 'taxCategory';
-    const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
-    const FIELD_STATE = 'state';
-    const FIELD_PUBLISH = 'publish';
+    public const FIELD_PRODUCT_TYPE = 'productType';
+    public const FIELD_NAME = 'name';
+    public const FIELD_SLUG = 'slug';
+    public const FIELD_KEY = 'key';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_CATEGORIES = 'categories';
+    public const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
+    public const FIELD_META_TITLE = 'metaTitle';
+    public const FIELD_META_DESCRIPTION = 'metaDescription';
+    public const FIELD_META_KEYWORDS = 'metaKeywords';
+    public const FIELD_MASTER_VARIANT = 'masterVariant';
+    public const FIELD_VARIANTS = 'variants';
+    public const FIELD_TAX_CATEGORY = 'taxCategory';
+    public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
+    public const FIELD_STATE = 'state';
+    public const FIELD_PUBLISH = 'publish';
 
     /**
      * <p>A predefined product type assigned to the product.

@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use Commercetools\Exception\InvalidArgumentException;
@@ -13,7 +14,6 @@ use DateTimeImmutable;
 
 /**
  * @extends MapperScalarSequence<DateTimeImmutable>
- *
  * @method DateTimeImmutable current()
  * @method DateTimeImmutable at($offset)
  */
@@ -22,12 +22,8 @@ class DateTimeImmutableCollection extends MapperScalarSequence
     /**
      * @psalm-assert DateTimeImmutable $value
      * @psalm-param DateTimeImmutable|scalar $value
-     *
-     * @param mixed $value
-     *
-     * @throws InvalidArgumentException
-     *
      * @return DateTimeImmutableCollection
+     * @throws InvalidArgumentException
      */
     public function add($value)
     {
@@ -47,10 +43,9 @@ class DateTimeImmutableCollection extends MapperScalarSequence
         return function (int $index): ?DateTimeImmutable {
             $data = $this->get($index);
             if (!is_null($data) && !$data instanceof DateTimeImmutable) {
-                $data = new DateTimeImmutable((string) $data);
+                $data = new DateTimeImmutable((string)$data);
                 $this->set($data, $index);
             }
-
             return $data;
         };
     }

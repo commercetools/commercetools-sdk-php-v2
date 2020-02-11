@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Categories\CategoryImportCollection;
 
 interface CategoryImportRequest extends ImportRequest
 {
-    const FIELD_RESOURCES = 'resources';
+    public const FIELD_RESOURCES = 'resources';
 
     /**
      * <p>The category import resources of this request.</p>

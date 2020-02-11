@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ImportRequest extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_TYPE = 'type';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_TYPE = 'type';
 
     /**
      * <p>The type of the import resource.</p>

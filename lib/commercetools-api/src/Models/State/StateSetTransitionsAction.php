@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface StateSetTransitionsAction extends StateUpdateAction
 {
-    const FIELD_TRANSITIONS = 'transitions';
+    public const FIELD_TRANSITIONS = 'transitions';
 
     /**
      * @return null|StateResourceIdentifierCollection

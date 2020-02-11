@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface HighPrecisionMoney extends TypedMoney
 {
-    const FIELD_PRECISE_AMOUNT = 'preciseAmount';
+    public const FIELD_PRECISE_AMOUNT = 'preciseAmount';
 
     /**
      * @return null|int

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartAddPaymentActionModel extends JsonObjectModel implements MyCartAddPaymentAction
 {
-    const DISCRIMINATOR_VALUE = 'addPayment';
+    public const DISCRIMINATOR_VALUE = 'addPayment';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class MyCartAddPaymentActionModel extends JsonObjectModel implements MyCar
      * @var ?PaymentResourceIdentifier
      */
     protected $payment;
+
 
     public function __construct(
         PaymentResourceIdentifier $payment = null

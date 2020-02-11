@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CategoryChangeAssetNameActionModel extends JsonObjectModel implements CategoryChangeAssetNameAction
 {
-    const DISCRIMINATOR_VALUE = 'changeAssetName';
+    public const DISCRIMINATOR_VALUE = 'changeAssetName';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
      * @var ?LocalizedString
      */
     protected $name;
+
 
     public function __construct(
         string $assetId = null,

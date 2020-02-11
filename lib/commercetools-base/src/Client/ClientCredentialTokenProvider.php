@@ -6,17 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 use GuzzleHttp\Client;
 
 class ClientCredentialTokenProvider implements TokenProvider
 {
-    const GRANT_TYPE_CLIENT_CREDENTIALS = 'client_credentials';
-    const GRANT_TYPE = 'grant_type';
-    const SCOPE = 'scope';
-    const ACCESS_TOKEN = 'access_token';
-    const EXPIRES_IN = 'expires_in';
+    public const GRANT_TYPE_CLIENT_CREDENTIALS = 'client_credentials';
+    public const GRANT_TYPE = 'grant_type';
+    public const SCOPE = 'scope';
+    public const ACCESS_TOKEN = 'access_token';
+    public const EXPIRES_IN = 'expires_in';
 
     /** @psalm-var Client */
     private $client;
@@ -37,24 +38,26 @@ class ClientCredentialTokenProvider implements TokenProvider
     public function getToken(): Token
     {
         $data = [
-            self::GRANT_TYPE => self::GRANT_TYPE_CLIENT_CREDENTIALS,
+            self::GRANT_TYPE => self::GRANT_TYPE_CLIENT_CREDENTIALS
         ];
         if (!is_null($this->credentials->getScope())) {
             $data[self::SCOPE] = $this->credentials->getScope();
         }
         $options = [
             'form_params' => $data,
-            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()],
+            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()]
         ];
 
         $result = $this->client->post($this->accessTokenUrl, $options);
 
         /** @psalm-var array $body */
-        $body = json_decode((string) $result->getBody(), true);
-
-        return new TokenModel((string) $body[self::ACCESS_TOKEN], (int) $body[self::EXPIRES_IN]);
+        $body = json_decode((string)$result->getBody(), true);
+        return new TokenModel((string)$body[self::ACCESS_TOKEN], (int)$body[self::EXPIRES_IN]);
     }
 
+    /**
+     * @return Token
+     */
     public function refreshToken(): Token
     {
         return $this->getToken();

@@ -11,18 +11,19 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyLineItemDraft extends JsonObject
 {
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_SHIPPING_DETAILS = 'shippingDetails';
-    const FIELD_SKU = 'sku';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_SKU = 'sku';
 
     /**
      * @return null|string

@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeUpdateModel extends JsonObjectModel implements ProductTypeUpdate
@@ -22,6 +25,7 @@ final class ProductTypeUpdateModel extends JsonObjectModel implements ProductTyp
      * @var ?ProductTypeUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

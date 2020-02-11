@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Import\Client;
 
 use Commercetools\Client\ApiResource;
@@ -32,6 +33,6 @@ class ImportRequestBuilder extends ApiResource
             $args['projectKey'] = $projectKey;
         }
 
-        return new ResourceByProjectKey($this->getUri().'/{projectKey}', $args, $this->getClient());
+        return new ResourceByProjectKey($this->getUri() . '/{projectKey}', $args, $this->getClient());
     }
 }

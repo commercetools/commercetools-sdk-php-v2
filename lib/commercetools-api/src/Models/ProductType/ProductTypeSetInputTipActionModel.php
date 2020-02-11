@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements ProductTypeSetInputTipAction
 {
-    const DISCRIMINATOR_VALUE = 'setInputTip';
+    public const DISCRIMINATOR_VALUE = 'setInputTip';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
      * @var ?LocalizedString
      */
     protected $inputTip;
+
 
     public function __construct(
         string $attributeName = null,

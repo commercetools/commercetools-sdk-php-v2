@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderEditAppliedMessage>
- *
  * @method OrderEditAppliedMessage current()
  * @method OrderEditAppliedMessage at($offset)
  */
@@ -23,9 +22,6 @@ class OrderEditAppliedMessageCollection extends MapperSequence
     /**
      * @psalm-assert OrderEditAppliedMessage $value
      * @psalm-param OrderEditAppliedMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderEditAppliedMessageCollection

@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class DateAttributeModel extends JsonObjectModel implements DateAttribute
 {
-    const DISCRIMINATOR_VALUE = 'date';
+    public const DISCRIMINATOR_VALUE = 'date';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
      * @var ?DateTimeImmutable
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,
@@ -108,13 +114,13 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
         $this->value = $value;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[DateAttribute::FIELD_VALUE]) && $data[DateAttribute::FIELD_VALUE] instanceof \DateTimeImmutable) {
             $data[DateAttribute::FIELD_VALUE] = $data[DateAttribute::FIELD_VALUE]->format('Y-m-d');
         }
-
         return (object) $data;
     }
 }

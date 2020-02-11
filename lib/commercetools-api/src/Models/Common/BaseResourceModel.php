@@ -8,9 +8,76 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscount;
+use Commercetools\Api\Models\CartDiscount\CartDiscountModel;
+use Commercetools\Api\Models\Category\Category;
+
+use Commercetools\Api\Models\Category\CategoryModel;
+use Commercetools\Api\Models\Channel\Channel;
+use Commercetools\Api\Models\Channel\ChannelModel;
+use Commercetools\Api\Models\Customer\Customer;
+use Commercetools\Api\Models\Customer\CustomerModel;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroup;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupModel;
+use Commercetools\Api\Models\CustomObject\CustomObject;
+use Commercetools\Api\Models\CustomObject\CustomObjectModel;
+use Commercetools\Api\Models\DiscountCode\DiscountCode;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeModel;
+use Commercetools\Api\Models\Extension\Extension;
+use Commercetools\Api\Models\Extension\ExtensionModel;
+use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Inventory\InventoryEntryModel;
+use Commercetools\Api\Models\Me\MyCart;
+use Commercetools\Api\Models\Me\MyCartModel;
+use Commercetools\Api\Models\Me\MyCustomer;
+use Commercetools\Api\Models\Me\MyCustomerModel;
+use Commercetools\Api\Models\Me\MyOrder;
+use Commercetools\Api\Models\Me\MyOrderModel;
+use Commercetools\Api\Models\Message\Message;
+use Commercetools\Api\Models\Message\MessageModel;
+use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderModel;
+use Commercetools\Api\Models\OrderEdit\OrderEdit;
+use Commercetools\Api\Models\OrderEdit\OrderEditModel;
+use Commercetools\Api\Models\Payment\Payment;
+use Commercetools\Api\Models\Payment\PaymentModel;
+use Commercetools\Api\Models\Product\Product;
+use Commercetools\Api\Models\Product\ProductModel;
+use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Api\Models\Product\ProductProjectionModel;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscount;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountModel;
+use Commercetools\Api\Models\ProductType\ProductType;
+use Commercetools\Api\Models\ProductType\ProductTypeModel;
+use Commercetools\Api\Models\Review\Review;
+use Commercetools\Api\Models\Review\ReviewModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodModel;
+use Commercetools\Api\Models\ShoppingList\MyShoppingList;
+use Commercetools\Api\Models\ShoppingList\MyShoppingListModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\ShoppingList\ShoppingListModel;
+use Commercetools\Api\Models\State\State;
+use Commercetools\Api\Models\State\StateModel;
+use Commercetools\Api\Models\Store\Store;
+use Commercetools\Api\Models\Store\StoreModel;
+use Commercetools\Api\Models\Subscription\Subscription;
+use Commercetools\Api\Models\Subscription\SubscriptionModel;
+use Commercetools\Api\Models\TaxCategory\TaxCategory;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryModel;
+use Commercetools\Api\Models\Type\Type;
+use Commercetools\Api\Models\Type\TypeModel;
+use Commercetools\Api\Models\Zone\Zone;
+use Commercetools\Api\Models\Zone\ZoneModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
+use stdClass;
 
 final class BaseResourceModel extends JsonObjectModel implements BaseResource
 {
@@ -33,6 +100,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
+
 
     public function __construct(
         string $id = null,
@@ -142,6 +210,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -152,7 +221,6 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Payment\TransactionDraft;
 use Commercetools\Api\Models\Payment\TransactionDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyPaymentAddTransactionActionModel extends JsonObjectModel implements MyPaymentAddTransactionAction
 {
-    const DISCRIMINATOR_VALUE = 'addTransaction';
+    public const DISCRIMINATOR_VALUE = 'addTransaction';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class MyPaymentAddTransactionActionModel extends JsonObjectModel implement
      * @var ?TransactionDraft
      */
     protected $transaction;
+
 
     public function __construct(
         TransactionDraft $transaction = null

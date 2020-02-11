@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MoneySetAttribute>
- *
  * @method MoneySetAttribute current()
  * @method MoneySetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class MoneySetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert MoneySetAttribute $value
      * @psalm-param MoneySetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MoneySetAttributeCollection

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetDiscountedPriceActionModel extends JsonObjectModel implements ProductSetDiscountedPriceAction
 {
-    const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
+    public const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
     /**
      * @var ?string
      */
@@ -35,6 +39,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
      * @var ?DiscountedPrice
      */
     protected $discounted;
+
 
     public function __construct(
         string $priceId = null,

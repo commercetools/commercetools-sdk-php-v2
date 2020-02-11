@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttribute
 {
-    const DISCRIMINATOR_VALUE = 'boolean';
+    public const DISCRIMINATOR_VALUE = 'boolean';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
      * @var ?bool
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

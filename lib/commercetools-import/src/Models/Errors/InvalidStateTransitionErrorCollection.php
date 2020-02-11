@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidStateTransitionError>
- *
  * @method InvalidStateTransitionError current()
  * @method InvalidStateTransitionError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidStateTransitionErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidStateTransitionError $value
      * @psalm-param InvalidStateTransitionError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidStateTransitionErrorCollection

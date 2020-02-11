@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implements MyCartRemoveDiscountCodeAction
 {
-    const DISCRIMINATOR_VALUE = 'removeDiscountCode';
+    public const DISCRIMINATOR_VALUE = 'removeDiscountCode';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
+
 
     public function __construct(
         DiscountCodeReference $discountCode = null

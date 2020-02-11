@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderPagedQueryResponse>
- *
  * @method OrderPagedQueryResponse current()
  * @method OrderPagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class OrderPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert OrderPagedQueryResponse $value
      * @psalm-param OrderPagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderPagedQueryResponseCollection

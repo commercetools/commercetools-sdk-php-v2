@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductDiscountValueAbsoluteDraft extends ProductDiscountValueDraft
 {
-    const FIELD_MONEY = 'money';
+    public const FIELD_MONEY = 'money';
 
     /**
      * @return null|MoneyCollection

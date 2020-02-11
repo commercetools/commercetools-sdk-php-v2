@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TypeChangeInputHintAction extends TypeUpdateAction
 {
-    const FIELD_FIELD_NAME = 'fieldName';
-    const FIELD_INPUT_HINT = 'inputHint';
+    public const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_INPUT_HINT = 'inputHint';
 
     /**
      * @return null|string

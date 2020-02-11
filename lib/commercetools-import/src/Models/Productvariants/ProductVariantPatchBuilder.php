@@ -9,10 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
+use stdClass;
 
 /**
  * @implements Builder<ProductVariantPatch>

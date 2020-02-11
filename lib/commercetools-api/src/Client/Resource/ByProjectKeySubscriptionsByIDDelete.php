@@ -14,13 +14,16 @@ use Commercetools\Api\Models\Subscription\Subscription;
 use Commercetools\Api\Models\Subscription\SubscriptionModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -111,9 +114,8 @@ class ByProjectKeySubscriptionsByIDDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $version
      *
-     * @param mixed $version
+     * @psalm-param scalar $version
      */
     public function withVersion($version): ByProjectKeySubscriptionsByIDDelete
     {
@@ -121,9 +123,8 @@ class ByProjectKeySubscriptionsByIDDelete extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeySubscriptionsByIDDelete
     {

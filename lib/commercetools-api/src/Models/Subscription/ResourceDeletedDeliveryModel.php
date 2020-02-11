@@ -12,14 +12,18 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ResourceDeletedDeliveryModel extends JsonObjectModel implements ResourceDeletedDelivery
 {
-    const DISCRIMINATOR_VALUE = 'ResourceDeleted';
+    public const DISCRIMINATOR_VALUE = 'ResourceDeleted';
     /**
      * @var ?string
      */
@@ -49,6 +53,7 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
+
 
     public function __construct(
         string $projectKey = null,
@@ -198,13 +203,13 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         $this->modifiedAt = $modifiedAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[ResourceDeletedDelivery::FIELD_MODIFIED_AT]) && $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT] = $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShippingMethodAddShippingRateAction extends ShippingMethodUpdateAction
 {
-    const FIELD_ZONE = 'zone';
-    const FIELD_SHIPPING_RATE = 'shippingRate';
+    public const FIELD_ZONE = 'zone';
+    public const FIELD_SHIPPING_RATE = 'shippingRate';
 
     /**
      * @return null|ZoneResourceIdentifier

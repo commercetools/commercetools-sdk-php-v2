@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel implements PaymentChangeTransactionTimestampAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTransactionTimestamp';
+    public const DISCRIMINATOR_VALUE = 'changeTransactionTimestamp';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
      * @var ?DateTimeImmutable
      */
     protected $timestamp;
+
 
     public function __construct(
         string $transactionId = null,
@@ -104,13 +110,13 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
         $this->timestamp = $timestamp;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[PaymentChangeTransactionTimestampAction::FIELD_TIMESTAMP]) && $data[PaymentChangeTransactionTimestampAction::FIELD_TIMESTAMP] instanceof \DateTimeImmutable) {
             $data[PaymentChangeTransactionTimestampAction::FIELD_TIMESTAMP] = $data[PaymentChangeTransactionTimestampAction::FIELD_TIMESTAMP]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

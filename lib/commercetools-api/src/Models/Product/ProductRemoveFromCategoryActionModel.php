@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductRemoveFromCategoryActionModel extends JsonObjectModel implements ProductRemoveFromCategoryAction
 {
-    const DISCRIMINATOR_VALUE = 'removeFromCategory';
+    public const DISCRIMINATOR_VALUE = 'removeFromCategory';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         CategoryResourceIdentifier $category = null,

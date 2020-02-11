@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLVariablesMap
@@ -16,6 +19,8 @@ final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLV
     public function __construct(
     ) {
     }
+
+
 
     /**
      * @return mixed
@@ -26,7 +31,7 @@ final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLV
         if (is_null($data)) {
             return null;
         }
-        if (1 === preg_match(GraphQLVariablesMap::FIELD_PATTERN0, $key)) {
+        if (preg_match(GraphQLVariablesMap::FIELD_PATTERN0, $key) === 1) {
             /** @psalm-var stdClass $data */
             return JsonObjectModel::of($data);
         }

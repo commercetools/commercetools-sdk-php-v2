@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel implements ExtensionHttpDestinationAuthentication
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,10 +24,11 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
 
     /**
      * @psalm-var array<string, class-string<ExtensionHttpDestinationAuthentication> >
+     *
      */
     private static $discriminatorClasses = [
-        'AzureFunctions' => ExtensionAzureFunctionsAuthenticationModel::class,
-        'AuthorizationHeader' => ExtensionAuthorizationHeaderAuthenticationModel::class,
+       'AuthorizationHeader' => ExtensionAuthorizationHeaderAuthenticationModel::class,
+       'AzureFunctions' => ExtensionAzureFunctionsAuthenticationModel::class,
     ];
 
     public function __construct(
@@ -49,18 +53,19 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
         return $this->type;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ExtensionHttpDestinationAuthentication>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ExtensionHttpDestinationAuthentication::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -75,7 +80,6 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
 
         /** @psalm-var class-string<ExtensionHttpDestinationAuthentication> */
         $type = ExtensionHttpDestinationAuthenticationModel::class;
-
         return $type;
     }
 }

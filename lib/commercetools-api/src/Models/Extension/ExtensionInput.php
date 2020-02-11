@@ -9,12 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExtensionInput extends JsonObject
 {
-    const FIELD_ACTION = 'action';
-    const FIELD_RESOURCE = 'resource';
+    public const FIELD_ACTION = 'action';
+    public const FIELD_RESOURCE = 'resource';
 
     /**
      * @return null|string

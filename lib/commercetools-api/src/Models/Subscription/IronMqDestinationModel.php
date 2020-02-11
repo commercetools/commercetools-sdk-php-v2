@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class IronMqDestinationModel extends JsonObjectModel implements IronMqDestination
 {
-    const DISCRIMINATOR_VALUE = 'IronMQ';
+    public const DISCRIMINATOR_VALUE = 'IronMQ';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
      * @var ?string
      */
     protected $uri;
+
 
     public function __construct(
         string $uri = null

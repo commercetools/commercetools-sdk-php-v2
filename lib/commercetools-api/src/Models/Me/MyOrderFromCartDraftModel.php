@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrderFromCartDraft
 {
@@ -21,6 +25,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
      * @var ?int
      */
     protected $version;
+
 
     public function __construct(
         string $id = null,

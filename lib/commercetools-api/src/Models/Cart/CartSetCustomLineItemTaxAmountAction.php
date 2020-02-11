@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetCustomLineItemTaxAmountAction extends CartUpdateAction
 {
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
 
     /**
      * @return null|string

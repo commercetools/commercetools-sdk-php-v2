@@ -8,9 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ApiClient;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
+use stdClass;
 
 final class ApiClientModel extends JsonObjectModel implements ApiClient
 {
@@ -48,6 +53,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
      * @var ?string
      */
     protected $secret;
+
 
     public function __construct(
         string $id = null,
@@ -246,6 +252,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         $this->secret = $secret;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -260,7 +267,6 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         if (isset($data[ApiClient::FIELD_DELETE_AT]) && $data[ApiClient::FIELD_DELETE_AT] instanceof \DateTimeImmutable) {
             $data[ApiClient::FIELD_DELETE_AT] = $data[ApiClient::FIELD_DELETE_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

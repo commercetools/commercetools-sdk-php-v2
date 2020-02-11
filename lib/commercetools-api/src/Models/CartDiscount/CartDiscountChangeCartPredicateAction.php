@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartDiscountChangeCartPredicateAction extends CartDiscountUpdateAction
 {
-    const FIELD_CART_PREDICATE = 'cartPredicate';
+    public const FIELD_CART_PREDICATE = 'cartPredicate';
 
     /**
      * <p>A valid Cart predicate.</p>

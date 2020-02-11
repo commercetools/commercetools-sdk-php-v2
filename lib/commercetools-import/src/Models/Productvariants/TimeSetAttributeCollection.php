@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TimeSetAttribute>
- *
  * @method TimeSetAttribute current()
  * @method TimeSetAttribute at($offset)
  */
@@ -23,9 +22,6 @@ class TimeSetAttributeCollection extends MapperSequence
     /**
      * @psalm-assert TimeSetAttribute $value
      * @psalm-param TimeSetAttribute|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TimeSetAttributeCollection

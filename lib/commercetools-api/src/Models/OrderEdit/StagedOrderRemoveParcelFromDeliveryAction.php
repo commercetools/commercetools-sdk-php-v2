@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemoveParcelFromDeliveryAction extends StagedOrderUpdateAction
 {
-    const FIELD_PARCEL_ID = 'parcelId';
+    public const FIELD_PARCEL_ID = 'parcelId';
 
     /**
      * @return null|string

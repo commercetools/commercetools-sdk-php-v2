@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateChangeInitialAction>
- *
  * @method StateChangeInitialAction current()
  * @method StateChangeInitialAction at($offset)
  */
@@ -23,9 +22,6 @@ class StateChangeInitialActionCollection extends MapperSequence
     /**
      * @psalm-assert StateChangeInitialAction $value
      * @psalm-param StateChangeInitialAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateChangeInitialActionCollection

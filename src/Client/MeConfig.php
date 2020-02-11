@@ -9,10 +9,10 @@ use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class MeConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
 {
-    const ANON_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/{projectKey}/anonymous/token';
-    const REFRESH_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
+    public const ANON_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/{projectKey}/anonymous/token';
+    public const REFRESH_AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
-    const GRANT_TYPE = 'client_credentials';
+    public const GRANT_TYPE = 'client_credentials';
 
     /** @var ClientCredentials */
     private $credentials;

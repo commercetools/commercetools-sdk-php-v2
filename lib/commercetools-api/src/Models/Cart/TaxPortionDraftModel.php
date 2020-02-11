@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDraft
@@ -29,6 +33,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
      * @var ?Money
      */
     protected $amount;
+
 
     public function __construct(
         string $name = null,

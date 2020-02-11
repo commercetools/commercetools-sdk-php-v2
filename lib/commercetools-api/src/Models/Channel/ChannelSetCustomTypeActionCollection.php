@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelSetCustomTypeAction>
- *
  * @method ChannelSetCustomTypeAction current()
  * @method ChannelSetCustomTypeAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelSetCustomTypeActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelSetCustomTypeAction $value
      * @psalm-param ChannelSetCustomTypeAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelSetCustomTypeActionCollection

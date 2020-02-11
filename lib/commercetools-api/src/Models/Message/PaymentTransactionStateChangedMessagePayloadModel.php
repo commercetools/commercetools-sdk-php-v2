@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObjectModel implements PaymentTransactionStateChangedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'PaymentTransactionStateChanged';
+    public const DISCRIMINATOR_VALUE = 'PaymentTransactionStateChanged';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
      * @var ?string
      */
     protected $state;
+
 
     public function __construct(
         string $transactionId = null,

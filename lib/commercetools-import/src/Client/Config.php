@@ -6,13 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Import\Client;
 
 use Commercetools\Client\Config as BaseConfig;
 
 class Config implements BaseConfig
 {
-    const API_URI = 'https://import.commercetools.com';
+    public const API_URI = 'https://import.commercetools.com';
+
 
     /** @psalm-var string */
     private $apiUri;

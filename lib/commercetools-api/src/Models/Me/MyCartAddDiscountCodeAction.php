@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MyCartAddDiscountCodeAction extends MyCartUpdateAction
 {
-    const FIELD_CODE = 'code';
+    public const FIELD_CODE = 'code';
 
     /**
      * @return null|string

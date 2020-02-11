@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Category\CategoryReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductAddedToCategoryMessagePayload extends MessagePayload
 {
-    const FIELD_CATEGORY = 'category';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_CATEGORY = 'category';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|CategoryReference

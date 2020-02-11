@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProjectChangeCountriesAction extends ProjectUpdateAction
 {
-    const FIELD_COUNTRIES = 'countries';
+    public const FIELD_COUNTRIES = 'countries';
 
     /**
      * <p>A two-digit country code as per country code.</p>

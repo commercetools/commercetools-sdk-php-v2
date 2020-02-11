@@ -13,8 +13,12 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppingListDraft
@@ -48,6 +52,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
+
 
     public function __construct(
         LocalizedString $name = null,

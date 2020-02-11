@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface MissingTaxRateForCountryError extends ErrorObject
 {
-    const FIELD_TAX_CATEGORY_ID = 'taxCategoryId';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_STATE = 'state';
+    public const FIELD_TAX_CATEGORY_ID = 'taxCategoryId';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_STATE = 'state';
 
     /**
      * @return null|string

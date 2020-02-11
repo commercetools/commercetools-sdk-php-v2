@@ -13,15 +13,19 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class OrderStateChangedMessageModel extends JsonObjectModel implements OrderStateChangedMessage
 {
-    const DISCRIMINATOR_VALUE = 'OrderStateChanged';
+    public const DISCRIMINATOR_VALUE = 'OrderStateChanged';
     /**
      * @var ?string
      */
@@ -86,6 +90,7 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
      * @var ?string
      */
     protected $oldOrderState;
+
 
     public function __construct(
         string $id = null,
@@ -409,6 +414,7 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         $this->oldOrderState = $oldOrderState;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -419,7 +425,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

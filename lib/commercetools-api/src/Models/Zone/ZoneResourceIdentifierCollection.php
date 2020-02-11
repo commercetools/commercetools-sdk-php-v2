@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneResourceIdentifier>
- *
  * @method ZoneResourceIdentifier current()
  * @method ZoneResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class ZoneResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ZoneResourceIdentifier $value
      * @psalm-param ZoneResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZoneResourceIdentifierCollection

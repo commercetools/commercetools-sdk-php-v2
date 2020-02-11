@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Prices;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
+
 use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
 use Commercetools\Import\Models\Common\ProductKeyReference;
@@ -22,6 +26,7 @@ use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PriceImportModel extends JsonObjectModel implements PriceImport
@@ -70,6 +75,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * @var ?ProductKeyReference
      */
     protected $product;
+
 
     public function __construct(
         string $key = null,
@@ -333,6 +339,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->product = $product;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -343,7 +350,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         if (isset($data[PriceImport::FIELD_VALID_UNTIL]) && $data[PriceImport::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[PriceImport::FIELD_VALID_UNTIL] = $data[PriceImport::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderChangePaymentStateAction extends StagedOrderUpdateAction
 {
-    const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**
      * @return null|string

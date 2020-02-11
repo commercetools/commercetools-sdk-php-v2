@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderRemoveItemShippingAddressAction extends OrderUpdateAction
 {
-    const FIELD_ADDRESS_KEY = 'addressKey';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
      * @return null|string

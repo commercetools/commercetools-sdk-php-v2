@@ -8,10 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
+
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ImportOperationModel extends JsonObjectModel implements ImportOperation
@@ -70,6 +74,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
      * @var ?DateTimeImmutable
      */
     protected $expiresAt;
+
 
     public function __construct(
         int $version = null,
@@ -374,6 +379,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         $this->expiresAt = $expiresAt;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -388,7 +394,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         if (isset($data[ImportOperation::FIELD_EXPIRES_AT]) && $data[ImportOperation::FIELD_EXPIRES_AT] instanceof \DateTimeImmutable) {
             $data[ImportOperation::FIELD_EXPIRES_AT] = $data[ImportOperation::FIELD_EXPIRES_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

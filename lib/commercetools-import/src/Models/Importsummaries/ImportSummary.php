@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsummaries;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ImportSummary extends JsonObject
 {
-    const FIELD_STATES = 'states';
-    const FIELD_TOTAL = 'total';
+    public const FIELD_STATES = 'states';
+    public const FIELD_TOTAL = 'total';
 
     /**
      * <p>The states summary for this import summary.</p>

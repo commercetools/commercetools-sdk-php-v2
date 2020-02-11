@@ -12,7 +12,11 @@ use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
@@ -31,6 +35,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
      * @var ?int
      */
     protected $version;
+
 
     public function __construct(
         TypedMoney $totalPrice = null,

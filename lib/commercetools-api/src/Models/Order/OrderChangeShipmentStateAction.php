@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderChangeShipmentStateAction extends OrderUpdateAction
 {
-    const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
      * @return null|string

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<State>
- *
  * @method State current()
  * @method State at($offset)
  */
@@ -23,9 +22,6 @@ class StateCollection extends MapperSequence
     /**
      * @psalm-assert State $value
      * @psalm-param State|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateCollection

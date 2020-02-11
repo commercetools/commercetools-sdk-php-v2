@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TextLineItem>
- *
  * @method TextLineItem current()
  * @method TextLineItem at($offset)
  */
@@ -23,9 +22,6 @@ class TextLineItemCollection extends MapperSequence
     /**
      * @psalm-assert TextLineItem $value
      * @psalm-param TextLineItem|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TextLineItemCollection

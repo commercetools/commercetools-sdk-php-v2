@@ -10,8 +10,11 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\FacetResultsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class PagedQueryResponseModel extends JsonObjectModel implements PagedQueryResponse
@@ -50,6 +53,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
      * @var ?JsonObject
      */
     protected $meta;
+
 
     public function __construct(
         int $limit = null,

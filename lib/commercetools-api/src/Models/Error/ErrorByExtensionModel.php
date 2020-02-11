@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExtension
 {
@@ -21,6 +25,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $id = null,

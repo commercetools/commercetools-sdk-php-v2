@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeLocalizedEnumValueLabelAction>
- *
  * @method TypeChangeLocalizedEnumValueLabelAction current()
  * @method TypeChangeLocalizedEnumValueLabelAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeLocalizedEnumValueLabelActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeLocalizedEnumValueLabelAction $value
      * @psalm-param TypeChangeLocalizedEnumValueLabelAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeLocalizedEnumValueLabelActionCollection

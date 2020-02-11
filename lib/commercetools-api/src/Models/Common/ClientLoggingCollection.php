@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ClientLogging>
- *
  * @method ClientLogging current()
  * @method ClientLogging at($offset)
  */
@@ -23,9 +22,6 @@ class ClientLoggingCollection extends MapperSequence
     /**
      * @psalm-assert ClientLogging $value
      * @psalm-param ClientLogging|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ClientLoggingCollection

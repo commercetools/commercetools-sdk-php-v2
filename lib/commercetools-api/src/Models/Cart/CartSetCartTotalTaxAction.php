@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetCartTotalTaxAction extends CartUpdateAction
 {
-    const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
-    const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
+    public const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
+    public const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 
     /**
      * <p>The total gross amount of the cart (totalNet + taxes).</p>

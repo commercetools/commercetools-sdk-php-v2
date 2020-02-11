@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersEditsByIDApplyPost
- *
- * @internal
  */
 class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
 {
@@ -28,17 +26,16 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
             'ByProjectKeyOrdersEditsByIDApplyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
+                        ->withId("ID")
                         ->apply()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/orders/edits/{ID}/apply',
-            ],
+            ]
         ];
     }
 
@@ -53,7 +50,7 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -62,15 +59,14 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
             'ByProjectKeyOrdersEditsByIDApplyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->orders()
                         ->edits()
-                        ->withId('ID')
+                        ->withId("ID")
                         ->apply()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -83,7 +79,7 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

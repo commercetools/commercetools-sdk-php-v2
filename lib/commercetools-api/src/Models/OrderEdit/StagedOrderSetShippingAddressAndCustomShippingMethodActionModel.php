@@ -13,16 +13,21 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel extends JsonObjectModel implements StagedOrderSetShippingAddressAndCustomShippingMethodAction
 {
-    const DISCRIMINATOR_VALUE = 'setShippingAddressAndCustomShippingMethod';
+    public const DISCRIMINATOR_VALUE = 'setShippingAddressAndCustomShippingMethod';
     /**
      * @var ?string
      */
@@ -52,6 +57,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         Address $address = null,

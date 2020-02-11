@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AzureEventGridDestination>
- *
  * @method AzureEventGridDestination current()
  * @method AzureEventGridDestination at($offset)
  */
@@ -23,9 +22,6 @@ class AzureEventGridDestinationCollection extends MapperSequence
     /**
      * @psalm-assert AzureEventGridDestination $value
      * @psalm-param AzureEventGridDestination|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return AzureEventGridDestinationCollection

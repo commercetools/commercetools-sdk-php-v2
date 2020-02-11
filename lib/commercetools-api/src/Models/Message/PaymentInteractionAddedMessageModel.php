@@ -13,17 +13,21 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
+
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PaymentInteractionAddedMessageModel extends JsonObjectModel implements PaymentInteractionAddedMessage
 {
-    const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
+    public const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
     /**
      * @var ?string
      */
@@ -83,6 +87,7 @@ final class PaymentInteractionAddedMessageModel extends JsonObjectModel implemen
      * @var ?CustomFields
      */
     protected $interaction;
+
 
     public function __construct(
         string $id = null,
@@ -383,6 +388,7 @@ final class PaymentInteractionAddedMessageModel extends JsonObjectModel implemen
         $this->interaction = $interaction;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -393,7 +399,6 @@ final class PaymentInteractionAddedMessageModel extends JsonObjectModel implemen
         if (isset($data[Message::FIELD_LAST_MODIFIED_AT]) && $data[Message::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

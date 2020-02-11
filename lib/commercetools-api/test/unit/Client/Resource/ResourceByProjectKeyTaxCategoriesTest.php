@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyTaxCategoriesPost
- *
- * @internal
  */
 class ResourceByProjectKeyTaxCategoriesTest extends TestCase
 {
@@ -32,8 +30,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/tax-categories?expand=expand',
@@ -44,8 +41,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/tax-categories?where=where',
@@ -56,8 +52,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/tax-categories?sort=sort',
@@ -68,8 +63,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/tax-categories?limit=limit',
@@ -80,8 +74,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/tax-categories?offset=offset',
@@ -92,8 +85,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/tax-categories?withTotal=withTotal',
@@ -101,10 +93,9 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
             'ByProjectKeyTaxCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/tax-categories',
@@ -115,8 +106,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/tax-categories?expand=expand',
@@ -124,14 +114,13 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
             'ByProjectKeyTaxCategoriesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/tax-categories',
-            ],
+            ]
         ];
     }
 
@@ -146,7 +135,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -155,21 +144,19 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
             'ByProjectKeyTaxCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyTaxCategoriesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->taxCategories()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -182,7 +169,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

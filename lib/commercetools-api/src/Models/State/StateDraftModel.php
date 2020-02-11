@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\State;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StateDraftModel extends JsonObjectModel implements StateDraft
@@ -49,6 +53,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
      * @var ?StateResourceIdentifierCollection
      */
     protected $transitions;
+
 
     public function __construct(
         string $key = null,

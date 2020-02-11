@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderEditReferenceModel extends JsonObjectModel implements OrderEditReference
 {
-    const DISCRIMINATOR_VALUE = 'order-edit';
+    public const DISCRIMINATOR_VALUE = 'order-edit';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
      * @var ?OrderEdit
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

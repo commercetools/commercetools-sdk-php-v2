@@ -13,19 +13,21 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface InventoryEntry extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_SKU = 'sku';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
-    const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
-    const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
-    const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
+    public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
+    public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
+    public const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The unique ID of the inventory entry.</p>

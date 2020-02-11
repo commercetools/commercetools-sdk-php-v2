@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ReviewSetAuthorNameAction extends ReviewUpdateAction
 {
-    const FIELD_AUTHOR_NAME = 'authorName';
+    public const FIELD_AUTHOR_NAME = 'authorName';
 
     /**
      * <p>If <code>authorName</code> is absent or <code>null</code>, this field will be removed if it exists.</p>

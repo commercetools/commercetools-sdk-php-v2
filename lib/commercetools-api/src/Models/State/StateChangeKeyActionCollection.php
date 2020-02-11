@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateChangeKeyAction>
- *
  * @method StateChangeKeyAction current()
  * @method StateChangeKeyAction at($offset)
  */
@@ -23,9 +22,6 @@ class StateChangeKeyActionCollection extends MapperSequence
     /**
      * @psalm-assert StateChangeKeyAction $value
      * @psalm-param StateChangeKeyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateChangeKeyActionCollection

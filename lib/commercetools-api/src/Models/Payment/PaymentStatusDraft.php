@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface PaymentStatusDraft extends JsonObject
 {
-    const FIELD_INTERFACE_CODE = 'interfaceCode';
-    const FIELD_INTERFACE_TEXT = 'interfaceText';
-    const FIELD_STATE = 'state';
+    public const FIELD_INTERFACE_CODE = 'interfaceCode';
+    public const FIELD_INTERFACE_TEXT = 'interfaceText';
+    public const FIELD_STATE = 'state';
 
     /**
      * @return null|string

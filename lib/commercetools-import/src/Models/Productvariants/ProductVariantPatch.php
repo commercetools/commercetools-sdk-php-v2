@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 
 interface ProductVariantPatch extends JsonObject
 {
-    const FIELD_PRODUCT_VARIANT = 'productVariant';
-    const FIELD_PRODUCT = 'product';
-    const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_PRODUCT_VARIANT = 'productVariant';
+    public const FIELD_PRODUCT = 'product';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * <p>The product variant to which this patch is applied.</p>

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class SnsDestinationModel extends JsonObjectModel implements SnsDestination
 {
-    const DISCRIMINATOR_VALUE = 'SNS';
+    public const DISCRIMINATOR_VALUE = 'SNS';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
      * @var ?string
      */
     protected $topicArn;
+
 
     public function __construct(
         string $accessKey = null,

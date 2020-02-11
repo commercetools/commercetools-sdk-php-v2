@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Type\CustomFieldLocalizedEnumValueCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartClassificationType extends ShippingRateInputType
 {
-    const FIELD_VALUES = 'values';
+    public const FIELD_VALUES = 'values';
 
     /**
      * @return null|CustomFieldLocalizedEnumValueCollection

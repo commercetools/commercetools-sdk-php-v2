@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderTransitionCustomLineItemStateAction>
- *
  * @method StagedOrderTransitionCustomLineItemStateAction current()
  * @method StagedOrderTransitionCustomLineItemStateAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderTransitionCustomLineItemStateActionCollection extends MapperSeq
     /**
      * @psalm-assert StagedOrderTransitionCustomLineItemStateAction $value
      * @psalm-param StagedOrderTransitionCustomLineItemStateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderTransitionCustomLineItemStateActionCollection

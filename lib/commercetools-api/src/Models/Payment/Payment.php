@@ -15,27 +15,29 @@ use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Payment extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_INTERFACE_ID = 'interfaceId';
-    const FIELD_AMOUNT_PLANNED = 'amountPlanned';
-    const FIELD_AMOUNT_AUTHORIZED = 'amountAuthorized';
-    const FIELD_AUTHORIZED_UNTIL = 'authorizedUntil';
-    const FIELD_AMOUNT_PAID = 'amountPaid';
-    const FIELD_AMOUNT_REFUNDED = 'amountRefunded';
-    const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
-    const FIELD_PAYMENT_STATUS = 'paymentStatus';
-    const FIELD_TRANSACTIONS = 'transactions';
-    const FIELD_INTERFACE_INTERACTIONS = 'interfaceInteractions';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_KEY = 'key';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_INTERFACE_ID = 'interfaceId';
+    public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
+    public const FIELD_AMOUNT_AUTHORIZED = 'amountAuthorized';
+    public const FIELD_AUTHORIZED_UNTIL = 'authorizedUntil';
+    public const FIELD_AMOUNT_PAID = 'amountPaid';
+    public const FIELD_AMOUNT_REFUNDED = 'amountRefunded';
+    public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
+    public const FIELD_PAYMENT_STATUS = 'paymentStatus';
+    public const FIELD_TRANSACTIONS = 'transactions';
+    public const FIELD_INTERFACE_INTERACTIONS = 'interfaceInteractions';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|string

@@ -10,13 +10,16 @@ namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectModel implements DuplicateFieldWithConflictingResourceError
 {
-    const DISCRIMINATOR_VALUE = 'DuplicateFieldWithConflictingResource';
+    public const DISCRIMINATOR_VALUE = 'DuplicateFieldWithConflictingResource';
     /**
      * @var ?string
      */
@@ -41,6 +44,7 @@ final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectMo
      * @var ?Reference
      */
     protected $conflictingResource;
+
 
     public function __construct(
         string $message = null,

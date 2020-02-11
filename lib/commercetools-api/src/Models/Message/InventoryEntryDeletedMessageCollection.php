@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryDeletedMessage>
- *
  * @method InventoryEntryDeletedMessage current()
  * @method InventoryEntryDeletedMessage at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntryDeletedMessageCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryDeletedMessage $value
      * @psalm-param InventoryEntryDeletedMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntryDeletedMessageCollection

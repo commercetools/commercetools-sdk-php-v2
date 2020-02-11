@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectModel implements ProductTypeChangeAttributeConstraintAction
 {
-    const DISCRIMINATOR_VALUE = 'changeAttributeConstraint';
+    public const DISCRIMINATOR_VALUE = 'changeAttributeConstraint';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
      * @var ?string
      */
     protected $newValue;
+
 
     public function __construct(
         string $attributeName = null,

@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class AttributeModel extends JsonObjectModel implements Attribute
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -26,30 +29,31 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 
     /**
      * @psalm-var array<string, class-string<Attribute> >
+     *
      */
     private static $discriminatorClasses = [
-        'boolean' => BooleanAttributeModel::class,
-        'boolean-set' => BooleanSetAttributeModel::class,
-        'date' => DateAttributeModel::class,
-        'date-set' => DateSetAttributeModel::class,
-        'datetime' => DateTimeAttributeModel::class,
-        'datetime-set' => DateTimeSetAttributeModel::class,
-        'enum' => EnumAttributeModel::class,
-        'enum-set' => EnumSetAttributeModel::class,
-        'lenum' => LocalizableEnumAttributeModel::class,
-        'lenum-set' => LocalizableEnumSetAttributeModel::class,
-        'ltext' => LocalizableTextAttributeModel::class,
-        'ltext-set' => LocalizableTextSetAttributeModel::class,
-        'money' => MoneyAttributeModel::class,
-        'money-set' => MoneySetAttributeModel::class,
-        'number' => NumberAttributeModel::class,
-        'number-set' => NumberSetAttributeModel::class,
-        'reference' => ReferenceAttributeModel::class,
-        'reference-set' => ReferenceSetAttributeModel::class,
-        'text' => TextAttributeModel::class,
-        'text-set' => TextSetAttributeModel::class,
-        'time' => TimeAttributeModel::class,
-        'time-set' => TimeSetAttributeModel::class,
+       'boolean' => BooleanAttributeModel::class,
+       'boolean-set' => BooleanSetAttributeModel::class,
+       'date' => DateAttributeModel::class,
+       'date-set' => DateSetAttributeModel::class,
+       'datetime' => DateTimeAttributeModel::class,
+       'datetime-set' => DateTimeSetAttributeModel::class,
+       'enum' => EnumAttributeModel::class,
+       'enum-set' => EnumSetAttributeModel::class,
+       'lenum' => LocalizableEnumAttributeModel::class,
+       'lenum-set' => LocalizableEnumSetAttributeModel::class,
+       'ltext' => LocalizableTextAttributeModel::class,
+       'ltext-set' => LocalizableTextSetAttributeModel::class,
+       'money' => MoneyAttributeModel::class,
+       'money-set' => MoneySetAttributeModel::class,
+       'number' => NumberAttributeModel::class,
+       'number-set' => NumberSetAttributeModel::class,
+       'reference' => ReferenceAttributeModel::class,
+       'reference-set' => ReferenceSetAttributeModel::class,
+       'text' => TextAttributeModel::class,
+       'text-set' => TextSetAttributeModel::class,
+       'time' => TimeAttributeModel::class,
+       'time-set' => TimeSetAttributeModel::class,
     ];
 
     public function __construct(
@@ -102,18 +106,18 @@ final class AttributeModel extends JsonObjectModel implements Attribute
         $this->name = $name;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<Attribute>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = Attribute::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -128,7 +132,6 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 
         /** @psalm-var class-string<Attribute> */
         $type = AttributeModel::class;
-
         return $type;
     }
 }

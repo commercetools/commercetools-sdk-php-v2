@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CustomerGroupDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_GROUP_NAME = 'groupName';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_KEY = 'key';
+    public const FIELD_GROUP_NAME = 'groupName';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>User-specific unique identifier for the customer group.</p>

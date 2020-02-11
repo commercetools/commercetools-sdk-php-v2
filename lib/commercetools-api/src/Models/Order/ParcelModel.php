@@ -8,9 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ParcelModel extends JsonObjectModel implements Parcel
@@ -39,6 +43,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
      * @var ?DeliveryItemCollection
      */
     protected $items;
+
 
     public function __construct(
         string $id = null,
@@ -172,13 +177,13 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         $this->items = $items;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[Parcel::FIELD_CREATED_AT]) && $data[Parcel::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
             $data[Parcel::FIELD_CREATED_AT] = $data[Parcel::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

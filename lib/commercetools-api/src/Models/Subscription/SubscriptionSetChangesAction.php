@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface SubscriptionSetChangesAction extends SubscriptionUpdateAction
 {
-    const FIELD_CHANGES = 'changes';
+    public const FIELD_CHANGES = 'changes';
 
     /**
      * @return null|ChangeSubscriptionCollection

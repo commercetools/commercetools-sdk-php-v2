@@ -6,40 +6,52 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 use Commercetools\Exception\InvalidArgumentException;
+use GuzzleHttp\Client;
+use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\SimpleCache\CacheInterface;
 
 class CachedTokenProvider implements TokenProvider
 {
-    const TOKEN_CACHE_KEY = 'access_token';
-
+    public const TOKEN_CACHE_KEY = 'access_token';
+    
     /** @psalm-var TokenProvider */
     private $provider;
 
     /** @psalm-var CacheItemPoolInterface|CacheInterface */
     private $cache;
-
+    
     /** @psalm-var string */
     private $cacheKey;
 
     /**
      * @psalm-param CacheItemPoolInterface|CacheInterface|mixed $cache
-     *
-     * @param mixed $cache
      */
     public function __construct(TokenProvider $provider, $cache, string $cacheKey = null)
     {
         $this->validateCache($cache);
         $this->cache = $cache;
         $this->provider = $provider;
-        $this->cacheKey = self::TOKEN_CACHE_KEY.'_'.($cacheKey ?? sha1(self::TOKEN_CACHE_KEY));
+        $this->cacheKey = self::TOKEN_CACHE_KEY . "_" . ($cacheKey ?? sha1(self::TOKEN_CACHE_KEY));
     }
 
     /**
-     * {@inheritdoc}
+     * @psalm-assert CacheItemPoolInterface|CacheInterface $cache
+     * @psalm-param CacheItemPoolInterface|CacheInterface|mixed $cache
+     */
+    private function validateCache($cache): void
+    {
+        if (!$cache instanceof CacheInterface && !$cache instanceof CacheItemPoolInterface) {
+            throw new InvalidArgumentException();
+        }
+    }
+
+    /**
+     * @inheritDoc
      */
     public function getToken(): Token
     {
@@ -54,7 +66,7 @@ class CachedTokenProvider implements TokenProvider
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function refreshToken(): Token
     {
@@ -67,19 +79,6 @@ class CachedTokenProvider implements TokenProvider
         return $token;
     }
 
-    /**
-     * @psalm-assert CacheItemPoolInterface|CacheInterface $cache
-     * @psalm-param CacheItemPoolInterface|CacheInterface|mixed $cache
-     *
-     * @param mixed $cache
-     */
-    private function validateCache($cache): void
-    {
-        if (!$cache instanceof CacheInterface && !$cache instanceof CacheItemPoolInterface) {
-            throw new InvalidArgumentException();
-        }
-    }
-
     private function getCacheToken(): ?string
     {
         $cache = $this->cache;
@@ -87,12 +86,12 @@ class CachedTokenProvider implements TokenProvider
             /** @psalm-var ?string */
             return $cache->get($this->cacheKey, null);
         }
-
+        
         $item = $cache->getItem($this->cacheKey);
         if ($item->isHit()) {
-            return (string) $item->get();
+            return (string)$item->get();
         }
-
+        
         return null;
     }
 

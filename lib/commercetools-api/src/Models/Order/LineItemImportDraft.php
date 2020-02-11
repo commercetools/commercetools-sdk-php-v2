@@ -14,21 +14,22 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface LineItemImportDraft extends JsonObject
 {
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_NAME = 'name';
-    const FIELD_VARIANT = 'variant';
-    const FIELD_PRICE = 'price';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_STATE = 'state';
-    const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
-    const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
-    const FIELD_TAX_RATE = 'taxRate';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VARIANT = 'variant';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_STATE = 'state';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
+    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
      * <p>ID of the existing product.

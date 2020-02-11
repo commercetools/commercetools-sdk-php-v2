@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DeliveryItemsUpdatedMessagePayload extends MessagePayload
 {
-    const FIELD_DELIVERY_ID = 'deliveryId';
-    const FIELD_ITEMS = 'items';
-    const FIELD_OLD_ITEMS = 'oldItems';
+    public const FIELD_DELIVERY_ID = 'deliveryId';
+    public const FIELD_ITEMS = 'items';
+    public const FIELD_OLD_ITEMS = 'oldItems';
 
     /**
      * @return null|string

@@ -10,7 +10,10 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
+
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
@@ -22,9 +25,12 @@ use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\Review\ReviewRatingStatisticsModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ChannelModel extends JsonObjectModel implements Channel
@@ -98,6 +104,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
      * @var ?GeoJson
      */
     protected $geoLocation;
+
 
     public function __construct(
         string $id = null,
@@ -477,6 +484,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->geoLocation = $geoLocation;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -487,7 +495,6 @@ final class ChannelModel extends JsonObjectModel implements Channel
         if (isset($data[Channel::FIELD_LAST_MODIFIED_AT]) && $data[Channel::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Channel::FIELD_LAST_MODIFIED_AT] = $data[Channel::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

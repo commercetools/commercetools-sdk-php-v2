@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeInputHintAction>
- *
  * @method TypeChangeInputHintAction current()
  * @method TypeChangeInputHintAction at($offset)
  */
@@ -23,9 +22,6 @@ class TypeChangeInputHintActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeInputHintAction $value
      * @psalm-param TypeChangeInputHintAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TypeChangeInputHintActionCollection

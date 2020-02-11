@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,19 +24,20 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
 
     /**
      * @psalm-var array<string, class-string<ReviewUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'setAuthorName' => ReviewSetAuthorNameActionModel::class,
-        'setCustomField' => ReviewSetCustomFieldActionModel::class,
-        'setCustomType' => ReviewSetCustomTypeActionModel::class,
-        'setCustomer' => ReviewSetCustomerActionModel::class,
-        'setKey' => ReviewSetKeyActionModel::class,
-        'setLocale' => ReviewSetLocaleActionModel::class,
-        'setRating' => ReviewSetRatingActionModel::class,
-        'setTarget' => ReviewSetTargetActionModel::class,
-        'setText' => ReviewSetTextActionModel::class,
-        'setTitle' => ReviewSetTitleActionModel::class,
-        'transitionState' => ReviewTransitionStateActionModel::class,
+       'setAuthorName' => ReviewSetAuthorNameActionModel::class,
+       'setCustomField' => ReviewSetCustomFieldActionModel::class,
+       'setCustomType' => ReviewSetCustomTypeActionModel::class,
+       'setCustomer' => ReviewSetCustomerActionModel::class,
+       'setKey' => ReviewSetKeyActionModel::class,
+       'setLocale' => ReviewSetLocaleActionModel::class,
+       'setRating' => ReviewSetRatingActionModel::class,
+       'setTarget' => ReviewSetTargetActionModel::class,
+       'setText' => ReviewSetTextActionModel::class,
+       'setTitle' => ReviewSetTitleActionModel::class,
+       'transitionState' => ReviewTransitionStateActionModel::class,
     ];
 
     public function __construct(
@@ -58,18 +62,19 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ReviewUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ReviewUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -84,7 +89,6 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
 
         /** @psalm-var class-string<ReviewUpdateAction> */
         $type = ReviewUpdateActionModel::class;
-
         return $type;
     }
 }

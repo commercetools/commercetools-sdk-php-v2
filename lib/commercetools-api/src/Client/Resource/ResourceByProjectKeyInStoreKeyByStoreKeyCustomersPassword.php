@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Customer\CustomerChangePassword;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,7 +22,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword extends ApiResou
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($this->getUri().'/reset', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($this->getUri() . '/reset', $args, $this->getClient());
     }
 
     /**

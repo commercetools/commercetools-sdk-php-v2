@@ -14,13 +14,16 @@ use Commercetools\Api\Models\Me\MyPaymentPagedQueryResponse;
 use Commercetools\Api\Models\Me\MyPaymentPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -107,9 +110,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $expand
      *
-     * @param mixed $expand
+     * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyMePaymentsGet
     {
@@ -117,9 +119,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $where
      *
-     * @param mixed $where
+     * @psalm-param scalar $where
      */
     public function withWhere($where): ByProjectKeyMePaymentsGet
     {
@@ -127,9 +128,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $sort
      *
-     * @param mixed $sort
+     * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyMePaymentsGet
     {
@@ -137,9 +137,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $limit
      *
-     * @param mixed $limit
+     * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyMePaymentsGet
     {
@@ -147,9 +146,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $offset
      *
-     * @param mixed $offset
+     * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyMePaymentsGet
     {
@@ -157,9 +155,8 @@ class ByProjectKeyMePaymentsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $withTotal
      *
-     * @param mixed $withTotal
+     * @psalm-param scalar $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyMePaymentsGet
     {

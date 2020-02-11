@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryRemoveQuantityAction>
- *
  * @method InventoryEntryRemoveQuantityAction current()
  * @method InventoryEntryRemoveQuantityAction at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntryRemoveQuantityActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryRemoveQuantityAction $value
      * @psalm-param InventoryEntryRemoveQuantityAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntryRemoveQuantityActionCollection

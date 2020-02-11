@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCartRecalculateAction
 {
-    const DISCRIMINATOR_VALUE = 'recalculate';
+    public const DISCRIMINATOR_VALUE = 'recalculate';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
      * @var ?bool
      */
     protected $updateProductData;
+
 
     public function __construct(
         bool $updateProductData = null

@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ConcurrentModificationErrorModel extends JsonObjectModel implements ConcurrentModificationError
 {
-    const DISCRIMINATOR_VALUE = 'ConcurrentModification';
+    public const DISCRIMINATOR_VALUE = 'ConcurrentModification';
     /**
      * @var ?string
      */
@@ -39,6 +41,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
      * @var ?JsonObject
      */
     protected $conflictedResource;
+
 
     public function __construct(
         string $message = null,

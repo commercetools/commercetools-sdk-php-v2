@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionUpdateActionsFailedError>
- *
  * @method ExtensionUpdateActionsFailedError current()
  * @method ExtensionUpdateActionsFailedError at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionUpdateActionsFailedErrorCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionUpdateActionsFailedError $value
      * @psalm-param ExtensionUpdateActionsFailedError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionUpdateActionsFailedErrorCollection

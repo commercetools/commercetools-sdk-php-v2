@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderSetReturnPaymentStateAction extends OrderUpdateAction
 {
-    const FIELD_RETURN_ITEM_ID = 'returnItemId';
-    const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_RETURN_ITEM_ID = 'returnItemId';
+    public const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**
      * @return null|string

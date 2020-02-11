@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ParcelMeasurements extends JsonObject
 {
-    const FIELD_HEIGHT_IN_MILLIMETER = 'heightInMillimeter';
-    const FIELD_LENGTH_IN_MILLIMETER = 'lengthInMillimeter';
-    const FIELD_WIDTH_IN_MILLIMETER = 'widthInMillimeter';
-    const FIELD_WEIGHT_IN_GRAM = 'weightInGram';
+    public const FIELD_HEIGHT_IN_MILLIMETER = 'heightInMillimeter';
+    public const FIELD_LENGTH_IN_MILLIMETER = 'lengthInMillimeter';
+    public const FIELD_WIDTH_IN_MILLIMETER = 'widthInMillimeter';
+    public const FIELD_WEIGHT_IN_GRAM = 'weightInGram';
 
     /**
      * @return null|int

@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ParcelItemsUpdatedMessagePayload>
@@ -107,6 +112,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ParcelItemsUpdatedMessagePayload
     {

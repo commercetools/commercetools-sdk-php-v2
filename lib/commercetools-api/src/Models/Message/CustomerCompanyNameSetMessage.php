@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CustomerCompanyNameSetMessage extends Message
 {
-    const FIELD_COMPANY_NAME = 'companyName';
+    public const FIELD_COMPANY_NAME = 'companyName';
 
     /**
      * @return null|string

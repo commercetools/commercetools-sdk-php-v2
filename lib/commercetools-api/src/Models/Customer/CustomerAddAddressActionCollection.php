@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerAddAddressAction>
- *
  * @method CustomerAddAddressAction current()
  * @method CustomerAddAddressAction at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerAddAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerAddAddressAction $value
      * @psalm-param CustomerAddAddressAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerAddAddressActionCollection

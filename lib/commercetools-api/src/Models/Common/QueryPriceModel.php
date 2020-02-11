@@ -13,10 +13,14 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
+
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class QueryPriceModel extends JsonObjectModel implements QueryPrice
@@ -70,6 +74,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
      * @var ?PriceTierDraftCollection
      */
     protected $tiers;
+
 
     public function __construct(
         string $id = null,
@@ -330,6 +335,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
         $this->tiers = $tiers;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -340,7 +346,6 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
         if (isset($data[QueryPrice::FIELD_VALID_UNTIL]) && $data[QueryPrice::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[QueryPrice::FIELD_VALID_UNTIL] = $data[QueryPrice::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

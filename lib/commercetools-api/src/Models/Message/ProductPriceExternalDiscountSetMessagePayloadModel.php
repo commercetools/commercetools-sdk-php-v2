@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjectModel implements ProductPriceExternalDiscountSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
+    public const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
     /**
      * @var ?string
      */
@@ -50,6 +54,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

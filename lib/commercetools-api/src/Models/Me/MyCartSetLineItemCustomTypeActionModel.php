@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel implements MyCartSetLineItemCustomTypeAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemCustomType';
+    public const DISCRIMINATOR_VALUE = 'setLineItemCustomType';
     /**
      * @var ?string
      */
@@ -37,6 +41,7 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
      * @var ?FieldContainer
      */
     protected $fields;
+
 
     public function __construct(
         string $lineItemId = null,

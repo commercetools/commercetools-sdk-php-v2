@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LineItemStateTransitionMessage>
- *
  * @method LineItemStateTransitionMessage current()
  * @method LineItemStateTransitionMessage at($offset)
  */
@@ -23,9 +22,6 @@ class LineItemStateTransitionMessageCollection extends MapperSequence
     /**
      * @psalm-assert LineItemStateTransitionMessage $value
      * @psalm-param LineItemStateTransitionMessage|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return LineItemStateTransitionMessageCollection

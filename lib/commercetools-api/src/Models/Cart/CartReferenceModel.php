@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartReferenceModel extends JsonObjectModel implements CartReference
 {
-    const DISCRIMINATOR_VALUE = 'cart';
+    public const DISCRIMINATOR_VALUE = 'cart';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
      * @var ?Cart
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

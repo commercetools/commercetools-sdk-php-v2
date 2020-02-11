@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TypeChangeFieldDefinitionLabelAction extends TypeUpdateAction
 {
-    const FIELD_FIELD_NAME = 'fieldName';
-    const FIELD_LABEL = 'label';
+    public const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_LABEL = 'label';
 
     /**
      * @return null|string

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeRemoveAttributeDefinitionAction
 {
-    const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
+    public const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
      * @var ?string
      */
     protected $name;
+
 
     public function __construct(
         string $name = null

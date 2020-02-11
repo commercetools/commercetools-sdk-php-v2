@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductSetAttributeAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SKU = 'sku';
-    const FIELD_NAME = 'name';
-    const FIELD_VALUE = 'value';
-    const FIELD_STAGED = 'staged';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * @return null|int

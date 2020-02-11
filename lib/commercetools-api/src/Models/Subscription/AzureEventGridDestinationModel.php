@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AzureEventGridDestinationModel extends JsonObjectModel implements AzureEventGridDestination
 {
-    const DISCRIMINATOR_VALUE = 'EventGrid';
+    public const DISCRIMINATOR_VALUE = 'EventGrid';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
      * @var ?string
      */
     protected $accessKey;
+
 
     public function __construct(
         string $uri = null,

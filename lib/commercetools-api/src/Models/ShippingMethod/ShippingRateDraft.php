@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ShippingRateDraft extends JsonObject
 {
-    const FIELD_PRICE = 'price';
-    const FIELD_FREE_ABOVE = 'freeAbove';
-    const FIELD_TIERS = 'tiers';
+    public const FIELD_PRICE = 'price';
+    public const FIELD_FREE_ABOVE = 'freeAbove';
+    public const FIELD_TIERS = 'tiers';
 
     /**
      * @return null|Money

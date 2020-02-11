@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderTransitionStateAction>
- *
  * @method OrderTransitionStateAction current()
  * @method OrderTransitionStateAction at($offset)
  */
@@ -23,9 +22,6 @@ class OrderTransitionStateActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderTransitionStateAction $value
      * @psalm-param OrderTransitionStateAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderTransitionStateActionCollection

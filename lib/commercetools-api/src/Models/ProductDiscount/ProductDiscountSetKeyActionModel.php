@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements ProductDiscountSetKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'setKey';
+    public const DISCRIMINATOR_VALUE = 'setKey';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

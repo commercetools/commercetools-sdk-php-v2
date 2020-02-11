@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderStateTransitionMessagePayload extends MessagePayload
 {
-    const FIELD_STATE = 'state';
-    const FIELD_FORCE = 'force';
+    public const FIELD_STATE = 'state';
+    public const FIELD_FORCE = 'force';
 
     /**
      * @return null|StateReference

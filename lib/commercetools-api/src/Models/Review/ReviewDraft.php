@@ -11,21 +11,22 @@ namespace Commercetools\Api\Models\Review;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ReviewDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_AUTHOR_NAME = 'authorName';
-    const FIELD_TITLE = 'title';
-    const FIELD_TEXT = 'text';
-    const FIELD_TARGET = 'target';
-    const FIELD_STATE = 'state';
-    const FIELD_RATING = 'rating';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_KEY = 'key';
+    public const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_AUTHOR_NAME = 'authorName';
+    public const FIELD_TITLE = 'title';
+    public const FIELD_TEXT = 'text';
+    public const FIELD_TARGET = 'target';
+    public const FIELD_STATE = 'state';
+    public const FIELD_RATING = 'rating';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>User-specific unique identifier for the review.</p>

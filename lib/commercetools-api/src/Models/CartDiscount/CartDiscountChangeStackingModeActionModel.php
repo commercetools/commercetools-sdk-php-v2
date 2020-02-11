@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel implements CartDiscountChangeStackingModeAction
 {
-    const DISCRIMINATOR_VALUE = 'changeStackingMode';
+    public const DISCRIMINATOR_VALUE = 'changeStackingMode';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
      * @var ?string
      */
     protected $stackingMode;
+
 
     public function __construct(
         string $stackingMode = null

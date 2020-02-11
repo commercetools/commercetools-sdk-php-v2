@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderSetLocaleAction>
- *
  * @method OrderSetLocaleAction current()
  * @method OrderSetLocaleAction at($offset)
  */
@@ -23,9 +22,6 @@ class OrderSetLocaleActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderSetLocaleAction $value
      * @psalm-param OrderSetLocaleAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return OrderSetLocaleActionCollection

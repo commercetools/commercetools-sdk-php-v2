@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductVariantAvailability extends JsonObject
 {
-    const FIELD_IS_ON_STOCK = 'isOnStock';
-    const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
-    const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
-    const FIELD_CHANNELS = 'channels';
+    public const FIELD_IS_ON_STOCK = 'isOnStock';
+    public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
+    public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
+    public const FIELD_CHANNELS = 'channels';
 
     /**
      * @return null|bool

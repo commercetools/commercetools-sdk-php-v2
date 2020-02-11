@@ -12,20 +12,22 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface State extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_KEY = 'key';
-    const FIELD_TYPE = 'type';
-    const FIELD_NAME = 'name';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_INITIAL = 'initial';
-    const FIELD_BUILT_IN = 'builtIn';
-    const FIELD_ROLES = 'roles';
-    const FIELD_TRANSITIONS = 'transitions';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_NAME = 'name';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_INITIAL = 'initial';
+    public const FIELD_BUILT_IN = 'builtIn';
+    public const FIELD_ROLES = 'roles';
+    public const FIELD_TRANSITIONS = 'transitions';
 
     /**
      * @return null|string

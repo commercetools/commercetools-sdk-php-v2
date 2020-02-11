@@ -9,16 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface UserProvidedIdentifiers extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_EXTERNAL_ID = 'externalId';
-    const FIELD_ORDER_NUMBER = 'orderNumber';
-    const FIELD_CUSTOMER_NUMBER = 'customerNumber';
-    const FIELD_SKU = 'sku';
-    const FIELD_SLUG = 'slug';
+    public const FIELD_KEY = 'key';
+    public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_SLUG = 'slug';
 
     /**
      * @return null|string

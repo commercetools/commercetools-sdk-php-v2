@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OrderSetOrderNumberAction extends OrderUpdateAction
 {
-    const FIELD_ORDER_NUMBER = 'orderNumber';
+    public const FIELD_ORDER_NUMBER = 'orderNumber';
 
     /**
      * @return null|string

@@ -8,14 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+
 use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 use stdClass;
 
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
 {
-    const DISCRIMINATOR_VALUE = 'nested';
+    public const DISCRIMINATOR_VALUE = 'nested';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
      * @var ?ProductTypeKeyReference
      */
     protected $typeReference;
+
 
     public function __construct(
         ProductTypeKeyReference $typeReference = null

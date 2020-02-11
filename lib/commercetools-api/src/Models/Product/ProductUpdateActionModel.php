@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductUpdateActionModel extends JsonObjectModel implements ProductUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,54 +24,55 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
 
     /**
      * @psalm-var array<string, class-string<ProductUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'addAsset' => ProductAddAssetActionModel::class,
-        'addExternalImage' => ProductAddExternalImageActionModel::class,
-        'addPrice' => ProductAddPriceActionModel::class,
-        'addToCategory' => ProductAddToCategoryActionModel::class,
-        'addVariant' => ProductAddVariantActionModel::class,
-        'changeAssetName' => ProductChangeAssetNameActionModel::class,
-        'changeAssetOrder' => ProductChangeAssetOrderActionModel::class,
-        'changeMasterVariant' => ProductChangeMasterVariantActionModel::class,
-        'changeName' => ProductChangeNameActionModel::class,
-        'changePrice' => ProductChangePriceActionModel::class,
-        'changeSlug' => ProductChangeSlugActionModel::class,
-        'legacySetSku' => ProductLegacySetSkuActionModel::class,
-        'moveImageToPosition' => ProductMoveImageToPositionActionModel::class,
-        'publish' => ProductPublishActionModel::class,
-        'removeAsset' => ProductRemoveAssetActionModel::class,
-        'removeFromCategory' => ProductRemoveFromCategoryActionModel::class,
-        'removeImage' => ProductRemoveImageActionModel::class,
-        'removePrice' => ProductRemovePriceActionModel::class,
-        'removeVariant' => ProductRemoveVariantActionModel::class,
-        'revertStagedChanges' => ProductRevertStagedChangesActionModel::class,
-        'revertStagedVariantChanges' => ProductRevertStagedVariantChangesActionModel::class,
-        'setAssetCustomField' => ProductSetAssetCustomFieldActionModel::class,
-        'setAssetCustomType' => ProductSetAssetCustomTypeActionModel::class,
-        'setAssetDescription' => ProductSetAssetDescriptionActionModel::class,
-        'setAssetKey' => ProductSetAssetKeyActionModel::class,
-        'setAssetSources' => ProductSetAssetSourcesActionModel::class,
-        'setAssetTags' => ProductSetAssetTagsActionModel::class,
-        'setAttribute' => ProductSetAttributeActionModel::class,
-        'setAttributeInAllVariants' => ProductSetAttributeInAllVariantsActionModel::class,
-        'setCategoryOrderHint' => ProductSetCategoryOrderHintActionModel::class,
-        'setDescription' => ProductSetDescriptionActionModel::class,
-        'setDiscountedPrice' => ProductSetDiscountedPriceActionModel::class,
-        'setImageLabel' => ProductSetImageLabelActionModel::class,
-        'setKey' => ProductSetKeyActionModel::class,
-        'setMetaDescription' => ProductSetMetaDescriptionActionModel::class,
-        'setMetaKeywords' => ProductSetMetaKeywordsActionModel::class,
-        'setMetaTitle' => ProductSetMetaTitleActionModel::class,
-        'setPrices' => ProductSetPricesActionModel::class,
-        'setProductPriceCustomField' => ProductSetProductPriceCustomFieldActionModel::class,
-        'setProductPriceCustomType' => ProductSetProductPriceCustomTypeActionModel::class,
-        'setProductVariantKey' => ProductSetProductVariantKeyActionModel::class,
-        'setSearchKeywords' => ProductSetSearchKeywordsActionModel::class,
-        'setSku' => ProductSetSkuActionModel::class,
-        'setTaxCategory' => ProductSetTaxCategoryActionModel::class,
-        'transitionState' => ProductTransitionStateActionModel::class,
-        'unpublish' => ProductUnpublishActionModel::class,
+       'addAsset' => ProductAddAssetActionModel::class,
+       'addExternalImage' => ProductAddExternalImageActionModel::class,
+       'addPrice' => ProductAddPriceActionModel::class,
+       'addToCategory' => ProductAddToCategoryActionModel::class,
+       'addVariant' => ProductAddVariantActionModel::class,
+       'changeAssetName' => ProductChangeAssetNameActionModel::class,
+       'changeAssetOrder' => ProductChangeAssetOrderActionModel::class,
+       'changeMasterVariant' => ProductChangeMasterVariantActionModel::class,
+       'changeName' => ProductChangeNameActionModel::class,
+       'changePrice' => ProductChangePriceActionModel::class,
+       'changeSlug' => ProductChangeSlugActionModel::class,
+       'legacySetSku' => ProductLegacySetSkuActionModel::class,
+       'moveImageToPosition' => ProductMoveImageToPositionActionModel::class,
+       'publish' => ProductPublishActionModel::class,
+       'removeAsset' => ProductRemoveAssetActionModel::class,
+       'removeFromCategory' => ProductRemoveFromCategoryActionModel::class,
+       'removeImage' => ProductRemoveImageActionModel::class,
+       'removePrice' => ProductRemovePriceActionModel::class,
+       'removeVariant' => ProductRemoveVariantActionModel::class,
+       'revertStagedChanges' => ProductRevertStagedChangesActionModel::class,
+       'revertStagedVariantChanges' => ProductRevertStagedVariantChangesActionModel::class,
+       'setAssetCustomField' => ProductSetAssetCustomFieldActionModel::class,
+       'setAssetCustomType' => ProductSetAssetCustomTypeActionModel::class,
+       'setAssetDescription' => ProductSetAssetDescriptionActionModel::class,
+       'setAssetKey' => ProductSetAssetKeyActionModel::class,
+       'setAssetSources' => ProductSetAssetSourcesActionModel::class,
+       'setAssetTags' => ProductSetAssetTagsActionModel::class,
+       'setAttribute' => ProductSetAttributeActionModel::class,
+       'setAttributeInAllVariants' => ProductSetAttributeInAllVariantsActionModel::class,
+       'setCategoryOrderHint' => ProductSetCategoryOrderHintActionModel::class,
+       'setDescription' => ProductSetDescriptionActionModel::class,
+       'setDiscountedPrice' => ProductSetDiscountedPriceActionModel::class,
+       'setImageLabel' => ProductSetImageLabelActionModel::class,
+       'setKey' => ProductSetKeyActionModel::class,
+       'setMetaDescription' => ProductSetMetaDescriptionActionModel::class,
+       'setMetaKeywords' => ProductSetMetaKeywordsActionModel::class,
+       'setMetaTitle' => ProductSetMetaTitleActionModel::class,
+       'setPrices' => ProductSetPricesActionModel::class,
+       'setProductPriceCustomField' => ProductSetProductPriceCustomFieldActionModel::class,
+       'setProductPriceCustomType' => ProductSetProductPriceCustomTypeActionModel::class,
+       'setProductVariantKey' => ProductSetProductVariantKeyActionModel::class,
+       'setSearchKeywords' => ProductSetSearchKeywordsActionModel::class,
+       'setSku' => ProductSetSkuActionModel::class,
+       'setTaxCategory' => ProductSetTaxCategoryActionModel::class,
+       'transitionState' => ProductTransitionStateActionModel::class,
+       'unpublish' => ProductUnpublishActionModel::class,
     ];
 
     public function __construct(
@@ -93,18 +97,19 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ProductUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ProductUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -119,7 +124,6 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
 
         /** @psalm-var class-string<ProductUpdateAction> */
         $type = ProductUpdateActionModel::class;
-
         return $type;
     }
 }

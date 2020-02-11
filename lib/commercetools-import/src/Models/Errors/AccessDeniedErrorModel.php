@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeniedError
 {
-    const DISCRIMINATOR_VALUE = 'access_denied';
+    public const DISCRIMINATOR_VALUE = 'access_denied';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StateReferenceModel extends JsonObjectModel implements StateReference
 {
-    const DISCRIMINATOR_VALUE = 'state';
+    public const DISCRIMINATOR_VALUE = 'state';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
      * @var ?State
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

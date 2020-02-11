@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Prices\PriceImportCollection;
+
 use stdClass;
 
 final class PriceImportRequestModel extends JsonObjectModel implements PriceImportRequest
 {
-    const DISCRIMINATOR_VALUE = 'price';
+    public const DISCRIMINATOR_VALUE = 'price';
     /**
      * @var ?string
      */
@@ -24,6 +28,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
      * @var ?PriceImportCollection
      */
     protected $resources;
+
 
     public function __construct(
         PriceImportCollection $resources = null

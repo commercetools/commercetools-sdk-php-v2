@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
@@ -22,6 +25,7 @@ final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
      * @var ?ChannelUpdateActionCollection
      */
     protected $actions;
+
 
     public function __construct(
         int $version = null,

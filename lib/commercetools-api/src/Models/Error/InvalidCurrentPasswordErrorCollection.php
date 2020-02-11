@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidCurrentPasswordError>
- *
  * @method InvalidCurrentPasswordError current()
  * @method InvalidCurrentPasswordError at($offset)
  */
@@ -23,9 +22,6 @@ class InvalidCurrentPasswordErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidCurrentPasswordError $value
      * @psalm-param InvalidCurrentPasswordError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InvalidCurrentPasswordErrorCollection

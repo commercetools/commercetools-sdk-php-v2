@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFieldEnumType
 {
-    const DISCRIMINATOR_VALUE = 'Enum';
+    public const DISCRIMINATOR_VALUE = 'Enum';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
      * @var ?CustomFieldEnumValueCollection
      */
     protected $values;
+
 
     public function __construct(
         CustomFieldEnumValueCollection $values = null

@@ -9,12 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\CustomObject;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomObjectReferenceModel extends JsonObjectModel implements CustomObjectReference
 {
-    const DISCRIMINATOR_VALUE = 'key-value-document';
+    public const DISCRIMINATOR_VALUE = 'key-value-document';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
      * @var ?CustomObject
      */
     protected $obj;
+
 
     public function __construct(
         string $id = null,

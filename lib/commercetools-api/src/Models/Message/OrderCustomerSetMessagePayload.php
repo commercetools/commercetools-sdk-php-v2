@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderCustomerSetMessagePayload extends MessagePayload
 {
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_CUSTOMER_GROUP = 'customerGroup';
-    const FIELD_OLD_CUSTOMER = 'oldCustomer';
-    const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_CUSTOMER_GROUP = 'customerGroup';
+    public const FIELD_OLD_CUSTOMER = 'oldCustomer';
+    public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
 
     /**
      * @return null|CustomerReference

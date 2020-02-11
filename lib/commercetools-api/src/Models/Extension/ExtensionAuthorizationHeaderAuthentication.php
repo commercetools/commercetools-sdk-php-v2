@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionAuthorizationHeaderAuthentication extends ExtensionHttpDestinationAuthentication
 {
-    const FIELD_HEADER_VALUE = 'headerValue';
+    public const FIELD_HEADER_VALUE = 'headerValue';
 
     /**
      * @return null|string

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements CentPrecisionMoneyDraft
 {
-    const DISCRIMINATOR_VALUE = 'centPrecision';
+    public const DISCRIMINATOR_VALUE = 'centPrecision';
     /**
      * @var ?int
      */
@@ -27,6 +31,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
      * @var ?string
      */
     protected $type;
+
 
     public function __construct(
         int $centAmount = null,

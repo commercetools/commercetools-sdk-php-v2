@@ -8,15 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
+
 use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftImport
@@ -50,6 +54,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         Money $value = null,
@@ -216,6 +221,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -226,7 +232,6 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         if (isset($data[PriceDraftImport::FIELD_VALID_UNTIL]) && $data[PriceDraftImport::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[PriceDraftImport::FIELD_VALID_UNTIL] = $data[PriceDraftImport::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

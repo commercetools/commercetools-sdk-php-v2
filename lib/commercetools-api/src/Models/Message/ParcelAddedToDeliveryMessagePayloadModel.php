@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Order\Delivery;
 use Commercetools\Api\Models\Order\DeliveryModel;
 use Commercetools\Api\Models\Order\Parcel;
 use Commercetools\Api\Models\Order\ParcelModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel implements ParcelAddedToDeliveryMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'ParcelAddedToDelivery';
+    public const DISCRIMINATOR_VALUE = 'ParcelAddedToDelivery';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
      * @var ?Parcel
      */
     protected $parcel;
+
 
     public function __construct(
         Delivery $delivery = null,

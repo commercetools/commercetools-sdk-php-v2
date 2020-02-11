@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ProjectSetShippingRateInputTypeAction extends ProjectUpdateAction
 {
-    const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
+    public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
 
     /**
      * <p>If not set, removes existing shippingRateInputType.</p>

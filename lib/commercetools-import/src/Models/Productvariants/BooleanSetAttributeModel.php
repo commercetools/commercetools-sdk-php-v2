@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanSetAttribute
 {
-    const DISCRIMINATOR_VALUE = 'boolean-set';
+    public const DISCRIMINATOR_VALUE = 'boolean-set';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
      * @var ?array
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

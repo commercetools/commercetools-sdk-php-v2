@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\ItemShippingTargetCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MyCartApplyDeltaToLineItemShippingDetailsTargetsAction extends MyCartUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_TARGETS_DELTA = 'targetsDelta';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_TARGETS_DELTA = 'targetsDelta';
 
     /**
      * @return null|string

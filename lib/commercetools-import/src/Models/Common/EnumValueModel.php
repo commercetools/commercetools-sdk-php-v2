@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class EnumValueModel extends JsonObjectModel implements EnumValue
 {
@@ -21,6 +25,7 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
      * @var ?string
      */
     protected $label;
+
 
     public function __construct(
         string $key = null,

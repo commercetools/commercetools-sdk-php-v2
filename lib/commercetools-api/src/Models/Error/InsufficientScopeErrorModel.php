@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InsufficientScopeErrorModel extends JsonObjectModel implements InsufficientScopeError
 {
-    const DISCRIMINATOR_VALUE = 'insufficient_scope';
+    public const DISCRIMINATOR_VALUE = 'insufficient_scope';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
      * @var ?string
      */
     protected $message;
+
 
     public function __construct(
         string $message = null

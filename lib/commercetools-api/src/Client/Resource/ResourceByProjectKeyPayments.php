@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Payment\PaymentDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,9 +25,8 @@ class ResourceByProjectKeyPayments extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyPaymentsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyPaymentsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyPaymentsByID
     {
         $args = $this->getArgs();
@@ -34,14 +34,12 @@ class ResourceByProjectKeyPayments extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyPaymentsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyPaymentsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyPaymentsGet
     {
@@ -49,7 +47,6 @@ class ResourceByProjectKeyPayments extends ApiResource
 
         return new ByProjectKeyPaymentsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?PaymentDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntrySetSupplyChannelAction>
- *
  * @method InventoryEntrySetSupplyChannelAction current()
  * @method InventoryEntrySetSupplyChannelAction at($offset)
  */
@@ -23,9 +22,6 @@ class InventoryEntrySetSupplyChannelActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntrySetSupplyChannelAction $value
      * @psalm-param InventoryEntrySetSupplyChannelAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InventoryEntrySetSupplyChannelActionCollection

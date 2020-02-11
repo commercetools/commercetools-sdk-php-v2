@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel implements InventoryEntryDeletedMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
+    public const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
      * @var ?ChannelReference
      */
     protected $supplyChannel;
+
 
     public function __construct(
         string $sku = null,

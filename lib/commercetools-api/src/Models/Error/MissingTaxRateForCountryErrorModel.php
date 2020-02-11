@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implements MissingTaxRateForCountryError
 {
-    const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
+    public const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
     /**
      * @var ?string
      */
@@ -37,6 +41,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
      * @var ?string
      */
     protected $state;
+
 
     public function __construct(
         string $message = null,

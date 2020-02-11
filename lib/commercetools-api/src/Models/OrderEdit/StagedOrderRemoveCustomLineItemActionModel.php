@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel implements StagedOrderRemoveCustomLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
+    public const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel i
      * @var ?string
      */
     protected $customLineItemId;
+
 
     public function __construct(
         string $customLineItemId = null

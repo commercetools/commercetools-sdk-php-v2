@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetLineItemTotalPriceAction extends CartUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
      * @return null|string

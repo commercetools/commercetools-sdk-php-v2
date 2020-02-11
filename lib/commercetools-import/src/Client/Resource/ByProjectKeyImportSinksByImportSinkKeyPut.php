@@ -10,10 +10,12 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Import\Models\Errors\ErrorResponse;
 use Commercetools\Import\Models\Errors\ErrorResponseModel;
 use Commercetools\Import\Models\Importsinks\ImportSink;
@@ -21,6 +23,7 @@ use Commercetools\Import\Models\Importsinks\ImportSinkModel;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */

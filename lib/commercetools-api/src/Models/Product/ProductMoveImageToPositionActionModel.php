@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductMoveImageToPositionActionModel extends JsonObjectModel implements ProductMoveImageToPositionAction
 {
-    const DISCRIMINATOR_VALUE = 'moveImageToPosition';
+    public const DISCRIMINATOR_VALUE = 'moveImageToPosition';
     /**
      * @var ?string
      */
@@ -42,6 +46,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         int $variantId = null,

@@ -10,12 +10,13 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface DiscountedLineItemPortion extends JsonObject
 {
-    const FIELD_DISCOUNT = 'discount';
-    const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
+    public const FIELD_DISCOUNT = 'discount';
+    public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 
     /**
      * @return null|CartDiscountReference

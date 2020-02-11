@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface TypeRemoveFieldDefinitionAction extends TypeUpdateAction
 {
-    const FIELD_FIELD_NAME = 'fieldName';
+    public const FIELD_FIELD_NAME = 'fieldName';
 
     /**
      * @return null|string

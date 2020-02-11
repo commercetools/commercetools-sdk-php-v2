@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel implements ProductTypeChangeIsSearchableAction
 {
-    const DISCRIMINATOR_VALUE = 'changeIsSearchable';
+    public const DISCRIMINATOR_VALUE = 'changeIsSearchable';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
      * @var ?bool
      */
     protected $isSearchable;
+
 
     public function __construct(
         string $attributeName = null,

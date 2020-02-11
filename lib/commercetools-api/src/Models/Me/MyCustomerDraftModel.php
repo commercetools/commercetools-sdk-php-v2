@@ -12,9 +12,13 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDraft
@@ -93,6 +97,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
      * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
+
 
     public function __construct(
         string $email = null,
@@ -473,13 +478,13 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->stores = $stores;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[MyCustomerDraft::FIELD_DATE_OF_BIRTH]) && $data[MyCustomerDraft::FIELD_DATE_OF_BIRTH] instanceof \DateTimeImmutable) {
             $data[MyCustomerDraft::FIELD_DATE_OF_BIRTH] = $data[MyCustomerDraft::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
         }
-
         return (object) $data;
     }
 }

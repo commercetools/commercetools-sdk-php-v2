@@ -10,11 +10,13 @@ namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategorySetCustomTypeAction extends CategoryUpdateAction
 {
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * <p>If absent, the custom type and any existing CustomFields are removed.</p>

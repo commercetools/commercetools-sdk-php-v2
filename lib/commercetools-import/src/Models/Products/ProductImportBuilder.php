@@ -9,7 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Products;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -18,6 +24,7 @@ use Commercetools\Import\Models\Common\StateKeyReference;
 use Commercetools\Import\Models\Common\StateKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceBuilder;
+use stdClass;
 
 /**
  * @implements Builder<ProductImport>

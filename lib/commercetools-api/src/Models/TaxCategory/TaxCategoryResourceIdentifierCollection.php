@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryResourceIdentifier>
- *
  * @method TaxCategoryResourceIdentifier current()
  * @method TaxCategoryResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class TaxCategoryResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryResourceIdentifier $value
      * @psalm-param TaxCategoryResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TaxCategoryResourceIdentifierCollection

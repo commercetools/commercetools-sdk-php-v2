@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 /**
@@ -21,7 +22,7 @@ class ClientCredentials
 
     /** @psalm-var ?string */
     private $scope;
-
+    
     /** @psalm-var string */
     private $cacheKey;
 
@@ -30,7 +31,7 @@ class ClientCredentials
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->scope = $scope;
-        $this->cacheKey = sha1($clientId.(string) $scope);
+        $this->cacheKey = sha1($clientId . (string)$scope);
     }
 
     public function getClientId(): string

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ScoreShippingRateInputModel extends JsonObjectModel implements ScoreShippingRateInput
 {
-    const DISCRIMINATOR_VALUE = 'Score';
+    public const DISCRIMINATOR_VALUE = 'Score';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
      * @var ?int
      */
     protected $score;
+
 
     public function __construct(
         int $score = null

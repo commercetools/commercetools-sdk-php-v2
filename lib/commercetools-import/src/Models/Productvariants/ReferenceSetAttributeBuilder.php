@@ -9,7 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\KeyReferenceCollection;
+use stdClass;
 
 /**
  * @implements Builder<ReferenceSetAttribute>
@@ -65,6 +70,7 @@ final class ReferenceSetAttributeBuilder implements Builder
 
         return $this;
     }
+
 
     public function build(): ReferenceSetAttribute
     {

@@ -9,11 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MyCustomerChangeAddressAction extends MyCustomerUpdateAction
 {
-    const FIELD_ADDRESS_ID = 'addressId';
-    const FIELD_ADDRESS = 'address';
+    public const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS = 'address';
 
     /**
      * @return null|string

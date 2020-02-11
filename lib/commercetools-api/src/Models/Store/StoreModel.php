@@ -8,15 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class StoreModel extends JsonObjectModel implements Store
@@ -60,6 +66,7 @@ final class StoreModel extends JsonObjectModel implements Store
      * @var ?LocalizedString
      */
     protected $name;
+
 
     public function __construct(
         string $id = null,
@@ -274,6 +281,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->name = $name;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -284,7 +292,6 @@ final class StoreModel extends JsonObjectModel implements Store
         if (isset($data[Store::FIELD_LAST_MODIFIED_AT]) && $data[Store::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[Store::FIELD_LAST_MODIFIED_AT] = $data[Store::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

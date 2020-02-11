@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\OrderEdit\OrderEditUpdate;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,14 +22,12 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyOrdersEditsByIDApply($this->getUri().'/apply', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersEditsByIDApply($this->getUri() . '/apply', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersEditsByIDGet
     {
@@ -36,7 +35,6 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
 
         return new ByProjectKeyOrdersEditsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?OrderEditUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
@@ -47,12 +45,9 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
 
         return new ByProjectKeyOrdersEditsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyOrdersEditsByIDDelete
     {

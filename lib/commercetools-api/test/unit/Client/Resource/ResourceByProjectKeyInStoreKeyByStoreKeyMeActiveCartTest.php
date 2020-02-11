@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet
- *
- * @internal
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
 {
@@ -28,16 +26,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->activeCart()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/active-cart',
-            ],
+            ]
         ];
     }
 
@@ -52,7 +49,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -61,14 +58,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->activeCart()
-                        ->get()
-                    ;
-                },
-            ],
+                        ->get();
+                }
+            ]
         ];
     }
 
@@ -81,7 +77,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
 {
-    const DISCRIMINATOR_VALUE = 'enum';
+    public const DISCRIMINATOR_VALUE = 'enum';
     /**
      * @var ?string
      */
@@ -27,6 +31,7 @@ final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
      * @var ?string
      */
     protected $value;
+
 
     public function __construct(
         string $name = null,

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShoppingListChangeTextLineItemNameAction>
- *
  * @method ShoppingListChangeTextLineItemNameAction current()
  * @method ShoppingListChangeTextLineItemNameAction at($offset)
  */
@@ -23,9 +22,6 @@ class ShoppingListChangeTextLineItemNameActionCollection extends MapperSequence
     /**
      * @psalm-assert ShoppingListChangeTextLineItemNameAction $value
      * @psalm-param ShoppingListChangeTextLineItemNameAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShoppingListChangeTextLineItemNameActionCollection

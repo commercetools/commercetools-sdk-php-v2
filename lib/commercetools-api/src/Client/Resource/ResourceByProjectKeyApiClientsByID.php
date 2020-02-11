@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -19,8 +20,6 @@ class ResourceByProjectKeyApiClientsByID extends ApiResource
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyApiClientsByIDGet
     {
@@ -28,12 +27,9 @@ class ResourceByProjectKeyApiClientsByID extends ApiResource
 
         return new ByProjectKeyApiClientsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function delete($body = null, array $headers = []): ByProjectKeyApiClientsByIDDelete
     {

@@ -12,22 +12,23 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ShoppingListLineItem extends JsonObject
 {
-    const FIELD_ADDED_AT = 'addedAt';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_DEACTIVATED_AT = 'deactivatedAt';
-    const FIELD_ID = 'id';
-    const FIELD_NAME = 'name';
-    const FIELD_PRODUCT_ID = 'productId';
-    const FIELD_PRODUCT_SLUG = 'productSlug';
-    const FIELD_PRODUCT_TYPE = 'productType';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_VARIANT = 'variant';
-    const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_ADDED_AT = 'addedAt';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DEACTIVATED_AT = 'deactivatedAt';
+    public const FIELD_ID = 'id';
+    public const FIELD_NAME = 'name';
+    public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_PRODUCT_SLUG = 'productSlug';
+    public const FIELD_PRODUCT_TYPE = 'productType';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_VARIANT = 'variant';
+    public const FIELD_VARIANT_ID = 'variantId';
 
     /**
      * @return null|DateTimeImmutable

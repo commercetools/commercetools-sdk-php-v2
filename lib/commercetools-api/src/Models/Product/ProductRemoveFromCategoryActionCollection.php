@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductRemoveFromCategoryAction>
- *
  * @method ProductRemoveFromCategoryAction current()
  * @method ProductRemoveFromCategoryAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductRemoveFromCategoryActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductRemoveFromCategoryAction $value
      * @psalm-param ProductRemoveFromCategoryAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductRemoveFromCategoryActionCollection

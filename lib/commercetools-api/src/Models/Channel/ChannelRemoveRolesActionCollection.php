@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelRemoveRolesAction>
- *
  * @method ChannelRemoveRolesAction current()
  * @method ChannelRemoveRolesAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelRemoveRolesActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelRemoveRolesAction $value
      * @psalm-param ChannelRemoveRolesAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelRemoveRolesActionCollection

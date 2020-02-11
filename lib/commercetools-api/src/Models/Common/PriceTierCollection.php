@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PriceTier>
- *
  * @method PriceTier current()
  * @method PriceTier at($offset)
  */
@@ -23,9 +22,6 @@ class PriceTierCollection extends MapperSequence
     /**
      * @psalm-assert PriceTier $value
      * @psalm-param PriceTier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return PriceTierCollection

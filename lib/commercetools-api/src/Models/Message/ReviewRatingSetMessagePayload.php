@@ -9,13 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewRatingSetMessagePayload extends MessagePayload
 {
-    const FIELD_OLD_RATING = 'oldRating';
-    const FIELD_NEW_RATING = 'newRating';
-    const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';
-    const FIELD_TARGET = 'target';
+    public const FIELD_OLD_RATING = 'oldRating';
+    public const FIELD_NEW_RATING = 'newRating';
+    public const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';
+    public const FIELD_TARGET = 'target';
 
     /**
      * @return null|int

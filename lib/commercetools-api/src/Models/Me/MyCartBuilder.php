@@ -21,6 +21,8 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -36,7 +38,12 @@ use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 /**
  * @implements Builder<MyCart>

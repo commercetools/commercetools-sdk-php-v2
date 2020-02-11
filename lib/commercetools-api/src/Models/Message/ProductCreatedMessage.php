@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductCreatedMessage extends Message
 {
-    const FIELD_PRODUCT_PROJECTION = 'productProjection';
+    public const FIELD_PRODUCT_PROJECTION = 'productProjection';
 
     /**
      * @return null|ProductProjection

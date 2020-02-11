@@ -10,14 +10,18 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PaymentSetAuthorizationActionModel extends JsonObjectModel implements PaymentSetAuthorizationAction
 {
-    const DISCRIMINATOR_VALUE = 'setAuthorization';
+    public const DISCRIMINATOR_VALUE = 'setAuthorization';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
      * @var ?DateTimeImmutable
      */
     protected $until;
+
 
     public function __construct(
         Money $amount = null,
@@ -108,13 +113,13 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
         $this->until = $until;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[PaymentSetAuthorizationAction::FIELD_UNTIL]) && $data[PaymentSetAuthorizationAction::FIELD_UNTIL] instanceof \DateTimeImmutable) {
             $data[PaymentSetAuthorizationAction::FIELD_UNTIL] = $data[PaymentSetAuthorizationAction::FIELD_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Product\ProductDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,9 +25,8 @@ class ResourceByProjectKeyProducts extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyProductsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyProductsByID
     {
         $args = $this->getArgs();
@@ -34,14 +34,12 @@ class ResourceByProjectKeyProducts extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyProductsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductsGet
     {
@@ -49,7 +47,6 @@ class ResourceByProjectKeyProducts extends ApiResource
 
         return new ByProjectKeyProductsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ProductDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

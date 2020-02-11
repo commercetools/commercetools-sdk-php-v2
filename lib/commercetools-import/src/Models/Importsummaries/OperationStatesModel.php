@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsummaries;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OperationStatesModel extends JsonObjectModel implements OperationStates
 {
@@ -61,6 +65,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      * @var ?int
      */
     protected $Expired;
+
 
     public function __construct(
         int $Accepted = null,

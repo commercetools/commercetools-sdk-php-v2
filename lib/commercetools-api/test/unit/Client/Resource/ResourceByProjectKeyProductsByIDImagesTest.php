@@ -17,8 +17,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductsByIDImagesPost
- *
- * @internal
  */
 class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
 {
@@ -33,8 +31,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withId('ID')
                         ->images()
                         ->post(null)
-                        ->withFilename('filename')
-                    ;
+                        ->withFilename('filename');
                 },
                 'post',
                 '{projectKey}/products/{ID}/images?filename=filename',
@@ -47,8 +44,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withId('ID')
                         ->images()
                         ->post(null)
-                        ->withVariant('variant')
-                    ;
+                        ->withVariant('variant');
                 },
                 'post',
                 '{projectKey}/products/{ID}/images?variant=variant',
@@ -61,8 +57,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withId('ID')
                         ->images()
                         ->post(null)
-                        ->withSku('sku')
-                    ;
+                        ->withSku('sku');
                 },
                 'post',
                 '{projectKey}/products/{ID}/images?sku=sku',
@@ -75,8 +70,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withId('ID')
                         ->images()
                         ->post(null)
-                        ->withStaged('staged')
-                    ;
+                        ->withStaged('staged');
                 },
                 'post',
                 '{projectKey}/products/{ID}/images?staged=staged',
@@ -84,16 +78,15 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
             'ByProjectKeyProductsByIDImagesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
+                        ->withId("ID")
                         ->images()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/products/{ID}/images',
-            ],
+            ]
         ];
     }
 
@@ -108,7 +101,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -117,14 +110,13 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
             'ByProjectKeyProductsByIDImagesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->products()
-                        ->withId('ID')
+                        ->withId("ID")
                         ->images()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -137,7 +129,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

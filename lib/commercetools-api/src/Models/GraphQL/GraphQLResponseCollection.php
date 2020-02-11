@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GraphQLResponse>
- *
  * @method GraphQLResponse current()
  * @method GraphQLResponse at($offset)
  */
@@ -23,9 +22,6 @@ class GraphQLResponseCollection extends MapperSequence
     /**
      * @psalm-assert GraphQLResponse $value
      * @psalm-param GraphQLResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return GraphQLResponseCollection

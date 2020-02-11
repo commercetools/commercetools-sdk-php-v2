@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomTokenizer>
- *
  * @method CustomTokenizer current()
  * @method CustomTokenizer at($offset)
  */
@@ -23,9 +22,6 @@ class CustomTokenizerCollection extends MapperSequence
     /**
      * @psalm-assert CustomTokenizer $value
      * @psalm-param CustomTokenizer|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomTokenizerCollection

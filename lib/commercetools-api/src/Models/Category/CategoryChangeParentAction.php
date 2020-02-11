@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CategoryChangeParentAction extends CategoryUpdateAction
 {
-    const FIELD_PARENT = 'parent';
+    public const FIELD_PARENT = 'parent';
 
     /**
      * @return null|CategoryResourceIdentifier

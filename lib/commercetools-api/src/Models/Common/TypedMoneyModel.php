@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -36,10 +39,11 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 
     /**
      * @psalm-var array<string, class-string<TypedMoney> >
+     *
      */
     private static $discriminatorClasses = [
-        'centPrecision' => CentPrecisionMoneyModel::class,
-        'highPrecision' => HighPrecisionMoneyModel::class,
+       'centPrecision' => CentPrecisionMoneyModel::class,
+       'highPrecision' => HighPrecisionMoneyModel::class,
     ];
 
     public function __construct(
@@ -138,18 +142,18 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
         $this->currencyCode = $currencyCode;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<TypedMoney>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = TypedMoney::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -164,7 +168,6 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 
         /** @psalm-var class-string<TypedMoney> */
         $type = TypedMoneyModel::class;
-
         return $type;
     }
 }

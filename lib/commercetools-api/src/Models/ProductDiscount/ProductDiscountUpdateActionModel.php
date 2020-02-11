@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductDiscountUpdateActionModel extends JsonObjectModel implements ProductDiscountUpdateAction
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -21,18 +24,19 @@ final class ProductDiscountUpdateActionModel extends JsonObjectModel implements 
 
     /**
      * @psalm-var array<string, class-string<ProductDiscountUpdateAction> >
+     *
      */
     private static $discriminatorClasses = [
-        'changeIsActive' => ProductDiscountChangeIsActiveActionModel::class,
-        'changeName' => ProductDiscountChangeNameActionModel::class,
-        'changePredicate' => ProductDiscountChangePredicateActionModel::class,
-        'changeSortOrder' => ProductDiscountChangeSortOrderActionModel::class,
-        'changeValue' => ProductDiscountChangeValueActionModel::class,
-        'setDescription' => ProductDiscountSetDescriptionActionModel::class,
-        'setKey' => ProductDiscountSetKeyActionModel::class,
-        'setValidFrom' => ProductDiscountSetValidFromActionModel::class,
-        'setValidFromAndUntil' => ProductDiscountSetValidFromAndUntilActionModel::class,
-        'setValidUntil' => ProductDiscountSetValidUntilActionModel::class,
+       'changeIsActive' => ProductDiscountChangeIsActiveActionModel::class,
+       'changeName' => ProductDiscountChangeNameActionModel::class,
+       'changePredicate' => ProductDiscountChangePredicateActionModel::class,
+       'changeSortOrder' => ProductDiscountChangeSortOrderActionModel::class,
+       'changeValue' => ProductDiscountChangeValueActionModel::class,
+       'setDescription' => ProductDiscountSetDescriptionActionModel::class,
+       'setKey' => ProductDiscountSetKeyActionModel::class,
+       'setValidFrom' => ProductDiscountSetValidFromActionModel::class,
+       'setValidFromAndUntil' => ProductDiscountSetValidFromAndUntilActionModel::class,
+       'setValidUntil' => ProductDiscountSetValidUntilActionModel::class,
     ];
 
     public function __construct(
@@ -57,18 +61,19 @@ final class ProductDiscountUpdateActionModel extends JsonObjectModel implements 
         return $this->action;
     }
 
+
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ProductDiscountUpdateAction>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = ProductDiscountUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -83,7 +88,6 @@ final class ProductDiscountUpdateActionModel extends JsonObjectModel implements 
 
         /** @psalm-var class-string<ProductDiscountUpdateAction> */
         $type = ProductDiscountUpdateActionModel::class;
-
         return $type;
     }
 }

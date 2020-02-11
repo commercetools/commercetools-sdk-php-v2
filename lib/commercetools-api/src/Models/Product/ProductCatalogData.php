@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductCatalogData extends JsonObject
 {
-    const FIELD_PUBLISHED = 'published';
-    const FIELD_CURRENT = 'current';
-    const FIELD_STAGED = 'staged';
-    const FIELD_HAS_STAGED_CHANGES = 'hasStagedChanges';
+    public const FIELD_PUBLISHED = 'published';
+    public const FIELD_CURRENT = 'current';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_HAS_STAGED_CHANGES = 'hasStagedChanges';
 
     /**
      * @return null|bool

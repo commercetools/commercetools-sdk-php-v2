@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface Attribute extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'type';
-    const FIELD_NAME = 'name';
-    const FIELD_TYPE = 'type';
+    public const DISCRIMINATOR_FIELD = 'type';
+    public const FIELD_NAME = 'name';
+    public const FIELD_TYPE = 'type';
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.

@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 
 interface DuplicateAttributeValuesError extends ErrorObject
 {
-    const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
      * @return null|AttributeCollection

@@ -9,17 +9,18 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductSetAssetCustomTypeAction extends ProductUpdateAction
 {
-    const FIELD_VARIANT_ID = 'variantId';
-    const FIELD_SKU = 'sku';
-    const FIELD_STAGED = 'staged';
-    const FIELD_ASSET_ID = 'assetId';
-    const FIELD_ASSET_KEY = 'assetKey';
-    const FIELD_TYPE = 'type';
-    const FIELD_FIELDS = 'fields';
+    public const FIELD_VARIANT_ID = 'variantId';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_STAGED = 'staged';
+    public const FIELD_ASSET_ID = 'assetId';
+    public const FIELD_ASSET_KEY = 'assetKey';
+    public const FIELD_TYPE = 'type';
+    public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|int

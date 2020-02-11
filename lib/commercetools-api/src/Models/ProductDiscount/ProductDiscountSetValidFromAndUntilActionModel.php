@@ -8,13 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 
+use DateTimeImmutableModel;
+use stdClass;
+
 final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectModel implements ProductDiscountSetValidFromAndUntilAction
 {
-    const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
+    public const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
     /**
      * @var ?string
      */
@@ -29,6 +34,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         DateTimeImmutable $validFrom = null,
@@ -111,6 +117,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -121,7 +128,6 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         if (isset($data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]) && $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] = $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

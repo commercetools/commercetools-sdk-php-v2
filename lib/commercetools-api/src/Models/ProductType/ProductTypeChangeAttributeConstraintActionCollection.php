@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeAttributeConstraintAction>
- *
  * @method ProductTypeChangeAttributeConstraintAction current()
  * @method ProductTypeChangeAttributeConstraintAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductTypeChangeAttributeConstraintActionCollection extends MapperSequenc
     /**
      * @psalm-assert ProductTypeChangeAttributeConstraintAction $value
      * @psalm-param ProductTypeChangeAttributeConstraintAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductTypeChangeAttributeConstraintActionCollection

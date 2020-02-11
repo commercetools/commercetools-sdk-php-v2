@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface RangeFacetResult extends FacetResult
 {
-    const FIELD_RANGES = 'ranges';
+    public const FIELD_RANGES = 'ranges';
 
     /**
      * @return null|FacetResultRangeCollection

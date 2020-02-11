@@ -8,13 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObjectModel implements MyShoppingListSetTextLineItemCustomFieldAction
 {
-    const DISCRIMINATOR_VALUE = 'setTextLineItemCustomField';
+    public const DISCRIMINATOR_VALUE = 'setTextLineItemCustomField';
     /**
      * @var ?string
      */
@@ -34,6 +36,7 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
      * @var ?JsonObject
      */
     protected $value;
+
 
     public function __construct(
         string $textLineItemId = null,

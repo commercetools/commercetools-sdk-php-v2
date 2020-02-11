@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements CustomerGroupSetKeyAction
 {
-    const DISCRIMINATOR_VALUE = 'setKey';
+    public const DISCRIMINATOR_VALUE = 'setKey';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
      * @var ?string
      */
     protected $key;
+
 
     public function __construct(
         string $key = null

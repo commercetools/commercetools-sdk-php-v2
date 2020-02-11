@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ItemShippingDetails extends JsonObject
 {
-    const FIELD_TARGETS = 'targets';
-    const FIELD_VALID = 'valid';
+    public const FIELD_TARGETS = 'targets';
+    public const FIELD_VALID = 'valid';
 
     /**
      * <p>Used to map what sub-quantity should be shipped to which address.

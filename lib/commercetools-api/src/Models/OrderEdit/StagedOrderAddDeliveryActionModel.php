@@ -13,12 +13,17 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements StagedOrderAddDeliveryAction
 {
-    const DISCRIMINATOR_VALUE = 'addDelivery';
+    public const DISCRIMINATOR_VALUE = 'addDelivery';
     /**
      * @var ?string
      */
@@ -38,6 +43,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
      * @var ?ParcelDraftCollection
      */
     protected $parcels;
+
 
     public function __construct(
         DeliveryItemCollection $items = null,

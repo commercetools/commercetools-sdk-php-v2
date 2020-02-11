@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartSetBillingAddressActionModel extends JsonObjectModel implements MyCartSetBillingAddressAction
 {
-    const DISCRIMINATOR_VALUE = 'setBillingAddress';
+    public const DISCRIMINATOR_VALUE = 'setBillingAddress';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class MyCartSetBillingAddressActionModel extends JsonObjectModel implement
      * @var ?Address
      */
     protected $address;
+
 
     public function __construct(
         Address $address = null

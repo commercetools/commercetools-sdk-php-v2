@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
 interface ImportOperation extends JsonObject
 {
-    const FIELD_VERSION = 'version';
-    const FIELD_IMPORT_SINK_KEY = 'importSinkKey';
-    const FIELD_RESOURCE_KEY = 'resourceKey';
-    const FIELD_ID = 'id';
-    const FIELD_STATE = 'state';
-    const FIELD_RESOURCE_VERSION = 'resourceVersion';
-    const FIELD_RETRY_COUNT = 'retryCount';
-    const FIELD_ERRORS = 'errors';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
-    const FIELD_EXPIRES_AT = 'expiresAt';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_IMPORT_SINK_KEY = 'importSinkKey';
+    public const FIELD_RESOURCE_KEY = 'resourceKey';
+    public const FIELD_ID = 'id';
+    public const FIELD_STATE = 'state';
+    public const FIELD_RESOURCE_VERSION = 'resourceVersion';
+    public const FIELD_RETRY_COUNT = 'retryCount';
+    public const FIELD_ERRORS = 'errors';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_EXPIRES_AT = 'expiresAt';
 
     /**
      * <p>The import operation version.</p>

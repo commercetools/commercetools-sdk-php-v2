@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class MessageConfigurationDraftModel extends JsonObjectModel implements MessageConfigurationDraft
 {
@@ -21,6 +25,7 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
      * @var ?int
      */
     protected $deleteDaysAfterCreation;
+
 
     public function __construct(
         bool $enabled = null,

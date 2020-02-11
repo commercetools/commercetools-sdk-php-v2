@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MessageConfigurationDraft>
- *
  * @method MessageConfigurationDraft current()
  * @method MessageConfigurationDraft at($offset)
  */
@@ -23,9 +22,6 @@ class MessageConfigurationDraftCollection extends MapperSequence
     /**
      * @psalm-assert MessageConfigurationDraft $value
      * @psalm-param MessageConfigurationDraft|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MessageConfigurationDraftCollection

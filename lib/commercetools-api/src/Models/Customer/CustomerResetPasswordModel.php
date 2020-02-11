@@ -8,7 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomerResetPasswordModel extends JsonObjectModel implements CustomerResetPassword
 {
@@ -26,6 +30,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
      * @var ?int
      */
     protected $version;
+
 
     public function __construct(
         string $tokenValue = null,

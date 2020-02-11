@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsummaries;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
@@ -22,6 +25,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
      * @var ?int
      */
     protected $total;
+
 
     public function __construct(
         OperationStates $states = null,

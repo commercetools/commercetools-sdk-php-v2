@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExtensionDraft extends JsonObject
 {
-    const FIELD_KEY = 'key';
-    const FIELD_DESTINATION = 'destination';
-    const FIELD_TRIGGERS = 'triggers';
-    const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
+    public const FIELD_KEY = 'key';
+    public const FIELD_DESTINATION = 'destination';
+    public const FIELD_TRIGGERS = 'triggers';
+    public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
 
     /**
      * <p>User-specific unique identifier for the extension</p>

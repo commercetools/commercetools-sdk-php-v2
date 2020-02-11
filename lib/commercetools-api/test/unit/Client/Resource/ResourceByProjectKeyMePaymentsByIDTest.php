@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsByIDDelete
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsByIDGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsByIDPost
- *
- * @internal
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsByIDDelete
  */
 class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
 {
@@ -35,8 +33,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId('ID')
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/me/payments/{ID}?expand=expand',
@@ -44,12 +41,11 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
             'ByProjectKeyMePaymentsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->get()
-                    ;
+                        ->withId("ID")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/me/payments/{ID}',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId('ID')
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/me/payments/{ID}?expand=expand',
@@ -71,12 +66,11 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
             'ByProjectKeyMePaymentsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
+                        ->withId("ID")
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/me/payments/{ID}',
@@ -89,8 +83,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId('ID')
                         ->delete()
-                        ->withVersion('version')
-                    ;
+                        ->withVersion('version');
                 },
                 'delete',
                 '{projectKey}/me/payments/{ID}?version=version',
@@ -103,8 +96,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
                         ->payments()
                         ->withId('ID')
                         ->delete()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'delete',
                 '{projectKey}/me/payments/{ID}?expand=expand',
@@ -112,16 +104,15 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
             'ByProjectKeyMePaymentsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->delete()
-                    ;
+                        ->withId("ID")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/me/payments/{ID}',
-            ],
+            ]
         ];
     }
 
@@ -136,7 +127,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -145,36 +136,33 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
             'ByProjectKeyMePaymentsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->get()
-                    ;
-                },
+                        ->withId("ID")
+                        ->get();
+                }
             ],
             'ByProjectKeyMePaymentsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->post(null)
-                    ;
-                },
+                        ->withId("ID")
+                        ->post(null);
+                }
             ],
             'ByProjectKeyMePaymentsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey("projectKey")
                         ->me()
                         ->payments()
-                        ->withId('ID')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withId("ID")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -187,7 +175,7 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

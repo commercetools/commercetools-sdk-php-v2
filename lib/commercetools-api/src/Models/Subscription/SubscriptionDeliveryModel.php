@@ -12,12 +12,16 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class SubscriptionDeliveryModel extends JsonObjectModel implements SubscriptionDelivery
 {
-    const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -40,12 +44,13 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
 
     /**
      * @psalm-var array<string, class-string<SubscriptionDelivery> >
+     *
      */
     private static $discriminatorClasses = [
-        'ResourceCreated' => ResourceCreatedDeliveryModel::class,
-        'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
-        'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
-        'Message' => MessageDeliveryModel::class,
+       'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
+       'Message' => MessageDeliveryModel::class,
+       'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
+       'ResourceCreated' => ResourceCreatedDeliveryModel::class,
     ];
 
     public function __construct(
@@ -144,18 +149,18 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+
+
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<SubscriptionDelivery>
-     *
-     * @param mixed $value
      */
     public static function resolveDiscriminatorClass($value): string
     {
         $fieldName = SubscriptionDelivery::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->{$fieldName})) {
+        if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->{$fieldName};
+            $discriminatorValue = $value->$fieldName;
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
@@ -170,7 +175,6 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
 
         /** @psalm-var class-string<SubscriptionDelivery> */
         $type = SubscriptionDeliveryModel::class;
-
         return $type;
     }
 }

@@ -6,15 +6,17 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
+use DateTime;
 use DateTimeImmutable;
 
 class MapperFactory
 {
-    const TIME_FORMAT = 'H:i:s.u';
-    const DATE_FORMAT = 'Y-m-d';
-    const DATETIME_FORMAT = 'Y-m-d?H:i:s.uT';
+    public const TIME_FORMAT = "H:i:s.u";
+    public const DATE_FORMAT = "Y-m-d";
+    public const DATETIME_FORMAT = "Y-m-d?H:i:s.uT";
 
     /**
      * @psalm-return callable(mixed): ?string
@@ -27,8 +29,7 @@ class MapperFactory
                if (is_null($data)) {
                    return null;
                }
-
-               return (string) $data;
+               return (string)$data;
            };
     }
 
@@ -43,8 +44,7 @@ class MapperFactory
                if (is_null($data)) {
                    return null;
                }
-
-               return (float) $data;
+               return (float)$data;
            };
     }
 
@@ -59,8 +59,7 @@ class MapperFactory
                if (is_null($data)) {
                    return null;
                }
-
-               return (int) $data;
+               return (int)$data;
            };
     }
 
@@ -76,10 +75,9 @@ class MapperFactory
                    return null;
                }
                $date = DateTimeImmutable::createFromFormat($format, $data);
-               if (false === $date) {
+               if ($date === false) {
                    return null;
                }
-
                return $date;
            };
     }
@@ -95,14 +93,11 @@ class MapperFactory
            /**
             * @psalm-param ?mixed $data
             * @psalm-return ?T
-            *
-            * @param mixed $data
             */
            function ($data) use ($className): ?object {
                if (is_null($data)) {
                    return null;
                }
-
                return new $className($data);
            };
     }

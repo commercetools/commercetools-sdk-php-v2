@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodDoesNotMatchCartError>
- *
  * @method ShippingMethodDoesNotMatchCartError current()
  * @method ShippingMethodDoesNotMatchCartError at($offset)
  */
@@ -23,9 +22,6 @@ class ShippingMethodDoesNotMatchCartErrorCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodDoesNotMatchCartError $value
      * @psalm-param ShippingMethodDoesNotMatchCartError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ShippingMethodDoesNotMatchCartErrorCollection

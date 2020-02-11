@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetAttributeInAllVariantsAction>
- *
  * @method ProductSetAttributeInAllVariantsAction current()
  * @method ProductSetAttributeInAllVariantsAction at($offset)
  */
@@ -23,9 +22,6 @@ class ProductSetAttributeInAllVariantsActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetAttributeInAllVariantsAction $value
      * @psalm-param ProductSetAttributeInAllVariantsAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductSetAttributeInAllVariantsActionCollection

@@ -10,6 +10,11 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\ItemShippingTargetCollection;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<MyCartApplyDeltaToLineItemShippingDetailsTargetsAction>
@@ -61,6 +66,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implem
 
         return $this;
     }
+
 
     public function build(): MyCartApplyDeltaToLineItemShippingDetailsTargetsAction
     {

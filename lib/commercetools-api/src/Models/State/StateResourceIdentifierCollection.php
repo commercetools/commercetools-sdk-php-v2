@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateResourceIdentifier>
- *
  * @method StateResourceIdentifier current()
  * @method StateResourceIdentifier at($offset)
  */
@@ -23,9 +22,6 @@ class StateResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert StateResourceIdentifier $value
      * @psalm-param StateResourceIdentifier|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StateResourceIdentifierCollection

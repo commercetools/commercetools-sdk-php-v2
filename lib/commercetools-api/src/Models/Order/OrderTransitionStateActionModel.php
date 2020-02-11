@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderTransitionStateActionModel extends JsonObjectModel implements OrderTransitionStateAction
 {
-    const DISCRIMINATOR_VALUE = 'transitionState';
+    public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
      * @var ?bool
      */
     protected $force;
+
 
     public function __construct(
         StateResourceIdentifier $state = null,

@@ -8,16 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductDiscountModel extends JsonObjectModel implements ProductDiscount
@@ -101,6 +107,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         string $id = null,
@@ -539,6 +546,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -557,7 +565,6 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         if (isset($data[ProductDiscount::FIELD_VALID_UNTIL]) && $data[ProductDiscount::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[ProductDiscount::FIELD_VALID_UNTIL] = $data[ProductDiscount::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

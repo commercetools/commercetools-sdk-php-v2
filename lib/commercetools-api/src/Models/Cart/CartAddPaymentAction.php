@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartAddPaymentAction extends CartUpdateAction
 {
-    const FIELD_PAYMENT = 'payment';
+    public const FIELD_PAYMENT = 'payment';
 
     /**
      * @return null|PaymentResourceIdentifier

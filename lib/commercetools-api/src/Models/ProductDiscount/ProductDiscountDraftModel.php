@@ -10,9 +10,13 @@ namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class ProductDiscountDraftModel extends JsonObjectModel implements ProductDiscountDraft
@@ -61,6 +65,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
+
 
     public function __construct(
         LocalizedString $name = null,
@@ -310,6 +315,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         $this->validUntil = $validUntil;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -320,7 +326,6 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         if (isset($data[ProductDiscountDraft::FIELD_VALID_UNTIL]) && $data[ProductDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[ProductDiscountDraft::FIELD_VALID_UNTIL] = $data[ProductDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

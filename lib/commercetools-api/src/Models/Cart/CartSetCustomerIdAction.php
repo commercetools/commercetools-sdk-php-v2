@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetCustomerIdAction extends CartUpdateAction
 {
-    const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
      * <p>If set, a customer with the given ID must exist in the project.</p>

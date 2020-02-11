@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ApiClient\ApiClientDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -24,14 +25,12 @@ class ResourceByProjectKeyApiClients extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyApiClientsByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyApiClientsByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyApiClientsGet
     {
@@ -39,7 +38,6 @@ class ResourceByProjectKeyApiClients extends ApiResource
 
         return new ByProjectKeyApiClientsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?ApiClientDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

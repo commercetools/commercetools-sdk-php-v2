@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Import\Client;
 
 use Commercetools\Client\ClientCredentials;
@@ -13,9 +14,9 @@ use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class ClientCredentialsConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
 {
-    const AUTH_URI = 'https://auth.sphere.io/oauth/token';
+    public const AUTH_URI = 'https://auth.sphere.io/oauth/token';
 
-    const GRANT_TYPE = 'client_credentials';
+    public const GRANT_TYPE = 'client_credentials';
 
     /** @psalm-var ClientCredentials */
     private $credentials;

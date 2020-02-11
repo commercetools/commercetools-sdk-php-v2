@@ -11,6 +11,11 @@ namespace Commercetools\Api\Models\Project;
 use Commercetools\Api\Models\Message\MessageConfigurationDraft;
 use Commercetools\Api\Models\Message\MessageConfigurationDraftBuilder;
 use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 /**
  * @implements Builder<ProjectChangeMessagesConfigurationAction>

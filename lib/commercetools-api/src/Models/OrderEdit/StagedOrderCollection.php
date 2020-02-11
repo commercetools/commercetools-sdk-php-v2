@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrder>
- *
  * @method StagedOrder current()
  * @method StagedOrder at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrder $value
      * @psalm-param StagedOrder|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderCollection

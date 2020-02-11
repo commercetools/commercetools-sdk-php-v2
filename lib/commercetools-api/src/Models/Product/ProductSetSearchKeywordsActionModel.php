@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implements ProductSetSearchKeywordsAction
 {
-    const DISCRIMINATOR_VALUE = 'setSearchKeywords';
+    public const DISCRIMINATOR_VALUE = 'setSearchKeywords';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         SearchKeywords $searchKeywords = null,

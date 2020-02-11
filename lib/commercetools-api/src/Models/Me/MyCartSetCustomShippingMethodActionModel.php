@@ -13,13 +13,17 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel implements MyCartSetCustomShippingMethodAction
 {
-    const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
+    public const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
     /**
      * @var ?string
      */
@@ -44,6 +48,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
+
 
     public function __construct(
         string $shippingMethodName = null,

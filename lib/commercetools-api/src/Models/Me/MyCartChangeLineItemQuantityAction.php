@@ -10,13 +10,15 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MyCartChangeLineItemQuantityAction extends MyCartUpdateAction
 {
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_EXTERNAL_PRICE = 'externalPrice';
-    const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_EXTERNAL_PRICE = 'externalPrice';
+    public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
      * @return null|string

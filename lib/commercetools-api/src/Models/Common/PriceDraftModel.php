@@ -13,10 +13,14 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use DateTimeImmutableModel;
 use stdClass;
 
 final class PriceDraftModel extends JsonObjectModel implements PriceDraft
@@ -65,6 +69,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
      * @var ?DiscountedPrice
      */
     protected $discounted;
+
 
     public function __construct(
         Money $value = null,
@@ -301,6 +306,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->discounted = $discounted;
     }
 
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
@@ -311,7 +317,6 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         if (isset($data[PriceDraft::FIELD_VALID_UNTIL]) && $data[PriceDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[PriceDraft::FIELD_VALID_UNTIL] = $data[PriceDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-
         return (object) $data;
     }
 }

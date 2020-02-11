@@ -18,8 +18,6 @@ use Psr\Http\Message\RequestInterface;
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost
- *
- * @internal
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
 {
@@ -34,8 +32,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?expand=expand',
@@ -48,8 +45,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWhere('where')
-                    ;
+                        ->withWhere('where');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?where=where',
@@ -62,8 +58,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withSort('sort')
-                    ;
+                        ->withSort('sort');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?sort=sort',
@@ -76,8 +71,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withLimit('limit')
-                    ;
+                        ->withLimit('limit');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?limit=limit',
@@ -90,8 +84,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withOffset('offset')
-                    ;
+                        ->withOffset('offset');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?offset=offset',
@@ -104,8 +97,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->get()
-                        ->withWithTotal('withTotal')
-                    ;
+                        ->withWithTotal('withTotal');
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?withTotal=withTotal',
@@ -113,12 +105,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->orders()
-                        ->get()
-                    ;
+                        ->get();
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders',
@@ -131,8 +122,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->me()
                         ->orders()
                         ->post(null)
-                        ->withExpand('expand')
-                    ;
+                        ->withExpand('expand');
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/me/orders?expand=expand',
@@ -140,16 +130,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->orders()
-                        ->post(null)
-                    ;
+                        ->post(null);
                 },
                 'post',
                 '{projectKey}/in-store/key={storeKey}/me/orders',
-            ],
+            ]
         ];
     }
 
@@ -164,7 +153,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -173,25 +162,23 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->orders()
-                        ->get()
-                    ;
-                },
+                        ->get();
+                }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->orders()
-                        ->post(null)
-                    ;
-                },
-            ],
+                        ->post(null);
+                }
+            ]
         ];
     }
 
@@ -204,7 +191,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Image>
- *
  * @method Image current()
  * @method Image at($offset)
  */
@@ -23,9 +22,6 @@ class ImageCollection extends MapperSequence
     /**
      * @psalm-assert Image $value
      * @psalm-param Image|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ImageCollection

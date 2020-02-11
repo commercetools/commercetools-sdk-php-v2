@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldReferenceType>
- *
  * @method CustomFieldReferenceType current()
  * @method CustomFieldReferenceType at($offset)
  */
@@ -23,9 +22,6 @@ class CustomFieldReferenceTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldReferenceType $value
      * @psalm-param CustomFieldReferenceType|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomFieldReferenceTypeCollection

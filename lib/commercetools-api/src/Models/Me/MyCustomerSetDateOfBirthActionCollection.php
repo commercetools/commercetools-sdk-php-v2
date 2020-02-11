@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyCustomerSetDateOfBirthAction>
- *
  * @method MyCustomerSetDateOfBirthAction current()
  * @method MyCustomerSetDateOfBirthAction at($offset)
  */
@@ -23,9 +22,6 @@ class MyCustomerSetDateOfBirthActionCollection extends MapperSequence
     /**
      * @psalm-assert MyCustomerSetDateOfBirthAction $value
      * @psalm-param MyCustomerSetDateOfBirthAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return MyCustomerSetDateOfBirthActionCollection

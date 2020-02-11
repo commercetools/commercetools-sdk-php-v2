@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ErrorObject extends JsonObject
 {
-    const DISCRIMINATOR_FIELD = 'code';
-    const FIELD_CODE = 'code';
-    const FIELD_MESSAGE = 'message';
+    public const DISCRIMINATOR_FIELD = 'code';
+    public const FIELD_CODE = 'code';
+    public const FIELD_MESSAGE = 'message';
 
     /**
      * @return null|string

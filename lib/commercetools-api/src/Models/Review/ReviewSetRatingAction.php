@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ReviewSetRatingAction extends ReviewUpdateAction
 {
-    const FIELD_RATING = 'rating';
+    public const FIELD_RATING = 'rating';
 
     /**
      * <p>Number between -100 and 100 included.

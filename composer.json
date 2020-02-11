@@ -53,6 +53,6 @@
     "phpunit/phpunit": "^8.0",
     "vimeo/psalm": "^3.8",
     "cache/array-adapter": "^1.0",
-    "friendsofphp/php-cs-fixer": "^2.16"
+    "symplify/easy-coding-standard": "^7.2"
   }
 }

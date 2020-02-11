@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InsufficientScopeError>
- *
  * @method InsufficientScopeError current()
  * @method InsufficientScopeError at($offset)
  */
@@ -23,9 +22,6 @@ class InsufficientScopeErrorCollection extends MapperSequence
     /**
      * @psalm-assert InsufficientScopeError $value
      * @psalm-param InsufficientScopeError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return InsufficientScopeErrorCollection

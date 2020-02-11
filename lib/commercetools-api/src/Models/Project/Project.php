@@ -9,22 +9,23 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Api\Models\Message\MessageConfiguration;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Project extends JsonObject
 {
-    const FIELD_VERSION = 'version';
-    const FIELD_KEY = 'key';
-    const FIELD_NAME = 'name';
-    const FIELD_COUNTRIES = 'countries';
-    const FIELD_CURRENCIES = 'currencies';
-    const FIELD_LANGUAGES = 'languages';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_TRIAL_UNTIL = 'trialUntil';
-    const FIELD_MESSAGES = 'messages';
-    const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
-    const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_KEY = 'key';
+    public const FIELD_NAME = 'name';
+    public const FIELD_COUNTRIES = 'countries';
+    public const FIELD_CURRENCIES = 'currencies';
+    public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_TRIAL_UNTIL = 'trialUntil';
+    public const FIELD_MESSAGES = 'messages';
+    public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
+    public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
 
     /**
      * <p>The current version of the project.</p>

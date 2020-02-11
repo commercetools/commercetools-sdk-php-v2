@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implements CustomerGroupSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'CustomerGroupSet';
+    public const DISCRIMINATOR_VALUE = 'CustomerGroupSet';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
+
 
     public function __construct(
         CustomerGroupReference $customerGroup = null

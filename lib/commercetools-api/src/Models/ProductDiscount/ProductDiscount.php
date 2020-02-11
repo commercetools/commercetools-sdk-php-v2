@@ -13,22 +13,24 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\ReferenceCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ProductDiscount extends BaseResource
 {
-    const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
-    const FIELD_CREATED_BY = 'createdBy';
-    const FIELD_NAME = 'name';
-    const FIELD_KEY = 'key';
-    const FIELD_DESCRIPTION = 'description';
-    const FIELD_VALUE = 'value';
-    const FIELD_PREDICATE = 'predicate';
-    const FIELD_SORT_ORDER = 'sortOrder';
-    const FIELD_IS_ACTIVE = 'isActive';
-    const FIELD_REFERENCES = 'references';
-    const FIELD_VALID_FROM = 'validFrom';
-    const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
+    public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_NAME = 'name';
+    public const FIELD_KEY = 'key';
+    public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_VALUE = 'value';
+    public const FIELD_PREDICATE = 'predicate';
+    public const FIELD_SORT_ORDER = 'sortOrder';
+    public const FIELD_IS_ACTIVE = 'isActive';
+    public const FIELD_REFERENCES = 'references';
+    public const FIELD_VALID_FROM = 'validFrom';
+    public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
      * <p>The unique ID of the product discount</p>

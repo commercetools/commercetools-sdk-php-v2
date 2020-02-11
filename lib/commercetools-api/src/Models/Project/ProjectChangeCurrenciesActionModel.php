@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implements ProjectChangeCurrenciesAction
 {
-    const DISCRIMINATOR_VALUE = 'changeCurrencies';
+    public const DISCRIMINATOR_VALUE = 'changeCurrencies';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
      * @var ?array
      */
     protected $currencies;
+
 
     public function __construct(
         array $currencies = null

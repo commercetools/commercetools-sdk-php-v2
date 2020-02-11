@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FieldContainer>
- *
  * @method FieldContainer current()
  * @method FieldContainer at($offset)
  */
@@ -23,9 +22,6 @@ class FieldContainerCollection extends MapperSequence
     /**
      * @psalm-assert FieldContainer $value
      * @psalm-param FieldContainer|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return FieldContainerCollection

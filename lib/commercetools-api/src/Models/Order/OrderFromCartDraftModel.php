@@ -10,7 +10,11 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFromCartDraft
@@ -49,6 +53,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      * @var ?StateResourceIdentifier
      */
     protected $state;
+
 
     public function __construct(
         string $id = null,

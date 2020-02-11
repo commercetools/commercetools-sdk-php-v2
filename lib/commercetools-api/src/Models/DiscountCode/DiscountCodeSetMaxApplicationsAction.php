@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction
 {
-    const FIELD_MAX_APPLICATIONS = 'maxApplications';
+    public const FIELD_MAX_APPLICATIONS = 'maxApplications';
 
     /**
      * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>

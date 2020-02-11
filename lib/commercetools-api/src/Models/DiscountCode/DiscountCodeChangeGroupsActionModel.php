@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implements DiscountCodeChangeGroupsAction
 {
-    const DISCRIMINATOR_VALUE = 'changeGroups';
+    public const DISCRIMINATOR_VALUE = 'changeGroups';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
      * @var ?array
      */
     protected $groups;
+
 
     public function __construct(
         array $groups = null

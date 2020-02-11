@@ -9,10 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetCustomerIdAction extends StagedOrderUpdateAction
 {
-    const FIELD_CUSTOMER_ID = 'customerId';
+    public const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
      * @return null|string

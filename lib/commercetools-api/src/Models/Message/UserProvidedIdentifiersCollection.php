@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<UserProvidedIdentifiers>
- *
  * @method UserProvidedIdentifiers current()
  * @method UserProvidedIdentifiers at($offset)
  */
@@ -23,9 +22,6 @@ class UserProvidedIdentifiersCollection extends MapperSequence
     /**
      * @psalm-assert UserProvidedIdentifiers $value
      * @psalm-param UserProvidedIdentifiers|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return UserProvidedIdentifiersCollection

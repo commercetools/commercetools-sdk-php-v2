@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartDiscountChangeNameActionModel extends JsonObjectModel implements CartDiscountChangeNameAction
 {
-    const DISCRIMINATOR_VALUE = 'changeName';
+    public const DISCRIMINATOR_VALUE = 'changeName';
     /**
      * @var ?string
      */
@@ -25,6 +29,7 @@ final class CartDiscountChangeNameActionModel extends JsonObjectModel implements
      * @var ?LocalizedString
      */
     protected $name;
+
 
     public function __construct(
         LocalizedString $name = null

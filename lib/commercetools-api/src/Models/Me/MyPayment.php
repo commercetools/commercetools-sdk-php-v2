@@ -13,18 +13,19 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Payment\TransactionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyPayment extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_VERSION = 'version';
-    const FIELD_CUSTOMER = 'customer';
-    const FIELD_ANONYMOUS_ID = 'anonymousId';
-    const FIELD_AMOUNT_PLANNED = 'amountPlanned';
-    const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
-    const FIELD_TRANSACTIONS = 'transactions';
-    const FIELD_CUSTOM = 'custom';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_CUSTOMER = 'customer';
+    public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
+    public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
+    public const FIELD_TRANSACTIONS = 'transactions';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|string

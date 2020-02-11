@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class TaxCategoryPagedQueryResponseModel extends JsonObjectModel implements TaxCategoryPagedQueryResponse
@@ -37,6 +40,7 @@ final class TaxCategoryPagedQueryResponseModel extends JsonObjectModel implement
      * @var ?TaxCategoryCollection
      */
     protected $results;
+
 
     public function __construct(
         int $limit = null,

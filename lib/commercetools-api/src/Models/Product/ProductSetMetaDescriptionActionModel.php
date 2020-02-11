@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductSetMetaDescriptionActionModel extends JsonObjectModel implements ProductSetMetaDescriptionAction
 {
-    const DISCRIMINATOR_VALUE = 'setMetaDescription';
+    public const DISCRIMINATOR_VALUE = 'setMetaDescription';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
      * @var ?bool
      */
     protected $staged;
+
 
     public function __construct(
         LocalizedString $metaDescription = null,

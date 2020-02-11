@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements PaymentSetAnonymousIdAction
 {
-    const DISCRIMINATOR_VALUE = 'setAnonymousId';
+    public const DISCRIMINATOR_VALUE = 'setAnonymousId';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
      * @var ?string
      */
     protected $anonymousId;
+
 
     public function __construct(
         string $anonymousId = null

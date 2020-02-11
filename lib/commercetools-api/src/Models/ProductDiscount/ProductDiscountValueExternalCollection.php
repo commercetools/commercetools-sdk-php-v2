@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDiscountValueExternal>
- *
  * @method ProductDiscountValueExternal current()
  * @method ProductDiscountValueExternal at($offset)
  */
@@ -23,9 +22,6 @@ class ProductDiscountValueExternalCollection extends MapperSequence
     /**
      * @psalm-assert ProductDiscountValueExternal $value
      * @psalm-param ProductDiscountValueExternal|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ProductDiscountValueExternalCollection

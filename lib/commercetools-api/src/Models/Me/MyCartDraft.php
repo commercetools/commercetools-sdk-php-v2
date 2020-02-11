@@ -12,23 +12,24 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface MyCartDraft extends JsonObject
 {
-    const FIELD_CURRENCY = 'currency';
-    const FIELD_CUSTOMER_EMAIL = 'customerEmail';
-    const FIELD_COUNTRY = 'country';
-    const FIELD_INVENTORY_MODE = 'inventoryMode';
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    const FIELD_BILLING_ADDRESS = 'billingAddress';
-    const FIELD_SHIPPING_METHOD = 'shippingMethod';
-    const FIELD_CUSTOM = 'custom';
-    const FIELD_LOCALE = 'locale';
-    const FIELD_TAX_MODE = 'taxMode';
-    const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
-    const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_CURRENCY = 'currency';
+    public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
+    public const FIELD_COUNTRY = 'country';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_METHOD = 'shippingMethod';
+    public const FIELD_CUSTOM = 'custom';
+    public const FIELD_LOCALE = 'locale';
+    public const FIELD_TAX_MODE = 'taxMode';
+    public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>

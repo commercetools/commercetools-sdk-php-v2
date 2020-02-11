@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ReturnItemDraft extends JsonObject
 {
-    const FIELD_QUANTITY = 'quantity';
-    const FIELD_LINE_ITEM_ID = 'lineItemId';
-    const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
-    const FIELD_COMMENT = 'comment';
-    const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_LINE_ITEM_ID = 'lineItemId';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_COMMENT = 'comment';
+    public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
      * @return null|int

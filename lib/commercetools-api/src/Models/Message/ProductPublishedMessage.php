@@ -9,12 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductPublishedMessage extends Message
 {
-    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
-    const FIELD_PRODUCT_PROJECTION = 'productProjection';
-    const FIELD_SCOPE = 'scope';
+    public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
+    public const FIELD_PRODUCT_PROJECTION = 'productProjection';
+    public const FIELD_SCOPE = 'scope';
 
     /**
      * @return null|array

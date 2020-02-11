@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZonePagedQueryResponse>
- *
  * @method ZonePagedQueryResponse current()
  * @method ZonePagedQueryResponse at($offset)
  */
@@ -23,9 +22,6 @@ class ZonePagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert ZonePagedQueryResponse $value
      * @psalm-param ZonePagedQueryResponse|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ZonePagedQueryResponseCollection

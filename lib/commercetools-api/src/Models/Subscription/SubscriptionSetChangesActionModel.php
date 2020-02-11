@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class SubscriptionSetChangesActionModel extends JsonObjectModel implements SubscriptionSetChangesAction
 {
-    const DISCRIMINATOR_VALUE = 'setChanges';
+    public const DISCRIMINATOR_VALUE = 'setChanges';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
+
 
     public function __construct(
         ChangeSubscriptionCollection $changes = null

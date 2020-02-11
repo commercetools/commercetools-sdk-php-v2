@@ -16,11 +16,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksByImportSinkKeyDelete
- * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksByImportSinkKeyGet
  * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksByImportSinkKeyPut
- *
- * @internal
+ * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksByImportSinkKeyGet
+ * @covers \Commercetools\Import\Client\Resource\ByProjectKeyImportSinksByImportSinkKeyDelete
  */
 class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
 {
@@ -30,11 +28,10 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
             'ByProjectKeyImportSinksByImportSinkKeyPut' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->put(null)
-                    ;
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->put(null);
                 },
                 'put',
                 '{projectKey}/import-sinks/{importSinkKey}',
@@ -42,11 +39,10 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
             'ByProjectKeyImportSinksByImportSinkKeyGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->get()
-                    ;
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->get();
                 },
                 'get',
                 '{projectKey}/import-sinks/{importSinkKey}',
@@ -54,15 +50,14 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
             'ByProjectKeyImportSinksByImportSinkKeyDelete' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->delete()
-                    ;
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->delete();
                 },
                 'delete',
                 '{projectKey}/import-sinks/{importSinkKey}',
-            ],
+            ]
         ];
     }
 
@@ -77,7 +72,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        }
+        };
     }
 
     public function getRequestBuilders()
@@ -86,33 +81,30 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
             'ByProjectKeyImportSinksByImportSinkKeyPut' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->put(null)
-                    ;
-                },
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->put(null);
+                }
             ],
             'ByProjectKeyImportSinksByImportSinkKeyGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->get()
-                    ;
-                },
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->get();
+                }
             ],
             'ByProjectKeyImportSinksByImportSinkKeyDelete' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue("projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue('importSinkKey')
-                        ->delete()
-                    ;
-                },
-            ],
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->delete();
+                }
+            ]
         ];
     }
 
@@ -125,7 +117,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
         $request = $builderFunction($builder);
         $this->assertInstanceOf(ApiRequest::class, $request);
 
-        $response = new Response(200, [], '{}');
+        $response = new Response(200, [], "{}");
         $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
     }
 }

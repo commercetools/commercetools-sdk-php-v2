@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class CartSetLineItemPriceActionModel extends JsonObjectModel implements CartSetLineItemPriceAction
 {
-    const DISCRIMINATOR_VALUE = 'setLineItemPrice';
+    public const DISCRIMINATOR_VALUE = 'setLineItemPrice';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
      * @var ?Money
      */
     protected $externalPrice;
+
 
     public function __construct(
         string $lineItemId = null,

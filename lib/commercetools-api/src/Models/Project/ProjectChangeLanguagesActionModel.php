@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements ProjectChangeLanguagesAction
 {
-    const DISCRIMINATOR_VALUE = 'changeLanguages';
+    public const DISCRIMINATOR_VALUE = 'changeLanguages';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
      * @var ?array
      */
     protected $languages;
+
 
     public function __construct(
         array $languages = null

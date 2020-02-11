@@ -9,11 +9,17 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel implements StagedOrderChangeTaxRoundingModeAction
 {
-    const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
+    public const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
     /**
      * @var ?string
      */
@@ -23,6 +29,7 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
      * @var ?string
      */
     protected $taxRoundingMode;
+
 
     public function __construct(
         string $taxRoundingMode = null

@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerRemoveBillingAddressIdAction>
- *
  * @method CustomerRemoveBillingAddressIdAction current()
  * @method CustomerRemoveBillingAddressIdAction at($offset)
  */
@@ -23,9 +22,6 @@ class CustomerRemoveBillingAddressIdActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerRemoveBillingAddressIdAction $value
      * @psalm-param CustomerRemoveBillingAddressIdAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return CustomerRemoveBillingAddressIdActionCollection

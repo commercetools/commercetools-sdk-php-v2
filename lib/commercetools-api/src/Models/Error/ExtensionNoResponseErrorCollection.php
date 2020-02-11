@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionNoResponseError>
- *
  * @method ExtensionNoResponseError current()
  * @method ExtensionNoResponseError at($offset)
  */
@@ -23,9 +22,6 @@ class ExtensionNoResponseErrorCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionNoResponseError $value
      * @psalm-param ExtensionNoResponseError|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ExtensionNoResponseErrorCollection

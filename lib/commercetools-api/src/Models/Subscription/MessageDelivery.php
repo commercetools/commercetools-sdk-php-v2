@@ -8,17 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MessageDelivery extends SubscriptionDelivery
 {
-    const FIELD_ID = 'id';
-    const FIELD_VERSION = 'version';
-    const FIELD_CREATED_AT = 'createdAt';
-    const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
-    const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
-    const FIELD_RESOURCE_VERSION = 'resourceVersion';
-    const FIELD_PAYLOAD_NOT_INCLUDED = 'payloadNotIncluded';
+    public const FIELD_ID = 'id';
+    public const FIELD_VERSION = 'version';
+    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
+    public const FIELD_RESOURCE_VERSION = 'resourceVersion';
+    public const FIELD_PAYLOAD_NOT_INCLUDED = 'payloadNotIncluded';
 
     /**
      * @return null|string

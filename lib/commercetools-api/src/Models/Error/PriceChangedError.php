@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface PriceChangedError extends ErrorObject
 {
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_SHIPPING = 'shipping';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_SHIPPING = 'shipping';
 
     /**
      * @return null|array

@@ -6,6 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Base;
 
 use stdClass;
@@ -25,7 +26,6 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             /** @psalm-var ?array<int, stdClass> $data */
             return new JsonObjectCollection($data);
         }
-
         return $data;
     }
 
@@ -35,9 +35,6 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             get_object_vars($this),
             /**
              * @psalm-param mixed|null $value
-             *
-             * @param mixed $value
-             *
              * @return bool
              */
             function ($value) {
@@ -45,7 +42,7 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             },
             ARRAY_FILTER_USE_BOTH
         );
-
-        return array_merge($this->getRawDataArray(), $data);
+        $data = array_merge($this->getRawDataArray(), $data);
+        return $data;
     }
 }

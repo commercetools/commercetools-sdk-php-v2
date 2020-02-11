@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TermFacetResult>
- *
  * @method TermFacetResult current()
  * @method TermFacetResult at($offset)
  */
@@ -23,9 +22,6 @@ class TermFacetResultCollection extends MapperSequence
     /**
      * @psalm-assert TermFacetResult $value
      * @psalm-param TermFacetResult|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return TermFacetResultCollection

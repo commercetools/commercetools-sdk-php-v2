@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface CartSetShippingRateInputAction extends CartUpdateAction
 {
-    const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
+    public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
 
     /**
      * <p>Based on the definition of ShippingRateInputType.

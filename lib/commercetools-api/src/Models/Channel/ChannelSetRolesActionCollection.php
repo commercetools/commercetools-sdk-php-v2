@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelSetRolesAction>
- *
  * @method ChannelSetRolesAction current()
  * @method ChannelSetRolesAction at($offset)
  */
@@ -23,9 +22,6 @@ class ChannelSetRolesActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelSetRolesAction $value
      * @psalm-param ChannelSetRolesAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return ChannelSetRolesActionCollection

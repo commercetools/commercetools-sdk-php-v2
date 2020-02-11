@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface ExtensionChangeDestinationAction extends ExtensionUpdateAction
 {
-    const FIELD_DESTINATION = 'destination';
+    public const FIELD_DESTINATION = 'destination';
 
     /**
      * @return null|ExtensionDestination

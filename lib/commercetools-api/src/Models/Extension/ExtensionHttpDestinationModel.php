@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ExtensionHttpDestinationModel extends JsonObjectModel implements ExtensionHttpDestination
 {
-    const DISCRIMINATOR_VALUE = 'HTTP';
+    public const DISCRIMINATOR_VALUE = 'HTTP';
     /**
      * @var ?string
      */
@@ -28,6 +31,7 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
      * @var ?ExtensionHttpDestinationAuthentication
      */
     protected $authentication;
+
 
     public function __construct(
         string $url = null,

@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
 interface OutOfStockError extends ErrorObject
 {
-    const FIELD_LINE_ITEMS = 'lineItems';
-    const FIELD_SKUS = 'skus';
+    public const FIELD_LINE_ITEMS = 'lineItems';
+    public const FIELD_SKUS = 'skus';
 
     /**
      * @return null|array

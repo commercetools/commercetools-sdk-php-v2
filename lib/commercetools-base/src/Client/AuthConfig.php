@@ -6,11 +6,12 @@ declare(strict_types=1);
  * Do not change it.
  */
 
+
 namespace Commercetools\Client;
 
 interface AuthConfig
 {
-    const OPT_BASE_URI = 'base_uri';
+    public const OPT_BASE_URI = 'base_uri';
 
     public function getGrantType(): string;
 

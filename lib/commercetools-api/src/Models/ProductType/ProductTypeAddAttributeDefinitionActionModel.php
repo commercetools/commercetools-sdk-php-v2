@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeAddAttributeDefinitionAction
 {
-    const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
+    public const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
      * @var ?AttributeDefinitionDraft
      */
     protected $attribute;
+
 
     public function __construct(
         AttributeDefinitionDraft $attribute = null

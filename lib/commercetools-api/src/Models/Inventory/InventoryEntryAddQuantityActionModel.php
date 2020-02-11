@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class InventoryEntryAddQuantityActionModel extends JsonObjectModel implements InventoryEntryAddQuantityAction
 {
-    const DISCRIMINATOR_VALUE = 'addQuantity';
+    public const DISCRIMINATOR_VALUE = 'addQuantity';
     /**
      * @var ?string
      */
@@ -22,6 +26,7 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
      * @var ?int
      */
     protected $quantity;
+
 
     public function __construct(
         int $quantity = null

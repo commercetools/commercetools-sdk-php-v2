@@ -9,13 +9,14 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExtensionNoResponseError extends ErrorObject
 {
-    const FIELD_LOCALIZED_MESSAGE = 'localizedMessage';
-    const FIELD_EXTENSION_EXTRA_INFO = 'extensionExtraInfo';
-    const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';
+    public const FIELD_LOCALIZED_MESSAGE = 'localizedMessage';
+    public const FIELD_EXTENSION_EXTRA_INFO = 'extensionExtraInfo';
+    public const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';
 
     /**
      * @return null|LocalizedString

@@ -10,12 +10,16 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel implements OrderShippingInfoSetMessagePayload
 {
-    const DISCRIMINATOR_VALUE = 'OrderShippingInfoSet';
+    public const DISCRIMINATOR_VALUE = 'OrderShippingInfoSet';
     /**
      * @var ?string
      */
@@ -30,6 +34,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
      * @var ?ShippingInfo
      */
     protected $oldShippingInfo;
+
 
     public function __construct(
         ShippingInfo $shippingInfo = null,

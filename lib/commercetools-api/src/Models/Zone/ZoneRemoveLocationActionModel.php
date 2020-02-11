@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class ZoneRemoveLocationActionModel extends JsonObjectModel implements ZoneRemoveLocationAction
 {
-    const DISCRIMINATOR_VALUE = 'removeLocation';
+    public const DISCRIMINATOR_VALUE = 'removeLocation';
     /**
      * @var ?string
      */
@@ -23,6 +26,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
      * @var ?Location
      */
     protected $location;
+
 
     public function __construct(
         Location $location = null

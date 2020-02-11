@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Order\OrderFromCartDraft;
 use Commercetools\Client\ApiResource;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,9 +22,8 @@ class ResourceByProjectKeyOrders extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyOrdersImport($this->getUri().'/import', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersImport($this->getUri() . '/import', $args, $this->getClient());
     }
-
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
@@ -31,16 +31,14 @@ class ResourceByProjectKeyOrders extends ApiResource
             $args['orderNumber'] = $orderNumber;
         }
 
-        return new ResourceByProjectKeyOrdersOrderNumberByOrderNumber($this->getUri().'/order-number={orderNumber}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersOrderNumberByOrderNumber($this->getUri() . '/order-number={orderNumber}', $args, $this->getClient());
     }
-
     public function edits(): ResourceByProjectKeyOrdersEdits
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyOrdersEdits($this->getUri().'/edits', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersEdits($this->getUri() . '/edits', $args, $this->getClient());
     }
-
     public function withId(string $ID = null): ResourceByProjectKeyOrdersByID
     {
         $args = $this->getArgs();
@@ -48,14 +46,12 @@ class ResourceByProjectKeyOrders extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyOrdersByID($this->getUri().'/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
 
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersGet
     {
@@ -63,7 +59,6 @@ class ResourceByProjectKeyOrders extends ApiResource
 
         return new ByProjectKeyOrdersGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
     /**
      * @psalm-param ?OrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers

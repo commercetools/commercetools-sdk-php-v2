@@ -14,7 +14,6 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderChangeCustomLineItemMoneyAction>
- *
  * @method StagedOrderChangeCustomLineItemMoneyAction current()
  * @method StagedOrderChangeCustomLineItemMoneyAction at($offset)
  */
@@ -23,9 +22,6 @@ class StagedOrderChangeCustomLineItemMoneyActionCollection extends MapperSequenc
     /**
      * @psalm-assert StagedOrderChangeCustomLineItemMoneyAction $value
      * @psalm-param StagedOrderChangeCustomLineItemMoneyAction|stdClass $value
-     *
-     * @param mixed $value
-     *
      * @throws InvalidArgumentException
      *
      * @return StagedOrderChangeCustomLineItemMoneyActionCollection

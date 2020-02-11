@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockError
 {
-    const DISCRIMINATOR_VALUE = 'OutOfStock';
+    public const DISCRIMINATOR_VALUE = 'OutOfStock';
     /**
      * @var ?string
      */
@@ -32,6 +36,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
      * @var ?array
      */
     protected $skus;
+
 
     public function __construct(
         string $message = null,

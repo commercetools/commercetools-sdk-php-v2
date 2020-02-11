@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Message\MessagePayloadCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+
 use stdClass;
 
 final class OrderEditPreviewSuccessModel extends JsonObjectModel implements OrderEditPreviewSuccess
 {
-    const DISCRIMINATOR_VALUE = 'PreviewSuccess';
+    public const DISCRIMINATOR_VALUE = 'PreviewSuccess';
     /**
      * @var ?string
      */
@@ -29,6 +33,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
      * @var ?MessagePayloadCollection
      */
     protected $messagePayloads;
+
 
     public function __construct(
         StagedOrder $preview = null,

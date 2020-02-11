@@ -11,15 +11,16 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ProductVariantImportDraft extends JsonObject
 {
-    const FIELD_ID = 'id';
-    const FIELD_SKU = 'sku';
-    const FIELD_PRICES = 'prices';
-    const FIELD_ATTRIBUTES = 'attributes';
-    const FIELD_IMAGES = 'images';
+    public const FIELD_ID = 'id';
+    public const FIELD_SKU = 'sku';
+    public const FIELD_PRICES = 'prices';
+    public const FIELD_ATTRIBUTES = 'attributes';
+    public const FIELD_IMAGES = 'images';
 
     /**
      * <p>The sequential ID of the variant within the product.

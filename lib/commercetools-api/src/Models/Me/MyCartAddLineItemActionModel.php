@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
@@ -20,12 +21,15 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use stdClass;
 
 final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCartAddLineItemAction
 {
-    const DISCRIMINATOR_VALUE = 'addLineItem';
+    public const DISCRIMINATOR_VALUE = 'addLineItem';
     /**
      * @var ?string
      */
@@ -85,6 +89,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
 
     public function __construct(
         CustomFieldsDraft $custom = null,
