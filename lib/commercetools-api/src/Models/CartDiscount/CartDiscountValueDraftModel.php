@@ -27,9 +27,9 @@ final class CartDiscountValueDraftModel extends JsonObjectModel implements CartD
      *
      */
     private static $discriminatorClasses = [
+       'absolute' => CartDiscountValueAbsoluteDraftModel::class,
        'giftLineItem' => CartDiscountValueGiftLineItemDraftModel::class,
        'relative' => CartDiscountValueRelativeDraftModel::class,
-       'absolute' => CartDiscountValueAbsoluteDraftModel::class,
     ];
 
     public function __construct(

@@ -37,8 +37,8 @@ final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDr
      *
      */
     private static $discriminatorClasses = [
-       'highPrecision' => HighPrecisionMoneyDraftModel::class,
        'centPrecision' => CentPrecisionMoneyDraftModel::class,
+       'highPrecision' => HighPrecisionMoneyDraftModel::class,
     ];
 
     public function __construct(

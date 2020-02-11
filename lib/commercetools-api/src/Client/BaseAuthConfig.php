@@ -25,7 +25,7 @@ abstract class BaseAuthConfig implements AuthConfig
     /** @psalm-var array */
     private $options;
 
-    public function __construct(string $accessTokenUri = "https://auth.europe-west1.gcp.commercetools.com/oauth/token", array $clientOptions = [], string $authUri = self::AUTH_URI)
+    public function __construct(string $accessTokenUri = null, array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
         /** @psalm-var string authUri */
         $authUri = str_replace(
@@ -33,7 +33,7 @@ abstract class BaseAuthConfig implements AuthConfig
                 self::OPT_ACCESS_TOKEN_URI
             ],
             [
-                $accessTokenUri
+                $accessTokenUri ?? "https://auth.europe-west1.gcp.commercetools.com/oauth/token"
             ],
             $authUri
         );

@@ -23,7 +23,7 @@ class Config implements BaseConfig
     /** @psalm-var array */
     private $options;
 
-    public function __construct(string $apiBaseUri = "https://api.europe-west1.gcp.commercetools.com/", array $clientOptions = [], string $baseUri = null)
+    public function __construct(string $apiBaseUri = null, array $clientOptions = [], string $baseUri = null)
     {
         /** @psalm-var string $apiUri */
         $apiUri = $baseUri ?? static::API_URI;
@@ -32,7 +32,7 @@ class Config implements BaseConfig
                 self::OPT_API_BASE_URI
             ],
             [
-                $apiBaseUri
+                $apiBaseUri ?? "https://api.europe-west1.gcp.commercetools.com/"
             ],
             $apiUri
         );

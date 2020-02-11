@@ -27,9 +27,9 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
      *
      */
     private static $discriminatorClasses = [
+       'absolute' => ProductDiscountValueAbsoluteDraftModel::class,
        'external' => ProductDiscountValueExternalDraftModel::class,
        'relative' => ProductDiscountValueRelativeDraftModel::class,
-       'absolute' => ProductDiscountValueAbsoluteDraftModel::class,
     ];
 
     public function __construct(

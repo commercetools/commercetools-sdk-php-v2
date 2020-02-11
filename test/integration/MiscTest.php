@@ -47,7 +47,7 @@ class MiscTest extends TestCase
             MiddlewareFactory::createLoggerMiddleware(new Logger('auth', [new StreamHandler('./logs/requests.log')]))
         );
 
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), null, [
             'handler' => $authHandler,
         ]);
         $logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);

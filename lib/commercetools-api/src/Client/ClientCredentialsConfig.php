@@ -21,7 +21,7 @@ class ClientCredentialsConfig extends BaseAuthConfig implements BaseClientCreden
     /** @psalm-var ClientCredentials */
     private $credentials;
 
-    public function __construct(ClientCredentials $credentials, string $accessTokenUri = "https://auth.europe-west1.gcp.commercetools.com/oauth/token", array $clientOptions = [], string $authUri = self::AUTH_URI)
+    public function __construct(ClientCredentials $credentials, string $accessTokenUri = null, array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
         parent::__construct($accessTokenUri, $clientOptions, $authUri);
         $this->credentials = $credentials;

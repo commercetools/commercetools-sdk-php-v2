@@ -27,8 +27,8 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
      *
      */
     private static $discriminatorClasses = [
-       'whitespace' => WhitespaceTokenizerModel::class,
        'custom' => CustomTokenizerModel::class,
+       'whitespace' => WhitespaceTokenizerModel::class,
     ];
 
     public function __construct(

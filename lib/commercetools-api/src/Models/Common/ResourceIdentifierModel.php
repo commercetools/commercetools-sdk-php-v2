@@ -82,16 +82,20 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
      *
      */
     private static $discriminatorClasses = [
-       'customer-group' => CustomerGroupResourceIdentifierModel::class,
+       'cart' => CartResourceIdentifierModel::class,
+       'cart-discount' => CartDiscountResourceIdentifierModel::class,
+       'category' => CategoryResourceIdentifierModel::class,
+       'channel' => ChannelResourceIdentifierModel::class,
        'customer' => CustomerResourceIdentifierModel::class,
+       'customer-group' => CustomerGroupResourceIdentifierModel::class,
        'discount-code' => DiscountCodeResourceIdentifierModel::class,
        'inventory-entry' => InventoryEntryResourceIdentifierModel::class,
-       'order-edit' => OrderEditResourceIdentifierModel::class,
        'order' => OrderResourceIdentifierModel::class,
+       'order-edit' => OrderEditResourceIdentifierModel::class,
        'payment' => PaymentResourceIdentifierModel::class,
+       'product' => ProductResourceIdentifierModel::class,
        'product-discount' => ProductDiscountResourceIdentifierModel::class,
        'product-type' => ProductTypeResourceIdentifierModel::class,
-       'product' => ProductResourceIdentifierModel::class,
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,
@@ -100,10 +104,6 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'tax-category' => TaxCategoryResourceIdentifierModel::class,
        'type' => TypeResourceIdentifierModel::class,
        'zone' => ZoneResourceIdentifierModel::class,
-       'category' => CategoryResourceIdentifierModel::class,
-       'cart' => CartResourceIdentifierModel::class,
-       'cart-discount' => CartDiscountResourceIdentifierModel::class,
-       'channel' => ChannelResourceIdentifierModel::class,
     ];
 
     public function __construct(

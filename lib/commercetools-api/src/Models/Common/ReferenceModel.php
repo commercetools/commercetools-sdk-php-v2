@@ -79,17 +79,21 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      *
      */
     private static $discriminatorClasses = [
-       'key-value-document' => CustomObjectReferenceModel::class,
-       'customer-group' => CustomerGroupReferenceModel::class,
+       'cart' => CartReferenceModel::class,
+       'cart-discount' => CartDiscountReferenceModel::class,
+       'category' => CategoryReferenceModel::class,
+       'channel' => ChannelReferenceModel::class,
        'customer' => CustomerReferenceModel::class,
+       'customer-group' => CustomerGroupReferenceModel::class,
        'discount-code' => DiscountCodeReferenceModel::class,
        'inventory-entry' => InventoryEntryReferenceModel::class,
-       'order-edit' => OrderEditReferenceModel::class,
+       'key-value-document' => CustomObjectReferenceModel::class,
        'order' => OrderReferenceModel::class,
+       'order-edit' => OrderEditReferenceModel::class,
        'payment' => PaymentReferenceModel::class,
+       'product' => ProductReferenceModel::class,
        'product-discount' => ProductDiscountReferenceModel::class,
        'product-type' => ProductTypeReferenceModel::class,
-       'product' => ProductReferenceModel::class,
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,
        'shopping-list' => ShoppingListReferenceModel::class,
@@ -98,10 +102,6 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'tax-category' => TaxCategoryReferenceModel::class,
        'type' => TypeReferenceModel::class,
        'zone' => ZoneReferenceModel::class,
-       'cart' => CartReferenceModel::class,
-       'category' => CategoryReferenceModel::class,
-       'cart-discount' => CartDiscountReferenceModel::class,
-       'channel' => ChannelReferenceModel::class,
     ];
 
     public function __construct(

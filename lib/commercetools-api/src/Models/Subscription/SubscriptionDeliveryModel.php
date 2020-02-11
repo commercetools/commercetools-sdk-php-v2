@@ -47,10 +47,10 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
      *
      */
     private static $discriminatorClasses = [
-       'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
        'Message' => MessageDeliveryModel::class,
-       'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
        'ResourceCreated' => ResourceCreatedDeliveryModel::class,
+       'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
+       'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
     ];
 
     public function __construct(

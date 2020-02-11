@@ -32,10 +32,18 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
      *
      */
     private static $discriminatorClasses = [
+       'ConcurrentModification' => ConcurrentModificationErrorModel::class,
+       'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
+       'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
+       'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
+       'DuplicateField' => DuplicateFieldErrorModel::class,
+       'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
+       'DuplicatePriceScope' => DuplicatePriceScopeErrorModel::class,
+       'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
+       'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
        'ExtensionBadResponse' => ExtensionBadResponseErrorModel::class,
        'ExtensionNoResponse' => ExtensionNoResponseErrorModel::class,
        'ExtensionUpdateActionsFailed' => ExtensionUpdateActionsFailedErrorModel::class,
-       'insufficient_scope' => InsufficientScopeErrorModel::class,
        'InvalidCredentials' => InvalidCredentialsErrorModel::class,
        'InvalidCurrentPassword' => InvalidCurrentPasswordErrorModel::class,
        'InvalidField' => InvalidFieldErrorModel::class,
@@ -44,7 +52,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'InvalidJsonInput' => InvalidJsonInputErrorModel::class,
        'InvalidOperation' => InvalidOperationErrorModel::class,
        'InvalidSubject' => InvalidSubjectErrorModel::class,
-       'invalid_token' => InvalidTokenErrorModel::class,
        'MatchingPriceNotFound' => MatchingPriceNotFoundErrorModel::class,
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,
@@ -54,16 +61,9 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'RequiredField' => RequiredFieldErrorModel::class,
        'ResourceNotFound' => ResourceNotFoundErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
-       'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
-       'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
-       'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
-       'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
-       'DuplicateField' => DuplicateFieldErrorModel::class,
-       'ConcurrentModification' => ConcurrentModificationErrorModel::class,
        'access_denied' => AccessDeniedErrorModel::class,
-       'EnumValueIsUsed' => EnumValueIsUsedErrorModel::class,
-       'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
-       'DuplicatePriceScope' => DuplicatePriceScopeErrorModel::class,
+       'insufficient_scope' => InsufficientScopeErrorModel::class,
+       'invalid_token' => InvalidTokenErrorModel::class,
     ];
 
     public function __construct(

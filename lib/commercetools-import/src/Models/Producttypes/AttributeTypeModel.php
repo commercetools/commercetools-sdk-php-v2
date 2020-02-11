@@ -28,11 +28,11 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
      */
     private static $discriminatorClasses = [
        'boolean' => AttributeBooleanTypeModel::class,
-       'datetime' => AttributeDateTimeTypeModel::class,
        'date' => AttributeDateTypeModel::class,
+       'datetime' => AttributeDateTimeTypeModel::class,
        'enum' => AttributeEnumTypeModel::class,
-       'ltext' => AttributeLocalizableTextTypeModel::class,
        'lenum' => AttributeLocalizedEnumTypeModel::class,
+       'ltext' => AttributeLocalizableTextTypeModel::class,
        'money' => AttributeMoneyTypeModel::class,
        'nested' => AttributeNestedTypeModel::class,
        'number' => AttributeNumberTypeModel::class,

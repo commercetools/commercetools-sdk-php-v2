@@ -27,10 +27,10 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
      *
      */
     private static $discriminatorClasses = [
-       'PreviewFailure' => OrderEditPreviewFailureModel::class,
        'Applied' => OrderEditAppliedModel::class,
-       'PreviewSuccess' => OrderEditPreviewSuccessModel::class,
        'NotProcessed' => OrderEditNotProcessedModel::class,
+       'PreviewFailure' => OrderEditPreviewFailureModel::class,
+       'PreviewSuccess' => OrderEditPreviewSuccessModel::class,
     ];
 
     public function __construct(
