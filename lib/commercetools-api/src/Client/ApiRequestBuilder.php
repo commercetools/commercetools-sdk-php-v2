@@ -11,7 +11,7 @@ namespace Commercetools\Api\Client;
 
 use Commercetools\Api\Client\Resource\ResourceByProjectKey;
 use Commercetools\Client\ApiResource;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 
 /**
  * @psalm-immutable
@@ -21,7 +21,7 @@ class ApiRequestBuilder extends ApiResource
     /**
      * @psalm-param array<string, scalar> $args
      */
-    public function __construct(Client $client = null, array $args = [])
+    public function __construct(ClientInterface $client = null, array $args = [])
     {
         parent::__construct('', $args, $client);
     }

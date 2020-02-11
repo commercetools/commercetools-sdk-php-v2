@@ -9,11 +9,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\ResultMapper;
 use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
@@ -27,7 +26,7 @@ class ApiRequest extends Request
     private $query;
 
     /**
-     * @psalm-var Client|null
+     * @psalm-var ClientInterface|null
      * @readonly
      */
     private $client;
@@ -36,7 +35,7 @@ class ApiRequest extends Request
      * @psalm-param array<string, scalar|scalar[]> $headers
      * @param string|null|resource|\Psr\Http\Message\StreamInterface $body
      */
-    public function __construct(?Client $client, string $method, string $uri, array $headers = [], $body = null, string $version = '1.1')
+    public function __construct(?ClientInterface $client, string $method, string $uri, array $headers = [], $body = null, string $version = '1.1')
     {
         $this->client = $client;
         $headers = $this->ensureHeader($headers, 'Content-Type', 'application/json');
@@ -102,12 +101,11 @@ class ApiRequest extends Request
     
     /**
      * @param array $options
-     * @return ResponseInterface
      * @throws InvalidArgumentException
      * @throws GuzzleException
      * @psalm-suppress InvalidThrow
      */
-    public function send(array $options = [])
+    public function send(array $options = []): ResponseInterface
     {
         if (is_null($this->client)) {
             throw new InvalidArgumentException();
@@ -115,7 +113,21 @@ class ApiRequest extends Request
         return $this->client->send($this, $options);
     }
 
-    public function getClient(): ?Client
+    /**
+     * @param array $options
+     * @throws InvalidArgumentException
+     * @throws GuzzleException
+     * @psalm-suppress InvalidThrow
+     */
+    public function sendAsync(array $options = []): PromiseInterface
+    {
+        if (is_null($this->client)) {
+            throw new InvalidArgumentException();
+        }
+        return $this->client->sendAsync($this, $options);
+    }
+
+    public function getClient(): ?ClientInterface
     {
         return $this->client;
     }

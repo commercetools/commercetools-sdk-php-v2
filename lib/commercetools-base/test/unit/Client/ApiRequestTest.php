@@ -12,7 +12,7 @@ namespace Commercetools\Test\Client;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
@@ -23,7 +23,7 @@ class ApiRequestTest extends TestCase
 {
     public function testWithQueryParam()
     {
-        $client = $this->prophesize(Client::class);
+        $client = $this->prophesize(ClientInterface::class);
         $request = new ApiRequest($client->reveal(), 'get', '/');
         $request = $request->withQueryParam('foo', 'bar');
         $this->assertSame('foo=bar', $request->getUri()->getQuery());
@@ -37,14 +37,14 @@ class ApiRequestTest extends TestCase
 
     public function testContentTypeHeader()
     {
-        $client = $this->prophesize(Client::class);
+        $client = $this->prophesize(ClientInterface::class);
         $request = new ApiRequest($client->reveal(), 'get', '/');
         $this->assertSame('application/json', $request->getHeaderLine('content-type'));
     }
 
     public function testEnsureHeaders()
     {
-        $client = $this->prophesize(Client::class);
+        $client = $this->prophesize(ClientInterface::class);
         $request = new ApiRequest($client->reveal(), 'get', '/', ['X-Foo' => 'bar']);
         $this->assertSame('application/json', $request->getHeaderLine('content-type'));
         $this->assertSame('bar', $request->getHeaderLine('x-foo'));

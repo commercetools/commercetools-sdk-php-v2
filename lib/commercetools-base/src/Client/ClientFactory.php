@@ -11,6 +11,7 @@ namespace Commercetools\Client;
 
 use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
 use Psr\Log\LoggerInterface;
 
@@ -20,7 +21,7 @@ class ClientFactory
      * @psalm-param array<string, callable> $middlewares
      * @throws InvalidArgumentException
      */
-    public function createGuzzleClient(Config $config, ?AuthConfig $authConfig = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
+    public function createGuzzleClient(Config $config, ?AuthConfig $authConfig = null, ?LoggerInterface $logger = null, array $middlewares = []): ClientInterface
     {
         $handler = null;
         if (!is_null($authConfig)) {
@@ -34,7 +35,7 @@ class ClientFactory
      * @psalm-param array<string, callable> $middlewares
      * @throws InvalidArgumentException
      */
-    public function createGuzzleClientForHandler(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
+    public function createGuzzleClientForHandler(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): ClientInterface
     {
         $middlewares = array_merge(
             MiddlewareFactory::createDefaultMiddlewares($handler, $logger, (int) ($config->getOptions()['maxRetries'] ?? 0)),
@@ -50,7 +51,7 @@ class ClientFactory
     public function createGuzzleClientForMiddlewares(
         Config $config,
         array $middlewares = []
-    ): HttpClient {
+    ): ClientInterface {
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
@@ -58,7 +59,7 @@ class ClientFactory
      * @throws InvalidArgumentException
      * @psalm-param array<int|string, callable> $middlewares
      */
-    private function createGuzzleClientWithOptions(array $options, array $middlewares = []): HttpClient
+    private function createGuzzleClientWithOptions(array $options, array $middlewares = []): ClientInterface
     {
         if (isset($options['handler']) && $options['handler'] instanceof HandlerStack) {
             $stack = $options['handler'];

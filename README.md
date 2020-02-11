@@ -14,9 +14,9 @@ composer require commercetools/spec-sdks
 namespace Commercetools;
 
 use Commercetools\Api\Client\ClientCredentialsConfig;
+use Commercetools\Api\Client\Config;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
-use Commercetools\Client\OAuthHandlerFactory;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -24,7 +24,7 @@ $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clie
 
 $client = ClientFactory::of()->createGuzzleClient(
     new Config(),
-    OAuthHandlerFactory::ofAuthConfig($authConfig)
+    $authConfig
 );
 ```
 
@@ -38,6 +38,7 @@ Examples to retrieve project information
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
 
+/** @var Client $root */
 $root =  new ApiRequestBuilder($client);
 $request = $root->withProjectKey('your-project-key')->get();
 ```

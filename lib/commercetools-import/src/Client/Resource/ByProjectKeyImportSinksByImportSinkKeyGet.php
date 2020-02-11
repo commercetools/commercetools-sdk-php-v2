@@ -20,7 +20,7 @@ use Commercetools\Import\Models\Errors\ErrorResponse;
 use Commercetools\Import\Models\Errors\ErrorResponseModel;
 use Commercetools\Import\Models\Importsinks\ImportSink;
 use Commercetools\Import\Models\Importsinks\ImportSinkModel;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
@@ -33,7 +33,7 @@ class ByProjectKeyImportSinksByImportSinkKeyGet extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/import-sinks/{importSinkKey}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

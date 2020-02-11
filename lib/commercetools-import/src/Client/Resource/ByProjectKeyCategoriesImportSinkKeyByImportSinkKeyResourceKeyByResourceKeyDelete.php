@@ -16,7 +16,7 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
@@ -29,7 +29,7 @@ class ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $importSinkKey, string $resourceKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $importSinkKey, string $resourceKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}', '{resourceKey}'], [$projectKey, $importSinkKey, $resourceKey], '{projectKey}/categories/importSinkKey={importSinkKey}/resourceKey={resourceKey}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);

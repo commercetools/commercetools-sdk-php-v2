@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use GuzzleHttp\Client;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;

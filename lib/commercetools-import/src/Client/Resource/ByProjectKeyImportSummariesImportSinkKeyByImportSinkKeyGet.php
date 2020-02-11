@@ -18,7 +18,7 @@ use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Import\Models\Importsummaries\ImportSummary;
 use Commercetools\Import\Models\Importsummaries\ImportSummaryModel;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
@@ -31,7 +31,7 @@ class ByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyGet extends ApiRequ
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/import-summaries/importSinkKey={importSinkKey}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);

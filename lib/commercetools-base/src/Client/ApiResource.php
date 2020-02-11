@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 
 /**
  * @psalm-immutable
@@ -27,7 +27,7 @@ class ApiResource
     private $args = [];
 
     /**
-     * @var ?Client
+     * @var ?ClientInterface
      */
     private $client;
 
@@ -35,7 +35,7 @@ class ApiResource
      * @param string $uri
      * @psalm-param array<string, scalar> $args
      */
-    public function __construct(string $uri = '', array $args = [], Client $client = null)
+    public function __construct(string $uri = '', array $args = [], ClientInterface $client = null)
     {
         $this->uri = $uri;
         $this->args = $args;
@@ -58,7 +58,7 @@ class ApiResource
         return $this->args;
     }
 
-    public function getClient(): ?Client
+    public function getClient(): ?ClientInterface
     {
         return $this->client;
     }

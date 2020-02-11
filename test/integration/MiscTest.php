@@ -53,7 +53,7 @@ class MiscTest extends TestCase
         $logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
 
         $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new Config(['maxRetries' => 3]),
+            new Config(null, ['maxRetries' => 3]),
             OAuthHandlerFactory::ofAuthConfig($authConfig),
             $logger
         );

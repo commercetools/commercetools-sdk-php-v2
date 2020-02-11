@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 
 class ClientCredentialTokenProvider implements TokenProvider
 {
@@ -19,7 +19,7 @@ class ClientCredentialTokenProvider implements TokenProvider
     public const ACCESS_TOKEN = 'access_token';
     public const EXPIRES_IN = 'expires_in';
 
-    /** @psalm-var Client */
+    /** @psalm-var ClientInterface */
     private $client;
 
     /** @psalm-var string */
@@ -28,7 +28,7 @@ class ClientCredentialTokenProvider implements TokenProvider
     /** @psalm-var ClientCredentials */
     private $credentials;
 
-    public function __construct(Client $client, string $accessTokenUrl, ClientCredentials $credentials)
+    public function __construct(ClientInterface $client, string $accessTokenUrl, ClientCredentials $credentials)
     {
         $this->client = $client;
         $this->accessTokenUrl = $accessTokenUrl;
@@ -48,7 +48,7 @@ class ClientCredentialTokenProvider implements TokenProvider
             'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()]
         ];
 
-        $result = $this->client->post($this->accessTokenUrl, $options);
+        $result = $this->client->request("post", $this->accessTokenUrl, $options);
 
         /** @psalm-var array $body */
         $body = json_decode((string)$result->getBody(), true);

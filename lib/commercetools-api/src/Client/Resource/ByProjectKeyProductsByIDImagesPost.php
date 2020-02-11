@@ -18,7 +18,7 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
@@ -31,7 +31,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      * @param ?UploadedFileInterface  $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $ID, UploadedFileInterface $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $ID, UploadedFileInterface $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/products/{ID}/images');
         if (!is_null($body)) {

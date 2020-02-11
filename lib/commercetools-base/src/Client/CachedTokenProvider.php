@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Commercetools\Client;
 
 use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\Client;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\SimpleCache\CacheInterface;

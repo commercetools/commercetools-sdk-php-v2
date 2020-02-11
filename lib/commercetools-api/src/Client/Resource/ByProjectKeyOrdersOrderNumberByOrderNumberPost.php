@@ -20,7 +20,7 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 
@@ -33,7 +33,7 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $orderNumber, $body = null, array $headers = [], Client $client = null)
+    public function __construct(string $projectKey, string $orderNumber, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{orderNumber}'], [$projectKey, $orderNumber], '{projectKey}/orders/order-number={orderNumber}');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
