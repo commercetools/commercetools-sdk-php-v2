@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Channel\ChannelReference;
 
 interface InventoryEntryDeletedMessage extends Message
 {
+
     public const FIELD_SKU = 'sku';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 

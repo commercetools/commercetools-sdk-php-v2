@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProductTypeDraft extends JsonObject
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';

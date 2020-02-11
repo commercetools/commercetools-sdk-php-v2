@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
+
     /**
      * @var ?string
      */
@@ -57,6 +58,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+
     }
 
     /**
@@ -201,4 +203,5 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         }
         return (object) $data;
     }
+
 }

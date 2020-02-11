@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Base;
 
-use Commercetools\Exception\InvalidArgumentException;
 use DateTimeImmutable;
+use Commercetools\Exception\InvalidArgumentException;
 
 /**
  * @extends MapperScalarSequence<DateTimeImmutable>
@@ -40,7 +40,7 @@ class DateTimeImmutableCollection extends MapperScalarSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DateTimeImmutable {
+        return function(int $index): ?DateTimeImmutable {
             $data = $this->get($index);
             if (!is_null($data) && !$data instanceof DateTimeImmutable) {
                 $data = new DateTimeImmutable((string)$data);

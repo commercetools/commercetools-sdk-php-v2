@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDiscountCodeAction;
@@ -37,9 +39,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderRemoveParcelFromDeliveryAction
 use Commercetools\Api\Models\OrderEdit\StagedOrderRemovePaymentAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemCustomTypeAction;
@@ -48,6 +47,9 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemTaxAmountActi
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemTaxRateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
@@ -77,8 +79,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderTransitionLineItemStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderTransitionStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateItemShippingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateSyncInfoAction;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface StagedOrderUpdateAction extends JsonObject
 {
@@ -89,4 +89,5 @@ interface StagedOrderUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
+
 }

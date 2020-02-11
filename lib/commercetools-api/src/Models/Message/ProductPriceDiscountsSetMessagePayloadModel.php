@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel implements ProductPriceDiscountsSetMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';
@@ -73,4 +74,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     {
         $this->updatedPrices = $updatedPrices;
     }
+
+
+
 }

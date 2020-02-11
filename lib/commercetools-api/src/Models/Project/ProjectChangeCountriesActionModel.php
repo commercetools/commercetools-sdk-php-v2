@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProjectChangeCountriesActionModel extends JsonObjectModel implements ProjectChangeCountriesAction
 {
     public const DISCRIMINATOR_VALUE = 'changeCountries';
@@ -75,4 +76,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     {
         $this->countries = $countries;
     }
+
+
+
 }

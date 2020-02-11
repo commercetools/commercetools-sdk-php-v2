@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
 
 interface PaymentInfo extends JsonObject
 {
+
     public const FIELD_PAYMENTS = 'payments';
 
     /**

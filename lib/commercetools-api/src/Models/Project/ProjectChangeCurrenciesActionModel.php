@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implements ProjectChangeCurrenciesAction
 {
     public const DISCRIMINATOR_VALUE = 'changeCurrencies';
@@ -75,4 +76,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     {
         $this->currencies = $currencies;
     }
+
+
+
 }

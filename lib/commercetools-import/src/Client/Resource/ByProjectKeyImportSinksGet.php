@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client\Resource;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\ClientException;
 use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
 use Commercetools\Import\Models\Importsinks\ImportSinkPagedResponse;
 use Commercetools\Import\Models\Importsinks\ImportSinkPagedResponseModel;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -88,7 +88,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyImportSinksGet
@@ -97,7 +97,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyImportSinksGet

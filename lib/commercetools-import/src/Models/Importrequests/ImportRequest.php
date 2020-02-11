@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ImportRequest extends JsonObject
 {
@@ -22,4 +22,5 @@ interface ImportRequest extends JsonObject
      * @return null|string
      */
     public function getType();
+
 }

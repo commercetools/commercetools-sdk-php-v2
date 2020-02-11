@@ -8,21 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
 {
+
     /**
      * @var ?string
      */
@@ -103,6 +104,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->shippingDetails = $shippingDetails;
+
     }
 
     /**
@@ -374,4 +376,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     {
         $this->shippingDetails = $shippingDetails;
     }
+
+
+
 }

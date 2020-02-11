@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface CartAddLineItemAction extends CartUpdateAction
 {
+
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductPublishActionModel extends JsonObjectModel implements ProductPublishAction
 {
     public const DISCRIMINATOR_VALUE = 'publish';
@@ -73,4 +74,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     {
         $this->scope = $scope;
     }
+
+
+
 }

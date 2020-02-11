@@ -8,24 +8,25 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
-use Commercetools\Api\Models\Customer\CustomerReference;
-use Commercetools\Api\Models\Customer\CustomerReferenceModel;
-use Commercetools\Api\Models\Payment\PaymentMethodInfo;
-
-use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
-use Commercetools\Api\Models\Payment\TransactionCollection;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Api\Models\Payment\PaymentMethodInfo;
+use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
+use Commercetools\Api\Models\Payment\TransactionCollection;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
+
 final class MyPaymentModel extends JsonObjectModel implements MyPayment
 {
+
     /**
      * @var ?string
      */
@@ -85,6 +86,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->transactions = $transactions;
         $this->custom = $custom;
+
     }
 
     /**
@@ -276,4 +278,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         $this->custom = $custom;
     }
+
+
+
 }

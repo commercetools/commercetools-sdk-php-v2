@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel implements CartChangeCustomLineItemQuantityAction
 {
     public const DISCRIMINATOR_VALUE = 'changeCustomLineItemQuantity';
@@ -102,4 +103,7 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     {
         $this->quantity = $quantity;
     }
+
+
+
 }

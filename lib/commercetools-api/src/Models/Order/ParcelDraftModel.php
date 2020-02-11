@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
 {
+
     /**
      * @var ?ParcelMeasurements
      */
@@ -40,6 +42,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
+
     }
 
     /**
@@ -111,4 +114,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     {
         $this->items = $items;
     }
+
+
+
 }

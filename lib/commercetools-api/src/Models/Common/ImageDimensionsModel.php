@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensions
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     ) {
         $this->w = $w;
         $this->h = $h;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     {
         $this->h = $h;
     }
+
+
+
 }

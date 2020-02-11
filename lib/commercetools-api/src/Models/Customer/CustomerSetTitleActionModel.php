@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomerSetTitleActionModel extends JsonObjectModel implements CustomerSetTitleAction
 {
     public const DISCRIMINATOR_VALUE = 'setTitle';
@@ -73,4 +74,7 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     {
         $this->title = $title;
     }
+
+
+
 }

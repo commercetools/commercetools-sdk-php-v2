@@ -12,8 +12,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+use stdClass;
 
+use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -24,10 +25,10 @@ use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
 use Commercetools\Import\Models\Products\SearchKeywords;
 use Commercetools\Import\Models\Products\SearchKeywordsModel;
-use stdClass;
 
 final class ProductDraftImportModel extends JsonObjectModel implements ProductDraftImport
 {
+
     /**
      * @var ?ProductTypeKeyReference
      */
@@ -136,6 +137,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
         $this->publish = $publish;
+
     }
 
     /**
@@ -497,4 +499,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         $this->publish = $publish;
     }
+
+
+
 }

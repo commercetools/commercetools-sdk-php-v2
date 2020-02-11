@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Type\CustomFields;
 
 interface Asset extends JsonObject
 {
+
     public const FIELD_ID = 'id';
     public const FIELD_SOURCES = 'sources';
     public const FIELD_NAME = 'name';

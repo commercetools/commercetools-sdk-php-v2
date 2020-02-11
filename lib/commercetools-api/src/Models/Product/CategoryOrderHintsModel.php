@@ -21,8 +21,8 @@ final class CategoryOrderHintsModel extends MapperMap implements CategoryOrderHi
             /**
              * @psalm-return ?mixed
              */
-            function (string $key) {
-                return $this->get($key);
+            function(string $key) {
+               return $this->get($key);
             };
     }
 }

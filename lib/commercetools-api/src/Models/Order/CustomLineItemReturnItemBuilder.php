@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
 use stdClass;
+use DateTimeImmutable;
 
 /**
  * @implements Builder<CustomLineItemReturnItem>

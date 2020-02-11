@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface VariantValues extends JsonObject
 {
+
     public const FIELD_SKU = 'sku';
     public const FIELD_PRICES = 'prices';
     public const FIELD_ATTRIBUTES = 'attributes';

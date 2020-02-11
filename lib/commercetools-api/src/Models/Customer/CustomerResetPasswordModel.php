@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomerResetPasswordModel extends JsonObjectModel implements CustomerResetPassword
 {
+
     /**
      * @var ?string
      */
@@ -40,6 +42,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
         $this->tokenValue = $tokenValue;
         $this->newPassword = $newPassword;
         $this->version = $version;
+
     }
 
     /**
@@ -107,4 +110,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     {
         $this->version = $version;
     }
+
+
+
 }

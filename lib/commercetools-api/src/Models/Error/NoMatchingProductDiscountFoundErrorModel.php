@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel implements NoMatchingProductDiscountFoundError
 {
     public const DISCRIMINATOR_VALUE = 'NoMatchingProductDiscountFound';
@@ -73,4 +74,7 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
     {
         $this->message = $message;
     }
+
+
+
 }

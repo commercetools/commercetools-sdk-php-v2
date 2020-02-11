@@ -14,10 +14,15 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords
 {
+
+
+
     public function __construct(
     ) {
+
     }
 
 
@@ -38,4 +43,6 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
 
         return $data;
     }
+
+
 }

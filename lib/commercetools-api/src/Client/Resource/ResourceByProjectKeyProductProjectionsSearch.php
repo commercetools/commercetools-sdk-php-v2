@@ -37,4 +37,5 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
 
         return new ByProjectKeyProductProjectionsSearchGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

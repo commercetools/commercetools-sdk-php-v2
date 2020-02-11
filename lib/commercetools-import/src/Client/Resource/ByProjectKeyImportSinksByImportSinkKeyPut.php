@@ -8,21 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client\Resource;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\ClientException;
 use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
 use Commercetools\Import\Models\Errors\ErrorResponse;
 use Commercetools\Import\Models\Errors\ErrorResponseModel;
 use Commercetools\Import\Models\Importsinks\ImportSink;
 use Commercetools\Import\Models\Importsinks\ImportSinkModel;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -92,4 +92,5 @@ class ByProjectKeyImportSinksByImportSinkKeyPut extends ApiRequest
 
         return $this->mapFromResponse($response, $resultType);
     }
+
 }

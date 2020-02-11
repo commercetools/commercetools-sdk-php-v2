@@ -8,25 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class StoreModel extends JsonObjectModel implements Store
 {
+
     /**
      * @var ?string
      */
@@ -86,6 +87,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->createdBy = $createdBy;
         $this->key = $key;
         $this->name = $name;
+
     }
 
     /**
@@ -294,4 +296,5 @@ final class StoreModel extends JsonObjectModel implements Store
         }
         return (object) $data;
     }
+
 }

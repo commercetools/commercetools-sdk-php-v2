@@ -8,15 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\AssetCollection;
-use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\AssetCollection;
+use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 
 final class ProductAddVariantActionModel extends JsonObjectModel implements ProductAddVariantAction
 {
@@ -251,4 +251,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         $this->assets = $assets;
     }
+
+
+
 }

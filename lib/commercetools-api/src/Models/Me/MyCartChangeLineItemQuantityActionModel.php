@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
-use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
+use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 
 final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel implements MyCartChangeLineItemQuantityAction
 {
@@ -167,4 +167,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     {
         $this->externalTotalPrice = $externalTotalPrice;
     }
+
+
+
 }

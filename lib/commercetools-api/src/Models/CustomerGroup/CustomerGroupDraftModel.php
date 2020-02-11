@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
+
 final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerGroupDraft
 {
+
     /**
      * @var ?string
      */
@@ -43,6 +44,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
         $this->key = $key;
         $this->groupName = $groupName;
         $this->custom = $custom;
+
     }
 
     /**
@@ -113,4 +115,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     {
         $this->custom = $custom;
     }
+
+
+
 }

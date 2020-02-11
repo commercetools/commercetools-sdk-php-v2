@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartDiscountShippingCostTargetModel extends JsonObjectModel implements CartDiscountShippingCostTarget
 {
     public const DISCRIMINATOR_VALUE = 'shipping';
@@ -44,4 +45,8 @@ final class CartDiscountShippingCostTargetModel extends JsonObjectModel implemen
 
         return $this->type;
     }
+
+
+
+
 }

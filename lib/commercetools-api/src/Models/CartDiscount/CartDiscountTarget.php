@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CartDiscountTarget extends JsonObject
 {
@@ -20,4 +20,5 @@ interface CartDiscountTarget extends JsonObject
      * @return null|string
      */
     public function getType();
+
 }

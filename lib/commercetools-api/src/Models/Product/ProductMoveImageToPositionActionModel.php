@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductMoveImageToPositionActionModel extends JsonObjectModel implements ProductMoveImageToPositionAction
 {
     public const DISCRIMINATOR_VALUE = 'moveImageToPosition';
@@ -191,4 +192,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         $this->staged = $staged;
     }
+
+
+
 }

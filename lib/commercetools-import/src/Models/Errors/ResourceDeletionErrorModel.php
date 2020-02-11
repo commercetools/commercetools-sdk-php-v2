@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ResourceDeletionErrorModel extends JsonObjectModel implements ResourceDeletionError
 {
     public const DISCRIMINATOR_VALUE = 'ResourceDeletion';
@@ -104,4 +105,7 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     {
         $this->resource = $resource;
     }
+
+
+
 }

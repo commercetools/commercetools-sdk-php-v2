@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 {
+
     /**
      * @var ?int
      */
@@ -54,6 +56,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
         $this->error = $error;
         $this->error_description = $error_description;
         $this->errors = $errors;
+
     }
 
     /**
@@ -165,4 +168,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         $this->errors = $errors;
     }
+
+
+
 }

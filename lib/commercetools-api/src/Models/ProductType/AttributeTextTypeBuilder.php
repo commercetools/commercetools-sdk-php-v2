@@ -20,6 +20,10 @@ use stdClass;
  */
 final class AttributeTextTypeBuilder implements Builder
 {
+
+
+
+
     public function build(): AttributeTextType
     {
         return new AttributeTextTypeModel(

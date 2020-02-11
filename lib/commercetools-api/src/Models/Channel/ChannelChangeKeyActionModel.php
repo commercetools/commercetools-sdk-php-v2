@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ChannelChangeKeyActionModel extends JsonObjectModel implements ChannelChangeKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
@@ -73,4 +74,7 @@ final class ChannelChangeKeyActionModel extends JsonObjectModel implements Chann
     {
         $this->key = $key;
     }
+
+
+
 }

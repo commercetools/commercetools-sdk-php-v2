@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use stdClass;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 
 /**
  * @implements Builder<ReferenceSetAttribute>

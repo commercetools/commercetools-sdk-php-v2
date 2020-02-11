@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AttributeMoneyTypeModel extends JsonObjectModel implements AttributeMoneyType
 {
     public const DISCRIMINATOR_VALUE = 'money';
@@ -44,4 +45,8 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
 
         return $this->name;
     }
+
+
+
+
 }

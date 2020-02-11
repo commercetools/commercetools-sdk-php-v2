@@ -8,12 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
@@ -21,16 +26,12 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class MyShoppingListModel extends JsonObjectModel implements MyShoppingList
 {
+
     /**
      * @var ?string
      */
@@ -146,6 +147,7 @@ final class MyShoppingListModel extends JsonObjectModel implements MyShoppingLis
         $this->slug = $slug;
         $this->textLineItems = $textLineItems;
         $this->anonymousId = $anonymousId;
+
     }
 
     /**
@@ -528,4 +530,5 @@ final class MyShoppingListModel extends JsonObjectModel implements MyShoppingLis
         }
         return (object) $data;
     }
+
 }

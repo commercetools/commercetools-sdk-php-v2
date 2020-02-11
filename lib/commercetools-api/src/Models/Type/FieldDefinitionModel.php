@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
 {
+
     /**
      * @var ?FieldType
      */
@@ -57,6 +58,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         $this->label = $label;
         $this->required = $required;
         $this->inputHint = $inputHint;
+
     }
 
     /**
@@ -184,4 +186,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         $this->inputHint = $inputHint;
     }
+
+
+
 }

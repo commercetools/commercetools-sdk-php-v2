@@ -8,19 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\TaxedPrice;
-use Commercetools\Api\Models\Cart\TaxedPriceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Cart\TaxedPrice;
+use Commercetools\Api\Models\Cart\TaxedPriceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+
 final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
 {
+
     /**
      * @var ?TypedMoney
      */
@@ -45,6 +46,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
         $this->version = $version;
+
     }
 
     /**
@@ -114,4 +116,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     {
         $this->version = $version;
     }
+
+
+
 }

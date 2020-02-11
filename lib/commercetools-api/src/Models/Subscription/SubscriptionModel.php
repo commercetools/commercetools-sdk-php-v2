@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class SubscriptionModel extends JsonObjectModel implements Subscription
 {
+
     /**
      * @var ?string
      */
@@ -112,6 +113,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         $this->messages = $messages;
         $this->format = $format;
         $this->status = $status;
+
     }
 
     /**
@@ -407,4 +409,5 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
         }
         return (object) $data;
     }
+
 }

@@ -8,12 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
-
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
@@ -25,16 +30,12 @@ use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\Review\ReviewRatingStatisticsModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class ChannelModel extends JsonObjectModel implements Channel
 {
+
     /**
      * @var ?string
      */
@@ -136,6 +137,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->reviewRatingStatistics = $reviewRatingStatistics;
         $this->custom = $custom;
         $this->geoLocation = $geoLocation;
+
     }
 
     /**
@@ -497,4 +499,5 @@ final class ChannelModel extends JsonObjectModel implements Channel
         }
         return (object) $data;
     }
+
 }

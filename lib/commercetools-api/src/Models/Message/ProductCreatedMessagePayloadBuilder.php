@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Product\ProductProjectionBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Api\Models\Product\ProductProjectionBuilder;
 
 /**
  * @implements Builder<ProductCreatedMessagePayload>

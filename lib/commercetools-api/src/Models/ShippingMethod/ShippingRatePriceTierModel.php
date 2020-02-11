@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ShippingRatePriceTierModel extends JsonObjectModel implements ShippingRatePriceTier
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
 
     /**
      * @psalm-var array<string, class-string<ShippingRatePriceTier> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'CartClassification' => CartClassificationTierModel::class,
@@ -63,24 +64,24 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ShippingRatePriceTier::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ShippingRatePriceTier::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ShippingRatePriceTier> */
-        $type = ShippingRatePriceTierModel::class;
-        return $type;
+       /** @psalm-var class-string<ShippingRatePriceTier> */
+       $type = ShippingRatePriceTierModel::class;
+       return $type;
     }
 }

@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface ProductData extends JsonObject
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_CATEGORIES = 'categories';
     public const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';

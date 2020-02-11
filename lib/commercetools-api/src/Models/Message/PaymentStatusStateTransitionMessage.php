@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\State\StateReference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\State\StateReference;
 
 interface PaymentStatusStateTransitionMessage extends Message
 {
+
     public const FIELD_STATE = 'state';
     public const FIELD_FORCE = 'force';
 

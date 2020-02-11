@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 
 final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel implements OrderDiscountCodeAddedMessagePayload
 {
@@ -77,4 +77,7 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
     {
         $this->discountCode = $discountCode;
     }
+
+
+
 }

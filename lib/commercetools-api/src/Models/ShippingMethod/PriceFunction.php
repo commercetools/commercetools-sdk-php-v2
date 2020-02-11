@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface PriceFunction extends JsonObject
 {
+
     public const FIELD_CURRENCY_CODE = 'currencyCode';
     public const FIELD_FUNCTION = 'function';
 

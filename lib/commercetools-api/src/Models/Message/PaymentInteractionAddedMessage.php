@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Type\CustomFields;
 
 interface PaymentInteractionAddedMessage extends Message
 {
+
     public const FIELD_INTERACTION = 'interaction';
 
     /**

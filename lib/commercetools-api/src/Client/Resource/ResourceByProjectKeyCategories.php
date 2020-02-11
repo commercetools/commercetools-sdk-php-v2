@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Category\CategoryDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -57,4 +57,5 @@ class ResourceByProjectKeyCategories extends ApiResource
 
         return new ByProjectKeyCategoriesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\ShippingRateInputDraft;
-use Commercetools\Api\Models\Cart\ShippingRateInputDraftModel;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Cart\ShippingRateInputDraft;
+use Commercetools\Api\Models\Cart\ShippingRateInputDraftModel;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 
 final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel implements StagedOrderSetShippingRateInputAction
 {
@@ -79,4 +79,7 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
     {
         $this->shippingRateInput = $shippingRateInput;
     }
+
+
+
 }

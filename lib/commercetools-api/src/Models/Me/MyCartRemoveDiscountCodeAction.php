@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 
 interface MyCartRemoveDiscountCodeAction extends MyCartUpdateAction
 {
+
     public const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**

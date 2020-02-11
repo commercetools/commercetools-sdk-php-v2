@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Customer\CustomerChangePassword;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Customer\CustomerChangePassword;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -35,4 +35,5 @@ class ResourceByProjectKeyCustomersPassword extends ApiResource
 
         return new ByProjectKeyCustomersPasswordPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\DeliveryCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingRate;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface ShippingInfo extends JsonObject
 {
+
     public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     public const FIELD_PRICE = 'price';
     public const FIELD_SHIPPING_RATE = 'shippingRate';

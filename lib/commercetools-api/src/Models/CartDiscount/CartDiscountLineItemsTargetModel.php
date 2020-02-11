@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements CartDiscountLineItemsTarget
 {
     public const DISCRIMINATOR_VALUE = 'lineItems';
@@ -73,4 +74,7 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
     {
         $this->predicate = $predicate;
     }
+
+
+
 }

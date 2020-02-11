@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface DuplicateVariantValuesError extends ErrorObject
 {
+
     public const FIELD_VARIANT_VALUES = 'variantValues';
 
     /**

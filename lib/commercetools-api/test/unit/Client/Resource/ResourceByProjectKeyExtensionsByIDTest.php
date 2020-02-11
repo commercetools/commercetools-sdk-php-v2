@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsByIDGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 '{projectKey}/extensions/{ID}?expand=expand',
             ],
             'ByProjectKeyExtensionsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 '{projectKey}/extensions/{ID}?expand=expand',
             ],
             'ByProjectKeyExtensionsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -96,7 +96,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 '{projectKey}/extensions/{ID}?expand=expand',
             ],
             'ByProjectKeyExtensionsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -127,7 +127,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyExtensionsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyExtensionsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -145,7 +145,7 @@ class ResourceByProjectKeyExtensionsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyExtensionsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()

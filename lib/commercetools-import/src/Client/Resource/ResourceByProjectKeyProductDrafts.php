@@ -26,4 +26,5 @@ class ResourceByProjectKeyProductDrafts extends ApiResource
 
         return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey($this->getUri() . '/importSinkKey={importSinkKey}', $args, $this->getClient());
     }
+
 }

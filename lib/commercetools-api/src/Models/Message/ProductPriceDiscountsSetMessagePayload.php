@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProductPriceDiscountsSetMessagePayload extends MessagePayload
 {
+
     public const FIELD_UPDATED_PRICES = 'updatedPrices';
 
     /**

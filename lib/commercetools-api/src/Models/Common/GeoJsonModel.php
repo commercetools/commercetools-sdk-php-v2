@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 
     /**
      * @psalm-var array<string, class-string<GeoJson> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'Point' => GeoJsonPointModel::class,
@@ -61,24 +62,24 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = GeoJson::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = GeoJson::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<GeoJson> */
-        $type = GeoJsonModel::class;
-        return $type;
+       /** @psalm-var class-string<GeoJson> */
+       $type = GeoJsonModel::class;
+       return $type;
     }
 }

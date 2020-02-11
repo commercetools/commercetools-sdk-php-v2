@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface TermFacetResult extends FacetResult
 {
+
     public const FIELD_DATA_TYPE = 'dataType';
     public const FIELD_MISSING = 'missing';
     public const FIELD_TOTAL = 'total';

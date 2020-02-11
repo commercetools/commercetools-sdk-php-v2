@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Api\Models\Common\GeoJson;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\GeoJson;
 
 interface ChannelSetGeoLocationAction extends ChannelUpdateAction
 {
+
     public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**

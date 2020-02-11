@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface SearchKeyword extends JsonObject
 {
+
     public const FIELD_TEXT = 'text';
     public const FIELD_SUGGEST_TOKENIZER = 'suggestTokenizer';
 

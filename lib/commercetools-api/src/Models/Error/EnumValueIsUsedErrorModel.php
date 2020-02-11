@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumValueIsUsedError
 {
     public const DISCRIMINATOR_VALUE = 'EnumValueIsUsed';
@@ -73,4 +74,7 @@ final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumVal
     {
         $this->message = $message;
     }
+
+
+
 }

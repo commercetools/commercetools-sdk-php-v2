@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressModel;
 
 final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel implements OrderBillingAddressSetMessagePayload
 {
@@ -107,4 +107,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     {
         $this->oldAddress = $oldAddress;
     }
+
+
+
 }

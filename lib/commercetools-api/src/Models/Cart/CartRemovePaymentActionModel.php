@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
-use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
+use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
 
 final class CartRemovePaymentActionModel extends JsonObjectModel implements CartRemovePaymentAction
 {
@@ -77,4 +77,7 @@ final class CartRemovePaymentActionModel extends JsonObjectModel implements Cart
     {
         $this->payment = $payment;
     }
+
+
+
 }

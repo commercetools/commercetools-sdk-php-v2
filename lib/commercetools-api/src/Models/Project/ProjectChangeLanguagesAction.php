@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProjectChangeLanguagesAction extends ProjectUpdateAction
 {
+
     public const FIELD_LANGUAGES = 'languages';
 
     /**

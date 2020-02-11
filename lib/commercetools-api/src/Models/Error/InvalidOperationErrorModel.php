@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class InvalidOperationErrorModel extends JsonObjectModel implements InvalidOperationError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidOperation';
@@ -73,4 +74,7 @@ final class InvalidOperationErrorModel extends JsonObjectModel implements Invali
     {
         $this->message = $message;
     }
+
+
+
 }

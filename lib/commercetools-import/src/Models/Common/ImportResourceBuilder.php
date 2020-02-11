@@ -13,6 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Categories\CategoryImportBuilder;
 use Commercetools\Import\Models\Prices\PriceImport;
@@ -23,7 +24,6 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportBuilder;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportBuilder;
-use stdClass;
 
 /**
  * @implements Builder<ImportResource>

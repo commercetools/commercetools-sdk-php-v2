@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 
 final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implements CategorySetAssetCustomTypeAction
 {
@@ -169,4 +169,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     {
         $this->fields = $fields;
     }
+
+
+
 }

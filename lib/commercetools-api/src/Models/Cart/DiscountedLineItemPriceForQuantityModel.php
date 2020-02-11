@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel implements DiscountedLineItemPriceForQuantity
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     ) {
         $this->quantity = $quantity;
         $this->discountedPrice = $discountedPrice;
+
     }
 
     /**
@@ -79,4 +82,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     {
         $this->discountedPrice = $discountedPrice;
     }
+
+
+
 }

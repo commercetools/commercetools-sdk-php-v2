@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface TaxCategoryUpdateAction extends JsonObject
 {
@@ -20,4 +20,5 @@ interface TaxCategoryUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
+
 }

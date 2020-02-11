@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ZoneSetDescriptionAction extends ZoneUpdateAction
 {
+
     public const FIELD_DESCRIPTION = 'description';
 
     /**

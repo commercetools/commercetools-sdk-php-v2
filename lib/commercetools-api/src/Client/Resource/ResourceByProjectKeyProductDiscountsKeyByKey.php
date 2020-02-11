@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\ProductDiscount\ProductDiscountUpdate;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountUpdate;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,4 +48,5 @@ class ResourceByProjectKeyProductDiscountsKeyByKey extends ApiResource
 
         return new ByProjectKeyProductDiscountsKeyByKeyDelete((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
+
 }

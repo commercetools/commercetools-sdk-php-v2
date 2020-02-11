@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel implements ProductTypeRemoveEnumValuesAction
 {
     public const DISCRIMINATOR_VALUE = 'removeEnumValues';
@@ -102,4 +103,7 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     {
         $this->keys = $keys;
     }
+
+
+
 }

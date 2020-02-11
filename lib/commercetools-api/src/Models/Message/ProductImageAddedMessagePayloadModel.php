@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Image;
-use Commercetools\Api\Models\Common\ImageModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\Image;
+use Commercetools\Api\Models\Common\ImageModel;
 
 final class ProductImageAddedMessagePayloadModel extends JsonObjectModel implements ProductImageAddedMessagePayload
 {
@@ -135,4 +135,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     {
         $this->staged = $staged;
     }
+
+
+
 }

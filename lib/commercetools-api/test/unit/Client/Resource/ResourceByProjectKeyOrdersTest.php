@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 '{projectKey}/orders?withTotal=withTotal',
             ],
             'ByProjectKeyOrdersGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 '{projectKey}/orders?expand=expand',
             ],
             'ByProjectKeyOrdersPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
     {
         return [
             'ByProjectKeyOrdersGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 }
             ],
             'ByProjectKeyOrdersPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()

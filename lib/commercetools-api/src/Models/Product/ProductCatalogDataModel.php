@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductCatalogDataModel extends JsonObjectModel implements ProductCatalogData
 {
+
     /**
      * @var ?bool
      */
@@ -47,6 +49,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
         $this->current = $current;
         $this->staged = $staged;
         $this->hasStagedChanges = $hasStagedChanges;
+
     }
 
     /**
@@ -138,4 +141,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     {
         $this->hasStagedChanges = $hasStagedChanges;
     }
+
+
+
 }

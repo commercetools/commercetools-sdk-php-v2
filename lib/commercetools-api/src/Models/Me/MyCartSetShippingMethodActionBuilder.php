@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
+use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
 
 /**
  * @implements Builder<MyCartSetShippingMethodAction>

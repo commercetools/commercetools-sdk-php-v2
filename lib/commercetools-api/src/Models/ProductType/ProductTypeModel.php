@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class ProductTypeModel extends JsonObjectModel implements ProductType
 {
+
     /**
      * @var ?string
      */
@@ -98,6 +99,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
         $this->name = $name;
         $this->description = $description;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -354,4 +356,5 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
         }
         return (object) $data;
     }
+
 }

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
 
 interface ShoppingListSetDescriptionAction extends ShoppingListUpdateAction
 {
+
     public const FIELD_DESCRIPTION = 'description';
 
     /**

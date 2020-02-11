@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     {
         $this->label = $label;
     }
+
+
+
 }

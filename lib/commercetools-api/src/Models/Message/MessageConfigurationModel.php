@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MessageConfigurationModel extends JsonObjectModel implements MessageConfiguration
 {
+
     /**
      * @var ?bool
      */
@@ -33,6 +35,7 @@ final class MessageConfigurationModel extends JsonObjectModel implements Message
     ) {
         $this->enabled = $enabled;
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class MessageConfigurationModel extends JsonObjectModel implements Message
     {
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
+
+
+
 }

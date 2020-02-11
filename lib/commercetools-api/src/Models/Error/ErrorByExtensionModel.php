@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExtension
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     ) {
         $this->id = $id;
         $this->key = $key;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     {
         $this->key = $key;
     }
+
+
+
 }

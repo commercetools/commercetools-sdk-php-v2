@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel implements ProductProjectionPagedSearchResponse
 {
+
     /**
      * @var ?int
      */
@@ -54,6 +56,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
         $this->offset = $offset;
         $this->results = $results;
         $this->facets = $facets;
+
     }
 
     /**
@@ -166,4 +169,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     {
         $this->facets = $facets;
     }
+
+
+
 }

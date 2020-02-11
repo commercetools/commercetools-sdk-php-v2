@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\ReturnInfo;
-use Commercetools\Api\Models\Order\ReturnInfoModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Order\ReturnInfo;
+use Commercetools\Api\Models\Order\ReturnInfoModel;
 
 final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel implements OrderReturnInfoAddedMessagePayload
 {
@@ -77,4 +77,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     {
         $this->returnInfo = $returnInfo;
     }
+
+
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel implements ProductTypeAddPlainEnumValueAction
 {
     public const DISCRIMINATOR_VALUE = 'addPlainEnumValue';
@@ -103,4 +104,7 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
     {
         $this->value = $value;
     }
+
+
+
 }

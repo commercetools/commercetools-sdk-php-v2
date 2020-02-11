@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics
 {
+
     /**
      * @var ?int
      */
@@ -54,6 +56,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
         $this->lowestRating = $lowestRating;
         $this->count = $count;
         $this->ratingsDistribution = $ratingsDistribution;
+
     }
 
     /**
@@ -178,4 +181,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     {
         $this->ratingsDistribution = $ratingsDistribution;
     }
+
+
+
 }

@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface PaymentSetExternalIdAction extends PaymentUpdateAction
 {
+
     public const FIELD_EXTERNAL_ID = 'externalId';
 
     /**

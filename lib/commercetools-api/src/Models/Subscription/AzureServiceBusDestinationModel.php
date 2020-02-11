@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AzureServiceBusDestinationModel extends JsonObjectModel implements AzureServiceBusDestination
 {
     public const DISCRIMINATOR_VALUE = 'AzureServiceBus';
@@ -73,4 +74,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     {
         $this->connectionString = $connectionString;
     }
+
+
+
 }

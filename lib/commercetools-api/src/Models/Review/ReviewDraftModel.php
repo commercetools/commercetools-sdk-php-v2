@@ -8,21 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
-use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
-use Commercetools\Api\Models\State\StateResourceIdentifier;
-use Commercetools\Api\Models\State\StateResourceIdentifierModel;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
+use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
 {
+
     /**
      * @var ?string
      */
@@ -103,6 +104,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         $this->rating = $rating;
         $this->customer = $customer;
         $this->custom = $custom;
+
     }
 
     /**
@@ -364,4 +366,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         $this->custom = $custom;
     }
+
+
+
 }

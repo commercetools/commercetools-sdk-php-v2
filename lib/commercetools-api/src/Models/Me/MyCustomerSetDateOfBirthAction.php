@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
 
 interface MyCustomerSetDateOfBirthAction extends MyCustomerUpdateAction
 {
+
     public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel extends JsonObjectModel implements CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction
 {
     public const DISCRIMINATOR_VALUE = 'applyDeltaToCustomLineItemShippingDetailsTargets';
@@ -102,4 +103,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     {
         $this->targetsDelta = $targetsDelta;
     }
+
+
+
 }

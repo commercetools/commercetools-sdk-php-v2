@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MoneyModel extends JsonObjectModel implements Money
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+
     }
 
     /**
@@ -80,4 +83,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         $this->currencyCode = $currencyCode;
     }
+
+
+
 }

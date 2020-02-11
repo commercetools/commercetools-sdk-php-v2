@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\DiscountedPrice;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\DiscountedPrice;
 
 interface ProductPriceExternalDiscountSetMessage extends Message
 {
+
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_VARIANT_KEY = 'variantKey';
     public const FIELD_SKU = 'sku';

@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Commercetools\Client;
 
 use Commercetools\Exception\InvalidArgumentException;
-use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Cache\CacheItemInterface;
 use Psr\SimpleCache\CacheInterface;
 
 class CachedTokenProvider implements TokenProvider
@@ -32,21 +32,21 @@ class CachedTokenProvider implements TokenProvider
      */
     public function __construct(TokenProvider $provider, $cache, string $cacheKey = null)
     {
-        $this->validateCache($cache);
-        $this->cache = $cache;
-        $this->provider = $provider;
-        $this->cacheKey = self::TOKEN_CACHE_KEY . "_" . ($cacheKey ?? sha1(self::TOKEN_CACHE_KEY));
+       $this->validateCache($cache);
+       $this->cache = $cache;
+       $this->provider = $provider;
+       $this->cacheKey = self::TOKEN_CACHE_KEY . "_" . ($cacheKey ?? sha1(self::TOKEN_CACHE_KEY));
     }
 
     /**
      * @psalm-assert CacheItemPoolInterface|CacheInterface $cache
      * @psalm-param CacheItemPoolInterface|CacheInterface|mixed $cache
      */
-    private function validateCache($cache): void
+    private function validateCache($cache) : void
     {
-        if (!$cache instanceof CacheInterface && !$cache instanceof CacheItemPoolInterface) {
-            throw new InvalidArgumentException();
-        }
+       if (!$cache instanceof CacheInterface && !$cache instanceof CacheItemPoolInterface) {
+           throw new InvalidArgumentException();
+       }
     }
 
     /**

@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\State\StateReference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\State\StateReference;
 use DateTimeImmutable;
 
 interface LineItemStateTransitionMessage extends Message
 {
+
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_TRANSITION_DATE = 'transitionDate';
     public const FIELD_QUANTITY = 'quantity';

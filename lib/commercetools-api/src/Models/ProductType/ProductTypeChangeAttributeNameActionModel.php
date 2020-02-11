@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel implements ProductTypeChangeAttributeNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeAttributeName';
@@ -102,4 +103,7 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     {
         $this->newAttributeName = $newAttributeName;
     }
+
+
+
 }

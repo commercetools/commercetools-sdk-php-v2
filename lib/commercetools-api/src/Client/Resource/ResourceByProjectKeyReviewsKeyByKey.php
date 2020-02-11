@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Review\ReviewUpdate;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Review\ReviewUpdate;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,4 +48,5 @@ class ResourceByProjectKeyReviewsKeyByKey extends ApiResource
 
         return new ByProjectKeyReviewsKeyByKeyDelete((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
+
 }

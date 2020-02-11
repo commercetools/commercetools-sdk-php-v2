@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidSubjectError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidSubject';
@@ -73,4 +74,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     {
         $this->message = $message;
     }
+
+
+
 }

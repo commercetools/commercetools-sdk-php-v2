@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
 {
+
     public const FIELD_PRODUCT = 'product';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';

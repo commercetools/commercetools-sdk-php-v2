@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Inventory\InventoryEntryDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Inventory\InventoryEntryDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,4 +48,5 @@ class ResourceByProjectKeyInventory extends ApiResource
 
         return new ByProjectKeyInventoryPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

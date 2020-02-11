@@ -27,4 +27,5 @@ class ResourceByProjectKeyMeEmailConfirm extends ApiResource
 
         return new ByProjectKeyMeEmailConfirmPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

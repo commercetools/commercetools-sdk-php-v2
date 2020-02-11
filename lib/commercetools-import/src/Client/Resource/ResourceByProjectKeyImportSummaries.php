@@ -26,4 +26,5 @@ class ResourceByProjectKeyImportSummaries extends ApiResource
 
         return new ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKey($this->getUri() . '/importSinkKey={importSinkKey}', $args, $this->getClient());
     }
+
 }

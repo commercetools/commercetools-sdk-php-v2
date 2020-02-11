@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Cart\LineItem;
-use Commercetools\Api\Models\Cart\LineItemModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Cart\LineItem;
+use Commercetools\Api\Models\Cart\LineItemModel;
 
 final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implements OrderLineItemAddedMessagePayload
 {
@@ -106,4 +106,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     {
         $this->addedQuantity = $addedQuantity;
     }
+
+
+
 }

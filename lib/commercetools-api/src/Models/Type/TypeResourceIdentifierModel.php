@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Api\Models\Common\ResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\Common\ResourceIdentifierModel;
 
 final class TypeResourceIdentifierModel extends JsonObjectModel implements TypeResourceIdentifier
 {
@@ -105,4 +105,7 @@ final class TypeResourceIdentifierModel extends JsonObjectModel implements TypeR
     {
         $this->key = $key;
     }
+
+
+
 }

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 
 interface InventoryEntrySetSupplyChannelAction extends InventoryEntryUpdateAction
 {
+
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**

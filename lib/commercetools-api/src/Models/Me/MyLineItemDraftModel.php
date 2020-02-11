@@ -8,21 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
-use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDraft
 {
+
     /**
      * @var ?string
      */
@@ -82,6 +83,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
         $this->sku = $sku;
+
     }
 
     /**
@@ -274,4 +276,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         $this->sku = $sku;
     }
+
+
+
 }

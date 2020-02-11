@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTokenError
 {
     public const DISCRIMINATOR_VALUE = 'invalid_token';
@@ -73,4 +74,7 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     {
         $this->message = $message;
     }
+
+
+
 }

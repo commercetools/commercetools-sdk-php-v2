@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ReviewSetRatingActionModel extends JsonObjectModel implements ReviewSetRatingAction
 {
     public const DISCRIMINATOR_VALUE = 'setRating';
@@ -76,4 +77,7 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     {
         $this->rating = $rating;
     }
+
+
+
 }

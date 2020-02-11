@@ -27,4 +27,5 @@ class ResourceByProjectKeyProductProjectionsKeyByKey extends ApiResource
 
         return new ByProjectKeyProductProjectionsKeyByKeyGet((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
     }
+
 }

@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
     ) {
         $this->version = $version;
         $this->actions = $actions;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
     {
         $this->actions = $actions;
     }
+
+
+
 }

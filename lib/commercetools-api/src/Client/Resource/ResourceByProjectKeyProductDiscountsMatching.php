@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\ProductDiscount\ProductDiscountMatchQuery;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountMatchQuery;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,4 +28,5 @@ class ResourceByProjectKeyProductDiscountsMatching extends ApiResource
 
         return new ByProjectKeyProductDiscountsMatchingPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

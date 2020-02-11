@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class GraphQLRequestModel extends JsonObjectModel implements GraphQLRequest
 {
+
     /**
      * @var ?string
      */
@@ -40,6 +42,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
         $this->query = $query;
         $this->operationName = $operationName;
         $this->variables = $variables;
+
     }
 
     /**
@@ -108,4 +111,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     {
         $this->variables = $variables;
     }
+
+
+
 }

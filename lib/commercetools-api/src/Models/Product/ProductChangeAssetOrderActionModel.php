@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductChangeAssetOrderActionModel extends JsonObjectModel implements ProductChangeAssetOrderAction
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetOrder';
@@ -160,4 +161,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         $this->assetOrder = $assetOrder;
     }
+
+
+
 }

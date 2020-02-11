@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\Address;
@@ -16,12 +18,11 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderImportDraft extends JsonObject
 {
+
     public const FIELD_ORDER_NUMBER = 'orderNumber';
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';

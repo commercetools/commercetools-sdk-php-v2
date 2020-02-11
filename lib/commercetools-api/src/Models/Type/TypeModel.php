@@ -8,25 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class TypeModel extends JsonObjectModel implements Type
 {
+
     /**
      * @var ?string
      */
@@ -107,6 +108,7 @@ final class TypeModel extends JsonObjectModel implements Type
         $this->description = $description;
         $this->resourceTypeIds = $resourceTypeIds;
         $this->fieldDefinitions = $fieldDefinitions;
+
     }
 
     /**
@@ -389,4 +391,5 @@ final class TypeModel extends JsonObjectModel implements Type
         }
         return (object) $data;
     }
+
 }

@@ -20,6 +20,10 @@ use stdClass;
  */
 final class CartDiscountShippingCostTargetBuilder implements Builder
 {
+
+
+
+
     public function build(): CartDiscountShippingCostTarget
     {
         return new CartDiscountShippingCostTargetModel(

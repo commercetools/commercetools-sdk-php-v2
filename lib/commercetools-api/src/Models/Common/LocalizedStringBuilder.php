@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\MapperMap;
 use stdClass;
+use Commercetools\Base\MapperMap;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<LocalizedString>
@@ -27,7 +27,7 @@ final class LocalizedStringBuilder extends MapperMap implements Builder
             /**
              * @psalm-return ?LocalizedString
              */
-            function (string $key) {
+            function(string $key) {
                 $data = $this->get($key);
                 if ($data instanceof stdClass) {
                     $data = LocalizedStringModel::of($data);

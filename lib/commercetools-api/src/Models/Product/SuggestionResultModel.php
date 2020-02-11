@@ -14,10 +14,15 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SuggestionResultModel extends JsonObjectModel implements SuggestionResult
 {
+
+
+
     public function __construct(
     ) {
+
     }
 
 
@@ -38,4 +43,6 @@ final class SuggestionResultModel extends JsonObjectModel implements SuggestionR
 
         return $data;
     }
+
+
 }

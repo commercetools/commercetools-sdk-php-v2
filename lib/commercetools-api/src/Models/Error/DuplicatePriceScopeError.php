@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\PriceCollection;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\PriceCollection;
 
 interface DuplicatePriceScopeError extends ErrorObject
 {
+
     public const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
 
     /**

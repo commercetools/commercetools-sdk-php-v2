@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class StateSetTransitionsActionModel extends JsonObjectModel implements StateSetTransitionsAction
 {
     public const DISCRIMINATOR_VALUE = 'setTransitions';
@@ -73,4 +74,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     {
         $this->transitions = $transitions;
     }
+
+
+
 }

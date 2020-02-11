@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\Order;
-use Commercetools\Api\Models\Order\OrderModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderModel;
 
 final class OrderImportedMessagePayloadModel extends JsonObjectModel implements OrderImportedMessagePayload
 {
@@ -77,4 +77,7 @@ final class OrderImportedMessagePayloadModel extends JsonObjectModel implements 
     {
         $this->order = $order;
     }
+
+
+
 }

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Customer\Customer;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Customer\Customer;
 
 interface CustomerCreatedMessage extends Message
 {
+
     public const FIELD_CUSTOMER = 'customer';
 
     /**

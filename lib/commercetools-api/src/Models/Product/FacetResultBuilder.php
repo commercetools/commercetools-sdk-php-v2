@@ -20,6 +20,10 @@ use stdClass;
  */
 final class FacetResultBuilder implements Builder
 {
+
+
+
+
     public function build(): FacetResult
     {
         return new FacetResultModel(

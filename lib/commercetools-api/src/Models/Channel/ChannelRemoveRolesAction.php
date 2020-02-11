@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ChannelRemoveRolesAction extends ChannelUpdateAction
 {
+
     public const FIELD_ROLES = 'roles';
 
     /**

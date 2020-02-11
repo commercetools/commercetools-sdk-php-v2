@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 {
+
     /**
      * @var ?Money
      */
@@ -91,6 +92,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->custom = $custom;
         $this->tiers = $tiers;
         $this->discounted = $discounted;
+
     }
 
     /**
@@ -319,4 +321,5 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         }
         return (object) $data;
     }
+
 }

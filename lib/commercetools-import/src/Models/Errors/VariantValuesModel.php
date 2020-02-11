@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Prices\PriceImportCollection;
-
-use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
+
+use Commercetools\Import\Models\Prices\PriceImportCollection;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
+
     /**
      * @var ?string
      */
@@ -43,6 +44,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
         $this->sku = $sku;
         $this->prices = $prices;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -110,4 +112,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

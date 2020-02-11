@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class StateUpdateActionModel extends JsonObjectModel implements StateUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
 
     /**
      * @psalm-var array<string, class-string<StateUpdateAction> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'addRoles' => StateAddRolesActionModel::class,
@@ -69,24 +70,24 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = StateUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = StateUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<StateUpdateAction> */
-        $type = StateUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<StateUpdateAction> */
+       $type = StateUpdateActionModel::class;
+       return $type;
     }
 }

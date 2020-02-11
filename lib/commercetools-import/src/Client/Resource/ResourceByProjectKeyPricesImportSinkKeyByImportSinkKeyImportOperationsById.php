@@ -27,4 +27,5 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsById
 
         return new ByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsByIdGet((string) $args['projectKey'], (string) $args['importSinkKey'], (string) $args['id'], $body, $headers, $this->getClient());
     }
+
 }

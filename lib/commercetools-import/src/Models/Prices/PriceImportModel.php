@@ -12,8 +12,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ChannelKeyReference;
+use stdClass;
 
+use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
@@ -27,10 +28,10 @@ use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class PriceImportModel extends JsonObjectModel implements PriceImport
 {
+
     /**
      * @var ?string
      */
@@ -97,6 +98,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->channel = $channel;
         $this->productVariant = $productVariant;
         $this->product = $product;
+
     }
 
     /**
@@ -352,4 +354,5 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         }
         return (object) $data;
     }
+
 }

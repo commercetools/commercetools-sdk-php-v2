@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
 
 interface StateSetNameAction extends StateUpdateAction
 {
+
     public const FIELD_NAME = 'name';
 
     /**

@@ -34,4 +34,5 @@ class ResourceByProjectKeyMePassword extends ApiResource
 
         return new ByProjectKeyMePasswordPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

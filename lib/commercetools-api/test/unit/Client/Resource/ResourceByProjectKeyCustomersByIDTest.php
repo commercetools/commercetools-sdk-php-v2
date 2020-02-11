@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersByIDGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 '{projectKey}/customers/{ID}?expand=expand',
             ],
             'ByProjectKeyCustomersByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 '{projectKey}/customers/{ID}?expand=expand',
             ],
             'ByProjectKeyCustomersByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -108,7 +108,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 '{projectKey}/customers/{ID}?expand=expand',
             ],
             'ByProjectKeyCustomersByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -139,7 +139,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
     {
         return [
             'ByProjectKeyCustomersByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -148,7 +148,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyCustomersByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -157,7 +157,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyCustomersByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()

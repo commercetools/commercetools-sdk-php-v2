@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client\Resource;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\ClientException;
 use Commercetools\Base\MapperInterface;
 use Commercetools\Base\ResultMapper;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
 use Commercetools\Import\Models\Importoperations\ImportOperationPagedResponse;
 use Commercetools\Import\Models\Importoperations\ImportOperationPagedResponseModel;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -88,7 +88,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
@@ -97,7 +97,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
@@ -106,7 +106,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $resourceKey
      */
     public function withResourceKey($resourceKey): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
@@ -115,7 +115,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $state
      */
     public function withState($state): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet

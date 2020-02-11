@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ReviewSetLocaleActionModel extends JsonObjectModel implements ReviewSetLocaleAction
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';
@@ -75,4 +76,7 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     {
         $this->locale = $locale;
     }
+
+
+
 }

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
 
 interface ClassificationShippingRateInput extends ShippingRateInput
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_LABEL = 'label';
 

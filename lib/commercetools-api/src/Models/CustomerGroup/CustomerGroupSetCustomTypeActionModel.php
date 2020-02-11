@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Type\FieldContainer;
-use Commercetools\Api\Models\Type\FieldContainerModel;
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 
 final class CustomerGroupSetCustomTypeActionModel extends JsonObjectModel implements CustomerGroupSetCustomTypeAction
 {
@@ -114,4 +114,7 @@ final class CustomerGroupSetCustomTypeActionModel extends JsonObjectModel implem
     {
         $this->fields = $fields;
     }
+
+
+
 }

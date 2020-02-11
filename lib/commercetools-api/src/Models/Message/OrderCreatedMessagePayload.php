@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\Order;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Order\Order;
 
 interface OrderCreatedMessagePayload extends MessagePayload
 {
+
     public const FIELD_ORDER = 'order';
 
     /**

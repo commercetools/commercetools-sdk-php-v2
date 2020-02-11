@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     ) {
         $this->version = $version;
         $this->tokenValue = $tokenValue;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     {
         $this->tokenValue = $tokenValue;
     }
+
+
+
 }

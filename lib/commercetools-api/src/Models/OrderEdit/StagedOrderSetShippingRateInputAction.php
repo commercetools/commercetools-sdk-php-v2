@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ShippingRateInputDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingRateInputAction extends StagedOrderUpdateAction
 {
+
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
 
     /**

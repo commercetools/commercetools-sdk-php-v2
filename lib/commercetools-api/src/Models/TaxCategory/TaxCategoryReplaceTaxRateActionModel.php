@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel implements TaxCategoryReplaceTaxRateAction
 {
     public const DISCRIMINATOR_VALUE = 'replaceTaxRate';
@@ -103,4 +104,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     {
         $this->taxRate = $taxRate;
     }
+
+
+
 }

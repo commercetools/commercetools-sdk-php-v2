@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface PayloadNotIncluded extends JsonObject
 {
+
     public const FIELD_REASON = 'reason';
     public const FIELD_PAYLOAD_TYPE = 'payloadType';
 

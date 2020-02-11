@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
 
 interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction
 {
+
     public const FIELD_TRANSACTION_ID = 'transactionId';
     public const FIELD_TIMESTAMP = 'timestamp';
 

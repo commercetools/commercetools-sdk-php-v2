@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AttributeBooleanTypeModel extends JsonObjectModel implements AttributeBooleanType
 {
     public const DISCRIMINATOR_VALUE = 'boolean';
@@ -44,4 +45,8 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
 
         return $this->name;
     }
+
+
+
+
 }

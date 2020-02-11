@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ItemShippingDetailsDraftModel extends JsonObjectModel implements ItemShippingDetailsDraft
 {
+
     /**
      * @var ?ItemShippingTargetCollection
      */
@@ -26,6 +28,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
         ItemShippingTargetCollection $targets = null
     ) {
         $this->targets = $targets;
+
     }
 
     /**
@@ -54,4 +57,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     {
         $this->targets = $targets;
     }
+
+
+
 }

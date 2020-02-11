@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements ProductDiscountSetKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
@@ -76,4 +77,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
     {
         $this->key = $key;
     }
+
+
+
 }

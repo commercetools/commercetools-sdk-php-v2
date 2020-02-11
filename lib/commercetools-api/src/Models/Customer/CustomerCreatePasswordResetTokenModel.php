@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implements CustomerCreatePasswordResetToken
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     ) {
         $this->email = $email;
         $this->ttlMinutes = $ttlMinutes;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     {
         $this->ttlMinutes = $ttlMinutes;
     }
+
+
+
 }

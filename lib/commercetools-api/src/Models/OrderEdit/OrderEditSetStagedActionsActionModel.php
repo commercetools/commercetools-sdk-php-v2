@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 
 final class OrderEditSetStagedActionsActionModel extends JsonObjectModel implements OrderEditSetStagedActionsAction
 {
@@ -77,4 +77,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     {
         $this->stagedActions = $stagedActions;
     }
+
+
+
 }

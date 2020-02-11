@@ -20,6 +20,10 @@ use stdClass;
  */
 final class ExtensionDestinationBuilder implements Builder
 {
+
+
+
+
     public function build(): ExtensionDestination
     {
         return new ExtensionDestinationModel(

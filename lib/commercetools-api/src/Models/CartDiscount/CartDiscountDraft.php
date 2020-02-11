@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CartDiscountDraft extends JsonObject
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_KEY = 'key';
     public const FIELD_DESCRIPTION = 'description';

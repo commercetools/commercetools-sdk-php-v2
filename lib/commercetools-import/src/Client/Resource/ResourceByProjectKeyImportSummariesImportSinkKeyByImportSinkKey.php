@@ -27,4 +27,5 @@ class ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKey extends Ap
 
         return new ByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyGet((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
+
 }

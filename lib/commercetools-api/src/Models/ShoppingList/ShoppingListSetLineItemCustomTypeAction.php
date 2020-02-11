@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface ShoppingListSetLineItemCustomTypeAction extends ShoppingListUpdateAction
 {
+
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';

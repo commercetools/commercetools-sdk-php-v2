@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class PriceChangedErrorModel extends JsonObjectModel implements PriceChangedError
 {
     public const DISCRIMINATOR_VALUE = 'PriceChanged';
@@ -131,4 +132,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     {
         $this->shipping = $shipping;
     }
+
+
+
 }

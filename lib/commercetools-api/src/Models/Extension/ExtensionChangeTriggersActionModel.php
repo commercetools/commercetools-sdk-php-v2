@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ExtensionChangeTriggersActionModel extends JsonObjectModel implements ExtensionChangeTriggersAction
 {
     public const DISCRIMINATOR_VALUE = 'changeTriggers';
@@ -73,4 +74,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     {
         $this->triggers = $triggers;
     }
+
+
+
 }

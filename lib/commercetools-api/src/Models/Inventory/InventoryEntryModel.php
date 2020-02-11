@@ -8,27 +8,28 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
-
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class InventoryEntryModel extends JsonObjectModel implements InventoryEntry
 {
+
     /**
      * @var ?string
      */
@@ -123,6 +124,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
         $this->custom = $custom;
+
     }
 
     /**
@@ -462,4 +464,5 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         }
         return (object) $data;
     }
+
 }

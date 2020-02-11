@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductRevertStagedChangesActionModel extends JsonObjectModel implements ProductRevertStagedChangesAction
 {
     public const DISCRIMINATOR_VALUE = 'revertStagedChanges';
@@ -44,4 +45,8 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
 
         return $this->action;
     }
+
+
+
+
 }

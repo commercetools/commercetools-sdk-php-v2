@@ -12,14 +12,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Errors\ErrorObjectCollection;
+use stdClass;
 
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class ImportOperationModel extends JsonObjectModel implements ImportOperation
 {
+
     /**
      * @var ?int
      */
@@ -100,6 +101,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->expiresAt = $expiresAt;
+
     }
 
     /**
@@ -396,4 +398,5 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         }
         return (object) $data;
     }
+
 }

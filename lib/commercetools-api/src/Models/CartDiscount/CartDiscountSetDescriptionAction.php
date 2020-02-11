@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
 
 interface CartDiscountSetDescriptionAction extends CartDiscountUpdateAction
 {
+
     public const FIELD_DESCRIPTION = 'description';
 
     /**

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel implements CategorySetAssetCustomFieldAction
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomField';
@@ -160,4 +161,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         $this->value = $value;
     }
+
+
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implements ProductTypeChangeEnumKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeEnumKey';
@@ -131,4 +132,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     {
         $this->newKey = $newKey;
     }
+
+
+
 }

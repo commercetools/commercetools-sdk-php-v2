@@ -20,6 +20,10 @@ use stdClass;
  */
 final class ProductUnpublishedMessagePayloadBuilder implements Builder
 {
+
+
+
+
     public function build(): ProductUnpublishedMessagePayload
     {
         return new ProductUnpublishedMessagePayloadModel(

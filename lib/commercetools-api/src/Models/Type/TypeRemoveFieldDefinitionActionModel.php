@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel implements TypeRemoveFieldDefinitionAction
 {
     public const DISCRIMINATOR_VALUE = 'removeFieldDefinition';
@@ -73,4 +74,7 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     {
         $this->fieldName = $fieldName;
     }
+
+
+
 }

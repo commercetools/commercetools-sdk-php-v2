@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel implements PaymentSetMethodInfoInterfaceAction
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoInterface';
@@ -73,4 +74,7 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
     {
         $this->interface = $interface;
     }
+
+
+
 }

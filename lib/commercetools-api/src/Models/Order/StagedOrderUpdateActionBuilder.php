@@ -8,6 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\Builder;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryAction;
@@ -66,12 +72,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryActionBuilder;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailActionBuilder;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupActionBuilder;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemCustomFieldAction;
@@ -88,6 +88,12 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
@@ -146,18 +152,16 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateItemShippingAddressActio
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateItemShippingAddressActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateSyncInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateSyncInfoActionBuilder;
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<StagedOrderUpdateAction>
  */
 final class StagedOrderUpdateActionBuilder implements Builder
 {
+
+
+
+
     public function build(): StagedOrderUpdateAction
     {
         return new StagedOrderUpdateActionModel(

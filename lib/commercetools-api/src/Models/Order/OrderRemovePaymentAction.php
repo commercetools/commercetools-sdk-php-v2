@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 
 interface OrderRemovePaymentAction extends OrderUpdateAction
 {
+
     public const FIELD_PAYMENT = 'payment';
 
     /**

@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 final class StateDraftModel extends JsonObjectModel implements StateDraft
 {
+
     /**
      * @var ?string
      */
@@ -71,6 +72,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
         $this->initial = $initial;
         $this->roles = $roles;
         $this->transitions = $transitions;
+
     }
 
     /**
@@ -228,4 +230,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         $this->transitions = $transitions;
     }
+
+
+
 }

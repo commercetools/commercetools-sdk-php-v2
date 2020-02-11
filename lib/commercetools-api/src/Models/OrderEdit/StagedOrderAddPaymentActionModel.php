@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
-use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
-use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
+use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
 
 final class StagedOrderAddPaymentActionModel extends JsonObjectModel implements StagedOrderAddPaymentAction
 {
@@ -79,4 +79,7 @@ final class StagedOrderAddPaymentActionModel extends JsonObjectModel implements 
     {
         $this->payment = $payment;
     }
+
+
+
 }

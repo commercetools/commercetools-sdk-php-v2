@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Reference;
 
 interface DuplicateFieldError extends ErrorObject
 {
+
     public const FIELD_FIELD = 'field';
     public const FIELD_DUPLICATE_VALUE = 'duplicateValue';
     public const FIELD_CONFLICTING_RESOURCE = 'conflictingResource';

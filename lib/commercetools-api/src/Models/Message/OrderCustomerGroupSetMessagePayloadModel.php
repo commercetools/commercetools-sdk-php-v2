@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 
 final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel implements OrderCustomerGroupSetMessagePayload
 {
@@ -107,4 +107,7 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     {
         $this->oldCustomerGroup = $oldCustomerGroup;
     }
+
+
+
 }

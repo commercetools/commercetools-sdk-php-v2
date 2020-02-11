@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 
 interface OrderSetLineItemShippingDetailsAction extends OrderUpdateAction
 {
+
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 

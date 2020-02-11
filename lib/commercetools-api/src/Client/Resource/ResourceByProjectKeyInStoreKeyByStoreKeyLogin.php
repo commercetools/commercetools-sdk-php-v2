@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Customer\CustomerSignin;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Customer\CustomerSignin;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,4 +28,5 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLogin extends ApiResource
 
         return new ByProjectKeyInStoreKeyByStoreKeyLoginPost((string) $args['projectKey'], (string) $args['storeKey'], $body, $headers, $this->getClient());
     }
+
 }

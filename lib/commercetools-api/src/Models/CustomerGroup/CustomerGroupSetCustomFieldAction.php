@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CustomerGroupSetCustomFieldAction extends CustomerGroupUpdateAction
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
 

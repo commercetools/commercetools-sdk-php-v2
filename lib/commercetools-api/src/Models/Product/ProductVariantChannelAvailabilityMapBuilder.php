@@ -20,6 +20,10 @@ use stdClass;
  */
 final class ProductVariantChannelAvailabilityMapBuilder implements Builder
 {
+
+
+
+
     public function build(): ProductVariantChannelAvailabilityMap
     {
         return new ProductVariantChannelAvailabilityMapModel(

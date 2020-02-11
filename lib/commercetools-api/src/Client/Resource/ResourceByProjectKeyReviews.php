@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Review\ReviewDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\Review\ReviewDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -57,4 +57,5 @@ class ResourceByProjectKeyReviews extends ApiResource
 
         return new ByProjectKeyReviewsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface TypedMoneyDraft extends Money
 {
@@ -20,4 +20,5 @@ interface TypedMoneyDraft extends Money
      * @return null|string
      */
     public function getType();
+
 }

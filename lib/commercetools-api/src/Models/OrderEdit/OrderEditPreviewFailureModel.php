@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 
 final class OrderEditPreviewFailureModel extends JsonObjectModel implements OrderEditPreviewFailure
 {
@@ -75,4 +75,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     {
         $this->errors = $errors;
     }
+
+
+
 }

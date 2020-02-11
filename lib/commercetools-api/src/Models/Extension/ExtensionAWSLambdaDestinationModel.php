@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implements ExtensionAWSLambdaDestination
 {
     public const DISCRIMINATOR_VALUE = 'AWSLambda';
@@ -131,4 +132,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     {
         $this->accessSecret = $accessSecret;
     }
+
+
+
 }

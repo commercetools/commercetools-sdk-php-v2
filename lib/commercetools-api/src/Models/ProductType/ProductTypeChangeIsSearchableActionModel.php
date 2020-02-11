@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel implements ProductTypeChangeIsSearchableAction
 {
     public const DISCRIMINATOR_VALUE = 'changeIsSearchable';
@@ -102,4 +103,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     {
         $this->isSearchable = $isSearchable;
     }
+
+
+
 }

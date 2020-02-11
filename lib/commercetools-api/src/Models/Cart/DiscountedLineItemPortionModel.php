@@ -8,19 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
-use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
 {
+
     /**
      * @var ?CartDiscountReference
      */
@@ -38,6 +39,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     ) {
         $this->discount = $discount;
         $this->discountedAmount = $discountedAmount;
+
     }
 
     /**
@@ -85,4 +87,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     {
         $this->discountedAmount = $discountedAmount;
     }
+
+
+
 }

@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet
@@ -37,7 +37,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                 '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -69,7 +69,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")

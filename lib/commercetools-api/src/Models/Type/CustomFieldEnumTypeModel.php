@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFieldEnumType
 {
     public const DISCRIMINATOR_VALUE = 'Enum';
@@ -73,4 +74,7 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     {
         $this->values = $values;
     }
+
+
+
 }

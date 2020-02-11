@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface ShippingInfoImportDraft extends JsonObject
 {
+
     public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     public const FIELD_PRICE = 'price';
     public const FIELD_SHIPPING_RATE = 'shippingRate';

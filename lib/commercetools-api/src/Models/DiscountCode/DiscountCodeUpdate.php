@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface DiscountCodeUpdate extends JsonObject
 {
+
     public const FIELD_VERSION = 'version';
     public const FIELD_ACTIONS = 'actions';
 

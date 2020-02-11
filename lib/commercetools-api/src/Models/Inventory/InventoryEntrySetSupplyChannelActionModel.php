@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 
 final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel implements InventoryEntrySetSupplyChannelAction
 {
@@ -80,4 +80,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     {
         $this->supplyChannel = $supplyChannel;
     }
+
+
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class InventoryEntryAddQuantityActionModel extends JsonObjectModel implements InventoryEntryAddQuantityAction
 {
     public const DISCRIMINATOR_VALUE = 'addQuantity';
@@ -73,4 +74,7 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
     {
         $this->quantity = $quantity;
     }
+
+
+
 }

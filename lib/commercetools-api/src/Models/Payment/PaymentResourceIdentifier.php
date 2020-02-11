@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\ResourceIdentifier;
 
 interface PaymentResourceIdentifier extends ResourceIdentifier
 {
+
+
+
 }

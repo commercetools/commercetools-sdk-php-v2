@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Api\Models\Common\GeoJson;
-use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonModel;
 
 final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements ChannelSetGeoLocationAction
 {
@@ -77,4 +77,7 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     {
         $this->geoLocation = $geoLocation;
     }
+
+
+
 }

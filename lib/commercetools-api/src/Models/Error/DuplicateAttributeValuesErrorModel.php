@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Product\AttributeCollection;
 
 final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implements DuplicateAttributeValuesError
 {
@@ -104,4 +104,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

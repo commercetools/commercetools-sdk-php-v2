@@ -27,4 +27,5 @@ class ResourceByProjectKeyShippingMethodsMatchesCart extends ApiResource
 
         return new ByProjectKeyShippingMethodsMatchesCartGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel implements ExtensionHttpDestinationAuthentication
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
 
     /**
      * @psalm-var array<string, class-string<ExtensionHttpDestinationAuthentication> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'AuthorizationHeader' => ExtensionAuthorizationHeaderAuthenticationModel::class,
@@ -62,24 +63,24 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ExtensionHttpDestinationAuthentication::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ExtensionHttpDestinationAuthentication::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ExtensionHttpDestinationAuthentication> */
-        $type = ExtensionHttpDestinationAuthenticationModel::class;
-        return $type;
+       /** @psalm-var class-string<ExtensionHttpDestinationAuthentication> */
+       $type = ExtensionHttpDestinationAuthenticationModel::class;
+       return $type;
     }
 }

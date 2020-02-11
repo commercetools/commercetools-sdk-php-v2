@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Exception;
 
-use Commercetools\Base\JsonObject;
 use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Commercetools\Base\JsonObject;
 
 /**
  * @psalm-immutable

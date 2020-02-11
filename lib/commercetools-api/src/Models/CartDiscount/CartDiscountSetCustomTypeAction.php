@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 
 interface CartDiscountSetCustomTypeAction extends CartDiscountUpdateAction
 {
+
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 

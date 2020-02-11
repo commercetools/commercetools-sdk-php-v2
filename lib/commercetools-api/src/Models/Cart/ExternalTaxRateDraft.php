@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\TaxCategory\SubRateCollection;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\TaxCategory\SubRateCollection;
 
 interface ExternalTaxRateDraft extends JsonObject
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_COUNTRY = 'country';

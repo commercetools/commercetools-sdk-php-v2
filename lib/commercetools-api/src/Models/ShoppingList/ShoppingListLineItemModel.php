@@ -8,25 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Product\ProductVariant;
-use Commercetools\Api\Models\Product\ProductVariantModel;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
-
-use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use stdClass;
+
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\Product\ProductVariant;
+use Commercetools\Api\Models\Product\ProductVariantModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class ShoppingListLineItemModel extends JsonObjectModel implements ShoppingListLineItem
 {
+
     /**
      * @var ?DateTimeImmutable
      */
@@ -107,6 +108,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->quantity = $quantity;
         $this->variant = $variant;
         $this->variantId = $variantId;
+
     }
 
     /**
@@ -377,4 +379,5 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         }
         return (object) $data;
     }
+
 }

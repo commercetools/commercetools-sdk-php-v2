@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneChangeNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
@@ -73,4 +74,7 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
     {
         $this->name = $name;
     }
+
+
+
 }

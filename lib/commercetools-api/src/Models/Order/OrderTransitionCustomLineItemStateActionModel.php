@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\State\StateResourceIdentifier;
-use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
+use stdClass;
+
+use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectModel implements OrderTransitionCustomLineItemStateAction
 {
@@ -210,4 +210,5 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
         }
         return (object) $data;
     }
+
 }

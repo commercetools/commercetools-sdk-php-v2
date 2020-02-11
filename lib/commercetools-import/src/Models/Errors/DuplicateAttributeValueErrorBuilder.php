@@ -13,9 +13,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Import\Models\Productvariants\Attribute;
 use Commercetools\Import\Models\Productvariants\AttributeBuilder;
-use stdClass;
 
 /**
  * @implements Builder<DuplicateAttributeValueError>

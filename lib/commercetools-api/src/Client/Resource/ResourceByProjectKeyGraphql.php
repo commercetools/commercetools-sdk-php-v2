@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\GraphQL\GraphQLRequest;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\GraphQL\GraphQLRequest;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,4 +28,5 @@ class ResourceByProjectKeyGraphql extends ApiResource
 
         return new ByProjectKeyGraphqlPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

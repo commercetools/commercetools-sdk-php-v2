@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartDiscountChangeTargetActionModel extends JsonObjectModel implements CartDiscountChangeTargetAction
 {
     public const DISCRIMINATOR_VALUE = 'changeTarget';
@@ -74,4 +75,7 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     {
         $this->target = $target;
     }
+
+
+
 }

@@ -9,12 +9,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Test\Client;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
-use GuzzleHttp\ClientInterface;
+use Commercetools\Base\ResultMapper;
+use Commercetools\Base\JsonObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\ClientInterface;
 
 /**
  * @covers \Commercetools\Client\ApiRequest

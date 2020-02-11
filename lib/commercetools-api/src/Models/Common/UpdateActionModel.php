@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class UpdateActionModel extends JsonObjectModel implements UpdateAction
 {
+
     /**
      * @var ?string
      */
@@ -26,6 +28,7 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
         string $action = null
     ) {
         $this->action = $action;
+
     }
 
     /**
@@ -49,4 +52,7 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
     {
         $this->action = $action;
     }
+
+
+
 }

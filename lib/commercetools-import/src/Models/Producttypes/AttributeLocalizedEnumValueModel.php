@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedString;
-
-use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
+
+use Commercetools\Import\Models\Common\LocalizedString;
+use Commercetools\Import\Models\Common\LocalizedStringModel;
 
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -36,6 +37,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -82,4 +84,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         $this->label = $label;
     }
+
+
+
 }

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Import\Models\Common\LocalizedString;
 
 interface AttributeLocalizedEnumValue extends JsonObject
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_LABEL = 'label';
 

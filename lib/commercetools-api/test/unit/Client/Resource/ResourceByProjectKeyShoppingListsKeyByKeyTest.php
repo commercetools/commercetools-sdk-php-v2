@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyShoppingListsKeyByKeyGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 '{projectKey}/shopping-lists/key={key}?expand=expand',
             ],
             'ByProjectKeyShoppingListsKeyByKeyGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 '{projectKey}/shopping-lists/key={key}?expand=expand',
             ],
             'ByProjectKeyShoppingListsKeyByKeyPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()
@@ -108,7 +108,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 '{projectKey}/shopping-lists/key={key}?expand=expand',
             ],
             'ByProjectKeyShoppingListsKeyByKeyDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()
@@ -139,7 +139,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
     {
         return [
             'ByProjectKeyShoppingListsKeyByKeyGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()
@@ -148,7 +148,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeyShoppingListsKeyByKeyPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()
@@ -157,7 +157,7 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeyShoppingListsKeyByKeyDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->shoppingLists()

@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Money;
 
 interface ExternalLineItemTotalPrice extends JsonObject
 {
+
     public const FIELD_PRICE = 'price';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
 

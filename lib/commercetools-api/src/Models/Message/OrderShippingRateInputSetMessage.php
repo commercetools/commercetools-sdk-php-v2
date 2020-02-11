@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Cart\ShippingRateInput;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Cart\ShippingRateInput;
 
 interface OrderShippingRateInputSetMessage extends Message
 {
+
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_OLD_SHIPPING_RATE_INPUT = 'oldShippingRateInput';
 

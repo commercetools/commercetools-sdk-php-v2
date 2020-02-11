@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
-use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,4 +48,5 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
 
         return new ByProjectKeyImportSinksByImportSinkKeyDelete((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
+
 }

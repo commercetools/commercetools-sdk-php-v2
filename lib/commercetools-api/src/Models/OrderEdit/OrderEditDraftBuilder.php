@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Order\OrderReference;
-use Commercetools\Api\Models\Order\OrderReferenceBuilder;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Order\OrderReferenceBuilder;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 
 /**
  * @implements Builder<OrderEditDraft>

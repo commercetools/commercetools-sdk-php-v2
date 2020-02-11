@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomerGroupsGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 '{projectKey}/customer-groups?withTotal=withTotal',
             ],
             'ByProjectKeyCustomerGroupsGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customerGroups()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 '{projectKey}/customer-groups?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customerGroups()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
     {
         return [
             'ByProjectKeyCustomerGroupsGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customerGroups()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 }
             ],
             'ByProjectKeyCustomerGroupsPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customerGroups()

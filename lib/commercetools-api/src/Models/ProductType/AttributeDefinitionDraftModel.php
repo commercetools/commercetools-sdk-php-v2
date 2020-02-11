@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 final class AttributeDefinitionDraftModel extends JsonObjectModel implements AttributeDefinitionDraft
 {
+
     /**
      * @var ?AttributeType
      */
@@ -78,6 +79,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
+
     }
 
     /**
@@ -279,4 +281,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     {
         $this->isSearchable = $isSearchable;
     }
+
+
+
 }

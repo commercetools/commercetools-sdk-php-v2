@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface CartSetLineItemCustomTypeAction extends CartUpdateAction
 {
+
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';

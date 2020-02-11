@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaymentUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
 
     /**
      * @psalm-var array<string, class-string<MyPaymentUpdateAction> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'addTransaction' => MyPaymentAddTransactionActionModel::class,
@@ -66,24 +67,24 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = MyPaymentUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = MyPaymentUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<MyPaymentUpdateAction> */
-        $type = MyPaymentUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<MyPaymentUpdateAction> */
+       $type = MyPaymentUpdateActionModel::class;
+       return $type;
     }
 }

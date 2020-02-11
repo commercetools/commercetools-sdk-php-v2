@@ -8,15 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\TrackingData;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddParcelToDeliveryAction extends StagedOrderUpdateAction
 {
+
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';

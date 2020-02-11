@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceModel;
-use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 
 final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implements CartDiscountValueGiftLineItem
 {
@@ -168,4 +168,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         $this->distributionChannel = $distributionChannel;
     }
+
+
+
 }

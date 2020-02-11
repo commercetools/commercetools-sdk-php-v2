@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraft;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\PriceDraft;
 
 interface ProductAddPriceAction extends ProductUpdateAction
 {
+
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
     public const FIELD_PRICE = 'price';

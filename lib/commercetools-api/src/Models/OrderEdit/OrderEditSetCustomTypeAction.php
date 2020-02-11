@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 
 interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
 {
+
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 

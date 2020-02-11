@@ -60,6 +60,6 @@ class ApiResource
 
     public function getClient(): ?ClientInterface
     {
-        return $this->client;
+       return $this->client;
     }
 }

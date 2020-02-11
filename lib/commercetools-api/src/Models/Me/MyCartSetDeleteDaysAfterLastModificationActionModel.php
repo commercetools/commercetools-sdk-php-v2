@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObjectModel implements MyCartSetDeleteDaysAfterLastModificationAction
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
@@ -73,4 +74,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
+
+
+
 }

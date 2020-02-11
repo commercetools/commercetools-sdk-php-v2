@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpdate
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     ) {
         $this->version = $version;
         $this->actions = $actions;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     {
         $this->actions = $actions;
     }
+
+
+
 }

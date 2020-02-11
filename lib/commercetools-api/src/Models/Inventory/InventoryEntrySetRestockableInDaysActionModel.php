@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectModel implements InventoryEntrySetRestockableInDaysAction
 {
     public const DISCRIMINATOR_VALUE = 'setRestockableInDays';
@@ -73,4 +74,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     {
         $this->restockableInDays = $restockableInDays;
     }
+
+
+
 }

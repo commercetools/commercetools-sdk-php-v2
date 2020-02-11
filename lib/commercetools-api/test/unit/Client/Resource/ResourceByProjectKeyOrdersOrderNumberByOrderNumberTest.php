@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyOrdersOrderNumberByOrderNumberGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -108,7 +108,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -139,7 +139,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
     {
         return [
             'ByProjectKeyOrdersOrderNumberByOrderNumberGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -148,7 +148,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 }
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()
@@ -157,7 +157,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 }
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->orders()

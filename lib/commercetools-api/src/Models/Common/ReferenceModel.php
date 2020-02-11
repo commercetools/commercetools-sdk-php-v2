@@ -8,37 +8,42 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Cart\CartReference;
-use Commercetools\Api\Models\Cart\CartReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
+use Commercetools\Api\Models\Cart\CartReference;
+use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Category\CategoryReference;
-
 use Commercetools\Api\Models\Category\CategoryReferenceModel;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
-use Commercetools\Api\Models\Customer\CustomerReference;
-use Commercetools\Api\Models\Customer\CustomerReferenceModel;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\CustomObject\CustomObjectReference;
 use Commercetools\Api\Models\CustomObject\CustomObjectReferenceModel;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Api\Models\Inventory\InventoryEntryReference;
 use Commercetools\Api\Models\Inventory\InventoryEntryReferenceModel;
-use Commercetools\Api\Models\Order\OrderReference;
-use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
+use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Payment\PaymentReferenceModel;
-use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\Review\ReviewReferenceModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
@@ -55,11 +60,6 @@ use Commercetools\Api\Models\Type\TypeReference;
 use Commercetools\Api\Models\Type\TypeReferenceModel;
 use Commercetools\Api\Models\Zone\ZoneReference;
 use Commercetools\Api\Models\Zone\ZoneReferenceModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 final class ReferenceModel extends JsonObjectModel implements Reference
 {
@@ -76,7 +76,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
     /**
      * @psalm-var array<string, class-string<Reference> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'cart' => CartReferenceModel::class,
@@ -158,24 +158,24 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = Reference::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = Reference::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<Reference> */
-        $type = ReferenceModel::class;
-        return $type;
+       /** @psalm-var class-string<Reference> */
+       $type = ReferenceModel::class;
+       return $type;
     }
 }

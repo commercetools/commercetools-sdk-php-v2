@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCustomersGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 '{projectKey}/customers?withTotal=withTotal',
             ],
             'ByProjectKeyCustomersGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 '{projectKey}/customers?expand=expand',
             ],
             'ByProjectKeyCustomersPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyCustomersTest extends TestCase
     {
         return [
             'ByProjectKeyCustomersGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 }
             ],
             'ByProjectKeyCustomersPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()

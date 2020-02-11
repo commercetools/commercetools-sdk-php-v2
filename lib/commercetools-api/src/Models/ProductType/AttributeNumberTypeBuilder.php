@@ -20,6 +20,10 @@ use stdClass;
  */
 final class AttributeNumberTypeBuilder implements Builder
 {
+
+
+
+
     public function build(): AttributeNumberType
     {
         return new AttributeNumberTypeModel(

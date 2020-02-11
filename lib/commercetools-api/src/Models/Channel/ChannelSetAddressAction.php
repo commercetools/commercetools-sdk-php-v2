@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Address;
 
 interface ChannelSetAddressAction extends ChannelUpdateAction
 {
+
     public const FIELD_ADDRESS = 'address';
 
     /**

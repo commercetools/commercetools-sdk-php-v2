@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedString;
-
-use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
+
+use Commercetools\Import\Models\Common\LocalizedString;
+use Commercetools\Import\Models\Common\LocalizedStringModel;
 
 final class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
 {
+
     /**
      * @var ?AttributeType
      */
@@ -78,6 +79,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
+
     }
 
     /**
@@ -258,4 +260,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         $this->isSearchable = $isSearchable;
     }
+
+
+
 }

@@ -12,17 +12,18 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
+use stdClass;
 
+use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
-use stdClass;
 
 final class ProductVariantImportModel extends JsonObjectModel implements ProductVariantImport
 {
+
     /**
      * @var ?string
      */
@@ -75,6 +76,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->images = $images;
         $this->assets = $assets;
         $this->product = $product;
+
     }
 
     /**
@@ -249,4 +251,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         $this->product = $product;
     }
+
+
+
 }

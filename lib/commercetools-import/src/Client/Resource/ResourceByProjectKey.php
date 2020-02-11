@@ -71,4 +71,5 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyProductVariantPatches($this->getUri() . '/product-variant-patches', $args, $this->getClient());
     }
+
 }

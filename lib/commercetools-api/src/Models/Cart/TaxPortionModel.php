@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+
 final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 {
+
     /**
      * @var ?string
      */
@@ -43,6 +44,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
         $this->name = $name;
         $this->rate = $rate;
         $this->amount = $amount;
+
     }
 
     /**
@@ -113,4 +115,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     {
         $this->amount = $amount;
     }
+
+
+
 }

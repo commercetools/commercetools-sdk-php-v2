@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Prices;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\ImportResource;
@@ -20,6 +20,7 @@ use DateTimeImmutable;
 
 interface PriceImport extends ImportResource
 {
+
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_VALID_FROM = 'validFrom';

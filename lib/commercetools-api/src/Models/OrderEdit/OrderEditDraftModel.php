@@ -8,20 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Order\OrderReference;
-use Commercetools\Api\Models\Order\OrderReferenceModel;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Order\OrderReferenceModel;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraft
 {
+
     /**
      * @var ?string
      */
@@ -67,6 +68,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
         $this->custom = $custom;
         $this->comment = $comment;
         $this->dryRun = $dryRun;
+
     }
 
     /**
@@ -214,4 +216,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         $this->dryRun = $dryRun;
     }
+
+
+
 }

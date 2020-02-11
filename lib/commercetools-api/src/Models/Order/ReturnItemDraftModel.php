@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDraft
 {
+
     /**
      * @var ?int
      */
@@ -54,6 +56,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         $this->customLineItemId = $customLineItemId;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
+
     }
 
     /**
@@ -165,4 +168,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         $this->shipmentState = $shipmentState;
     }
+
+
+
 }

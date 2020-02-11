@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomerSetVatIdActionModel extends JsonObjectModel implements CustomerSetVatIdAction
 {
     public const DISCRIMINATOR_VALUE = 'setVatId';
@@ -75,4 +76,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     {
         $this->vatId = $vatId;
     }
+
+
+
 }

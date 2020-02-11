@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Address;
 use DateTimeImmutable;
 
 interface Delivery extends JsonObject
 {
+
     public const FIELD_ID = 'id';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_ITEMS = 'items';

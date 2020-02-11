@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\PriceDraftCollection;
-use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Api\Models\Product\AttributeCollection;
+
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
+
     /**
      * @var ?string
      */
@@ -43,6 +44,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
         $this->sku = $sku;
         $this->prices = $prices;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -110,4 +112,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

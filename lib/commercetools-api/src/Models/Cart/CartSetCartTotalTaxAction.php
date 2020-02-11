@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Money;
 
 interface CartSetCartTotalTaxAction extends CartUpdateAction
 {
+
     public const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
     public const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 

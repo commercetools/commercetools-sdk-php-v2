@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -29,7 +30,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
     /**
      * @psalm-var array<string, class-string<KeyReference> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'cart-discount' => CartDiscountKeyReferenceModel::class,
@@ -102,24 +103,24 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = KeyReference::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = KeyReference::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<KeyReference> */
-        $type = KeyReferenceModel::class;
-        return $type;
+       /** @psalm-var class-string<KeyReference> */
+       $type = KeyReferenceModel::class;
+       return $type;
     }
 }

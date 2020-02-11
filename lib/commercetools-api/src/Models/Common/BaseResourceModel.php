@@ -8,21 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Cart\Cart;
-use Commercetools\Api\Models\Cart\CartModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountModel;
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Category\Category;
-
 use Commercetools\Api\Models\Category\CategoryModel;
 use Commercetools\Api\Models\Channel\Channel;
 use Commercetools\Api\Models\Channel\ChannelModel;
-use Commercetools\Api\Models\Customer\Customer;
-use Commercetools\Api\Models\Customer\CustomerModel;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroup;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupModel;
 use Commercetools\Api\Models\CustomObject\CustomObject;
 use Commercetools\Api\Models\CustomObject\CustomObjectModel;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroup;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupModel;
+use Commercetools\Api\Models\Customer\Customer;
+use Commercetools\Api\Models\Customer\CustomerModel;
 use Commercetools\Api\Models\DiscountCode\DiscountCode;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeModel;
 use Commercetools\Api\Models\Extension\Extension;
@@ -37,20 +42,20 @@ use Commercetools\Api\Models\Me\MyOrder;
 use Commercetools\Api\Models\Me\MyOrderModel;
 use Commercetools\Api\Models\Message\Message;
 use Commercetools\Api\Models\Message\MessageModel;
-use Commercetools\Api\Models\Order\Order;
-use Commercetools\Api\Models\Order\OrderModel;
 use Commercetools\Api\Models\OrderEdit\OrderEdit;
 use Commercetools\Api\Models\OrderEdit\OrderEditModel;
+use Commercetools\Api\Models\Order\Order;
+use Commercetools\Api\Models\Order\OrderModel;
 use Commercetools\Api\Models\Payment\Payment;
 use Commercetools\Api\Models\Payment\PaymentModel;
-use Commercetools\Api\Models\Product\Product;
-use Commercetools\Api\Models\Product\ProductModel;
-use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Product\ProductProjectionModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscount;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountModel;
 use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\ProductType\ProductTypeModel;
+use Commercetools\Api\Models\Product\Product;
+use Commercetools\Api\Models\Product\ProductModel;
+use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Api\Models\Product\ProductProjectionModel;
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\Review\ReviewModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
@@ -71,16 +76,12 @@ use Commercetools\Api\Models\Type\Type;
 use Commercetools\Api\Models\Type\TypeModel;
 use Commercetools\Api\Models\Zone\Zone;
 use Commercetools\Api\Models\Zone\ZoneModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class BaseResourceModel extends JsonObjectModel implements BaseResource
 {
+
     /**
      * @var ?string
      */
@@ -112,6 +113,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+
     }
 
     /**
@@ -223,4 +225,5 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
         }
         return (object) $data;
     }
+
 }

@@ -12,15 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductKeyReference;
+use stdClass;
 
+use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
-use stdClass;
 
 final class ProductVariantPatchModel extends JsonObjectModel implements ProductVariantPatch
 {
+
     /**
      * @var ?ProductVariantKeyReference
      */
@@ -45,6 +46,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         $this->productVariant = $productVariant;
         $this->product = $product;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -130,4 +132,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

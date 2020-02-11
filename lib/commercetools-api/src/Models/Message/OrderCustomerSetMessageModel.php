@@ -8,24 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
-
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\Customer\CustomerReference;
-use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class OrderCustomerSetMessageModel extends JsonObjectModel implements OrderCustomerSetMessage
 {
@@ -493,4 +493,5 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
         }
         return (object) $data;
     }
+
 }

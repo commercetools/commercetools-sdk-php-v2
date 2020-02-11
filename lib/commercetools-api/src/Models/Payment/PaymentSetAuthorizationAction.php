@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Money;
 use DateTimeImmutable;
 
 interface PaymentSetAuthorizationAction extends PaymentUpdateAction
 {
+
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_UNTIL = 'until';
 

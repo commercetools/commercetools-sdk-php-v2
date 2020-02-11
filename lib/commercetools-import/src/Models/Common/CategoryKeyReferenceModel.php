@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CategoryKeyReferenceModel extends JsonObjectModel implements CategoryKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'category';
@@ -75,4 +76,7 @@ final class CategoryKeyReferenceModel extends JsonObjectModel implements Categor
     {
         $this->key = $key;
     }
+
+
+
 }

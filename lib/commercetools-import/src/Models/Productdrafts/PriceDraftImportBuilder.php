@@ -13,6 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
@@ -20,7 +21,6 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
 use DateTimeImmutable;
-use stdClass;
 
 /**
  * @implements Builder<PriceDraftImport>

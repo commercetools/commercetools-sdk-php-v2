@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ApiClient;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ApiClientDraft extends JsonObject
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_SCOPE = 'scope';
     public const FIELD_DELETE_DAYS_AFTER_CREATION = 'deleteDaysAfterCreation';

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
@@ -19,6 +19,7 @@ use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 
 interface ProductImport extends ImportResource
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_SLUG = 'slug';

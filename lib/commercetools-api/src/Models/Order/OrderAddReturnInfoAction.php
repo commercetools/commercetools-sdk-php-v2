@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
 
 interface OrderAddReturnInfoAction extends OrderUpdateAction
 {
+
     public const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';
     public const FIELD_ITEMS = 'items';
     public const FIELD_RETURN_DATE = 'returnDate';

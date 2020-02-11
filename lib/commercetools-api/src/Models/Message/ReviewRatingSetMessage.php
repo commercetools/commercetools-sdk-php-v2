@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\Reference;
 
 interface ReviewRatingSetMessage extends Message
 {
+
     public const FIELD_OLD_RATING = 'oldRating';
     public const FIELD_NEW_RATING = 'newRating';
     public const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';

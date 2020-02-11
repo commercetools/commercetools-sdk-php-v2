@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CategorySetAssetTagsActionModel extends JsonObjectModel implements CategorySetAssetTagsAction
 {
     public const DISCRIMINATOR_VALUE = 'setAssetTags';
@@ -131,4 +132,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     {
         $this->tags = $tags;
     }
+
+
+
 }

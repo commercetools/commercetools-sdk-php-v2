@@ -20,6 +20,10 @@ use stdClass;
  */
 final class ShoppingListUpdateActionBuilder implements Builder
 {
+
+
+
+
     public function build(): ShoppingListUpdateAction
     {
         return new ShoppingListUpdateActionModel(

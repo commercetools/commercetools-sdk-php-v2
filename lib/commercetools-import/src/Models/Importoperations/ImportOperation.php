@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
 interface ImportOperation extends JsonObject
 {
+
     public const FIELD_VERSION = 'version';
     public const FIELD_IMPORT_SINK_KEY = 'importSinkKey';
     public const FIELD_RESOURCE_KEY = 'resourceKey';

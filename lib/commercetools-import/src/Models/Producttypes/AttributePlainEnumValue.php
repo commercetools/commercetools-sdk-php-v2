@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface AttributePlainEnumValue extends JsonObject
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_LABEL = 'label';
 

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
 
     /**
      * @psalm-var array<string, class-string<ChannelUpdateAction> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'addRoles' => ChannelAddRolesActionModel::class,
@@ -70,24 +71,24 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ChannelUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ChannelUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ChannelUpdateAction> */
-        $type = ChannelUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<ChannelUpdateAction> */
+       $type = ChannelUpdateActionModel::class;
+       return $type;
     }
 }

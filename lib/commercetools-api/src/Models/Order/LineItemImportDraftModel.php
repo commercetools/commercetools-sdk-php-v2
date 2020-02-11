@@ -8,12 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\LocalizedString;
-
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\Common\PriceDraftModel;
@@ -21,14 +26,10 @@ use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 final class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
 {
+
     /**
      * @var ?string
      */
@@ -109,6 +110,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->taxRate = $taxRate;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
+
     }
 
     /**
@@ -376,4 +378,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         $this->shippingDetails = $shippingDetails;
     }
+
+
+
 }

@@ -27,4 +27,5 @@ class ResourceByProjectKeyMeActiveCart extends ApiResource
 
         return new ByProjectKeyMeActiveCartGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

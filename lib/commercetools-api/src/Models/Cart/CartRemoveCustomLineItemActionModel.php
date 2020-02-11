@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implements CartRemoveCustomLineItemAction
 {
     public const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
@@ -73,4 +74,7 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     {
         $this->customLineItemId = $customLineItemId;
     }
+
+
+
 }

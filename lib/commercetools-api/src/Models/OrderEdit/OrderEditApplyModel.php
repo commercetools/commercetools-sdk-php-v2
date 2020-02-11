@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderEditApplyModel extends JsonObjectModel implements OrderEditApply
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     ) {
         $this->editVersion = $editVersion;
         $this->resourceVersion = $resourceVersion;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     {
         $this->resourceVersion = $resourceVersion;
     }
+
+
+
 }

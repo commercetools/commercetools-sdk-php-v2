@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
 
 final class OrderEditReferenceModel extends JsonObjectModel implements OrderEditReference
 {
@@ -106,4 +106,7 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
     {
         $this->obj = $obj;
     }
+
+
+
 }

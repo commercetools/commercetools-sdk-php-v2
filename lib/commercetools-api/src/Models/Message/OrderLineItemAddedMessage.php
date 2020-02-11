@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Cart\LineItem;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Cart\LineItem;
 
 interface OrderLineItemAddedMessage extends Message
 {
+
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_ADDED_QUANTITY = 'addedQuantity';
 

@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     ) {
         $this->id = $id;
         $this->quantity = $quantity;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     {
         $this->quantity = $quantity;
     }
+
+
+
 }

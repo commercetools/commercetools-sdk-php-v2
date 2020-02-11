@@ -8,12 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDiscountCodeAction;
-
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDiscountCodeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddItemShippingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddItemShippingAddressActionModel;
@@ -67,12 +72,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryActionModel;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailActionModel;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupActionModel;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
-use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomLineItemCustomFieldAction;
@@ -89,6 +88,12 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomShippingMethodActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerGroupActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerIdActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
@@ -147,11 +152,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateItemShippingAddressActio
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateItemShippingAddressActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateSyncInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderUpdateSyncInfoActionModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 final class StagedOrderUpdateActionModel extends JsonObjectModel implements StagedOrderUpdateAction
 {
@@ -268,24 +268,24 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = StagedOrderUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = StagedOrderUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<StagedOrderUpdateAction> */
-        $type = StagedOrderUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<StagedOrderUpdateAction> */
+       $type = StagedOrderUpdateActionModel::class;
+       return $type;
     }
 }

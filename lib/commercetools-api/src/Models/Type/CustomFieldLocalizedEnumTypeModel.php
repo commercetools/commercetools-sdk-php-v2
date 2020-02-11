@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements CustomFieldLocalizedEnumType
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedEnum';
@@ -73,4 +74,7 @@ final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements
     {
         $this->values = $values;
     }
+
+
+
 }

@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 
 final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements ProductDiscountValueAbsolute
 {
@@ -75,4 +75,7 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     {
         $this->money = $money;
     }
+
+
+
 }

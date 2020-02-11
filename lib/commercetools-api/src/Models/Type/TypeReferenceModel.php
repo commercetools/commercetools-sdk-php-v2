@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
 
 final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 {
@@ -106,4 +106,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     {
         $this->obj = $obj;
     }
+
+
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class GenericErrorModel extends JsonObjectModel implements GenericError
 {
     public const DISCRIMINATOR_VALUE = 'Generic';
@@ -75,4 +76,7 @@ final class GenericErrorModel extends JsonObjectModel implements GenericError
     {
         $this->message = $message;
     }
+
+
+
 }

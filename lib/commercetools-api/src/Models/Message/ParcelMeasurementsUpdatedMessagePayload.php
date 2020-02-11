@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\ParcelMeasurements;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Order\ParcelMeasurements;
 
 interface ParcelMeasurementsUpdatedMessagePayload extends MessagePayload
 {
+
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_PARCEL_ID = 'parcelId';
     public const FIELD_MEASUREMENTS = 'measurements';

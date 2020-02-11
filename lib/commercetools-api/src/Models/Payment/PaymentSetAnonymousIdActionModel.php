@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements PaymentSetAnonymousIdAction
 {
     public const DISCRIMINATOR_VALUE = 'setAnonymousId';
@@ -76,4 +77,7 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
     {
         $this->anonymousId = $anonymousId;
     }
+
+
+
 }

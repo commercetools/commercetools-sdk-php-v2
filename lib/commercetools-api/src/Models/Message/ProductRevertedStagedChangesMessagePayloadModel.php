@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectModel implements ProductRevertedStagedChangesMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
@@ -73,4 +74,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     {
         $this->removedImageUrls = $removedImageUrls;
     }
+
+
+
 }

@@ -20,6 +20,10 @@ use stdClass;
  */
 final class CustomFieldBooleanTypeBuilder implements Builder
 {
+
+
+
+
     public function build(): CustomFieldBooleanType
     {
         return new CustomFieldBooleanTypeModel(

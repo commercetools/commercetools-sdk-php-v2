@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ShippingMethodSetDescriptionAction extends ShippingMethodUpdateAction
 {
+
     public const FIELD_DESCRIPTION = 'description';
 
     /**

@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyProductDiscountsByIDGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
                 '{projectKey}/product-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyProductDiscountsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
                 '{projectKey}/product-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyProductDiscountsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
@@ -96,7 +96,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
                 '{projectKey}/product-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyProductDiscountsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
@@ -127,7 +127,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyProductDiscountsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyProductDiscountsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()
@@ -145,7 +145,7 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyProductDiscountsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->productDiscounts()

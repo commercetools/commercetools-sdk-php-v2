@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AttributeModel extends JsonObjectModel implements Attribute
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     ) {
         $this->name = $name;
         $this->value = $value;
+
     }
 
     /**
@@ -80,4 +83,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     {
         $this->value = $value;
     }
+
+
+
 }

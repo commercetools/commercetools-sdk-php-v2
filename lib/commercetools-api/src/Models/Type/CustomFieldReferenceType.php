@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CustomFieldReferenceType extends FieldType
 {
+
     public const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**

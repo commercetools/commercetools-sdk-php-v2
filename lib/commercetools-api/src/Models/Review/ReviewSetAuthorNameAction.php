@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ReviewSetAuthorNameAction extends ReviewUpdateAction
 {
+
     public const FIELD_AUTHOR_NAME = 'authorName';
 
     /**

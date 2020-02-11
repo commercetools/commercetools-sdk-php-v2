@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderImportLineItemStateActionModel extends JsonObjectModel implements OrderImportLineItemStateAction
 {
     public const DISCRIMINATOR_VALUE = 'importLineItemState';
@@ -102,4 +103,7 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     {
         $this->state = $state;
     }
+
+
+
 }

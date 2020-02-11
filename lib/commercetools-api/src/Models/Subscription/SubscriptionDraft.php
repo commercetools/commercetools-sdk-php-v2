@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface SubscriptionDraft extends JsonObject
 {
+
     public const FIELD_CHANGES = 'changes';
     public const FIELD_DESTINATION = 'destination';
     public const FIELD_KEY = 'key';

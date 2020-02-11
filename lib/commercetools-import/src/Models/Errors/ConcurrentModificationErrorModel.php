@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ConcurrentModificationErrorModel extends JsonObjectModel implements ConcurrentModificationError
 {
     public const DISCRIMINATOR_VALUE = 'ConcurrentModification';
@@ -168,4 +169,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         $this->conflictedResource = $conflictedResource;
     }
+
+
+
 }

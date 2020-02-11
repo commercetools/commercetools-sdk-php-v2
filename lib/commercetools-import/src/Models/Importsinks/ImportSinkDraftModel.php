@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDraft
 {
+
     /**
      * @var ?int
      */
@@ -40,6 +42,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
         $this->version = $version;
         $this->key = $key;
         $this->resourceType = $resourceType;
+
     }
 
     /**
@@ -113,4 +116,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         $this->resourceType = $resourceType;
     }
+
+
+
 }

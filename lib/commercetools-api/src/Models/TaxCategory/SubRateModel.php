@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
+
     /**
      * @var ?string
      */
@@ -33,6 +35,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     ) {
         $this->name = $name;
         $this->amount = $amount;
+
     }
 
     /**
@@ -78,4 +81,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     {
         $this->amount = $amount;
     }
+
+
+
 }

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderSetCustomerEmailActionModel extends JsonObjectModel implements OrderSetCustomerEmailAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerEmail';
@@ -73,4 +74,7 @@ final class OrderSetCustomerEmailActionModel extends JsonObjectModel implements 
     {
         $this->email = $email;
     }
+
+
+
 }

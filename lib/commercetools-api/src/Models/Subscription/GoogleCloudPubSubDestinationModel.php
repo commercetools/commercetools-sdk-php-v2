@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements GoogleCloudPubSubDestination
 {
     public const DISCRIMINATOR_VALUE = 'GoogleCloudPubSub';
@@ -102,4 +103,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     {
         $this->topic = $topic;
     }
+
+
+
 }

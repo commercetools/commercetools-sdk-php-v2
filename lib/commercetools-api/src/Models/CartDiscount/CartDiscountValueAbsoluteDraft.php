@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\MoneyCollection;
 
 interface CartDiscountValueAbsoluteDraft extends CartDiscountValueDraft
 {
+
     public const FIELD_MONEY = 'money';
 
     /**

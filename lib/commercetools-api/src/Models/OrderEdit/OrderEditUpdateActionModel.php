@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderEditUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
 
     /**
      * @psalm-var array<string, class-string<OrderEditUpdateAction> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'addStagedAction' => OrderEditAddStagedActionActionModel::class,
@@ -66,24 +67,24 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = OrderEditUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = OrderEditUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<OrderEditUpdateAction> */
-        $type = OrderEditUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<OrderEditUpdateAction> */
+       $type = OrderEditUpdateActionModel::class;
+       return $type;
     }
 }

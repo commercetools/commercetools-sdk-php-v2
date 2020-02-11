@@ -11,10 +11,10 @@ namespace Commercetools\Base;
 
 use Commercetools\Exception\InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
-use ReflectionClass;
-use ReflectionException;
-use ReflectionParameter;
 use stdClass;
+use ReflectionClass;
+use ReflectionParameter;
+use ReflectionException;
 
 class ResultMapper
 {
@@ -37,7 +37,7 @@ class ResultMapper
         /** @psalm-var ?stdClass $data */
         $data = json_decode($body);
         if (is_null($data)) {
-            throw new InvalidArgumentException();
+           throw new InvalidArgumentException();
         }
         return $data;
     }
@@ -50,8 +50,7 @@ class ResultMapper
      * @throws InvalidArgumentException
      * @throws ReflectionException
      */
-    public function mapToConstructor(string $type, array $data)
-    {
+    public function mapToConstructor(string $type, array $data) {
         $typeClass = new ReflectionClass($type);
         $constructor = $typeClass->getConstructor();
         if (is_null($constructor)) {

@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?withTotal=withTotal',
             ],
             'ByProjectKeyStatesGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 '{projectKey}/states?expand=expand',
             ],
             'ByProjectKeyStatesPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
     {
         return [
             'ByProjectKeyStatesGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 }
             ],
             'ByProjectKeyStatesPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()

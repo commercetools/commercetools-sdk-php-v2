@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ErrorResponse extends JsonObject
 {
+
     public const FIELD_STATUS_CODE = 'statusCode';
     public const FIELD_MESSAGE = 'message';
     public const FIELD_ERROR = 'error';

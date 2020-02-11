@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeCartsByIDGet
@@ -39,7 +39,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                 '{projectKey}/me/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyMeCartsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
@@ -64,7 +64,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                 '{projectKey}/me/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyMeCartsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
@@ -102,7 +102,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                 '{projectKey}/me/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyMeCartsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
@@ -134,7 +134,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyMeCartsByIDGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
@@ -144,7 +144,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyMeCartsByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
@@ -154,7 +154,7 @@ class ResourceByProjectKeyMeCartsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyMeCartsByIDDelete' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()

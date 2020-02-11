@@ -8,12 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
-
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
@@ -23,16 +28,12 @@ use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft
 {
+
     /**
      * @var ?string
      */
@@ -190,6 +191,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->store = $store;
         $this->origin = $origin;
+
     }
 
     /**
@@ -732,4 +734,5 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
         return (object) $data;
     }
+
 }

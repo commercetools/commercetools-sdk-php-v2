@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Api\Models\Type\FieldContainer;
-use Commercetools\Api\Models\Type\FieldContainerModel;
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 
 final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel implements ShoppingListSetLineItemCustomTypeAction
 {
@@ -138,4 +138,7 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
     {
         $this->fields = $fields;
     }
+
+
+
 }

@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 {
+
     /**
      * @var ?string
      */
@@ -64,6 +65,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         $this->customerId = $customerId;
         $this->expiresAt = $expiresAt;
         $this->value = $value;
+
     }
 
     /**
@@ -227,4 +229,5 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         }
         return (object) $data;
     }
+
 }

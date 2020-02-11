@@ -20,6 +20,10 @@ use stdClass;
  */
 final class CustomFieldMoneyTypeBuilder implements Builder
 {
+
+
+
+
     public function build(): CustomFieldMoneyType
     {
         return new CustomFieldMoneyTypeModel(

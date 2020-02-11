@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Product\ProductVariant;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\Product\ProductVariant;
+use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
 interface ShoppingListLineItem extends JsonObject
 {
+
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DEACTIVATED_AT = 'deactivatedAt';

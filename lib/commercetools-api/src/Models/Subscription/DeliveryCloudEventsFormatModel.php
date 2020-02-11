@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements DeliveryCloudEventsFormat
 {
     public const DISCRIMINATOR_VALUE = 'CloudEvents';
@@ -73,4 +74,7 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     {
         $this->cloudEventsVersion = $cloudEventsVersion;
     }
+
+
+
 }

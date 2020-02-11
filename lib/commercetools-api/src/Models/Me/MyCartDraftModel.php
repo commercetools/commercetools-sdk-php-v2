@@ -8,22 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Common\AddressModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
-
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 {
+
     /**
      * @var ?string
      */
@@ -118,6 +119,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         $this->taxMode = $taxMode;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->itemShippingAddresses = $itemShippingAddresses;
+
     }
 
     /**
@@ -425,4 +427,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
+
+
+
 }

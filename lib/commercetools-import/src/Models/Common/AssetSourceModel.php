@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AssetSourceModel extends JsonObjectModel implements AssetSource
 {
+
     /**
      * @var ?string
      */
@@ -47,6 +49,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
         $this->key = $key;
         $this->dimensions = $dimensions;
         $this->contentType = $contentType;
+
     }
 
     /**
@@ -137,4 +140,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         $this->contentType = $contentType;
     }
+
+
+
 }

@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+
 final class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft
 {
+
     /**
      * @var ?string
      */
@@ -71,6 +72,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->zoneRates = $zoneRates;
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
+
     }
 
     /**
@@ -231,4 +233,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         $this->predicate = $predicate;
     }
+
+
+
 }

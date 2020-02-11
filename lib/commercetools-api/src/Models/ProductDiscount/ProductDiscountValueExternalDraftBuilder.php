@@ -20,6 +20,10 @@ use stdClass;
  */
 final class ProductDiscountValueExternalDraftBuilder implements Builder
 {
+
+
+
+
     public function build(): ProductDiscountValueExternalDraft
     {
         return new ProductDiscountValueExternalDraftModel(

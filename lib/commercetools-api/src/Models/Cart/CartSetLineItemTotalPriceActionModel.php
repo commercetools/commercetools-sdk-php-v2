@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel implements CartSetLineItemTotalPriceAction
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTotalPrice';
@@ -103,4 +104,7 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     {
         $this->externalTotalPrice = $externalTotalPrice;
     }
+
+
+
 }

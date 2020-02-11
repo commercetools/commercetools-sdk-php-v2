@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft
 {
+
     /**
      * @var ?ChangeSubscriptionCollection
      */
@@ -54,6 +56,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
         $this->key = $key;
         $this->messages = $messages;
         $this->format = $format;
+
     }
 
     /**
@@ -167,4 +170,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         $this->format = $format;
     }
+
+
+
 }

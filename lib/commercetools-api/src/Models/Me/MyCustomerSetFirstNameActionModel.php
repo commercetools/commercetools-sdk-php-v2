@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MyCustomerSetFirstNameActionModel extends JsonObjectModel implements MyCustomerSetFirstNameAction
 {
     public const DISCRIMINATOR_VALUE = 'setFirstName';
@@ -73,4 +74,7 @@ final class MyCustomerSetFirstNameActionModel extends JsonObjectModel implements
     {
         $this->firstName = $firstName;
     }
+
+
+
 }

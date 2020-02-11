@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Payment\PaymentReferenceCollection;
 
 final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 {
+
     /**
      * @var ?PaymentReferenceCollection
      */
@@ -28,6 +29,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
         PaymentReferenceCollection $payments = null
     ) {
         $this->payments = $payments;
+
     }
 
     /**
@@ -51,4 +53,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     {
         $this->payments = $payments;
     }
+
+
+
 }

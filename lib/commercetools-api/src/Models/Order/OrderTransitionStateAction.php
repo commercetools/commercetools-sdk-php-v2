@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\State\StateResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\State\StateResourceIdentifier;
 
 interface OrderTransitionStateAction extends OrderUpdateAction
 {
+
     public const FIELD_STATE = 'state';
     public const FIELD_FORCE = 'force';
 

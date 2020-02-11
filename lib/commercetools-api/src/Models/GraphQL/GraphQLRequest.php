@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface GraphQLRequest extends JsonObject
 {
+
     public const FIELD_QUERY = 'query';
     public const FIELD_OPERATION_NAME = 'operationName';
     public const FIELD_VARIABLES = 'variables';

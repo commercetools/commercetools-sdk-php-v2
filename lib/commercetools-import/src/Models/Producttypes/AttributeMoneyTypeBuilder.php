@@ -20,6 +20,10 @@ use stdClass;
  */
 final class AttributeMoneyTypeBuilder implements Builder
 {
+
+
+
+
     public function build(): AttributeMoneyType
     {
         return new AttributeMoneyTypeModel(

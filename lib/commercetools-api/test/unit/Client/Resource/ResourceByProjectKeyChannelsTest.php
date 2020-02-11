@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Client\ApiRequest;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Response;
+use Commercetools\Base\JsonObject;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 '{projectKey}/channels?withTotal=withTotal',
             ],
             'ByProjectKeyChannelsGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->channels()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 '{projectKey}/channels?expand=expand',
             ],
             'ByProjectKeyChannelsPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->channels()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyChannelsTest extends TestCase
     {
         return [
             'ByProjectKeyChannelsGet' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->channels()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 }
             ],
             'ByProjectKeyChannelsPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
+                function(ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->channels()

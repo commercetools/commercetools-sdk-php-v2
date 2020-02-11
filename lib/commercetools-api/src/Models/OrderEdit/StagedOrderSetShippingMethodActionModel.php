@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
+use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 
 final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel implements StagedOrderSetShippingMethodAction
 {
@@ -111,4 +111,7 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
     {
         $this->externalTaxRate = $externalTaxRate;
     }
+
+
+
 }

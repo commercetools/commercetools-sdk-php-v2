@@ -8,16 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Payment\TransactionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface MyPayment extends JsonObject
 {
+
     public const FIELD_ID = 'id';
     public const FIELD_VERSION = 'version';
     public const FIELD_CUSTOMER = 'customer';

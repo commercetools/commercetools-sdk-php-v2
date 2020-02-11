@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class CustomFieldBooleanTypeModel extends JsonObjectModel implements CustomFieldBooleanType
 {
     public const DISCRIMINATOR_VALUE = 'Boolean';
@@ -44,4 +45,8 @@ final class CustomFieldBooleanTypeModel extends JsonObjectModel implements Custo
 
         return $this->name;
     }
+
+
+
+
 }

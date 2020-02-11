@@ -8,14 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface MyPaymentDraft extends JsonObject
 {
+
     public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
     public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
     public const FIELD_CUSTOM = 'custom';

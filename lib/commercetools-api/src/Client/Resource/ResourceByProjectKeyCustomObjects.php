@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -61,4 +61,5 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
 
         return new ByProjectKeyCustomObjectsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

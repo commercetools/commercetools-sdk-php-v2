@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ImportResource;
-
-use Commercetools\Import\Models\Common\ImportResourceModel;
 use stdClass;
+
+use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceModel;
 
 final class ProductTypeImportModel extends JsonObjectModel implements ProductTypeImport
 {
+
     /**
      * @var ?string
      */
@@ -50,6 +51,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
         $this->name = $name;
         $this->description = $description;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -145,4 +147,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

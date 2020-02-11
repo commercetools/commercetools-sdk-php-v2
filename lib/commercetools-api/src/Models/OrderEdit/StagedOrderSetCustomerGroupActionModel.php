@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 
 final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel implements StagedOrderSetCustomerGroupAction
 {
@@ -79,4 +79,7 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     {
         $this->customerGroup = $customerGroup;
     }
+
+
+
 }

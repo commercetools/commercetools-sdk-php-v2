@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectModel implements ProductDiscountSetValidFromAndUntilAction
 {
@@ -130,4 +130,5 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         }
         return (object) $data;
     }
+
 }

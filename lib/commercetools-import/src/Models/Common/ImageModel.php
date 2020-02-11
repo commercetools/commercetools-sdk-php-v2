@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ImageModel extends JsonObjectModel implements Image
 {
+
     /**
      * @var ?string
      */
@@ -40,6 +42,7 @@ final class ImageModel extends JsonObjectModel implements Image
         $this->url = $url;
         $this->dimensions = $dimensions;
         $this->label = $label;
+
     }
 
     /**
@@ -108,4 +111,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         $this->label = $label;
     }
+
+
+
 }

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface FacetResult extends JsonObject
 {
@@ -20,4 +20,5 @@ interface FacetResult extends JsonObject
      * @return null|string
      */
     public function getType();
+
 }

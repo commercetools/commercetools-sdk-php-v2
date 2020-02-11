@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ContentionErrorModel extends JsonObjectModel implements ContentionError
 {
     public const DISCRIMINATOR_VALUE = 'Contention';
@@ -75,4 +76,7 @@ final class ContentionErrorModel extends JsonObjectModel implements ContentionEr
     {
         $this->message = $message;
     }
+
+
+
 }

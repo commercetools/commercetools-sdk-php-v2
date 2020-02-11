@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ResourceCreationErrorModel extends JsonObjectModel implements ResourceCreationError
 {
     public const DISCRIMINATOR_VALUE = 'ResourceCreation';
@@ -104,4 +105,7 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     {
         $this->resource = $resource;
     }
+
+
+
 }

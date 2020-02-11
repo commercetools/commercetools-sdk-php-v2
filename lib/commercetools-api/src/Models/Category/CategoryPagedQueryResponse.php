@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CategoryPagedQueryResponse extends JsonObject
 {
+
     public const FIELD_LIMIT = 'limit';
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';

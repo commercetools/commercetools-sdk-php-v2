@@ -12,3 +12,5 @@ parameters:
     - 'lib/commercetools-import/test'
   sets:
     - 'psr12'
+services:
+  Commercetools\Tools\SummaryOnlyOutputFormatter: ~

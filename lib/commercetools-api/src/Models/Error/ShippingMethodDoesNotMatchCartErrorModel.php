@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel implements ShippingMethodDoesNotMatchCartError
 {
     public const DISCRIMINATOR_VALUE = 'ShippingMethodDoesNotMatchCart';
@@ -73,4 +74,7 @@ final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel imp
     {
         $this->message = $message;
     }
+
+
+
 }

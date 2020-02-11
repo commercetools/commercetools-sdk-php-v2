@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-
-use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 use stdClass;
+
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
 {
@@ -79,4 +79,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         $this->typeReference = $typeReference;
     }
+
+
+
 }

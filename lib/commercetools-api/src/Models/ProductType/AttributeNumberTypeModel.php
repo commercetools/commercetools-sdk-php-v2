@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class AttributeNumberTypeModel extends JsonObjectModel implements AttributeNumberType
 {
     public const DISCRIMINATOR_VALUE = 'number';
@@ -44,4 +45,8 @@ final class AttributeNumberTypeModel extends JsonObjectModel implements Attribut
 
         return $this->name;
     }
+
+
+
+
 }

@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SuggestionModel extends JsonObjectModel implements Suggestion
 {
+
     /**
      * @var ?string
      */
@@ -26,6 +28,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
         string $text = null
     ) {
         $this->text = $text;
+
     }
 
     /**
@@ -51,4 +54,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     {
         $this->text = $text;
     }
+
+
+
 }

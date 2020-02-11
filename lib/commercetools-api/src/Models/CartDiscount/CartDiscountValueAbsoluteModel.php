@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 
 final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements CartDiscountValueAbsolute
 {
@@ -75,4 +75,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     {
         $this->money = $money;
     }
+
+
+
 }

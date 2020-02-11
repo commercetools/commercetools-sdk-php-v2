@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements ReviewSetAuthorNameAction
 {
     public const DISCRIMINATOR_VALUE = 'setAuthorName';
@@ -75,4 +76,7 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     {
         $this->authorName = $authorName;
     }
+
+
+
 }

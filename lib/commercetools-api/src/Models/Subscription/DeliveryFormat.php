@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface DeliveryFormat extends JsonObject
 {
@@ -20,4 +20,5 @@ interface DeliveryFormat extends JsonObject
      * @return null|string
      */
     public function getType();
+
 }

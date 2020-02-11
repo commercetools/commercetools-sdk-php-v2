@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ShippingMethodSetPredicateAction extends ShippingMethodUpdateAction
 {
+
     public const FIELD_PREDICATE = 'predicate';
 
     /**

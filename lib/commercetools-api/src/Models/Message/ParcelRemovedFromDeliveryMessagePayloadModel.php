@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\Parcel;
-use Commercetools\Api\Models\Order\ParcelModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Order\Parcel;
+use Commercetools\Api\Models\Order\ParcelModel;
 
 final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel implements ParcelRemovedFromDeliveryMessagePayload
 {
@@ -106,4 +106,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     {
         $this->parcel = $parcel;
     }
+
+
+
 }

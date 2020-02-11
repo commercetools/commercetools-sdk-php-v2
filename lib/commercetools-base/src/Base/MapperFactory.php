@@ -21,9 +21,8 @@ class MapperFactory
     /**
      * @psalm-return callable(mixed): ?string
      */
-    public static function stringMapper()
-    {
-        return
+    public static function stringMapper() {
+       return
            /** @psalm-param ?mixed $data */
            function ($data): ?string {
                if (is_null($data)) {
@@ -36,9 +35,8 @@ class MapperFactory
     /**
      * @psalm-return callable(?mixed): ?float
      */
-    public static function numberMapper()
-    {
-        return
+    public static function numberMapper() {
+       return
            /** @psalm-param ?mixed $data */
            function ($data): ?float {
                if (is_null($data)) {
@@ -51,9 +49,8 @@ class MapperFactory
     /**
      * @psalm-return callable(?mixed): ?int
      */
-    public static function integerMapper()
-    {
-        return
+    public static function integerMapper() {
+       return
            /** @psalm-param ?mixed $data */
            function ($data): ?int {
                if (is_null($data)) {
@@ -66,9 +63,8 @@ class MapperFactory
     /**
      * @psalm-return callable(?string): ?DateTimeImmutable
      */
-    public static function dateTimeMapper(string $format = self::DATETIME_FORMAT)
-    {
-        return
+    public static function dateTimeMapper(string $format = self::DATETIME_FORMAT) {
+       return
            /** @psalm-param ?string $data */
            function ($data) use ($format): ?DateTimeImmutable {
                if (is_null($data)) {
@@ -87,9 +83,8 @@ class MapperFactory
      * @psalm-return callable(?mixed): ?T
      * @psalm-param class-string<T> $className
      */
-    public static function classMapper(string $className)
-    {
-        return
+    public static function classMapper(string $className) {
+       return
            /**
             * @psalm-param ?mixed $data
             * @psalm-return ?T

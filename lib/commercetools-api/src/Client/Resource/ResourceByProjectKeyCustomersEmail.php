@@ -23,4 +23,5 @@ class ResourceByProjectKeyCustomersEmail extends ApiResource
 
         return new ResourceByProjectKeyCustomersEmailConfirm($this->getUri() . '/confirm', $args, $this->getClient());
     }
+
 }

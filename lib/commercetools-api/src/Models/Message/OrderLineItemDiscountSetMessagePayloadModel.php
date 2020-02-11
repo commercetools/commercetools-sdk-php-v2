@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
-use Commercetools\Api\Models\Cart\TaxedItemPrice;
-use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
+use Commercetools\Api\Models\Cart\TaxedItemPrice;
+use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 
 final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel implements OrderLineItemDiscountSetMessagePayload
 {
@@ -168,4 +168,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     {
         $this->taxedPrice = $taxedPrice;
     }
+
+
+
 }

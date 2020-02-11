@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface ProductSetCategoryOrderHintAction extends ProductUpdateAction
 {
+
     public const FIELD_CATEGORY_ID = 'categoryId';
     public const FIELD_ORDER_HINT = 'orderHint';
     public const FIELD_STAGED = 'staged';

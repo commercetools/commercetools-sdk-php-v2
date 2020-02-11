@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\ClientException;
+use Commercetools\Base\MapperInterface;
+use Commercetools\Base\ResultMapper;
+use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\InvalidArgumentException;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -108,7 +108,7 @@ class ByProjectKeyShippingMethodsMatchesCartGet extends ApiRequest
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $cartId
      */
     public function withCartId($cartId): ByProjectKeyShippingMethodsMatchesCartGet
@@ -117,7 +117,7 @@ class ByProjectKeyShippingMethodsMatchesCartGet extends ApiRequest
     }
 
     /**
-     *
+     * 
      * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyShippingMethodsMatchesCartGet

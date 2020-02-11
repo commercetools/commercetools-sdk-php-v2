@@ -12,13 +12,14 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 {
+
     /**
      * @var ?ReturnItemCollection
      */
@@ -43,6 +44,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
         $this->items = $items;
         $this->returnTrackingId = $returnTrackingId;
         $this->returnDate = $returnDate;
+
     }
 
     /**
@@ -126,4 +128,5 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
         }
         return (object) $data;
     }
+
 }

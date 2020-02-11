@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CustomFieldsDraft extends JsonObject
 {
+
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 

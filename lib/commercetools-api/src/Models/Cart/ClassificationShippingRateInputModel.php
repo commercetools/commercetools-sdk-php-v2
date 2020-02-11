@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 
 final class ClassificationShippingRateInputModel extends JsonObjectModel implements ClassificationShippingRateInput
 {
@@ -106,4 +106,7 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     {
         $this->label = $label;
     }
+
+
+
 }

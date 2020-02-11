@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
 
 interface ExtensionNoResponseError extends ErrorObject
 {
+
     public const FIELD_LOCALIZED_MESSAGE = 'localizedMessage';
     public const FIELD_EXTENSION_EXTRA_INFO = 'extensionExtraInfo';
     public const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';

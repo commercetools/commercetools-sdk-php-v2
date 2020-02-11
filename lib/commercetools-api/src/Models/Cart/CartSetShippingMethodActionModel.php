@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 
 final class CartSetShippingMethodActionModel extends JsonObjectModel implements CartSetShippingMethodAction
 {
@@ -107,4 +107,7 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     {
         $this->externalTaxRate = $externalTaxRate;
     }
+
+
+
 }

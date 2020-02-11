@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderEditSetCustomFieldActionModel extends JsonObjectModel implements OrderEditSetCustomFieldAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomField';
@@ -102,4 +103,7 @@ final class OrderEditSetCustomFieldActionModel extends JsonObjectModel implement
     {
         $this->value = $value;
     }
+
+
+
 }

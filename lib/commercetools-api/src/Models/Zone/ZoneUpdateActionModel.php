@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -24,7 +25,7 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
 
     /**
      * @psalm-var array<string, class-string<ZoneUpdateAction> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'addLocation' => ZoneAddLocationActionModel::class,
@@ -65,24 +66,24 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ZoneUpdateAction::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ZoneUpdateAction::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ZoneUpdateAction> */
-        $type = ZoneUpdateActionModel::class;
-        return $type;
+       /** @psalm-var class-string<ZoneUpdateAction> */
+       $type = ZoneUpdateActionModel::class;
+       return $type;
     }
 }

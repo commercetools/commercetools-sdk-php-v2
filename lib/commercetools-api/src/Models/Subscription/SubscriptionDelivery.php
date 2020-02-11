@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface SubscriptionDelivery extends JsonObject
 {

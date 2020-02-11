@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client;
 
-use Commercetools\Client\ApiResource;
 use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
+use Commercetools\Client\ApiResource;
 
 /**
  * @psalm-immutable
@@ -35,4 +35,5 @@ class ImportRequestBuilder extends ApiResource
 
         return new ResourceByProjectKey($this->getUri() . '/{projectKey}', $args, $this->getClient());
     }
+
 }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
-use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
-use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
 
 final class CartAddShoppingListActionModel extends JsonObjectModel implements CartAddShoppingListAction
 {
@@ -139,4 +139,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     {
         $this->distributionChannel = $distributionChannel;
     }
+
+
+
 }

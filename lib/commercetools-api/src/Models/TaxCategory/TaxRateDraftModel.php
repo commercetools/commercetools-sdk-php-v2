@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 {
+
     /**
      * @var ?string
      */
@@ -61,6 +63,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
+
     }
 
     /**
@@ -207,4 +210,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         $this->subRates = $subRates;
     }
+
+
+
 }

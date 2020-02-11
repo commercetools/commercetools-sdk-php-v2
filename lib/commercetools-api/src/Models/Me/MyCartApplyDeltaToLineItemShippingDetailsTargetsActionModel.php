@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\ItemShippingTargetCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
+
+use Commercetools\Api\Models\Cart\ItemShippingTargetCollection;
 
 final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends JsonObjectModel implements MyCartApplyDeltaToLineItemShippingDetailsTargetsAction
 {
@@ -104,4 +104,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     {
         $this->targetsDelta = $targetsDelta;
     }
+
+
+
 }

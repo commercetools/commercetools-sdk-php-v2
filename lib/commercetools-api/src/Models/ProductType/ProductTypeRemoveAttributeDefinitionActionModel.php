@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeRemoveAttributeDefinitionAction
 {
     public const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
@@ -75,4 +76,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     {
         $this->name = $name;
     }
+
+
+
 }

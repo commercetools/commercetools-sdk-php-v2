@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class SqsDestinationModel extends JsonObjectModel implements SqsDestination
 {
     public const DISCRIMINATOR_VALUE = 'SQS';
@@ -160,4 +161,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         $this->region = $region;
     }
+
+
+
 }

@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use DateTimeImmutable;
 
 interface OrderUpdateSyncInfoAction extends OrderUpdateAction
 {
+
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_SYNCED_AT = 'syncedAt';

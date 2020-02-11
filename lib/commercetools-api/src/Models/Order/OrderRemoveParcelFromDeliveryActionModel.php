@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel implements OrderRemoveParcelFromDeliveryAction
 {
     public const DISCRIMINATOR_VALUE = 'removeParcelFromDelivery';
@@ -73,4 +74,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
     {
         $this->parcelId = $parcelId;
     }
+
+
+
 }

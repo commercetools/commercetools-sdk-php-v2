@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCartSetCountryAction
 {
     public const DISCRIMINATOR_VALUE = 'setCountry';
@@ -75,4 +76,7 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
     {
         $this->country = $country;
     }
+
+
+
 }

@@ -8,21 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\Payment\PaymentMethodInfo;
-use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Payment\PaymentMethodInfo;
+use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+
 final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraft
 {
+
     /**
      * @var ?Money
      */
@@ -54,6 +55,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->custom = $custom;
         $this->transaction = $transaction;
+
     }
 
     /**
@@ -153,4 +155,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     {
         $this->transaction = $transaction;
     }
+
+
+
 }

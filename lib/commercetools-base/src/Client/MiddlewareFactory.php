@@ -97,7 +97,7 @@ class MiddlewareFactory
     {
         return
             /**
-             * @psalm-param callable(RequestInterface, array{reauth: int}): PromiseInterface $handler
+             * @psalm-param callable(RequestInterface, array{reauth: int}): PromiseInterface $handler 
              * @psalm-return callable(RequestInterface, array{reauth: int})
              */
             function (callable $handler) use ($oauthHandler, $maxRetries) {

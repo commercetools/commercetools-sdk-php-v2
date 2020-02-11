@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CategoryKeyReference extends KeyReference
 {
+
+
+
 }

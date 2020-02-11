@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
 {
+
     public const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**

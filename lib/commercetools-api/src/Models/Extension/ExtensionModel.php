@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class ExtensionModel extends JsonObjectModel implements Extension
 {
+
     /**
      * @var ?string
      */
@@ -98,6 +99,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->destination = $destination;
         $this->triggers = $triggers;
         $this->timeoutInMs = $timeoutInMs;
+
     }
 
     /**
@@ -351,4 +353,5 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         }
         return (object) $data;
     }
+
 }

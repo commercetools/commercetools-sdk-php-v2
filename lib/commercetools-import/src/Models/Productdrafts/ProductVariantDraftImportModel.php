@@ -12,14 +12,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
+use stdClass;
 
+use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
-use stdClass;
 
 final class ProductVariantDraftImportModel extends JsonObjectModel implements ProductVariantDraftImport
 {
+
     /**
      * @var ?string
      */
@@ -65,6 +66,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
         $this->attributes = $attributes;
         $this->images = $images;
         $this->assets = $assets;
+
     }
 
     /**
@@ -198,4 +200,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         $this->assets = $assets;
     }
+
+
+
 }

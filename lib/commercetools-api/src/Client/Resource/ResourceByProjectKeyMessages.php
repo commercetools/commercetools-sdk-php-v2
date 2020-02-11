@@ -37,4 +37,5 @@ class ResourceByProjectKeyMessages extends ApiResource
 
         return new ByProjectKeyMessagesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
+
 }

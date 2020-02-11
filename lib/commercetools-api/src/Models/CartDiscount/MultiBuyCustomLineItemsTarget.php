@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
 {
+
     public const FIELD_PREDICATE = 'predicate';
     public const FIELD_TRIGGER_QUANTITY = 'triggerQuantity';
     public const FIELD_DISCOUNTED_QUANTITY = 'discountedQuantity';

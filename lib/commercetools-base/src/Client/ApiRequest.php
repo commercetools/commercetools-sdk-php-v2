@@ -83,8 +83,8 @@ class ApiRequest extends Request
                  * @psalm-param scalar|scalar[] $value
                  * @psalm-return scalar[]
                  */
-                function ($value): array {
-                    if (is_array($value)) {
+                function($value): array {
+                    if(is_array($value)) {
                         return $value;
                     }
                     return [$value];
@@ -108,7 +108,7 @@ class ApiRequest extends Request
     public function send(array $options = []): ResponseInterface
     {
         if (is_null($this->client)) {
-            throw new InvalidArgumentException();
+           throw new InvalidArgumentException();
         }
         return $this->client->send($this, $options);
     }
@@ -122,13 +122,13 @@ class ApiRequest extends Request
     public function sendAsync(array $options = []): PromiseInterface
     {
         if (is_null($this->client)) {
-            throw new InvalidArgumentException();
+           throw new InvalidArgumentException();
         }
         return $this->client->sendAsync($this, $options);
     }
 
     public function getClient(): ?ClientInterface
     {
-        return $this->client;
+       return $this->client;
     }
 }

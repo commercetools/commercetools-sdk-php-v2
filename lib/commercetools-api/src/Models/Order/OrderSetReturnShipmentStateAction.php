@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 
 interface OrderSetReturnShipmentStateAction extends OrderUpdateAction
 {
+
     public const FIELD_RETURN_ITEM_ID = 'returnItemId';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 

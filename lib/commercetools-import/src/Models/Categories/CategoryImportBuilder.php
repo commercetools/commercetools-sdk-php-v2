@@ -13,6 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\CategoryKeyReference;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceBuilder;
@@ -20,7 +21,6 @@ use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
-use stdClass;
 
 /**
  * @implements Builder<CategoryImport>

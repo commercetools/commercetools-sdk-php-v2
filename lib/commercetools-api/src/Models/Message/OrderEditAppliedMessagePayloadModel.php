@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
-use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
+use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
+use Commercetools\Api\Models\OrderEdit\OrderEditReference;
+use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 
 final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implements OrderEditAppliedMessagePayload
 {
@@ -109,4 +109,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     {
         $this->result = $result;
     }
+
+
+
 }

@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class FacetResultTermModel extends JsonObjectModel implements FacetResultTerm
 {
+
     /**
      * @var ?JsonObject
      */
@@ -40,6 +42,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
         $this->term = $term;
         $this->count = $count;
         $this->productCount = $productCount;
+
     }
 
     /**
@@ -107,4 +110,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     {
         $this->productCount = $productCount;
     }
+
+
+
 }

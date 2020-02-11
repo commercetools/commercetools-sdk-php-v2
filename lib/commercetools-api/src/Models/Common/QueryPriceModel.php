@@ -8,23 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
-
 use Commercetools\Api\Models\Type\CustomFieldsModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
-use stdClass;
 
 final class QueryPriceModel extends JsonObjectModel implements QueryPrice
 {
+
     /**
      * @var ?string
      */
@@ -98,6 +99,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
         $this->discounted = $discounted;
         $this->custom = $custom;
         $this->tiers = $tiers;
+
     }
 
     /**
@@ -348,4 +350,5 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
         }
         return (object) $data;
     }
+
 }

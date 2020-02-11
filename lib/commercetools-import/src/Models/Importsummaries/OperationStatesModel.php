@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OperationStatesModel extends JsonObjectModel implements OperationStates
 {
+
     /**
      * @var ?int
      */
@@ -89,6 +91,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         $this->Rejected = $Rejected;
         $this->Skipped = $Skipped;
         $this->Expired = $Expired;
+
     }
 
     /**
@@ -330,4 +333,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     {
         $this->Expired = $Expired;
     }
+
+
+
 }

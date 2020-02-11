@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implements CustomFieldLocalizedEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -36,6 +37,7 @@ final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implement
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -82,4 +84,7 @@ final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implement
     {
         $this->label = $label;
     }
+
+
+
 }

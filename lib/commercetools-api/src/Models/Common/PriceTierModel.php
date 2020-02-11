@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class PriceTierModel extends JsonObjectModel implements PriceTier
 {
+
     /**
      * @var ?int
      */
@@ -33,6 +35,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     ) {
         $this->minimumQuantity = $minimumQuantity;
         $this->value = $value;
+
     }
 
     /**
@@ -79,4 +82,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     {
         $this->value = $value;
     }
+
+
+
 }

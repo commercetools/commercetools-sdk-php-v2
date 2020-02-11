@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel implements OrderCustomerEmailSetMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
@@ -102,4 +103,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     {
         $this->oldEmail = $oldEmail;
     }
+
+
+
 }

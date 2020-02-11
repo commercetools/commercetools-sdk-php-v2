@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -15,11 +17,10 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
 
 interface ProductProjection extends BaseResource
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_NAME = 'name';

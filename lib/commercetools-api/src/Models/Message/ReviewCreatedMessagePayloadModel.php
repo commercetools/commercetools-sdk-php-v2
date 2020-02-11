@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Review\Review;
-use Commercetools\Api\Models\Review\ReviewModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
+
+use Commercetools\Api\Models\Review\Review;
+use Commercetools\Api\Models\Review\ReviewModel;
 
 final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements ReviewCreatedMessagePayload
 {
@@ -77,4 +77,7 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     {
         $this->review = $review;
     }
+
+
+
 }

@@ -14,8 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+
 final class ImportOperationPagedResponseModel extends JsonObjectModel implements ImportOperationPagedResponse
 {
+
     /**
      * @var ?int
      */
@@ -47,6 +49,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
         $this->offset = $offset;
         $this->count = $count;
         $this->results = $results;
+
     }
 
     /**
@@ -144,4 +147,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     {
         $this->results = $results;
     }
+
+
+
 }
