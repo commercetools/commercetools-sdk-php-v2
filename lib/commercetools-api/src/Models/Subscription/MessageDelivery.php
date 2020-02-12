@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MessageDelivery extends SubscriptionDelivery
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_VERSION = 'version';
     public const FIELD_CREATED_AT = 'createdAt';

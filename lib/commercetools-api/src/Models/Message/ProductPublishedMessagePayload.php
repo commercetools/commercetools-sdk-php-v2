@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductPublishedMessagePayload extends MessagePayload
 {
-
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
     public const FIELD_PRODUCT_PROJECTION = 'productProjection';
     public const FIELD_SCOPE = 'scope';

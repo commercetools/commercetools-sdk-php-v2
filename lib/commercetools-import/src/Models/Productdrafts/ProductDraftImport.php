@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -19,7 +19,6 @@ use Commercetools\Import\Models\Products\SearchKeywords;
 
 interface ProductDraftImport extends JsonObject
 {
-
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';

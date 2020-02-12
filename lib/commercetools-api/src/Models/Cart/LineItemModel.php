@@ -8,33 +8,32 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Common\Price;
+
+use Commercetools\Api\Models\Common\PriceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Order\ItemStateCollection;
+use Commercetools\Api\Models\Product\ProductVariant;
+use Commercetools\Api\Models\Product\ProductVariantModel;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\TaxCategory\TaxRate;
+use Commercetools\Api\Models\TaxCategory\TaxRateModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceModel;
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\PriceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
-use Commercetools\Api\Models\Order\ItemStateCollection;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
-use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
-use Commercetools\Api\Models\Product\ProductVariant;
-use Commercetools\Api\Models\Product\ProductVariantModel;
-use Commercetools\Api\Models\TaxCategory\TaxRate;
-use Commercetools\Api\Models\TaxCategory\TaxRateModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
-
 final class LineItemModel extends JsonObjectModel implements LineItem
 {
-
     /**
      * @var ?string
      */
@@ -171,7 +170,6 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->lineItemMode = $lineItemMode;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
-
     }
 
     /**
@@ -640,7 +638,4 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         $this->shippingDetails = $shippingDetails;
     }
-
-
-
 }

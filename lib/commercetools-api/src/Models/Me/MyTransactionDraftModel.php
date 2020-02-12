@@ -8,20 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class MyTransactionDraftModel extends JsonObjectModel implements MyTransactionDraft
 {
-
     /**
      * @var ?DateTimeImmutable
      */
@@ -53,7 +52,6 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         $this->type = $type;
         $this->amount = $amount;
         $this->interactionId = $interactionId;
-
     }
 
     /**
@@ -169,5 +167,4 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         }
         return (object) $data;
     }
-
 }

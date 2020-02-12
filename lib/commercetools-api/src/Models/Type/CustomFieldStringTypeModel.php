@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldStringTypeModel extends JsonObjectModel implements CustomFieldStringType
 {
     public const DISCRIMINATOR_VALUE = 'String';
@@ -45,8 +44,4 @@ final class CustomFieldStringTypeModel extends JsonObjectModel implements Custom
 
         return $this->name;
     }
-
-
-
-
 }

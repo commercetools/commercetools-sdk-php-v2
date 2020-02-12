@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft
 {
-
     /**
      * @var ?TypeResourceIdentifier
      */
@@ -35,7 +33,6 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
     ) {
         $this->type = $type;
         $this->fields = $fields;
-
     }
 
     /**
@@ -87,7 +84,4 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
     {
         $this->fields = $fields;
     }
-
-
-
 }

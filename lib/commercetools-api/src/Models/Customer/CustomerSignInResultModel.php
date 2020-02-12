@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerSignInResultModel extends JsonObjectModel implements CustomerSignInResult
 {
-
     /**
      * @var ?Customer
      */
@@ -35,7 +33,6 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     ) {
         $this->customer = $customer;
         $this->cart = $cart;
-
     }
 
     /**
@@ -85,7 +82,4 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     {
         $this->cart = $cart;
     }
-
-
-
 }

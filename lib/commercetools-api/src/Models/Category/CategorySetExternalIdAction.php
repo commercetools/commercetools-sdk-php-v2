@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategorySetExternalIdAction extends CategoryUpdateAction
 {
-
     public const FIELD_EXTERNAL_ID = 'externalId';
 
     /**

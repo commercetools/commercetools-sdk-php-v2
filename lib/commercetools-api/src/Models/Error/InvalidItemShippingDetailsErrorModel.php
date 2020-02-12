@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel implements InvalidItemShippingDetailsError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidItemShippingDetails';
@@ -132,7 +131,4 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     {
         $this->itemId = $itemId;
     }
-
-
-
 }

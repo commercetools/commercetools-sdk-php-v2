@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     ) {
         $this->url = $url;
         $this->authorizationHeader = $authorizationHeader;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     {
         $this->authorizationHeader = $authorizationHeader;
     }
-
-
-
 }

@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Common\Money;
+
 use Commercetools\Import\Models\Common\MoneyModel;
+use stdClass;
 
 final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribute
 {
@@ -110,7 +110,4 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     {
         $this->value = $value;
     }
-
-
-
 }

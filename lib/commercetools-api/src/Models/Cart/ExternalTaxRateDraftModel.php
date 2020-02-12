@@ -8,17 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\TaxCategory\SubRateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\TaxCategory\SubRateCollection;
+use stdClass;
 
 final class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
 {
-
     /**
      * @var ?string
      */
@@ -64,7 +63,6 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         $this->state = $state;
         $this->subRates = $subRates;
         $this->includedInPrice = $includedInPrice;
-
     }
 
     /**
@@ -213,7 +211,4 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     {
         $this->includedInPrice = $includedInPrice;
     }
-
-
-
 }

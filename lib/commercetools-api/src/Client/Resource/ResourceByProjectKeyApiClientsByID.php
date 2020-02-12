@@ -37,5 +37,4 @@ class ResourceByProjectKeyApiClientsByID extends ApiResource
 
         return new ByProjectKeyApiClientsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

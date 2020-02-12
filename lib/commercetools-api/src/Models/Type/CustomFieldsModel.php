@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 {
-
     /**
      * @var ?TypeReference
      */
@@ -35,7 +33,6 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     ) {
         $this->type = $type;
         $this->fields = $fields;
-
     }
 
     /**
@@ -85,7 +82,4 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     {
         $this->fields = $fields;
     }
-
-
-
 }

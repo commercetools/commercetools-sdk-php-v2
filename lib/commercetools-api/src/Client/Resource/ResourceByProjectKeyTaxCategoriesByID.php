@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\TaxCategory\TaxCategoryUpdate;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryUpdate;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,5 +48,4 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
 
         return new ByProjectKeyTaxCategoriesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

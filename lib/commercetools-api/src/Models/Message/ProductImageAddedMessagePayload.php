@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Image;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductImageAddedMessagePayload extends MessagePayload
 {
-
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_IMAGE = 'image';
     public const FIELD_STAGED = 'staged';

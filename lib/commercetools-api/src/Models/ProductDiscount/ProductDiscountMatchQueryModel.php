@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Api\Models\Common\QueryPrice;
+use Commercetools\Api\Models\Common\QueryPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\QueryPrice;
-use Commercetools\Api\Models\Common\QueryPriceModel;
-
 final class ProductDiscountMatchQueryModel extends JsonObjectModel implements ProductDiscountMatchQuery
 {
-
     /**
      * @var ?string
      */
@@ -51,7 +50,6 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
         $this->variantId = $variantId;
         $this->staged = $staged;
         $this->price = $price;
-
     }
 
     /**
@@ -142,7 +140,4 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     {
         $this->price = $price;
     }
-
-
-
 }

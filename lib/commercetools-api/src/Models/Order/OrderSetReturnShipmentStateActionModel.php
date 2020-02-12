@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel implements OrderSetReturnShipmentStateAction
 {
     public const DISCRIMINATOR_VALUE = 'setReturnShipmentState';
@@ -103,7 +102,4 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     {
         $this->shipmentState = $shipmentState;
     }
-
-
-
 }

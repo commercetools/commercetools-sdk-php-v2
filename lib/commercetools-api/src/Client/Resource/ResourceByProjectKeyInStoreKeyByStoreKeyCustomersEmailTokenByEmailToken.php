@@ -27,5 +27,4 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken ex
 
         return new ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['emailToken'], $body, $headers, $this->getClient());
     }
-
 }

@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Message\MessageConfigurationDraft;
+use Commercetools\Api\Models\Message\MessageConfigurationDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Message\MessageConfigurationDraft;
-use Commercetools\Api\Models\Message\MessageConfigurationDraftModel;
 
 final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectModel implements ProjectChangeMessagesConfigurationAction
 {
@@ -77,7 +77,4 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     {
         $this->messagesConfiguration = $messagesConfiguration;
     }
-
-
-
 }

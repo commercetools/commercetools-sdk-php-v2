@@ -8,26 +8,25 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
 {
-
     /**
      * @var ?string
      */
@@ -94,7 +93,6 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
         $this->key = $key;
         $this->name = $name;
         $this->custom = $custom;
-
     }
 
     /**
@@ -329,5 +327,4 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
         }
         return (object) $data;
     }
-
 }

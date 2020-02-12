@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetSearchKeywordsAction extends ProductUpdateAction
 {
-
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STAGED = 'staged';
 

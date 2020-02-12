@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ProductUnpublishActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ProductUnpublishAction
     {
         return new ProductUnpublishActionModel(

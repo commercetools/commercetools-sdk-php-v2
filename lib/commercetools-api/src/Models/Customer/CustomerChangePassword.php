@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerChangePassword extends JsonObject
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_VERSION = 'version';
     public const FIELD_CURRENT_PASSWORD = 'currentPassword';

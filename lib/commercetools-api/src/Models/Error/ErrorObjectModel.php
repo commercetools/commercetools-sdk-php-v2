@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -30,7 +29,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 
     /**
      * @psalm-var array<string, class-string<ErrorObject> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
@@ -121,24 +120,24 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ErrorObject::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = ErrorObject::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<ErrorObject> */
-       $type = ErrorObjectModel::class;
-       return $type;
+        /** @psalm-var class-string<ErrorObject> */
+        $type = ErrorObjectModel::class;
+        return $type;
     }
 }

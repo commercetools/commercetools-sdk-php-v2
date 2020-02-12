@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectModel implements StagedOrderTransitionLineItemStateAction
 {
@@ -212,5 +212,4 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
         }
         return (object) $data;
     }
-
 }

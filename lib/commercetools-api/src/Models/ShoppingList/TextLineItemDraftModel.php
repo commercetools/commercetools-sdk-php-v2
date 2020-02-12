@@ -8,22 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class TextLineItemDraftModel extends JsonObjectModel implements TextLineItemDraft
 {
-
     /**
      * @var ?DateTimeImmutable
      */
@@ -62,7 +61,6 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         $this->description = $description;
         $this->name = $name;
         $this->quantity = $quantity;
-
     }
 
     /**
@@ -197,5 +195,4 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         }
         return (object) $data;
     }
-
 }

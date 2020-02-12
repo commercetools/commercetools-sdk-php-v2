@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartDiscountValueModel extends JsonObjectModel implements CartDiscountValue
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
 
     /**
      * @psalm-var array<string, class-string<CartDiscountValue> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'absolute' => CartDiscountValueAbsoluteModel::class,
@@ -64,24 +63,24 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = CartDiscountValue::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = CartDiscountValue::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<CartDiscountValue> */
-       $type = CartDiscountValueModel::class;
-       return $type;
+        /** @psalm-var class-string<CartDiscountValue> */
+        $type = CartDiscountValueModel::class;
+        return $type;
     }
 }

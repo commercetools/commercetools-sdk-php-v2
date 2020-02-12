@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 
 final class CartRemoveDiscountCodeActionModel extends JsonObjectModel implements CartRemoveDiscountCodeAction
 {
@@ -77,7 +77,4 @@ final class CartRemoveDiscountCodeActionModel extends JsonObjectModel implements
     {
         $this->discountCode = $discountCode;
     }
-
-
-
 }

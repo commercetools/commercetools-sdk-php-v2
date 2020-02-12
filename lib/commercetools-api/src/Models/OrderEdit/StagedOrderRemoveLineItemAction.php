@@ -8,16 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderRemoveLineItemAction extends StagedOrderUpdateAction
 {
-
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';

@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderShippingAddressSetMessagePayload extends MessagePayload
 {
-
     public const FIELD_ADDRESS = 'address';
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 

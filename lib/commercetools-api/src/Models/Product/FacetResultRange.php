@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface FacetResultRange extends JsonObject
 {
-
     public const FIELD_FROM = 'from';
     public const FIELD_FROM_STR = 'fromStr';
     public const FIELD_TO = 'to';

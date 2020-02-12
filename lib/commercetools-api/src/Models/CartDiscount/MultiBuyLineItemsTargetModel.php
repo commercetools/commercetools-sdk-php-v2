@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements MultiBuyLineItemsTarget
 {
     public const DISCRIMINATOR_VALUE = 'multiBuyLineItems';
@@ -198,7 +197,4 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     {
         $this->selectionMode = $selectionMode;
     }
-
-
-
 }

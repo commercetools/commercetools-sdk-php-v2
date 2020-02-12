@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraft
 {
-
     /**
      * @var ?string
      */
@@ -42,7 +40,6 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
         $this->name = $name;
         $this->scope = $scope;
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
-
     }
 
     /**
@@ -112,7 +109,4 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     {
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
-
-
-
 }

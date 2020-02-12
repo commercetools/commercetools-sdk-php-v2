@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel implements CartDiscountChangeStackingModeAction
 {
     public const DISCRIMINATOR_VALUE = 'changeStackingMode';
@@ -74,7 +73,4 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     {
         $this->stackingMode = $stackingMode;
     }
-
-
-
 }

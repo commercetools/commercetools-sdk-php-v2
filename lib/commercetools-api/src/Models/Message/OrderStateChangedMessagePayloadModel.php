@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderStateChangedMessagePayloadModel extends JsonObjectModel implements OrderStateChangedMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'OrderStateChanged';
@@ -103,7 +102,4 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     {
         $this->oldOrderState = $oldOrderState;
     }
-
-
-
 }

@@ -20,10 +20,6 @@ use stdClass;
  */
 final class MyCartUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): MyCartUpdateAction
     {
         return new MyCartUpdateActionModel(

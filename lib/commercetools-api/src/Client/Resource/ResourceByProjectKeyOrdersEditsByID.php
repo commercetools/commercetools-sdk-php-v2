@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\OrderEdit\OrderEditUpdate;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\OrderEdit\OrderEditUpdate;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -55,5 +55,4 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
 
         return new ByProjectKeyOrdersEditsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ShippingRatePriceTierBuilder implements Builder
 {
-
-
-
-
     public function build(): ShippingRatePriceTier
     {
         return new ShippingRatePriceTierModel(

@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AddressModel extends JsonObjectModel implements Address
 {
-
     /**
      * @var ?string
      */
@@ -196,7 +194,6 @@ final class AddressModel extends JsonObjectModel implements Address
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
-
     }
 
     /**
@@ -750,7 +747,4 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         $this->externalId = $externalId;
     }
-
-
-
 }

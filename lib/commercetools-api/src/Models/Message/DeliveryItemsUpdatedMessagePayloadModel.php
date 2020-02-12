@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Order\DeliveryItemCollection;
+use stdClass;
 
 final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel implements DeliveryItemsUpdatedMessagePayload
 {
@@ -133,7 +133,4 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     {
         $this->oldItems = $oldItems;
     }
-
-
-
 }

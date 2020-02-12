@@ -8,15 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategoryDraft extends JsonObject
 {
-
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';
     public const FIELD_DESCRIPTION = 'description';

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel implements TypeChangeLocalizedEnumValueLabelAction
 {
     public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
@@ -104,7 +103,4 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
     {
         $this->value = $value;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChangeKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
@@ -74,7 +73,4 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     {
         $this->key = $key;
     }
-
-
-
 }

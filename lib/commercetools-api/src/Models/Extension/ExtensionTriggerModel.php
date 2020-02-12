@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     ) {
         $this->resourceTypeId = $resourceTypeId;
         $this->actions = $actions;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     {
         $this->actions = $actions;
     }
-
-
-
 }

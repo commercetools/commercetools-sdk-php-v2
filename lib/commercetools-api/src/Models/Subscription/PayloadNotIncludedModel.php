@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNotIncluded
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     ) {
         $this->reason = $reason;
         $this->payloadType = $payloadType;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     {
         $this->payloadType = $payloadType;
     }
-
-
-
 }

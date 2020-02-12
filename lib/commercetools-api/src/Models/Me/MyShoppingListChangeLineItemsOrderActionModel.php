@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel implements MyShoppingListChangeLineItemsOrderAction
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemsOrder';
@@ -74,7 +73,4 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
     {
         $this->lineItemOrder = $lineItemOrder;
     }
-
-
-
 }

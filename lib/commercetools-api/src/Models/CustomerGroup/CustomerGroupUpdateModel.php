@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerGroupUpdateModel extends JsonObjectModel implements CustomerGroupUpdate
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     ) {
         $this->version = $version;
         $this->actions = $actions;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     {
         $this->actions = $actions;
     }
-
-
-
 }

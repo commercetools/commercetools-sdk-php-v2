@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerSignin extends JsonObject
 {
-
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
     public const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';

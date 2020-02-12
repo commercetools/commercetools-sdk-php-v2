@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     ) {
         $this->currencyCode = $currencyCode;
         $this->function = $function;
-
     }
 
     /**
@@ -83,7 +80,4 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     {
         $this->function = $function;
     }
-
-
-
 }

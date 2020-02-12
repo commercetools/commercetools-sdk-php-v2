@@ -8,15 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface InventoryEntryDraft extends JsonObject
 {
-
     public const FIELD_SKU = 'sku';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';

@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importoperations;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 
 interface ImportOperationStatus extends JsonObject
 {
-
     public const FIELD_OPERATION_ID = 'operationId';
     public const FIELD_STATE = 'state';
     public const FIELD_ERRORS = 'errors';

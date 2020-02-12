@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ChannelRemoveRolesActionModel extends JsonObjectModel implements ChannelRemoveRolesAction
 {
     public const DISCRIMINATOR_VALUE = 'removeRoles';
@@ -74,7 +73,4 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     {
         $this->roles = $roles;
     }
-
-
-
 }

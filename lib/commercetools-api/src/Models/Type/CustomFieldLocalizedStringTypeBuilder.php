@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CustomFieldLocalizedStringTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): CustomFieldLocalizedStringType
     {
         return new CustomFieldLocalizedStringTypeModel(

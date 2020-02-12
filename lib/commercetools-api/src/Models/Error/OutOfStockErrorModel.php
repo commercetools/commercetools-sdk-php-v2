@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockError
 {
     public const DISCRIMINATOR_VALUE = 'OutOfStock';
@@ -132,7 +131,4 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     {
         $this->skus = $skus;
     }
-
-
-
 }

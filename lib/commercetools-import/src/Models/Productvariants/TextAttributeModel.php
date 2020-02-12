@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TextAttributeModel extends JsonObjectModel implements TextAttribute
 {
     public const DISCRIMINATOR_VALUE = 'text';
@@ -107,7 +106,4 @@ final class TextAttributeModel extends JsonObjectModel implements TextAttribute
     {
         $this->value = $value;
     }
-
-
-
 }

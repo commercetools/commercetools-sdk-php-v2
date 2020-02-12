@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductTypeDraftModel extends JsonObjectModel implements ProductTypeDraft
 {
-
     /**
      * @var ?string
      */
@@ -49,7 +47,6 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
         $this->name = $name;
         $this->description = $description;
         $this->attributes = $attributes;
-
     }
 
     /**
@@ -143,7 +140,4 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     {
         $this->attributes = $attributes;
     }
-
-
-
 }

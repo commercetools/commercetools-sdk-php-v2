@@ -8,24 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonModel;
+use Commercetools\Api\Models\Common\LocalizedString;
+
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
-use Commercetools\Api\Models\Common\GeoJson;
-use Commercetools\Api\Models\Common\GeoJsonModel;
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 {
-
     /**
      * @var ?string
      */
@@ -78,7 +77,6 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
         $this->address = $address;
         $this->custom = $custom;
         $this->geoLocation = $geoLocation;
-
     }
 
     /**
@@ -243,7 +241,4 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         $this->geoLocation = $geoLocation;
     }
-
-
-
 }

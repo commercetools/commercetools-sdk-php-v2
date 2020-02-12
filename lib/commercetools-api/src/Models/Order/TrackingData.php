@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TrackingData extends JsonObject
 {
-
     public const FIELD_TRACKING_ID = 'trackingId';
     public const FIELD_CARRIER = 'carrier';
     public const FIELD_PROVIDER = 'provider';

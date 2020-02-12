@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface LineItemImportDraft extends JsonObject
 {
-
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_NAME = 'name';
     public const FIELD_VARIANT = 'variant';

@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ReviewUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ReviewUpdateAction
     {
         return new ReviewUpdateActionModel(

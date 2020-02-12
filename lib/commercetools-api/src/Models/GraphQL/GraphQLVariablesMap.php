@@ -8,13 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface GraphQLVariablesMap extends JsonObject
 {
-
     public const FIELD_PATTERN0 = '//';
-
-
 }

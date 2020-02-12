@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -63,5 +63,4 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
 
         return new ByProjectKeyShippingMethodsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

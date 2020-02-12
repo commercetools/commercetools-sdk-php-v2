@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductSetProductVariantKeyActionModel extends JsonObjectModel implements ProductSetProductVariantKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'setProductVariantKey';
@@ -163,7 +162,4 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         $this->staged = $staged;
     }
-
-
-
 }

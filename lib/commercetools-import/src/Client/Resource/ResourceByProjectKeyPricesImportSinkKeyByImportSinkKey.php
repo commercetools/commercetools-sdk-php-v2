@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
-use Psr\Http\Message\UploadedFileInterface;
 use Commercetools\Import\Models\Importrequests\PriceImportRequest;
+use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -44,5 +44,4 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey extends ApiResource
 
         return new ByProjectKeyPricesImportSinkKeyByImportSinkKeyPost((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
     }
-
 }

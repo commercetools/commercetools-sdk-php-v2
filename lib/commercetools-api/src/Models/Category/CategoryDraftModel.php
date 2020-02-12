@@ -8,21 +8,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
 final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
 {
-
     /**
      * @var ?LocalizedString
      */
@@ -110,7 +109,6 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         $this->custom = $custom;
         $this->assets = $assets;
         $this->key = $key;
-
     }
 
     /**
@@ -400,7 +398,4 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         $this->key = $key;
     }
-
-
-
 }

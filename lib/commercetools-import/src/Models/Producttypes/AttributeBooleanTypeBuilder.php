@@ -20,10 +20,6 @@ use stdClass;
  */
 final class AttributeBooleanTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): AttributeBooleanType
     {
         return new AttributeBooleanTypeModel(

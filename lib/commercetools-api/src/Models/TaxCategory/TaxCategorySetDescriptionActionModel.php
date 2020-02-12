@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TaxCategorySetDescriptionActionModel extends JsonObjectModel implements TaxCategorySetDescriptionAction
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
@@ -74,7 +73,4 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     {
         $this->description = $description;
     }
-
-
-
 }

@@ -8,20 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ProductDiscountDraftModel extends JsonObjectModel implements ProductDiscountDraft
 {
-
     /**
      * @var ?LocalizedString
      */
@@ -88,7 +87,6 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         $this->isActive = $isActive;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
-
     }
 
     /**
@@ -330,5 +328,4 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         }
         return (object) $data;
     }
-
 }

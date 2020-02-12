@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implements TaxCategoryRemoveTaxRateAction
 {
     public const DISCRIMINATOR_VALUE = 'removeTaxRate';
@@ -74,7 +73,4 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     {
         $this->taxRateId = $taxRateId;
     }
-
-
-
 }

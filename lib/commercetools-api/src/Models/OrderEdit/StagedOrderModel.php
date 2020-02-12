@@ -8,24 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
-use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
+
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\ShippingRateInputModel;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
@@ -49,12 +44,16 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class StagedOrderModel extends JsonObjectModel implements StagedOrder
 {
-
     /**
      * @var ?string
      */
@@ -345,7 +344,6 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         $this->shippingRateInput = $shippingRateInput;
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->refusedGifts = $refusedGifts;
-
     }
 
     /**
@@ -1340,5 +1338,4 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         }
         return (object) $data;
     }
-
 }

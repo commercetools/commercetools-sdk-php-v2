@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ShippingMethodUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ShippingMethodUpdateAction
     {
         return new ShippingMethodUpdateActionModel(

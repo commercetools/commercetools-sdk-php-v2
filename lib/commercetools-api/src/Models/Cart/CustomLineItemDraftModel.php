@@ -8,24 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
-
 final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft
 {
-
     /**
      * @var ?LocalizedString
      */
@@ -85,7 +84,6 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
         $this->externalTaxRate = $externalTaxRate;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
-
     }
 
     /**
@@ -280,7 +278,4 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     {
         $this->shippingDetails = $shippingDetails;
     }
-
-
-
 }

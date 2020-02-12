@@ -8,13 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\KeyReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StoreKeyReference extends KeyReference
 {
-
-
-
 }

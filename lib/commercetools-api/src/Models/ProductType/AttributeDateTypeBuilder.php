@@ -20,10 +20,6 @@ use stdClass;
  */
 final class AttributeDateTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): AttributeDateType
     {
         return new AttributeDateTypeModel(

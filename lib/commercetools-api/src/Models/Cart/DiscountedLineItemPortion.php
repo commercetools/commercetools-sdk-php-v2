@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DiscountedLineItemPortion extends JsonObject
 {
-
     public const FIELD_DISCOUNT = 'discount';
     public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 

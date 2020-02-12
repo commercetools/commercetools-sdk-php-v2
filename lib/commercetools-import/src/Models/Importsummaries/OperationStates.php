@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsummaries;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OperationStates extends JsonObject
 {
-
     public const FIELD_ACCEPTED = 'Accepted';
     public const FIELD_VALIDATION_FAILED = 'ValidationFailed';
     public const FIELD_UNRESOLVED = 'Unresolved';

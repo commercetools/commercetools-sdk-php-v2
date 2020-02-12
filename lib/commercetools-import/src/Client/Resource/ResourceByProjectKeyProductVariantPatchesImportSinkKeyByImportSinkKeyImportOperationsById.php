@@ -27,5 +27,4 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImpor
 
         return new ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsByIdGet((string) $args['projectKey'], (string) $args['importSinkKey'], (string) $args['id'], $body, $headers, $this->getClient());
     }
-
 }

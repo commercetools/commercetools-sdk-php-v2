@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Cart\ReplicaCartDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\Cart\ReplicaCartDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,5 +28,4 @@ class ResourceByProjectKeyCartsReplicate extends ApiResource
 
         return new ByProjectKeyCartsReplicatePost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implements ExtensionSetTimeoutInMsAction
 {
     public const DISCRIMINATOR_VALUE = 'setTimeoutInMs';
@@ -79,7 +78,4 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     {
         $this->timeoutInMs = $timeoutInMs;
     }
-
-
-
 }

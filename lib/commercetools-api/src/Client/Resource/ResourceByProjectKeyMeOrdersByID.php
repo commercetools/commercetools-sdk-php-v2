@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Common\Update;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\Common\Update;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -38,5 +38,4 @@ class ResourceByProjectKeyMeOrdersByID extends ApiResource
 
         return new ByProjectKeyMeOrdersByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

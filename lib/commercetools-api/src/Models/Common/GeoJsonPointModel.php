@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
 {
     public const DISCRIMINATOR_VALUE = 'Point';
@@ -74,7 +73,4 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     {
         $this->coordinates = $coordinates;
     }
-
-
-
 }

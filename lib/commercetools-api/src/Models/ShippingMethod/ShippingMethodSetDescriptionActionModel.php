@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ShippingMethodSetDescriptionActionModel extends JsonObjectModel implements ShippingMethodSetDescriptionAction
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
@@ -74,7 +73,4 @@ final class ShippingMethodSetDescriptionActionModel extends JsonObjectModel impl
     {
         $this->description = $description;
     }
-
-
-
 }

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ZoneAddLocationAction extends ZoneUpdateAction
 {
-
     public const FIELD_LOCATION = 'location';
 
     /**

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class StateChangeTypeActionModel extends JsonObjectModel implements StateChangeTypeAction
 {
     public const DISCRIMINATOR_VALUE = 'changeType';
@@ -74,7 +73,4 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     {
         $this->type = $type;
     }
-
-
-
 }

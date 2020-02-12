@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerGroupDraft extends JsonObject
 {
-
     public const FIELD_KEY = 'key';
     public const FIELD_GROUP_NAME = 'groupName';
     public const FIELD_CUSTOM = 'custom';

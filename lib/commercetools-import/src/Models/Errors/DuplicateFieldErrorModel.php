@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DuplicateFieldErrorModel extends JsonObjectModel implements DuplicateFieldError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateField';
@@ -138,7 +137,4 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         $this->duplicateValue = $duplicateValue;
     }
-
-
-
 }

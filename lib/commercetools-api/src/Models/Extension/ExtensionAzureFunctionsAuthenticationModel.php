@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionAzureFunctionsAuthenticationModel extends JsonObjectModel implements ExtensionAzureFunctionsAuthentication
 {
     public const DISCRIMINATOR_VALUE = 'AzureFunctions';
@@ -74,7 +73,4 @@ final class ExtensionAzureFunctionsAuthenticationModel extends JsonObjectModel i
     {
         $this->key = $key;
     }
-
-
-
 }

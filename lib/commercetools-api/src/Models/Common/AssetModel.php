@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
-
 final class AssetModel extends JsonObjectModel implements Asset
 {
-
     /**
      * @var ?string
      */
@@ -72,7 +71,6 @@ final class AssetModel extends JsonObjectModel implements Asset
         $this->tags = $tags;
         $this->custom = $custom;
         $this->key = $key;
-
     }
 
     /**
@@ -231,7 +229,4 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         $this->key = $key;
     }
-
-
-
 }

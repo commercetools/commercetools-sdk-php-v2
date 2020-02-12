@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrderFromCartDraft
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     ) {
         $this->id = $id;
         $this->version = $version;
-
     }
 
     /**
@@ -83,7 +80,4 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     {
         $this->version = $version;
     }
-
-
-
 }

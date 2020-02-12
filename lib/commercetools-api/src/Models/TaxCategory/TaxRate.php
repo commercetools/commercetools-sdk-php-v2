@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TaxRate extends JsonObject
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_NAME = 'name';
     public const FIELD_AMOUNT = 'amount';

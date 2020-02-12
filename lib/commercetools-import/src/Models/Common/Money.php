@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface Money extends JsonObject
 {
-
     public const FIELD_CENT_AMOUNT = 'centAmount';
     public const FIELD_CURRENCY_CODE = 'currencyCode';
 

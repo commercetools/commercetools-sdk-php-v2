@@ -20,10 +20,6 @@ use stdClass;
  */
 final class DeliveryPlatformFormatBuilder implements Builder
 {
-
-
-
-
     public function build(): DeliveryPlatformFormat
     {
         return new DeliveryPlatformFormatModel(

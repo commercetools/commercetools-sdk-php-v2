@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderEditApplied extends OrderEditResult
 {
-
     public const FIELD_APPLIED_AT = 'appliedAt';
     public const FIELD_EXCERPT_BEFORE_EDIT = 'excerptBeforeEdit';
     public const FIELD_EXCERPT_AFTER_EDIT = 'excerptAfterEdit';

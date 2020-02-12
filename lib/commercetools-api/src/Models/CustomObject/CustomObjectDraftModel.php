@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomObjectDraftModel extends JsonObjectModel implements CustomObjectDraft
 {
-
     /**
      * @var ?string
      */
@@ -49,7 +47,6 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
         $this->key = $key;
         $this->value = $value;
         $this->version = $version;
-
     }
 
     /**
@@ -143,7 +140,4 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     {
         $this->version = $version;
     }
-
-
-
 }

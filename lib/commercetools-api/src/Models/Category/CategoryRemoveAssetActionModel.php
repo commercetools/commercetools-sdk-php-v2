@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CategoryRemoveAssetActionModel extends JsonObjectModel implements CategoryRemoveAssetAction
 {
     public const DISCRIMINATOR_VALUE = 'removeAsset';
@@ -103,7 +102,4 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     {
         $this->assetKey = $assetKey;
     }
-
-
-
 }

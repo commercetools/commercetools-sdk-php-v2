@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class SubscriptionDeliveryModel extends JsonObjectModel implements SubscriptionDelivery
 {
@@ -44,7 +44,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
 
     /**
      * @psalm-var array<string, class-string<SubscriptionDelivery> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'Message' => MessageDeliveryModel::class,
@@ -157,24 +157,24 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = SubscriptionDelivery::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = SubscriptionDelivery::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<SubscriptionDelivery> */
-       $type = SubscriptionDeliveryModel::class;
-       return $type;
+        /** @psalm-var class-string<SubscriptionDelivery> */
+        $type = SubscriptionDeliveryModel::class;
+        return $type;
     }
 }

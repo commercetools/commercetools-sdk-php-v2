@@ -21,8 +21,8 @@ final class LocalizedStringModel extends MapperMap implements LocalizedString
             /**
              * @psalm-return ?mixed
              */
-            function(string $key) {
-               return $this->get($key);
+            function (string $key) {
+                return $this->get($key);
             };
     }
 }

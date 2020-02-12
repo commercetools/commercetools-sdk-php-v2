@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetResult
 {
     public const DISCRIMINATOR_VALUE = 'range';
@@ -74,7 +73,4 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     {
         $this->ranges = $ranges;
     }
-
-
-
 }

@@ -20,10 +20,6 @@ use stdClass;
  */
 final class FieldTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): FieldType
     {
         return new FieldTypeModel(

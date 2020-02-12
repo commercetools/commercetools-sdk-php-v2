@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-
 final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements ExternalLineItemTotalPrice
 {
-
     /**
      * @var ?Money
      */
@@ -37,7 +36,6 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     ) {
         $this->price = $price;
         $this->totalPrice = $totalPrice;
-
     }
 
     /**
@@ -85,7 +83,4 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     {
         $this->totalPrice = $totalPrice;
     }
-
-
-
 }

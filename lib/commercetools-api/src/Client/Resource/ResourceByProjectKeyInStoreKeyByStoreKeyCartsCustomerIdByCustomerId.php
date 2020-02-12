@@ -27,5 +27,4 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId extend
 
         return new ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['customerId'], $body, $headers, $this->getClient());
     }
-
 }

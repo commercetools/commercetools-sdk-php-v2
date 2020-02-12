@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderAddDeliveryAction extends OrderUpdateAction
 {
-
     public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';

@@ -35,5 +35,4 @@ class ResourceByProjectKeyMePayment extends ApiResource
 
         return new ResourceByProjectKeyMePaymentByID($this->getUri() . '/{ID}', $args, $this->getClient());
     }
-
 }

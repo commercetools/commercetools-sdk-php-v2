@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-
 final class TypeDraftModel extends JsonObjectModel implements TypeDraft
 {
-
     /**
      * @var ?string
      */
@@ -58,7 +57,6 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
         $this->description = $description;
         $this->resourceTypeIds = $resourceTypeIds;
         $this->fieldDefinitions = $fieldDefinitions;
-
     }
 
     /**
@@ -174,7 +172,4 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         $this->fieldDefinitions = $fieldDefinitions;
     }
-
-
-
 }

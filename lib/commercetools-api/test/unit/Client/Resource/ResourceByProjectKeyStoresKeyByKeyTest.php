@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStoresKeyByKeyGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()
@@ -96,7 +96,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()
@@ -127,7 +127,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
     {
         return [
             'ByProjectKeyStoresKeyByKeyGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeyStoresKeyByKeyPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()
@@ -145,7 +145,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeyStoresKeyByKeyDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->stores()

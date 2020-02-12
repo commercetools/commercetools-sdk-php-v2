@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomFieldEnumValue
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     ) {
         $this->key = $key;
         $this->label = $label;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     {
         $this->label = $label;
     }
-
-
-
 }

@@ -8,24 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomObject;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class CustomObjectModel extends JsonObjectModel implements CustomObject
 {
-
     /**
      * @var ?string
      */
@@ -92,7 +91,6 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         $this->container = $container;
         $this->key = $key;
         $this->value = $value;
-
     }
 
     /**
@@ -318,5 +316,4 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         }
         return (object) $data;
     }
-
 }

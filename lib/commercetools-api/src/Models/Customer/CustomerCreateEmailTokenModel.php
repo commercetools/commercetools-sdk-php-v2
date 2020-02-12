@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerCreateEmailTokenModel extends JsonObjectModel implements CustomerCreateEmailToken
 {
-
     /**
      * @var ?string
      */
@@ -42,7 +40,6 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
         $this->id = $id;
         $this->version = $version;
         $this->ttlMinutes = $ttlMinutes;
-
     }
 
     /**
@@ -110,7 +107,4 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     {
         $this->ttlMinutes = $ttlMinutes;
     }
-
-
-
 }

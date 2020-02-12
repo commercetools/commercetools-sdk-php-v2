@@ -8,19 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-
 final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements DiscountedLineItemPriceDraft
 {
-
     /**
      * @var ?Money
      */
@@ -38,7 +37,6 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     ) {
         $this->value = $value;
         $this->includedDiscounts = $includedDiscounts;
-
     }
 
     /**
@@ -85,7 +83,4 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     {
         $this->includedDiscounts = $includedDiscounts;
     }
-
-
-
 }

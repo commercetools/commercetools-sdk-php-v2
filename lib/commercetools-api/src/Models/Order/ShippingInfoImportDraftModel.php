@@ -8,26 +8,25 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
+
+use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Api\Models\TaxCategory\TaxRate;
+use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
-use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
-use Commercetools\Api\Models\TaxCategory\TaxRate;
-use Commercetools\Api\Models\TaxCategory\TaxRateModel;
-
 final class ShippingInfoImportDraftModel extends JsonObjectModel implements ShippingInfoImportDraft
 {
-
     /**
      * @var ?string
      */
@@ -94,7 +93,6 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         $this->deliveries = $deliveries;
         $this->discountedPrice = $discountedPrice;
         $this->shippingMethodState = $shippingMethodState;
-
     }
 
     /**
@@ -308,7 +306,4 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         $this->shippingMethodState = $shippingMethodState;
     }
-
-
-
 }

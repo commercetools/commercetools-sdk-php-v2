@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectModel implements ProductTypeChangeAttributeConstraintAction
 {
     public const DISCRIMINATOR_VALUE = 'changeAttributeConstraint';
@@ -103,7 +102,4 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     {
         $this->newValue = $newValue;
     }
-
-
-
 }

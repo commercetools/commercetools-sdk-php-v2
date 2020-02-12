@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShippingRate extends JsonObject
 {
-
     public const FIELD_PRICE = 'price';
     public const FIELD_FREE_ABOVE = 'freeAbove';
     public const FIELD_IS_MATCHING = 'isMatching';

@@ -8,20 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 {
-
     /**
      * @var ?ChannelReference
      */
@@ -46,7 +45,6 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
         $this->channel = $channel;
         $this->externalId = $externalId;
         $this->syncedAt = $syncedAt;
-
     }
 
     /**
@@ -133,5 +131,4 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
         }
         return (object) $data;
     }
-
 }

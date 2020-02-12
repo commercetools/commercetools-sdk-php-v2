@@ -8,22 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft
 {
-
     /**
      * @var ?string
      */
@@ -69,7 +68,6 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
         $this->custom = $custom;
-
     }
 
     /**
@@ -221,5 +219,4 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         }
         return (object) $data;
     }
-
 }

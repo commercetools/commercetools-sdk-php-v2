@@ -34,5 +34,4 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyBy
 
         return new ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete((string) $args['projectKey'], (string) $args['importSinkKey'], (string) $args['resourceKey'], $body, $headers, $this->getClient());
     }
-
 }

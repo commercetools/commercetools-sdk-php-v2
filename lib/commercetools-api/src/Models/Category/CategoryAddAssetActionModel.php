@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Api\Models\Common\AssetDraft;
+use Commercetools\Api\Models\Common\AssetDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\AssetDraft;
-use Commercetools\Api\Models\Common\AssetDraftModel;
 
 final class CategoryAddAssetActionModel extends JsonObjectModel implements CategoryAddAssetAction
 {
@@ -108,7 +108,4 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     {
         $this->position = $position;
     }
-
-
-
 }

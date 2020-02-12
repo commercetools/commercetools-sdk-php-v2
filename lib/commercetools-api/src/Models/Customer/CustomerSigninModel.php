@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerSigninModel extends JsonObjectModel implements CustomerSignin
 {
-
     /**
      * @var ?string
      */
@@ -63,7 +61,6 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         $this->anonymousCartSignInMode = $anonymousCartSignInMode;
         $this->anonymousId = $anonymousId;
         $this->updateProductData = $updateProductData;
-
     }
 
     /**
@@ -197,7 +194,4 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         $this->updateProductData = $updateProductData;
     }
-
-
-
 }

@@ -8,25 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Category\CategoryResourceIdentifierCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
+use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
+
+use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Category\CategoryResourceIdentifierCollection;
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
-use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
-use Commercetools\Api\Models\State\StateResourceIdentifier;
-use Commercetools\Api\Models\State\StateResourceIdentifierModel;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
-
 final class ProductDraftModel extends JsonObjectModel implements ProductDraft
 {
-
     /**
      * @var ?ProductTypeResourceIdentifier
      */
@@ -142,7 +141,6 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
         $this->publish = $publish;
-
     }
 
     /**
@@ -527,7 +525,4 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     {
         $this->publish = $publish;
     }
-
-
-
 }

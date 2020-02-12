@@ -20,10 +20,6 @@ use stdClass;
  */
 final class WhitespaceTokenizerBuilder implements Builder
 {
-
-
-
-
     public function build(): WhitespaceTokenizer
     {
         return new WhitespaceTokenizerModel(

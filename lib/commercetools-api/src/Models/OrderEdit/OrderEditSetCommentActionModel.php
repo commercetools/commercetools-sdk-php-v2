@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderEditSetCommentActionModel extends JsonObjectModel implements OrderEditSetCommentAction
 {
     public const DISCRIMINATOR_VALUE = 'setComment';
@@ -74,7 +73,4 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     {
         $this->comment = $comment;
     }
-
-
-
 }

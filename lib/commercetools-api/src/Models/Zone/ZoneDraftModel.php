@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
 {
-
     /**
      * @var ?string
      */
@@ -49,7 +47,6 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
         $this->name = $name;
         $this->description = $description;
         $this->locations = $locations;
-
     }
 
     /**
@@ -143,7 +140,4 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     {
         $this->locations = $locations;
     }
-
-
-
 }

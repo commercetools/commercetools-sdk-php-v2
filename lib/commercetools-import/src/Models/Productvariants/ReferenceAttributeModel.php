@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Common\KeyReference;
+
 use Commercetools\Import\Models\Common\KeyReferenceModel;
+use stdClass;
 
 final class ReferenceAttributeModel extends JsonObjectModel implements ReferenceAttribute
 {
@@ -112,7 +112,4 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
     {
         $this->value = $value;
     }
-
-
-
 }

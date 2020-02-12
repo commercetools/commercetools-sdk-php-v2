@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class IronMqDestinationModel extends JsonObjectModel implements IronMqDestination
 {
     public const DISCRIMINATOR_VALUE = 'IronMQ';
@@ -74,7 +73,4 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     {
         $this->uri = $uri;
     }
-
-
-
 }

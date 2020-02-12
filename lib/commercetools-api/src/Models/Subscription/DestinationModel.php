@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DestinationModel extends JsonObjectModel implements Destination
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
 
     /**
      * @psalm-var array<string, class-string<Destination> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'AzureServiceBus' => AzureServiceBusDestinationModel::class,
@@ -67,24 +66,24 @@ final class DestinationModel extends JsonObjectModel implements Destination
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = Destination::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = Destination::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<Destination> */
-       $type = DestinationModel::class;
-       return $type;
+        /** @psalm-var class-string<Destination> */
+        $type = DestinationModel::class;
+        return $type;
     }
 }

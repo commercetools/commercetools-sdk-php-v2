@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class InventoryEntryUpdateActionModel extends JsonObjectModel implements InventoryEntryUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
 
     /**
      * @psalm-var array<string, class-string<InventoryEntryUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'addQuantity' => InventoryEntryAddQuantityActionModel::class,
@@ -69,24 +68,24 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = InventoryEntryUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = InventoryEntryUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<InventoryEntryUpdateAction> */
-       $type = InventoryEntryUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<InventoryEntryUpdateAction> */
+        $type = InventoryEntryUpdateActionModel::class;
+        return $type;
     }
 }

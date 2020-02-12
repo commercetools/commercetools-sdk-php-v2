@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionHttpDestinationModel extends JsonObjectModel implements ExtensionHttpDestination
 {
     public const DISCRIMINATOR_VALUE = 'HTTP';
@@ -104,7 +103,4 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     {
         $this->authentication = $authentication;
     }
-
-
-
 }

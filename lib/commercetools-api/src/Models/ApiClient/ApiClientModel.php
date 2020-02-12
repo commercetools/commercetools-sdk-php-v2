@@ -12,14 +12,13 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ApiClientModel extends JsonObjectModel implements ApiClient
 {
-
     /**
      * @var ?string
      */
@@ -72,7 +71,6 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         $this->lastUsedAt = $lastUsedAt;
         $this->deleteAt = $deleteAt;
         $this->secret = $secret;
-
     }
 
     /**
@@ -271,5 +269,4 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         }
         return (object) $data;
     }
-
 }

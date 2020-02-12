@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel implements ProductSetCategoryOrderHintAction
 {
     public const DISCRIMINATOR_VALUE = 'setCategoryOrderHint';
@@ -132,7 +131,4 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     {
         $this->staged = $staged;
     }
-
-
-
 }

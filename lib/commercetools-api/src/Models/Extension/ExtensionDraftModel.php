@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraft
 {
-
     /**
      * @var ?string
      */
@@ -49,7 +47,6 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
         $this->destination = $destination;
         $this->triggers = $triggers;
         $this->timeoutInMs = $timeoutInMs;
-
     }
 
     /**
@@ -151,7 +148,4 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     {
         $this->timeoutInMs = $timeoutInMs;
     }
-
-
-
 }

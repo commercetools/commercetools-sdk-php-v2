@@ -12,9 +12,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Productvariants\ProductVariantPatchCollection;
+
+use stdClass;
 
 final class ProductVariantPatchRequestModel extends JsonObjectModel implements ProductVariantPatchRequest
 {
@@ -79,7 +79,4 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     {
         $this->patches = $patches;
     }
-
-
-
 }

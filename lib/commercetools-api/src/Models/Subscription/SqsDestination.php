@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SqsDestination extends Destination
 {
-
     public const FIELD_ACCESS_KEY = 'accessKey';
     public const FIELD_ACCESS_SECRET = 'accessSecret';
     public const FIELD_QUEUE_URL = 'queueUrl';

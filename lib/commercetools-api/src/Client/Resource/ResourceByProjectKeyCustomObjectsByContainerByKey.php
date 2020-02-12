@@ -37,5 +37,4 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
 
         return new ByProjectKeyCustomObjectsByContainerByKeyDelete((string) $args['projectKey'], (string) $args['container'], (string) $args['key'], $body, $headers, $this->getClient());
     }
-
 }

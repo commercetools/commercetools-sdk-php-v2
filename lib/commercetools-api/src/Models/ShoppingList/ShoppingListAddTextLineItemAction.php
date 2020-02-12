@@ -8,15 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
 {
-
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_QUANTITY = 'quantity';

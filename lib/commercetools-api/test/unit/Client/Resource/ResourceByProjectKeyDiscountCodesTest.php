@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyDiscountCodesGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 '{projectKey}/discount-codes?withTotal=withTotal',
             ],
             'ByProjectKeyDiscountCodesGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 '{projectKey}/discount-codes?expand=expand',
             ],
             'ByProjectKeyDiscountCodesPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
     {
         return [
             'ByProjectKeyDiscountCodesGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 }
             ],
             'ByProjectKeyDiscountCodesPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->discountCodes()

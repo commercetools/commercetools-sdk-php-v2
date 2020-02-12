@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Cart\CartUpdate;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\Cart\CartUpdate;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,5 +48,4 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID extends ApiResource
 
         return new ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

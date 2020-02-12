@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface FieldDefinition extends JsonObject
 {
-
     public const FIELD_TYPE = 'type';
     public const FIELD_NAME = 'name';
     public const FIELD_LABEL = 'label';

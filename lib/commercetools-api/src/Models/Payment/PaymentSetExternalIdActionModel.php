@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class PaymentSetExternalIdActionModel extends JsonObjectModel implements PaymentSetExternalIdAction
 {
     public const DISCRIMINATOR_VALUE = 'setExternalId';
@@ -74,7 +73,4 @@ final class PaymentSetExternalIdActionModel extends JsonObjectModel implements P
     {
         $this->externalId = $externalId;
     }
-
-
-
 }

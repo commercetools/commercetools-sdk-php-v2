@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
-
 final class UserProvidedIdentifiersModel extends JsonObjectModel implements UserProvidedIdentifiers
 {
-
     /**
      * @var ?string
      */
@@ -65,7 +64,6 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         $this->customerNumber = $customerNumber;
         $this->sku = $sku;
         $this->slug = $slug;
-
     }
 
     /**
@@ -200,7 +198,4 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         $this->slug = $slug;
     }
-
-
-
 }

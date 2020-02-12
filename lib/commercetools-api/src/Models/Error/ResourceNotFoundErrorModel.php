@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ResourceNotFoundErrorModel extends JsonObjectModel implements ResourceNotFoundError
 {
     public const DISCRIMINATOR_VALUE = 'ResourceNotFound';
@@ -74,7 +73,4 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     {
         $this->message = $message;
     }
-
-
-
 }

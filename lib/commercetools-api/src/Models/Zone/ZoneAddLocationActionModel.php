@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAddLocationAction
 {
     public const DISCRIMINATOR_VALUE = 'addLocation';
@@ -75,7 +74,4 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
     {
         $this->location = $location;
     }
-
-
-
 }

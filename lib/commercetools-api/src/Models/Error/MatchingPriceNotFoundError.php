@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MatchingPriceNotFoundError extends ErrorObject
 {
-
     public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_CURRENCY = 'currency';

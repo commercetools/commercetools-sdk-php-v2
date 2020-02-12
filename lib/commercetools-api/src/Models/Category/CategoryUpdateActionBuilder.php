@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CategoryUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): CategoryUpdateAction
     {
         return new CategoryUpdateActionModel(

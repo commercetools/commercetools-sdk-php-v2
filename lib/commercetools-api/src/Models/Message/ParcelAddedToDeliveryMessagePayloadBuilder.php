@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Order\Delivery;
+use Commercetools\Api\Models\Order\DeliveryBuilder;
+use Commercetools\Api\Models\Order\Parcel;
+use Commercetools\Api\Models\Order\ParcelBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\Api\Models\Order\Delivery;
-use Commercetools\Api\Models\Order\DeliveryBuilder;
-use Commercetools\Api\Models\Order\Parcel;
-use Commercetools\Api\Models\Order\ParcelBuilder;
 
 /**
  * @implements Builder<ParcelAddedToDeliveryMessagePayload>

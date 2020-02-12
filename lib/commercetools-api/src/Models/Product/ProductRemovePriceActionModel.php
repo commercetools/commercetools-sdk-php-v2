@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductRemovePriceActionModel extends JsonObjectModel implements ProductRemovePriceAction
 {
     public const DISCRIMINATOR_VALUE = 'removePrice';
@@ -105,7 +104,4 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     {
         $this->staged = $staged;
     }
-
-
-
 }

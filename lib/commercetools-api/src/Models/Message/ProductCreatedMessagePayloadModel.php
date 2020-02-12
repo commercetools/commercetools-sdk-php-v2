@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Product\ProductProjection;
+use Commercetools\Api\Models\Product\ProductProjectionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Product\ProductProjectionModel;
 
 final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements ProductCreatedMessagePayload
 {
@@ -77,7 +77,4 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     {
         $this->productProjection = $productProjection;
     }
-
-
-
 }

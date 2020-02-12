@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CustomFieldDateTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): CustomFieldDateType
     {
         return new CustomFieldDateTypeModel(

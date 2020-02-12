@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\AssetSourceCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Common\AssetSourceCollection;
+use stdClass;
 
 final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements ProductSetAssetSourcesAction
 {
@@ -220,7 +220,4 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     {
         $this->sources = $sources;
     }
-
-
-
 }

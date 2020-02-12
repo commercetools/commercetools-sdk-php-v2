@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 
     /**
      * @psalm-var array<string, class-string<ImportRequest> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'category' => CategoryImportRequestModel::class,
@@ -70,24 +69,24 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ImportRequest::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = ImportRequest::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<ImportRequest> */
-       $type = ImportRequestModel::class;
-       return $type;
+        /** @psalm-var class-string<ImportRequest> */
+        $type = ImportRequestModel::class;
+        return $type;
     }
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SnsDestinationModel extends JsonObjectModel implements SnsDestination
 {
     public const DISCRIMINATOR_VALUE = 'SNS';
@@ -132,7 +131,4 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     {
         $this->topicArn = $topicArn;
     }
-
-
-
 }

@@ -8,22 +8,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft
 {
-
     /**
      * @var ?LocalizedString
      */
@@ -118,7 +117,6 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->requiresDiscountCode = $requiresDiscountCode;
         $this->stackingMode = $stackingMode;
         $this->custom = $custom;
-
     }
 
     /**
@@ -454,5 +452,4 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         }
         return (object) $data;
     }
-
 }

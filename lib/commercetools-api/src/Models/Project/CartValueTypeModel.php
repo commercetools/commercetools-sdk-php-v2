@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartValueTypeModel extends JsonObjectModel implements CartValueType
 {
     public const DISCRIMINATOR_VALUE = 'CartValue';
@@ -45,8 +44,4 @@ final class CartValueTypeModel extends JsonObjectModel implements CartValueType
 
         return $this->type;
     }
-
-
-
-
 }

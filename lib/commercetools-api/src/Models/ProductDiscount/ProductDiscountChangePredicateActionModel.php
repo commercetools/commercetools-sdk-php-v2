@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductDiscountChangePredicateActionModel extends JsonObjectModel implements ProductDiscountChangePredicateAction
 {
     public const DISCRIMINATOR_VALUE = 'changePredicate';
@@ -76,7 +75,4 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     {
         $this->predicate = $predicate;
     }
-
-
-
 }

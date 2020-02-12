@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MessageSubscriptionModel extends JsonObjectModel implements MessageSubscription
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     ) {
         $this->resourceTypeId = $resourceTypeId;
         $this->types = $types;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     {
         $this->types = $types;
     }
-
-
-
 }

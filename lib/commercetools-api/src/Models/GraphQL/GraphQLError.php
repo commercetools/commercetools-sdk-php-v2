@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\GraphQL;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface GraphQLError extends JsonObject
 {
-
     public const FIELD_MESSAGE = 'message';
     public const FIELD_LOCATIONS = 'locations';
     public const FIELD_PATH = 'path';

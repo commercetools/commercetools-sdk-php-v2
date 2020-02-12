@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ChannelUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ChannelUpdateAction
     {
         return new ChannelUpdateActionModel(

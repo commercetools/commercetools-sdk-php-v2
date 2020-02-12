@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
 
 interface AttributeNestedType extends AttributeType
 {
-
     public const FIELD_TYPE_REFERENCE = 'typeReference';
 
     /**

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface AttributeReferenceType extends AttributeType
 {
-
     public const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**

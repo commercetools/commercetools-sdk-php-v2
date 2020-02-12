@@ -12,13 +12,12 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
+
+use stdClass;
 
 final class ImportResponseModel extends JsonObjectModel implements ImportResponse
 {
-
     /**
      * @var ?ImportOperationStatusCollection
      */
@@ -29,7 +28,6 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
         ImportOperationStatusCollection $operationStatus = null
     ) {
         $this->operationStatus = $operationStatus;
-
     }
 
     /**
@@ -53,7 +51,4 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     {
         $this->operationStatus = $operationStatus;
     }
-
-
-
 }

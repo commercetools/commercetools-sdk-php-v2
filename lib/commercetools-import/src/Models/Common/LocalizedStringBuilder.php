@@ -20,10 +20,6 @@ use stdClass;
  */
 final class LocalizedStringBuilder implements Builder
 {
-
-
-
-
     public function build(): LocalizedString
     {
         return new LocalizedStringModel(

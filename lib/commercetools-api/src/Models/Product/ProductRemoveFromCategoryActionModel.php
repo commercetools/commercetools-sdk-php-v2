@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
+use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
-use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 
 final class ProductRemoveFromCategoryActionModel extends JsonObjectModel implements ProductRemoveFromCategoryAction
 {
@@ -106,7 +106,4 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     {
         $this->staged = $staged;
     }
-
-
-
 }

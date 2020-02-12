@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implements StagedOrderAddShoppingListAction
 {
@@ -141,7 +141,4 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
     {
         $this->distributionChannel = $distributionChannel;
     }
-
-
-
 }

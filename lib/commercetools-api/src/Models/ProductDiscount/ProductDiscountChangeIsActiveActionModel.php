@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductDiscountChangeIsActiveActionModel extends JsonObjectModel implements ProductDiscountChangeIsActiveAction
 {
     public const DISCRIMINATOR_VALUE = 'changeIsActive';
@@ -74,7 +73,4 @@ final class ProductDiscountChangeIsActiveActionModel extends JsonObjectModel imp
     {
         $this->isActive = $isActive;
     }
-
-
-
 }

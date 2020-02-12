@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SubscriptionUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface SubscriptionUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

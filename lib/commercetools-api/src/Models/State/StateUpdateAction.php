@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StateUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface StateUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

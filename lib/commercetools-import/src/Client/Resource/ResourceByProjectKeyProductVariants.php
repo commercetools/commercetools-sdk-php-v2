@@ -26,5 +26,4 @@ class ResourceByProjectKeyProductVariants extends ApiResource
 
         return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey($this->getUri() . '/importSinkKey={importSinkKey}', $args, $this->getClient());
     }
-
 }

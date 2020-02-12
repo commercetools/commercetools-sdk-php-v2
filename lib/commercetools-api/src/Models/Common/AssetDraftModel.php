@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 final class AssetDraftModel extends JsonObjectModel implements AssetDraft
 {
-
     /**
      * @var ?AssetSourceCollection
      */
@@ -65,7 +64,6 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
         $this->tags = $tags;
         $this->custom = $custom;
         $this->key = $key;
-
     }
 
     /**
@@ -202,7 +200,4 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     {
         $this->key = $key;
     }
-
-
-
 }

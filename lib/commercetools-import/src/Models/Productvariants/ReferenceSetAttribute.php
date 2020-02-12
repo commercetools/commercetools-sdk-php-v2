@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\KeyReferenceCollection;
 
 interface ReferenceSetAttribute extends Attribute
 {
-
     public const FIELD_VALUE = 'value';
 
     /**

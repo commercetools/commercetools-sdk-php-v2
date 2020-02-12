@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements AttributeLocalizableTextType
 {
     public const DISCRIMINATOR_VALUE = 'ltext';
@@ -45,8 +44,4 @@ final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements
 
         return $this->name;
     }
-
-
-
-
 }

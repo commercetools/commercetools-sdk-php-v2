@@ -8,27 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\DeliveryCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceModel;
+
 use Commercetools\Api\Models\ShippingMethod\ShippingRate;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
 {
-
     /**
      * @var ?string
      */
@@ -102,7 +101,6 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
         $this->deliveries = $deliveries;
         $this->discountedPrice = $discountedPrice;
         $this->shippingMethodState = $shippingMethodState;
-
     }
 
     /**
@@ -346,7 +344,4 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     {
         $this->shippingMethodState = $shippingMethodState;
     }
-
-
-
 }

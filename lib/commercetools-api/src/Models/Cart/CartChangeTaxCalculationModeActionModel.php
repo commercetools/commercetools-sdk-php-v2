@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel implements CartChangeTaxCalculationModeAction
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxCalculationMode';
@@ -74,7 +73,4 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     {
         $this->taxCalculationMode = $taxCalculationMode;
     }
-
-
-
 }

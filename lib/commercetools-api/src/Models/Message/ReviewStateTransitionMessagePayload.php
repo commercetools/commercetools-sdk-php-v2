@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewStateTransitionMessagePayload extends MessagePayload
 {
-
     public const FIELD_OLD_STATE = 'oldState';
     public const FIELD_NEW_STATE = 'newState';
     public const FIELD_OLD_INCLUDED_IN_STATISTICS = 'oldIncludedInStatistics';

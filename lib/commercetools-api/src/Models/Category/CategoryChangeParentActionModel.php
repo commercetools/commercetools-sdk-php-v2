@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CategoryChangeParentActionModel extends JsonObjectModel implements CategoryChangeParentAction
 {
     public const DISCRIMINATOR_VALUE = 'changeParent';
@@ -75,7 +74,4 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     {
         $this->parent = $parent;
     }
-
-
-
 }

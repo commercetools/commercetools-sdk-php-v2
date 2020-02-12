@@ -12,14 +12,13 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ParcelModel extends JsonObjectModel implements Parcel
 {
-
     /**
      * @var ?string
      */
@@ -58,7 +57,6 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
-
     }
 
     /**
@@ -188,5 +186,4 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         }
         return (object) $data;
     }
-
 }

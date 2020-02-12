@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyTransactionDraft extends JsonObject
 {
-
     public const FIELD_TIMESTAMP = 'timestamp';
     public const FIELD_TYPE = 'type';
     public const FIELD_AMOUNT = 'amount';

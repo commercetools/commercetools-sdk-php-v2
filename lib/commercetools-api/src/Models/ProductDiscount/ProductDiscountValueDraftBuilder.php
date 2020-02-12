@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ProductDiscountValueDraftBuilder implements Builder
 {
-
-
-
-
     public function build(): ProductDiscountValueDraft
     {
         return new ProductDiscountValueDraftModel(

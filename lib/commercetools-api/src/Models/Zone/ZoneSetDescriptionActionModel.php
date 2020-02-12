@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ZoneSetDescriptionActionModel extends JsonObjectModel implements ZoneSetDescriptionAction
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
@@ -74,7 +73,4 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     {
         $this->description = $description;
     }
-
-
-
 }

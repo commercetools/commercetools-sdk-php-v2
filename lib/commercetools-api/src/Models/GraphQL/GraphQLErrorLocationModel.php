@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQLErrorLocation
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     ) {
         $this->line = $line;
         $this->column = $column;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     {
         $this->column = $column;
     }
-
-
-
 }

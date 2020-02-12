@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderEditNotProcessed
 {
     public const DISCRIMINATOR_VALUE = 'NotProcessed';
@@ -45,8 +44,4 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
 
         return $this->type;
     }
-
-
-
-
 }

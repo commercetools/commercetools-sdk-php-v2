@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface TaxCategoryPagedQueryResponse extends JsonObject
 {
-
     public const FIELD_LIMIT = 'limit';
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';

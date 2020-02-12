@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
 {
     public const DISCRIMINATOR_VALUE = 'nested';
@@ -75,7 +74,4 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         $this->typeReference = $typeReference;
     }
-
-
-
 }

@@ -8,17 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
@@ -27,12 +22,16 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ProductProjectionModel extends JsonObjectModel implements ProductProjection
 {
-
     /**
      * @var ?string
      */
@@ -190,7 +189,6 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->taxCategory = $taxCategory;
         $this->state = $state;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
-
     }
 
     /**
@@ -721,5 +719,4 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         }
         return (object) $data;
     }
-
 }

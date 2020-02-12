@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DiscountCodeUpdateActionModel extends JsonObjectModel implements DiscountCodeUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
 
     /**
      * @psalm-var array<string, class-string<DiscountCodeUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'changeCartDiscounts' => DiscountCodeChangeCartDiscountsActionModel::class,
@@ -74,24 +73,24 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = DiscountCodeUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = DiscountCodeUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<DiscountCodeUpdateAction> */
-       $type = DiscountCodeUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<DiscountCodeUpdateAction> */
+        $type = DiscountCodeUpdateActionModel::class;
+        return $type;
     }
 }

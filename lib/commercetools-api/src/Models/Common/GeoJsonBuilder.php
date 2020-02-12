@@ -20,10 +20,6 @@ use stdClass;
  */
 final class GeoJsonBuilder implements Builder
 {
-
-
-
-
     public function build(): GeoJson
     {
         return new GeoJsonModel(

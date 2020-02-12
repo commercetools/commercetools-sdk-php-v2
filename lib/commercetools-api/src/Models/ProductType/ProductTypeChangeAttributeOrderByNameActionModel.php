@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectModel implements ProductTypeChangeAttributeOrderByNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeAttributeOrderByName';
@@ -74,7 +73,4 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
     {
         $this->attributeNames = $attributeNames;
     }
-
-
-
 }

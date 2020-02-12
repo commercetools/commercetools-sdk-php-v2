@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface ProductUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

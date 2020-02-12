@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SubscriptionChangeDestinationActionModel extends JsonObjectModel implements SubscriptionChangeDestinationAction
 {
     public const DISCRIMINATOR_VALUE = 'changeDestination';
@@ -75,7 +74,4 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     {
         $this->destination = $destination;
     }
-
-
-
 }

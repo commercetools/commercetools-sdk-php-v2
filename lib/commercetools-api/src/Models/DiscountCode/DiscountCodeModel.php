@@ -8,17 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -26,12 +21,16 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
 {
-
     /**
      * @var ?string
      */
@@ -168,7 +167,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->groups = $groups;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
-
     }
 
     /**
@@ -660,5 +658,4 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         }
         return (object) $data;
     }
-
 }

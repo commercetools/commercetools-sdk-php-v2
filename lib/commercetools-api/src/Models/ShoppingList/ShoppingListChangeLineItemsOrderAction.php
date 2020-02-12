@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShoppingListChangeLineItemsOrderAction extends ShoppingListUpdateAction
 {
-
     public const FIELD_LINE_ITEM_ORDER = 'lineItemOrder';
 
     /**

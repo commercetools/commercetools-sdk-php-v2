@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface GoogleCloudPubSubDestination extends Destination
 {
-
     public const FIELD_PROJECT_ID = 'projectId';
     public const FIELD_TOPIC = 'topic';
 

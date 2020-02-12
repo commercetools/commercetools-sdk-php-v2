@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implements OrderSetParcelMeasurementsAction
 {
     public const DISCRIMINATOR_VALUE = 'setParcelMeasurements';
@@ -104,7 +103,4 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     {
         $this->measurements = $measurements;
     }
-
-
-
 }

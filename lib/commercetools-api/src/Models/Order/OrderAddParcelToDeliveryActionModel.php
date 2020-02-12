@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implements OrderAddParcelToDeliveryAction
 {
     public const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
@@ -163,7 +162,4 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     {
         $this->items = $items;
     }
-
-
-
 }

@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 final class TimeAttributeModel extends JsonObjectModel implements TimeAttribute
 {
@@ -123,5 +123,4 @@ final class TimeAttributeModel extends JsonObjectModel implements TimeAttribute
         }
         return (object) $data;
     }
-
 }

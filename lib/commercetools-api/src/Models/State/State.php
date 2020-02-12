@@ -8,17 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface State extends BaseResource
 {
-
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_KEY = 'key';

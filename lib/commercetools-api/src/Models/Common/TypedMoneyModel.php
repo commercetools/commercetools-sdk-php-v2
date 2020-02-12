@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -40,7 +39,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 
     /**
      * @psalm-var array<string, class-string<TypedMoney> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'centPrecision' => CentPrecisionMoneyModel::class,
@@ -151,24 +150,24 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = TypedMoney::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = TypedMoney::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<TypedMoney> */
-       $type = TypedMoneyModel::class;
-       return $type;
+        /** @psalm-var class-string<TypedMoney> */
+        $type = TypedMoneyModel::class;
+        return $type;
     }
 }

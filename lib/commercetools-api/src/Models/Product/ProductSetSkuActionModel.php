@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductSetSkuActionModel extends JsonObjectModel implements ProductSetSkuAction
 {
     public const DISCRIMINATOR_VALUE = 'setSku';
@@ -135,7 +134,4 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     {
         $this->staged = $staged;
     }
-
-
-
 }

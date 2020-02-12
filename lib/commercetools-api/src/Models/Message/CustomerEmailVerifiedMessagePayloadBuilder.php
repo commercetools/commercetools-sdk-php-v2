@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CustomerEmailVerifiedMessagePayloadBuilder implements Builder
 {
-
-
-
-
     public function build(): CustomerEmailVerifiedMessagePayload
     {
         return new CustomerEmailVerifiedMessagePayloadModel(

@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 final class CustomLineItemReturnItemModel extends JsonObjectModel implements CustomLineItemReturnItem
 {
@@ -301,5 +301,4 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         }
         return (object) $data;
     }
-
 }

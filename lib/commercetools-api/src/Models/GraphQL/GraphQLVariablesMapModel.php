@@ -14,15 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLVariablesMap
 {
-
-
-
     public function __construct(
     ) {
-
     }
 
 
@@ -43,6 +38,4 @@ final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLV
 
         return $data;
     }
-
-
 }

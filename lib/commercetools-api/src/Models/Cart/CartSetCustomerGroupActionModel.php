@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 
 final class CartSetCustomerGroupActionModel extends JsonObjectModel implements CartSetCustomerGroupAction
 {
@@ -77,7 +77,4 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
     {
         $this->customerGroup = $customerGroup;
     }
-
-
-
 }

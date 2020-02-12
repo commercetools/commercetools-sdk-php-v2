@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredFieldError
 {
     public const DISCRIMINATOR_VALUE = 'RequiredField';
@@ -107,7 +106,4 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         $this->field = $field;
     }
-
-
-
 }

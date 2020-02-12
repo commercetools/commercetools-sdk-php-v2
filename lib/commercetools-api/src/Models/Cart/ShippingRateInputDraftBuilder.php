@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ShippingRateInputDraftBuilder implements Builder
 {
-
-
-
-
     public function build(): ShippingRateInputDraft
     {
         return new ShippingRateInputDraftModel(

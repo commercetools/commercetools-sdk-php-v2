@@ -8,21 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Api\Models\Product\ProductPagedQueryResponse;
 use Commercetools\Api\Models\Product\ProductPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -49,7 +47,6 @@ class ByProjectKeyProductsGet extends ApiRequest
         if (is_null($response)) {
             return null;
         }
-        $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
@@ -83,7 +80,7 @@ class ByProjectKeyProductsGet extends ApiRequest
             }
         }
 
-        return $mapper->mapResponseToClass($resultType, $response);
+        return $resultType::of($this->responseData($response));
     }
 
     /**
@@ -110,7 +107,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductsGet
@@ -119,7 +116,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCountry
      */
     public function withPriceCountry($priceCountry): ByProjectKeyProductsGet
@@ -128,7 +125,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCustomerGroup
      */
     public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductsGet
@@ -137,7 +134,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductsGet
@@ -146,7 +143,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyProductsGet
@@ -155,7 +152,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $where
      */
     public function withWhere($where): ByProjectKeyProductsGet
@@ -164,7 +161,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyProductsGet
@@ -173,7 +170,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyProductsGet
@@ -182,7 +179,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyProductsGet
@@ -191,7 +188,7 @@ class ByProjectKeyProductsGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyProductsGet

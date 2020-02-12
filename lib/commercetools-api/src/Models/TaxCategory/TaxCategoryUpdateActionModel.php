@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxCategoryUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxC
 
     /**
      * @psalm-var array<string, class-string<TaxCategoryUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'addTaxRate' => TaxCategoryAddTaxRateActionModel::class,
@@ -67,24 +66,24 @@ final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxC
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = TaxCategoryUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = TaxCategoryUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<TaxCategoryUpdateAction> */
-       $type = TaxCategoryUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<TaxCategoryUpdateAction> */
+        $type = TaxCategoryUpdateActionModel::class;
+        return $type;
     }
 }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 
 /**
  * @implements Builder<MatchingPriceNotFoundError>

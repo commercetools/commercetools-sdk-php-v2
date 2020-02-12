@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
@@ -62,7 +62,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
     /**
      * @psalm-var array<string, class-string<ReturnItem> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'CustomLineItemReturnItem' => CustomLineItemReturnItemModel::class,
@@ -287,24 +287,24 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ReturnItem::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = ReturnItem::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<ReturnItem> */
-       $type = ReturnItemModel::class;
-       return $type;
+        /** @psalm-var class-string<ReturnItem> */
+        $type = ReturnItemModel::class;
+        return $type;
     }
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TextSetAttributeModel extends JsonObjectModel implements TextSetAttribute
 {
     public const DISCRIMINATOR_VALUE = 'text-set';
@@ -107,7 +106,4 @@ final class TextSetAttributeModel extends JsonObjectModel implements TextSetAttr
     {
         $this->value = $value;
     }
-
-
-
 }

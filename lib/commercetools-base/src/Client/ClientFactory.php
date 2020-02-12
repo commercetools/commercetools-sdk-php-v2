@@ -38,8 +38,8 @@ class ClientFactory
     public function createGuzzleClientForHandler(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): ClientInterface
     {
         $middlewares = array_merge(
-           MiddlewareFactory::createDefaultMiddlewares($handler, $logger, (int) ($config->getOptions()['maxRetries'] ?? 0)),
-           $middlewares
+            MiddlewareFactory::createDefaultMiddlewares($handler, $logger, (int) ($config->getOptions()['maxRetries'] ?? 0)),
+            $middlewares
         );
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
@@ -49,9 +49,9 @@ class ClientFactory
      * @throws InvalidArgumentException
      */
     public function createGuzzleClientForMiddlewares(
-       Config $config,
-       array $middlewares = []): ClientInterface
-    {
+        Config $config,
+        array $middlewares = []
+    ): ClientInterface {
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
@@ -79,7 +79,7 @@ class ClientFactory
             $options
         );
         foreach ($middlewares as $key => $middleware) {
-            if(!is_callable($middleware)) {
+            if (!is_callable($middleware)) {
                 throw new InvalidArgumentException('Middleware isn\'t callable');
             }
             $name = is_numeric($key) ? '' : $key;

@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft
 {
-
     /**
      * @var ?JsonObject
      */
@@ -28,7 +26,6 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
         JsonObject $reference = null
     ) {
         $this->reference = $reference;
-
     }
 
     /**
@@ -52,7 +49,4 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     {
         $this->reference = $reference;
     }
-
-
-
 }

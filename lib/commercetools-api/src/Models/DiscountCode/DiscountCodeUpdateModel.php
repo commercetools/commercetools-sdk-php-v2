@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountCodeUpdate
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountC
     ) {
         $this->version = $version;
         $this->actions = $actions;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountC
     {
         $this->actions = $actions;
     }
-
-
-
 }

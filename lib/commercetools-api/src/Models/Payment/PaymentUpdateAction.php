@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface PaymentUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

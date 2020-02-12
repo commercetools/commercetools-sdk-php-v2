@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     ) {
         $this->text = $text;
         $this->suggestTokenizer = $suggestTokenizer;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         $this->suggestTokenizer = $suggestTokenizer;
     }
-
-
-
 }

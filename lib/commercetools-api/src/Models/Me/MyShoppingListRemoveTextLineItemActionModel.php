@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel implements MyShoppingListRemoveTextLineItemAction
 {
     public const DISCRIMINATOR_VALUE = 'removeTextLineItem';
@@ -103,7 +102,4 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
     {
         $this->quantity = $quantity;
     }
-
-
-
 }

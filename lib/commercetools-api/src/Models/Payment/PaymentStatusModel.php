@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\State\StateReference;
-use Commercetools\Api\Models\State\StateReferenceModel;
-
 final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
 {
-
     /**
      * @var ?string
      */
@@ -44,7 +43,6 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
         $this->interfaceCode = $interfaceCode;
         $this->interfaceText = $interfaceText;
         $this->state = $state;
-
     }
 
     /**
@@ -117,7 +115,4 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     {
         $this->state = $state;
     }
-
-
-
 }

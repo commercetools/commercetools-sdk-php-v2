@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements LocalizableEnumSetAttribute
 {
     public const DISCRIMINATOR_VALUE = 'lenum-set';
@@ -107,7 +106,4 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     {
         $this->value = $value;
     }
-
-
-
 }

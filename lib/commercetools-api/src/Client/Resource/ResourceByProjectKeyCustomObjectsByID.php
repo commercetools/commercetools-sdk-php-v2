@@ -37,5 +37,4 @@ class ResourceByProjectKeyCustomObjectsByID extends ApiResource
 
         return new ByProjectKeyCustomObjectsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

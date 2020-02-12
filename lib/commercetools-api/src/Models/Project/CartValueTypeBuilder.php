@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CartValueTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): CartValueType
     {
         return new CartValueTypeModel(

@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Customer\CustomerReference;
-use Commercetools\Api\Models\Customer\CustomerReferenceModel;
-
 final class LastModifiedByModel extends JsonObjectModel implements LastModifiedBy
 {
-
     /**
      * @var ?string
      */
@@ -51,7 +50,6 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         $this->externalUserId = $externalUserId;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
-
     }
 
     /**
@@ -142,7 +140,4 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     {
         $this->anonymousId = $anonymousId;
     }
-
-
-
 }

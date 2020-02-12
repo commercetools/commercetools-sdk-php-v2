@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\ReferenceModel;
-
 final class ExtensionInputModel extends JsonObjectModel implements ExtensionInput
 {
-
     /**
      * @var ?string
      */
@@ -37,7 +36,6 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     ) {
         $this->action = $action;
         $this->resource = $resource;
-
     }
 
     /**
@@ -84,7 +82,4 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     {
         $this->resource = $resource;
     }
-
-
-
 }

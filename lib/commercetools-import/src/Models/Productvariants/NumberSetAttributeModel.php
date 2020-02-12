@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class NumberSetAttributeModel extends JsonObjectModel implements NumberSetAttribute
 {
     public const DISCRIMINATOR_VALUE = 'number-set';
@@ -107,7 +106,4 @@ final class NumberSetAttributeModel extends JsonObjectModel implements NumberSet
     {
         $this->value = $value;
     }
-
-
-
 }

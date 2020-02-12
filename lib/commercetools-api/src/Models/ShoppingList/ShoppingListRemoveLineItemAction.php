@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShoppingListRemoveLineItemAction extends ShoppingListUpdateAction
 {
-
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_QUANTITY = 'quantity';
 

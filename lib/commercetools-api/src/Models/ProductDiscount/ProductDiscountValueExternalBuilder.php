@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ProductDiscountValueExternalBuilder implements Builder
 {
-
-
-
-
     public function build(): ProductDiscountValueExternal
     {
         return new ProductDiscountValueExternalModel(

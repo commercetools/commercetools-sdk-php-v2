@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductSetImageLabelActionModel extends JsonObjectModel implements ProductSetImageLabelAction
 {
     public const DISCRIMINATOR_VALUE = 'setImageLabel';
@@ -195,7 +194,4 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     {
         $this->staged = $staged;
     }
-
-
-
 }

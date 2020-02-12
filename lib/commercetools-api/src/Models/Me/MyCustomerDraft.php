@@ -8,16 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MyCustomerDraft extends JsonObject
 {
-
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
     public const FIELD_FIRST_NAME = 'firstName';

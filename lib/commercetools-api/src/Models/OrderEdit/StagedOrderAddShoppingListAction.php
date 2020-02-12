@@ -8,15 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderAddShoppingListAction extends StagedOrderUpdateAction
 {
-
     public const FIELD_SHOPPING_LIST = 'shoppingList';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';

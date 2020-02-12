@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class InsufficientScopeErrorModel extends JsonObjectModel implements InsufficientScopeError
 {
     public const DISCRIMINATOR_VALUE = 'insufficient_scope';
@@ -74,7 +73,4 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     {
         $this->message = $message;
     }
-
-
-
 }

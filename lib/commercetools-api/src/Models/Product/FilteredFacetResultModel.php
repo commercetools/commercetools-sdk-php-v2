@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class FilteredFacetResultModel extends JsonObjectModel implements FilteredFacetResult
 {
     public const DISCRIMINATOR_VALUE = 'filter';
@@ -103,7 +102,4 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     {
         $this->productCount = $productCount;
     }
-
-
-
 }

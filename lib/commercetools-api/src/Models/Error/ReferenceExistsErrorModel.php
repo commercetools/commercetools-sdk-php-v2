@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ReferenceExistsErrorModel extends JsonObjectModel implements ReferenceExistsError
 {
     public const DISCRIMINATOR_VALUE = 'ReferenceExists';
@@ -103,7 +102,4 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     {
         $this->referencedBy = $referencedBy;
     }
-
-
-
 }

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ReviewUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface ReviewUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

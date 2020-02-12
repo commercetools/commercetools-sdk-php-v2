@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFieldTimeType
 {
     public const DISCRIMINATOR_VALUE = 'Time';
@@ -45,8 +44,4 @@ final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFi
 
         return $this->name;
     }
-
-
-
-
 }

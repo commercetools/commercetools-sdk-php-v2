@@ -16,6 +16,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
+use stdClass;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ApiRequest extends Request
@@ -83,8 +84,8 @@ class ApiRequest extends Request
                  * @psalm-param scalar|scalar[] $value
                  * @psalm-return scalar[]
                  */
-                function($value): array {
-                    if(is_array($value)) {
+                function ($value): array {
+                    if (is_array($value)) {
                         return $value;
                     }
                     return [$value];
@@ -108,7 +109,7 @@ class ApiRequest extends Request
     public function send(array $options = []): ResponseInterface
     {
         if (is_null($this->client)) {
-           throw new InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->client->send($this, $options);
     }
@@ -122,13 +123,27 @@ class ApiRequest extends Request
     public function sendAsync(array $options = []): PromiseInterface
     {
         if (is_null($this->client)) {
-           throw new InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->client->sendAsync($this, $options);
     }
 
     public function getClient(): ?ClientInterface
     {
-       return $this->client;
+        return $this->client;
+    }
+
+    /**
+     * @psalm-return stdClass
+     */
+    final protected function responseData(ResponseInterface $response)
+    {
+        $body = (string)$response->getBody();
+        /** @psalm-var ?stdClass $data */
+        $data = json_decode($body);
+        if (is_null($data)) {
+            throw new InvalidArgumentException();
+        }
+        return $data;
     }
 }

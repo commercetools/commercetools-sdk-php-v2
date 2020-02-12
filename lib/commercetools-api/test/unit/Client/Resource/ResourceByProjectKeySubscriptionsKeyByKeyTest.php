@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeySubscriptionsKeyByKeyGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()
@@ -61,7 +61,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()
@@ -96,7 +96,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()
@@ -127,7 +127,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
     {
         return [
             'ByProjectKeySubscriptionsKeyByKeyGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()
@@ -136,7 +136,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeySubscriptionsKeyByKeyPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()
@@ -145,7 +145,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 }
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->subscriptions()

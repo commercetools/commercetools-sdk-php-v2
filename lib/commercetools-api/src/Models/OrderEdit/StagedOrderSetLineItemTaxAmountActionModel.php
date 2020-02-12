@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel implements StagedOrderSetLineItemTaxAmountAction
 {
@@ -108,7 +108,4 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
     {
         $this->externalTaxAmount = $externalTaxAmount;
     }
-
-
-
 }

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartSetCustomLineItemShippingDetailsAction extends CartUpdateAction
 {
-
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 

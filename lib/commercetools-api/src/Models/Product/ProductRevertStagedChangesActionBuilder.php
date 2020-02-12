@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ProductRevertStagedChangesActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ProductRevertStagedChangesAction
     {
         return new ProductRevertStagedChangesActionModel(

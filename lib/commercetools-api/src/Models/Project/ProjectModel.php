@@ -8,20 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Message\MessageConfiguration;
+use Commercetools\Api\Models\Message\MessageConfigurationModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Message\MessageConfiguration;
-use Commercetools\Api\Models\Message\MessageConfigurationModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ProjectModel extends JsonObjectModel implements Project
 {
-
     /**
      * @var ?int
      */
@@ -102,7 +101,6 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->messages = $messages;
         $this->shippingRateInputType = $shippingRateInputType;
         $this->externalOAuth = $externalOAuth;
-
     }
 
     /**
@@ -375,5 +373,4 @@ final class ProjectModel extends JsonObjectModel implements Project
         }
         return (object) $data;
     }
-
 }

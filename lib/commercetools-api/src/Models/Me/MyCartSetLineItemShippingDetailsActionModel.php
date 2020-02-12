@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
-use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 
 final class MyCartSetLineItemShippingDetailsActionModel extends JsonObjectModel implements MyCartSetLineItemShippingDetailsAction
 {
@@ -106,7 +106,4 @@ final class MyCartSetLineItemShippingDetailsActionModel extends JsonObjectModel 
     {
         $this->shippingDetails = $shippingDetails;
     }
-
-
-
 }

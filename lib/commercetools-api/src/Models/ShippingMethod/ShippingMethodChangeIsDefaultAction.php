@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
 {
-
     public const FIELD_IS_DEFAULT = 'isDefault';
 
     /**

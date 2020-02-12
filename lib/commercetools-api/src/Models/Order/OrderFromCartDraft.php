@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderFromCartDraft extends JsonObject
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_VERSION = 'version';
     public const FIELD_ORDER_NUMBER = 'orderNumber';

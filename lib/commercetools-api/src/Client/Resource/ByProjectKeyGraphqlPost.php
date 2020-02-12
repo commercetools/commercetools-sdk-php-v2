@@ -14,8 +14,6 @@ use Commercetools\Api\Models\GraphQL\GraphQLResponse;
 use Commercetools\Api\Models\GraphQL\GraphQLResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
@@ -49,7 +47,6 @@ class ByProjectKeyGraphqlPost extends ApiRequest
         if (is_null($response)) {
             return null;
         }
-        $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
@@ -83,7 +80,7 @@ class ByProjectKeyGraphqlPost extends ApiRequest
             }
         }
 
-        return $mapper->mapResponseToClass($resultType, $response);
+        return $resultType::of($this->responseData($response));
     }
 
     /**

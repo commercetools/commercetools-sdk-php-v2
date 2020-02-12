@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
+use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
-use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
 
 final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel implements ShippingMethodRemoveShippingRateAction
 {
@@ -107,7 +107,4 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     {
         $this->shippingRate = $shippingRate;
     }
-
-
-
 }

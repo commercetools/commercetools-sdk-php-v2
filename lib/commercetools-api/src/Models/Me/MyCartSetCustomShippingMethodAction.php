@@ -8,15 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MyCartSetCustomShippingMethodAction extends MyCartUpdateAction
 {
-
     public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     public const FIELD_SHIPPING_RATE = 'shippingRate';
     public const FIELD_TAX_CATEGORY = 'taxCategory';

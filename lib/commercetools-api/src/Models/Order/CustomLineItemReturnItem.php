@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomLineItemReturnItem extends ReturnItem
 {
-
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFieldError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidField';
@@ -161,7 +160,4 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     {
         $this->allowedValues = $allowedValues;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttribute
 {
     public const DISCRIMINATOR_VALUE = 'boolean';
@@ -107,7 +106,4 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     {
         $this->value = $value;
     }
-
-
-
 }

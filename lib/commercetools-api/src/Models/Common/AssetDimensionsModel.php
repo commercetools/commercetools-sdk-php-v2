@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     ) {
         $this->w = $w;
         $this->h = $h;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     {
         $this->h = $h;
     }
-
-
-
 }

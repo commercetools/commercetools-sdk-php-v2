@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ExtensionUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): ExtensionUpdateAction
     {
         return new ExtensionUpdateActionModel(

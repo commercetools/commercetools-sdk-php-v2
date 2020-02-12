@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements CentPrecisionMoneyDraft
 {
     public const DISCRIMINATOR_VALUE = 'centPrecision';
@@ -105,7 +104,4 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     {
         $this->currencyCode = $currencyCode;
     }
-
-
-
 }

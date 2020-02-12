@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CategorySetAssetCustomFieldAction extends CategoryUpdateAction
 {
-
     public const FIELD_ASSET_ID = 'assetId';
     public const FIELD_ASSET_KEY = 'assetKey';
     public const FIELD_NAME = 'name';

@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CartScoreTier extends ShippingRatePriceTier
 {
-
     public const FIELD_SCORE = 'score';
     public const FIELD_PRICE = 'price';
     public const FIELD_PRICE_FUNCTION = 'priceFunction';

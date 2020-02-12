@@ -20,10 +20,6 @@ use stdClass;
  */
 final class MessagePayloadBuilder implements Builder
 {
-
-
-
-
     public function build(): MessagePayload
     {
         return new MessagePayloadModel(

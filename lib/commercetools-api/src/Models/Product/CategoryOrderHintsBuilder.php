@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use stdClass;
-use Commercetools\Base\MapperMap;
 use Commercetools\Base\Builder;
+use Commercetools\Base\MapperMap;
+use stdClass;
 
 /**
  * @implements Builder<CategoryOrderHints>
@@ -27,7 +27,7 @@ final class CategoryOrderHintsBuilder extends MapperMap implements Builder
             /**
              * @psalm-return ?CategoryOrderHints
              */
-            function(string $key) {
+            function (string $key) {
                 $data = $this->get($key);
                 if ($data instanceof stdClass) {
                     $data = CategoryOrderHintsModel::of($data);

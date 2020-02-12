@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel implements ProjectChangeMessagesEnabledAction
 {
     public const DISCRIMINATOR_VALUE = 'changeMessagesEnabled';
@@ -74,7 +73,4 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     {
         $this->messagesEnabled = $messagesEnabled;
     }
-
-
-
 }

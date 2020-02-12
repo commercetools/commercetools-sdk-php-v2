@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AzureEventGridDestinationModel extends JsonObjectModel implements AzureEventGridDestination
 {
     public const DISCRIMINATOR_VALUE = 'EventGrid';
@@ -103,7 +102,4 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     {
         $this->accessKey = $accessKey;
     }
-
-
-
 }

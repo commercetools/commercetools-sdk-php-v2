@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DeliveryCloudEventsFormat extends DeliveryFormat
 {
-
     public const FIELD_CLOUD_EVENTS_VERSION = 'cloudEventsVersion';
 
     /**

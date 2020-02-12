@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderDiscountCodeRemovedMessagePayload extends MessagePayload
 {
-
     public const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**

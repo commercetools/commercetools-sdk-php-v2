@@ -8,24 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
 {
-
     /**
      * @var ?string
      */
@@ -204,7 +203,6 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->salutation = $salutation;
         $this->key = $key;
         $this->stores = $stores;
-
     }
 
     /**
@@ -811,5 +809,4 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
         return (object) $data;
     }
-
 }

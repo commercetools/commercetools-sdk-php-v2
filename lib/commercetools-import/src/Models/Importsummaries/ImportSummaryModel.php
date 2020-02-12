@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
 {
-
     /**
      * @var ?OperationStates
      */
@@ -35,7 +33,6 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     ) {
         $this->states = $states;
         $this->total = $total;
-
     }
 
     /**
@@ -86,7 +83,4 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     {
         $this->total = $total;
     }
-
-
-
 }

@@ -14,15 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributesModel extends JsonObjectModel implements Attributes
 {
-
-
-
     public function __construct(
     ) {
-
     }
 
 
@@ -43,6 +38,4 @@ final class AttributesModel extends JsonObjectModel implements Attributes
 
         return $data;
     }
-
-
 }

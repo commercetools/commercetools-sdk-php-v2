@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductDiscountValueExternalDraftModel extends JsonObjectModel implements ProductDiscountValueExternalDraft
 {
     public const DISCRIMINATOR_VALUE = 'external';
@@ -45,8 +44,4 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
 
         return $this->type;
     }
-
-
-
-
 }

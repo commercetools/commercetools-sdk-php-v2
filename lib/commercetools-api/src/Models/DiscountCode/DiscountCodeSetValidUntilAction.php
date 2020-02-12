@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface DiscountCodeSetValidUntilAction extends DiscountCodeUpdateAction
 {
-
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**

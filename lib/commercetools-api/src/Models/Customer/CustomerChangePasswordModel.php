@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerChangePasswordModel extends JsonObjectModel implements CustomerChangePassword
 {
-
     /**
      * @var ?string
      */
@@ -49,7 +47,6 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
         $this->version = $version;
         $this->currentPassword = $currentPassword;
         $this->newPassword = $newPassword;
-
     }
 
     /**
@@ -139,7 +136,4 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     {
         $this->newPassword = $newPassword;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomTokenizerModel extends JsonObjectModel implements CustomTokenizer
 {
     public const DISCRIMINATOR_VALUE = 'custom';
@@ -74,7 +73,4 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     {
         $this->inputs = $inputs;
     }
-
-
-
 }

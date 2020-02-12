@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel implements CartSetCustomLineItemTaxRateAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxRate';
@@ -104,7 +103,4 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     {
         $this->externalTaxRate = $externalTaxRate;
     }
-
-
-
 }

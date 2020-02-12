@@ -20,10 +20,6 @@ use stdClass;
  */
 final class ExtensionHttpDestinationAuthenticationBuilder implements Builder
 {
-
-
-
-
     public function build(): ExtensionHttpDestinationAuthentication
     {
         return new ExtensionHttpDestinationAuthenticationModel(

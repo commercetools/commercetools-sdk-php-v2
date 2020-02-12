@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerSetLocaleActionModel extends JsonObjectModel implements CustomerSetLocaleAction
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';
@@ -74,7 +73,4 @@ final class CustomerSetLocaleActionModel extends JsonObjectModel implements Cust
     {
         $this->locale = $locale;
     }
-
-
-
 }

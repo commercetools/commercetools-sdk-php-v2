@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerSetCustomerNumberActionModel extends JsonObjectModel implements CustomerSetCustomerNumberAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerNumber';
@@ -77,7 +76,4 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     {
         $this->customerNumber = $customerNumber;
     }
-
-
-
 }

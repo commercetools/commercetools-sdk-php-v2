@@ -8,27 +8,26 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
+
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
 {
-
     /**
      * @var ?string
      */
@@ -123,7 +122,6 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
-
     }
 
     /**
@@ -445,7 +443,4 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         $this->shippingDetails = $shippingDetails;
     }
-
-
-
 }

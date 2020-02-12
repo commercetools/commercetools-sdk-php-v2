@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
 
 final class ChannelSetAddressActionModel extends JsonObjectModel implements ChannelSetAddressAction
 {
@@ -77,7 +77,4 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
     {
         $this->address = $address;
     }
-
-
-
 }

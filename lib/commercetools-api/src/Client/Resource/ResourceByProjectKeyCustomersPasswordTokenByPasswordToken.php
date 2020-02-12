@@ -27,5 +27,4 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordToken extends ApiResou
 
         return new ByProjectKeyCustomersPasswordTokenByPasswordTokenGet((string) $args['projectKey'], (string) $args['passwordToken'], $body, $headers, $this->getClient());
     }
-
 }

@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Store\StoreKeyReference;
-use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 
 final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
@@ -32,7 +32,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
     /**
      * @psalm-var array<string, class-string<KeyReference> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'store' => StoreKeyReferenceModel::class,
@@ -92,24 +92,24 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = KeyReference::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = KeyReference::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<KeyReference> */
-       $type = KeyReferenceModel::class;
-       return $type;
+        /** @psalm-var class-string<KeyReference> */
+        $type = KeyReferenceModel::class;
+        return $type;
     }
 }

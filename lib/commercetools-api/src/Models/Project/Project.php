@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Message\MessageConfiguration;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Project extends JsonObject
 {
-
     public const FIELD_VERSION = 'version';
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';

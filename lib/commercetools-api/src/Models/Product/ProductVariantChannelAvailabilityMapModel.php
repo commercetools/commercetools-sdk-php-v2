@@ -14,15 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implements ProductVariantChannelAvailabilityMap
 {
-
-
-
     public function __construct(
     ) {
-
     }
 
 
@@ -44,6 +39,4 @@ final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel im
 
         return $data;
     }
-
-
 }

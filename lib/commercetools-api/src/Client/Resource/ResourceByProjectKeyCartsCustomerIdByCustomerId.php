@@ -27,5 +27,4 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerId extends ApiResource
 
         return new ByProjectKeyCartsCustomerIdByCustomerIdGet((string) $args['projectKey'], (string) $args['customerId'], $body, $headers, $this->getClient());
     }
-
 }

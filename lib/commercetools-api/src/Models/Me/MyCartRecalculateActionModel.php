@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCartRecalculateAction
 {
     public const DISCRIMINATOR_VALUE = 'recalculate';
@@ -74,7 +73,4 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
     {
         $this->updateProductData = $updateProductData;
     }
-
-
-
 }

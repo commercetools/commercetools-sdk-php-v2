@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomFieldReferenceTypeModel extends JsonObjectModel implements CustomFieldReferenceType
 {
     public const DISCRIMINATOR_VALUE = 'Reference';
@@ -74,7 +73,4 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     {
         $this->referenceTypeId = $referenceTypeId;
     }
-
-
-
 }

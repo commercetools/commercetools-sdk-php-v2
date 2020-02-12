@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SubscriptionUpdateActionModel extends JsonObjectModel implements SubscriptionUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
 
     /**
      * @psalm-var array<string, class-string<SubscriptionUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'changeDestination' => SubscriptionChangeDestinationActionModel::class,
@@ -65,24 +64,24 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = SubscriptionUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = SubscriptionUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<SubscriptionUpdateAction> */
-       $type = SubscriptionUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<SubscriptionUpdateAction> */
+        $type = SubscriptionUpdateActionModel::class;
+        return $type;
     }
 }

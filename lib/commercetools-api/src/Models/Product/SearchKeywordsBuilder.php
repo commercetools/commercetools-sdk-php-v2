@@ -20,10 +20,6 @@ use stdClass;
  */
 final class SearchKeywordsBuilder implements Builder
 {
-
-
-
-
     public function build(): SearchKeywords
     {
         return new SearchKeywordsModel(

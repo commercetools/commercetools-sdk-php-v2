@@ -20,10 +20,6 @@ use stdClass;
  */
 final class InventoryEntryUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): InventoryEntryUpdateAction
     {
         return new InventoryEntryUpdateActionModel(

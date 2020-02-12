@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
-
 final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 {
-
     /**
      * @var ?TypedMoney
      */
@@ -51,7 +50,6 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
         $this->freeAbove = $freeAbove;
         $this->isMatching = $isMatching;
         $this->tiers = $tiers;
-
     }
 
     /**
@@ -151,7 +149,4 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     {
         $this->tiers = $tiers;
     }
-
-
-
 }

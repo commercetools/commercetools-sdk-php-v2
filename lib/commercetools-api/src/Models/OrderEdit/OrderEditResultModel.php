@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class OrderEditResultModel extends JsonObjectModel implements OrderEditResult
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
 
     /**
      * @psalm-var array<string, class-string<OrderEditResult> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'Applied' => OrderEditAppliedModel::class,
@@ -65,24 +64,24 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = OrderEditResult::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = OrderEditResult::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<OrderEditResult> */
-       $type = OrderEditResultModel::class;
-       return $type;
+        /** @psalm-var class-string<OrderEditResult> */
+        $type = OrderEditResultModel::class;
+        return $type;
     }
 }

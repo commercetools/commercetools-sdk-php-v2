@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductVariantKeyReferenceModel extends JsonObjectModel implements ProductVariantKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'product-variant';
@@ -76,7 +75,4 @@ final class ProductVariantKeyReferenceModel extends JsonObjectModel implements P
     {
         $this->key = $key;
     }
-
-
-
 }

@@ -27,5 +27,4 @@ class ResourceByProjectKeyMeLogin extends ApiResource
 
         return new ByProjectKeyMeLoginPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

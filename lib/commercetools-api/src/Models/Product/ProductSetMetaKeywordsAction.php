@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetMetaKeywordsAction extends ProductUpdateAction
 {
-
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_STAGED = 'staged';
 

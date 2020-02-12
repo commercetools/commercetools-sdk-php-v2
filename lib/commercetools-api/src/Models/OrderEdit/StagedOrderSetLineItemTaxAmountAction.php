@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ExternalTaxAmountDraft;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetLineItemTaxAmountAction extends StagedOrderUpdateAction
 {
-
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
 

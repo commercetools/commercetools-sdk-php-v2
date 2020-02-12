@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Product\FacetResults;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PagedQueryResponse extends JsonObject
 {
-
     public const FIELD_LIMIT = 'limit';
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';

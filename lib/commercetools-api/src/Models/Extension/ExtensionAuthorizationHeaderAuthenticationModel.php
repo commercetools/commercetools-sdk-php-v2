@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectModel implements ExtensionAuthorizationHeaderAuthentication
 {
     public const DISCRIMINATOR_VALUE = 'AuthorizationHeader';
@@ -74,7 +73,4 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     {
         $this->headerValue = $headerValue;
     }
-
-
-
 }

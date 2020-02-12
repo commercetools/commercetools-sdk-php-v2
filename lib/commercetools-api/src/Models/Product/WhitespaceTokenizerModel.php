@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class WhitespaceTokenizerModel extends JsonObjectModel implements WhitespaceTokenizer
 {
     public const DISCRIMINATOR_VALUE = 'whitespace';
@@ -45,8 +44,4 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
 
         return $this->type;
     }
-
-
-
-
 }

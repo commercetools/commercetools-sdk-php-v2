@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 
 final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel implements ShippingMethodChangeTaxCategoryAction
 {
@@ -77,7 +77,4 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
     {
         $this->taxCategory = $taxCategory;
     }
-
-
-
 }

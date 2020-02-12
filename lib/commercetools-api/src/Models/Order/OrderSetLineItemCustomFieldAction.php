@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderSetLineItemCustomFieldAction extends OrderUpdateAction
 {
-
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';

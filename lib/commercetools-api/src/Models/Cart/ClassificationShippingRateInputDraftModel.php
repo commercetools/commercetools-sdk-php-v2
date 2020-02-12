@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ClassificationShippingRateInputDraftModel extends JsonObjectModel implements ClassificationShippingRateInputDraft
 {
     public const DISCRIMINATOR_VALUE = 'Classification';
@@ -74,7 +73,4 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     {
         $this->key = $key;
     }
-
-
-
 }

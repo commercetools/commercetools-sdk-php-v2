@@ -8,19 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\AssetDraftCollection;
+use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\Common\AssetDraftCollection;
-use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
-
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
 {
-
     /**
      * @var ?string
      */
@@ -66,7 +65,6 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
         $this->attributes = $attributes;
         $this->images = $images;
         $this->assets = $assets;
-
     }
 
     /**
@@ -200,7 +198,4 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     {
         $this->assets = $assets;
     }
-
-
-
 }

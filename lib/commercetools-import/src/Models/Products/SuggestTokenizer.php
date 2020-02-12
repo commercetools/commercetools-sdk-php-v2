@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SuggestTokenizer extends JsonObject
 {
@@ -20,5 +20,4 @@ interface SuggestTokenizer extends JsonObject
      * @return null|string
      */
     public function getType();
-
 }

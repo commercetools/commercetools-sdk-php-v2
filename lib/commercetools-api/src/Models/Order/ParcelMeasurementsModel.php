@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMeasurements
 {
-
     /**
      * @var ?int
      */
@@ -49,7 +47,6 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
         $this->lengthInMillimeter = $lengthInMillimeter;
         $this->widthInMillimeter = $widthInMillimeter;
         $this->weightInGram = $weightInGram;
-
     }
 
     /**
@@ -139,7 +136,4 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     {
         $this->weightInGram = $weightInGram;
     }
-
-
-
 }

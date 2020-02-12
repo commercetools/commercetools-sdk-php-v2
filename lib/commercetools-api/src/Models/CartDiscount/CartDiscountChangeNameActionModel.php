@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 
 final class CartDiscountChangeNameActionModel extends JsonObjectModel implements CartDiscountChangeNameAction
 {
@@ -77,7 +77,4 @@ final class CartDiscountChangeNameActionModel extends JsonObjectModel implements
     {
         $this->name = $name;
     }
-
-
-
 }

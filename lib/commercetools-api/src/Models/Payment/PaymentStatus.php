@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentStatus extends JsonObject
 {
-
     public const FIELD_INTERFACE_CODE = 'interfaceCode';
     public const FIELD_INTERFACE_TEXT = 'interfaceText';
     public const FIELD_STATE = 'state';

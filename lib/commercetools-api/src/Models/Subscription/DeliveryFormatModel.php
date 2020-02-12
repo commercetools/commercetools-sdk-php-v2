@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DeliveryFormatModel extends JsonObjectModel implements DeliveryFormat
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
 
     /**
      * @psalm-var array<string, class-string<DeliveryFormat> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'CloudEvents' => DeliveryCloudEventsFormatModel::class,
@@ -63,24 +62,24 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = DeliveryFormat::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = DeliveryFormat::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<DeliveryFormat> */
-       $type = DeliveryFormatModel::class;
-       return $type;
+        /** @psalm-var class-string<DeliveryFormat> */
+        $type = DeliveryFormatModel::class;
+        return $type;
     }
 }

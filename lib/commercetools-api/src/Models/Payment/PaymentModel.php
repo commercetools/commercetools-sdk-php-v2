@@ -8,17 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
@@ -27,12 +22,16 @@ use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsCollection;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class PaymentModel extends JsonObjectModel implements Payment
 {
-
     /**
      * @var ?string
      */
@@ -183,7 +182,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
         $this->interfaceInteractions = $interfaceInteractions;
         $this->custom = $custom;
         $this->key = $key;
-
     }
 
     /**
@@ -704,5 +702,4 @@ final class PaymentModel extends JsonObjectModel implements Payment
         }
         return (object) $data;
     }
-
 }

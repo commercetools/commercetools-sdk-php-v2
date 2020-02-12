@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ExtensionPagedQueryResponseModel extends JsonObjectModel implements ExtensionPagedQueryResponse
 {
-
     /**
      * @var ?int
      */
@@ -56,7 +54,6 @@ final class ExtensionPagedQueryResponseModel extends JsonObjectModel implements 
         $this->total = $total;
         $this->offset = $offset;
         $this->results = $results;
-
     }
 
     /**
@@ -168,7 +165,4 @@ final class ExtensionPagedQueryResponseModel extends JsonObjectModel implements 
     {
         $this->results = $results;
     }
-
-
-
 }

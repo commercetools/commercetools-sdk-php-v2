@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeEnumType
 {
     public const DISCRIMINATOR_VALUE = 'enum';
@@ -74,7 +73,4 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     {
         $this->values = $values;
     }
-
-
-
 }

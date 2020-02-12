@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetDiscountedPriceAction extends ProductUpdateAction
 {
-
     public const FIELD_PRICE_ID = 'priceId';
     public const FIELD_STAGED = 'staged';
     public const FIELD_DISCOUNTED = 'discounted';

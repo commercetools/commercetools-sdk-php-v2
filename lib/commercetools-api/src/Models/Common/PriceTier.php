@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PriceTier extends JsonObject
 {
-
     public const FIELD_MINIMUM_QUANTITY = 'minimumQuantity';
     public const FIELD_VALUE = 'value';
 

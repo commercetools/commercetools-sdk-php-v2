@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TermFacetResultModel extends JsonObjectModel implements TermFacetResult
 {
     public const DISCRIMINATOR_VALUE = 'terms';
@@ -190,7 +189,4 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         $this->terms = $terms;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ShippingMethodChangeNameActionModel extends JsonObjectModel implements ShippingMethodChangeNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
@@ -74,7 +73,4 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
     {
         $this->name = $name;
     }
-
-
-
 }

@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerChangeAddressAction extends CustomerUpdateAction
 {
-
     public const FIELD_ADDRESS_ID = 'addressId';
     public const FIELD_ADDRESS = 'address';
 

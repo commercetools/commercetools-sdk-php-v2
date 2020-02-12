@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface AttributeSetType extends AttributeType
 {
-
     public const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**

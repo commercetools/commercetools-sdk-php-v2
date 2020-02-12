@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\State\StateReference;
-use Commercetools\Api\Models\State\StateReferenceModel;
 
 final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel implements OrderStateTransitionMessagePayload
 {
@@ -106,7 +106,4 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     {
         $this->force = $force;
     }
-
-
-
 }

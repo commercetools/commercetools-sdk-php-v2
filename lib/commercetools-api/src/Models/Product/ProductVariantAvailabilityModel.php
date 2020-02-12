@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductVariantAvailabilityModel extends JsonObjectModel implements ProductVariantAvailability
 {
-
     /**
      * @var ?bool
      */
@@ -49,7 +47,6 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
         $this->restockableInDays = $restockableInDays;
         $this->availableQuantity = $availableQuantity;
         $this->channels = $channels;
-
     }
 
     /**
@@ -140,7 +137,4 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     {
         $this->channels = $channels;
     }
-
-
-
 }

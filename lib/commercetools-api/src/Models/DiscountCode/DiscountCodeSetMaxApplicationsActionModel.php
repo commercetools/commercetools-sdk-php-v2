@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel implements DiscountCodeSetMaxApplicationsAction
 {
     public const DISCRIMINATOR_VALUE = 'setMaxApplications';
@@ -76,7 +75,4 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     {
         $this->maxApplications = $maxApplications;
     }
-
-
-
 }

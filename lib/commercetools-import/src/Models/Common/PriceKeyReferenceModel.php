@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'price';
@@ -76,7 +75,4 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     {
         $this->key = $key;
     }
-
-
-
 }

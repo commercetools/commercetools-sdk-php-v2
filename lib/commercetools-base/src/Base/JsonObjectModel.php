@@ -37,7 +37,7 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
              * @psalm-param mixed|null $value
              * @return bool
              */
-            function($value) {
+            function ($value) {
                 return !is_null($value);
             },
             ARRAY_FILTER_USE_BOTH

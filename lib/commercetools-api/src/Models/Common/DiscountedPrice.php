@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface DiscountedPrice extends JsonObject
 {
-
     public const FIELD_VALUE = 'value';
     public const FIELD_DISCOUNT = 'discount';
 

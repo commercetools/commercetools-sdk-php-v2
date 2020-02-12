@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel implements ProductTypeAddAttributeDefinitionAction
 {
     public const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
@@ -75,7 +74,4 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     {
         $this->attribute = $attribute;
     }
-
-
-
 }

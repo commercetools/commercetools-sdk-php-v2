@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
-
 final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo
 {
-
     /**
      * @var ?DiscountCodeReference
      */
@@ -37,7 +36,6 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     ) {
         $this->discountCode = $discountCode;
         $this->state = $state;
-
     }
 
     /**
@@ -84,7 +82,4 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     {
         $this->state = $state;
     }
-
-
-
 }

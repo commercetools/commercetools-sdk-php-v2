@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
-use Commercetools\Api\Models\Type\CustomFieldsDraft;
-use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class MyShoppingListAddLineItemActionModel extends JsonObjectModel implements MyShoppingListAddLineItemAction
 {
@@ -238,5 +238,4 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
         }
         return (object) $data;
     }
-
 }

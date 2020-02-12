@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderShipmentStateChangedMessage extends Message
 {
-
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_OLD_SHIPMENT_STATE = 'oldShipmentState';
 

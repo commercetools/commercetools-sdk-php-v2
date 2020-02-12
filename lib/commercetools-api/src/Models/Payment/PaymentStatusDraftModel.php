@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
+use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-use Commercetools\Api\Models\State\StateResourceIdentifier;
-use Commercetools\Api\Models\State\StateResourceIdentifierModel;
-
 final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentStatusDraft
 {
-
     /**
      * @var ?string
      */
@@ -44,7 +43,6 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
         $this->interfaceCode = $interfaceCode;
         $this->interfaceText = $interfaceText;
         $this->state = $state;
-
     }
 
     /**
@@ -113,7 +111,4 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     {
         $this->state = $state;
     }
-
-
-
 }

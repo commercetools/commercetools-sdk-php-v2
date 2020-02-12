@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
-use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 
 final class ReviewSetCustomerActionModel extends JsonObjectModel implements ReviewSetCustomerAction
 {
@@ -80,7 +80,4 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
     {
         $this->customer = $customer;
     }
-
-
-
 }

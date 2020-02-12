@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
 
     /**
      * @psalm-var array<string, class-string<ReviewUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'setAuthorName' => ReviewSetAuthorNameActionModel::class,
@@ -72,24 +71,24 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ReviewUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = ReviewUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<ReviewUpdateAction> */
-       $type = ReviewUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<ReviewUpdateAction> */
+        $type = ReviewUpdateActionModel::class;
+        return $type;
     }
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements HighPrecisionMoneyDraft
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
@@ -134,7 +133,4 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     {
         $this->preciseAmount = $preciseAmount;
     }
-
-
-
 }

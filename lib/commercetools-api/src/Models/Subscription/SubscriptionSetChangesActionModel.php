@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SubscriptionSetChangesActionModel extends JsonObjectModel implements SubscriptionSetChangesAction
 {
     public const DISCRIMINATOR_VALUE = 'setChanges';
@@ -74,7 +73,4 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     {
         $this->changes = $changes;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements ShippingMethodKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'shipping-method';
@@ -76,7 +75,4 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     {
         $this->key = $key;
     }
-
-
-
 }

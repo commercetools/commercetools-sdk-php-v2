@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentTransactionStateChangedMessage extends Message
 {
-
     public const FIELD_TRANSACTION_ID = 'transactionId';
     public const FIELD_STATE = 'state';
 

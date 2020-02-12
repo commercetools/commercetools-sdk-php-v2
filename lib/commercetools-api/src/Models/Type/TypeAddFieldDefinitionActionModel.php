@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements TypeAddFieldDefinitionAction
 {
     public const DISCRIMINATOR_VALUE = 'addFieldDefinition';
@@ -75,7 +74,4 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     {
         $this->fieldDefinition = $fieldDefinition;
     }
-
-
-
 }

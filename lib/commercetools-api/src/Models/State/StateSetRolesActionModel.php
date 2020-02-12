@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class StateSetRolesActionModel extends JsonObjectModel implements StateSetRolesAction
 {
     public const DISCRIMINATOR_VALUE = 'setRoles';
@@ -74,7 +73,4 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     {
         $this->roles = $roles;
     }
-
-
-
 }

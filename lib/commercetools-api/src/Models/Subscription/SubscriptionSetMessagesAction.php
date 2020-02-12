@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction
 {
-
     public const FIELD_MESSAGES = 'messages';
 
     /**

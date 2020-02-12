@@ -8,13 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SuggestionResult extends JsonObject
 {
-
     public const FIELD_PATTERN0 = '/searchKeywords.[a-z]{2}(-[A-Z]{2})?/';
-
-
 }

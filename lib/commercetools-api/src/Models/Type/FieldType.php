@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface FieldType extends JsonObject
 {
@@ -20,5 +20,4 @@ interface FieldType extends JsonObject
      * @return null|string
      */
     public function getName();
-
 }

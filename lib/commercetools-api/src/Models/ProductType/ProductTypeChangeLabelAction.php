@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductTypeChangeLabelAction extends ProductTypeUpdateAction
 {
-
     public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_LABEL = 'label';
 

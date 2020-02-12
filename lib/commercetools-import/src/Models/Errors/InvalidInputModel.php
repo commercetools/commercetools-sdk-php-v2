@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class InvalidInputModel extends JsonObjectModel implements InvalidInput
 {
     public const DISCRIMINATOR_VALUE = 'InvalidInput';
@@ -76,7 +75,4 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     {
         $this->message = $message;
     }
-
-
-
 }

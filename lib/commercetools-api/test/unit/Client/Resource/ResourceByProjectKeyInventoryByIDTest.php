@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInventoryByIDGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()
@@ -96,7 +96,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()
@@ -127,7 +127,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
     {
         return [
             'ByProjectKeyInventoryByIDGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()
@@ -136,7 +136,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyInventoryByIDPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()
@@ -145,7 +145,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyInventoryByIDDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inventory()

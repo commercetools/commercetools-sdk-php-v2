@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Api\Models\Common\DiscountedPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\DiscountedPrice;
-use Commercetools\Api\Models\Common\DiscountedPriceModel;
 
 final class ProductSetDiscountedPriceActionModel extends JsonObjectModel implements ProductSetDiscountedPriceAction
 {
@@ -135,7 +135,4 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     {
         $this->discounted = $discounted;
     }
-
-
-
 }

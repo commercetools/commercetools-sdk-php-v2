@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use stdClass;
-use Commercetools\Base\MapperMap;
 use Commercetools\Base\Builder;
+use Commercetools\Base\MapperMap;
+use stdClass;
 
 /**
  * @implements Builder<FieldContainer>
@@ -27,7 +27,7 @@ final class FieldContainerBuilder extends MapperMap implements Builder
             /**
              * @psalm-return ?FieldContainer
              */
-            function(string $key) {
+            function (string $key) {
                 $data = $this->get($key);
                 if ($data instanceof stdClass) {
                     $data = FieldContainerModel::of($data);

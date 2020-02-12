@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class GraphQLResponseModel extends JsonObjectModel implements GraphQLResponse
 {
-
     /**
      * @var ?JsonObject
      */
@@ -35,7 +33,6 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     ) {
         $this->data = $data;
         $this->errors = $errors;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     {
         $this->errors = $errors;
     }
-
-
-
 }

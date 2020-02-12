@@ -8,17 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends StagedOrderUpdateAction
 {
-
     public const FIELD_ADDRESS = 'address';
     public const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     public const FIELD_SHIPPING_RATE = 'shippingRate';

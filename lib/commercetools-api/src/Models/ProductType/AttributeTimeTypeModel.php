@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributeTimeTypeModel extends JsonObjectModel implements AttributeTimeType
 {
     public const DISCRIMINATOR_VALUE = 'time';
@@ -45,8 +44,4 @@ final class AttributeTimeTypeModel extends JsonObjectModel implements AttributeT
 
         return $this->name;
     }
-
-
-
-
 }

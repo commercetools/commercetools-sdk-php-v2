@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Customer\CustomerEmailVerify;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\Customer\CustomerEmailVerify;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -28,5 +28,4 @@ class ResourceByProjectKeyCustomersEmailConfirm extends ApiResource
 
         return new ByProjectKeyCustomersEmailConfirmPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

@@ -12,10 +12,10 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Productvariants\Attribute;
+
 use Commercetools\Import\Models\Productvariants\AttributeModel;
+use stdClass;
 
 final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements DuplicateAttributeValueError
 {
@@ -110,7 +110,4 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         $this->attribute = $attribute;
     }
-
-
-
 }

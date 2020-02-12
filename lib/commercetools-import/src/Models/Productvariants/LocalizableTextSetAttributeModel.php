@@ -12,9 +12,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Common\LocalizedStringCollection;
+
+use stdClass;
 
 final class LocalizableTextSetAttributeModel extends JsonObjectModel implements LocalizableTextSetAttribute
 {
@@ -108,7 +108,4 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     {
         $this->value = $value;
     }
-
-
-
 }

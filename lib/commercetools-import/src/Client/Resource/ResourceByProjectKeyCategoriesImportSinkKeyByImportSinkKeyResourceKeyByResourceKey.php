@@ -27,5 +27,4 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByRes
 
         return new ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete((string) $args['projectKey'], (string) $args['importSinkKey'], (string) $args['resourceKey'], $body, $headers, $this->getClient());
     }
-
 }

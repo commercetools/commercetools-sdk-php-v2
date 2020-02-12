@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class LocationModel extends JsonObjectModel implements Location
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class LocationModel extends JsonObjectModel implements Location
     ) {
         $this->country = $country;
         $this->state = $state;
-
     }
 
     /**
@@ -83,7 +80,4 @@ final class LocationModel extends JsonObjectModel implements Location
     {
         $this->state = $state;
     }
-
-
-
 }

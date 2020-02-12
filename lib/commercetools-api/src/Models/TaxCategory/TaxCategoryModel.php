@@ -8,24 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 {
-
     /**
      * @var ?string
      */
@@ -99,7 +98,6 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         $this->description = $description;
         $this->rates = $rates;
         $this->key = $key;
-
     }
 
     /**
@@ -357,5 +355,4 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         }
         return (object) $data;
     }
-
 }

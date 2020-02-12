@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implements MissingTaxRateForCountryError
 {
     public const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
@@ -161,7 +160,4 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         $this->state = $state;
     }
-
-
-
 }

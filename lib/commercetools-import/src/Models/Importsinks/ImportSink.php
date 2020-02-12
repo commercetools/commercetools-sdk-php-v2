@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importsinks;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ImportSink extends JsonObject
 {
-
     public const FIELD_KEY = 'key';
     public const FIELD_RESOURCE_TYPE = 'resourceType';
     public const FIELD_VERSION = 'version';

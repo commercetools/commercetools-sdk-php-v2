@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Message\MessagePayloadCollection;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditPreviewSuccess extends OrderEditResult
 {
-
     public const FIELD_PREVIEW = 'preview';
     public const FIELD_MESSAGE_PAYLOADS = 'messagePayloads';
 

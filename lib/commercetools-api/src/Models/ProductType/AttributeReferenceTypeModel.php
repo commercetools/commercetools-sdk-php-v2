@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class AttributeReferenceTypeModel extends JsonObjectModel implements AttributeReferenceType
 {
     public const DISCRIMINATOR_VALUE = 'reference';
@@ -74,7 +73,4 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     {
         $this->referenceTypeId = $referenceTypeId;
     }
-
-
-
 }

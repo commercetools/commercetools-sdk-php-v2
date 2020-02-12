@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface Address extends JsonObject
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_KEY = 'key';
     public const FIELD_TITLE = 'title';

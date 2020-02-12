@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 
 final class CategorySetAssetDescriptionActionModel extends JsonObjectModel implements CategorySetAssetDescriptionAction
 {
@@ -135,7 +135,4 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     {
         $this->description = $description;
     }
-
-
-
 }

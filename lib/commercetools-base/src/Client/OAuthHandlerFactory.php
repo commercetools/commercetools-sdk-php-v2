@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use Commercetools\Exception\InvalidArgumentException;
 use Cache\Adapter\Filesystem\FilesystemCachePool;
+use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
@@ -30,7 +30,7 @@ class OAuthHandlerFactory
         }
 
         $filesystemAdapter = new Local(getcwd());
-        $filesystem        = new Filesystem($filesystemAdapter);
+        $filesystem = new Filesystem($filesystemAdapter);
         $cache = new FilesystemCachePool($filesystem);
         
         return $cache;
@@ -42,7 +42,7 @@ class OAuthHandlerFactory
     public static function ofAuthConfig(AuthConfig $authConfig, $cache = null): OAuth2Handler
     {
         $cache = self::validateCache($cache);
-        switch(true) {
+        switch (true) {
            case $authConfig instanceof ClientCredentialsConfig:
                $provider = new CachedTokenProvider(
                    new ClientCredentialTokenProvider(

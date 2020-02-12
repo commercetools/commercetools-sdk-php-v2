@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionOrderAction
 {
     public const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
@@ -74,7 +73,4 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     {
         $this->fieldNames = $fieldNames;
     }
-
-
-
 }

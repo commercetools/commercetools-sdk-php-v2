@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface DiscountCodeNonApplicableError extends ErrorObject
 {
-
     public const FIELD_DISCOUNT_CODE = 'discountCode';
     public const FIELD_REASON = 'reason';
     public const FIELD_DICOUNT_CODE_ID = 'dicountCodeId';

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class StateChangeKeyActionModel extends JsonObjectModel implements StateChangeKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
@@ -74,7 +73,4 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
     {
         $this->key = $key;
     }
-
-
-
 }

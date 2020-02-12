@@ -8,16 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ChannelDraft extends JsonObject
 {
-
     public const FIELD_KEY = 'key';
     public const FIELD_ROLES = 'roles';
     public const FIELD_NAME = 'name';

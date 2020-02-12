@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductUpdateActionModel extends JsonObjectModel implements ProductUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';
@@ -25,7 +24,7 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
 
     /**
      * @psalm-var array<string, class-string<ProductUpdateAction> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'addAsset' => ProductAddAssetActionModel::class,
@@ -107,24 +106,24 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = ProductUpdateAction::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = ProductUpdateAction::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<ProductUpdateAction> */
-       $type = ProductUpdateActionModel::class;
-       return $type;
+        /** @psalm-var class-string<ProductUpdateAction> */
+        $type = ProductUpdateActionModel::class;
+        return $type;
     }
 }

@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartUpdateModel extends JsonObjectModel implements CartUpdate
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class CartUpdateModel extends JsonObjectModel implements CartUpdate
     ) {
         $this->version = $version;
         $this->actions = $actions;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class CartUpdateModel extends JsonObjectModel implements CartUpdate
     {
         $this->actions = $actions;
     }
-
-
-
 }

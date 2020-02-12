@@ -39,7 +39,7 @@ class JsonObjectCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?JsonObject {
+        return function (int $index): ?JsonObject {
             $data = $this->get($index);
             if (!is_null($data) && !$data instanceof JsonObject) {
                 $data = JsonObjectModel::of($data);

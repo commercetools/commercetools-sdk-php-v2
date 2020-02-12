@@ -12,9 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Categories\CategoryImport;
+
 use Commercetools\Import\Models\Categories\CategoryImportModel;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Prices\PriceImportModel;
@@ -24,10 +23,10 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportModel;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
+use stdClass;
 
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
-
     /**
      * @var ?string
      */
@@ -38,7 +37,6 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
         string $key = null
     ) {
         $this->key = $key;
-
     }
 
     /**
@@ -62,7 +60,4 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     {
         $this->key = $key;
     }
-
-
-
 }

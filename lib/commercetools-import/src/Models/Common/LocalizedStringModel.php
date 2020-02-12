@@ -14,15 +14,10 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class LocalizedStringModel extends JsonObjectModel implements LocalizedString
 {
-
-
-
     public function __construct(
     ) {
-
     }
 
 
@@ -43,6 +38,4 @@ final class LocalizedStringModel extends JsonObjectModel implements LocalizedStr
 
         return $data;
     }
-
-
 }

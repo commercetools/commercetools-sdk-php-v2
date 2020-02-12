@@ -20,10 +20,6 @@ use stdClass;
  */
 final class AttributeTimeTypeBuilder implements Builder
 {
-
-
-
-
     public function build(): AttributeTimeType
     {
         return new AttributeTimeTypeModel(

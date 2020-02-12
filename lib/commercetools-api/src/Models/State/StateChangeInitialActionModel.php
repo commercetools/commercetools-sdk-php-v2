@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class StateChangeInitialActionModel extends JsonObjectModel implements StateChangeInitialAction
 {
     public const DISCRIMINATOR_VALUE = 'changeInitial';
@@ -74,7 +73,4 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     {
         $this->initial = $initial;
     }
-
-
-
 }

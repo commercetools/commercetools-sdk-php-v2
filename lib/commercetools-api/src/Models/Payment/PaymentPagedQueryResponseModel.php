@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class PaymentPagedQueryResponseModel extends JsonObjectModel implements PaymentPagedQueryResponse
 {
-
     /**
      * @var ?int
      */
@@ -56,7 +54,6 @@ final class PaymentPagedQueryResponseModel extends JsonObjectModel implements Pa
         $this->total = $total;
         $this->offset = $offset;
         $this->results = $results;
-
     }
 
     /**
@@ -168,7 +165,4 @@ final class PaymentPagedQueryResponseModel extends JsonObjectModel implements Pa
     {
         $this->results = $results;
     }
-
-
-
 }

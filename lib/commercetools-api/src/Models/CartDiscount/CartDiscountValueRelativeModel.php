@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CartDiscountValueRelativeModel extends JsonObjectModel implements CartDiscountValueRelative
 {
     public const DISCRIMINATOR_VALUE = 'relative';
@@ -74,7 +73,4 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
     {
         $this->permyriad = $permyriad;
     }
-
-
-
 }

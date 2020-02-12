@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class SubscriptionUpdateModel extends JsonObjectModel implements SubscriptionUpdate
 {
-
     /**
      * @var ?int
      */
@@ -35,7 +33,6 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     ) {
         $this->version = $version;
         $this->actions = $actions;
-
     }
 
     /**
@@ -81,7 +78,4 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     {
         $this->actions = $actions;
     }
-
-
-
 }

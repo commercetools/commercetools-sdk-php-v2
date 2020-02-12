@@ -8,17 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Client\Resource;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -45,7 +43,6 @@ class ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResour
         if (is_null($response)) {
             return null;
         }
-        $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 default:
@@ -55,7 +52,7 @@ class ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResour
             }
         }
 
-        return $mapper->mapResponseToClass($resultType, $response);
+        return $resultType::of($this->responseData($response));
     }
 
     /**
@@ -80,5 +77,4 @@ class ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResour
 
         return $this->mapFromResponse($response, $resultType);
     }
-
 }

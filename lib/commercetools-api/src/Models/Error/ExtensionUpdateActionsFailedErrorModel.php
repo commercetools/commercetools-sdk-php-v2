@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+
 use Commercetools\Base\MapperFactory;
 use stdClass;
-
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 
 final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel implements ExtensionUpdateActionsFailedError
 {
@@ -165,7 +165,4 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     {
         $this->errorByExtension = $errorByExtension;
     }
-
-
-
 }

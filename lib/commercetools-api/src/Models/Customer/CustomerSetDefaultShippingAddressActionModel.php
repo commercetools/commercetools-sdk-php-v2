@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel implements CustomerSetDefaultShippingAddressAction
 {
     public const DISCRIMINATOR_VALUE = 'setDefaultShippingAddress';
@@ -76,7 +75,4 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     {
         $this->addressId = $addressId;
     }
-
-
-
 }

@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class FacetResultRangeModel extends JsonObjectModel implements FacetResultRange
 {
-
     /**
      * @var ?int
      */
@@ -91,7 +89,6 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
         $this->min = $min;
         $this->max = $max;
         $this->mean = $mean;
-
     }
 
     /**
@@ -313,7 +310,4 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         $this->mean = $mean;
     }
-
-
-
 }

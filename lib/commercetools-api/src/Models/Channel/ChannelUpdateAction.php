@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ChannelUpdateAction extends JsonObject
 {
@@ -20,5 +20,4 @@ interface ChannelUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
 }

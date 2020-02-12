@@ -20,10 +20,6 @@ use stdClass;
  */
 final class CustomerGroupUpdateActionBuilder implements Builder
 {
-
-
-
-
     public function build(): CustomerGroupUpdateAction
     {
         return new CustomerGroupUpdateActionModel(

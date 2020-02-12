@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ItemShippingTargetModel extends JsonObjectModel implements ItemShippingTarget
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     ) {
         $this->addressKey = $addressKey;
         $this->quantity = $quantity;
-
     }
 
     /**
@@ -87,7 +84,4 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     {
         $this->quantity = $quantity;
     }
-
-
-
 }

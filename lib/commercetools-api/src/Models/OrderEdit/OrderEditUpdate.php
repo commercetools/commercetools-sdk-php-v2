@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditUpdate extends JsonObject
 {
-
     public const FIELD_VERSION = 'version';
     public const FIELD_ACTIONS = 'actions';
     public const FIELD_DRY_RUN = 'dryRun';

@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentMethodInfo extends JsonObject
 {
-
     public const FIELD_PAYMENT_INTERFACE = 'paymentInterface';
     public const FIELD_METHOD = 'method';
     public const FIELD_NAME = 'name';

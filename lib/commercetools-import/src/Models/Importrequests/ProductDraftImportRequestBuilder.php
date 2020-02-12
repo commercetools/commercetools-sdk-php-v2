@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Import\Models\Productdrafts\ProductDraftImportCollection;
+use stdClass;
 
 /**
  * @implements Builder<ProductDraftImportRequest>

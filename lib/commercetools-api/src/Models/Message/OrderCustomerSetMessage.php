@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface OrderCustomerSetMessage extends Message
 {
-
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_OLD_CUSTOMER = 'oldCustomer';

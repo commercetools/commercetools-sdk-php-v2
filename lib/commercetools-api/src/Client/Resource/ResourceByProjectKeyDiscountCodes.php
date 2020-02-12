@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\DiscountCode\DiscountCodeDraft;
 use Commercetools\Client\ApiResource;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -48,5 +48,4 @@ class ResourceByProjectKeyDiscountCodes extends ApiResource
 
         return new ByProjectKeyDiscountCodesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

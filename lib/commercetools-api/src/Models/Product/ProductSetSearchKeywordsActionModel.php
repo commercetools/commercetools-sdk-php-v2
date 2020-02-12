@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implements ProductSetSearchKeywordsAction
 {
     public const DISCRIMINATOR_VALUE = 'setSearchKeywords';
@@ -104,7 +103,4 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     {
         $this->staged = $staged;
     }
-
-
-
 }

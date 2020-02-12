@@ -8,26 +8,25 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use DateTimeImmutableModel;
+use stdClass;
 
 final class ShippingMethodModel extends JsonObjectModel implements ShippingMethod
 {
-
     /**
      * @var ?string
      */
@@ -122,7 +121,6 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->zoneRates = $zoneRates;
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
-
     }
 
     /**
@@ -445,5 +443,4 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         }
         return (object) $data;
     }
-
 }

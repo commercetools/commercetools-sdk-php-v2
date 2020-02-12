@@ -12,9 +12,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Productdrafts\ProductDraftImportCollection;
+
+use stdClass;
 
 final class ProductDraftImportRequestModel extends JsonObjectModel implements ProductDraftImportRequest
 {
@@ -79,7 +79,4 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
     {
         $this->resources = $resources;
     }
-
-
-
 }

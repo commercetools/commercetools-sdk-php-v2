@@ -8,21 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponse;
 use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -49,7 +47,6 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
         if (is_null($response)) {
             return null;
         }
-        $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
@@ -83,7 +80,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
             }
         }
 
-        return $mapper->mapResponseToClass($resultType, $response);
+        return $resultType::of($this->responseData($response));
     }
 
     /**
@@ -110,7 +107,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $fuzzy
      */
     public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSearchGet
@@ -119,7 +116,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $fuzzyLevel
      */
     public function withFuzzyLevel($fuzzyLevel): ByProjectKeyProductProjectionsSearchGet
@@ -128,7 +125,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $markMatchingVariants
      */
     public function withMarkMatchingVariants($markMatchingVariants): ByProjectKeyProductProjectionsSearchGet
@@ -137,7 +134,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $staged
      */
     public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
@@ -146,7 +143,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $filter
      */
     public function withFilter($filter): ByProjectKeyProductProjectionsSearchGet
@@ -155,7 +152,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $filterFacets
      */
     public function withFilterFacets($filterFacets): ByProjectKeyProductProjectionsSearchGet
@@ -164,7 +161,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $filterQuery
      */
     public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
@@ -173,7 +170,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $facet
      */
     public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
@@ -191,7 +188,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyProductProjectionsSearchGet
@@ -200,7 +197,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $limit
      */
     public function withLimit($limit): ByProjectKeyProductProjectionsSearchGet
@@ -209,7 +206,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $offset
      */
     public function withOffset($offset): ByProjectKeyProductProjectionsSearchGet
@@ -218,7 +215,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
@@ -227,7 +224,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductProjectionsSearchGet
@@ -236,7 +233,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCountry
      */
     public function withPriceCountry($priceCountry): ByProjectKeyProductProjectionsSearchGet
@@ -245,7 +242,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceCustomerGroup
      */
     public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductProjectionsSearchGet
@@ -254,7 +251,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsSearchGet
@@ -263,7 +260,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar $expand
      */
     public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet

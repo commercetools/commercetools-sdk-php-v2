@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface CustomerSetVatIdAction extends CustomerUpdateAction
 {
-
     public const FIELD_VAT_ID = 'vatId';
 
     /**

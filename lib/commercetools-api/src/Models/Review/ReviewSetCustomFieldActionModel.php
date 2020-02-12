@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ReviewSetCustomFieldActionModel extends JsonObjectModel implements ReviewSetCustomFieldAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomField';
@@ -103,7 +102,4 @@ final class ReviewSetCustomFieldActionModel extends JsonObjectModel implements R
     {
         $this->value = $value;
     }
-
-
-
 }

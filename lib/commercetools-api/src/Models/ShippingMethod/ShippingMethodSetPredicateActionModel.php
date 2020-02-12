@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implements ShippingMethodSetPredicateAction
 {
     public const DISCRIMINATOR_VALUE = 'setPredicate';
@@ -77,7 +76,4 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
     {
         $this->predicate = $predicate;
     }
-
-
-
 }

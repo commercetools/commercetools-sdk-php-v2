@@ -20,10 +20,6 @@ use stdClass;
  */
 final class SuggestionResultBuilder implements Builder
 {
-
-
-
-
     public function build(): SuggestionResult
     {
         return new SuggestionResultModel(

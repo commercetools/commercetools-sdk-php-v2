@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class TrackingDataModel extends JsonObjectModel implements TrackingData
 {
-
     /**
      * @var ?string
      */
@@ -56,7 +54,6 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
         $this->provider = $provider;
         $this->providerTransaction = $providerTransaction;
         $this->isReturn = $isReturn;
-
     }
 
     /**
@@ -174,7 +171,4 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         $this->isReturn = $isReturn;
     }
-
-
-
 }

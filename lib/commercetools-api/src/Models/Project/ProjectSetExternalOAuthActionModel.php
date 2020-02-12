@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implements ProjectSetExternalOAuthAction
 {
     public const DISCRIMINATOR_VALUE = 'setExternalOAuth';
@@ -78,7 +77,4 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     {
         $this->externalOAuth = $externalOAuth;
     }
-
-
-
 }

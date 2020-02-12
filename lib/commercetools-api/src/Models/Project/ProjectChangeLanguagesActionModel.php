@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements ProjectChangeLanguagesAction
 {
     public const DISCRIMINATOR_VALUE = 'changeLanguages';
@@ -76,7 +75,4 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     {
         $this->languages = $languages;
     }
-
-
-
 }

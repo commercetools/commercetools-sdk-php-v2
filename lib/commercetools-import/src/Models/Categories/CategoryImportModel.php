@@ -12,19 +12,18 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Import\Models\Common\AssetCollection;
+
 use Commercetools\Import\Models\Common\CategoryKeyReference;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
+use stdClass;
 
 final class CategoryImportModel extends JsonObjectModel implements CategoryImport
 {
-
     /**
      * @var ?string
      */
@@ -105,7 +104,6 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
         $this->assets = $assets;
-
     }
 
     /**
@@ -378,7 +376,4 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         $this->assets = $assets;
     }
-
-
-
 }

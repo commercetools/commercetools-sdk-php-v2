@@ -27,5 +27,4 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByID extends ApiResource
 
         return new ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['ID'], $body, $headers, $this->getClient());
     }
-
 }

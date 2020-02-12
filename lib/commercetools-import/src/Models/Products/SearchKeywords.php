@@ -8,13 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SearchKeywords extends JsonObject
 {
-
     public const FIELD_PATTERN0 = '/^[a-z]{2}(-[A-Z]{2})?$/';
-
-
 }

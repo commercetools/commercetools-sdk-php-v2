@@ -14,10 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 final class LocalizedEnumValueModel extends JsonObjectModel implements LocalizedEnumValue
 {
-
     /**
      * @var ?string
      */
@@ -35,7 +33,6 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     ) {
         $this->key = $key;
         $this->label = $label;
-
     }
 
     /**
@@ -82,7 +79,4 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     {
         $this->label = $label;
     }
-
-
-
 }

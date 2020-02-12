@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ApiClient;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ApiClient extends JsonObject
 {
-
     public const FIELD_ID = 'id';
     public const FIELD_NAME = 'name';
     public const FIELD_SCOPE = 'scope';
