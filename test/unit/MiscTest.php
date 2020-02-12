@@ -55,11 +55,6 @@ class MiscTest extends TestCase
         $l = $t->mapFromResponse($tr, LocalizedStringModel::class);
         $this->assertSame('test', $l->at('de-DE'));
 
-        $mapper = new ResultMapper();
-
-        $ls = $mapper->mapResponseToClass(LocalizedStringModel::class, $tr);
-        $this->assertSame('test', $ls->at('de-DE'));
-
         $t = ProductDraftModel::of();
 
         $v = ProductVariantDraftModel::of();

@@ -1,13 +1,13 @@
 /test export-ignore
 /lib/commercetools-api/docs export-ignore
-/lib/commercetools-api/test export-ignore
+/lib/commercetools-api-tests export-ignore
 /lib/commercetools-api/gen.properties export-ignore
 /lib/commercetools-api/psalm.xml export-ignore
 /lib/commercetools-base/test export-ignore
 /lib/commercetools-base/gen.properties export-ignore
 /lib/commercetools-base/psalm.xml export-ignore
 /lib/commercetools-import/docs export-ignore
-/lib/commercetools-import/test export-ignore
+/lib/commercetools-import-tests export-ignore
 /lib/commercetools-import/gen.properties export-ignore
 /lib/commercetools-import/psalm.xml export-ignore
 .gitattributes export-ignore
