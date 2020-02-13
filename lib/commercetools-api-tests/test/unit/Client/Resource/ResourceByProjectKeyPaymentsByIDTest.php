@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyPaymentsByIDGet
@@ -38,7 +38,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()
@@ -61,7 +61,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()
@@ -108,7 +108,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()
@@ -139,7 +139,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
     {
         return [
             'ByProjectKeyPaymentsByIDGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()
@@ -148,7 +148,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyPaymentsByIDPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()
@@ -157,7 +157,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                 }
             ],
             'ByProjectKeyPaymentsByIDDelete' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->payments()

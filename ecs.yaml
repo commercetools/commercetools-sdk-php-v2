@@ -5,11 +5,11 @@ parameters:
     - 'src'
     - 'test'
     - 'lib/commercetools-api/src'
-    - 'lib/commercetools-api/test'
+    - 'lib/commercetools-api-tests/test'
     - 'lib/commercetools-base/src'
     - 'lib/commercetools-base/test'
     - 'lib/commercetools-import/src'
-    - 'lib/commercetools-import/test'
+    - 'lib/commercetools-import-tests/test'
   sets:
     - 'psr12'
 services:

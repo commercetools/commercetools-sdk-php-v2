@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
+use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Import\Client\ImportRequestBuilder;
-use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\Psr7\Response;
-use Commercetools\Base\JsonObject;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Import\Client\Resource\ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperationsGet
@@ -76,7 +76,7 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOpera
                 '{projectKey}/product-variants/importSinkKey={importSinkKey}/import-operations?state=state',
             ],
             'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperationsGet' => [
-                function(ImportRequestBuilder $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->productVariants()
@@ -108,7 +108,7 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOpera
     {
         return [
             'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperationsGet' => [
-                function(ImportRequestBuilder $builder): RequestInterface {
+                function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->productVariants()

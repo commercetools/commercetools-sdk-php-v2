@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyOrdersGet
@@ -97,7 +97,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                 '{projectKey}/in-store/key={storeKey}/orders?withTotal=withTotal',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -120,7 +120,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                 '{projectKey}/in-store/key={storeKey}/orders?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -151,7 +151,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
     {
         return [
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
@@ -160,7 +160,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                 }
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")

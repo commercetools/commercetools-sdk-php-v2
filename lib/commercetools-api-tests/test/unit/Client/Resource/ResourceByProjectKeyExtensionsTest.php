@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\Psr7\Response;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyExtensionsGet
@@ -91,7 +91,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 '{projectKey}/extensions?withTotal=withTotal',
             ],
             'ByProjectKeyExtensionsGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -112,7 +112,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 '{projectKey}/extensions?expand=expand',
             ],
             'ByProjectKeyExtensionsPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -142,7 +142,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
     {
         return [
             'ByProjectKeyExtensionsGet' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
@@ -150,7 +150,7 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 }
             ],
             'ByProjectKeyExtensionsPost' => [
-                function(ApiRequestBuilder $builder): RequestInterface {
+                function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->extensions()
