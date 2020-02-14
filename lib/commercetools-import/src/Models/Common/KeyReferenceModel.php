@@ -44,6 +44,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
        'shipping-method' => ShippingMethodKeyReferenceModel::class,
        'state' => StateKeyReferenceModel::class,
        'tax-category' => TaxCategoryKeyReferenceModel::class,
+       'type' => TypeKeyReferenceModel::class,
     ];
 
     public function __construct(

@@ -20,6 +20,8 @@ use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use stdClass;
 
 /**
@@ -81,6 +83,11 @@ final class CategoryImportBuilder implements Builder
      * @var ?AssetCollection
      */
     private $assets;
+
+    /**
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
      * @return null|string
@@ -190,6 +197,16 @@ final class CategoryImportBuilder implements Builder
     public function getAssets()
     {
         return $this->assets;
+    }
+
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -305,6 +322,16 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
@@ -372,6 +399,16 @@ final class CategoryImportBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): CategoryImport
     {
         return new CategoryImportModel(
@@ -385,7 +422,8 @@ final class CategoryImportBuilder implements Builder
             $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
             $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription,
             $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords,
-            $this->assets
+            $this->assets,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

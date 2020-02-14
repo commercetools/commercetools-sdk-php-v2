@@ -20,6 +20,8 @@ use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use stdClass;
 
 final class CategoryImportModel extends JsonObjectModel implements CategoryImport
@@ -79,6 +81,11 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
      */
     protected $assets;
 
+    /**
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     public function __construct(
         string $key = null,
@@ -91,7 +98,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         LocalizedString $metaTitle = null,
         LocalizedString $metaDescription = null,
         LocalizedString $metaKeywords = null,
-        AssetCollection $assets = null
+        AssetCollection $assets = null,
+        Custom $custom = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -104,6 +112,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->metaDescription = $metaDescription;
         $this->metaKeywords = $metaKeywords;
         $this->assets = $assets;
+        $this->custom = $custom;
     }
 
     /**
@@ -322,6 +331,26 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         return $this->assets;
     }
 
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryImport::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
     public function setKey(?string $key): void
     {
         $this->key = $key;
@@ -375,5 +404,10 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
+    }
+
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }

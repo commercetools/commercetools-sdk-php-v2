@@ -14,6 +14,7 @@ use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\CategoryKeyReference;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
+use Commercetools\Import\Models\Customfields\Custom;
 
 interface CategoryImport extends ImportResource
 {
@@ -27,6 +28,7 @@ interface CategoryImport extends ImportResource
     public const FIELD_META_DESCRIPTION = 'metaDescription';
     public const FIELD_META_KEYWORDS = 'metaKeywords';
     public const FIELD_ASSETS = 'assets';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Maps to <code>Category.name</code>.</p>
@@ -100,6 +102,13 @@ interface CategoryImport extends ImportResource
      */
     public function getAssets();
 
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom();
+
     public function setName(?LocalizedString $name): void;
 
     public function setSlug(?LocalizedString $slug): void;
@@ -119,4 +128,6 @@ interface CategoryImport extends ImportResource
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
     public function setAssets(?AssetCollection $assets): void;
+
+    public function setCustom(?Custom $custom): void;
 }
