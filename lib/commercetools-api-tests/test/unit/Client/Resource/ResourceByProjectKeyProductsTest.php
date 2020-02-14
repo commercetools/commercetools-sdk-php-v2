@@ -79,17 +79,6 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 'get',
                 '{projectKey}/products?expand=expand',
             ],
-            'ByProjectKeyProductsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->products()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/products?where=where',
-            ],
             'ByProjectKeyProductsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -133,6 +122,28 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/products?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->products()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/products?where=where',
+            ],
+            'ByProjectKeyProductsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->products()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/products?paramName=paramName',
             ],
             'ByProjectKeyProductsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

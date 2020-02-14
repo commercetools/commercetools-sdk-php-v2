@@ -35,17 +35,6 @@ class ResourceByProjectKeyStoresTest extends TestCase
                 'get',
                 '{projectKey}/stores?expand=expand',
             ],
-            'ByProjectKeyStoresGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->stores()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/stores?where=where',
-            ],
             'ByProjectKeyStoresGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyStoresTest extends TestCase
                 },
                 'get',
                 '{projectKey}/stores?withTotal=withTotal',
+            ],
+            'ByProjectKeyStoresGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->stores()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/stores?where=where',
+            ],
+            'ByProjectKeyStoresGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->stores()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/stores?paramName=paramName',
             ],
             'ByProjectKeyStoresGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

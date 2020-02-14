@@ -35,17 +35,6 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 'get',
                 '{projectKey}/product-discounts?expand=expand',
             ],
-            'ByProjectKeyProductDiscountsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->productDiscounts()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/product-discounts?where=where',
-            ],
             'ByProjectKeyProductDiscountsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/product-discounts?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductDiscountsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productDiscounts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/product-discounts?where=where',
+            ],
+            'ByProjectKeyProductDiscountsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productDiscounts()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/product-discounts?paramName=paramName',
             ],
             'ByProjectKeyProductDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

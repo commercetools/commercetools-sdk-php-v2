@@ -117,15 +117,6 @@ class ByProjectKeyMessagesGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyMessagesGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyMessagesGet
@@ -158,5 +149,23 @@ class ByProjectKeyMessagesGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyMessagesGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar $where
+     */
+    public function withWhere($where): ByProjectKeyMessagesGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $paramName
+     * @psalm-param scalar $predicateParam
+     */
+    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyMessagesGet
+    {
+        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
     }
 }

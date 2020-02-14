@@ -35,17 +35,6 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 'get',
                 '{projectKey}/payments?expand=expand',
             ],
-            'ByProjectKeyPaymentsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->payments()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/payments?where=where',
-            ],
             'ByProjectKeyPaymentsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/payments?withTotal=withTotal',
+            ],
+            'ByProjectKeyPaymentsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->payments()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/payments?where=where',
+            ],
+            'ByProjectKeyPaymentsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->payments()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/payments?paramName=paramName',
             ],
             'ByProjectKeyPaymentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

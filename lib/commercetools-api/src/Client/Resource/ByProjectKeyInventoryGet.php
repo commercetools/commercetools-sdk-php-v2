@@ -117,15 +117,6 @@ class ByProjectKeyInventoryGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyInventoryGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyInventoryGet
@@ -158,5 +149,23 @@ class ByProjectKeyInventoryGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyInventoryGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar $where
+     */
+    public function withWhere($where): ByProjectKeyInventoryGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $paramName
+     * @psalm-param scalar $predicateParam
+     */
+    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyInventoryGet
+    {
+        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
     }
 }

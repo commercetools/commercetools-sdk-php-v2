@@ -108,6 +108,15 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
 
     /**
      *
+     * @psalm-param scalar $shippingMethodId
+     */
+    public function withShippingMethodId($shippingMethodId): ByProjectKeyShippingMethodsGet
+    {
+        return $this->withQueryParam('shipping-methodId', $shippingMethodId);
+    }
+
+    /**
+     *
      * @psalm-param scalar $country
      */
     public function withCountry($country): ByProjectKeyShippingMethodsGet
@@ -144,15 +153,6 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyShippingMethodsGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyShippingMethodsGet
@@ -185,5 +185,23 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyShippingMethodsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar $where
+     */
+    public function withWhere($where): ByProjectKeyShippingMethodsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $paramName
+     * @psalm-param scalar $predicateParam
+     */
+    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyShippingMethodsGet
+    {
+        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
     }
 }

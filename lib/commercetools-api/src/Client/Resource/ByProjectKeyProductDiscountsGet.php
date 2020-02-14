@@ -117,15 +117,6 @@ class ByProjectKeyProductDiscountsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyProductDiscountsGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyProductDiscountsGet
@@ -158,5 +149,23 @@ class ByProjectKeyProductDiscountsGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyProductDiscountsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar $where
+     */
+    public function withWhere($where): ByProjectKeyProductDiscountsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $paramName
+     * @psalm-param scalar $predicateParam
+     */
+    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyProductDiscountsGet
+    {
+        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
     }
 }

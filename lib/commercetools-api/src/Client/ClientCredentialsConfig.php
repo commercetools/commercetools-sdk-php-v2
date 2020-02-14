@@ -14,16 +14,16 @@ use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class ClientCredentialsConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
 {
-    public const AUTH_URI = '{accessTokenUri}';
+    public const AUTH_URI = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
     public const GRANT_TYPE = 'client_credentials';
 
     /** @psalm-var ClientCredentials */
     private $credentials;
 
-    public function __construct(ClientCredentials $credentials, string $accessTokenUri = null, array $clientOptions = [], string $authUri = self::AUTH_URI)
+    public function __construct(ClientCredentials $credentials, array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
-        parent::__construct($accessTokenUri, $clientOptions, $authUri);
+        parent::__construct($clientOptions, $authUri);
         $this->credentials = $credentials;
     }
 

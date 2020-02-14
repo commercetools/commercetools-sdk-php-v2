@@ -35,17 +35,6 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 'get',
                 '{projectKey}/shopping-lists?expand=expand',
             ],
-            'ByProjectKeyShoppingListsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shoppingLists()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/shopping-lists?where=where',
-            ],
             'ByProjectKeyShoppingListsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/shopping-lists?withTotal=withTotal',
+            ],
+            'ByProjectKeyShoppingListsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->shoppingLists()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/shopping-lists?where=where',
+            ],
+            'ByProjectKeyShoppingListsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->shoppingLists()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/shopping-lists?paramName=paramName',
             ],
             'ByProjectKeyShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

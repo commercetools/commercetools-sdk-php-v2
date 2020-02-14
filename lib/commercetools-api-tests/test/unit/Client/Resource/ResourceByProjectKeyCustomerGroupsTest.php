@@ -35,17 +35,6 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 'get',
                 '{projectKey}/customer-groups?expand=expand',
             ],
-            'ByProjectKeyCustomerGroupsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->customerGroups()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/customer-groups?where=where',
-            ],
             'ByProjectKeyCustomerGroupsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/customer-groups?withTotal=withTotal',
+            ],
+            'ByProjectKeyCustomerGroupsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customerGroups()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/customer-groups?where=where',
+            ],
+            'ByProjectKeyCustomerGroupsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customerGroups()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/customer-groups?paramName=paramName',
             ],
             'ByProjectKeyCustomerGroupsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

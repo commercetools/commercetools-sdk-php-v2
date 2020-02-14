@@ -35,17 +35,6 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 'get',
                 '{projectKey}/discount-codes?expand=expand',
             ],
-            'ByProjectKeyDiscountCodesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->discountCodes()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/discount-codes?where=where',
-            ],
             'ByProjectKeyDiscountCodesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 },
                 'get',
                 '{projectKey}/discount-codes?withTotal=withTotal',
+            ],
+            'ByProjectKeyDiscountCodesGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->discountCodes()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/discount-codes?where=where',
+            ],
+            'ByProjectKeyDiscountCodesGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->discountCodes()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/discount-codes?paramName=paramName',
             ],
             'ByProjectKeyDiscountCodesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

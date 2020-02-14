@@ -35,17 +35,6 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 'get',
                 '{projectKey}/extensions?expand=expand',
             ],
-            'ByProjectKeyExtensionsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->extensions()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/extensions?where=where',
-            ],
             'ByProjectKeyExtensionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/extensions?withTotal=withTotal',
+            ],
+            'ByProjectKeyExtensionsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->extensions()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/extensions?where=where',
+            ],
+            'ByProjectKeyExtensionsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->extensions()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/extensions?paramName=paramName',
             ],
             'ByProjectKeyExtensionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

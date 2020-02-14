@@ -89,17 +89,6 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 'get',
                 '{projectKey}/product-projections?expand=expand',
             ],
-            'ByProjectKeyProductProjectionsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->productProjections()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/product-projections?where=where',
-            ],
             'ByProjectKeyProductProjectionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -143,6 +132,28 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/product-projections?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductProjectionsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productProjections()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/product-projections?where=where',
+            ],
+            'ByProjectKeyProductProjectionsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productProjections()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/product-projections?paramName=paramName',
             ],
             'ByProjectKeyProductProjectionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -35,17 +35,6 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 'get',
                 '{projectKey}/product-types?expand=expand',
             ],
-            'ByProjectKeyProductTypesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->productTypes()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/product-types?where=where',
-            ],
             'ByProjectKeyProductTypesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 },
                 'get',
                 '{projectKey}/product-types?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductTypesGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productTypes()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/product-types?where=where',
+            ],
+            'ByProjectKeyProductTypesGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->productTypes()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/product-types?paramName=paramName',
             ],
             'ByProjectKeyProductTypesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

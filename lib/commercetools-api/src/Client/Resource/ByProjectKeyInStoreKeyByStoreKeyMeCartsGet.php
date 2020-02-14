@@ -117,15 +117,6 @@ class ByProjectKeyInStoreKeyByStoreKeyMeCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyMeCartsGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     *
      * @psalm-param scalar $sort
      */
     public function withSort($sort): ByProjectKeyInStoreKeyByStoreKeyMeCartsGet
@@ -158,5 +149,23 @@ class ByProjectKeyInStoreKeyByStoreKeyMeCartsGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyInStoreKeyByStoreKeyMeCartsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar $where
+     */
+    public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyMeCartsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $paramName
+     * @psalm-param scalar $predicateParam
+     */
+    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyInStoreKeyByStoreKeyMeCartsGet
+    {
+        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
     }
 }

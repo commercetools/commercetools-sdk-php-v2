@@ -35,17 +35,6 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                 'get',
                 '{projectKey}/tax-categories?expand=expand',
             ],
-            'ByProjectKeyTaxCategoriesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->taxCategories()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/tax-categories?where=where',
-            ],
             'ByProjectKeyTaxCategoriesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                 },
                 'get',
                 '{projectKey}/tax-categories?withTotal=withTotal',
+            ],
+            'ByProjectKeyTaxCategoriesGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->taxCategories()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/tax-categories?where=where',
+            ],
+            'ByProjectKeyTaxCategoriesGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->taxCategories()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/tax-categories?paramName=paramName',
             ],
             'ByProjectKeyTaxCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

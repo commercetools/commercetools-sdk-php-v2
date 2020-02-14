@@ -35,17 +35,6 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 'get',
                 '{projectKey}/zones?expand=expand',
             ],
-            'ByProjectKeyZonesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->zones()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/zones?where=where',
-            ],
             'ByProjectKeyZonesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 },
                 'get',
                 '{projectKey}/zones?withTotal=withTotal',
+            ],
+            'ByProjectKeyZonesGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->zones()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/zones?where=where',
+            ],
+            'ByProjectKeyZonesGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->zones()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/zones?paramName=paramName',
             ],
             'ByProjectKeyZonesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

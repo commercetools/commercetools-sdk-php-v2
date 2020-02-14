@@ -3579,21 +3579,6 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->shippingMethods()->matchesCart()->get()`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->shippingMethods()
-                ->matchesCart()
-                ->get();
-```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 
 Query shopping-lists

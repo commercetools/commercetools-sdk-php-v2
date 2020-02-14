@@ -46,17 +46,6 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 'get',
                 '{projectKey}/carts?expand=expand',
             ],
-            'ByProjectKeyCartsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->carts()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/carts?where=where',
-            ],
             'ByProjectKeyCartsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -100,6 +89,28 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/carts?withTotal=withTotal',
+            ],
+            'ByProjectKeyCartsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->carts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/carts?where=where',
+            ],
+            'ByProjectKeyCartsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->carts()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/carts?paramName=paramName',
             ],
             'ByProjectKeyCartsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

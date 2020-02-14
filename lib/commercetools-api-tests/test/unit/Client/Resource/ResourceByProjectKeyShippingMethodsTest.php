@@ -24,6 +24,17 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyShippingMethodsGet_withShippingMethodId' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->shippingMethods()
+                        ->get()
+                        ->withShippingMethodId('shipping-methodId');
+                },
+                'get',
+                '{projectKey}/shipping-methods?shipping-methodId=shipping-methodId',
+            ],
             'ByProjectKeyShippingMethodsGet_withCountry' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -68,17 +79,6 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 'get',
                 '{projectKey}/shipping-methods?expand=expand',
             ],
-            'ByProjectKeyShippingMethodsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shippingMethods()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/shipping-methods?where=where',
-            ],
             'ByProjectKeyShippingMethodsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -122,6 +122,28 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/shipping-methods?withTotal=withTotal',
+            ],
+            'ByProjectKeyShippingMethodsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->shippingMethods()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/shipping-methods?where=where',
+            ],
+            'ByProjectKeyShippingMethodsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->shippingMethods()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/shipping-methods?paramName=paramName',
             ],
             'ByProjectKeyShippingMethodsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

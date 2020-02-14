@@ -35,17 +35,6 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                 'get',
                 '{projectKey}/cart-discounts?expand=expand',
             ],
-            'ByProjectKeyCartDiscountsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->cartDiscounts()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/cart-discounts?where=where',
-            ],
             'ByProjectKeyCartDiscountsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/cart-discounts?withTotal=withTotal',
+            ],
+            'ByProjectKeyCartDiscountsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/cart-discounts?where=where',
+            ],
+            'ByProjectKeyCartDiscountsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->cartDiscounts()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/cart-discounts?paramName=paramName',
             ],
             'ByProjectKeyCartDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

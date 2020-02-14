@@ -36,18 +36,6 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                 'get',
                 '{projectKey}/me/payments?expand=expand',
             ],
-            'ByProjectKeyMePaymentsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->me()
-                        ->payments()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/me/payments?where=where',
-            ],
             'ByProjectKeyMePaymentsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -95,6 +83,30 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/me/payments?withTotal=withTotal',
+            ],
+            'ByProjectKeyMePaymentsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->payments()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/me/payments?where=where',
+            ],
+            'ByProjectKeyMePaymentsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->payments()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/me/payments?paramName=paramName',
             ],
             'ByProjectKeyMePaymentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

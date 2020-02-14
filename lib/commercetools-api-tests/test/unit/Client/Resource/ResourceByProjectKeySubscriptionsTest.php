@@ -35,17 +35,6 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 'get',
                 '{projectKey}/subscriptions?expand=expand',
             ],
-            'ByProjectKeySubscriptionsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->subscriptions()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/subscriptions?where=where',
-            ],
             'ByProjectKeySubscriptionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/subscriptions?withTotal=withTotal',
+            ],
+            'ByProjectKeySubscriptionsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->subscriptions()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/subscriptions?where=where',
+            ],
+            'ByProjectKeySubscriptionsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->subscriptions()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/subscriptions?paramName=paramName',
             ],
             'ByProjectKeySubscriptionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

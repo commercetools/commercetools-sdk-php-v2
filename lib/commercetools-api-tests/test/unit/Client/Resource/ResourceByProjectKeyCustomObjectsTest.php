@@ -35,17 +35,6 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 'get',
                 '{projectKey}/custom-objects?expand=expand',
             ],
-            'ByProjectKeyCustomObjectsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->customObjects()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/custom-objects?where=where',
-            ],
             'ByProjectKeyCustomObjectsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/custom-objects?withTotal=withTotal',
+            ],
+            'ByProjectKeyCustomObjectsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customObjects()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/custom-objects?where=where',
+            ],
+            'ByProjectKeyCustomObjectsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customObjects()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/custom-objects?paramName=paramName',
             ],
             'ByProjectKeyCustomObjectsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

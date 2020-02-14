@@ -37,19 +37,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?expand=expand',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
-                        ->me()
-                        ->orders()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/in-store/key={storeKey}/me/orders?where=where',
-            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -101,6 +88,32 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                 },
                 'get',
                 '{projectKey}/in-store/key={storeKey}/me/orders?withTotal=withTotal',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->me()
+                        ->orders()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/in-store/key={storeKey}/me/orders?where=where',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->me()
+                        ->orders()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/in-store/key={storeKey}/me/orders?paramName=paramName',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

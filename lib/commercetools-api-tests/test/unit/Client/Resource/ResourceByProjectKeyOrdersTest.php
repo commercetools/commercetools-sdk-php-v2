@@ -35,17 +35,6 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 'get',
                 '{projectKey}/orders?expand=expand',
             ],
-            'ByProjectKeyOrdersGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->orders()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/orders?where=where',
-            ],
             'ByProjectKeyOrdersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 },
                 'get',
                 '{projectKey}/orders?withTotal=withTotal',
+            ],
+            'ByProjectKeyOrdersGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->orders()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/orders?where=where',
+            ],
+            'ByProjectKeyOrdersGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->orders()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/orders?paramName=paramName',
             ],
             'ByProjectKeyOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

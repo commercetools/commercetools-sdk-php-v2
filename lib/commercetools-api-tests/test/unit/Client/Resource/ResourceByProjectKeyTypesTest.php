@@ -35,17 +35,6 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 'get',
                 '{projectKey}/types?expand=expand',
             ],
-            'ByProjectKeyTypesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->types()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/types?where=where',
-            ],
             'ByProjectKeyTypesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 },
                 'get',
                 '{projectKey}/types?withTotal=withTotal',
+            ],
+            'ByProjectKeyTypesGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->types()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/types?where=where',
+            ],
+            'ByProjectKeyTypesGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->types()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/types?paramName=paramName',
             ],
             'ByProjectKeyTypesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

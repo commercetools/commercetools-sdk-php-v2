@@ -36,18 +36,6 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                 'get',
                 '{projectKey}/orders/edits?expand=expand',
             ],
-            'ByProjectKeyOrdersEditsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->orders()
-                        ->edits()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/orders/edits?where=where',
-            ],
             'ByProjectKeyOrdersEditsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -95,6 +83,30 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/orders/edits?withTotal=withTotal',
+            ],
+            'ByProjectKeyOrdersEditsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->orders()
+                        ->edits()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/orders/edits?where=where',
+            ],
+            'ByProjectKeyOrdersEditsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->orders()
+                        ->edits()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/orders/edits?paramName=paramName',
             ],
             'ByProjectKeyOrdersEditsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

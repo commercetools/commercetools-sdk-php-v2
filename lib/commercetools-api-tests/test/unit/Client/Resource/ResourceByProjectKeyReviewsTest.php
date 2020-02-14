@@ -35,17 +35,6 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 'get',
                 '{projectKey}/reviews?expand=expand',
             ],
-            'ByProjectKeyReviewsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->reviews()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/reviews?where=where',
-            ],
             'ByProjectKeyReviewsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/reviews?withTotal=withTotal',
+            ],
+            'ByProjectKeyReviewsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->reviews()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/reviews?where=where',
+            ],
+            'ByProjectKeyReviewsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->reviews()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/reviews?paramName=paramName',
             ],
             'ByProjectKeyReviewsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

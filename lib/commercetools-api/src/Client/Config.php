@@ -13,9 +13,8 @@ use Commercetools\Client\Config as BaseConfig;
 
 class Config implements BaseConfig
 {
-    public const API_URI = '{apiBaseUri}';
+    public const API_URI = 'https://api.europe-west1.gcp.commercetools.com/';
 
-    public const OPT_API_BASE_URI = '{apiBaseUri}';
 
     /** @psalm-var string */
     private $apiUri;
@@ -23,19 +22,10 @@ class Config implements BaseConfig
     /** @psalm-var array */
     private $options;
 
-    public function __construct(string $apiBaseUri = null, array $clientOptions = [], string $baseUri = null)
+    public function __construct(array $clientOptions = [], string $baseUri = null)
     {
         /** @psalm-var string $apiUri */
         $apiUri = $baseUri ?? static::API_URI;
-        $apiUri = str_replace(
-            [
-                self::OPT_API_BASE_URI
-            ],
-            [
-                $apiBaseUri ?? "https://api.europe-west1.gcp.commercetools.com/"
-            ],
-            $apiUri
-        );
         $this->apiUri = $apiUri;
         $this->options = array_replace(
             [self::OPT_BASE_URI => $this->apiUri],

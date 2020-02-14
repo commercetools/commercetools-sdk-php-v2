@@ -35,17 +35,6 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                 'get',
                 '{projectKey}/api-clients?expand=expand',
             ],
-            'ByProjectKeyApiClientsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->apiClients()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/api-clients?where=where',
-            ],
             'ByProjectKeyApiClientsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/api-clients?withTotal=withTotal',
+            ],
+            'ByProjectKeyApiClientsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->apiClients()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/api-clients?where=where',
+            ],
+            'ByProjectKeyApiClientsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->apiClients()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/api-clients?paramName=paramName',
             ],
             'ByProjectKeyApiClientsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

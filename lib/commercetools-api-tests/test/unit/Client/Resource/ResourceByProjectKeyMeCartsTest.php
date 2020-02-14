@@ -36,18 +36,6 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
                 'get',
                 '{projectKey}/me/carts?expand=expand',
             ],
-            'ByProjectKeyMeCartsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->me()
-                        ->carts()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/me/carts?where=where',
-            ],
             'ByProjectKeyMeCartsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -95,6 +83,30 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/me/carts?withTotal=withTotal',
+            ],
+            'ByProjectKeyMeCartsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->carts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/me/carts?where=where',
+            ],
+            'ByProjectKeyMeCartsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->carts()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/me/carts?paramName=paramName',
             ],
             'ByProjectKeyMeCartsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

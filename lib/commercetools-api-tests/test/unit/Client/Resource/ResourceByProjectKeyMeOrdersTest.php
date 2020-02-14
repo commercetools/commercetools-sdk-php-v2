@@ -36,18 +36,6 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                 'get',
                 '{projectKey}/me/orders?expand=expand',
             ],
-            'ByProjectKeyMeOrdersGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->me()
-                        ->orders()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/me/orders?where=where',
-            ],
             'ByProjectKeyMeOrdersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -95,6 +83,30 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                 },
                 'get',
                 '{projectKey}/me/orders?withTotal=withTotal',
+            ],
+            'ByProjectKeyMeOrdersGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->orders()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/me/orders?where=where',
+            ],
+            'ByProjectKeyMeOrdersGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->orders()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/me/orders?paramName=paramName',
             ],
             'ByProjectKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

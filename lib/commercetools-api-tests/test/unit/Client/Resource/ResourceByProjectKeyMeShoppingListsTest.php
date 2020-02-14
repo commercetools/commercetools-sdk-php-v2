@@ -36,18 +36,6 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                 'get',
                 '{projectKey}/me/shopping-lists?expand=expand',
             ],
-            'ByProjectKeyMeShoppingListsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->me()
-                        ->shoppingLists()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/me/shopping-lists?where=where',
-            ],
             'ByProjectKeyMeShoppingListsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -95,6 +83,30 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                 },
                 'get',
                 '{projectKey}/me/shopping-lists?withTotal=withTotal',
+            ],
+            'ByProjectKeyMeShoppingListsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->shoppingLists()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/me/shopping-lists?where=where',
+            ],
+            'ByProjectKeyMeShoppingListsGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->me()
+                        ->shoppingLists()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/me/shopping-lists?paramName=paramName',
             ],
             'ByProjectKeyMeShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

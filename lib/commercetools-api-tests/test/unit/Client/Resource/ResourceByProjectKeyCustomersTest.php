@@ -35,17 +35,6 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 'get',
                 '{projectKey}/customers?expand=expand',
             ],
-            'ByProjectKeyCustomersGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->customers()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                '{projectKey}/customers?where=where',
-            ],
             'ByProjectKeyCustomersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -89,6 +78,28 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 },
                 'get',
                 '{projectKey}/customers?withTotal=withTotal',
+            ],
+            'ByProjectKeyCustomersGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customers()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '{projectKey}/customers?where=where',
+            ],
+            'ByProjectKeyCustomersGet_withPredicateParam' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('projectKey')
+                        ->customers()
+                        ->get()
+                        ->withPredicateParam('paramName', 'paramName');
+                },
+                'get',
+                '{projectKey}/customers?paramName=paramName',
             ],
             'ByProjectKeyCustomersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
