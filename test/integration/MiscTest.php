@@ -47,13 +47,13 @@ class MiscTest extends TestCase
             MiddlewareFactory::createLoggerMiddleware(new Logger('auth', [new StreamHandler('./logs/requests.log')]))
         );
 
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), null, [
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret), [
             'handler' => $authHandler,
         ]);
         $logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
 
         $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new Config(null, ['maxRetries' => 3]),
+            new Config(['maxRetries' => 3]),
             OAuthHandlerFactory::ofAuthConfig($authConfig),
             $logger
         );
