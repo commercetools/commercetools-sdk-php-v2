@@ -40,7 +40,7 @@ class ByProjectKeyApiClientsByIDDelete extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ApiClient|ErrorResponse|JsonObject|T|null
+     * @return ApiClient|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

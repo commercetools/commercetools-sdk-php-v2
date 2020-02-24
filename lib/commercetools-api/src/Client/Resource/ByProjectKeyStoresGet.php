@@ -40,7 +40,7 @@ class ByProjectKeyStoresGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|JsonObject|StorePagedQueryResponse|T|null
+     * @return ErrorResponse|JsonObject|StorePagedQueryResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

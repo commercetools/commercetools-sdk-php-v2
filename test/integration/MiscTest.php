@@ -2,7 +2,6 @@
 
 namespace Commercetools\IntegrationTest;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config;
 use Commercetools\Api\Models\Category\Category;
@@ -12,6 +11,7 @@ use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Project\ProjectModel;
+use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use Commercetools\Client\MeConfig;
@@ -75,9 +75,9 @@ class MiscTest extends TestCase
     {
         $client = $this->client;
 
-        $root = new ApiRequestBuilder($client);
+        $root = new ApiRequestBuilder($this->projectKey, $client);
         $response = $root
-            ->withProjectKey($this->projectKey)
+            ->with()
             ->get()
             ->send()
         ;
@@ -93,10 +93,10 @@ class MiscTest extends TestCase
     {
         $client = $this->client;
 
-        $root = new ApiRequestBuilder($client);
+        $root = new ApiRequestBuilder($this->projectKey, $client);
 
         $response = $root
-            ->withProjectKey($this->projectKey)
+            ->with()
             ->categories()
             ->get()
             ->send()
@@ -134,10 +134,10 @@ class MiscTest extends TestCase
     public function testSearch()
     {
         $client = $this->client;
-        $root = new ApiRequestBuilder($client, ['projectKey' => $this->projectKey]);
+        $root = new ApiRequestBuilder($this->projectKey, $client);
 
         $t = $root
-            ->withProjectKey()
+            ->with()
             ->productProjections()
             ->search()
             ->get()
@@ -167,10 +167,10 @@ class MiscTest extends TestCase
 
         $client = ClientFactory::of()->createGuzzleClientForHandler(new Config(), $handler, $logger);
 
-        $root = new ApiRequestBuilder($client, ['projectKey' => $this->projectKey]);
+        $root = new ApiRequestBuilder($this->projectKey, $client);
 
         $t = $root
-            ->withProjectKey()
+            ->with()
             ->me()
             ->activeCart()
             ->get()

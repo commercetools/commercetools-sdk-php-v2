@@ -40,7 +40,7 @@ class ByProjectKeyImportSinksByImportSinkKeyPut extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|ImportSink|JsonObject|T|null
+     * @return ErrorResponse|ImportSink|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

@@ -40,7 +40,7 @@ class ByProjectKeyCustomObjectsGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return CustomObjectPagedQueryResponse|ErrorResponse|JsonObject|T|null
+     * @return CustomObjectPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

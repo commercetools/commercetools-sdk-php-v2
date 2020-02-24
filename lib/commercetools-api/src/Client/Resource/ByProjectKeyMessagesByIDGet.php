@@ -40,7 +40,7 @@ class ByProjectKeyMessagesByIDGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|JsonObject|Message|T|null
+     * @return ErrorResponse|JsonObject|Message|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

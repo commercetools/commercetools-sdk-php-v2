@@ -40,7 +40,7 @@ class ByProjectKeyCartDiscountsGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return CartDiscountPagedQueryResponse|ErrorResponse|JsonObject|T|null
+     * @return CartDiscountPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

@@ -38,7 +38,7 @@ class ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyPost extends ApiReque
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ImportResponse|JsonObject|T|null
+     * @return ImportResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

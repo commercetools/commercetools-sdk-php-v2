@@ -40,7 +40,7 @@ class ByProjectKeyCategoriesKeyByKeyPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return Category|ErrorResponse|JsonObject|T|null
+     * @return Category|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

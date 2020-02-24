@@ -40,7 +40,7 @@ class ByProjectKeyChannelsByIDDelete extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return Channel|ErrorResponse|JsonObject|T|null
+     * @return Channel|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

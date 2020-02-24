@@ -40,7 +40,7 @@ class ByProjectKeyReviewsGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|JsonObject|ReviewPagedQueryResponse|T|null
+     * @return ErrorResponse|JsonObject|ReviewPagedQueryResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

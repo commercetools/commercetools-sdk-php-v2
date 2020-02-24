@@ -38,7 +38,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ImportSinkPagedResponse|JsonObject|T|null
+     * @return ImportSinkPagedResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {

@@ -40,7 +40,7 @@ class ByProjectKeyExtensionsKeyByKeyDelete extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|Extension|JsonObject|T|null
+     * @return ErrorResponse|Extension|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
