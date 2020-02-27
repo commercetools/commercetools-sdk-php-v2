@@ -90,16 +90,16 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 'get',
                 '{projectKey}/states?where=where',
             ],
-            'ByProjectKeyStatesGet_withPredicateParam' => [
+            'ByProjectKeyStatesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->states()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/states?paramName=paramName',
+                '{projectKey}/states?var.varName=var.varName',
             ],
             'ByProjectKeyStatesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

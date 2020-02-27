@@ -161,11 +161,11 @@ class ByProjectKeyStatesGet extends ApiRequest
     }
 
     /**
-     * @psalm-param string $paramName
-     * @psalm-param scalar $predicateParam
+     * @psalm-param string $varName
+     * @psalm-param scalar $predicateVar
      */
-    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyStatesGet
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyStatesGet
     {
-        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 }

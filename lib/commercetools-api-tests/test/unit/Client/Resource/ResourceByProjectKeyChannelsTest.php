@@ -90,16 +90,16 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 'get',
                 '{projectKey}/channels?where=where',
             ],
-            'ByProjectKeyChannelsGet_withPredicateParam' => [
+            'ByProjectKeyChannelsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->channels()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/channels?paramName=paramName',
+                '{projectKey}/channels?var.varName=var.varName',
             ],
             'ByProjectKeyChannelsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

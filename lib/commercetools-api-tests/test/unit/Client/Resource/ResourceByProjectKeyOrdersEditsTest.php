@@ -96,17 +96,17 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                 'get',
                 '{projectKey}/orders/edits?where=where',
             ],
-            'ByProjectKeyOrdersEditsGet_withPredicateParam' => [
+            'ByProjectKeyOrdersEditsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->edits()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/orders/edits?paramName=paramName',
+                '{projectKey}/orders/edits?var.varName=var.varName',
             ],
             'ByProjectKeyOrdersEditsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

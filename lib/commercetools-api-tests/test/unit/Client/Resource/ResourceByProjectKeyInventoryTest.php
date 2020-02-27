@@ -90,16 +90,16 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 'get',
                 '{projectKey}/inventory?where=where',
             ],
-            'ByProjectKeyInventoryGet_withPredicateParam' => [
+            'ByProjectKeyInventoryGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inventory()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/inventory?paramName=paramName',
+                '{projectKey}/inventory?var.varName=var.varName',
             ],
             'ByProjectKeyInventoryGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

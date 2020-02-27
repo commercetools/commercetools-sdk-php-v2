@@ -134,16 +134,16 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 'get',
                 '{projectKey}/shipping-methods?where=where',
             ],
-            'ByProjectKeyShippingMethodsGet_withPredicateParam' => [
+            'ByProjectKeyShippingMethodsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shippingMethods()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/shipping-methods?paramName=paramName',
+                '{projectKey}/shipping-methods?var.varName=var.varName',
             ],
             'ByProjectKeyShippingMethodsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -161,11 +161,11 @@ class ByProjectKeyCustomObjectsGet extends ApiRequest
     }
 
     /**
-     * @psalm-param string $paramName
-     * @psalm-param scalar $predicateParam
+     * @psalm-param string $varName
+     * @psalm-param scalar $predicateVar
      */
-    public function withPredicateParam(string $paramName, $predicateParam): ByProjectKeyCustomObjectsGet
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyCustomObjectsGet
     {
-        return $this->withQueryParam(sprintf('%s', $paramName), $predicateParam);
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 }

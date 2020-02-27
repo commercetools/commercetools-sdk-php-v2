@@ -101,16 +101,16 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 'get',
                 '{projectKey}/carts?where=where',
             ],
-            'ByProjectKeyCartsGet_withPredicateParam' => [
+            'ByProjectKeyCartsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->carts()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/carts?paramName=paramName',
+                '{projectKey}/carts?var.varName=var.varName',
             ],
             'ByProjectKeyCartsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -90,16 +90,16 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 'get',
                 '{projectKey}/custom-objects?where=where',
             ],
-            'ByProjectKeyCustomObjectsGet_withPredicateParam' => [
+            'ByProjectKeyCustomObjectsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customObjects()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/custom-objects?paramName=paramName',
+                '{projectKey}/custom-objects?var.varName=var.varName',
             ],
             'ByProjectKeyCustomObjectsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

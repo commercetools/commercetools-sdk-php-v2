@@ -90,16 +90,16 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                 'get',
                 '{projectKey}/categories?where=where',
             ],
-            'ByProjectKeyCategoriesGet_withPredicateParam' => [
+            'ByProjectKeyCategoriesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->categories()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/categories?paramName=paramName',
+                '{projectKey}/categories?var.varName=var.varName',
             ],
             'ByProjectKeyCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

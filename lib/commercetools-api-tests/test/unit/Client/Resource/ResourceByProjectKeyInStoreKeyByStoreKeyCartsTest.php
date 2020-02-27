@@ -108,17 +108,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                 'get',
                 '{projectKey}/in-store/key={storeKey}/carts?where=where',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withPredicateParam' => [
+            'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->carts()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/carts?paramName=paramName',
+                '{projectKey}/in-store/key={storeKey}/carts?var.varName=var.varName',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

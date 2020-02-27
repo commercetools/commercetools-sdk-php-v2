@@ -90,16 +90,16 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                 'get',
                 '{projectKey}/tax-categories?where=where',
             ],
-            'ByProjectKeyTaxCategoriesGet_withPredicateParam' => [
+            'ByProjectKeyTaxCategoriesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->taxCategories()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/tax-categories?paramName=paramName',
+                '{projectKey}/tax-categories?var.varName=var.varName',
             ],
             'ByProjectKeyTaxCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

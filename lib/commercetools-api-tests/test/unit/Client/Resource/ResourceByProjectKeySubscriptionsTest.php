@@ -90,16 +90,16 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 'get',
                 '{projectKey}/subscriptions?where=where',
             ],
-            'ByProjectKeySubscriptionsGet_withPredicateParam' => [
+            'ByProjectKeySubscriptionsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->subscriptions()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/subscriptions?paramName=paramName',
+                '{projectKey}/subscriptions?var.varName=var.varName',
             ],
             'ByProjectKeySubscriptionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

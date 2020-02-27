@@ -90,16 +90,16 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 'get',
                 '{projectKey}/shopping-lists?where=where',
             ],
-            'ByProjectKeyShoppingListsGet_withPredicateParam' => [
+            'ByProjectKeyShoppingListsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->shoppingLists()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/shopping-lists?paramName=paramName',
+                '{projectKey}/shopping-lists?var.varName=var.varName',
             ],
             'ByProjectKeyShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -90,16 +90,16 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 'get',
                 '{projectKey}/orders?where=where',
             ],
-            'ByProjectKeyOrdersGet_withPredicateParam' => [
+            'ByProjectKeyOrdersGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->orders()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/orders?paramName=paramName',
+                '{projectKey}/orders?var.varName=var.varName',
             ],
             'ByProjectKeyOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

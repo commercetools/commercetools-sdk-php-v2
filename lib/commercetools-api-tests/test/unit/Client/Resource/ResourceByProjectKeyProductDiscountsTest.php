@@ -90,16 +90,16 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 'get',
                 '{projectKey}/product-discounts?where=where',
             ],
-            'ByProjectKeyProductDiscountsGet_withPredicateParam' => [
+            'ByProjectKeyProductDiscountsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->productDiscounts()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/product-discounts?paramName=paramName',
+                '{projectKey}/product-discounts?var.varName=var.varName',
             ],
             'ByProjectKeyProductDiscountsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

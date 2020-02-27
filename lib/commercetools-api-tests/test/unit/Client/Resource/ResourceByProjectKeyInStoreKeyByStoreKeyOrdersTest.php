@@ -96,17 +96,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                 'get',
                 '{projectKey}/in-store/key={storeKey}/orders?where=where',
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withPredicateParam' => [
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->inStoreKeyWithStoreKeyValue('storeKey')
                         ->orders()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/orders?paramName=paramName',
+                '{projectKey}/in-store/key={storeKey}/orders?var.varName=var.varName',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

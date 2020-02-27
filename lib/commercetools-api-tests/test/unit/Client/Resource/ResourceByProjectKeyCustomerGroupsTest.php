@@ -90,16 +90,16 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 'get',
                 '{projectKey}/customer-groups?where=where',
             ],
-            'ByProjectKeyCustomerGroupsGet_withPredicateParam' => [
+            'ByProjectKeyCustomerGroupsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->customerGroups()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/customer-groups?paramName=paramName',
+                '{projectKey}/customer-groups?var.varName=var.varName',
             ],
             'ByProjectKeyCustomerGroupsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

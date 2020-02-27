@@ -89,16 +89,16 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                 'get',
                 '{projectKey}/messages?where=where',
             ],
-            'ByProjectKeyMessagesGet_withPredicateParam' => [
+            'ByProjectKeyMessagesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->messages()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/messages?paramName=paramName',
+                '{projectKey}/messages?var.varName=var.varName',
             ],
             'ByProjectKeyMessagesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -90,16 +90,16 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 'get',
                 '{projectKey}/zones?where=where',
             ],
-            'ByProjectKeyZonesGet_withPredicateParam' => [
+            'ByProjectKeyZonesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->zones()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/zones?paramName=paramName',
+                '{projectKey}/zones?var.varName=var.varName',
             ],
             'ByProjectKeyZonesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

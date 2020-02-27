@@ -90,16 +90,16 @@ class ResourceByProjectKeyStoresTest extends TestCase
                 'get',
                 '{projectKey}/stores?where=where',
             ],
-            'ByProjectKeyStoresGet_withPredicateParam' => [
+            'ByProjectKeyStoresGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('projectKey')
                         ->stores()
                         ->get()
-                        ->withPredicateParam('paramName', 'paramName');
+                        ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/stores?paramName=paramName',
+                '{projectKey}/stores?var.varName=var.varName',
             ],
             'ByProjectKeyStoresGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
