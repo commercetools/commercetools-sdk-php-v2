@@ -92,7 +92,7 @@ class MiscTest extends TestCase
     {
         $root = new ApiRequestBuilder();
 
-        $t = $root->withProjectKey('test')->categories()->get()->withWhere();
+        $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", "test");
         $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
 
         $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", ["test"]);
