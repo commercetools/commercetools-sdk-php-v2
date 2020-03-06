@@ -10,8 +10,6 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponse;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -25,7 +23,7 @@ use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyShippingMethodsGet extends ApiRequest
+class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
 {
     /**
      * @param ?object $body
@@ -33,14 +31,14 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/shipping-methods');
+        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/shipping-methods/matching-orderedit');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse|T|null
+     * @return ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -50,7 +48,7 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = ShippingMethodPagedQueryResponseModel::class;
+                    $resultType = JsonObjectModel::class;
 
                     break;
                 case '400':
@@ -87,7 +85,7 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
+     * @return null|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -108,64 +106,37 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar $orderEditId
      */
-    public function withExpand($expand): ByProjectKeyShippingMethodsGet
+    public function withOrderEditId($orderEditId): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
-        return $this->withQueryParam('expand', $expand);
+        return $this->withQueryParam('orderEditId', $orderEditId);
     }
 
     /**
      *
-     * @psalm-param scalar $sort
+     * @psalm-param scalar $country
      */
-    public function withSort($sort): ByProjectKeyShippingMethodsGet
+    public function withCountry($country): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
-        return $this->withQueryParam('sort', $sort);
+        return $this->withQueryParam('country', $country);
     }
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar $state
      */
-    public function withLimit($limit): ByProjectKeyShippingMethodsGet
+    public function withState($state): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
-        return $this->withQueryParam('limit', $limit);
+        return $this->withQueryParam('state', $state);
     }
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar $currency
      */
-    public function withOffset($offset): ByProjectKeyShippingMethodsGet
+    public function withCurrency($currency): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
-        return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyShippingMethodsGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
-    }
-
-    /**
-     *
-     * @psalm-param scalar $where
-     */
-    public function withWhere($where): ByProjectKeyShippingMethodsGet
-    {
-        return $this->withQueryParam('where', $where);
-    }
-
-    /**
-     * @psalm-param string $varName
-     * @psalm-param scalar $predicateVar
-     */
-    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyShippingMethodsGet
-    {
-        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
+        return $this->withQueryParam('currency', $currency);
     }
 }

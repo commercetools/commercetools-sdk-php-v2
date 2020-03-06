@@ -1853,6 +1853,22 @@ $request = $builder
                 ->withOrderNumber("orderNumber")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shippingMethods()
+                ->matchingCart()
+                ->get();
+```
 ## `withProjectKey("projectKey")->inventory()->get()`
 
 Query inventory
@@ -3578,6 +3594,51 @@ $request = $builder
                 ->shippingMethods()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingCart()
+                ->get();
+```
+## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingLocation()
+                ->get();
+```
+## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->shippingMethods()
+                ->matchingOrderedit()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 

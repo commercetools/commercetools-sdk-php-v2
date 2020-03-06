@@ -47,4 +47,10 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($this->getUri() . '/login', $args, $this->getClient());
     }
+    public function shippingMethods(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($this->getUri() . '/shipping-methods', $args, $this->getClient());
+    }
 }

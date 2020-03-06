@@ -27,6 +27,24 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
 
         return new ResourceByProjectKeyShippingMethodsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
     }
+    public function matchingCart(): ResourceByProjectKeyShippingMethodsMatchingCart
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyShippingMethodsMatchingCart($this->getUri() . '/matching-cart', $args, $this->getClient());
+    }
+    public function matchingOrderedit(): ResourceByProjectKeyShippingMethodsMatchingOrderedit
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyShippingMethodsMatchingOrderedit($this->getUri() . '/matching-orderedit', $args, $this->getClient());
+    }
+    public function matchingLocation(): ResourceByProjectKeyShippingMethodsMatchingLocation
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyShippingMethodsMatchingLocation($this->getUri() . '/matching-location', $args, $this->getClient());
+    }
     public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
         $args = $this->getArgs();

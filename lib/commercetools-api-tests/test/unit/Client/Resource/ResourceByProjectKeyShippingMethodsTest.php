@@ -24,50 +24,6 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyShippingMethodsGet_withShippingMethodId' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shippingMethods()
-                        ->get()
-                        ->withShippingMethodId('shipping-methodId');
-                },
-                'get',
-                '{projectKey}/shipping-methods?shipping-methodId=shipping-methodId',
-            ],
-            'ByProjectKeyShippingMethodsGet_withCountry' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shippingMethods()
-                        ->get()
-                        ->withCountry('country');
-                },
-                'get',
-                '{projectKey}/shipping-methods?country=country',
-            ],
-            'ByProjectKeyShippingMethodsGet_withState' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shippingMethods()
-                        ->get()
-                        ->withState('state');
-                },
-                'get',
-                '{projectKey}/shipping-methods?state=state',
-            ],
-            'ByProjectKeyShippingMethodsGet_withCurrency' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('projectKey')
-                        ->shippingMethods()
-                        ->get()
-                        ->withCurrency('currency');
-                },
-                'get',
-                '{projectKey}/shipping-methods?currency=currency',
-            ],
             'ByProjectKeyShippingMethodsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
