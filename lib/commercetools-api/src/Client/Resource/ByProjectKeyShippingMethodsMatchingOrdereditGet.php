@@ -106,7 +106,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $orderEditId
+     * @psalm-param scalar|scalar[] $orderEditId
      */
     public function withOrderEditId($orderEditId): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
@@ -115,7 +115,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $country
+     * @psalm-param scalar|scalar[] $country
      */
     public function withCountry($country): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
@@ -124,7 +124,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $state
+     * @psalm-param scalar|scalar[] $state
      */
     public function withState($state): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {
@@ -133,7 +133,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $currency
+     * @psalm-param scalar|scalar[] $currency
      */
     public function withCurrency($currency): ByProjectKeyShippingMethodsMatchingOrdereditGet
     {

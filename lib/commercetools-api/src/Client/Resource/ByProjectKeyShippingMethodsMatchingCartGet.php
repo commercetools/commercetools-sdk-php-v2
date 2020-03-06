@@ -106,7 +106,7 @@ class ByProjectKeyShippingMethodsMatchingCartGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $cartId
+     * @psalm-param scalar|scalar[] $cartId
      */
     public function withCartId($cartId): ByProjectKeyShippingMethodsMatchingCartGet
     {
@@ -115,7 +115,7 @@ class ByProjectKeyShippingMethodsMatchingCartGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyShippingMethodsMatchingCartGet
     {

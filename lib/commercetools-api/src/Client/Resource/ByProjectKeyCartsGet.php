@@ -106,7 +106,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $customerId
+     * @psalm-param scalar|scalar[] $customerId
      */
     public function withCustomerId($customerId): ByProjectKeyCartsGet
     {
@@ -115,7 +115,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyCartsGet
     {
@@ -124,7 +124,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $sort
+     * @psalm-param scalar|scalar[] $sort
      */
     public function withSort($sort): ByProjectKeyCartsGet
     {
@@ -133,7 +133,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyCartsGet
     {
@@ -142,7 +142,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyCartsGet
     {
@@ -151,7 +151,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $withTotal
+     * @psalm-param scalar|scalar[] $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyCartsGet
     {
@@ -160,7 +160,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
+     * @psalm-param scalar|scalar[] $where
      */
     public function withWhere($where): ByProjectKeyCartsGet
     {
@@ -169,7 +169,7 @@ class ByProjectKeyCartsGet extends ApiRequest
 
     /**
      * @psalm-param string $varName
-     * @psalm-param scalar $predicateVar
+     * @psalm-param scalar|scalar[] $predicateVar
      */
     public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyCartsGet
     {

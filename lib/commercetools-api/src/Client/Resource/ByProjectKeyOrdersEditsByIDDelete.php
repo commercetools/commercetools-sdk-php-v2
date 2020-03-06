@@ -112,7 +112,7 @@ class ByProjectKeyOrdersEditsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $version
+     * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyOrdersEditsByIDDelete
     {
@@ -121,7 +121,7 @@ class ByProjectKeyOrdersEditsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyOrdersEditsByIDDelete
     {

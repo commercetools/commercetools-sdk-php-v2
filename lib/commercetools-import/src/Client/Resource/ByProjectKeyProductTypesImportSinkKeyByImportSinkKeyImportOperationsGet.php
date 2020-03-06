@@ -86,7 +86,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -95,7 +95,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -104,7 +104,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
 
     /**
      *
-     * @psalm-param scalar $resourceKey
+     * @psalm-param scalar|scalar[] $resourceKey
      */
     public function withResourceKey($resourceKey): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {
@@ -113,7 +113,7 @@ class ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet ex
 
     /**
      *
-     * @psalm-param scalar $state
+     * @psalm-param scalar|scalar[] $state
      */
     public function withState($state): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperationsGet
     {

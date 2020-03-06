@@ -92,7 +92,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $filename
+     * @psalm-param scalar|scalar[] $filename
      */
     public function withFilename($filename): ByProjectKeyProductsByIDImagesPost
     {
@@ -101,7 +101,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $variant
+     * @psalm-param scalar|scalar[] $variant
      */
     public function withVariant($variant): ByProjectKeyProductsByIDImagesPost
     {
@@ -110,7 +110,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $sku
+     * @psalm-param scalar|scalar[] $sku
      */
     public function withSku($sku): ByProjectKeyProductsByIDImagesPost
     {
@@ -119,7 +119,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $staged
+     * @psalm-param scalar|scalar[] $staged
      */
     public function withStaged($staged): ByProjectKeyProductsByIDImagesPost
     {

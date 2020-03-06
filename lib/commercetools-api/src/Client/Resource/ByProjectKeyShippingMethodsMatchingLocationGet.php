@@ -106,7 +106,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $country
+     * @psalm-param scalar|scalar[] $country
      */
     public function withCountry($country): ByProjectKeyShippingMethodsMatchingLocationGet
     {
@@ -115,7 +115,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $state
+     * @psalm-param scalar|scalar[] $state
      */
     public function withState($state): ByProjectKeyShippingMethodsMatchingLocationGet
     {
@@ -124,7 +124,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $currency
+     * @psalm-param scalar|scalar[] $currency
      */
     public function withCurrency($currency): ByProjectKeyShippingMethodsMatchingLocationGet
     {
@@ -133,7 +133,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyShippingMethodsMatchingLocationGet
     {

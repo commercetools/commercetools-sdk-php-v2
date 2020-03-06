@@ -112,7 +112,7 @@ class ByProjectKeyShoppingListsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $dataErasure
+     * @psalm-param scalar|scalar[] $dataErasure
      */
     public function withDataErasure($dataErasure): ByProjectKeyShoppingListsByIDDelete
     {
@@ -121,7 +121,7 @@ class ByProjectKeyShoppingListsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $version
+     * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyShoppingListsByIDDelete
     {
@@ -130,7 +130,7 @@ class ByProjectKeyShoppingListsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyShoppingListsByIDDelete
     {

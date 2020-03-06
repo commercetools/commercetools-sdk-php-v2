@@ -2,6 +2,7 @@
 
 namespace Commercetools\UnitTest;
 
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ByProjectKeyGet;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartModel;
@@ -14,7 +15,6 @@ use Commercetools\Api\Models\Product\ProductVariantDraftModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\ResultMapper;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -86,5 +86,16 @@ class MiscTest extends TestCase
         $this->assertNotSame($c1->getCustom(), $c2->getCustom());
         $this->assertJsonStringEqualsJsonString('{"custom":{"fields":{"foo":"bar"}}}', json_encode($c1));
         $this->assertJsonStringEqualsJsonString('{"custom":{"fields":{"foo":"baz"}}}', json_encode($c2));
+    }
+
+    public function testParams()
+    {
+        $root = new ApiRequestBuilder();
+
+        $t = $root->withProjectKey('test')->categories()->get()->withWhere();
+        $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
+
+        $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", ["test"]);
+        $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
     }
 }

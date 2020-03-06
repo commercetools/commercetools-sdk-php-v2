@@ -86,7 +86,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyImportSinksGet
     {
@@ -95,7 +95,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyImportSinksGet
     {

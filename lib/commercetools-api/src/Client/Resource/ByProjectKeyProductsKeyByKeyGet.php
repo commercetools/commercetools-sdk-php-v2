@@ -108,7 +108,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCurrency
+     * @psalm-param scalar|scalar[] $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductsKeyByKeyGet
     {
@@ -117,7 +117,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCountry
+     * @psalm-param scalar|scalar[] $priceCountry
      */
     public function withPriceCountry($priceCountry): ByProjectKeyProductsKeyByKeyGet
     {
@@ -126,7 +126,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCustomerGroup
+     * @psalm-param scalar|scalar[] $priceCustomerGroup
      */
     public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductsKeyByKeyGet
     {
@@ -135,7 +135,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceChannel
+     * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductsKeyByKeyGet
     {
@@ -144,7 +144,7 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsKeyByKeyGet
     {

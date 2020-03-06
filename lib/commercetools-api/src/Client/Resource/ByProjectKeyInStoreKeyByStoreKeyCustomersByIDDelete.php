@@ -112,7 +112,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $dataErasure
+     * @psalm-param scalar|scalar[] $dataErasure
      */
     public function withDataErasure($dataErasure): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete
     {
@@ -121,7 +121,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $version
+     * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete
     {
@@ -130,7 +130,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete
     {

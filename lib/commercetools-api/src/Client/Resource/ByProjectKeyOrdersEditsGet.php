@@ -108,7 +108,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyOrdersEditsGet
     {
@@ -117,7 +117,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $sort
+     * @psalm-param scalar|scalar[] $sort
      */
     public function withSort($sort): ByProjectKeyOrdersEditsGet
     {
@@ -126,7 +126,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyOrdersEditsGet
     {
@@ -135,7 +135,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyOrdersEditsGet
     {
@@ -144,7 +144,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $withTotal
+     * @psalm-param scalar|scalar[] $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyOrdersEditsGet
     {
@@ -153,7 +153,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $where
+     * @psalm-param scalar|scalar[] $where
      */
     public function withWhere($where): ByProjectKeyOrdersEditsGet
     {
@@ -162,7 +162,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest
 
     /**
      * @psalm-param string $varName
-     * @psalm-param scalar $predicateVar
+     * @psalm-param scalar|scalar[] $predicateVar
      */
     public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyOrdersEditsGet
     {

@@ -108,7 +108,7 @@ class ByProjectKeyPaymentsPost extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyPaymentsPost
     {

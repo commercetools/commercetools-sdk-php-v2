@@ -106,7 +106,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $fuzzy
+     * @psalm-param scalar|scalar[] $fuzzy
      */
     public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -115,7 +115,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $staged
+     * @psalm-param scalar|scalar[] $staged
      */
     public function withStaged($staged): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -124,7 +124,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      * @psalm-param string $locale
-     * @psalm-param scalar $searchKeywords
+     * @psalm-param scalar|scalar[] $searchKeywords
      */
     public function withSearchKeywords(string $locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -133,7 +133,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $sort
+     * @psalm-param scalar|scalar[] $sort
      */
     public function withSort($sort): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -142,7 +142,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -151,7 +151,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyProductProjectionsSuggestGet
     {
@@ -160,7 +160,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $withTotal
+     * @psalm-param scalar|scalar[] $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSuggestGet
     {

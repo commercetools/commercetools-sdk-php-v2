@@ -112,7 +112,7 @@ class ByProjectKeySubscriptionsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $version
+     * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeySubscriptionsByIDDelete
     {
@@ -121,7 +121,7 @@ class ByProjectKeySubscriptionsByIDDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeySubscriptionsByIDDelete
     {

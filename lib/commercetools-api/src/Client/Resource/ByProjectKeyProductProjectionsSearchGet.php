@@ -108,7 +108,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $fuzzy
+     * @psalm-param scalar|scalar[] $fuzzy
      */
     public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSearchGet
     {
@@ -117,7 +117,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $fuzzyLevel
+     * @psalm-param scalar|scalar[] $fuzzyLevel
      */
     public function withFuzzyLevel($fuzzyLevel): ByProjectKeyProductProjectionsSearchGet
     {
@@ -126,7 +126,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $markMatchingVariants
+     * @psalm-param scalar|scalar[] $markMatchingVariants
      */
     public function withMarkMatchingVariants($markMatchingVariants): ByProjectKeyProductProjectionsSearchGet
     {
@@ -135,7 +135,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $staged
+     * @psalm-param scalar|scalar[] $staged
      */
     public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
     {
@@ -144,7 +144,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $filter
+     * @psalm-param scalar|scalar[] $filter
      */
     public function withFilter($filter): ByProjectKeyProductProjectionsSearchGet
     {
@@ -153,7 +153,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $filterFacets
+     * @psalm-param scalar|scalar[] $filterFacets
      */
     public function withFilterFacets($filterFacets): ByProjectKeyProductProjectionsSearchGet
     {
@@ -162,7 +162,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $filterQuery
+     * @psalm-param scalar|scalar[] $filterQuery
      */
     public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
     {
@@ -171,7 +171,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $facet
+     * @psalm-param scalar|scalar[] $facet
      */
     public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
     {
@@ -180,7 +180,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      * @psalm-param string $locale
-     * @psalm-param scalar $text
+     * @psalm-param scalar|scalar[] $text
      */
     public function withText(string $locale, $text): ByProjectKeyProductProjectionsSearchGet
     {
@@ -189,7 +189,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $sort
+     * @psalm-param scalar|scalar[] $sort
      */
     public function withSort($sort): ByProjectKeyProductProjectionsSearchGet
     {
@@ -198,7 +198,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $limit
+     * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyProductProjectionsSearchGet
     {
@@ -207,7 +207,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $offset
+     * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyProductProjectionsSearchGet
     {
@@ -216,7 +216,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $withTotal
+     * @psalm-param scalar|scalar[] $withTotal
      */
     public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
     {
@@ -225,7 +225,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCurrency
+     * @psalm-param scalar|scalar[] $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductProjectionsSearchGet
     {
@@ -234,7 +234,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCountry
+     * @psalm-param scalar|scalar[] $priceCountry
      */
     public function withPriceCountry($priceCountry): ByProjectKeyProductProjectionsSearchGet
     {
@@ -243,7 +243,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceCustomerGroup
+     * @psalm-param scalar|scalar[] $priceCustomerGroup
      */
     public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductProjectionsSearchGet
     {
@@ -252,7 +252,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $priceChannel
+     * @psalm-param scalar|scalar[] $priceChannel
      */
     public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsSearchGet
     {
@@ -261,7 +261,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $expand
+     * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet
     {

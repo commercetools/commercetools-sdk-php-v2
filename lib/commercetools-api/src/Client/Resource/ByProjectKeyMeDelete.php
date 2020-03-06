@@ -112,7 +112,7 @@ class ByProjectKeyMeDelete extends ApiRequest
 
     /**
      *
-     * @psalm-param scalar $version
+     * @psalm-param scalar|scalar[] $version
      */
     public function withVersion($version): ByProjectKeyMeDelete
     {
