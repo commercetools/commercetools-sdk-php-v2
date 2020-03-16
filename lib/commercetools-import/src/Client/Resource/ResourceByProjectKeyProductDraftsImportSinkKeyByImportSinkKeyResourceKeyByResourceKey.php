@@ -13,17 +13,9 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @psalm-immutable
  */
 class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey extends ApiResource
 {
-    public function importOperation(): ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyImportOperation
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyImportOperation($this->getUri() . '/import-operation', $args, $this->getClient());
-    }
-
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers

@@ -11,23 +11,23 @@ namespace Commercetools\Client;
 
 use GuzzleHttp\ClientInterface;
 
-/**
- * @psalm-immutable
- */
 class ApiResource
 {
     /**
      * @var string
+     * @readonly
      */
     private $uri;
 
     /**
      * @psalm-var array<string, scalar>
+     * @readonly
      */
     private $args = [];
 
     /**
      * @var ?ClientInterface
+     * @readonly
      */
     private $client;
 

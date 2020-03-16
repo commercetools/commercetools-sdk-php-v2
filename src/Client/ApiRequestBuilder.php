@@ -9,9 +9,6 @@ use Commercetools\Api\Client\ApiRequestBuilder as Builder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
 
-/**
- * @psalm-immutable
- */
 class ApiRequestBuilder extends Builder
 {
     /**

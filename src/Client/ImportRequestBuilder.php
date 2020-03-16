@@ -9,9 +9,6 @@ use Commercetools\Import\Client\ImportRequestBuilder as Builder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
 
-/**
- * @psalm-immutable
- */
 class ImportRequestBuilder extends Builder
 {
     /**

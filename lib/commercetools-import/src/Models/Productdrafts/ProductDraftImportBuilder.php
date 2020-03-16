@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -32,6 +34,11 @@ use stdClass;
 final class ProductDraftImportBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var null|ProductTypeKeyReference|ProductTypeKeyReferenceBuilder
      */
     private $productType;
@@ -45,11 +52,6 @@ final class ProductDraftImportBuilder implements Builder
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
-
-    /**
-     * @var ?string
-     */
-    private $key;
 
     /**
      * @var null|LocalizedString|LocalizedStringBuilder
@@ -102,13 +104,18 @@ final class ProductDraftImportBuilder implements Builder
     private $state;
 
     /**
-     * @var ?bool
+     * @return null|string
      */
-    private $publish;
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
-     * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -126,10 +133,8 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URLs for the product.
-     * A slug must be unique across a project, but a product can have the same slug for different languages.
-     * Slugs have a maximum size of 256.
-     * Valid characters are alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
+     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
+     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
      * @return null|LocalizedString
      */
@@ -139,16 +144,8 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>Maps to <code>Product.description</code>.</p>
      *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -157,7 +154,10 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>Categories assigned to the product.</p>
+     * <p>An array of references to categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -212,6 +212,11 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -228,6 +233,11 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|StateKeyReference
      */
     public function getState()
@@ -236,13 +246,13 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the product is published immediately.</p>
-     *
-     * @return null|bool
+     * @return $this
      */
-    public function getPublish()
+    public function withKey(?string $key)
     {
-        return $this->publish;
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -271,16 +281,6 @@ final class ProductDraftImportBuilder implements Builder
     public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -381,16 +381,6 @@ final class ProductDraftImportBuilder implements Builder
     public function withState(?StateKeyReference $state)
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPublish(?bool $publish)
-    {
-        $this->publish = $publish;
 
         return $this;
     }
@@ -508,10 +498,10 @@ final class ProductDraftImportBuilder implements Builder
     public function build(): ProductDraftImport
     {
         return new ProductDraftImportModel(
+            $this->key,
             $this->productType instanceof ProductTypeKeyReferenceBuilder ? $this->productType->build() : $this->productType,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
-            $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->categories,
             $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle,
@@ -521,8 +511,7 @@ final class ProductDraftImportBuilder implements Builder
             $this->variants,
             $this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
-            $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state,
-            $this->publish
+            $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

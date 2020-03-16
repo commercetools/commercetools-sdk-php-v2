@@ -11,18 +11,18 @@ namespace Commercetools\Import\Models\Productdrafts;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
+use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
 use Commercetools\Import\Models\Common\StateKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Products\SearchKeywords;
 
-interface ProductDraftImport extends JsonObject
+interface ProductDraftImport extends ImportResource
 {
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';
-    public const FIELD_KEY = 'key';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_CATEGORIES = 'categories';
     public const FIELD_META_TITLE = 'metaTitle';
@@ -33,11 +33,12 @@ interface ProductDraftImport extends JsonObject
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STATE = 'state';
-    public const FIELD_PUBLISH = 'publish';
 
     /**
-     * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -49,29 +50,25 @@ interface ProductDraftImport extends JsonObject
     public function getName();
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URLs for the product.
-     * A slug must be unique across a project, but a product can have the same slug for different languages.
-     * Slugs have a maximum size of 256.
-     * Valid characters are alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
+     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
+     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>Maps to <code>Product.description</code>.</p>
      *
-     * @return null|string
-     */
-    public function getKey();
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>Categories assigned to the product.</p>
+     * <p>An array of references to categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -108,6 +105,11 @@ interface ProductDraftImport extends JsonObject
     public function getVariants();
 
     /**
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory();
@@ -118,24 +120,20 @@ interface ProductDraftImport extends JsonObject
     public function getSearchKeywords();
 
     /**
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|StateKeyReference
      */
     public function getState();
-
-    /**
-     * <p>If <code>true</code>, the product is published immediately.</p>
-     *
-     * @return null|bool
-     */
-    public function getPublish();
 
     public function setProductType(?ProductTypeKeyReference $productType): void;
 
     public function setName(?LocalizedString $name): void;
 
     public function setSlug(?LocalizedString $slug): void;
-
-    public function setKey(?string $key): void;
 
     public function setDescription(?LocalizedString $description): void;
 
@@ -156,6 +154,4 @@ interface ProductDraftImport extends JsonObject
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
     public function setState(?StateKeyReference $state): void;
-
-    public function setPublish(?bool $publish): void;
 }

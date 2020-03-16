@@ -14,19 +14,9 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @psalm-immutable
  */
 class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey extends ApiResource
 {
-    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($resourceKey)) {
-            $args['resourceKey'] = $resourceKey;
-        }
-
-        return new ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri() . '/resourceKey={resourceKey}', $args, $this->getClient());
-    }
     public function importOperations(): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

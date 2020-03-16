@@ -14,7 +14,6 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @psalm-immutable
  */
 class ResourceByProjectKeySubscriptionsKeyByKey extends ApiResource
 {

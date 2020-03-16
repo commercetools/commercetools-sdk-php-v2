@@ -14,6 +14,8 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Importoperations\ImportOperationStatus;
+use Commercetools\Import\Models\Importoperations\ImportOperationStatusModel;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -36,7 +38,7 @@ class ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResource
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return JsonObject|T|null
+     * @return ImportOperationStatus|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -45,6 +47,10 @@ class ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResource
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '200':
+                    $resultType = ImportOperationStatusModel::class;
+
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
@@ -59,7 +65,7 @@ class ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResource
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|JsonObject
+     * @return null|ImportOperationStatus|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

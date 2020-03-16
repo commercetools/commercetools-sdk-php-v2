@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 
+use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
@@ -29,6 +31,11 @@ use stdClass;
 final class ProductDraftImportModel extends JsonObjectModel implements ProductDraftImport
 {
     /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?ProductTypeKeyReference
      */
     protected $productType;
@@ -42,11 +49,6 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
      * @var ?LocalizedString
      */
     protected $slug;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
 
     /**
      * @var ?LocalizedString
@@ -98,17 +100,12 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
      */
     protected $state;
 
-    /**
-     * @var ?bool
-     */
-    protected $publish;
-
 
     public function __construct(
+        string $key = null,
         ProductTypeKeyReference $productType = null,
         LocalizedString $name = null,
         LocalizedString $slug = null,
-        string $key = null,
         LocalizedString $description = null,
         CategoryKeyReferenceCollection $categories = null,
         LocalizedString $metaTitle = null,
@@ -118,13 +115,12 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         ProductVariantDraftImportCollection $variants = null,
         TaxCategoryKeyReference $taxCategory = null,
         SearchKeywords $searchKeywords = null,
-        StateKeyReference $state = null,
-        bool $publish = null
+        StateKeyReference $state = null
     ) {
+        $this->key = $key;
         $this->productType = $productType;
         $this->name = $name;
         $this->slug = $slug;
-        $this->key = $key;
         $this->description = $description;
         $this->categories = $categories;
         $this->metaTitle = $metaTitle;
@@ -135,12 +131,30 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         $this->taxCategory = $taxCategory;
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
-        $this->publish = $publish;
     }
 
     /**
-     * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportResource::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -178,10 +192,8 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URLs for the product.
-     * A slug must be unique across a project, but a product can have the same slug for different languages.
-     * Slugs have a maximum size of 256.
-     * Valid characters are alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
+     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
+     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
      * @return null|LocalizedString
      */
@@ -201,25 +213,8 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>Maps to <code>Product.description</code>.</p>
      *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDraftImport::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -238,7 +233,10 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
-     * <p>Categories assigned to the product.</p>
+     * <p>An array of references to categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -351,6 +349,11 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -387,6 +390,11 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
      * @return null|StateKeyReference
      */
     public function getState()
@@ -404,23 +412,9 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         return $this->state;
     }
 
-    /**
-     * <p>If <code>true</code>, the product is published immediately.</p>
-     *
-     * @return null|bool
-     */
-    public function getPublish()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->publish)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductDraftImport::FIELD_PUBLISH);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->publish = (bool) $data;
-        }
-
-        return $this->publish;
+        $this->key = $key;
     }
 
     public function setProductType(?ProductTypeKeyReference $productType): void
@@ -436,11 +430,6 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -491,10 +480,5 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function setState(?StateKeyReference $state): void
     {
         $this->state = $state;
-    }
-
-    public function setPublish(?bool $publish): void
-    {
-        $this->publish = $publish;
     }
 }

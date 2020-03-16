@@ -17,6 +17,8 @@ use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Categories\CategoryImportModel;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Prices\PriceImportModel;
+use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
+use Commercetools\Import\Models\Productdrafts\ProductDraftImportModel;
 use Commercetools\Import\Models\Products\ProductImport;
 use Commercetools\Import\Models\Products\ProductImportModel;
 use Commercetools\Import\Models\Producttypes\ProductTypeImport;

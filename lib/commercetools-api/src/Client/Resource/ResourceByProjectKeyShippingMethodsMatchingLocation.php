@@ -13,7 +13,6 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @psalm-immutable
  */
 class ResourceByProjectKeyShippingMethodsMatchingLocation extends ApiResource
 {

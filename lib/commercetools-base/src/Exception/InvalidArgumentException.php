@@ -11,9 +11,6 @@ namespace Commercetools\Exception;
 
 use Exception;
 
-/**
- * @psalm-immutable
- */
 class InvalidArgumentException extends BaseException
 {
 }
