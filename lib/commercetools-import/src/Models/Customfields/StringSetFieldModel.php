@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StringSetFieldModel extends JsonObjectModel implements StringSetField
 {
     public const DISCRIMINATOR_VALUE = 'StringSet';

@@ -46,6 +46,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyCartModel extends JsonObjectModel implements MyCart
 {
     /**

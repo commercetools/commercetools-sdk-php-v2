@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InvalidInputErrorModel extends JsonObjectModel implements InvalidInputError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidInput';

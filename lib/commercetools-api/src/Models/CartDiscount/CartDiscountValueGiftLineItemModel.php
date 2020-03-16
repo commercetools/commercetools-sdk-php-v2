@@ -19,6 +19,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implements CartDiscountValueGiftLineItem
 {
     public const DISCRIMINATOR_VALUE = 'giftLineItem';

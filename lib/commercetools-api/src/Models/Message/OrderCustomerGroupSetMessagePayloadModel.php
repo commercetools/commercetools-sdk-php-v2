@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel implements OrderCustomerGroupSetMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerGroupSet';

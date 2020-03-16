@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductRevertedStagedChangesMessageModel extends JsonObjectModel implements ProductRevertedStagedChangesMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';

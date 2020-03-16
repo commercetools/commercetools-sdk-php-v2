@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerSetDefaultBillingAddressActionModel extends JsonObjectModel implements CustomerSetDefaultBillingAddressAction
 {
     public const DISCRIMINATOR_VALUE = 'setDefaultBillingAddress';

@@ -27,6 +27,9 @@ use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
     /**

@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShippingMethodResourceIdentifierModel extends JsonObjectModel implements ShippingMethodResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'shipping-method';

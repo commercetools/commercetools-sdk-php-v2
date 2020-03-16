@@ -21,6 +21,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel implements StagedOrderUpdateSyncInfoAction
 {
     public const DISCRIMINATOR_VALUE = 'updateSyncInfo';

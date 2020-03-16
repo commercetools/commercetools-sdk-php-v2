@@ -30,6 +30,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentModel extends JsonObjectModel implements Payment
 {
     /**

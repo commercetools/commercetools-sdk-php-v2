@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StateRemoveRolesActionModel extends JsonObjectModel implements StateRemoveRolesAction
 {
     public const DISCRIMINATOR_VALUE = 'removeRoles';

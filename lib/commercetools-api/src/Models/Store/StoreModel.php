@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StoreModel extends JsonObjectModel implements Store
 {
     /**

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShoppingListPagedQueryResponseModel extends JsonObjectModel implements ShoppingListPagedQueryResponse
 {
     /**

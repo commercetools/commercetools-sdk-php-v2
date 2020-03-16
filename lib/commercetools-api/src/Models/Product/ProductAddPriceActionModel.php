@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductAddPriceActionModel extends JsonObjectModel implements ProductAddPriceAction
 {
     public const DISCRIMINATOR_VALUE = 'addPrice';

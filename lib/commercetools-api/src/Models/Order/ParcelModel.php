@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ParcelModel extends JsonObjectModel implements Parcel
 {
     /**

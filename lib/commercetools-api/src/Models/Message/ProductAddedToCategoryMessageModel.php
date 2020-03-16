@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductAddedToCategoryMessageModel extends JsonObjectModel implements ProductAddedToCategoryMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductAddedToCategory';

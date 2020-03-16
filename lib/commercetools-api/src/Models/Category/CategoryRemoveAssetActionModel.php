@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategoryRemoveAssetActionModel extends JsonObjectModel implements CategoryRemoveAssetAction
 {
     public const DISCRIMINATOR_VALUE = 'removeAsset';

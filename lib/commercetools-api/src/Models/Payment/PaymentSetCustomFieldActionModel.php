@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentSetCustomFieldActionModel extends JsonObjectModel implements PaymentSetCustomFieldAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomField';

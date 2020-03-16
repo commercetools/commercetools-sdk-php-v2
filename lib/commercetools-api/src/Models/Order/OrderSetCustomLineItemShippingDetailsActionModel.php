@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectModel implements OrderSetCustomLineItemShippingDetailsAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';

@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements CartDiscountValueAbsolute
 {
     public const DISCRIMINATOR_VALUE = 'absolute';

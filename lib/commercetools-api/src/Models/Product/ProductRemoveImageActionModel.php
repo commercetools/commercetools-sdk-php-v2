@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductRemoveImageActionModel extends JsonObjectModel implements ProductRemoveImageAction
 {
     public const DISCRIMINATOR_VALUE = 'removeImage';

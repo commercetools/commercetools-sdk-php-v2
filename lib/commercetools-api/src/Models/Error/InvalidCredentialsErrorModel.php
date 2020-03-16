@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InvalidCredentialsErrorModel extends JsonObjectModel implements InvalidCredentialsError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidCredentials';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
 {
     /**

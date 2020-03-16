@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductSlugChangedMessageModel extends JsonObjectModel implements ProductSlugChangedMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductSlugChanged';

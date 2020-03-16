@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDiscountSetValidUntilActionModel extends JsonObjectModel implements ProductDiscountSetValidUntilAction
 {
     public const DISCRIMINATOR_VALUE = 'setValidUntil';

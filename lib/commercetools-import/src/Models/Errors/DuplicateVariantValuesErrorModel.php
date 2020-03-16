@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements DuplicateVariantValuesError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';

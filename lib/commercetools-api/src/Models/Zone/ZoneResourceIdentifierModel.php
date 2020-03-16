@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'zone';

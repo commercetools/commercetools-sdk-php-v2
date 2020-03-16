@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductMoveImageToPositionActionModel extends JsonObjectModel implements ProductMoveImageToPositionAction
 {
     public const DISCRIMINATOR_VALUE = 'moveImageToPosition';

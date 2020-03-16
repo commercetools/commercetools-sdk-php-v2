@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
 {
     /**

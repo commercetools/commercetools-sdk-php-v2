@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements AttributeLocalizedEnumType
 {
     public const DISCRIMINATOR_VALUE = 'lenum';

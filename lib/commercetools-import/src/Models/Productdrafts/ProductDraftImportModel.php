@@ -28,6 +28,9 @@ use Commercetools\Import\Models\Products\SearchKeywords;
 use Commercetools\Import\Models\Products\SearchKeywordsModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDraftImportModel extends JsonObjectModel implements ProductDraftImport
 {
     /**

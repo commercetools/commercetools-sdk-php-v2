@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class LocalizedEnumSetFieldModel extends JsonObjectModel implements LocalizedEnumSetField
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedEnumSet';

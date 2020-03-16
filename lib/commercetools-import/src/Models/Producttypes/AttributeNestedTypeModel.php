@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Common\ProductTypeKeyReference;
 use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
 {
     public const DISCRIMINATOR_VALUE = 'nested';

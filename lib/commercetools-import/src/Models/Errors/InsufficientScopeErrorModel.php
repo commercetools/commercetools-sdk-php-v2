@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InsufficientScopeErrorModel extends JsonObjectModel implements InsufficientScopeError
 {
     public const DISCRIMINATOR_VALUE = 'insufficient_scope';

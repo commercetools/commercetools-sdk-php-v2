@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements DeliveryCloudEventsFormat
 {
     public const DISCRIMINATOR_VALUE = 'CloudEvents';

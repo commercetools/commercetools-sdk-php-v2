@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartSetAnonymousIdActionModel extends JsonObjectModel implements CartSetAnonymousIdAction
 {
     public const DISCRIMINATOR_VALUE = 'setAnonymousId';

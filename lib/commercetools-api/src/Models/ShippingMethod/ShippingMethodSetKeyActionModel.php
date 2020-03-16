@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements ShippingMethodSetKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'setKey';

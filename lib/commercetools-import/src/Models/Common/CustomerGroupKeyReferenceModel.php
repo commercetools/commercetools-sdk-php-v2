@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements CustomerGroupKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'customer-group';

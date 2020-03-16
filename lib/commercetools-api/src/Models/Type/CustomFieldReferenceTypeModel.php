@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomFieldReferenceTypeModel extends JsonObjectModel implements CustomFieldReferenceType
 {
     public const DISCRIMINATOR_VALUE = 'Reference';

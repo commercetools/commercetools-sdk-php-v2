@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductSetImageLabelActionModel extends JsonObjectModel implements ProductSetImageLabelAction
 {
     public const DISCRIMINATOR_VALUE = 'setImageLabel';

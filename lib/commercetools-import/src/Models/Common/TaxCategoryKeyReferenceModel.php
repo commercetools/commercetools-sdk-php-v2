@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TaxCategoryKeyReferenceModel extends JsonObjectModel implements TaxCategoryKeyReference
 {
     public const DISCRIMINATOR_VALUE = 'tax-category';

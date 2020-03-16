@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Prices\PriceImportCollection;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
     /**

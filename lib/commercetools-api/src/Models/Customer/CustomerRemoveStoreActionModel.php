@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerRemoveStoreActionModel extends JsonObjectModel implements CustomerRemoveStoreAction
 {
     public const DISCRIMINATOR_VALUE = 'removeStore';

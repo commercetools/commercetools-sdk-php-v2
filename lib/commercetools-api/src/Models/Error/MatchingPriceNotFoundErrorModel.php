@@ -19,6 +19,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements MatchingPriceNotFoundError
 {
     public const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';

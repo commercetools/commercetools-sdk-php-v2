@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel implements ProductSetAttributeInAllVariantsAction
 {
     public const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';

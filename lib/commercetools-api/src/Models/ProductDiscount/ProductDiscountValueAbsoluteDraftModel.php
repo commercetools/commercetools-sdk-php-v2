@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel implements ProductDiscountValueAbsoluteDraft
 {
     public const DISCRIMINATOR_VALUE = 'absolute';

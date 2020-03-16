@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShoppingListChangeNameActionModel extends JsonObjectModel implements ShoppingListChangeNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeName';

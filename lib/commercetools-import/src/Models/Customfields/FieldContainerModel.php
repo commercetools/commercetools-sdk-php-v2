@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class FieldContainerModel extends JsonObjectModel implements FieldContainer
 {
     public function __construct(

@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
     public const DISCRIMINATOR_VALUE = '';

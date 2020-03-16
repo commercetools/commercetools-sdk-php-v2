@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderShippingRateInputSetMessageModel extends JsonObjectModel implements OrderShippingRateInputSetMessage
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingRateInputSet';

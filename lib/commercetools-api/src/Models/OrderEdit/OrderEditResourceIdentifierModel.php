@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderEditResourceIdentifierModel extends JsonObjectModel implements OrderEditResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'order-edit';

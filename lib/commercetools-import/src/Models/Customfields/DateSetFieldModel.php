@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DateSetFieldModel extends JsonObjectModel implements DateSetField
 {
     public const DISCRIMINATOR_VALUE = 'DateSet';

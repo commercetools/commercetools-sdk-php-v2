@@ -27,6 +27,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InventoryEntryModel extends JsonObjectModel implements InventoryEntry
 {
     /**

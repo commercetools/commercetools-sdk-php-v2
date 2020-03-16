@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductSetSkuActionModel extends JsonObjectModel implements ProductSetSkuAction
 {
     public const DISCRIMINATOR_VALUE = 'setSku';

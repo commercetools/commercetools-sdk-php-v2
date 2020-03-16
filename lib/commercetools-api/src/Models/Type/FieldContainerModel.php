@@ -10,6 +10,9 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperMap;
 
+/**
+ * @internal
+ */
 final class FieldContainerModel extends MapperMap implements FieldContainer
 {
     /**

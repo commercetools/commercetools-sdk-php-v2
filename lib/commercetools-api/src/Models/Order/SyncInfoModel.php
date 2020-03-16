@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 {
     /**

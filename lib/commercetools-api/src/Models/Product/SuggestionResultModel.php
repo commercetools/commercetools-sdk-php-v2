@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class SuggestionResultModel extends JsonObjectModel implements SuggestionResult
 {
     public function __construct(

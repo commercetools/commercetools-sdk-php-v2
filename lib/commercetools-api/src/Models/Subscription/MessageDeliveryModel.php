@@ -21,6 +21,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MessageDeliveryModel extends JsonObjectModel implements MessageDelivery
 {
     public const DISCRIMINATOR_VALUE = 'Message';

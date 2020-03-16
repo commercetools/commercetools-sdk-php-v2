@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomObjectReferenceModel extends JsonObjectModel implements CustomObjectReference
 {
     public const DISCRIMINATOR_VALUE = 'key-value-document';

@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
 {
     /**

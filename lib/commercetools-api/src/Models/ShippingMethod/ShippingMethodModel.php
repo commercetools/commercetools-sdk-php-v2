@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShippingMethodModel extends JsonObjectModel implements ShippingMethod
 {
     /**

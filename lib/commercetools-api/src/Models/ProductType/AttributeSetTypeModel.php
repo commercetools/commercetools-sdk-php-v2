@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSetType
 {
     public const DISCRIMINATOR_VALUE = 'set';

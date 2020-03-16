@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implements MultiBuyCustomLineItemsTarget
 {
     public const DISCRIMINATOR_VALUE = 'multiBuyCustomLineItems';

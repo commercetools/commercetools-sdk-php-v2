@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReviewStateTransitionMessageModel extends JsonObjectModel implements ReviewStateTransitionMessage
 {
     public const DISCRIMINATOR_VALUE = 'ReviewStateTransition';

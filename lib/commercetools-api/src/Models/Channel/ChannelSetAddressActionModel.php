@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelSetAddressActionModel extends JsonObjectModel implements ChannelSetAddressAction
 {
     public const DISCRIMINATOR_VALUE = 'setAddress';

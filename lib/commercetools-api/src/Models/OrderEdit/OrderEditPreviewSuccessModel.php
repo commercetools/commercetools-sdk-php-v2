@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderEditPreviewSuccessModel extends JsonObjectModel implements OrderEditPreviewSuccess
 {
     public const DISCRIMINATOR_VALUE = 'PreviewSuccess';

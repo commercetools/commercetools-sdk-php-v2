@@ -21,6 +21,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectModel implements StagedOrderTransitionLineItemStateAction
 {
     public const DISCRIMINATOR_VALUE = 'transitionLineItemState';

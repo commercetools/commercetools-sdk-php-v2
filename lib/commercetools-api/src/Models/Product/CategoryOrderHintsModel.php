@@ -10,6 +10,9 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperMap;
 
+/**
+ * @internal
+ */
 final class CategoryOrderHintsModel extends MapperMap implements CategoryOrderHints
 {
     /**

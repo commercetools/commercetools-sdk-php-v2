@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TaxCategoryChangeNameActionModel extends JsonObjectModel implements TaxCategoryChangeNameAction
 {
     public const DISCRIMINATOR_VALUE = 'changeName';

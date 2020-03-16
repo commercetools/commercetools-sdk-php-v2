@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class BooleanFieldModel extends JsonObjectModel implements BooleanField
 {
     public const DISCRIMINATOR_VALUE = 'Boolean';

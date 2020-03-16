@@ -10,6 +10,9 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperMap;
 
+/**
+ * @internal
+ */
 final class LocalizedStringModel extends MapperMap implements LocalizedString
 {
     /**

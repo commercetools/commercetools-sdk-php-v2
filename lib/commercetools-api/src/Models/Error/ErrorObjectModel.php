@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
     public const DISCRIMINATOR_VALUE = '';

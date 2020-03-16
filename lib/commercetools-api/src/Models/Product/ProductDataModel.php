@@ -18,6 +18,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDataModel extends JsonObjectModel implements ProductData
 {
     /**

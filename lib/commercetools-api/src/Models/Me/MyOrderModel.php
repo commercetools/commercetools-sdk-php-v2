@@ -52,6 +52,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyOrderModel extends JsonObjectModel implements MyOrder
 {
     /**

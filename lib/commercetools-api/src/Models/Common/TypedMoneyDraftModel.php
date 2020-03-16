@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TypedMoneyDraftModel extends JsonObjectModel implements TypedMoneyDraft
 {
     public const DISCRIMINATOR_VALUE = '';

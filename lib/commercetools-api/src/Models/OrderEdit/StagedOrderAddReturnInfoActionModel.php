@@ -20,6 +20,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implements StagedOrderAddReturnInfoAction
 {
     public const DISCRIMINATOR_VALUE = 'addReturnInfo';

@@ -26,6 +26,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
 {
     /**

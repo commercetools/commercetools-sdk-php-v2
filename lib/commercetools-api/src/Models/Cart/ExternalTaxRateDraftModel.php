@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
 {
     /**

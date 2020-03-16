@@ -18,6 +18,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel implements StagedOrderImportLineItemStateAction
 {
     public const DISCRIMINATOR_VALUE = 'importLineItemState';

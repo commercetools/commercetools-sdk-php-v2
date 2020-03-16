@@ -19,6 +19,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectModel implements StagedOrderSetShippingMethodTaxRateAction
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxRate';

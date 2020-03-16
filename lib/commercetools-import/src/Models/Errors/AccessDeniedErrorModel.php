@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeniedError
 {
     public const DISCRIMINATOR_VALUE = 'access_denied';

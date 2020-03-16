@@ -19,6 +19,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderRemovePaymentActionModel extends JsonObjectModel implements StagedOrderRemovePaymentAction
 {
     public const DISCRIMINATOR_VALUE = 'removePayment';

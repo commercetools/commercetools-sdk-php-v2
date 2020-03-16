@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel implements PaymentSetStatusInterfaceTextAction
 {
     public const DISCRIMINATOR_VALUE = 'setStatusInterfaceText';

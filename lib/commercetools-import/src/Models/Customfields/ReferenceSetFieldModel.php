@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Common\KeyReferenceCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceSetField
 {
     public const DISCRIMINATOR_VALUE = 'ReferenceSet';

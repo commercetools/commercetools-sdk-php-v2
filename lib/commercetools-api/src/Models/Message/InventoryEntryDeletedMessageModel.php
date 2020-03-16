@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements InventoryEntryDeletedMessage
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';

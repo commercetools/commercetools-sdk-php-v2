@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel implements InventoryEntrySetExpectedDeliveryAction
 {
     public const DISCRIMINATOR_VALUE = 'setExpectedDelivery';

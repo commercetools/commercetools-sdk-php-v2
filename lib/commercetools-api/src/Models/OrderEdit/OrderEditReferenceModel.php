@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderEditReferenceModel extends JsonObjectModel implements OrderEditReference
 {
     public const DISCRIMINATOR_VALUE = 'order-edit';

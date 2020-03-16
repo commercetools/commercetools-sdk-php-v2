@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentInteractionAddedMessageModel extends JsonObjectModel implements PaymentInteractionAddedMessage
 {
     public const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';

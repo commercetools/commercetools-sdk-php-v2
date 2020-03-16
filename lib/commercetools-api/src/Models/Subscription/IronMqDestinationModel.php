@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class IronMqDestinationModel extends JsonObjectModel implements IronMqDestination
 {
     public const DISCRIMINATOR_VALUE = 'IronMQ';

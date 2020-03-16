@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportResponseModel extends JsonObjectModel implements ImportResponse
 {
     /**

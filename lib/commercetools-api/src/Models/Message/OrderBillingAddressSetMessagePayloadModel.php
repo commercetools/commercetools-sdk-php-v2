@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel implements OrderBillingAddressSetMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';

@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DiscountCodeSetNameActionModel extends JsonObjectModel implements DiscountCodeSetNameAction
 {
     public const DISCRIMINATOR_VALUE = 'setName';

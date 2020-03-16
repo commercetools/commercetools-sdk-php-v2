@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class LocalizableTextAttributeModel extends JsonObjectModel implements LocalizableTextAttribute
 {
     public const DISCRIMINATOR_VALUE = 'ltext';

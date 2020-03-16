@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelReferenceModel extends JsonObjectModel implements ChannelReference
 {
     public const DISCRIMINATOR_VALUE = 'channel';

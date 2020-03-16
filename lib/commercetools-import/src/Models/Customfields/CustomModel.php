@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Common\TypeKeyReference;
 use Commercetools\Import\Models\Common\TypeKeyReferenceModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomModel extends JsonObjectModel implements Custom
 {
     /**

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxCategoryUpdateAction
 {
     public const DISCRIMINATOR_VALUE = '';

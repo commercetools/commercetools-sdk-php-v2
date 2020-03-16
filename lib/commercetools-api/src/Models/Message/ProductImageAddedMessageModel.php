@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductImageAddedMessageModel extends JsonObjectModel implements ProductImageAddedMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductImageAdded';

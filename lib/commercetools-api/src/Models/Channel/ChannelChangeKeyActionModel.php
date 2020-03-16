@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelChangeKeyActionModel extends JsonObjectModel implements ChannelChangeKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';

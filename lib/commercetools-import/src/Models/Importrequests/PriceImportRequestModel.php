@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Prices\PriceImportCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PriceImportRequestModel extends JsonObjectModel implements PriceImportRequest
 {
     public const DISCRIMINATOR_VALUE = 'price';

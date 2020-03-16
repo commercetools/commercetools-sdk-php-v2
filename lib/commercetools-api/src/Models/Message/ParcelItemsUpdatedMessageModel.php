@@ -24,6 +24,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements ParcelItemsUpdatedMessage
 {
     public const DISCRIMINATOR_VALUE = 'ParcelItemsUpdated';

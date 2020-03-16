@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportOperationStatusModel extends JsonObjectModel implements ImportOperationStatus
 {
     /**

@@ -25,6 +25,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel extends JsonObjectModel implements StagedOrderSetShippingAddressAndCustomShippingMethodAction
 {
     public const DISCRIMINATOR_VALUE = 'setShippingAddressAndCustomShippingMethod';

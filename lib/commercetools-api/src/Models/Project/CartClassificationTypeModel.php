@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartClassificationTypeModel extends JsonObjectModel implements CartClassificationType
 {
     public const DISCRIMINATOR_VALUE = 'CartClassification';

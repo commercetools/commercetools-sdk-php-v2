@@ -27,6 +27,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderEditAppliedMessageModel extends JsonObjectModel implements OrderEditAppliedMessage
 {
     public const DISCRIMINATOR_VALUE = 'OrderEditApplied';

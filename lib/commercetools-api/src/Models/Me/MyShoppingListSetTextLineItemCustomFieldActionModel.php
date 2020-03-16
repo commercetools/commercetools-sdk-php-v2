@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObjectModel implements MyShoppingListSetTextLineItemCustomFieldAction
 {
     public const DISCRIMINATOR_VALUE = 'setTextLineItemCustomField';

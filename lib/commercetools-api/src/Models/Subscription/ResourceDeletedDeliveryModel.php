@@ -21,6 +21,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ResourceDeletedDeliveryModel extends JsonObjectModel implements ResourceDeletedDelivery
 {
     public const DISCRIMINATOR_VALUE = 'ResourceDeleted';

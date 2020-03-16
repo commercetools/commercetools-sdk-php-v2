@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategoryChangeParentActionModel extends JsonObjectModel implements CategoryChangeParentAction
 {
     public const DISCRIMINATOR_VALUE = 'changeParent';

@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Productvariants\Attribute;
 use Commercetools\Import\Models\Productvariants\AttributeModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements DuplicateAttributeValueError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';

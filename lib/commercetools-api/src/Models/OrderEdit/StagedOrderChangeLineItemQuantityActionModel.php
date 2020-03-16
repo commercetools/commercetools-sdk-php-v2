@@ -21,6 +21,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel implements StagedOrderChangeLineItemQuantityAction
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductUnpublishActionModel extends JsonObjectModel implements ProductUnpublishAction
 {
     public const DISCRIMINATOR_VALUE = 'unpublish';

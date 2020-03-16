@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TaxCategoryPagedQueryResponseModel extends JsonObjectModel implements TaxCategoryPagedQueryResponse
 {
     /**

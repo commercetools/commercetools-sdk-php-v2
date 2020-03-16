@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerEmailVerifiedMessagePayloadModel extends JsonObjectModel implements CustomerEmailVerifiedMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'CustomerEmailVerified';

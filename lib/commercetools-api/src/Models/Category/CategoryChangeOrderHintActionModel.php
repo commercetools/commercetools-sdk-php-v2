@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategoryChangeOrderHintActionModel extends JsonObjectModel implements CategoryChangeOrderHintAction
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderHint';

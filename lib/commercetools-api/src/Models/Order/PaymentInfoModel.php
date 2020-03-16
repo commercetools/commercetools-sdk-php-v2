@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 {
     /**

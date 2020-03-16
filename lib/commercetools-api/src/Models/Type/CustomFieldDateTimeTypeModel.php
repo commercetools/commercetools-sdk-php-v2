@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements CustomFieldDateTimeType
 {
     public const DISCRIMINATOR_VALUE = 'DateTime';

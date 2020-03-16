@@ -18,6 +18,9 @@ use Commercetools\Import\Models\Common\ImageCollection;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductVariantDraftImportModel extends JsonObjectModel implements ProductVariantDraftImport
 {
     /**

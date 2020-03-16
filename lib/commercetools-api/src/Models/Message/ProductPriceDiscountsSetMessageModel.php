@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductPriceDiscountsSetMessageModel extends JsonObjectModel implements ProductPriceDiscountsSetMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';

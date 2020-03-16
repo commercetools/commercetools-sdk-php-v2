@@ -33,6 +33,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelModel extends JsonObjectModel implements Channel
 {
     /**

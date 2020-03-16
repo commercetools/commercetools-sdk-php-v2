@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TermFacetResultModel extends JsonObjectModel implements TermFacetResult
 {
     public const DISCRIMINATOR_VALUE = 'terms';

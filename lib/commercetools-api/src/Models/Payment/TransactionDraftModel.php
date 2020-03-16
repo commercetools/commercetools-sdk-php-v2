@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TransactionDraftModel extends JsonObjectModel implements TransactionDraft
 {
     /**

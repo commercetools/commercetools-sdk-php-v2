@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements ScoreShippingRateInputDraft
 {
     public const DISCRIMINATOR_VALUE = 'Score';

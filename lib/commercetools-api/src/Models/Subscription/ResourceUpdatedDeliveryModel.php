@@ -21,6 +21,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements ResourceUpdatedDelivery
 {
     public const DISCRIMINATOR_VALUE = 'ResourceUpdated';

@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFromCartDraft
 {
     /**

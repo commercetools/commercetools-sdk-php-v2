@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductAddExternalImageActionModel extends JsonObjectModel implements ProductAddExternalImageAction
 {
     public const DISCRIMINATOR_VALUE = 'addExternalImage';

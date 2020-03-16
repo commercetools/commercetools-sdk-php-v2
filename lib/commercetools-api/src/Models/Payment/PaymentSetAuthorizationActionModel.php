@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentSetAuthorizationActionModel extends JsonObjectModel implements PaymentSetAuthorizationAction
 {
     public const DISCRIMINATOR_VALUE = 'setAuthorization';

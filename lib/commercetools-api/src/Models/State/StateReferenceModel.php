@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StateReferenceModel extends JsonObjectModel implements StateReference
 {
     public const DISCRIMINATOR_VALUE = 'state';

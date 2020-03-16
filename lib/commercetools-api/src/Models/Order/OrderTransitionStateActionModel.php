@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderTransitionStateActionModel extends JsonObjectModel implements OrderTransitionStateAction
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';

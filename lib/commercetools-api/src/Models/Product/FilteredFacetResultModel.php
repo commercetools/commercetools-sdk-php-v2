@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class FilteredFacetResultModel extends JsonObjectModel implements FilteredFacetResult
 {
     public const DISCRIMINATOR_VALUE = 'filter';

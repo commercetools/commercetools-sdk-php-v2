@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implements ShippingMethodRemoveZoneAction
 {
     public const DISCRIMINATOR_VALUE = 'removeZone';

@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
     /**

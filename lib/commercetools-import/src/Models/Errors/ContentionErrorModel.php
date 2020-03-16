@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ContentionErrorModel extends JsonObjectModel implements ContentionError
 {
     public const DISCRIMINATOR_VALUE = 'Contention';

@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftImport
 {
     /**

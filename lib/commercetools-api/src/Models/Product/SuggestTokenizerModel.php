@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class SuggestTokenizerModel extends JsonObjectModel implements SuggestTokenizer
 {
     public const DISCRIMINATOR_VALUE = '';

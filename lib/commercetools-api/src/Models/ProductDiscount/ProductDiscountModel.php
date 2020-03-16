@@ -26,6 +26,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDiscountModel extends JsonObjectModel implements ProductDiscount
 {
     /**

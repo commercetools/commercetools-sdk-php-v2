@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DeliveryFormatModel extends JsonObjectModel implements DeliveryFormat
 {
     public const DISCRIMINATOR_VALUE = '';

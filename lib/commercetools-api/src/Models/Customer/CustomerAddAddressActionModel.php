@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerAddAddressActionModel extends JsonObjectModel implements CustomerAddAddressAction
 {
     public const DISCRIMINATOR_VALUE = 'addAddress';

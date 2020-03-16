@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Productvariants\ProductVariantImportCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductVariantImportRequestModel extends JsonObjectModel implements ProductVariantImportRequest
 {
     public const DISCRIMINATOR_VALUE = 'product-variant';

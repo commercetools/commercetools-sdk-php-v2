@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class FacetResultsModel extends JsonObjectModel implements FacetResults
 {
     public function __construct(

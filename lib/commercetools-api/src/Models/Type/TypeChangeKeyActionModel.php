@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChangeKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';

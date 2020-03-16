@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectModel implements ProductTypeChangePlainEnumValueOrderAction
 {
     public const DISCRIMINATOR_VALUE = 'changePlainEnumValueOrder';

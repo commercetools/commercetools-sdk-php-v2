@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderShippingAddressSetMessageModel extends JsonObjectModel implements OrderShippingAddressSetMessage
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingAddressSet';

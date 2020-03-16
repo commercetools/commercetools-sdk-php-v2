@@ -21,6 +21,9 @@ use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductVariantImportModel extends JsonObjectModel implements ProductVariantImport
 {
     /**

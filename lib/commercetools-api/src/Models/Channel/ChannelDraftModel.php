@@ -23,6 +23,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 {
     /**

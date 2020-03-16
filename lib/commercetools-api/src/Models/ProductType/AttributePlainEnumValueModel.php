@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
 {
     /**

@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategorySetAssetDescriptionActionModel extends JsonObjectModel implements CategorySetAssetDescriptionAction
 {
     public const DISCRIMINATOR_VALUE = 'setAssetDescription';

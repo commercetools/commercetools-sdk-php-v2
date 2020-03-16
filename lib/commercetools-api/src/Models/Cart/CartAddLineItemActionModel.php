@@ -21,6 +21,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartAddLineItemActionModel extends JsonObjectModel implements CartAddLineItemAction
 {
     public const DISCRIMINATOR_VALUE = 'addLineItem';

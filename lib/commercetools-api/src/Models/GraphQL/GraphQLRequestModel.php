@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class GraphQLRequestModel extends JsonObjectModel implements GraphQLRequest
 {
     /**

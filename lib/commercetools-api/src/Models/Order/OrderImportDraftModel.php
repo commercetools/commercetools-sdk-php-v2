@@ -31,6 +31,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft
 {
     /**

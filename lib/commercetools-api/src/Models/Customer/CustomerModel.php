@@ -29,6 +29,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerModel extends JsonObjectModel implements Customer
 {
     /**

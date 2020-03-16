@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectModel implements DuplicateFieldWithConflictingResourceError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateFieldWithConflictingResource';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InvalidStateTransitionErrorModel extends JsonObjectModel implements InvalidStateTransitionError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidTransition';

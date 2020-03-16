@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ShoppingListLineItemDraftModel extends JsonObjectModel implements ShoppingListLineItemDraft
 {
     /**

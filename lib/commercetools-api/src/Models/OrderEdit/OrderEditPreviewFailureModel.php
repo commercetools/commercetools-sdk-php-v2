@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderEditPreviewFailureModel extends JsonObjectModel implements OrderEditPreviewFailure
 {
     public const DISCRIMINATOR_VALUE = 'PreviewFailure';

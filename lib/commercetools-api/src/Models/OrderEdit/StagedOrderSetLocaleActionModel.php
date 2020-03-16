@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderSetLocaleActionModel extends JsonObjectModel implements StagedOrderSetLocaleAction
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';

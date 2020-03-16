@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDeletedMessageModel extends JsonObjectModel implements ProductDeletedMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductDeleted';

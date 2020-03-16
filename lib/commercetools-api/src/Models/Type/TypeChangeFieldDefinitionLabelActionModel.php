@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionLabelAction
 {
     public const DISCRIMINATOR_VALUE = 'changeFieldDefinitionLabel';

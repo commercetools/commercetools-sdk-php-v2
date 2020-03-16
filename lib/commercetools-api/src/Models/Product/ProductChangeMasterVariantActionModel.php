@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductChangeMasterVariantActionModel extends JsonObjectModel implements ProductChangeMasterVariantAction
 {
     public const DISCRIMINATOR_VALUE = 'changeMasterVariant';

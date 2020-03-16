@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements CartDiscountLineItemsTarget
 {
     public const DISCRIMINATOR_VALUE = 'lineItems';

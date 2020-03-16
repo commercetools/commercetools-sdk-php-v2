@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Categories\CategoryImportCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategoryImportRequestModel extends JsonObjectModel implements CategoryImportRequest
 {
     public const DISCRIMINATOR_VALUE = 'category';

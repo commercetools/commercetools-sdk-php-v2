@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ResourceUpdateErrorModel extends JsonObjectModel implements ResourceUpdateError
 {
     public const DISCRIMINATOR_VALUE = 'ResourceUpdate';

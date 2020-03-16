@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderAddReturnInfoActionModel extends JsonObjectModel implements OrderAddReturnInfoAction
 {
     public const DISCRIMINATOR_VALUE = 'addReturnInfo';

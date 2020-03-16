@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectModel implements OrderTransitionCustomLineItemStateAction
 {
     public const DISCRIMINATOR_VALUE = 'transitionCustomLineItemState';

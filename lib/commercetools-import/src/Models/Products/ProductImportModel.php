@@ -26,6 +26,9 @@ use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductImportModel extends JsonObjectModel implements ProductImport
 {
     /**

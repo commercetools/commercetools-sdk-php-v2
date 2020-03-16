@@ -22,6 +22,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraft
 {
     /**

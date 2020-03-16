@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ApiClientPagedQueryResponseModel extends JsonObjectModel implements ApiClientPagedQueryResponse
 {
     /**

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 {
     public const DISCRIMINATOR_VALUE = '';

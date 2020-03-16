@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
     /**

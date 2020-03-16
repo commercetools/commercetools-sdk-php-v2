@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StringFieldModel extends JsonObjectModel implements StringField
 {
     public const DISCRIMINATOR_VALUE = 'String';

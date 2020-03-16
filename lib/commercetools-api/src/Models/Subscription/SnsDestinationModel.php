@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class SnsDestinationModel extends JsonObjectModel implements SnsDestination
 {
     public const DISCRIMINATOR_VALUE = 'SNS';

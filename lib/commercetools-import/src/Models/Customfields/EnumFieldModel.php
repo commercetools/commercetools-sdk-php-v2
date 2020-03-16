@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class EnumFieldModel extends JsonObjectModel implements EnumField
 {
     public const DISCRIMINATOR_VALUE = 'Enum';

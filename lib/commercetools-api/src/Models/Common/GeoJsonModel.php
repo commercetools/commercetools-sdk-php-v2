@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
     public const DISCRIMINATOR_VALUE = '';

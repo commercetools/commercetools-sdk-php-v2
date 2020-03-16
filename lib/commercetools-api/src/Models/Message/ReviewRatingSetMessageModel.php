@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReviewRatingSetMessageModel extends JsonObjectModel implements ReviewRatingSetMessage
 {
     public const DISCRIMINATOR_VALUE = 'ReviewRatingSet';

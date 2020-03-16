@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StateSetNameActionModel extends JsonObjectModel implements StateSetNameAction
 {
     public const DISCRIMINATOR_VALUE = 'setName';

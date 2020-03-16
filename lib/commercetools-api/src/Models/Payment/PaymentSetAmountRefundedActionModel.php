@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class PaymentSetAmountRefundedActionModel extends JsonObjectModel implements PaymentSetAmountRefundedAction
 {
     public const DISCRIMINATOR_VALUE = 'setAmountRefunded';

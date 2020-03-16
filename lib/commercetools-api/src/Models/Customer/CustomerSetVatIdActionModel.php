@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerSetVatIdActionModel extends JsonObjectModel implements CustomerSetVatIdAction
 {
     public const DISCRIMINATOR_VALUE = 'setVatId';

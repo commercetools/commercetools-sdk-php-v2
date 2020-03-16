@@ -52,6 +52,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class StagedOrderModel extends JsonObjectModel implements StagedOrder
 {
     /**

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPrecisionMoney
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';

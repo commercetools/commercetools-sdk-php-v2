@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerReferenceModel extends JsonObjectModel implements CustomerReference
 {
     public const DISCRIMINATOR_VALUE = 'customer';

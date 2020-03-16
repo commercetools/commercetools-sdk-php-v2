@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
 {
     /**

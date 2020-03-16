@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements ProductTypeChangeLabelAction
 {
     public const DISCRIMINATOR_VALUE = 'changeLabel';

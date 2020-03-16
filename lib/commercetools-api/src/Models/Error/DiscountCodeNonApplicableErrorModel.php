@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implements DiscountCodeNonApplicableError
 {
     public const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';

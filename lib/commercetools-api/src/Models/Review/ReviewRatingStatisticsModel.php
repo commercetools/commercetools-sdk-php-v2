@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics
 {
     /**

@@ -24,6 +24,9 @@ use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategoryImportModel extends JsonObjectModel implements CategoryImport
 {
     /**

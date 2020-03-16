@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomFieldMoneyTypeModel extends JsonObjectModel implements CustomFieldMoneyType
 {
     public const DISCRIMINATOR_VALUE = 'Money';

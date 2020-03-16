@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFieldSetType
 {
     public const DISCRIMINATOR_VALUE = 'Set';

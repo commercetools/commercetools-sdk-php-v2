@@ -17,6 +17,9 @@ use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MoneyFieldModel extends JsonObjectModel implements MoneyField
 {
     public const DISCRIMINATOR_VALUE = 'Money';

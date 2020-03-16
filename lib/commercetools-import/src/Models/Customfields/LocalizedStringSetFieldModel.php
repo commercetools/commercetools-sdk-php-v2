@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Common\LocalizedStringCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class LocalizedStringSetFieldModel extends JsonObjectModel implements LocalizedStringSetField
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedStringSet';

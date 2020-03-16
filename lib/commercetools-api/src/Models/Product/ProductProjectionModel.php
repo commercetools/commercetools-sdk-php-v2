@@ -30,6 +30,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductProjectionModel extends JsonObjectModel implements ProductProjection
 {
     /**

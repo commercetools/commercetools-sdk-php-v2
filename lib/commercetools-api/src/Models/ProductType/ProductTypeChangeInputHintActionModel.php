@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implements ProductTypeChangeInputHintAction
 {
     public const DISCRIMINATOR_VALUE = 'changeInputHint';

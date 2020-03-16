@@ -19,6 +19,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyShoppingListAddLineItemActionModel extends JsonObjectModel implements MyShoppingListAddLineItemAction
 {
     public const DISCRIMINATOR_VALUE = 'addLineItem';

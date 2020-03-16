@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImportCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductTypeImportRequestModel extends JsonObjectModel implements ProductTypeImportRequest
 {
     public const DISCRIMINATOR_VALUE = 'product-type';

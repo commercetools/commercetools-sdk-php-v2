@@ -19,6 +19,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyShoppingListSetCustomTypeActionModel extends JsonObjectModel implements MyShoppingListSetCustomTypeAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomType';

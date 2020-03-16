@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InvalidCurrentPasswordErrorModel extends JsonObjectModel implements InvalidCurrentPasswordError
 {
     public const DISCRIMINATOR_VALUE = 'InvalidCurrentPassword';

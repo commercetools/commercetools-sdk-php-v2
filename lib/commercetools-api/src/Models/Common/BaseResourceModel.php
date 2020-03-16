@@ -79,6 +79,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class BaseResourceModel extends JsonObjectModel implements BaseResource
 {
     /**

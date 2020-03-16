@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductTypeResourceIdentifierModel extends JsonObjectModel implements ProductTypeResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'product-type';

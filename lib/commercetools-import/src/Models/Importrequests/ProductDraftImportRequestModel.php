@@ -16,6 +16,9 @@ use Commercetools\Import\Models\Productdrafts\ProductDraftImportCollection;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDraftImportRequestModel extends JsonObjectModel implements ProductDraftImportRequest
 {
     public const DISCRIMINATOR_VALUE = 'product-draft';

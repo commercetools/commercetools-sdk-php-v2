@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CategorySetMetaTitleActionModel extends JsonObjectModel implements CategorySetMetaTitleAction
 {
     public const DISCRIMINATOR_VALUE = 'setMetaTitle';

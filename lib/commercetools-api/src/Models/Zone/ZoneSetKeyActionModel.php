@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyAction
 {
     public const DISCRIMINATOR_VALUE = 'setKey';

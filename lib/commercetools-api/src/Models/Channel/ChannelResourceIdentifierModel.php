@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ChannelResourceIdentifierModel extends JsonObjectModel implements ChannelResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'channel';

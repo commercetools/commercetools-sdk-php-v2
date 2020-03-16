@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CartSetDeleteDaysAfterLastModificationActionModel extends JsonObjectModel implements CartSetDeleteDaysAfterLastModificationAction
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';

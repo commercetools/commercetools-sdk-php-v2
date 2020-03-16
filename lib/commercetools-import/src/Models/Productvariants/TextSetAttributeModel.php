@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TextSetAttributeModel extends JsonObjectModel implements TextSetAttribute
 {
     public const DISCRIMINATOR_VALUE = 'text-set';

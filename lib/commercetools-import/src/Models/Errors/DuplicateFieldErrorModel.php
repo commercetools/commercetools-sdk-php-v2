@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DuplicateFieldErrorModel extends JsonObjectModel implements DuplicateFieldError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateField';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTokenError
 {
     public const DISCRIMINATOR_VALUE = 'invalid_token';

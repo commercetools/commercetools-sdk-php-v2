@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyPaymentSetMethodInfoNameActionModel extends JsonObjectModel implements MyPaymentSetMethodInfoNameAction
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoName';

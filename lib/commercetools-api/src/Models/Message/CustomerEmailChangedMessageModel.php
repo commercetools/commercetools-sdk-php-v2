@@ -23,6 +23,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerEmailChangedMessageModel extends JsonObjectModel implements CustomerEmailChangedMessage
 {
     public const DISCRIMINATOR_VALUE = 'CustomerEmailChanged';

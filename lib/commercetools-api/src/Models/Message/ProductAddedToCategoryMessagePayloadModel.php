@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel implements ProductAddedToCategoryMessagePayload
 {
     public const DISCRIMINATOR_VALUE = 'ProductAddedToCategory';

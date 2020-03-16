@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DateTimeFieldModel extends JsonObjectModel implements DateTimeField
 {
     public const DISCRIMINATOR_VALUE = 'DateTime';

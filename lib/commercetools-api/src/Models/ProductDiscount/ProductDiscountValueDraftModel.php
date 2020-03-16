@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductDiscountValueDraftModel extends JsonObjectModel implements ProductDiscountValueDraft
 {
     public const DISCRIMINATOR_VALUE = '';

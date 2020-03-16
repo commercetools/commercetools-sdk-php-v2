@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReviewResourceIdentifierModel extends JsonObjectModel implements ReviewResourceIdentifier
 {
     public const DISCRIMINATOR_VALUE = 'review';

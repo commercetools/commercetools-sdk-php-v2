@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ProductStateTransitionMessageModel extends JsonObjectModel implements ProductStateTransitionMessage
 {
     public const DISCRIMINATOR_VALUE = 'ProductStateTransition';

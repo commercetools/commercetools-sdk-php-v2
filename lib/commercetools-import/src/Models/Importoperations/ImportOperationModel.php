@@ -18,6 +18,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ImportOperationModel extends JsonObjectModel implements ImportOperation
 {
     /**

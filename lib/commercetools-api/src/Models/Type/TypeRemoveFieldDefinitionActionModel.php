@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel implements TypeRemoveFieldDefinitionAction
 {
     public const DISCRIMINATOR_VALUE = 'removeFieldDefinition';

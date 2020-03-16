@@ -25,6 +25,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel implements CustomLineItemStateTransitionMessage
 {
     public const DISCRIMINATOR_VALUE = 'CustomLineItemStateTransition';

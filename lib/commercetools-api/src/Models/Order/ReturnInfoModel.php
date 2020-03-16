@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 {
     /**

@@ -16,6 +16,9 @@ use Commercetools\Base\MapperFactory;
 
 use stdClass;
 
+/**
+ * @internal
+ */
 final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements DuplicatePriceScopeError
 {
     public const DISCRIMINATOR_VALUE = 'DuplicatePriceScope';

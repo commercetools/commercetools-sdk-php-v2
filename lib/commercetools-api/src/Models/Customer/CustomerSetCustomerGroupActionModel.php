@@ -17,6 +17,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implements CustomerSetCustomerGroupAction
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerGroup';

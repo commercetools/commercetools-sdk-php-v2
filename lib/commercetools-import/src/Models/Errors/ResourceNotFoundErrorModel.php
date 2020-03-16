@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ResourceNotFoundErrorModel extends JsonObjectModel implements ResourceNotFoundError
 {
     public const DISCRIMINATOR_VALUE = 'ResourceNotFound';

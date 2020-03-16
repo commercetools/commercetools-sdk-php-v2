@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ConcurrentModificationErrorModel extends JsonObjectModel implements ConcurrentModificationError
 {
     public const DISCRIMINATOR_VALUE = 'ConcurrentModification';

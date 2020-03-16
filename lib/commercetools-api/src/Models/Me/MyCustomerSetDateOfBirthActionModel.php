@@ -17,6 +17,9 @@ use DateTimeImmutable;
 use DateTimeImmutableModel;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implements MyCustomerSetDateOfBirthAction
 {
     public const DISCRIMINATOR_VALUE = 'setDateOfBirth';

@@ -14,6 +14,9 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
+/**
+ * @internal
+ */
 final class ExtensionHttpDestinationModel extends JsonObjectModel implements ExtensionHttpDestination
 {
     public const DISCRIMINATOR_VALUE = 'HTTP';
