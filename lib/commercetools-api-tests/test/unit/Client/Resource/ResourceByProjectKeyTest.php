@@ -76,10 +76,12 @@ class ResourceByProjectKeyTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -156,7 +158,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->categories();
                 },
-                ResourceByProjectKeyCategories::class
+                ResourceByProjectKeyCategories::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/categories'
             ],
             'ResourceByProjectKeyCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCarts {
@@ -164,7 +168,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->carts();
                 },
-                ResourceByProjectKeyCarts::class
+                ResourceByProjectKeyCarts::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/carts'
             ],
             'ResourceByProjectKeyCartDiscounts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartDiscounts {
@@ -172,7 +178,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->cartDiscounts();
                 },
-                ResourceByProjectKeyCartDiscounts::class
+                ResourceByProjectKeyCartDiscounts::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/cart-discounts'
             ],
             'ResourceByProjectKeyChannels' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyChannels {
@@ -180,7 +188,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->channels();
                 },
-                ResourceByProjectKeyChannels::class
+                ResourceByProjectKeyChannels::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/channels'
             ],
             'ResourceByProjectKeyCustomers' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomers {
@@ -188,7 +198,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customers();
                 },
-                ResourceByProjectKeyCustomers::class
+                ResourceByProjectKeyCustomers::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers'
             ],
             'ResourceByProjectKeyCustomerGroups' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomerGroups {
@@ -196,7 +208,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customerGroups();
                 },
-                ResourceByProjectKeyCustomerGroups::class
+                ResourceByProjectKeyCustomerGroups::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customer-groups'
             ],
             'ResourceByProjectKeyCustomObjects' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomObjects {
@@ -204,7 +218,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->customObjects();
                 },
-                ResourceByProjectKeyCustomObjects::class
+                ResourceByProjectKeyCustomObjects::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/custom-objects'
             ],
             'ResourceByProjectKeyDiscountCodes' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyDiscountCodes {
@@ -212,7 +228,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->discountCodes();
                 },
-                ResourceByProjectKeyDiscountCodes::class
+                ResourceByProjectKeyDiscountCodes::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/discount-codes'
             ],
             'ResourceByProjectKeyGraphql' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyGraphql {
@@ -220,7 +238,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->graphql();
                 },
-                ResourceByProjectKeyGraphql::class
+                ResourceByProjectKeyGraphql::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/graphql'
             ],
             'ResourceByProjectKeyInventory' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInventory {
@@ -228,7 +248,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->inventory();
                 },
-                ResourceByProjectKeyInventory::class
+                ResourceByProjectKeyInventory::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/inventory'
             ],
             'ResourceByProjectKeyLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyLogin {
@@ -236,7 +258,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->login();
                 },
-                ResourceByProjectKeyLogin::class
+                ResourceByProjectKeyLogin::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/login'
             ],
             'ResourceByProjectKeyMessages' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMessages {
@@ -244,7 +268,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->messages();
                 },
-                ResourceByProjectKeyMessages::class
+                ResourceByProjectKeyMessages::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/messages'
             ],
             'ResourceByProjectKeyOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrders {
@@ -252,7 +278,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->orders();
                 },
-                ResourceByProjectKeyOrders::class
+                ResourceByProjectKeyOrders::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/orders'
             ],
             'ResourceByProjectKeyPayments' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyPayments {
@@ -260,7 +288,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->payments();
                 },
-                ResourceByProjectKeyPayments::class
+                ResourceByProjectKeyPayments::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/payments'
             ],
             'ResourceByProjectKeyProducts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProducts {
@@ -268,7 +298,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->products();
                 },
-                ResourceByProjectKeyProducts::class
+                ResourceByProjectKeyProducts::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/products'
             ],
             'ResourceByProjectKeyProductDiscounts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductDiscounts {
@@ -276,7 +308,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productDiscounts();
                 },
-                ResourceByProjectKeyProductDiscounts::class
+                ResourceByProjectKeyProductDiscounts::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-discounts'
             ],
             'ResourceByProjectKeyProductProjections' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjections {
@@ -284,7 +318,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections();
                 },
-                ResourceByProjectKeyProductProjections::class
+                ResourceByProjectKeyProductProjections::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-projections'
             ],
             'ResourceByProjectKeyProductTypes' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTypes {
@@ -292,7 +328,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productTypes();
                 },
-                ResourceByProjectKeyProductTypes::class
+                ResourceByProjectKeyProductTypes::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-types'
             ],
             'ResourceByProjectKeyReviews' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviews {
@@ -300,7 +338,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->reviews();
                 },
-                ResourceByProjectKeyReviews::class
+                ResourceByProjectKeyReviews::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/reviews'
             ],
             'ResourceByProjectKeyShippingMethods' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethods {
@@ -308,7 +348,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->shippingMethods();
                 },
-                ResourceByProjectKeyShippingMethods::class
+                ResourceByProjectKeyShippingMethods::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/shipping-methods'
             ],
             'ResourceByProjectKeyShoppingLists' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShoppingLists {
@@ -316,7 +358,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->shoppingLists();
                 },
-                ResourceByProjectKeyShoppingLists::class
+                ResourceByProjectKeyShoppingLists::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/shopping-lists'
             ],
             'ResourceByProjectKeyStates' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyStates {
@@ -324,7 +368,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->states();
                 },
-                ResourceByProjectKeyStates::class
+                ResourceByProjectKeyStates::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/states'
             ],
             'ResourceByProjectKeySubscriptions' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeySubscriptions {
@@ -332,7 +378,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->subscriptions();
                 },
-                ResourceByProjectKeySubscriptions::class
+                ResourceByProjectKeySubscriptions::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/subscriptions'
             ],
             'ResourceByProjectKeyTaxCategories' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyTaxCategories {
@@ -340,7 +388,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->taxCategories();
                 },
-                ResourceByProjectKeyTaxCategories::class
+                ResourceByProjectKeyTaxCategories::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/tax-categories'
             ],
             'ResourceByProjectKeyTypes' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyTypes {
@@ -348,7 +398,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->types();
                 },
-                ResourceByProjectKeyTypes::class
+                ResourceByProjectKeyTypes::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/types'
             ],
             'ResourceByProjectKeyZones' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZones {
@@ -356,7 +408,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->zones();
                 },
-                ResourceByProjectKeyZones::class
+                ResourceByProjectKeyZones::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/zones'
             ],
             'ResourceByProjectKeyMe' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMe {
@@ -364,7 +418,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me();
                 },
-                ResourceByProjectKeyMe::class
+                ResourceByProjectKeyMe::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me'
             ],
             'ResourceByProjectKeyExtensions' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyExtensions {
@@ -372,7 +428,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->extensions();
                 },
-                ResourceByProjectKeyExtensions::class
+                ResourceByProjectKeyExtensions::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/extensions'
             ],
             'ResourceByProjectKeyApiClients' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyApiClients {
@@ -380,7 +438,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->apiClients();
                 },
-                ResourceByProjectKeyApiClients::class
+                ResourceByProjectKeyApiClients::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/api-clients'
             ],
             'ResourceByProjectKeyStores' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyStores {
@@ -388,7 +448,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->stores();
                 },
-                ResourceByProjectKeyStores::class
+                ResourceByProjectKeyStores::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/stores'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKey {
@@ -396,7 +458,9 @@ class ResourceByProjectKeyTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey");
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKey::class
+                ResourceByProjectKeyInStoreKeyByStoreKey::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}'
             ]
         ];
     }

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Zone\ZoneDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyZones extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/zones', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyZonesKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyZones extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyZonesKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyZonesKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyZonesByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyZones extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyZonesByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyZonesByID($args, $this->getClient());
     }
 
     /**

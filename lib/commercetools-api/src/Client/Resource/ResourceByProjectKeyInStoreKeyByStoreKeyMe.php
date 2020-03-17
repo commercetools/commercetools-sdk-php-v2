@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,22 +17,30 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyMe extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}/me', $args, $client);
+    }
+
     public function carts(): ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts($this->getUri() . '/carts', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts($args, $this->getClient());
     }
     public function orders(): ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders($this->getUri() . '/orders', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders($args, $this->getClient());
     }
     public function activeCart(): ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart($this->getUri() . '/active-cart', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart($args, $this->getClient());
     }
 }

@@ -47,10 +47,12 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -218,7 +220,9 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->extensions()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyExtensionsKeyByKey::class
+                ResourceByProjectKeyExtensionsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/extensions/key={key}'
             ],
             'ResourceByProjectKeyExtensionsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyExtensionsByID {
@@ -227,7 +231,9 @@ class ResourceByProjectKeyExtensionsTest extends TestCase
                         ->extensions()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyExtensionsByID::class
+                ResourceByProjectKeyExtensionsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/extensions/{ID}'
             ]
         ];
     }

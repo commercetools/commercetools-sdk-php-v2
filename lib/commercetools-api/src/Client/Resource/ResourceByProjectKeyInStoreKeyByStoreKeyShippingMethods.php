@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,10 +17,18 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}/shipping-methods', $args, $client);
+    }
+
     public function matchingCart(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart($this->getUri() . '/matching-cart', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart($args, $this->getClient());
     }
 }

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,6 +17,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyMePayment extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/me/payment', $args, $client);
+    }
+
     public function keyWithKeyValue(string $key = null): ResourceByProjectKeyMePaymentKeyByKey
     {
         $args = $this->getArgs();
@@ -23,7 +32,7 @@ class ResourceByProjectKeyMePayment extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyMePaymentKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyMePaymentKeyByKey($args, $this->getClient());
     }
     public function withIDValue(string $ID = null): ResourceByProjectKeyMePaymentByID
     {
@@ -32,6 +41,6 @@ class ResourceByProjectKeyMePayment extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyMePaymentByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyMePaymentByID($args, $this->getClient());
     }
 }

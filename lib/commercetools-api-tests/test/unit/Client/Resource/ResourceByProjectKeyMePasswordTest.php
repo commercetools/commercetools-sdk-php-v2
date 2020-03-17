@@ -45,10 +45,12 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -120,7 +122,9 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
                         ->password()
                         ->reset();
                 },
-                ResourceByProjectKeyMePasswordReset::class
+                ResourceByProjectKeyMePasswordReset::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/password/reset'
             ]
         ];
     }

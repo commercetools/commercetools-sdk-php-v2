@@ -45,10 +45,12 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperati
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ImportRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -174,7 +176,9 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperati
                         ->importOperations()
                         ->withIdValue("id");
                 },
-                ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsById::class
+                ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsById::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey', 'id' => 'id'],
+                '/{projectKey}/product-drafts/importSinkKey={importSinkKey}/import-operations/{id}'
             ]
         ];
     }

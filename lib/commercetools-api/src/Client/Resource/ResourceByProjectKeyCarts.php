@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Cart\CartDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,11 +18,19 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyCarts extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/carts', $args, $client);
+    }
+
     public function replicate(): ResourceByProjectKeyCartsReplicate
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCartsReplicate($this->getUri() . '/replicate', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsReplicate($args, $this->getClient());
     }
     public function withCustomerId(string $customerId = null): ResourceByProjectKeyCartsCustomerIdByCustomerId
     {
@@ -30,7 +39,7 @@ class ResourceByProjectKeyCarts extends ApiResource
             $args['customerId'] = $customerId;
         }
 
-        return new ResourceByProjectKeyCartsCustomerIdByCustomerId($this->getUri() . '/customer-id={customerId}', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsCustomerIdByCustomerId($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyCartsByID
     {
@@ -39,7 +48,7 @@ class ResourceByProjectKeyCarts extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCartsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCartsByID($args, $this->getClient());
     }
 
     /**

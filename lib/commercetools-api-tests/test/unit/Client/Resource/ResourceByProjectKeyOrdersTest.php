@@ -49,10 +49,12 @@ class ResourceByProjectKeyOrdersTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -220,7 +222,9 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->orders()
                         ->importOrder();
                 },
-                ResourceByProjectKeyOrdersImport::class
+                ResourceByProjectKeyOrdersImport::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/orders/import'
             ],
             'ResourceByProjectKeyOrdersOrderNumberByOrderNumber' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersOrderNumberByOrderNumber {
@@ -229,7 +233,9 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->orders()
                         ->withOrderNumber("orderNumber");
                 },
-                ResourceByProjectKeyOrdersOrderNumberByOrderNumber::class
+                ResourceByProjectKeyOrdersOrderNumberByOrderNumber::class,
+                ['projectKey' => 'projectKey', 'orderNumber' => 'orderNumber'],
+                '/{projectKey}/orders/order-number={orderNumber}'
             ],
             'ResourceByProjectKeyOrdersEdits' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersEdits {
@@ -238,7 +244,9 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->orders()
                         ->edits();
                 },
-                ResourceByProjectKeyOrdersEdits::class
+                ResourceByProjectKeyOrdersEdits::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/orders/edits'
             ],
             'ResourceByProjectKeyOrdersByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersByID {
@@ -247,7 +255,9 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->orders()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyOrdersByID::class
+                ResourceByProjectKeyOrdersByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/orders/{ID}'
             ]
         ];
     }

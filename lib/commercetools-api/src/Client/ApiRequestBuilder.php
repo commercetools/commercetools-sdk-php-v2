@@ -30,6 +30,6 @@ class ApiRequestBuilder extends ApiResource
             $args['projectKey'] = $projectKey;
         }
 
-        return new ResourceByProjectKey($this->getUri() . '/{projectKey}', $args, $this->getClient());
+        return new ResourceByProjectKey($args, $this->getClient());
     }
 }

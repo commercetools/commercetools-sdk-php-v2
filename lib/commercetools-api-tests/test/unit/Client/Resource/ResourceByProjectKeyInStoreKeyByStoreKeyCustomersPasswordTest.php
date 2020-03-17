@@ -45,10 +45,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -122,7 +124,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
                         ->password()
                         ->reset();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/customers/password/reset'
             ]
         ];
     }

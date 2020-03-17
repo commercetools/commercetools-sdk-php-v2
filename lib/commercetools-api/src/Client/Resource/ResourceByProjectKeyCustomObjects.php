@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\CustomObject\CustomObjectDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyCustomObjects extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/custom-objects', $args, $client);
+    }
+
     public function withContainerAndKey(string $container = null, string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
     {
         $args = $this->getArgs();
@@ -28,7 +37,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyCustomObjectsByContainerByKey($this->getUri() . '/{container}/{key}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomObjectsByContainerByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyCustomObjectsByID
     {
@@ -37,7 +46,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCustomObjectsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomObjectsByID($args, $this->getClient());
     }
 
     /**

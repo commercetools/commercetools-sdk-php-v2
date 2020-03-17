@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Customer\CustomerSignin;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyLogin extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/login', $args, $client);
+    }
+
     /**
      * @psalm-param ?CustomerSignin $body
      * @psalm-param array<string, scalar|scalar[]> $headers

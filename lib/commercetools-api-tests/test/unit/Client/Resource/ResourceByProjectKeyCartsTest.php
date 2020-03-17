@@ -48,10 +48,12 @@ class ResourceByProjectKeyCartsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -230,7 +232,9 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->carts()
                         ->replicate();
                 },
-                ResourceByProjectKeyCartsReplicate::class
+                ResourceByProjectKeyCartsReplicate::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/carts/replicate'
             ],
             'ResourceByProjectKeyCartsCustomerIdByCustomerId' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsCustomerIdByCustomerId {
@@ -239,7 +243,9 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->carts()
                         ->withCustomerId("customerId");
                 },
-                ResourceByProjectKeyCartsCustomerIdByCustomerId::class
+                ResourceByProjectKeyCartsCustomerIdByCustomerId::class,
+                ['projectKey' => 'projectKey', 'customerId' => 'customerId'],
+                '/{projectKey}/carts/customer-id={customerId}'
             ],
             'ResourceByProjectKeyCartsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsByID {
@@ -248,7 +254,9 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->carts()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyCartsByID::class
+                ResourceByProjectKeyCartsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/carts/{ID}'
             ]
         ];
     }

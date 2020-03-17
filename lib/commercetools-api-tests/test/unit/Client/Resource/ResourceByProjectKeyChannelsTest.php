@@ -46,10 +46,12 @@ class ResourceByProjectKeyChannelsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -217,7 +219,9 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                         ->channels()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyChannelsByID::class
+                ResourceByProjectKeyChannelsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/channels/{ID}'
             ]
         ];
     }

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Common\Update;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,65 +18,73 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyMe extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/me', $args, $client);
+    }
+
     public function email(): ResourceByProjectKeyMeEmail
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeEmail($this->getUri() . '/email', $args, $this->getClient());
+        return new ResourceByProjectKeyMeEmail($args, $this->getClient());
     }
     public function password(): ResourceByProjectKeyMePassword
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMePassword($this->getUri() . '/password', $args, $this->getClient());
+        return new ResourceByProjectKeyMePassword($args, $this->getClient());
     }
     public function signup(): ResourceByProjectKeyMeSignup
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeSignup($this->getUri() . '/signup', $args, $this->getClient());
+        return new ResourceByProjectKeyMeSignup($args, $this->getClient());
     }
     public function login(): ResourceByProjectKeyMeLogin
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeLogin($this->getUri() . '/login', $args, $this->getClient());
+        return new ResourceByProjectKeyMeLogin($args, $this->getClient());
     }
     public function activeCart(): ResourceByProjectKeyMeActiveCart
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeActiveCart($this->getUri() . '/active-cart', $args, $this->getClient());
+        return new ResourceByProjectKeyMeActiveCart($args, $this->getClient());
     }
     public function carts(): ResourceByProjectKeyMeCarts
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeCarts($this->getUri() . '/carts', $args, $this->getClient());
+        return new ResourceByProjectKeyMeCarts($args, $this->getClient());
     }
     public function orders(): ResourceByProjectKeyMeOrders
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeOrders($this->getUri() . '/orders', $args, $this->getClient());
+        return new ResourceByProjectKeyMeOrders($args, $this->getClient());
     }
     public function payments(): ResourceByProjectKeyMePayments
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMePayments($this->getUri() . '/payments', $args, $this->getClient());
+        return new ResourceByProjectKeyMePayments($args, $this->getClient());
     }
     public function shoppingLists(): ResourceByProjectKeyMeShoppingLists
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeShoppingLists($this->getUri() . '/shopping-lists', $args, $this->getClient());
+        return new ResourceByProjectKeyMeShoppingLists($args, $this->getClient());
     }
     public function payment(): ResourceByProjectKeyMePayment
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMePayment($this->getUri() . '/payment', $args, $this->getClient());
+        return new ResourceByProjectKeyMePayment($args, $this->getClient());
     }
 
     /**

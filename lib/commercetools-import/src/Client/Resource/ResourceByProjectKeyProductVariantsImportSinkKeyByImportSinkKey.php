@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importrequests\ProductVariantImportRequest;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/product-variants/importSinkKey={importSinkKey}', $args, $client);
+    }
+
     public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
     {
         $args = $this->getArgs();
@@ -24,13 +33,13 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
             $args['resourceKey'] = $resourceKey;
         }
 
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($this->getUri() . '/resourceKey={resourceKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($args, $this->getClient());
     }
     public function importOperations(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations($this->getUri() . '/import-operations', $args, $this->getClient());
+        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations($args, $this->getClient());
     }
 
     /**

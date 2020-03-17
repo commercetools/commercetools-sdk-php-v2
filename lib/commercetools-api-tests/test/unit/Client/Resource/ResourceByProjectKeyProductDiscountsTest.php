@@ -48,10 +48,12 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -219,7 +221,9 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->productDiscounts()
                         ->matching();
                 },
-                ResourceByProjectKeyProductDiscountsMatching::class
+                ResourceByProjectKeyProductDiscountsMatching::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-discounts/matching'
             ],
             'ResourceByProjectKeyProductDiscountsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductDiscountsKeyByKey {
@@ -228,7 +232,9 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->productDiscounts()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyProductDiscountsKeyByKey::class
+                ResourceByProjectKeyProductDiscountsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/product-discounts/key={key}'
             ],
             'ResourceByProjectKeyProductDiscountsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductDiscountsByID {
@@ -237,7 +243,9 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->productDiscounts()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyProductDiscountsByID::class
+                ResourceByProjectKeyProductDiscountsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/product-discounts/{ID}'
             ]
         ];
     }

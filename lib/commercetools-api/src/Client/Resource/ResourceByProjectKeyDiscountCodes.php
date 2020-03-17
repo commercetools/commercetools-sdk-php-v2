@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyDiscountCodes extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/discount-codes', $args, $client);
+    }
+
     public function withId(string $ID = null): ResourceByProjectKeyDiscountCodesByID
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyDiscountCodes extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyDiscountCodesByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyDiscountCodesByID($args, $this->getClient());
     }
 
     /**

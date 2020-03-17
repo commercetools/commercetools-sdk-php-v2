@@ -44,10 +44,12 @@ class ResourceByProjectKeyCustomersEmailTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -108,7 +110,9 @@ class ResourceByProjectKeyCustomersEmailTest extends TestCase
                         ->email()
                         ->confirm();
                 },
-                ResourceByProjectKeyCustomersEmailConfirm::class
+                ResourceByProjectKeyCustomersEmailConfirm::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers/email/confirm'
             ]
         ];
     }

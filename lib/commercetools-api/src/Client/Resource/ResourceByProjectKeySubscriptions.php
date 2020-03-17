@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Subscription\SubscriptionDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeySubscriptions extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/subscriptions', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeySubscriptionsKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeySubscriptions extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeySubscriptionsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeySubscriptionsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeySubscriptionsByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeySubscriptions extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeySubscriptionsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeySubscriptionsByID($args, $this->getClient());
     }
 
     /**

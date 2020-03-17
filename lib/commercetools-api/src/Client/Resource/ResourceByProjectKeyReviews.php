@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Review\ReviewDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyReviews extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/reviews', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyReviewsKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyReviews extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyReviewsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyReviewsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyReviewsByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyReviews extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyReviewsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyReviewsByID($args, $this->getClient());
     }
 
     /**

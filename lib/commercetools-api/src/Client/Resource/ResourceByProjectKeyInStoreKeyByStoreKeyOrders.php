@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Order\OrderFromCartDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}/orders', $args, $client);
+    }
+
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
             $args['orderNumber'] = $orderNumber;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber($this->getUri() . '/order-number={orderNumber}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID($args, $this->getClient());
     }
 
     /**

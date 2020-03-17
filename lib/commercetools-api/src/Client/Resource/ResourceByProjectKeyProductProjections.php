@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,17 +17,25 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyProductProjections extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/product-projections', $args, $client);
+    }
+
     public function search(): ResourceByProjectKeyProductProjectionsSearch
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductProjectionsSearch($this->getUri() . '/search', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsSearch($args, $this->getClient());
     }
     public function suggest(): ResourceByProjectKeyProductProjectionsSuggest
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductProjectionsSuggest($this->getUri() . '/suggest', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsSuggest($args, $this->getClient());
     }
     public function withKey(string $key = null): ResourceByProjectKeyProductProjectionsKeyByKey
     {
@@ -35,7 +44,7 @@ class ResourceByProjectKeyProductProjections extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyProductProjectionsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyProductProjectionsByID
     {
@@ -44,7 +53,7 @@ class ResourceByProjectKeyProductProjections extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyProductProjectionsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductProjectionsByID($args, $this->getClient());
     }
 
     /**

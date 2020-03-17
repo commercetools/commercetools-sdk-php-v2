@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Customer\CustomerDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}/customers', $args, $client);
+    }
+
     public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
             $args['passwordToken'] = $passwordToken;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken($this->getUri() . '/password-token={passwordToken}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken($args, $this->getClient());
     }
     public function withEmailToken(string $emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
     {
@@ -33,31 +42,31 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
             $args['emailToken'] = $emailToken;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken($this->getUri() . '/email-token={emailToken}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken($args, $this->getClient());
     }
     public function emailToken(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken($this->getUri() . '/email-token', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken($args, $this->getClient());
     }
     public function email(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail($this->getUri() . '/email', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail($args, $this->getClient());
     }
     public function password(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword($this->getUri() . '/password', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword($args, $this->getClient());
     }
     public function passwordToken(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken($this->getUri() . '/password-token', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken($args, $this->getClient());
     }
     public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
     {
@@ -66,7 +75,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
     {
@@ -75,7 +84,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID($args, $this->getClient());
     }
 
     /**

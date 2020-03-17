@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Order\OrderFromCartDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,11 +18,19 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyOrders extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/orders', $args, $client);
+    }
+
     public function importOrder(): ResourceByProjectKeyOrdersImport
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyOrdersImport($this->getUri() . '/import', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersImport($args, $this->getClient());
     }
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
@@ -30,13 +39,13 @@ class ResourceByProjectKeyOrders extends ApiResource
             $args['orderNumber'] = $orderNumber;
         }
 
-        return new ResourceByProjectKeyOrdersOrderNumberByOrderNumber($this->getUri() . '/order-number={orderNumber}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersOrderNumberByOrderNumber($args, $this->getClient());
     }
     public function edits(): ResourceByProjectKeyOrdersEdits
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyOrdersEdits($this->getUri() . '/edits', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersEdits($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyOrdersByID
     {
@@ -45,7 +54,7 @@ class ResourceByProjectKeyOrders extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyOrdersByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyOrdersByID($args, $this->getClient());
     }
 
     /**

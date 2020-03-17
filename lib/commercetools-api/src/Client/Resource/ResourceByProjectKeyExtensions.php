@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Extension\ExtensionDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyExtensions extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/extensions', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyExtensionsKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyExtensions extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyExtensionsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyExtensionsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyExtensionsByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyExtensions extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyExtensionsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyExtensionsByID($args, $this->getClient());
     }
 
     /**

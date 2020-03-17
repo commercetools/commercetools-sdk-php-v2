@@ -47,10 +47,12 @@ class ResourceByProjectKeyReviewsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -218,7 +220,9 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->reviews()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyReviewsKeyByKey::class
+                ResourceByProjectKeyReviewsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/reviews/key={key}'
             ],
             'ResourceByProjectKeyReviewsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviewsByID {
@@ -227,7 +231,9 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->reviews()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyReviewsByID::class
+                ResourceByProjectKeyReviewsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/reviews/{ID}'
             ]
         ];
     }

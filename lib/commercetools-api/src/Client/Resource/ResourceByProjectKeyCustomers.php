@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Customer\CustomerDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyCustomers extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/customers', $args, $client);
+    }
+
     public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
             $args['passwordToken'] = $passwordToken;
         }
 
-        return new ResourceByProjectKeyCustomersPasswordTokenByPasswordToken($this->getUri() . '/password-token={passwordToken}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersPasswordTokenByPasswordToken($args, $this->getClient());
     }
     public function withEmailToken(string $emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
     {
@@ -33,31 +42,31 @@ class ResourceByProjectKeyCustomers extends ApiResource
             $args['emailToken'] = $emailToken;
         }
 
-        return new ResourceByProjectKeyCustomersEmailTokenByEmailToken($this->getUri() . '/email-token={emailToken}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersEmailTokenByEmailToken($args, $this->getClient());
     }
     public function emailToken(): ResourceByProjectKeyCustomersEmailToken
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersEmailToken($this->getUri() . '/email-token', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersEmailToken($args, $this->getClient());
     }
     public function email(): ResourceByProjectKeyCustomersEmail
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersEmail($this->getUri() . '/email', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersEmail($args, $this->getClient());
     }
     public function password(): ResourceByProjectKeyCustomersPassword
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersPassword($this->getUri() . '/password', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersPassword($args, $this->getClient());
     }
     public function passwordToken(): ResourceByProjectKeyCustomersPasswordToken
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersPasswordToken($this->getUri() . '/password-token', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersPasswordToken($args, $this->getClient());
     }
     public function withKey(string $key = null): ResourceByProjectKeyCustomersKeyByKey
     {
@@ -66,7 +75,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyCustomersKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyCustomersByID
     {
@@ -75,7 +84,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCustomersByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersByID($args, $this->getClient());
     }
 
     /**

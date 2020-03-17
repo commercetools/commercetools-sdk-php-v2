@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,11 +18,19 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyProductDiscounts extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/product-discounts', $args, $client);
+    }
+
     public function matching(): ResourceByProjectKeyProductDiscountsMatching
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductDiscountsMatching($this->getUri() . '/matching', $args, $this->getClient());
+        return new ResourceByProjectKeyProductDiscountsMatching($args, $this->getClient());
     }
     public function withKey(string $key = null): ResourceByProjectKeyProductDiscountsKeyByKey
     {
@@ -30,7 +39,7 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyProductDiscountsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductDiscountsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyProductDiscountsByID
     {
@@ -39,7 +48,7 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyProductDiscountsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyProductDiscountsByID($args, $this->getClient());
     }
 
     /**

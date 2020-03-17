@@ -46,10 +46,12 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ImportRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -121,7 +123,9 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->resourceKeyWithResourceKeyValue("resourceKey");
                 },
-                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class
+                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey', 'resourceKey' => 'resourceKey'],
+                '/{projectKey}/product-variants/importSinkKey={importSinkKey}/resourceKey={resourceKey}'
             ],
             'ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations {
@@ -131,7 +135,9 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyTest extend
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->importOperations();
                 },
-                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations::class
+                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                '/{projectKey}/product-variants/importSinkKey={importSinkKey}/import-operations'
             ]
         ];
     }

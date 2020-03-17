@@ -53,10 +53,12 @@ class ResourceByProjectKeyCustomersTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -224,7 +226,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->withPasswordToken("passwordToken");
                 },
-                ResourceByProjectKeyCustomersPasswordTokenByPasswordToken::class
+                ResourceByProjectKeyCustomersPasswordTokenByPasswordToken::class,
+                ['projectKey' => 'projectKey', 'passwordToken' => 'passwordToken'],
+                '/{projectKey}/customers/password-token={passwordToken}'
             ],
             'ResourceByProjectKeyCustomersEmailTokenByEmailToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmailTokenByEmailToken {
@@ -233,7 +237,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->withEmailToken("emailToken");
                 },
-                ResourceByProjectKeyCustomersEmailTokenByEmailToken::class
+                ResourceByProjectKeyCustomersEmailTokenByEmailToken::class,
+                ['projectKey' => 'projectKey', 'emailToken' => 'emailToken'],
+                '/{projectKey}/customers/email-token={emailToken}'
             ],
             'ResourceByProjectKeyCustomersEmailToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmailToken {
@@ -242,7 +248,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->emailToken();
                 },
-                ResourceByProjectKeyCustomersEmailToken::class
+                ResourceByProjectKeyCustomersEmailToken::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers/email-token'
             ],
             'ResourceByProjectKeyCustomersEmail' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmail {
@@ -251,7 +259,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->email();
                 },
-                ResourceByProjectKeyCustomersEmail::class
+                ResourceByProjectKeyCustomersEmail::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers/email'
             ],
             'ResourceByProjectKeyCustomersPassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPassword {
@@ -260,7 +270,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->password();
                 },
-                ResourceByProjectKeyCustomersPassword::class
+                ResourceByProjectKeyCustomersPassword::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers/password'
             ],
             'ResourceByProjectKeyCustomersPasswordToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordToken {
@@ -269,7 +281,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->passwordToken();
                 },
-                ResourceByProjectKeyCustomersPasswordToken::class
+                ResourceByProjectKeyCustomersPasswordToken::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/customers/password-token'
             ],
             'ResourceByProjectKeyCustomersKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersKeyByKey {
@@ -278,7 +292,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyCustomersKeyByKey::class
+                ResourceByProjectKeyCustomersKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/customers/key={key}'
             ],
             'ResourceByProjectKeyCustomersByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersByID {
@@ -287,7 +303,9 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->customers()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyCustomersByID::class
+                ResourceByProjectKeyCustomersByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/customers/{ID}'
             ]
         ];
     }

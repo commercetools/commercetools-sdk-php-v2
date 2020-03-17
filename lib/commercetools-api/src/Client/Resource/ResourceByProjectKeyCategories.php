@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyCategories extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/categories', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyCategoriesKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyCategories extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyCategoriesKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyCategoriesKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyCategoriesByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyCategories extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyCategoriesByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyCategoriesByID($args, $this->getClient());
     }
 
     /**

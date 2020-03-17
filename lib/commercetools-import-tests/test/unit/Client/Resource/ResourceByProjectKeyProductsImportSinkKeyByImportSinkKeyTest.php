@@ -46,10 +46,12 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyTest extends TestC
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ImportRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -121,7 +123,9 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyTest extends TestC
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->resourceKeyWithResourceKeyValue("resourceKey");
                 },
-                ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class
+                ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey', 'resourceKey' => 'resourceKey'],
+                '/{projectKey}/products/importSinkKey={importSinkKey}/resourceKey={resourceKey}'
             ],
             'ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperations' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperations {
@@ -131,7 +135,9 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyTest extends TestC
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                         ->importOperations();
                 },
-                ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperations::class
+                ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperations::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                '/{projectKey}/products/importSinkKey={importSinkKey}/import-operations'
             ]
         ];
     }

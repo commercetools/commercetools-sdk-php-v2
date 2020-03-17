@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,10 +17,18 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyCustomersEmail extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/customers/email', $args, $client);
+    }
+
     public function confirm(): ResourceByProjectKeyCustomersEmailConfirm
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersEmailConfirm($this->getUri() . '/confirm', $args, $this->getClient());
+        return new ResourceByProjectKeyCustomersEmailConfirm($args, $this->getClient());
     }
 }

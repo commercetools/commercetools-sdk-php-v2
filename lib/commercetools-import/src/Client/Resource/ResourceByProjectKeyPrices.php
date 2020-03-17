@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,6 +17,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyPrices extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/prices', $args, $client);
+    }
+
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();
@@ -23,6 +32,6 @@ class ResourceByProjectKeyPrices extends ApiResource
             $args['importSinkKey'] = $importSinkKey;
         }
 
-        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey($this->getUri() . '/importSinkKey={importSinkKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey($args, $this->getClient());
     }
 }

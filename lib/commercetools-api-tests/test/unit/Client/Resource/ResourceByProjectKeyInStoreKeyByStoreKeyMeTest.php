@@ -46,10 +46,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -110,7 +112,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeTest extends TestCase
                         ->me()
                         ->carts();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/me/carts'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders {
@@ -120,7 +124,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeTest extends TestCase
                         ->me()
                         ->orders();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/me/orders'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart {
@@ -130,7 +136,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeTest extends TestCase
                         ->me()
                         ->activeCart();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/me/active-cart'
             ]
         ];
     }

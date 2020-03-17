@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Product\ProductUpdate;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,11 +18,19 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyProductsByID extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/products/{ID}', $args, $client);
+    }
+
     public function images(): ResourceByProjectKeyProductsByIDImages
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyProductsByIDImages($this->getUri() . '/images', $args, $this->getClient());
+        return new ResourceByProjectKeyProductsByIDImages($args, $this->getClient());
     }
 
     /**

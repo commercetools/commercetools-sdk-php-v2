@@ -48,10 +48,12 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -275,7 +277,9 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                         ->productProjections()
                         ->search();
                 },
-                ResourceByProjectKeyProductProjectionsSearch::class
+                ResourceByProjectKeyProductProjectionsSearch::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-projections/search'
             ],
             'ResourceByProjectKeyProductProjectionsSuggest' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsSuggest {
@@ -284,7 +288,9 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                         ->productProjections()
                         ->suggest();
                 },
-                ResourceByProjectKeyProductProjectionsSuggest::class
+                ResourceByProjectKeyProductProjectionsSuggest::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/product-projections/suggest'
             ],
             'ResourceByProjectKeyProductProjectionsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsKeyByKey {
@@ -293,7 +299,9 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                         ->productProjections()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyProductProjectionsKeyByKey::class
+                ResourceByProjectKeyProductProjectionsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/product-projections/key={key}'
             ],
             'ResourceByProjectKeyProductProjectionsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsByID {
@@ -302,7 +310,9 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                         ->productProjections()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyProductProjectionsByID::class
+                ResourceByProjectKeyProductProjectionsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/product-projections/{ID}'
             ]
         ];
     }

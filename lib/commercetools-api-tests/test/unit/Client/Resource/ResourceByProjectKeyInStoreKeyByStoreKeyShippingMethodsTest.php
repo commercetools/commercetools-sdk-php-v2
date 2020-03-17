@@ -44,10 +44,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsTest extends TestCa
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -108,7 +110,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsTest extends TestCa
                         ->shippingMethods()
                         ->matchingCart();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/shipping-methods/matching-cart'
             ]
         ];
     }

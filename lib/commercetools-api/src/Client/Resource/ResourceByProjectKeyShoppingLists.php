@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ShoppingList\ShoppingListDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyShoppingLists extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/shopping-lists', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyShoppingListsKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyShoppingLists extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyShoppingListsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyShoppingListsKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyShoppingListsByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyShoppingLists extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyShoppingListsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyShoppingListsByID($args, $this->getClient());
     }
 
     /**

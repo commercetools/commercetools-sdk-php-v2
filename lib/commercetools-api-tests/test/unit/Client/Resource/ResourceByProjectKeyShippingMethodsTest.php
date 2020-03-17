@@ -50,10 +50,12 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -221,7 +223,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->shippingMethods()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyShippingMethodsKeyByKey::class
+                ResourceByProjectKeyShippingMethodsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/shipping-methods/key={key}'
             ],
             'ResourceByProjectKeyShippingMethodsMatchingCart' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsMatchingCart {
@@ -230,7 +234,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->shippingMethods()
                         ->matchingCart();
                 },
-                ResourceByProjectKeyShippingMethodsMatchingCart::class
+                ResourceByProjectKeyShippingMethodsMatchingCart::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/shipping-methods/matching-cart'
             ],
             'ResourceByProjectKeyShippingMethodsMatchingOrderedit' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsMatchingOrderedit {
@@ -239,7 +245,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->shippingMethods()
                         ->matchingOrderedit();
                 },
-                ResourceByProjectKeyShippingMethodsMatchingOrderedit::class
+                ResourceByProjectKeyShippingMethodsMatchingOrderedit::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/shipping-methods/matching-orderedit'
             ],
             'ResourceByProjectKeyShippingMethodsMatchingLocation' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsMatchingLocation {
@@ -248,7 +256,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->shippingMethods()
                         ->matchingLocation();
                 },
-                ResourceByProjectKeyShippingMethodsMatchingLocation::class
+                ResourceByProjectKeyShippingMethodsMatchingLocation::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/shipping-methods/matching-location'
             ],
             'ResourceByProjectKeyShippingMethodsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShippingMethodsByID {
@@ -257,7 +267,9 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->shippingMethods()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyShippingMethodsByID::class
+                ResourceByProjectKeyShippingMethodsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/shipping-methods/{ID}'
             ]
         ];
     }

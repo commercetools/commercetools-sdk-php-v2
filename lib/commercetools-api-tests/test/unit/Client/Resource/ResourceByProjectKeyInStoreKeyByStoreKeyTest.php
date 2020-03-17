@@ -49,10 +49,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -112,7 +114,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->carts();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyCarts::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyCarts::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/carts'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrders {
@@ -121,7 +125,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->orders();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrders::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyOrders::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/orders'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyMe' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMe {
@@ -130,7 +136,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyMe::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyMe::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/me'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomers' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomers {
@@ -139,7 +147,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyCustomers::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomers::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/customers'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyLogin {
@@ -148,7 +158,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->login();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyLogin::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyLogin::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/login'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods {
@@ -157,7 +169,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->shippingMethods();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/shipping-methods'
             ]
         ];
     }

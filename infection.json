@@ -1,0 +1,15 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            "lib/commercetools-import/src/Client"
+        ]
+    },
+    "logs": {
+        "text": "infection.log"
+    },
+    "mutators": {
+        "@default": true
+    },
+    "testFrameworkOptions": "--testsuite=import"
+}

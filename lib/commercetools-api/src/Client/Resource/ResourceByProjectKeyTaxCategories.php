@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\TaxCategory\TaxCategoryDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyTaxCategories extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/tax-categories', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyTaxCategoriesKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyTaxCategoriesKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyTaxCategoriesKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyTaxCategoriesByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyTaxCategoriesByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyTaxCategoriesByID($args, $this->getClient());
     }
 
     /**

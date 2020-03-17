@@ -10,6 +10,7 @@ namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
 use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyImportSinks extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/import-sinks', $args, $client);
+    }
+
     public function withImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyImportSinksByImportSinkKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyImportSinks extends ApiResource
             $args['importSinkKey'] = $importSinkKey;
         }
 
-        return new ResourceByProjectKeyImportSinksByImportSinkKey($this->getUri() . '/{importSinkKey}', $args, $this->getClient());
+        return new ResourceByProjectKeyImportSinksByImportSinkKey($args, $this->getClient());
     }
 
     /**

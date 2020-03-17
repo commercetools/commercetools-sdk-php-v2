@@ -56,10 +56,12 @@ class ResourceByProjectKeyMeTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -237,7 +239,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->email();
                 },
-                ResourceByProjectKeyMeEmail::class
+                ResourceByProjectKeyMeEmail::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/email'
             ],
             'ResourceByProjectKeyMePassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePassword {
@@ -246,7 +250,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->password();
                 },
-                ResourceByProjectKeyMePassword::class
+                ResourceByProjectKeyMePassword::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/password'
             ],
             'ResourceByProjectKeyMeSignup' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeSignup {
@@ -255,7 +261,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->signup();
                 },
-                ResourceByProjectKeyMeSignup::class
+                ResourceByProjectKeyMeSignup::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/signup'
             ],
             'ResourceByProjectKeyMeLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeLogin {
@@ -264,7 +272,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->login();
                 },
-                ResourceByProjectKeyMeLogin::class
+                ResourceByProjectKeyMeLogin::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/login'
             ],
             'ResourceByProjectKeyMeActiveCart' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeActiveCart {
@@ -273,7 +283,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->activeCart();
                 },
-                ResourceByProjectKeyMeActiveCart::class
+                ResourceByProjectKeyMeActiveCart::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/active-cart'
             ],
             'ResourceByProjectKeyMeCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCarts {
@@ -282,7 +294,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->carts();
                 },
-                ResourceByProjectKeyMeCarts::class
+                ResourceByProjectKeyMeCarts::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/carts'
             ],
             'ResourceByProjectKeyMeOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeOrders {
@@ -291,7 +305,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->orders();
                 },
-                ResourceByProjectKeyMeOrders::class
+                ResourceByProjectKeyMeOrders::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/orders'
             ],
             'ResourceByProjectKeyMePayments' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePayments {
@@ -300,7 +316,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->payments();
                 },
-                ResourceByProjectKeyMePayments::class
+                ResourceByProjectKeyMePayments::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/payments'
             ],
             'ResourceByProjectKeyMeShoppingLists' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeShoppingLists {
@@ -309,7 +327,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->shoppingLists();
                 },
-                ResourceByProjectKeyMeShoppingLists::class
+                ResourceByProjectKeyMeShoppingLists::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/shopping-lists'
             ],
             'ResourceByProjectKeyMePayment' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePayment {
@@ -318,7 +338,9 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->me()
                         ->payment();
                 },
-                ResourceByProjectKeyMePayment::class
+                ResourceByProjectKeyMePayment::class,
+                ['projectKey' => 'projectKey'],
+                '/{projectKey}/me/payment'
             ]
         ];
     }

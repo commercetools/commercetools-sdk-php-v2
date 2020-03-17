@@ -44,10 +44,12 @@ class ResourceByProjectKeyImportSummariesTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ImportRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -107,7 +109,9 @@ class ResourceByProjectKeyImportSummariesTest extends TestCase
                         ->importSummaries()
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey");
                 },
-                ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKey::class
+                ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKey::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                '/{projectKey}/import-summaries/importSinkKey={importSinkKey}'
             ]
         ];
     }

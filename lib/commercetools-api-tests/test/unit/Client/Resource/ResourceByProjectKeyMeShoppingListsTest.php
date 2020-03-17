@@ -47,10 +47,12 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -229,7 +231,9 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->shoppingLists()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyMeShoppingListsByID::class
+                ResourceByProjectKeyMeShoppingListsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/me/shopping-lists/{ID}'
             ],
             'ResourceByProjectKeyMeShoppingListsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeShoppingListsKeyByKey {
@@ -239,7 +243,9 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->shoppingLists()
                         ->keyWithKeyValue("key");
                 },
-                ResourceByProjectKeyMeShoppingListsKeyByKey::class
+                ResourceByProjectKeyMeShoppingListsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/me/shopping-lists/key={key}'
             ]
         ];
     }

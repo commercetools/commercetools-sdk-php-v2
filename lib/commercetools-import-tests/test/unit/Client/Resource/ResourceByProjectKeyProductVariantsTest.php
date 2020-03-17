@@ -44,10 +44,12 @@ class ResourceByProjectKeyProductVariantsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ImportRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -107,7 +109,9 @@ class ResourceByProjectKeyProductVariantsTest extends TestCase
                         ->productVariants()
                         ->importSinkKeyWithImportSinkKeyValue("importSinkKey");
                 },
-                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey::class
+                ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey::class,
+                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                '/{projectKey}/product-variants/importSinkKey={importSinkKey}'
             ]
         ];
     }

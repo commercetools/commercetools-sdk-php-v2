@@ -47,10 +47,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -229,7 +231,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->orders()
                         ->withOrderNumber("orderNumber");
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey', 'orderNumber' => 'orderNumber'],
+                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID {
@@ -239,7 +243,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->orders()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey', 'ID' => 'ID'],
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}'
             ]
         ];
     }

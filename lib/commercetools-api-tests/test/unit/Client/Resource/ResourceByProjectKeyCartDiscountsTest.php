@@ -47,10 +47,12 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -218,7 +220,9 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                         ->cartDiscounts()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyCartDiscountsKeyByKey::class
+                ResourceByProjectKeyCartDiscountsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/cart-discounts/key={key}'
             ],
             'ResourceByProjectKeyCartDiscountsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartDiscountsByID {
@@ -227,7 +231,9 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                         ->cartDiscounts()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyCartDiscountsByID::class
+                ResourceByProjectKeyCartDiscountsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/cart-discounts/{ID}'
             ]
         ];
     }

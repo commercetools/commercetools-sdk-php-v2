@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Customer\CustomerChangePassword;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,11 +18,19 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}/customers/password', $args, $client);
+    }
+
     public function reset(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($this->getUri() . '/reset', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($args, $this->getClient());
     }
 
     /**

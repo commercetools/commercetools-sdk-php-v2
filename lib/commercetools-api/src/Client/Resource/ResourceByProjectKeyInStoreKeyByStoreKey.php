@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,40 +17,48 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/in-store/key={storeKey}', $args, $client);
+    }
+
     public function carts(): ResourceByProjectKeyInStoreKeyByStoreKeyCarts
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCarts($this->getUri() . '/carts', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCarts($args, $this->getClient());
     }
     public function orders(): ResourceByProjectKeyInStoreKeyByStoreKeyOrders
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrders($this->getUri() . '/orders', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyOrders($args, $this->getClient());
     }
     public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyMe($this->getUri() . '/me', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMe($args, $this->getClient());
     }
     public function customers(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomers
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomers($this->getUri() . '/customers', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomers($args, $this->getClient());
     }
     public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($this->getUri() . '/login', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($args, $this->getClient());
     }
     public function shippingMethods(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($this->getUri() . '/shipping-methods', $args, $this->getClient());
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($args, $this->getClient());
     }
 }

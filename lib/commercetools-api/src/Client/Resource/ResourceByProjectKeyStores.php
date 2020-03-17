@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Store\StoreDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyStores extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/stores', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyStoresKeyByKey
     {
         $args = $this->getArgs();
@@ -24,7 +33,7 @@ class ResourceByProjectKeyStores extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyStoresKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyStoresKeyByKey($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyStoresByID
     {
@@ -33,7 +42,7 @@ class ResourceByProjectKeyStores extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyStoresByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyStoresByID($args, $this->getClient());
     }
 
     /**

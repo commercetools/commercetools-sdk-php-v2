@@ -47,10 +47,12 @@ class ResourceByProjectKeyZonesTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -218,7 +220,9 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->zones()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyZonesKeyByKey::class
+                ResourceByProjectKeyZonesKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/zones/key={key}'
             ],
             'ResourceByProjectKeyZonesByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZonesByID {
@@ -227,7 +231,9 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->zones()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyZonesByID::class
+                ResourceByProjectKeyZonesByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/zones/{ID}'
             ]
         ];
     }

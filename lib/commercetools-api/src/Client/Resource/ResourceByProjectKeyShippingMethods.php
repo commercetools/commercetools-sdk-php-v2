@@ -10,6 +10,7 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodDraft;
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -17,6 +18,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyShippingMethods extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/shipping-methods', $args, $client);
+    }
+
     public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();
@@ -24,25 +33,25 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
             $args['key'] = $key;
         }
 
-        return new ResourceByProjectKeyShippingMethodsKeyByKey($this->getUri() . '/key={key}', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsKeyByKey($args, $this->getClient());
     }
     public function matchingCart(): ResourceByProjectKeyShippingMethodsMatchingCart
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyShippingMethodsMatchingCart($this->getUri() . '/matching-cart', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsMatchingCart($args, $this->getClient());
     }
     public function matchingOrderedit(): ResourceByProjectKeyShippingMethodsMatchingOrderedit
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyShippingMethodsMatchingOrderedit($this->getUri() . '/matching-orderedit', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsMatchingOrderedit($args, $this->getClient());
     }
     public function matchingLocation(): ResourceByProjectKeyShippingMethodsMatchingLocation
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyShippingMethodsMatchingLocation($this->getUri() . '/matching-location', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsMatchingLocation($args, $this->getClient());
     }
     public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
@@ -51,7 +60,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyShippingMethodsByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyShippingMethodsByID($args, $this->getClient());
     }
 
     /**

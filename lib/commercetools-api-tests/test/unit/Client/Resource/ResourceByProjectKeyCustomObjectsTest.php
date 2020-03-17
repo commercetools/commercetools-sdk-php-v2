@@ -47,10 +47,12 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -218,7 +220,9 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->customObjects()
                         ->withContainerAndKey("container", "key");
                 },
-                ResourceByProjectKeyCustomObjectsByContainerByKey::class
+                ResourceByProjectKeyCustomObjectsByContainerByKey::class,
+                ['projectKey' => 'projectKey', 'container' => 'container', 'key' => 'key'],
+                '/{projectKey}/custom-objects/{container}/{key}'
             ],
             'ResourceByProjectKeyCustomObjectsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomObjectsByID {
@@ -227,7 +231,9 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->customObjects()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyCustomObjectsByID::class
+                ResourceByProjectKeyCustomObjectsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/custom-objects/{ID}'
             ]
         ];
     }

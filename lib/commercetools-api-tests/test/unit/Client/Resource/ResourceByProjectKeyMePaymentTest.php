@@ -45,10 +45,12 @@ class ResourceByProjectKeyMePaymentTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -109,7 +111,9 @@ class ResourceByProjectKeyMePaymentTest extends TestCase
                         ->payment()
                         ->keyWithKeyValue("key");
                 },
-                ResourceByProjectKeyMePaymentKeyByKey::class
+                ResourceByProjectKeyMePaymentKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/me/payment/key={key}'
             ],
             'ResourceByProjectKeyMePaymentByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePaymentByID {
@@ -119,7 +123,9 @@ class ResourceByProjectKeyMePaymentTest extends TestCase
                         ->payment()
                         ->withIDValue("ID");
                 },
-                ResourceByProjectKeyMePaymentByID::class
+                ResourceByProjectKeyMePaymentByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/me/payment/{ID}'
             ]
         ];
     }

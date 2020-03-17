@@ -46,10 +46,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -239,7 +241,9 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsTest extends TestCase
                         ->carts()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsByID::class
+                ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsByID::class,
+                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey', 'ID' => 'ID'],
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}'
             ]
         ];
     }

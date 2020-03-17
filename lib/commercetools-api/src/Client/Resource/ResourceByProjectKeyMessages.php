@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
@@ -16,6 +17,14 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class ResourceByProjectKeyMessages extends ApiResource
 {
+    /**
+     * @psalm-param array<string, scalar> $args
+     */
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
+        parent::__construct('/{projectKey}/messages', $args, $client);
+    }
+
     public function withId(string $ID = null): ResourceByProjectKeyMessagesByID
     {
         $args = $this->getArgs();
@@ -23,7 +32,7 @@ class ResourceByProjectKeyMessages extends ApiResource
             $args['ID'] = $ID;
         }
 
-        return new ResourceByProjectKeyMessagesByID($this->getUri() . '/{ID}', $args, $this->getClient());
+        return new ResourceByProjectKeyMessagesByID($args, $this->getClient());
     }
 
     /**

@@ -47,10 +47,12 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
     /**
      * @dataProvider getResources()
      */
-    public function testResources(callable $builderFunction, string $class)
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
     {
         $builder = new ApiRequestBuilder();
-        $this->assertInstanceOf($class, $builderFunction($builder));
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
     }
 
     /**
@@ -229,7 +231,9 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->edits()
                         ->withKey("key");
                 },
-                ResourceByProjectKeyOrdersEditsKeyByKey::class
+                ResourceByProjectKeyOrdersEditsKeyByKey::class,
+                ['projectKey' => 'projectKey', 'key' => 'key'],
+                '/{projectKey}/orders/edits/key={key}'
             ],
             'ResourceByProjectKeyOrdersEditsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersEditsByID {
@@ -239,7 +243,9 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->edits()
                         ->withId("ID");
                 },
-                ResourceByProjectKeyOrdersEditsByID::class
+                ResourceByProjectKeyOrdersEditsByID::class,
+                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                '/{projectKey}/orders/edits/{ID}'
             ]
         ];
     }
