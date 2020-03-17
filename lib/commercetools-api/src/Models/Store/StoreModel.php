@@ -70,6 +70,11 @@ final class StoreModel extends JsonObjectModel implements Store
      */
     protected $name;
 
+    /**
+     * @var ?array
+     */
+    protected $languages;
+
 
     public function __construct(
         string $id = null,
@@ -79,7 +84,8 @@ final class StoreModel extends JsonObjectModel implements Store
         LastModifiedBy $lastModifiedBy = null,
         CreatedBy $createdBy = null,
         string $key = null,
-        LocalizedString $name = null
+        LocalizedString $name = null,
+        array $languages = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -89,6 +95,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->createdBy = $createdBy;
         $this->key = $key;
         $this->name = $name;
+        $this->languages = $languages;
     }
 
     /**
@@ -244,6 +251,23 @@ final class StoreModel extends JsonObjectModel implements Store
         return $this->name;
     }
 
+    /**
+     * @return null|array
+     */
+    public function getLanguages()
+    {
+        if (is_null($this->languages)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(Store::FIELD_LANGUAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->languages = $data;
+        }
+
+        return $this->languages;
+    }
+
     public function setId(?string $id): void
     {
         $this->id = $id;
@@ -282,6 +306,11 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    public function setLanguages(?array $languages): void
+    {
+        $this->languages = $languages;
     }
 
 

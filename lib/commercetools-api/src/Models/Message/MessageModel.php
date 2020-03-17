@@ -131,6 +131,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'OrderShippingRateInputSet' => OrderShippingRateInputSetMessageModel::class,
        'OrderStateChanged' => OrderStateChangedMessageModel::class,
        'OrderStateTransition' => OrderStateTransitionMessageModel::class,
+       'OrderStoreSet' => OrderStoreSetMessageModel::class,
        'ParcelAddedToDelivery' => ParcelAddedToDeliveryMessageModel::class,
        'ParcelItemsUpdated' => ParcelItemsUpdatedMessageModel::class,
        'ParcelMeasurementsUpdated' => ParcelMeasurementsUpdatedMessageModel::class,

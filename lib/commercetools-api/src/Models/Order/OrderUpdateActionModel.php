@@ -65,6 +65,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setReturnPaymentState' => OrderSetReturnPaymentStateActionModel::class,
        'setReturnShipmentState' => OrderSetReturnShipmentStateActionModel::class,
        'setShippingAddress' => OrderSetShippingAddressActionModel::class,
+       'setStore' => OrderSetStoreActionModel::class,
        'transitionCustomLineItemState' => OrderTransitionCustomLineItemStateActionModel::class,
        'transitionLineItemState' => OrderTransitionLineItemStateActionModel::class,
        'transitionState' => OrderTransitionStateActionModel::class,

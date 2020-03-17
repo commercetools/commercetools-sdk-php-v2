@@ -23,22 +23,14 @@ use stdClass;
 final class ProductVariantDeletedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?array
-     */
-    private $removedImageUrls;
-
-    /**
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
-     * @return null|array
+     * @var ?array
      */
-    public function getRemovedImageUrls()
-    {
-        return $this->removedImageUrls;
-    }
+    private $removedImageUrls;
 
     /**
      * @return null|ProductVariant
@@ -49,13 +41,11 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|array
      */
-    public function withRemovedImageUrls(?array $removedImageUrls)
+    public function getRemovedImageUrls()
     {
-        $this->removedImageUrls = $removedImageUrls;
-
-        return $this;
+        return $this->removedImageUrls;
     }
 
     /**
@@ -64,6 +54,16 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     public function withVariant(?ProductVariant $variant)
     {
         $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRemovedImageUrls(?array $removedImageUrls)
+    {
+        $this->removedImageUrls = $removedImageUrls;
 
         return $this;
     }
@@ -81,8 +81,8 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     public function build(): ProductVariantDeletedMessagePayload
     {
         return new ProductVariantDeletedMessagePayloadModel(
-            $this->removedImageUrls,
-            $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant
+            $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
+            $this->removedImageUrls
         );
     }
 

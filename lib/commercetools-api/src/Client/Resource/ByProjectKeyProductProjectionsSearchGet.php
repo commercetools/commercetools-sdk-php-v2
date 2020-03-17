@@ -261,6 +261,24 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 
     /**
      *
+     * @psalm-param scalar|scalar[] $localeProjection
+     */
+    public function withLocaleProjection($localeProjection): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('localeProjection', $localeProjection);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $storeProjection
+     */
+    public function withStoreProjection($storeProjection): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('storeProjection', $storeProjection);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet

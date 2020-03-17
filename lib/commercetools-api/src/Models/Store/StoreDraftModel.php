@@ -32,13 +32,20 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $name;
 
+    /**
+     * @var ?array
+     */
+    protected $languages;
+
 
     public function __construct(
         string $key = null,
-        LocalizedString $name = null
+        LocalizedString $name = null,
+        array $languages = null
     ) {
         $this->key = $key;
         $this->name = $name;
+        $this->languages = $languages;
     }
 
     /**
@@ -82,6 +89,23 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->name;
     }
 
+    /**
+     * @return null|array
+     */
+    public function getLanguages()
+    {
+        if (is_null($this->languages)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(StoreDraft::FIELD_LANGUAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->languages = $data;
+        }
+
+        return $this->languages;
+    }
+
     public function setKey(?string $key): void
     {
         $this->key = $key;
@@ -90,5 +114,10 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    public function setLanguages(?array $languages): void
+    {
+        $this->languages = $languages;
     }
 }

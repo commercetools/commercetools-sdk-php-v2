@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
 use Commercetools\Base\Builder;
@@ -73,6 +75,11 @@ final class ShippingMethodBuilder implements Builder
      * @var ?string
      */
     private $description;
+
+    /**
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $localizedDescription;
 
     /**
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
@@ -170,6 +177,14 @@ final class ShippingMethodBuilder implements Builder
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedDescription()
+    {
+        return $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription;
     }
 
     /**
@@ -301,6 +316,16 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLocalizedDescription(?LocalizedString $localizedDescription)
+    {
+        $this->localizedDescription = $localizedDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -361,6 +386,16 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
+    {
+        $this->localizedDescription = $localizedDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -380,6 +415,7 @@ final class ShippingMethodBuilder implements Builder
             $this->key,
             $this->name,
             $this->description,
+            $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription,
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,

@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 
 use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -76,6 +78,11 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $description;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $localizedDescription;
+
+    /**
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
@@ -106,6 +113,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         string $key = null,
         string $name = null,
         string $description = null,
+        LocalizedString $localizedDescription = null,
         TaxCategoryReference $taxCategory = null,
         ZoneRateCollection $zoneRates = null,
         bool $isDefault = null,
@@ -120,6 +128,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->key = $key;
         $this->name = $name;
         $this->description = $description;
+        $this->localizedDescription = $localizedDescription;
         $this->taxCategory = $taxCategory;
         $this->zoneRates = $zoneRates;
         $this->isDefault = $isDefault;
@@ -296,6 +305,24 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedDescription()
+    {
+        if (is_null($this->localizedDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingMethod::FIELD_LOCALIZED_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->localizedDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->localizedDescription;
+    }
+
+    /**
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -411,6 +438,11 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    public function setLocalizedDescription(?LocalizedString $localizedDescription): void
+    {
+        $this->localizedDescription = $localizedDescription;
     }
 
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void

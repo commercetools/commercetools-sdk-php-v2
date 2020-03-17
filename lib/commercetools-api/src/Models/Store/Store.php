@@ -22,6 +22,7 @@ interface Store extends BaseResource
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
+    public const FIELD_LANGUAGES = 'languages';
 
     /**
      * @return null|string
@@ -69,6 +70,11 @@ interface Store extends BaseResource
      */
     public function getName();
 
+    /**
+     * @return null|array
+     */
+    public function getLanguages();
+
     public function setId(?string $id): void;
 
     public function setVersion(?int $version): void;
@@ -84,4 +90,6 @@ interface Store extends BaseResource
     public function setKey(?string $key): void;
 
     public function setName(?LocalizedString $name): void;
+
+    public function setLanguages(?array $languages): void;
 }

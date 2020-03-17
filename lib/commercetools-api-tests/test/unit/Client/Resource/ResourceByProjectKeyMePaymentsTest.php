@@ -9,18 +9,90 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePaymentsByID;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMePaymentsPost
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayments
  */
 class ResourceByProjectKeyMePaymentsTest extends TestCase
 {
+    /**
+     * @dataProvider getRequests()
+     */
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        if (!is_null($body)) {
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        };
+    }
+
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class)
+    {
+        $builder = new ApiRequestBuilder();
+        $this->assertInstanceOf($class, $builderFunction($builder));
+    }
+
+    /**
+     * @dataProvider getRequestBuilderResponses()
+     */
+    public function testMapFromResponse(callable $builderFunction, $statusCode)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertInstanceOf(ApiRequest::class, $request);
+
+        $response = new Response($statusCode, [], "{}");
+        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteClientException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ClientException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiClientException::class);
+        $request->execute();
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteServerException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ServerException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiServerException::class);
+        $request->execute();
+    }
+
     public function getRequests()
     {
         return [
@@ -145,18 +217,20 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function getResources()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
-        if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        };
+        return [
+            'ResourceByProjectKeyMePaymentsByID' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMePaymentsByID {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID");
+                },
+                ResourceByProjectKeyMePaymentsByID::class
+            ]
+        ];
     }
 
     public function getRequestBuilders()
@@ -183,16 +257,159 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testMapFromResponse(callable $builderFunction)
+    public function getRequestBuilderResponses()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertInstanceOf(ApiRequest::class, $request);
-
-        $response = new Response(200, [], "{}");
-        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+        return [
+            'ByProjectKeyMePaymentsGet_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyMePaymentsGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyMePaymentsGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyMePaymentsGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyMePaymentsGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyMePaymentsGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyMePaymentsGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                503
+            ],
+            'ByProjectKeyMePaymentsPost_201' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                201
+            ],
+            'ByProjectKeyMePaymentsPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyMePaymentsPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyMePaymentsPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyMePaymentsPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyMePaymentsPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyMePaymentsPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyMePaymentsPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                200
+            ]
+        ];
     }
 }

@@ -9,18 +9,90 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyChannelsByID;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyChannelsPost
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyChannels
  */
 class ResourceByProjectKeyChannelsTest extends TestCase
 {
+    /**
+     * @dataProvider getRequests()
+     */
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        if (!is_null($body)) {
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        };
+    }
+
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class)
+    {
+        $builder = new ApiRequestBuilder();
+        $this->assertInstanceOf($class, $builderFunction($builder));
+    }
+
+    /**
+     * @dataProvider getRequestBuilderResponses()
+     */
+    public function testMapFromResponse(callable $builderFunction, $statusCode)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertInstanceOf(ApiRequest::class, $request);
+
+        $response = new Response($statusCode, [], "{}");
+        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteClientException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ClientException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiClientException::class);
+        $request->execute();
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteServerException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ServerException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiServerException::class);
+        $request->execute();
+    }
+
     public function getRequests()
     {
         return [
@@ -135,18 +207,19 @@ class ResourceByProjectKeyChannelsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function getResources()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
-        if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        };
+        return [
+            'ResourceByProjectKeyChannelsByID' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyChannelsByID {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID");
+                },
+                ResourceByProjectKeyChannelsByID::class
+            ]
+        ];
     }
 
     public function getRequestBuilders()
@@ -171,16 +244,144 @@ class ResourceByProjectKeyChannelsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testMapFromResponse(callable $builderFunction)
+    public function getRequestBuilderResponses()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertInstanceOf(ApiRequest::class, $request);
-
-        $response = new Response(200, [], "{}");
-        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+        return [
+            'ByProjectKeyChannelsGet_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyChannelsGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyChannelsGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyChannelsGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyChannelsGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyChannelsGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyChannelsGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                503
+            ],
+            'ByProjectKeyChannelsPost_201' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                201
+            ],
+            'ByProjectKeyChannelsPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyChannelsPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyChannelsPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyChannelsPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyChannelsPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyChannelsPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyChannelsPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                200
+            ]
+        ];
     }
 }

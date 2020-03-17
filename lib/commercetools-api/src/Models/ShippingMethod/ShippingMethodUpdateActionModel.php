@@ -39,6 +39,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
        'removeZone' => ShippingMethodRemoveZoneActionModel::class,
        'setDescription' => ShippingMethodSetDescriptionActionModel::class,
        'setKey' => ShippingMethodSetKeyActionModel::class,
+       'setLocalizedDescription' => ShippingMethodSetLocalizedDescriptionActionModel::class,
        'setPredicate' => ShippingMethodSetPredicateActionModel::class,
     ];
 

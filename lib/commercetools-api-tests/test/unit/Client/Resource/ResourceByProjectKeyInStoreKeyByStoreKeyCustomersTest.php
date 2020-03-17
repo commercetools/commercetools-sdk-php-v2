@@ -9,18 +9,97 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyInStoreKeyByStoreKeyCustomersPost
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomers
  */
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
 {
+    /**
+     * @dataProvider getRequests()
+     */
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        if (!is_null($body)) {
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        };
+    }
+
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class)
+    {
+        $builder = new ApiRequestBuilder();
+        $this->assertInstanceOf($class, $builderFunction($builder));
+    }
+
+    /**
+     * @dataProvider getRequestBuilderResponses()
+     */
+    public function testMapFromResponse(callable $builderFunction, $statusCode)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertInstanceOf(ApiRequest::class, $request);
+
+        $response = new Response($statusCode, [], "{}");
+        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteClientException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ClientException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiClientException::class);
+        $request->execute();
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteServerException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ServerException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiServerException::class);
+        $request->execute();
+    }
+
     public function getRequests()
     {
         return [
@@ -145,18 +224,90 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function getResources()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
-        if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        };
+        return [
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withEmailToken("emailToken");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->emailToken();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->email();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->password();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->passwordToken();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withKey("key");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey::class
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withId("ID");
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID::class
+            ]
+        ];
     }
 
     public function getRequestBuilders()
@@ -183,16 +334,159 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testMapFromResponse(callable $builderFunction)
+    public function getRequestBuilderResponses()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertInstanceOf(ApiRequest::class, $request);
-
-        $response = new Response(200, [], "{}");
-        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+        return [
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->get();
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_201' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                201
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->post(null);
+                },
+                200
+            ]
+        ];
     }
 }

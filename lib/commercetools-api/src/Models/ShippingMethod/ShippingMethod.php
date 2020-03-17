@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\ShippingMethod;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,6 +24,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
+    public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_ZONE_RATES = 'zoneRates';
     public const FIELD_IS_DEFAULT = 'isDefault';
@@ -80,6 +82,11 @@ interface ShippingMethod extends BaseResource
     public function getDescription();
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedDescription();
+
+    /**
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
@@ -120,6 +127,8 @@ interface ShippingMethod extends BaseResource
     public function setName(?string $name): void;
 
     public function setDescription(?string $description): void;
+
+    public function setLocalizedDescription(?LocalizedString $localizedDescription): void;
 
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void;
 

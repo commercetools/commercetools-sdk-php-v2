@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
@@ -36,6 +38,11 @@ final class ShippingMethodDraftBuilder implements Builder
      * @var ?string
      */
     private $description;
+
+    /**
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $localizedDescription;
 
     /**
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
@@ -79,6 +86,14 @@ final class ShippingMethodDraftBuilder implements Builder
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedDescription()
+    {
+        return $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription;
     }
 
     /**
@@ -150,6 +165,16 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLocalizedDescription(?LocalizedString $localizedDescription)
+    {
+        $this->localizedDescription = $localizedDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -190,6 +215,16 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
+    {
+        $this->localizedDescription = $localizedDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -203,6 +238,7 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->key,
             $this->name,
             $this->description,
+            $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,

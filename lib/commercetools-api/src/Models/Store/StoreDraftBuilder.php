@@ -33,6 +33,11 @@ final class StoreDraftBuilder implements Builder
     private $name;
 
     /**
+     * @var ?array
+     */
+    private $languages;
+
+    /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
      * It is used to reference the store.</p>
@@ -52,6 +57,14 @@ final class StoreDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|array
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
     }
 
     /**
@@ -77,6 +90,16 @@ final class StoreDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLanguages(?array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
@@ -88,7 +111,8 @@ final class StoreDraftBuilder implements Builder
     {
         return new StoreDraftModel(
             $this->key,
-            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->languages
         );
     }
 

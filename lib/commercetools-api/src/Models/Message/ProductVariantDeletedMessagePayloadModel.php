@@ -29,22 +29,22 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $type;
 
     /**
-     * @var ?array
-     */
-    protected $removedImageUrls;
-
-    /**
      * @var ?ProductVariant
      */
     protected $variant;
 
+    /**
+     * @var ?array
+     */
+    protected $removedImageUrls;
+
 
     public function __construct(
-        array $removedImageUrls = null,
-        ProductVariant $variant = null
+        ProductVariant $variant = null,
+        array $removedImageUrls = null
     ) {
-        $this->removedImageUrls = $removedImageUrls;
         $this->variant = $variant;
+        $this->removedImageUrls = $removedImageUrls;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -66,23 +66,6 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * @return null|array
-     */
-    public function getRemovedImageUrls()
-    {
-        if (is_null($this->removedImageUrls)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->removedImageUrls = $data;
-        }
-
-        return $this->removedImageUrls;
-    }
-
-    /**
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -100,13 +83,30 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
         return $this->variant;
     }
 
-    public function setRemovedImageUrls(?array $removedImageUrls): void
+    /**
+     * @return null|array
+     */
+    public function getRemovedImageUrls()
     {
-        $this->removedImageUrls = $removedImageUrls;
+        if (is_null($this->removedImageUrls)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedImageUrls = $data;
+        }
+
+        return $this->removedImageUrls;
     }
 
     public function setVariant(?ProductVariant $variant): void
     {
         $this->variant = $variant;
+    }
+
+    public function setRemovedImageUrls(?array $removedImageUrls): void
+    {
+        $this->removedImageUrls = $removedImageUrls;
     }
 }

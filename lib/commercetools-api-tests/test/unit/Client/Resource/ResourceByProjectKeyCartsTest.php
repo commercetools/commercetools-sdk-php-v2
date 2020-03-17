@@ -9,18 +9,92 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsByID;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsCustomerIdByCustomerId;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsReplicate;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsGet
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsPost
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCarts
  */
 class ResourceByProjectKeyCartsTest extends TestCase
 {
+    /**
+     * @dataProvider getRequests()
+     */
+    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
+        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        if (!is_null($body)) {
+            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
+        };
+    }
+
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class)
+    {
+        $builder = new ApiRequestBuilder();
+        $this->assertInstanceOf($class, $builderFunction($builder));
+    }
+
+    /**
+     * @dataProvider getRequestBuilderResponses()
+     */
+    public function testMapFromResponse(callable $builderFunction, $statusCode)
+    {
+        $builder = new ApiRequestBuilder();
+        $request = $builderFunction($builder);
+        $this->assertInstanceOf(ApiRequest::class, $request);
+
+        $response = new Response($statusCode, [], "{}");
+        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteClientException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ClientException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiClientException::class);
+        $request->execute();
+    }
+
+    /**
+     * @dataProvider getRequestBuilders()
+     */
+    public function testExecuteServerException(callable $builderFunction)
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $client->send(Argument::any(), Argument::any())->willThrow(ServerException::class);
+
+        $builder = new ApiRequestBuilder($client->reveal());
+        $request = $builderFunction($builder);
+        $this->expectException(ApiServerException::class);
+        $request->execute();
+    }
+
     public function getRequests()
     {
         return [
@@ -146,18 +220,37 @@ class ResourceByProjectKeyCartsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
+    public function getResources()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
-        if (!is_null($body)) {
-            $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        };
+        return [
+            'ResourceByProjectKeyCartsReplicate' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsReplicate {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->replicate();
+                },
+                ResourceByProjectKeyCartsReplicate::class
+            ],
+            'ResourceByProjectKeyCartsCustomerIdByCustomerId' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsCustomerIdByCustomerId {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId");
+                },
+                ResourceByProjectKeyCartsCustomerIdByCustomerId::class
+            ],
+            'ResourceByProjectKeyCartsByID' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsByID {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withId("ID");
+                },
+                ResourceByProjectKeyCartsByID::class
+            ]
+        ];
     }
 
     public function getRequestBuilders()
@@ -182,16 +275,144 @@ class ResourceByProjectKeyCartsTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequests()
-     */
-    public function testMapFromResponse(callable $builderFunction)
+    public function getRequestBuilderResponses()
     {
-        $builder = new ApiRequestBuilder();
-        $request = $builderFunction($builder);
-        $this->assertInstanceOf(ApiRequest::class, $request);
-
-        $response = new Response(200, [], "{}");
-        $this->assertInstanceOf(JsonObject::class, $request->mapFromResponse($response));
+        return [
+            'ByProjectKeyCartsGet_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyCartsGet_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                400
+            ],
+            'ByProjectKeyCartsGet_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                401
+            ],
+            'ByProjectKeyCartsGet_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                403
+            ],
+            'ByProjectKeyCartsGet_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                404
+            ],
+            'ByProjectKeyCartsGet_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                500
+            ],
+            'ByProjectKeyCartsGet_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                503
+            ],
+            'ByProjectKeyCartsPost_201' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                201
+            ],
+            'ByProjectKeyCartsPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyCartsPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyCartsPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyCartsPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyCartsPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyCartsPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyCartsPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                200
+            ]
+        ];
     }
 }

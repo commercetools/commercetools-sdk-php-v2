@@ -30,6 +30,7 @@ final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdat
      *
      */
     private static $discriminatorClasses = [
+       'setLanguages' => StoreSetLanguagesActionModel::class,
        'setName' => StoreSetNameActionModel::class,
     ];
 

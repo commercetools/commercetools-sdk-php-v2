@@ -70,6 +70,11 @@ final class StoreBuilder implements Builder
     private $name;
 
     /**
+     * @var ?array
+     */
+    private $languages;
+
+    /**
      * @return null|string
      */
     public function getId()
@@ -137,6 +142,14 @@ final class StoreBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|array
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
     }
 
     /**
@@ -222,6 +235,16 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLanguages(?array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
@@ -259,7 +282,8 @@ final class StoreBuilder implements Builder
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
-            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->languages
         );
     }
 
