@@ -18,7 +18,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyProductDrafts extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {

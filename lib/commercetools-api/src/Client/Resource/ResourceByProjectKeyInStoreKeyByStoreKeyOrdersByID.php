@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?OrderUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

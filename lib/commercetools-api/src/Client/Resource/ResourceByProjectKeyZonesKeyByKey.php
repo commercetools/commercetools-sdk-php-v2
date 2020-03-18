@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyZonesKeyByKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyZonesKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesKeyByKeyGet((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ZoneUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyZonesKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesKeyByKeyPost((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyZonesKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesKeyByKeyDelete((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
 }

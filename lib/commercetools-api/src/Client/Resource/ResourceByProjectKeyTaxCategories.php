@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyTaxCategories extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -53,7 +53,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?TaxCategoryDraft $body
@@ -63,6 +63,6 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

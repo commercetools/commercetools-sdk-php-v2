@@ -18,7 +18,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyMePassword extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -40,6 +40,6 @@ class ResourceByProjectKeyMePassword extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMePasswordPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMePasswordPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

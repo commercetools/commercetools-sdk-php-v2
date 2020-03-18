@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyPut((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyPut($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyGet((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyGet($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyImportSinksByImportSinkKeyDelete((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyImportSinksByImportSinkKeyDelete($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

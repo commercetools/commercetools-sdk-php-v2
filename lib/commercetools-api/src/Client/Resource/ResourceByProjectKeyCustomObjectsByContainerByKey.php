@@ -18,7 +18,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -33,7 +33,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByContainerByKeyGet((string) $args['projectKey'], (string) $args['container'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -43,6 +43,6 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByContainerByKeyDelete((string) $args['projectKey'], (string) $args['container'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['projectKey'], $args['container'], $args['key'], $body, $headers, $this->getClient());
     }
 }

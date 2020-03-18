@@ -18,7 +18,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyCustomObjectsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -33,7 +33,7 @@ class ResourceByProjectKeyCustomObjectsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -43,6 +43,6 @@ class ResourceByProjectKeyCustomObjectsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCustomObjectsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCustomObjectsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

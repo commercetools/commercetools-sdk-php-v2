@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -50,6 +50,6 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

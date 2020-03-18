@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyMeShoppingLists extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -53,7 +53,7 @@ class ResourceByProjectKeyMeShoppingLists extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeShoppingListsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeShoppingListsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?MyShoppingListDraft $body
@@ -63,6 +63,6 @@ class ResourceByProjectKeyMeShoppingLists extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeShoppingListsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeShoppingListsPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

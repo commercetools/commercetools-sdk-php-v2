@@ -18,7 +18,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperations extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -43,6 +43,6 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperati
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsGet((string) $args['projectKey'], (string) $args['importSinkKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsGet($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
 }

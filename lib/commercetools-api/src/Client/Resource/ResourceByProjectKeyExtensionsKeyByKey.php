@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyExtensionsKeyByKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyExtensionsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyExtensionsKeyByKeyGet((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyExtensionsKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ExtensionUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyExtensionsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyExtensionsKeyByKeyPost((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyExtensionsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyExtensionsKeyByKey extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyExtensionsKeyByKeyDelete((string) $args['projectKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyExtensionsKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
 }

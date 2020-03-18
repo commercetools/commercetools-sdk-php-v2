@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyMe extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?Update $body
@@ -105,7 +105,7 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMePost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMePost($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -115,6 +115,6 @@ class ResourceByProjectKeyMe extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyMeDelete((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyMeDelete($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

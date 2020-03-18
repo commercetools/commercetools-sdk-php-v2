@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyCartsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?CartUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyCartsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

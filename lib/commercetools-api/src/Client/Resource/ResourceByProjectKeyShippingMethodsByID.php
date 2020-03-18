@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyShippingMethodsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ShippingMethodUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyShippingMethodsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyShippingMethodsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

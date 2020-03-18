@@ -41,7 +41,9 @@ class ResourceByProjectKeyProductsTest extends TestCase
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
-        };
+        } else {
+            $this->assertSame("", (string) $request->getBody());
+        }
     }
 
     /**

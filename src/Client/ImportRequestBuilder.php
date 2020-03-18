@@ -17,7 +17,7 @@ class ImportRequestBuilder extends Builder
     private $projectKey;
 
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(string $projectKey, ClientInterface $client, array $args = [])
     {

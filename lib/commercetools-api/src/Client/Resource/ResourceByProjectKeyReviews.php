@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyReviews extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -53,7 +53,7 @@ class ResourceByProjectKeyReviews extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyReviewsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyReviewsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ReviewDraft $body
@@ -63,6 +63,6 @@ class ResourceByProjectKeyReviews extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyReviewsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyReviewsPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

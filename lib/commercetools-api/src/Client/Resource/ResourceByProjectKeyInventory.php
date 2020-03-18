@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyInventory extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -44,7 +44,7 @@ class ResourceByProjectKeyInventory extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?InventoryEntryDraft $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyInventory extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

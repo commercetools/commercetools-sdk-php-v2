@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet($args['projectKey'], $args['storeKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?Update $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost($args['projectKey'], $args['storeKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey extends ApiResou
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete((string) $args['projectKey'], (string) $args['storeKey'], (string) $args['key'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete($args['projectKey'], $args['storeKey'], $args['key'], $body, $headers, $this->getClient());
     }
 }

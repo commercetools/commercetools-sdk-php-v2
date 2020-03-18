@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyOrdersEditsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -41,7 +41,7 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?OrderEditUpdate $body
@@ -51,7 +51,7 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -61,6 +61,6 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyOrdersEditsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyOrdersEditsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

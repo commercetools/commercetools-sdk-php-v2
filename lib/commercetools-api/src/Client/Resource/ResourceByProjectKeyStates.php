@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyStates extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -44,7 +44,7 @@ class ResourceByProjectKeyStates extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyStatesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyStatesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?StateDraft $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyStates extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyStatesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyStatesPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

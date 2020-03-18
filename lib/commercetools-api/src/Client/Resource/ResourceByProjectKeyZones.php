@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyZones extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -53,7 +53,7 @@ class ResourceByProjectKeyZones extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ZoneDraft $body
@@ -63,6 +63,6 @@ class ResourceByProjectKeyZones extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyZonesPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyZonesPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

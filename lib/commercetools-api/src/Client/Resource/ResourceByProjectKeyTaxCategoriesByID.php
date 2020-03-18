@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?TaxCategoryUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyTaxCategoriesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyTaxCategoriesByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

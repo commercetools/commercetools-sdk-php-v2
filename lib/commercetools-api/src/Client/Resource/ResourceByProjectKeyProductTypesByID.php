@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyProductTypesByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyProductTypesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductTypesByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductTypesByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ProductTypeUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyProductTypesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductTypesByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductTypesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyProductTypesByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyProductTypesByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyProductTypesByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

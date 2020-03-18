@@ -16,7 +16,7 @@ use GuzzleHttp\ClientInterface;
 class ApiRequestBuilder extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(ClientInterface $client = null, array $args = [])
     {

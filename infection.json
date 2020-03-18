@@ -2,7 +2,8 @@
     "timeout": 10,
     "source": {
         "directories": [
-            "lib/commercetools-import/src/Client"
+            "lib/commercetools-import/src/Client",
+            "lib/commercetools-api/src/Client"
         ]
     },
     "logs": {
@@ -11,5 +12,5 @@
     "mutators": {
         "@default": true
     },
-    "testFrameworkOptions": "--testsuite=import"
+    "testFrameworkOptions": "--testsuite=import,api"
 }

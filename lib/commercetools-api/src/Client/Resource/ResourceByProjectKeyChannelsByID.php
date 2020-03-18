@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyChannelsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?ChannelUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyChannelsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyChannelsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyChannelsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

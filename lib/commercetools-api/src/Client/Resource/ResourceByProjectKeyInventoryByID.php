@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyInventoryByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?InventoryEntryUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyInventoryByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyInventoryByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyCarts extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -59,7 +59,7 @@ class ResourceByProjectKeyCarts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsGet((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsGet($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?CartDraft $body
@@ -69,6 +69,6 @@ class ResourceByProjectKeyCarts extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyCartsPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyCartsPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }

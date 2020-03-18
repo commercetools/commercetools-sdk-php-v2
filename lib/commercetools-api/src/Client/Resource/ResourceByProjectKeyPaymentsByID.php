@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyPaymentsByID extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,7 +34,7 @@ class ResourceByProjectKeyPaymentsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyPaymentsByIDGet((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyPaymentsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?PaymentUpdate $body
@@ -44,7 +44,7 @@ class ResourceByProjectKeyPaymentsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyPaymentsByIDPost((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyPaymentsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
      * @psalm-param ?object $body
@@ -54,6 +54,6 @@ class ResourceByProjectKeyPaymentsByID extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyPaymentsByIDDelete((string) $args['projectKey'], (string) $args['ID'], $body, $headers, $this->getClient());
+        return new ByProjectKeyPaymentsByIDDelete($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
 }

@@ -19,7 +19,7 @@ use Psr\Http\Message\UploadedFileInterface;
 class ResourceByProjectKeyGraphql extends ApiResource
 {
     /**
-     * @psalm-param array<string, scalar> $args
+     * @psalm-param array<string, string> $args
      */
     public function __construct(array $args = [], ClientInterface $client = null)
     {
@@ -34,6 +34,6 @@ class ResourceByProjectKeyGraphql extends ApiResource
     {
         $args = $this->getArgs();
 
-        return new ByProjectKeyGraphqlPost((string) $args['projectKey'], $body, $headers, $this->getClient());
+        return new ByProjectKeyGraphqlPost($args['projectKey'], $body, $headers, $this->getClient());
     }
 }
