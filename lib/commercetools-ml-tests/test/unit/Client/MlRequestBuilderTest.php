@@ -1,0 +1,52 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+
+namespace Commercetools\Ml\Test\Client;
+
+use Commercetools\Ml\Client\Resource\ResourceByProjectKey;
+use Commercetools\Ml\Client\MlRequestBuilder;
+use PHPUnit\Framework\TestCase;
+use GuzzleHttp\ClientInterface;
+
+class MlRequestBuilderTest extends TestCase
+{
+    public function testConstruct()
+    {
+        $client = $this->prophesize(ClientInterface::class);
+        $root = new MlRequestBuilder($client->reveal());
+        $this->assertInstanceOf(ClientInterface::class, $root->getClient());
+        $this->assertSame('', $root->getUri());
+    }
+
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new MlRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
+
+    public function getResources()
+    {
+        return [
+            'ResourceByProjectKey' => [
+                function (MlRequestBuilder $builder): ResourceByProjectKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey");
+                },
+                ResourceByProjectKey::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}'
+            ]
+        ];
+    }
+}

@@ -17,8 +17,9 @@ class ConfigTest extends TestCase
     public function testDefaultUri()
     {
         $c = new Config();
-        self::assertSame(Config::API_URI, $c->getApiUri());
-        self::assertSame(Config::API_URI, $c->getOptions()[Config::OPT_BASE_URI]);
+        $expectedUri = "https://import.commercetools.com";
+        self::assertSame($expectedUri, $c->getApiUri());
+        self::assertSame($expectedUri, $c->getOptions()[Config::OPT_BASE_URI]);
     }
 
     public function testBaseUri()

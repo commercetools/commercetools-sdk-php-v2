@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\GraphQL\GraphQLRequest;
+use Commercetools\Api\Models\GraphQl\GraphQLRequest;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;

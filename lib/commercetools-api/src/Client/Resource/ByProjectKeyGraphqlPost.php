@@ -10,8 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\GraphQL\GraphQLResponse;
-use Commercetools\Api\Models\GraphQL\GraphQLResponseModel;
+use Commercetools\Api\Models\GraphQl\GraphQLResponse;
+use Commercetools\Api\Models\GraphQl\GraphQLResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
