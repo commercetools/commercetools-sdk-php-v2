@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenTest extends Te
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenTest extends Te
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
                         ->emailToken()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/in-store/key={storeKey}/customers/email-token',
+                'test_projectKey/in-store/key=test_storeKey/customers/email-token',
             ]
         ];
     }
@@ -214,6 +214,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenTest extends Te
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->emailToken()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

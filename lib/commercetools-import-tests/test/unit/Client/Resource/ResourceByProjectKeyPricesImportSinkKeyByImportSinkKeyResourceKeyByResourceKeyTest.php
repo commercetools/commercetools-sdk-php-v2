@@ -35,7 +35,7 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourc
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourc
             'ByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->prices()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("test_resourceKey")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/prices/importSinkKey={importSinkKey}/resourceKey={resourceKey}',
+                'test_projectKey/prices/importSinkKey=test_importSinkKey/resourceKey=test_resourceKey',
             ]
         ];
     }
@@ -148,6 +148,17 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourc
                         ->delete();
                 },
                 200
+            ],
+            'ByProjectKeyPricesImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->prices()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

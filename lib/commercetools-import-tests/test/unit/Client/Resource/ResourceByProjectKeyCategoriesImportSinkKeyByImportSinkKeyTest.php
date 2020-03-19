@@ -37,7 +37,7 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyTest extends Tes
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,13 +103,13 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyTest extends Tes
             'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->categories()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/categories/importSinkKey={importSinkKey}',
+                'test_projectKey/categories/importSinkKey=test_importSinkKey',
             ]
         ];
     }
@@ -120,25 +120,25 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyTest extends Tes
             'ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->categories()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                        ->resourceKeyWithResourceKeyValue("resourceKey");
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("test_resourceKey");
                 },
                 ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class,
-                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey', 'resourceKey' => 'resourceKey'],
+                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey', 'resourceKey' => 'test_resourceKey'],
                 '/{projectKey}/categories/importSinkKey={importSinkKey}/resourceKey={resourceKey}'
             ],
             'ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->categories()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->importOperations();
                 },
                 ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations::class,
-                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
                 '/{projectKey}/categories/importSinkKey={importSinkKey}/import-operations'
             ]
         ];
@@ -171,6 +171,16 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyTest extends Tes
                         ->post(null);
                 },
                 201
+            ],
+            'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyPost_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->categories()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

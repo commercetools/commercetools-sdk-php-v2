@@ -43,7 +43,7 @@ class ResourceByProjectKeyTest extends TestCase
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -115,91 +115,91 @@ class ResourceByProjectKeyTest extends TestCase
             'ResourceByProjectKeyImportSinks' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyImportSinks {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSinks();
                 },
                 ResourceByProjectKeyImportSinks::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/import-sinks'
             ],
             'ResourceByProjectKeyImportSummaries' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyImportSummaries {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSummaries();
                 },
                 ResourceByProjectKeyImportSummaries::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/import-summaries'
             ],
             'ResourceByProjectKeyCategories' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategories {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->categories();
                 },
                 ResourceByProjectKeyCategories::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/categories'
             ],
             'ResourceByProjectKeyPrices' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyPrices {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->prices();
                 },
                 ResourceByProjectKeyPrices::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/prices'
             ],
             'ResourceByProjectKeyProducts' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProducts {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->products();
                 },
                 ResourceByProjectKeyProducts::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/products'
             ],
             'ResourceByProjectKeyProductDrafts' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductDrafts {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productDrafts();
                 },
                 ResourceByProjectKeyProductDrafts::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-drafts'
             ],
             'ResourceByProjectKeyProductTypes' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductTypes {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productTypes();
                 },
                 ResourceByProjectKeyProductTypes::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-types'
             ],
             'ResourceByProjectKeyProductVariants' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductVariants {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productVariants();
                 },
                 ResourceByProjectKeyProductVariants::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-variants'
             ],
             'ResourceByProjectKeyProductVariantPatches' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductVariantPatches {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productVariantPatches();
                 },
                 ResourceByProjectKeyProductVariantPatches::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-variant-patches'
             ]
         ];

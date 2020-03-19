@@ -35,7 +35,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
             'ByProjectKeyMeEmailConfirmPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->email()
                         ->confirm()
                         ->post();
                 },
                 'post',
-                '{projectKey}/me/email/confirm',
+                'test_projectKey/me/email/confirm',
             ]
         ];
     }
@@ -214,6 +214,17 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->post();
                 },
                 200
+            ],
+            'ByProjectKeyMeEmailConfirmPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->email()
+                        ->confirm()
+                        ->post();
+                },
+                599
             ]
         ];
     }

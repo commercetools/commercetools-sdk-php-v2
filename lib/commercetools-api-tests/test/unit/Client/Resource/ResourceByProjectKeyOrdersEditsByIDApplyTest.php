@@ -35,7 +35,7 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,15 +101,15 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
             'ByProjectKeyOrdersEditsByIDApplyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->orders()
                         ->edits()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->apply()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/orders/edits/{ID}/apply',
+                'test_projectKey/orders/edits/test_ID/apply',
             ]
         ];
     }
@@ -223,6 +223,18 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyOrdersEditsByIDApplyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->apply()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

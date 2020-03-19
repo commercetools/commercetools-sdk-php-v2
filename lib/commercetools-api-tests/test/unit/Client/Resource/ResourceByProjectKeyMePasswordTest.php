@@ -36,7 +36,7 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,13 +102,13 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
             'ByProjectKeyMePasswordPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->password()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/me/password',
+                'test_projectKey/me/password',
             ]
         ];
     }
@@ -119,13 +119,13 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
             'ResourceByProjectKeyMePasswordReset' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePasswordReset {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->password()
                         ->reset();
                 },
                 ResourceByProjectKeyMePasswordReset::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/password/reset'
             ]
         ];
@@ -228,6 +228,16 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyMePasswordPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->password()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

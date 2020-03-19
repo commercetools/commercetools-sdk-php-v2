@@ -36,7 +36,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,72 +102,72 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
             'ByProjectKeyCustomObjectsByContainerByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
+                        ->withContainerAndKey('test_container', 'test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/custom-objects/{container}/{key}?expand=expand',
+                'test_projectKey/custom-objects/test_container/test_key?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customObjects()
-                        ->withContainerAndKey("container", "key")
+                        ->withContainerAndKey("test_container", "test_key")
                         ->get();
                 },
                 'get',
-                '{projectKey}/custom-objects/{container}/{key}',
+                'test_projectKey/custom-objects/test_container/test_key',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
+                        ->withContainerAndKey('test_container', 'test_key')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{container}/{key}?version=version',
+                'test_projectKey/custom-objects/test_container/test_key?version=version',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
+                        ->withContainerAndKey('test_container', 'test_key')
                         ->delete()
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{container}/{key}?dataErasure=dataErasure',
+                'test_projectKey/custom-objects/test_container/test_key?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withContainerAndKey('container', 'key')
+                        ->withContainerAndKey('test_container', 'test_key')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{container}/{key}?expand=expand',
+                'test_projectKey/custom-objects/test_container/test_key?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customObjects()
-                        ->withContainerAndKey("container", "key")
+                        ->withContainerAndKey("test_container", "test_key")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/custom-objects/{container}/{key}',
+                'test_projectKey/custom-objects/test_container/test_key',
             ]
         ];
     }
@@ -275,6 +275,16 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCustomObjectsByContainerByKeyGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withContainerAndKey("container", "key")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -354,6 +364,16 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyCustomObjectsByContainerByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withContainerAndKey("container", "key")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

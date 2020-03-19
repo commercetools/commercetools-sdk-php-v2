@@ -35,7 +35,7 @@ class ResourceByProjectKeyShippingMethodsMatchingCartTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,37 +101,37 @@ class ResourceByProjectKeyShippingMethodsMatchingCartTest extends TestCase
             'ByProjectKeyShippingMethodsMatchingCartGet_withCartId' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingCart()
                         ->get()
                         ->withCartId('cartId');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-cart?cartId=cartId',
+                'test_projectKey/shipping-methods/matching-cart?cartId=cartId',
             ],
             'ByProjectKeyShippingMethodsMatchingCartGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingCart()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-cart?expand=expand',
+                'test_projectKey/shipping-methods/matching-cart?expand=expand',
             ],
             'ByProjectKeyShippingMethodsMatchingCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shippingMethods()
                         ->matchingCart()
                         ->get();
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-cart',
+                'test_projectKey/shipping-methods/matching-cart',
             ]
         ];
     }
@@ -229,6 +229,16 @@ class ResourceByProjectKeyShippingMethodsMatchingCartTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyShippingMethodsMatchingCartGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCart()
+                        ->get();
+                },
+                599
             ]
         ];
     }

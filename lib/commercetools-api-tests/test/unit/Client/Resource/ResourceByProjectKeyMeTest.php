@@ -47,7 +47,7 @@ class ResourceByProjectKeyMeTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -113,120 +113,120 @@ class ResourceByProjectKeyMeTest extends TestCase
             'ByProjectKeyMeGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/me?sort=sort',
+                'test_projectKey/me?sort=sort',
             ],
             'ByProjectKeyMeGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/me?limit=limit',
+                'test_projectKey/me?limit=limit',
             ],
             'ByProjectKeyMeGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/me?offset=offset',
+                'test_projectKey/me?offset=offset',
             ],
             'ByProjectKeyMeGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/me?withTotal=withTotal',
+                'test_projectKey/me?withTotal=withTotal',
             ],
             'ByProjectKeyMeGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/me?expand=expand',
+                'test_projectKey/me?expand=expand',
             ],
             'ByProjectKeyMeGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/me?where=where',
+                'test_projectKey/me?where=where',
             ],
             'ByProjectKeyMeGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/me?var.varName=var.varName',
+                'test_projectKey/me?var.varName=var.varName',
             ],
             'ByProjectKeyMeGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->get();
                 },
                 'get',
-                '{projectKey}/me',
+                'test_projectKey/me',
             ],
             'ByProjectKeyMePost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/me',
+                'test_projectKey/me',
             ],
             'ByProjectKeyMeDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/me?version=version',
+                'test_projectKey/me?version=version',
             ],
             'ByProjectKeyMeDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/me',
+                'test_projectKey/me',
             ]
         ];
     }
@@ -237,111 +237,111 @@ class ResourceByProjectKeyMeTest extends TestCase
             'ResourceByProjectKeyMeEmail' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeEmail {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->email();
                 },
                 ResourceByProjectKeyMeEmail::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/email'
             ],
             'ResourceByProjectKeyMePassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePassword {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->password();
                 },
                 ResourceByProjectKeyMePassword::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/password'
             ],
             'ResourceByProjectKeyMeSignup' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeSignup {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->signup();
                 },
                 ResourceByProjectKeyMeSignup::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/signup'
             ],
             'ResourceByProjectKeyMeLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeLogin {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->login();
                 },
                 ResourceByProjectKeyMeLogin::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/login'
             ],
             'ResourceByProjectKeyMeActiveCart' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeActiveCart {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->activeCart();
                 },
                 ResourceByProjectKeyMeActiveCart::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/active-cart'
             ],
             'ResourceByProjectKeyMeCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCarts {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->carts();
                 },
                 ResourceByProjectKeyMeCarts::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/carts'
             ],
             'ResourceByProjectKeyMeOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeOrders {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders();
                 },
                 ResourceByProjectKeyMeOrders::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/orders'
             ],
             'ResourceByProjectKeyMePayments' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePayments {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payments();
                 },
                 ResourceByProjectKeyMePayments::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/payments'
             ],
             'ResourceByProjectKeyMeShoppingLists' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeShoppingLists {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->shoppingLists();
                 },
                 ResourceByProjectKeyMeShoppingLists::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/shopping-lists'
             ],
             'ResourceByProjectKeyMePayment' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePayment {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payment();
                 },
                 ResourceByProjectKeyMePayment::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/payment'
             ]
         ];
@@ -443,6 +443,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyMeGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyMePost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -505,6 +514,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyMePost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->post(null);
+                },
+                599
             ],
             'ByProjectKeyMeDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -577,6 +595,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyMeDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->delete();
+                },
+                599
             ]
         ];
     }

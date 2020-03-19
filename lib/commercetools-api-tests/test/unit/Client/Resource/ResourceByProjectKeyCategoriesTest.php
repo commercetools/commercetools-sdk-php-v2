@@ -38,7 +38,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
             'ByProjectKeyCategoriesGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/categories?expand=expand',
+                'test_projectKey/categories?expand=expand',
             ],
             'ByProjectKeyCategoriesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/categories?sort=sort',
+                'test_projectKey/categories?sort=sort',
             ],
             'ByProjectKeyCategoriesGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/categories?limit=limit',
+                'test_projectKey/categories?limit=limit',
             ],
             'ByProjectKeyCategoriesGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/categories?offset=offset',
+                'test_projectKey/categories?offset=offset',
             ],
             'ByProjectKeyCategoriesGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/categories?withTotal=withTotal',
+                'test_projectKey/categories?withTotal=withTotal',
             ],
             'ByProjectKeyCategoriesGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/categories?where=where',
+                'test_projectKey/categories?where=where',
             ],
             'ByProjectKeyCategoriesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/categories?var.varName=var.varName',
+                'test_projectKey/categories?var.varName=var.varName',
             ],
             'ByProjectKeyCategoriesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
                         ->get();
                 },
                 'get',
-                '{projectKey}/categories',
+                'test_projectKey/categories',
             ],
             'ByProjectKeyCategoriesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/categories?expand=expand',
+                'test_projectKey/categories?expand=expand',
             ],
             'ByProjectKeyCategoriesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/categories',
+                'test_projectKey/categories',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
             'ResourceByProjectKeyCategoriesKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCategoriesKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyCategoriesKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/categories/key={key}'
             ],
             'ResourceByProjectKeyCategoriesByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCategoriesByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyCategoriesByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/categories/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCategoriesGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCategoriesPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyCategoriesPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

@@ -37,7 +37,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,83 +103,83 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
             'ByProjectKeyStatesByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->states()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/states/{ID}?expand=expand',
+                'test_projectKey/states/test_ID?expand=expand',
             ],
             'ByProjectKeyStatesByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->states()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->get();
                 },
                 'get',
-                '{projectKey}/states/{ID}',
+                'test_projectKey/states/test_ID',
             ],
             'ByProjectKeyStatesByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->states()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/states/{ID}?expand=expand',
+                'test_projectKey/states/test_ID?expand=expand',
             ],
             'ByProjectKeyStatesByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->states()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/states/{ID}',
+                'test_projectKey/states/test_ID',
             ],
             'ByProjectKeyStatesByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->states()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/states/{ID}?version=version',
+                'test_projectKey/states/test_ID?version=version',
             ],
             'ByProjectKeyStatesByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->states()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/states/{ID}?expand=expand',
+                'test_projectKey/states/test_ID?expand=expand',
             ],
             'ByProjectKeyStatesByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->states()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/states/{ID}',
+                'test_projectKey/states/test_ID',
             ]
         ];
     }
@@ -296,6 +296,16 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyStatesByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyStatesByIDPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -376,6 +386,16 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyStatesByIDPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyStatesByIDDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -455,6 +475,16 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyStatesByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

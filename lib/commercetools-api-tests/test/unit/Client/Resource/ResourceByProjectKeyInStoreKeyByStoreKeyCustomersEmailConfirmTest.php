@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,15 +101,15 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
                         ->email()
                         ->confirm()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/in-store/key={storeKey}/customers/email/confirm',
+                'test_projectKey/in-store/key=test_storeKey/customers/email/confirm',
             ]
         ];
     }
@@ -223,6 +223,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->email()
+                        ->confirm()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

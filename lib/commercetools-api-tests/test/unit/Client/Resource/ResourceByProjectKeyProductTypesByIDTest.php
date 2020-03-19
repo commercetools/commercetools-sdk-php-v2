@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductTypesByIDTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,83 +103,83 @@ class ResourceByProjectKeyProductTypesByIDTest extends TestCase
             'ByProjectKeyProductTypesByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/product-types/{ID}?expand=expand',
+                'test_projectKey/product-types/test_ID?expand=expand',
             ],
             'ByProjectKeyProductTypesByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->get();
                 },
                 'get',
-                '{projectKey}/product-types/{ID}',
+                'test_projectKey/product-types/test_ID',
             ],
             'ByProjectKeyProductTypesByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/product-types/{ID}?expand=expand',
+                'test_projectKey/product-types/test_ID?expand=expand',
             ],
             'ByProjectKeyProductTypesByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/product-types/{ID}',
+                'test_projectKey/product-types/test_ID',
             ],
             'ByProjectKeyProductTypesByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/product-types/{ID}?version=version',
+                'test_projectKey/product-types/test_ID?version=version',
             ],
             'ByProjectKeyProductTypesByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/product-types/{ID}?expand=expand',
+                'test_projectKey/product-types/test_ID?expand=expand',
             ],
             'ByProjectKeyProductTypesByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/product-types/{ID}',
+                'test_projectKey/product-types/test_ID',
             ]
         ];
     }
@@ -296,6 +296,16 @@ class ResourceByProjectKeyProductTypesByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyProductTypesByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withId("ID")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyProductTypesByIDPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -376,6 +386,16 @@ class ResourceByProjectKeyProductTypesByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyProductTypesByIDPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyProductTypesByIDDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -455,6 +475,16 @@ class ResourceByProjectKeyProductTypesByIDTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyProductTypesByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withId("ID")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

@@ -37,7 +37,7 @@ class ResourceByProjectKeyChannelsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,110 +103,110 @@ class ResourceByProjectKeyChannelsTest extends TestCase
             'ByProjectKeyChannelsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/channels?expand=expand',
+                'test_projectKey/channels?expand=expand',
             ],
             'ByProjectKeyChannelsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/channels?sort=sort',
+                'test_projectKey/channels?sort=sort',
             ],
             'ByProjectKeyChannelsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/channels?limit=limit',
+                'test_projectKey/channels?limit=limit',
             ],
             'ByProjectKeyChannelsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/channels?offset=offset',
+                'test_projectKey/channels?offset=offset',
             ],
             'ByProjectKeyChannelsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/channels?withTotal=withTotal',
+                'test_projectKey/channels?withTotal=withTotal',
             ],
             'ByProjectKeyChannelsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/channels?where=where',
+                'test_projectKey/channels?where=where',
             ],
             'ByProjectKeyChannelsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/channels?var.varName=var.varName',
+                'test_projectKey/channels?var.varName=var.varName',
             ],
             'ByProjectKeyChannelsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->channels()
                         ->get();
                 },
                 'get',
-                '{projectKey}/channels',
+                'test_projectKey/channels',
             ],
             'ByProjectKeyChannelsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->channels()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/channels?expand=expand',
+                'test_projectKey/channels?expand=expand',
             ],
             'ByProjectKeyChannelsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->channels()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/channels',
+                'test_projectKey/channels',
             ]
         ];
     }
@@ -217,12 +217,12 @@ class ResourceByProjectKeyChannelsTest extends TestCase
             'ResourceByProjectKeyChannelsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyChannelsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->channels()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyChannelsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/channels/{ID}'
             ]
         ];
@@ -316,6 +316,15 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyChannelsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyChannelsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -387,6 +396,15 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyChannelsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

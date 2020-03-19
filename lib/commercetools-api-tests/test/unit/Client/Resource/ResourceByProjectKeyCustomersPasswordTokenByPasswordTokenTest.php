@@ -35,7 +35,7 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,25 +101,25 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withPasswordToken('passwordToken')
+                        ->withPasswordToken('test_passwordToken')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/customers/password-token={passwordToken}?expand=expand',
+                'test_projectKey/customers/password-token=test_passwordToken?expand=expand',
             ],
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withPasswordToken("passwordToken")
+                        ->withPasswordToken("test_passwordToken")
                         ->get();
                 },
                 'get',
-                '{projectKey}/customers/password-token={passwordToken}',
+                'test_projectKey/customers/password-token=test_passwordToken',
             ]
         ];
     }
@@ -217,6 +217,16 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                599
             ]
         ];
     }

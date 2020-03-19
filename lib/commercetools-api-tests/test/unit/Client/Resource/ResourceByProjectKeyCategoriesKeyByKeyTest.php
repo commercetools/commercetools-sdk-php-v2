@@ -37,7 +37,7 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,83 +103,83 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
             'ByProjectKeyCategoriesKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/categories/key={key}?expand=expand',
+                'test_projectKey/categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyCategoriesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                '{projectKey}/categories/key={key}',
+                'test_projectKey/categories/key=test_key',
             ],
             'ByProjectKeyCategoriesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/categories/key={key}?expand=expand',
+                'test_projectKey/categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyCategoriesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/categories/key={key}',
+                'test_projectKey/categories/key=test_key',
             ],
             'ByProjectKeyCategoriesKeyByKeyDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/categories/key={key}?version=version',
+                'test_projectKey/categories/key=test_key?version=version',
             ],
             'ByProjectKeyCategoriesKeyByKeyDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->categories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/categories/key={key}?expand=expand',
+                'test_projectKey/categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyCategoriesKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->categories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/categories/key={key}',
+                'test_projectKey/categories/key=test_key',
             ]
         ];
     }
@@ -296,6 +296,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCategoriesKeyByKeyGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCategoriesKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -376,6 +386,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCategoriesKeyByKeyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyCategoriesKeyByKeyDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -455,6 +475,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyCategoriesKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

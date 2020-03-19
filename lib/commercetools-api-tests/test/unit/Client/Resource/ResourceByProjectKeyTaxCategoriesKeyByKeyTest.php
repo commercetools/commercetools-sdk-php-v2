@@ -37,7 +37,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,83 +103,83 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
             'ByProjectKeyTaxCategoriesKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->taxCategories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/tax-categories/key={key}?expand=expand',
+                'test_projectKey/tax-categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->taxCategories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                '{projectKey}/tax-categories/key={key}',
+                'test_projectKey/tax-categories/key=test_key',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->taxCategories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/tax-categories/key={key}?expand=expand',
+                'test_projectKey/tax-categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->taxCategories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/tax-categories/key={key}',
+                'test_projectKey/tax-categories/key=test_key',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->taxCategories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/tax-categories/key={key}?version=version',
+                'test_projectKey/tax-categories/key=test_key?version=version',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->taxCategories()
-                        ->withKey('key')
+                        ->withKey('test_key')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/tax-categories/key={key}?expand=expand',
+                'test_projectKey/tax-categories/key=test_key?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->taxCategories()
-                        ->withKey("key")
+                        ->withKey("test_key")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/tax-categories/key={key}',
+                'test_projectKey/tax-categories/key=test_key',
             ]
         ];
     }
@@ -296,6 +296,16 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyTaxCategoriesKeyByKeyGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyTaxCategoriesKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -376,6 +386,16 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyTaxCategoriesKeyByKeyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -455,6 +475,16 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

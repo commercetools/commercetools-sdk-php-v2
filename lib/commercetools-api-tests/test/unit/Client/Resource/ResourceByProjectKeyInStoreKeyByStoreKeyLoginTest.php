@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,13 +101,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyLoginPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->login()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/in-store/key={storeKey}/login',
+                'test_projectKey/in-store/key=test_storeKey/login',
             ]
         ];
     }
@@ -215,6 +215,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyLoginPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->login()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

@@ -36,7 +36,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,264 +102,264 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
             'ByProjectKeyProductProjectionsSearchPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->search()
                         ->post();
                 },
                 'post',
-                '{projectKey}/product-projections/search',
+                'test_projectKey/product-projections/search',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzy' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFuzzy('fuzzy');
                 },
                 'get',
-                '{projectKey}/product-projections/search?fuzzy=fuzzy',
+                'test_projectKey/product-projections/search?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzyLevel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFuzzyLevel('fuzzyLevel');
                 },
                 'get',
-                '{projectKey}/product-projections/search?fuzzyLevel=fuzzyLevel',
+                'test_projectKey/product-projections/search?fuzzyLevel=fuzzyLevel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withMarkMatchingVariants' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withMarkMatchingVariants('markMatchingVariants');
                 },
                 'get',
-                '{projectKey}/product-projections/search?markMatchingVariants=markMatchingVariants',
+                'test_projectKey/product-projections/search?markMatchingVariants=markMatchingVariants',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withStaged('staged');
                 },
                 'get',
-                '{projectKey}/product-projections/search?staged=staged',
+                'test_projectKey/product-projections/search?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilter' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFilter('filter');
                 },
                 'get',
-                '{projectKey}/product-projections/search?filter=filter',
+                'test_projectKey/product-projections/search?filter=filter',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterFacets' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFilterFacets('filter.facets');
                 },
                 'get',
-                '{projectKey}/product-projections/search?filter.facets=filter.facets',
+                'test_projectKey/product-projections/search?filter.facets=filter.facets',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterQuery' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFilterQuery('filter.query');
                 },
                 'get',
-                '{projectKey}/product-projections/search?filter.query=filter.query',
+                'test_projectKey/product-projections/search?filter.query=filter.query',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFacet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withFacet('facet');
                 },
                 'get',
-                '{projectKey}/product-projections/search?facet=facet',
+                'test_projectKey/product-projections/search?facet=facet',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withText' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withText('locale', 'text.locale');
                 },
                 'get',
-                '{projectKey}/product-projections/search?text.locale=text.locale',
+                'test_projectKey/product-projections/search?text.locale=text.locale',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/product-projections/search?sort=sort',
+                'test_projectKey/product-projections/search?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/product-projections/search?limit=limit',
+                'test_projectKey/product-projections/search?limit=limit',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/product-projections/search?offset=offset',
+                'test_projectKey/product-projections/search?offset=offset',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/product-projections/search?withTotal=withTotal',
+                'test_projectKey/product-projections/search?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withPriceCurrency('priceCurrency');
                 },
                 'get',
-                '{projectKey}/product-projections/search?priceCurrency=priceCurrency',
+                'test_projectKey/product-projections/search?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCountry' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withPriceCountry('priceCountry');
                 },
                 'get',
-                '{projectKey}/product-projections/search?priceCountry=priceCountry',
+                'test_projectKey/product-projections/search?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCustomerGroup' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
-                '{projectKey}/product-projections/search?priceCustomerGroup=priceCustomerGroup',
+                'test_projectKey/product-projections/search?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withPriceChannel('priceChannel');
                 },
                 'get',
-                '{projectKey}/product-projections/search?priceChannel=priceChannel',
+                'test_projectKey/product-projections/search?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withLocaleProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withLocaleProjection('localeProjection');
                 },
                 'get',
-                '{projectKey}/product-projections/search?localeProjection=localeProjection',
+                'test_projectKey/product-projections/search?localeProjection=localeProjection',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withStoreProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withStoreProjection('storeProjection');
                 },
                 'get',
-                '{projectKey}/product-projections/search?storeProjection=storeProjection',
+                'test_projectKey/product-projections/search?storeProjection=storeProjection',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->search()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/product-projections/search?expand=expand',
+                'test_projectKey/product-projections/search?expand=expand',
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->search()
                         ->get();
                 },
                 'get',
-                '{projectKey}/product-projections/search',
+                'test_projectKey/product-projections/search',
             ]
         ];
     }
@@ -467,6 +467,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyProductProjectionsSearchPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->post();
+                },
+                599
+            ],
             'ByProjectKeyProductProjectionsSearchGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -536,6 +546,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyProductProjectionsSearchGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->get();
+                },
+                599
             ]
         ];
     }

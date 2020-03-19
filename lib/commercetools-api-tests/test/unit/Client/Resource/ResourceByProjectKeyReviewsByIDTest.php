@@ -37,7 +37,7 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,95 +103,95 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
             'ByProjectKeyReviewsByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/reviews/{ID}?expand=expand',
+                'test_projectKey/reviews/test_ID?expand=expand',
             ],
             'ByProjectKeyReviewsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->get();
                 },
                 'get',
-                '{projectKey}/reviews/{ID}',
+                'test_projectKey/reviews/test_ID',
             ],
             'ByProjectKeyReviewsByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/reviews/{ID}?expand=expand',
+                'test_projectKey/reviews/test_ID?expand=expand',
             ],
             'ByProjectKeyReviewsByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/reviews/{ID}',
+                'test_projectKey/reviews/test_ID',
             ],
             'ByProjectKeyReviewsByIDDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '{projectKey}/reviews/{ID}?dataErasure=dataErasure',
+                'test_projectKey/reviews/test_ID?dataErasure=dataErasure',
             ],
             'ByProjectKeyReviewsByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/reviews/{ID}?version=version',
+                'test_projectKey/reviews/test_ID?version=version',
             ],
             'ByProjectKeyReviewsByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/reviews/{ID}?expand=expand',
+                'test_projectKey/reviews/test_ID?expand=expand',
             ],
             'ByProjectKeyReviewsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/reviews/{ID}',
+                'test_projectKey/reviews/test_ID',
             ]
         ];
     }
@@ -308,6 +308,16 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyReviewsByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyReviewsByIDPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -388,6 +398,16 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyReviewsByIDPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyReviewsByIDDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -467,6 +487,16 @@ class ResourceByProjectKeyReviewsByIDTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyReviewsByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withId("ID")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

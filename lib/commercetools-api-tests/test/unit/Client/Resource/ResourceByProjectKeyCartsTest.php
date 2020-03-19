@@ -39,7 +39,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -105,121 +105,121 @@ class ResourceByProjectKeyCartsTest extends TestCase
             'ByProjectKeyCartsGet_withCustomerId' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withCustomerId('customerId');
                 },
                 'get',
-                '{projectKey}/carts?customerId=customerId',
+                'test_projectKey/carts?customerId=customerId',
             ],
             'ByProjectKeyCartsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/carts?expand=expand',
+                'test_projectKey/carts?expand=expand',
             ],
             'ByProjectKeyCartsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/carts?sort=sort',
+                'test_projectKey/carts?sort=sort',
             ],
             'ByProjectKeyCartsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/carts?limit=limit',
+                'test_projectKey/carts?limit=limit',
             ],
             'ByProjectKeyCartsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/carts?offset=offset',
+                'test_projectKey/carts?offset=offset',
             ],
             'ByProjectKeyCartsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/carts?withTotal=withTotal',
+                'test_projectKey/carts?withTotal=withTotal',
             ],
             'ByProjectKeyCartsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/carts?where=where',
+                'test_projectKey/carts?where=where',
             ],
             'ByProjectKeyCartsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/carts?var.varName=var.varName',
+                'test_projectKey/carts?var.varName=var.varName',
             ],
             'ByProjectKeyCartsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
                         ->get();
                 },
                 'get',
-                '{projectKey}/carts',
+                'test_projectKey/carts',
             ],
             'ByProjectKeyCartsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/carts?expand=expand',
+                'test_projectKey/carts?expand=expand',
             ],
             'ByProjectKeyCartsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/carts',
+                'test_projectKey/carts',
             ]
         ];
     }
@@ -230,34 +230,34 @@ class ResourceByProjectKeyCartsTest extends TestCase
             'ResourceByProjectKeyCartsReplicate' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsReplicate {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
                         ->replicate();
                 },
                 ResourceByProjectKeyCartsReplicate::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/carts/replicate'
             ],
             'ResourceByProjectKeyCartsCustomerIdByCustomerId' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsCustomerIdByCustomerId {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
-                        ->withCustomerId("customerId");
+                        ->withCustomerId("test_customerId");
                 },
                 ResourceByProjectKeyCartsCustomerIdByCustomerId::class,
-                ['projectKey' => 'projectKey', 'customerId' => 'customerId'],
+                ['projectKey' => 'test_projectKey', 'customerId' => 'test_customerId'],
                 '/{projectKey}/carts/customer-id={customerId}'
             ],
             'ResourceByProjectKeyCartsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyCartsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/carts/{ID}'
             ]
         ];
@@ -351,6 +351,15 @@ class ResourceByProjectKeyCartsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCartsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCartsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -422,6 +431,15 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyCartsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

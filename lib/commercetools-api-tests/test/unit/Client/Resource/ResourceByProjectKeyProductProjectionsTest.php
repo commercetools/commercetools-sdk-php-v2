@@ -39,7 +39,7 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -105,166 +105,166 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
             'ByProjectKeyProductProjectionsGet_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withStaged('staged');
                 },
                 'get',
-                '{projectKey}/product-projections?staged=staged',
+                'test_projectKey/product-projections?staged=staged',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withPriceCurrency('priceCurrency');
                 },
                 'get',
-                '{projectKey}/product-projections?priceCurrency=priceCurrency',
+                'test_projectKey/product-projections?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCountry' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withPriceCountry('priceCountry');
                 },
                 'get',
-                '{projectKey}/product-projections?priceCountry=priceCountry',
+                'test_projectKey/product-projections?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceCustomerGroup' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
-                '{projectKey}/product-projections?priceCustomerGroup=priceCustomerGroup',
+                'test_projectKey/product-projections?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsGet_withPriceChannel' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withPriceChannel('priceChannel');
                 },
                 'get',
-                '{projectKey}/product-projections?priceChannel=priceChannel',
+                'test_projectKey/product-projections?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsGet_withLocaleProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withLocaleProjection('localeProjection');
                 },
                 'get',
-                '{projectKey}/product-projections?localeProjection=localeProjection',
+                'test_projectKey/product-projections?localeProjection=localeProjection',
             ],
             'ByProjectKeyProductProjectionsGet_withStoreProjection' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withStoreProjection('storeProjection');
                 },
                 'get',
-                '{projectKey}/product-projections?storeProjection=storeProjection',
+                'test_projectKey/product-projections?storeProjection=storeProjection',
             ],
             'ByProjectKeyProductProjectionsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/product-projections?expand=expand',
+                'test_projectKey/product-projections?expand=expand',
             ],
             'ByProjectKeyProductProjectionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/product-projections?sort=sort',
+                'test_projectKey/product-projections?sort=sort',
             ],
             'ByProjectKeyProductProjectionsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/product-projections?limit=limit',
+                'test_projectKey/product-projections?limit=limit',
             ],
             'ByProjectKeyProductProjectionsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/product-projections?offset=offset',
+                'test_projectKey/product-projections?offset=offset',
             ],
             'ByProjectKeyProductProjectionsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/product-projections?withTotal=withTotal',
+                'test_projectKey/product-projections?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/product-projections?where=where',
+                'test_projectKey/product-projections?where=where',
             ],
             'ByProjectKeyProductProjectionsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productProjections()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/product-projections?var.varName=var.varName',
+                'test_projectKey/product-projections?var.varName=var.varName',
             ],
             'ByProjectKeyProductProjectionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->get();
                 },
                 'get',
-                '{projectKey}/product-projections',
+                'test_projectKey/product-projections',
             ]
         ];
     }
@@ -275,45 +275,45 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
             'ResourceByProjectKeyProductProjectionsSearch' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsSearch {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->search();
                 },
                 ResourceByProjectKeyProductProjectionsSearch::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-projections/search'
             ],
             'ResourceByProjectKeyProductProjectionsSuggest' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsSuggest {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->suggest();
                 },
                 ResourceByProjectKeyProductProjectionsSuggest::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-projections/suggest'
             ],
             'ResourceByProjectKeyProductProjectionsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyProductProjectionsKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/product-projections/key={key}'
             ],
             'ResourceByProjectKeyProductProjectionsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductProjectionsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productProjections()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyProductProjectionsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/product-projections/{ID}'
             ]
         ];
@@ -398,6 +398,15 @@ class ResourceByProjectKeyProductProjectionsTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyProductProjectionsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->get();
+                },
+                599
             ]
         ];
     }

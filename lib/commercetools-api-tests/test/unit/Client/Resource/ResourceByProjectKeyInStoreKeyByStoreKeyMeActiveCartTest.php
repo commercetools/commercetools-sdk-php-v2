@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
             'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->me()
                         ->activeCart()
                         ->get();
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/me/active-cart',
+                'test_projectKey/in-store/key=test_storeKey/me/active-cart',
             ]
         ];
     }
@@ -214,6 +214,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->activeCart()
+                        ->get();
+                },
+                599
             ]
         ];
     }

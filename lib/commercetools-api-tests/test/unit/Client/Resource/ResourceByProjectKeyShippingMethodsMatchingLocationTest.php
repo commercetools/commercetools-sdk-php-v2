@@ -35,7 +35,7 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,61 +101,61 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
             'ByProjectKeyShippingMethodsMatchingLocationGet_withCountry' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get()
                         ->withCountry('country');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-location?country=country',
+                'test_projectKey/shipping-methods/matching-location?country=country',
             ],
             'ByProjectKeyShippingMethodsMatchingLocationGet_withState' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get()
                         ->withState('state');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-location?state=state',
+                'test_projectKey/shipping-methods/matching-location?state=state',
             ],
             'ByProjectKeyShippingMethodsMatchingLocationGet_withCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get()
                         ->withCurrency('currency');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-location?currency=currency',
+                'test_projectKey/shipping-methods/matching-location?currency=currency',
             ],
             'ByProjectKeyShippingMethodsMatchingLocationGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-location?expand=expand',
+                'test_projectKey/shipping-methods/matching-location?expand=expand',
             ],
             'ByProjectKeyShippingMethodsMatchingLocationGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shippingMethods()
                         ->matchingLocation()
                         ->get();
                 },
                 'get',
-                '{projectKey}/shipping-methods/matching-location',
+                'test_projectKey/shipping-methods/matching-location',
             ]
         ];
     }
@@ -253,6 +253,16 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyShippingMethodsMatchingLocationGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->get();
+                },
+                599
             ]
         ];
     }

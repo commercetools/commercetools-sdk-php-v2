@@ -40,7 +40,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -112,67 +112,67 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyTest extends TestCase
             'ResourceByProjectKeyInStoreKeyByStoreKeyCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCarts {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->carts();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyCarts::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/carts'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyOrders' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyOrders {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->orders();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyOrders::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/orders'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyMe' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMe {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->me();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyMe::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/me'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomers' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomers {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyCustomers::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyLogin' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyLogin {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->login();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyLogin::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/login'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->shippingMethods();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/shipping-methods'
             ]
         ];

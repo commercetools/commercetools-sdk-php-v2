@@ -37,7 +37,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,95 +103,95 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
             'ByProjectKeyOrdersOrderNumberByOrderNumberGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->orders()
-                        ->withOrderNumber('orderNumber')
+                        ->withOrderNumber('test_orderNumber')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                'test_projectKey/orders/order-number=test_orderNumber?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->orders()
-                        ->withOrderNumber("orderNumber")
+                        ->withOrderNumber("test_orderNumber")
                         ->get();
                 },
                 'get',
-                '{projectKey}/orders/order-number={orderNumber}',
+                'test_projectKey/orders/order-number=test_orderNumber',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->orders()
-                        ->withOrderNumber('orderNumber')
+                        ->withOrderNumber('test_orderNumber')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                'test_projectKey/orders/order-number=test_orderNumber?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->orders()
-                        ->withOrderNumber("orderNumber")
+                        ->withOrderNumber("test_orderNumber")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/orders/order-number={orderNumber}',
+                'test_projectKey/orders/order-number=test_orderNumber',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->orders()
-                        ->withOrderNumber('orderNumber')
+                        ->withOrderNumber('test_orderNumber')
                         ->delete()
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '{projectKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
+                'test_projectKey/orders/order-number=test_orderNumber?dataErasure=dataErasure',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->orders()
-                        ->withOrderNumber('orderNumber')
+                        ->withOrderNumber('test_orderNumber')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/orders/order-number={orderNumber}?version=version',
+                'test_projectKey/orders/order-number=test_orderNumber?version=version',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->orders()
-                        ->withOrderNumber('orderNumber')
+                        ->withOrderNumber('test_orderNumber')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                'test_projectKey/orders/order-number=test_orderNumber?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->orders()
-                        ->withOrderNumber("orderNumber")
+                        ->withOrderNumber("test_orderNumber")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/orders/order-number={orderNumber}',
+                'test_projectKey/orders/order-number=test_orderNumber',
             ]
         ];
     }
@@ -308,6 +308,16 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -388,6 +398,16 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -467,6 +487,16 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withOrderNumber("orderNumber")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

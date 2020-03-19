@@ -41,10 +41,10 @@ class ApiRequestBuilderTest extends TestCase
             'ResourceByProjectKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKey {
                     return $builder
-                        ->withProjectKey("projectKey");
+                        ->withProjectKey("test_projectKey");
                 },
                 ResourceByProjectKey::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}'
             ]
         ];

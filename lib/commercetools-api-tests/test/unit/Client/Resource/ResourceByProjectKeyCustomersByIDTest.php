@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,95 +103,95 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
             'ByProjectKeyCustomersByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/customers/{ID}?expand=expand',
+                'test_projectKey/customers/test_ID?expand=expand',
             ],
             'ByProjectKeyCustomersByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->get();
                 },
                 'get',
-                '{projectKey}/customers/{ID}',
+                'test_projectKey/customers/test_ID',
             ],
             'ByProjectKeyCustomersByIDPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/customers/{ID}?expand=expand',
+                'test_projectKey/customers/test_ID?expand=expand',
             ],
             'ByProjectKeyCustomersByIDPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/customers/{ID}',
+                'test_projectKey/customers/test_ID',
             ],
             'ByProjectKeyCustomersByIDDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '{projectKey}/customers/{ID}?dataErasure=dataErasure',
+                'test_projectKey/customers/test_ID?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomersByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/customers/{ID}?version=version',
+                'test_projectKey/customers/test_ID?version=version',
             ],
             'ByProjectKeyCustomersByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/customers/{ID}?expand=expand',
+                'test_projectKey/customers/test_ID?expand=expand',
             ],
             'ByProjectKeyCustomersByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/customers/{ID}',
+                'test_projectKey/customers/test_ID',
             ]
         ];
     }
@@ -308,6 +308,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCustomersByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCustomersByIDPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -388,6 +398,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCustomersByIDPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyCustomersByIDDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -467,6 +487,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyCustomersByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

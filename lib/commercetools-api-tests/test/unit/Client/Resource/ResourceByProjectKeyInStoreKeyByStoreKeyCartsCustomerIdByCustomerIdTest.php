@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,27 +101,27 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
                         ->carts()
-                        ->withCustomerId('customerId')
+                        ->withCustomerId('test_customerId')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}?expand=expand',
+                'test_projectKey/in-store/key=test_storeKey/carts/customer-id=test_customerId?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->carts()
-                        ->withCustomerId("customerId")
+                        ->withCustomerId("test_customerId")
                         ->get();
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}',
+                'test_projectKey/in-store/key=test_storeKey/carts/customer-id=test_customerId',
             ]
         ];
     }
@@ -227,6 +227,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->get();
+                },
+                599
             ]
         ];
     }

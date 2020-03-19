@@ -38,7 +38,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
             'ByProjectKeySubscriptionsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/subscriptions?expand=expand',
+                'test_projectKey/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/subscriptions?sort=sort',
+                'test_projectKey/subscriptions?sort=sort',
             ],
             'ByProjectKeySubscriptionsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/subscriptions?limit=limit',
+                'test_projectKey/subscriptions?limit=limit',
             ],
             'ByProjectKeySubscriptionsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/subscriptions?offset=offset',
+                'test_projectKey/subscriptions?offset=offset',
             ],
             'ByProjectKeySubscriptionsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/subscriptions?withTotal=withTotal',
+                'test_projectKey/subscriptions?withTotal=withTotal',
             ],
             'ByProjectKeySubscriptionsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/subscriptions?where=where',
+                'test_projectKey/subscriptions?where=where',
             ],
             'ByProjectKeySubscriptionsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/subscriptions?var.varName=var.varName',
+                'test_projectKey/subscriptions?var.varName=var.varName',
             ],
             'ByProjectKeySubscriptionsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->subscriptions()
                         ->get();
                 },
                 'get',
-                '{projectKey}/subscriptions',
+                'test_projectKey/subscriptions',
             ],
             'ByProjectKeySubscriptionsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->subscriptions()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/subscriptions?expand=expand',
+                'test_projectKey/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->subscriptions()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/subscriptions',
+                'test_projectKey/subscriptions',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
             'ResourceByProjectKeySubscriptionsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeySubscriptionsKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->subscriptions()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeySubscriptionsKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/subscriptions/key={key}'
             ],
             'ResourceByProjectKeySubscriptionsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeySubscriptionsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->subscriptions()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeySubscriptionsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/subscriptions/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeySubscriptionsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeySubscriptionsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeySubscriptionsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

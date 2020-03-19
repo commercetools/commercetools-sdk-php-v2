@@ -35,7 +35,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,66 +101,66 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
             'ByProjectKeyProductsByIDImagesPost_withFilename' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->products()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->images()
                         ->post(null)
                         ->withFilename('filename');
                 },
                 'post',
-                '{projectKey}/products/{ID}/images?filename=filename',
+                'test_projectKey/products/test_ID/images?filename=filename',
             ],
             'ByProjectKeyProductsByIDImagesPost_withVariant' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->products()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->images()
                         ->post(null)
                         ->withVariant('variant');
                 },
                 'post',
-                '{projectKey}/products/{ID}/images?variant=variant',
+                'test_projectKey/products/test_ID/images?variant=variant',
             ],
             'ByProjectKeyProductsByIDImagesPost_withSku' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->products()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->images()
                         ->post(null)
                         ->withSku('sku');
                 },
                 'post',
-                '{projectKey}/products/{ID}/images?sku=sku',
+                'test_projectKey/products/test_ID/images?sku=sku',
             ],
             'ByProjectKeyProductsByIDImagesPost_withStaged' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->products()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->images()
                         ->post(null)
                         ->withStaged('staged');
                 },
                 'post',
-                '{projectKey}/products/{ID}/images?staged=staged',
+                'test_projectKey/products/test_ID/images?staged=staged',
             ],
             'ByProjectKeyProductsByIDImagesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->products()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->images()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/products/{ID}/images',
+                'test_projectKey/products/test_ID/images',
             ]
         ];
     }
@@ -200,6 +200,17 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyProductsByIDImagesPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
             'ByProjectKeyProductTypesGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/product-types?expand=expand',
+                'test_projectKey/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/product-types?sort=sort',
+                'test_projectKey/product-types?sort=sort',
             ],
             'ByProjectKeyProductTypesGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/product-types?limit=limit',
+                'test_projectKey/product-types?limit=limit',
             ],
             'ByProjectKeyProductTypesGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/product-types?offset=offset',
+                'test_projectKey/product-types?offset=offset',
             ],
             'ByProjectKeyProductTypesGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/product-types?withTotal=withTotal',
+                'test_projectKey/product-types?withTotal=withTotal',
             ],
             'ByProjectKeyProductTypesGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/product-types?where=where',
+                'test_projectKey/product-types?where=where',
             ],
             'ByProjectKeyProductTypesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/product-types?var.varName=var.varName',
+                'test_projectKey/product-types?var.varName=var.varName',
             ],
             'ByProjectKeyProductTypesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
                         ->get();
                 },
                 'get',
-                '{projectKey}/product-types',
+                'test_projectKey/product-types',
             ],
             'ByProjectKeyProductTypesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->productTypes()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/product-types?expand=expand',
+                'test_projectKey/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/product-types',
+                'test_projectKey/product-types',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
             'ResourceByProjectKeyProductTypesKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTypesKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyProductTypesKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/product-types/key={key}'
             ],
             'ResourceByProjectKeyProductTypesByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTypesByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->productTypes()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyProductTypesByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/product-types/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyProductTypesGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyProductTypesPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyProductTypesPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

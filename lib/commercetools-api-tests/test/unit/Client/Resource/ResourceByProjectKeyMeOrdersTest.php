@@ -37,7 +37,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,120 +103,120 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
             'ByProjectKeyMeOrdersGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/me/orders?expand=expand',
+                'test_projectKey/me/orders?expand=expand',
             ],
             'ByProjectKeyMeOrdersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/me/orders?sort=sort',
+                'test_projectKey/me/orders?sort=sort',
             ],
             'ByProjectKeyMeOrdersGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/me/orders?limit=limit',
+                'test_projectKey/me/orders?limit=limit',
             ],
             'ByProjectKeyMeOrdersGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/me/orders?offset=offset',
+                'test_projectKey/me/orders?offset=offset',
             ],
             'ByProjectKeyMeOrdersGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/me/orders?withTotal=withTotal',
+                'test_projectKey/me/orders?withTotal=withTotal',
             ],
             'ByProjectKeyMeOrdersGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/me/orders?where=where',
+                'test_projectKey/me/orders?where=where',
             ],
             'ByProjectKeyMeOrdersGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/me/orders?var.varName=var.varName',
+                'test_projectKey/me/orders?var.varName=var.varName',
             ],
             'ByProjectKeyMeOrdersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders()
                         ->get();
                 },
                 'get',
-                '{projectKey}/me/orders',
+                'test_projectKey/me/orders',
             ],
             'ByProjectKeyMeOrdersPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->orders()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/me/orders?expand=expand',
+                'test_projectKey/me/orders?expand=expand',
             ],
             'ByProjectKeyMeOrdersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/me/orders',
+                'test_projectKey/me/orders',
             ]
         ];
     }
@@ -227,13 +227,13 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
             'ResourceByProjectKeyMeOrdersByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeOrdersByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->orders()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyMeOrdersByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/me/orders/{ID}'
             ]
         ];
@@ -336,6 +336,16 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyMeOrdersGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyMeOrdersPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -415,6 +425,16 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyMeOrdersPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

@@ -35,7 +35,7 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,13 +101,13 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
             'ByProjectKeyCustomersEmailTokenPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->emailToken()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/customers/email-token',
+                'test_projectKey/customers/email-token',
             ]
         ];
     }
@@ -205,6 +205,16 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyCustomersEmailTokenPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->emailToken()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

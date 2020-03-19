@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsTest extends TestCa
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -107,13 +107,13 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsTest extends TestCa
             'ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->shippingMethods()
                         ->matchingCart();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/shipping-methods/matching-cart'
             ]
         ];

@@ -37,7 +37,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,44 +103,44 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
             'ByProjectKeyImportSinksPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSinks()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/import-sinks',
+                'test_projectKey/import-sinks',
             ],
             'ByProjectKeyImportSinksGet_withLimit' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue('test_projectKey')
                         ->importSinks()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/import-sinks?limit=limit',
+                'test_projectKey/import-sinks?limit=limit',
             ],
             'ByProjectKeyImportSinksGet_withOffset' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue('projectKey')
+                        ->withProjectKeyValue('test_projectKey')
                         ->importSinks()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/import-sinks?offset=offset',
+                'test_projectKey/import-sinks?offset=offset',
             ],
             'ByProjectKeyImportSinksGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSinks()
                         ->get();
                 },
                 'get',
-                '{projectKey}/import-sinks',
+                'test_projectKey/import-sinks',
             ]
         ];
     }
@@ -151,12 +151,12 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
             'ResourceByProjectKeyImportSinksByImportSinkKey' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyImportSinksByImportSinkKey {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSinks()
-                        ->withImportSinkKeyValue("importSinkKey");
+                        ->withImportSinkKeyValue("test_importSinkKey");
                 },
                 ResourceByProjectKeyImportSinksByImportSinkKey::class,
-                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
                 '/{projectKey}/import-sinks/{importSinkKey}'
             ]
         ];
@@ -205,6 +205,15 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                 },
                 400
             ],
+            'ByProjectKeyImportSinksPost_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->post(null);
+                },
+                599
+            ],
             'ByProjectKeyImportSinksGet_200' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -213,6 +222,15 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                         ->get();
                 },
                 200
+            ],
+            'ByProjectKeyImportSinksGet_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->get();
+                },
+                599
             ]
         ];
     }

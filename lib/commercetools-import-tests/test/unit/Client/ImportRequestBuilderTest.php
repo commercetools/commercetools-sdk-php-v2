@@ -41,10 +41,10 @@ class ImportRequestBuilderTest extends TestCase
             'ResourceByProjectKey' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKey {
                     return $builder
-                        ->withProjectKeyValue("projectKey");
+                        ->withProjectKeyValue("test_projectKey");
                 },
                 ResourceByProjectKey::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}'
             ]
         ];

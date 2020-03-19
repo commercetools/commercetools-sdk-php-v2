@@ -37,7 +37,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,120 +103,120 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
             'ByProjectKeyMePaymentsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/me/payments?expand=expand',
+                'test_projectKey/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/me/payments?sort=sort',
+                'test_projectKey/me/payments?sort=sort',
             ],
             'ByProjectKeyMePaymentsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/me/payments?limit=limit',
+                'test_projectKey/me/payments?limit=limit',
             ],
             'ByProjectKeyMePaymentsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/me/payments?offset=offset',
+                'test_projectKey/me/payments?offset=offset',
             ],
             'ByProjectKeyMePaymentsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/me/payments?withTotal=withTotal',
+                'test_projectKey/me/payments?withTotal=withTotal',
             ],
             'ByProjectKeyMePaymentsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/me/payments?where=where',
+                'test_projectKey/me/payments?where=where',
             ],
             'ByProjectKeyMePaymentsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/me/payments?var.varName=var.varName',
+                'test_projectKey/me/payments?var.varName=var.varName',
             ],
             'ByProjectKeyMePaymentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payments()
                         ->get();
                 },
                 'get',
-                '{projectKey}/me/payments',
+                'test_projectKey/me/payments',
             ],
             'ByProjectKeyMePaymentsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->me()
                         ->payments()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/me/payments?expand=expand',
+                'test_projectKey/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payments()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/me/payments',
+                'test_projectKey/me/payments',
             ]
         ];
     }
@@ -227,13 +227,13 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
             'ResourceByProjectKeyMePaymentsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePaymentsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payments()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyMePaymentsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/me/payments/{ID}'
             ]
         ];
@@ -336,6 +336,16 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyMePaymentsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyMePaymentsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -415,6 +425,16 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyMePaymentsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

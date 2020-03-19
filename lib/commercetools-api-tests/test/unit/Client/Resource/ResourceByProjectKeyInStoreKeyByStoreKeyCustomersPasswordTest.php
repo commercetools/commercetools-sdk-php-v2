@@ -36,7 +36,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,14 +102,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
                         ->password()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/in-store/key={storeKey}/customers/password',
+                'test_projectKey/in-store/key=test_storeKey/customers/password',
             ]
         ];
     }
@@ -120,14 +120,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
                         ->password()
                         ->reset();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers/password/reset'
             ]
         ];
@@ -228,6 +228,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->password()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

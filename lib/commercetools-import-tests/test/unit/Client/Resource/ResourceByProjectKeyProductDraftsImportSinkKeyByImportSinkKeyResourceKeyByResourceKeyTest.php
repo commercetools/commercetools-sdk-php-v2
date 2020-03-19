@@ -35,7 +35,7 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyBy
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyBy
             'ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productDrafts()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("test_resourceKey")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/product-drafts/importSinkKey={importSinkKey}/resourceKey={resourceKey}',
+                'test_projectKey/product-drafts/importSinkKey=test_importSinkKey/resourceKey=test_resourceKey',
             ]
         ];
     }
@@ -148,6 +148,17 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyBy
                         ->delete();
                 },
                 200
+            ],
+            'ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->productDrafts()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

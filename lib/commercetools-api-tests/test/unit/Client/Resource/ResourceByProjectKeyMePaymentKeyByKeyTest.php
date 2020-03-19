@@ -35,7 +35,7 @@ class ResourceByProjectKeyMePaymentKeyByKeyTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyMePaymentKeyByKeyTest extends TestCase
             'ByProjectKeyMePaymentKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->me()
                         ->payment()
-                        ->keyWithKeyValue("key")
+                        ->keyWithKeyValue("test_key")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/me/payment/key={key}',
+                'test_projectKey/me/payment/key=test_key',
             ]
         ];
     }
@@ -138,6 +138,17 @@ class ResourceByProjectKeyMePaymentKeyByKeyTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
+            'ByProjectKeyMePaymentKeyByKeyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payment()
+                        ->keyWithKeyValue("key")
+                        ->post(null);
+                },
+                599
+            ]
         ];
     }
 }

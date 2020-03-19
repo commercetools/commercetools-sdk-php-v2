@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTest extends TestCas
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -107,14 +107,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTest extends TestCas
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
                         ->email()
                         ->confirm();
                 },
                 ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm::class,
-                ['projectKey' => 'projectKey', 'storeKey' => 'storeKey'],
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers/email/confirm'
             ]
         ];

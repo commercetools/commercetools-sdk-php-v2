@@ -35,7 +35,7 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsById
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,15 +101,15 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsById
             'ByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsByIdGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->prices()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->importOperations()
-                        ->withIdValue("id")
+                        ->withIdValue("test_id")
                         ->get();
                 },
                 'get',
-                '{projectKey}/prices/importSinkKey={importSinkKey}/import-operations/{id}',
+                'test_projectKey/prices/importSinkKey=test_importSinkKey/import-operations/test_id',
             ]
         ];
     }
@@ -175,6 +175,18 @@ class ResourceByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsById
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyPricesImportSinkKeyByImportSinkKeyImportOperationsByIdGet_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->prices()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importOperations()
+                        ->withIdValue("id")
+                        ->get();
+                },
+                599
             ]
         ];
     }

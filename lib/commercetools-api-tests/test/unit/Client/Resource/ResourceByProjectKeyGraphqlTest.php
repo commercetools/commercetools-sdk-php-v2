@@ -35,7 +35,7 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,12 +101,12 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
             'ByProjectKeyGraphqlPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->graphql()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/graphql',
+                'test_projectKey/graphql',
             ]
         ];
     }
@@ -196,6 +196,15 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
                         ->post(null);
                 },
                 503
+            ],
+            'ByProjectKeyGraphqlPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->graphql()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

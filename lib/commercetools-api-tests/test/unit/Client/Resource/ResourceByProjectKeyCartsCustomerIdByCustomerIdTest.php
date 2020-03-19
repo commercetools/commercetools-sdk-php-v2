@@ -35,7 +35,7 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,25 +101,25 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
             'ByProjectKeyCartsCustomerIdByCustomerIdGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->carts()
-                        ->withCustomerId('customerId')
+                        ->withCustomerId('test_customerId')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/carts/customer-id={customerId}?expand=expand',
+                'test_projectKey/carts/customer-id=test_customerId?expand=expand',
             ],
             'ByProjectKeyCartsCustomerIdByCustomerIdGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
-                        ->withCustomerId("customerId")
+                        ->withCustomerId("test_customerId")
                         ->get();
                 },
                 'get',
-                '{projectKey}/carts/customer-id={customerId}',
+                'test_projectKey/carts/customer-id=test_customerId',
             ]
         ];
     }
@@ -217,6 +217,16 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->get();
+                },
+                599
             ]
         ];
     }

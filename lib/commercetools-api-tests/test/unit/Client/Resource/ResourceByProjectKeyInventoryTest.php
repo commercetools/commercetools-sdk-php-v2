@@ -37,7 +37,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,110 +103,110 @@ class ResourceByProjectKeyInventoryTest extends TestCase
             'ByProjectKeyInventoryGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/inventory?expand=expand',
+                'test_projectKey/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/inventory?sort=sort',
+                'test_projectKey/inventory?sort=sort',
             ],
             'ByProjectKeyInventoryGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/inventory?limit=limit',
+                'test_projectKey/inventory?limit=limit',
             ],
             'ByProjectKeyInventoryGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/inventory?offset=offset',
+                'test_projectKey/inventory?offset=offset',
             ],
             'ByProjectKeyInventoryGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/inventory?withTotal=withTotal',
+                'test_projectKey/inventory?withTotal=withTotal',
             ],
             'ByProjectKeyInventoryGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/inventory?where=where',
+                'test_projectKey/inventory?where=where',
             ],
             'ByProjectKeyInventoryGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/inventory?var.varName=var.varName',
+                'test_projectKey/inventory?var.varName=var.varName',
             ],
             'ByProjectKeyInventoryGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->inventory()
                         ->get();
                 },
                 'get',
-                '{projectKey}/inventory',
+                'test_projectKey/inventory',
             ],
             'ByProjectKeyInventoryPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->inventory()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/inventory?expand=expand',
+                'test_projectKey/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->inventory()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/inventory',
+                'test_projectKey/inventory',
             ]
         ];
     }
@@ -217,12 +217,12 @@ class ResourceByProjectKeyInventoryTest extends TestCase
             'ResourceByProjectKeyInventoryByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInventoryByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->inventory()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyInventoryByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/inventory/{ID}'
             ]
         ];
@@ -316,6 +316,15 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyInventoryGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyInventoryPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -387,6 +396,15 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyInventoryPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

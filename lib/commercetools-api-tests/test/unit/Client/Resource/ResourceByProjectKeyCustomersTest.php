@@ -44,7 +44,7 @@ class ResourceByProjectKeyCustomersTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -110,110 +110,110 @@ class ResourceByProjectKeyCustomersTest extends TestCase
             'ByProjectKeyCustomersGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/customers?expand=expand',
+                'test_projectKey/customers?expand=expand',
             ],
             'ByProjectKeyCustomersGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/customers?sort=sort',
+                'test_projectKey/customers?sort=sort',
             ],
             'ByProjectKeyCustomersGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/customers?limit=limit',
+                'test_projectKey/customers?limit=limit',
             ],
             'ByProjectKeyCustomersGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/customers?offset=offset',
+                'test_projectKey/customers?offset=offset',
             ],
             'ByProjectKeyCustomersGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/customers?withTotal=withTotal',
+                'test_projectKey/customers?withTotal=withTotal',
             ],
             'ByProjectKeyCustomersGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/customers?where=where',
+                'test_projectKey/customers?where=where',
             ],
             'ByProjectKeyCustomersGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/customers?var.varName=var.varName',
+                'test_projectKey/customers?var.varName=var.varName',
             ],
             'ByProjectKeyCustomersGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->get();
                 },
                 'get',
-                '{projectKey}/customers',
+                'test_projectKey/customers',
             ],
             'ByProjectKeyCustomersPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/customers?expand=expand',
+                'test_projectKey/customers?expand=expand',
             ],
             'ByProjectKeyCustomersPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/customers',
+                'test_projectKey/customers',
             ]
         ];
     }
@@ -224,89 +224,89 @@ class ResourceByProjectKeyCustomersTest extends TestCase
             'ResourceByProjectKeyCustomersPasswordTokenByPasswordToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withPasswordToken("passwordToken");
+                        ->withPasswordToken("test_passwordToken");
                 },
                 ResourceByProjectKeyCustomersPasswordTokenByPasswordToken::class,
-                ['projectKey' => 'projectKey', 'passwordToken' => 'passwordToken'],
+                ['projectKey' => 'test_projectKey', 'passwordToken' => 'test_passwordToken'],
                 '/{projectKey}/customers/password-token={passwordToken}'
             ],
             'ResourceByProjectKeyCustomersEmailTokenByEmailToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmailTokenByEmailToken {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withEmailToken("emailToken");
+                        ->withEmailToken("test_emailToken");
                 },
                 ResourceByProjectKeyCustomersEmailTokenByEmailToken::class,
-                ['projectKey' => 'projectKey', 'emailToken' => 'emailToken'],
+                ['projectKey' => 'test_projectKey', 'emailToken' => 'test_emailToken'],
                 '/{projectKey}/customers/email-token={emailToken}'
             ],
             'ResourceByProjectKeyCustomersEmailToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmailToken {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->emailToken();
                 },
                 ResourceByProjectKeyCustomersEmailToken::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/email-token'
             ],
             'ResourceByProjectKeyCustomersEmail' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmail {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->email();
                 },
                 ResourceByProjectKeyCustomersEmail::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/email'
             ],
             'ResourceByProjectKeyCustomersPassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPassword {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->password();
                 },
                 ResourceByProjectKeyCustomersPassword::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/password'
             ],
             'ResourceByProjectKeyCustomersPasswordToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordToken {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->passwordToken();
                 },
                 ResourceByProjectKeyCustomersPasswordToken::class,
-                ['projectKey' => 'projectKey'],
+                ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/password-token'
             ],
             'ResourceByProjectKeyCustomersKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyCustomersKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/customers/key={key}'
             ],
             'ResourceByProjectKeyCustomersByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyCustomersByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/customers/{ID}'
             ]
         ];
@@ -400,6 +400,15 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCustomersGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCustomersPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -471,6 +480,15 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyCustomersPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

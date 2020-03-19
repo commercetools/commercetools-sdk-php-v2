@@ -35,7 +35,7 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,13 +101,13 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
             'ByProjectKeyCustomersPasswordTokenPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
                         ->passwordToken()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/customers/password-token',
+                'test_projectKey/customers/password-token',
             ]
         ];
     }
@@ -215,6 +215,16 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyCustomersPasswordTokenPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->passwordToken()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

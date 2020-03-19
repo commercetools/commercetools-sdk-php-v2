@@ -35,7 +35,7 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKey
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,14 +101,14 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKey
             'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productVariants()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("test_resourceKey")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/product-variants/importSinkKey={importSinkKey}/resourceKey={resourceKey}',
+                'test_projectKey/product-variants/importSinkKey=test_importSinkKey/resourceKey=test_resourceKey',
             ]
         ];
     }
@@ -148,6 +148,17 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKey
                         ->delete();
                 },
                 200
+            ],
+            'ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->productVariants()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->resourceKeyWithResourceKeyValue("resourceKey")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

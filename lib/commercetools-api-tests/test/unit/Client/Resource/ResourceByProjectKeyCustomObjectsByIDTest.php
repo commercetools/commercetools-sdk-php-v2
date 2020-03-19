@@ -36,7 +36,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,72 +102,72 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
             'ByProjectKeyCustomObjectsByIDGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/custom-objects/{ID}?expand=expand',
+                'test_projectKey/custom-objects/test_ID?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByIDGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customObjects()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->get();
                 },
                 'get',
-                '{projectKey}/custom-objects/{ID}',
+                'test_projectKey/custom-objects/test_ID',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withVersion' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withVersion('version');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{ID}?version=version',
+                'test_projectKey/custom-objects/test_ID?version=version',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
+                'test_projectKey/custom-objects/test_ID?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customObjects()
-                        ->withId('ID')
+                        ->withId('test_ID')
                         ->delete()
                         ->withExpand('expand');
                 },
                 'delete',
-                '{projectKey}/custom-objects/{ID}?expand=expand',
+                'test_projectKey/custom-objects/test_ID?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByIDDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customObjects()
-                        ->withId("ID")
+                        ->withId("test_ID")
                         ->delete();
                 },
                 'delete',
-                '{projectKey}/custom-objects/{ID}',
+                'test_projectKey/custom-objects/test_ID',
             ]
         ];
     }
@@ -275,6 +275,16 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyCustomObjectsByIDGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyCustomObjectsByIDDelete_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -354,6 +364,16 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->delete();
                 },
                 503
+            ],
+            'ByProjectKeyCustomObjectsByIDDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->delete();
+                },
+                599
             ]
         ];
     }

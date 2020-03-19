@@ -35,7 +35,7 @@ class ResourceByProjectKeyProductsTest extends TestCase
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -107,12 +107,12 @@ class ResourceByProjectKeyProductsTest extends TestCase
             'ResourceByProjectKeyProductsImportSinkKeyByImportSinkKey' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductsImportSinkKeyByImportSinkKey {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->products()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey");
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey");
                 },
                 ResourceByProjectKeyProductsImportSinkKeyByImportSinkKey::class,
-                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
                 '/{projectKey}/products/importSinkKey={importSinkKey}'
             ]
         ];

@@ -35,7 +35,7 @@ class ResourceByProjectKeyCartsReplicateTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,13 +101,13 @@ class ResourceByProjectKeyCartsReplicateTest extends TestCase
             'ByProjectKeyCartsReplicatePost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->carts()
                         ->replicate()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/carts/replicate',
+                'test_projectKey/carts/replicate',
             ]
         ];
     }
@@ -215,6 +215,16 @@ class ResourceByProjectKeyCartsReplicateTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyCartsReplicatePost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->replicate()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

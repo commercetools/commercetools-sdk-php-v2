@@ -36,7 +36,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,89 +102,89 @@ class ResourceByProjectKeyMessagesTest extends TestCase
             'ByProjectKeyMessagesGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/messages?expand=expand',
+                'test_projectKey/messages?expand=expand',
             ],
             'ByProjectKeyMessagesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/messages?sort=sort',
+                'test_projectKey/messages?sort=sort',
             ],
             'ByProjectKeyMessagesGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/messages?limit=limit',
+                'test_projectKey/messages?limit=limit',
             ],
             'ByProjectKeyMessagesGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/messages?offset=offset',
+                'test_projectKey/messages?offset=offset',
             ],
             'ByProjectKeyMessagesGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/messages?withTotal=withTotal',
+                'test_projectKey/messages?withTotal=withTotal',
             ],
             'ByProjectKeyMessagesGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/messages?where=where',
+                'test_projectKey/messages?where=where',
             ],
             'ByProjectKeyMessagesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->messages()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/messages?var.varName=var.varName',
+                'test_projectKey/messages?var.varName=var.varName',
             ],
             'ByProjectKeyMessagesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->messages()
                         ->get();
                 },
                 'get',
-                '{projectKey}/messages',
+                'test_projectKey/messages',
             ]
         ];
     }
@@ -195,12 +195,12 @@ class ResourceByProjectKeyMessagesTest extends TestCase
             'ResourceByProjectKeyMessagesByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMessagesByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->messages()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyMessagesByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/messages/{ID}'
             ]
         ];
@@ -285,6 +285,15 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyMessagesGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get();
+                },
+                599
             ]
         ];
     }

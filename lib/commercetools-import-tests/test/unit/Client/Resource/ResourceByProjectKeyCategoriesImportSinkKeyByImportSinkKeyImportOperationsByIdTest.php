@@ -35,7 +35,7 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,15 +101,15 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
             'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsByIdGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->categories()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->importOperations()
-                        ->withIdValue("id")
+                        ->withIdValue("test_id")
                         ->get();
                 },
                 'get',
-                '{projectKey}/categories/importSinkKey={importSinkKey}/import-operations/{id}',
+                'test_projectKey/categories/importSinkKey=test_importSinkKey/import-operations/test_id',
             ]
         ];
     }
@@ -175,6 +175,18 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsByIdGet_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->categories()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importOperations()
+                        ->withIdValue("id")
+                        ->get();
+                },
+                599
             ]
         ];
     }

@@ -38,7 +38,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeyReviewsTest extends TestCase
             'ByProjectKeyReviewsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/reviews?expand=expand',
+                'test_projectKey/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/reviews?sort=sort',
+                'test_projectKey/reviews?sort=sort',
             ],
             'ByProjectKeyReviewsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/reviews?limit=limit',
+                'test_projectKey/reviews?limit=limit',
             ],
             'ByProjectKeyReviewsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/reviews?offset=offset',
+                'test_projectKey/reviews?offset=offset',
             ],
             'ByProjectKeyReviewsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/reviews?withTotal=withTotal',
+                'test_projectKey/reviews?withTotal=withTotal',
             ],
             'ByProjectKeyReviewsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/reviews?where=where',
+                'test_projectKey/reviews?where=where',
             ],
             'ByProjectKeyReviewsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/reviews?var.varName=var.varName',
+                'test_projectKey/reviews?var.varName=var.varName',
             ],
             'ByProjectKeyReviewsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
                         ->get();
                 },
                 'get',
-                '{projectKey}/reviews',
+                'test_projectKey/reviews',
             ],
             'ByProjectKeyReviewsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->reviews()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/reviews?expand=expand',
+                'test_projectKey/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/reviews',
+                'test_projectKey/reviews',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeyReviewsTest extends TestCase
             'ResourceByProjectKeyReviewsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviewsKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyReviewsKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/reviews/key={key}'
             ],
             'ResourceByProjectKeyReviewsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviewsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->reviews()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyReviewsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/reviews/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyReviewsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyReviewsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyReviewsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

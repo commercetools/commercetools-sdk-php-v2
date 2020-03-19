@@ -38,7 +38,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeyZonesTest extends TestCase
             'ByProjectKeyZonesGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/zones?expand=expand',
+                'test_projectKey/zones?expand=expand',
             ],
             'ByProjectKeyZonesGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/zones?sort=sort',
+                'test_projectKey/zones?sort=sort',
             ],
             'ByProjectKeyZonesGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/zones?limit=limit',
+                'test_projectKey/zones?limit=limit',
             ],
             'ByProjectKeyZonesGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/zones?offset=offset',
+                'test_projectKey/zones?offset=offset',
             ],
             'ByProjectKeyZonesGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/zones?withTotal=withTotal',
+                'test_projectKey/zones?withTotal=withTotal',
             ],
             'ByProjectKeyZonesGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/zones?where=where',
+                'test_projectKey/zones?where=where',
             ],
             'ByProjectKeyZonesGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/zones?var.varName=var.varName',
+                'test_projectKey/zones?var.varName=var.varName',
             ],
             'ByProjectKeyZonesGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->zones()
                         ->get();
                 },
                 'get',
-                '{projectKey}/zones',
+                'test_projectKey/zones',
             ],
             'ByProjectKeyZonesPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->zones()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/zones?expand=expand',
+                'test_projectKey/zones?expand=expand',
             ],
             'ByProjectKeyZonesPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->zones()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/zones',
+                'test_projectKey/zones',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeyZonesTest extends TestCase
             'ResourceByProjectKeyZonesKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZonesKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->zones()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyZonesKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/zones/key={key}'
             ],
             'ResourceByProjectKeyZonesByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyZonesByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->zones()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyZonesByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/zones/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyZonesGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyZonesPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyZonesPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

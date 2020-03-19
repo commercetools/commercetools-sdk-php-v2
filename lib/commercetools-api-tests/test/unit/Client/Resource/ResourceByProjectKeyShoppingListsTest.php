@@ -38,7 +38,7 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -104,110 +104,110 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
             'ByProjectKeyShoppingListsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/shopping-lists?expand=expand',
+                'test_projectKey/shopping-lists?expand=expand',
             ],
             'ByProjectKeyShoppingListsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/shopping-lists?sort=sort',
+                'test_projectKey/shopping-lists?sort=sort',
             ],
             'ByProjectKeyShoppingListsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/shopping-lists?limit=limit',
+                'test_projectKey/shopping-lists?limit=limit',
             ],
             'ByProjectKeyShoppingListsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/shopping-lists?offset=offset',
+                'test_projectKey/shopping-lists?offset=offset',
             ],
             'ByProjectKeyShoppingListsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/shopping-lists?withTotal=withTotal',
+                'test_projectKey/shopping-lists?withTotal=withTotal',
             ],
             'ByProjectKeyShoppingListsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/shopping-lists?where=where',
+                'test_projectKey/shopping-lists?where=where',
             ],
             'ByProjectKeyShoppingListsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/shopping-lists?var.varName=var.varName',
+                'test_projectKey/shopping-lists?var.varName=var.varName',
             ],
             'ByProjectKeyShoppingListsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shoppingLists()
                         ->get();
                 },
                 'get',
-                '{projectKey}/shopping-lists',
+                'test_projectKey/shopping-lists',
             ],
             'ByProjectKeyShoppingListsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->shoppingLists()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/shopping-lists?expand=expand',
+                'test_projectKey/shopping-lists?expand=expand',
             ],
             'ByProjectKeyShoppingListsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shoppingLists()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/shopping-lists',
+                'test_projectKey/shopping-lists',
             ]
         ];
     }
@@ -218,23 +218,23 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
             'ResourceByProjectKeyShoppingListsKeyByKey' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShoppingListsKeyByKey {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shoppingLists()
-                        ->withKey("key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyShoppingListsKeyByKey::class,
-                ['projectKey' => 'projectKey', 'key' => 'key'],
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
                 '/{projectKey}/shopping-lists/key={key}'
             ],
             'ResourceByProjectKeyShoppingListsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyShoppingListsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->shoppingLists()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyShoppingListsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/shopping-lists/{ID}'
             ]
         ];
@@ -328,6 +328,15 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyShoppingListsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyShoppingListsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -399,6 +408,15 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyShoppingListsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

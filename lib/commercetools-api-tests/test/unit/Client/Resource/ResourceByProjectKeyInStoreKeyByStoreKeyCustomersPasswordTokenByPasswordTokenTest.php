@@ -35,7 +35,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,27 +101,27 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
-                        ->inStoreKeyWithStoreKeyValue('storeKey')
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
                         ->customers()
-                        ->withPasswordToken('passwordToken')
+                        ->withPasswordToken('test_passwordToken')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}?expand=expand',
+                'test_projectKey/in-store/key=test_storeKey/customers/password-token=test_passwordToken?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
-                        ->withPasswordToken("passwordToken")
+                        ->withPasswordToken("test_passwordToken")
                         ->get();
                 },
                 'get',
-                '{projectKey}/in-store/key={storeKey}/customers/password-token={passwordToken}',
+                'test_projectKey/in-store/key=test_storeKey/customers/password-token=test_passwordToken',
             ]
         ];
     }
@@ -227,6 +227,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                599
             ]
         ];
     }

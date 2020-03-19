@@ -37,7 +37,7 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -103,110 +103,110 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
             'ByProjectKeyApiClientsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/api-clients?expand=expand',
+                'test_projectKey/api-clients?expand=expand',
             ],
             'ByProjectKeyApiClientsGet_withSort' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withSort('sort');
                 },
                 'get',
-                '{projectKey}/api-clients?sort=sort',
+                'test_projectKey/api-clients?sort=sort',
             ],
             'ByProjectKeyApiClientsGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withLimit('limit');
                 },
                 'get',
-                '{projectKey}/api-clients?limit=limit',
+                'test_projectKey/api-clients?limit=limit',
             ],
             'ByProjectKeyApiClientsGet_withOffset' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withOffset('offset');
                 },
                 'get',
-                '{projectKey}/api-clients?offset=offset',
+                'test_projectKey/api-clients?offset=offset',
             ],
             'ByProjectKeyApiClientsGet_withWithTotal' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '{projectKey}/api-clients?withTotal=withTotal',
+                'test_projectKey/api-clients?withTotal=withTotal',
             ],
             'ByProjectKeyApiClientsGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withWhere('where');
                 },
                 'get',
-                '{projectKey}/api-clients?where=where',
+                'test_projectKey/api-clients?where=where',
             ],
             'ByProjectKeyApiClientsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->get()
                         ->withPredicateVar('varName', 'var.varName');
                 },
                 'get',
-                '{projectKey}/api-clients?var.varName=var.varName',
+                'test_projectKey/api-clients?var.varName=var.varName',
             ],
             'ByProjectKeyApiClientsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->apiClients()
                         ->get();
                 },
                 'get',
-                '{projectKey}/api-clients',
+                'test_projectKey/api-clients',
             ],
             'ByProjectKeyApiClientsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->apiClients()
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                '{projectKey}/api-clients?expand=expand',
+                'test_projectKey/api-clients?expand=expand',
             ],
             'ByProjectKeyApiClientsPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->apiClients()
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/api-clients',
+                'test_projectKey/api-clients',
             ]
         ];
     }
@@ -217,12 +217,12 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
             'ResourceByProjectKeyApiClientsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyApiClientsByID {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->apiClients()
-                        ->withId("ID");
+                        ->withId("test_ID");
                 },
                 ResourceByProjectKeyApiClientsByID::class,
-                ['projectKey' => 'projectKey', 'ID' => 'ID'],
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/api-clients/{ID}'
             ]
         ];
@@ -316,6 +316,15 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                 },
                 503
             ],
+            'ByProjectKeyApiClientsGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get();
+                },
+                599
+            ],
             'ByProjectKeyApiClientsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -387,6 +396,15 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
                         ->post(null);
                 },
                 200
+            ],
+            'ByProjectKeyApiClientsPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

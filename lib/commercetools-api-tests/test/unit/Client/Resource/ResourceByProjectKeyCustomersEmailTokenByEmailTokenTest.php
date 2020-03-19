@@ -35,7 +35,7 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
         $builder = new ApiRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,25 +101,25 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
             'ByProjectKeyCustomersEmailTokenByEmailTokenGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey('projectKey')
+                        ->withProjectKey('test_projectKey')
                         ->customers()
-                        ->withEmailToken('emailToken')
+                        ->withEmailToken('test_emailToken')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                '{projectKey}/customers/email-token={emailToken}?expand=expand',
+                'test_projectKey/customers/email-token=test_emailToken?expand=expand',
             ],
             'ByProjectKeyCustomersEmailTokenByEmailTokenGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKey("projectKey")
+                        ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->withEmailToken("emailToken")
+                        ->withEmailToken("test_emailToken")
                         ->get();
                 },
                 'get',
-                '{projectKey}/customers/email-token={emailToken}',
+                'test_projectKey/customers/email-token=test_emailToken',
             ]
         ];
     }
@@ -217,6 +217,16 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
                         ->get();
                 },
                 503
+            ],
+            'ByProjectKeyCustomersEmailTokenByEmailTokenGet_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get();
+                },
+                599
             ]
         ];
     }

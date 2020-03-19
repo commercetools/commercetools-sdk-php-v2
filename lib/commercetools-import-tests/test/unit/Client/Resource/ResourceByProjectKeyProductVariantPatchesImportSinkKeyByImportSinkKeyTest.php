@@ -36,7 +36,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyTest 
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -102,13 +102,13 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyTest 
             'ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productVariantPatches()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->post(null);
                 },
                 'post',
-                '{projectKey}/product-variant-patches/importSinkKey={importSinkKey}',
+                'test_projectKey/product-variant-patches/importSinkKey=test_importSinkKey',
             ]
         ];
     }
@@ -119,13 +119,13 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyTest 
             'ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->productVariantPatches()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->importOperations();
                 },
                 ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperations::class,
-                ['projectKey' => 'projectKey', 'importSinkKey' => 'importSinkKey'],
+                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
                 '/{projectKey}/product-variant-patches/importSinkKey={importSinkKey}/import-operations'
             ]
         ];
@@ -158,6 +158,16 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyTest 
                         ->post(null);
                 },
                 201
+            ],
+            'ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->productVariantPatches()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->post(null);
+                },
+                599
             ]
         ];
     }

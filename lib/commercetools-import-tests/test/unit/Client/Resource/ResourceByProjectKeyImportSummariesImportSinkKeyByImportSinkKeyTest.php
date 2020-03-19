@@ -35,7 +35,7 @@ class ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyTest extend
         $builder = new ImportRequestBuilder();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
-        $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string) $request->getUri());
+        $this->assertSame($relativeUri, (string) $request->getUri());
         if (!is_null($body)) {
             $this->assertJsonStringEqualsJsonString($body, (string) $request->getBody());
         } else {
@@ -101,13 +101,13 @@ class ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyTest extend
             'ByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
-                        ->withProjectKeyValue("projectKey")
+                        ->withProjectKeyValue("test_projectKey")
                         ->importSummaries()
-                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
                         ->get();
                 },
                 'get',
-                '{projectKey}/import-summaries/importSinkKey={importSinkKey}',
+                'test_projectKey/import-summaries/importSinkKey=test_importSinkKey',
             ]
         ];
     }
@@ -145,6 +145,16 @@ class ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyTest extend
                         ->get();
                 },
                 200
+            ],
+            'ByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyGet_599' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSummaries()
+                        ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                        ->get();
+                },
+                599
             ]
         ];
     }
