@@ -1,7 +1,4 @@
 <?php
-/**
- * @author @jenschude <jens.schulze@commercetools.de>
- */
 
 namespace Commercetools\Client;
 
