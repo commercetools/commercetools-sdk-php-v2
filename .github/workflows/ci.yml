@@ -18,7 +18,7 @@ jobs:
           - "7.2"
           - "7.3"
           - "7.4"
-          - "8.0"
+#           - "8.0"
 
         dependencies:
           - lowest
@@ -34,7 +34,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
           extensions: json, mbstring, intl
-          tools: composer
+          tools: composer, phive
           ini-values: assert.exception=1, zend.assertions=1
 
       - name: "Cache dependencies installed with composer"
