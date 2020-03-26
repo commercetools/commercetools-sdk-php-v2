@@ -42,7 +42,7 @@ jobs:
         run: composer update --no-ansi --no-interaction --no-progress --no-suggest
 
       - name: Run easy coding standard
-        run: php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly
+        run: php -dmemory_limit=-1 vendor/bin/ecs check
 
   tests:
     name: Tests
@@ -72,7 +72,7 @@ jobs:
           coverage: pcov
           extensions: json, mbstring, intl
           tools: composer, phive
-          ini-values: assert.exception=1, zend.assertions=1, pcov.directory=., pcov.exclude="~vendor~"
+          ini-values: assert.exception=1, zend.assertions=1, pcov.directory=., pcov.exclude='~vendor~'
 
       - name: "Install tools"
         run: phive install
