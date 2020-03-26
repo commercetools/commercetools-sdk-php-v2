@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Client\Resource;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Ml\Models\CategoryRecommendations\ProjectCategoryRecommendationPagedQueryResponse;
 use Commercetools\Ml\Models\CategoryRecommendations\ProjectCategoryRecommendationPagedQueryResponseModel;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -85,7 +85,7 @@ class ByProjectKeyRecommendationsProjectCategoriesByProductIdGet extends ApiRequ
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyRecommendationsProjectCategoriesByProductIdGet
@@ -94,7 +94,7 @@ class ByProjectKeyRecommendationsProjectCategoriesByProductIdGet extends ApiRequ
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyRecommendationsProjectCategoriesByProductIdGet
@@ -103,7 +103,7 @@ class ByProjectKeyRecommendationsProjectCategoriesByProductIdGet extends ApiRequ
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $staged
      */
     public function withStaged($staged): ByProjectKeyRecommendationsProjectCategoriesByProductIdGet
@@ -112,7 +112,7 @@ class ByProjectKeyRecommendationsProjectCategoriesByProductIdGet extends ApiRequ
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $confidenceMin
      */
     public function withConfidenceMin($confidenceMin): ByProjectKeyRecommendationsProjectCategoriesByProductIdGet
@@ -121,7 +121,7 @@ class ByProjectKeyRecommendationsProjectCategoriesByProductIdGet extends ApiRequ
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $confidenceMax
      */
     public function withConfidenceMax($confidenceMax): ByProjectKeyRecommendationsProjectCategoriesByProductIdGet

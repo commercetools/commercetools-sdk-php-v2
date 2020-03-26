@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class ImageSearchResponseModel extends JsonObjectModel implements ImageSearchResponse
 {
-
     /**
      * @var ?int
      */
@@ -52,7 +50,6 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
         $this->offset = $offset;
         $this->total = $total;
         $this->results = $results;
-
     }
 
     /**
@@ -150,7 +147,4 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     {
         $this->results = $results;
     }
-
-
-
 }

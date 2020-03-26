@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\CategoryRecommendations;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProjectCategoryRecommendationMeta extends JsonObject
 {
-
     public const FIELD_PRODUCT_NAME = 'productName';
     public const FIELD_PRODUCT_IMAGE_URL = 'productImageUrl';
     public const FIELD_GENERAL_CATEGORY_NAMES = 'generalCategoryNames';

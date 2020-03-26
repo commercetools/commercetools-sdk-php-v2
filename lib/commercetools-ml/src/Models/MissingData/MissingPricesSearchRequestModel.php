@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class MissingPricesSearchRequestModel extends JsonObjectModel implements MissingPricesSearchRequest
 {
-
     /**
      * @var ?int
      */
@@ -103,7 +102,6 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
         $this->validUntil = $validUntil;
         $this->productIds = $productIds;
         $this->productTypeIds = $productTypeIds;
-
     }
 
     /**
@@ -387,5 +385,4 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
         }
         return (object) $data;
     }
-
 }

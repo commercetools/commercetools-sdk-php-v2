@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MissingPricesTaskStatus extends JsonObject
 {
-
     public const FIELD_STATE = 'state';
     public const FIELD_EXPIRES = 'expires';
     public const FIELD_RESULT = 'result';

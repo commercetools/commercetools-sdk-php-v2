@@ -13,11 +13,11 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Ml\Models\Common\LocalizedString;
 use Commercetools\Ml\Models\Common\LocalizedStringBuilder;
 use Commercetools\Ml\Models\Common\Money;
 use Commercetools\Ml\Models\Common\MoneyBuilder;
+use stdClass;
 
 /**
  * @implements Builder<SimilarProductMeta>

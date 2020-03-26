@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingImagesSearchRequestModel extends JsonObjectModel implements MissingImagesSearchRequest
 {
-
     /**
      * @var ?int
      */
@@ -87,7 +85,6 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
         $this->threshold = $threshold;
         $this->productIds = $productIds;
         $this->productTypeIds = $productTypeIds;
-
     }
 
     /**
@@ -301,7 +298,4 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         $this->productTypeIds = $productTypeIds;
     }
-
-
-
 }

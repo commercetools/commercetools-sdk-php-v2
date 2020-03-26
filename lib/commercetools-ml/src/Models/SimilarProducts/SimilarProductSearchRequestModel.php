@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class SimilarProductSearchRequestModel extends JsonObjectModel implements SimilarProductSearchRequest
 {
-
     /**
      * @var ?int
      */
@@ -80,7 +78,6 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
         $this->productSetSelectors = $productSetSelectors;
         $this->confidenceMin = $confidenceMin;
         $this->confidenceMax = $confidenceMax;
-
     }
 
     /**
@@ -267,7 +264,4 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         $this->confidenceMax = $confidenceMax;
     }
-
-
-
 }

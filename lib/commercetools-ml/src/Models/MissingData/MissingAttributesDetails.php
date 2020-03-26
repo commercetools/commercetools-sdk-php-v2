@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MissingAttributesDetails extends JsonObject
 {
-
     public const FIELD_TOTAL = 'total';
     public const FIELD_MISSING_ATTRIBUTE_NAMES = 'missingAttributeNames';
     public const FIELD_MISSING_ATTRIBUTE_VALUES = 'missingAttributeValues';

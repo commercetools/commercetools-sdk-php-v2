@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\ImageSearch;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Ml\Models\Common\ProductVariantCollection;
 
 interface ResultItem extends JsonObject
 {
-
     public const FIELD_IMAGE_URL = 'imageUrl';
     public const FIELD_PRODUCT_VARIANTS = 'productVariants';
 

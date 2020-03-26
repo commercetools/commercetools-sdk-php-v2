@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class MissingDataTaskStatusModel extends JsonObjectModel implements MissingDataTaskStatus
 {
-
     /**
      * @var ?string
      */
@@ -47,7 +46,6 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
         $this->state = $state;
         $this->expires = $expires;
         $this->result = $result;
-
     }
 
     /**
@@ -134,5 +132,4 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
         }
         return (object) $data;
     }
-
 }

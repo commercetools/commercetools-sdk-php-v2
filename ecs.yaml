@@ -10,6 +10,8 @@ parameters:
     - 'lib/commercetools-base/test'
     - 'lib/commercetools-import/src'
     - 'lib/commercetools-import-tests/test'
+    - 'lib/commercetools-ml/src'
+    - 'lib/commercetools-ml-tests/test'
   sets:
     - 'psr12'
 services:

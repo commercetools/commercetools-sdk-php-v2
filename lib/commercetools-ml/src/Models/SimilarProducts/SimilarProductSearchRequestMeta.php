@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\SimilarProducts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SimilarProductSearchRequestMeta extends JsonObject
 {
-
     public const FIELD_SIMILARITY_MEASURES = 'similarityMeasures';
 
     /**

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\SimilarProducts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface ProductSetSelector extends JsonObject
 {
-
     public const FIELD_PROJECT_KEY = 'projectKey';
     public const FIELD_PRODUCT_IDS = 'productIds';
     public const FIELD_PRODUCT_TYPE_IDS = 'productTypeIds';

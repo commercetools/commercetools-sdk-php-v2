@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingAttributesMetaModel extends JsonObjectModel implements MissingAttributesMeta
 {
-
     /**
      * @var ?MissingAttributesDetails
      */
@@ -45,7 +43,6 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
         $this->productTypeIds = $productTypeIds;
-
     }
 
     /**
@@ -117,7 +114,4 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     {
         $this->productTypeIds = $productTypeIds;
     }
-
-
-
 }

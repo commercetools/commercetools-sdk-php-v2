@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class AttributeCoverageModel extends JsonObjectModel implements AttributeCoverage
 {
-
     /**
      * @var ?int
      */
@@ -38,7 +36,6 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     ) {
         $this->names = $names;
         $this->values = $values;
-
     }
 
     /**
@@ -88,7 +85,4 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     {
         $this->values = $values;
     }
-
-
-
 }

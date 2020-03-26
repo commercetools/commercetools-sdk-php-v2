@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Test\Client;
 
-use Commercetools\Ml\Client\Resource\ResourceByProjectKey;
 use Commercetools\Ml\Client\MlRequestBuilder;
-use PHPUnit\Framework\TestCase;
+use Commercetools\Ml\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
+use PHPUnit\Framework\TestCase;
 
 class MlRequestBuilderTest extends TestCase
 {

@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class GeneralCategoryRecommendationModel extends JsonObjectModel implements GeneralCategoryRecommendation
 {
-
     /**
      * @var ?string
      */
@@ -38,7 +36,6 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     ) {
         $this->categoryName = $categoryName;
         $this->confidence = $confidence;
-
     }
 
     /**
@@ -88,7 +85,4 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     {
         $this->confidence = $confidence;
     }
-
-
-
 }

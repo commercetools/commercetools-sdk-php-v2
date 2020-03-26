@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class SimilarityMeasuresModel extends JsonObjectModel implements SimilarityMeasures
 {
-
     /**
      * @var ?int
      */
@@ -59,7 +57,6 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
         $this->attribute = $attribute;
         $this->variantCount = $variantCount;
         $this->price = $price;
-
     }
 
     /**
@@ -181,7 +178,4 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         $this->price = $price;
     }
-
-
-
 }

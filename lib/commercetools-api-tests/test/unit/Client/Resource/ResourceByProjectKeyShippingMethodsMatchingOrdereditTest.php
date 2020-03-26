@@ -134,18 +134,6 @@ class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
                 'get',
                 'test_projectKey/shipping-methods/matching-orderedit?state=state',
             ],
-            'ByProjectKeyShippingMethodsMatchingOrdereditGet_withCurrency' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->shippingMethods()
-                        ->matchingOrderedit()
-                        ->get()
-                        ->withCurrency('currency');
-                },
-                'get',
-                'test_projectKey/shipping-methods/matching-orderedit?currency=currency',
-            ],
             'ByProjectKeyShippingMethodsMatchingOrdereditGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

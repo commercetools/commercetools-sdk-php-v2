@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingImagesVariantLevelModel extends JsonObjectModel implements MissingImagesVariantLevel
 {
-
     /**
      * @var ?int
      */
@@ -38,7 +36,6 @@ final class MissingImagesVariantLevelModel extends JsonObjectModel implements Mi
     ) {
         $this->missingImages = $missingImages;
         $this->total = $total;
-
     }
 
     /**
@@ -88,7 +85,4 @@ final class MissingImagesVariantLevelModel extends JsonObjectModel implements Mi
     {
         $this->total = $total;
     }
-
-
-
 }

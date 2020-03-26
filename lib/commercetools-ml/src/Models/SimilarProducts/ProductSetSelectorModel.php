@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class ProductSetSelectorModel extends JsonObjectModel implements ProductSetSelector
 {
-
     /**
      * @var ?string
      */
@@ -66,7 +64,6 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
         $this->staged = $staged;
         $this->includeVariants = $includeVariants;
         $this->productSetLimit = $productSetLimit;
-
     }
 
     /**
@@ -212,7 +209,4 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     {
         $this->productSetLimit = $productSetLimit;
     }
-
-
-
 }

@@ -13,9 +13,9 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Ml\Models\Common\CategoryReference;
 use Commercetools\Ml\Models\Common\CategoryReferenceBuilder;
+use stdClass;
 
 /**
  * @implements Builder<ProjectCategoryRecommendation>

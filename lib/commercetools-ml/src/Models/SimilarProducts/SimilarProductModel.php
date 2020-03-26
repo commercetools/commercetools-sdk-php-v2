@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\ProductReference;
+
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class SimilarProductModel extends JsonObjectModel implements SimilarProduct
 {
-
     /**
      * @var ?ProductReference
      */
@@ -47,7 +46,6 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
         $this->product = $product;
         $this->variantId = $variantId;
         $this->meta = $meta;
-
     }
 
     /**
@@ -123,7 +121,4 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     {
         $this->meta = $meta;
     }
-
-
-
 }

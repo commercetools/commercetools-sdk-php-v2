@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Ml\Models\Common\ProductReference;
 use Commercetools\Ml\Models\Common\ProductTypeReference;
 
 interface MissingAttributes extends JsonObject
 {
-
     public const FIELD_PRODUCT = 'product';
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_VARIANT_ID = 'variantId';

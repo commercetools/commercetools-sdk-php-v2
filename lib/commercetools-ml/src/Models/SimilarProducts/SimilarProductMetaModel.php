@@ -12,19 +12,18 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\LocalizedString;
+
 use Commercetools\Ml\Models\Common\LocalizedStringModel;
 use Commercetools\Ml\Models\Common\Money;
 use Commercetools\Ml\Models\Common\MoneyModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class SimilarProductMetaModel extends JsonObjectModel implements SimilarProductMeta
 {
-
     /**
      * @var ?LocalizedString
      */
@@ -56,7 +55,6 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
         $this->description = $description;
         $this->price = $price;
         $this->variantCount = $variantCount;
-
     }
 
     /**
@@ -157,7 +155,4 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     {
         $this->variantCount = $variantCount;
     }
-
-
-
 }

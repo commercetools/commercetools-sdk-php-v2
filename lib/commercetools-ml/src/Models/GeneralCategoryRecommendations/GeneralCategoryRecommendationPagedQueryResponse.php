@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\GeneralCategoryRecommendations;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface GeneralCategoryRecommendationPagedQueryResponse extends JsonObject
 {
-
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';
     public const FIELD_OFFSET = 'offset';
