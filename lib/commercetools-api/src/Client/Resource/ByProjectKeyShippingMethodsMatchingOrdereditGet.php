@@ -130,13 +130,4 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
     {
         return $this->withQueryParam('state', $state);
     }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $currency
-     */
-    public function withCurrency($currency): ByProjectKeyShippingMethodsMatchingOrdereditGet
-    {
-        return $this->withQueryParam('currency', $currency);
-    }
 }

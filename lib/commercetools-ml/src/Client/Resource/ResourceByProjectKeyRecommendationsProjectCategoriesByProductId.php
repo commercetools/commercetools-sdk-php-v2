@@ -20,7 +20,8 @@ class ResourceByProjectKeyRecommendationsProjectCategoriesByProductId extends Ap
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/recommendations/project-categories/{productId}', $args, $client);
     }
 
@@ -34,5 +35,4 @@ class ResourceByProjectKeyRecommendationsProjectCategoriesByProductId extends Ap
 
         return new ByProjectKeyRecommendationsProjectCategoriesByProductIdGet($args['projectKey'], $args['productId'], $body, $headers, $this->getClient());
     }
-
 }

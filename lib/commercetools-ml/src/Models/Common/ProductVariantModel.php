@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class ProductVariantModel extends JsonObjectModel implements ProductVariant
 {
-
     /**
      * @var ?ProductReference
      */
@@ -45,7 +43,6 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         $this->product = $product;
         $this->staged = $staged;
         $this->variantId = $variantId;
-
     }
 
     /**
@@ -120,7 +117,4 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     {
         $this->variantId = $variantId;
     }
-
-
-
 }

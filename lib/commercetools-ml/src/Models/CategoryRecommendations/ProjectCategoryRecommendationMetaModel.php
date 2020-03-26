@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel implements ProjectCategoryRecommendationMeta
 {
-
     /**
      * @var ?string
      */
@@ -45,7 +43,6 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
         $this->productName = $productName;
         $this->productImageUrl = $productImageUrl;
         $this->generalCategoryNames = $generalCategoryNames;
-
     }
 
     /**
@@ -119,7 +116,4 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     {
         $this->generalCategoryNames = $generalCategoryNames;
     }
-
-
-
 }

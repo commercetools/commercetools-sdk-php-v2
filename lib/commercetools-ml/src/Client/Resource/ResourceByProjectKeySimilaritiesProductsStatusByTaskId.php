@@ -20,7 +20,8 @@ class ResourceByProjectKeySimilaritiesProductsStatusByTaskId extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/similarities/products/status/{taskId}', $args, $client);
     }
 
@@ -34,5 +35,4 @@ class ResourceByProjectKeySimilaritiesProductsStatusByTaskId extends ApiResource
 
         return new ByProjectKeySimilaritiesProductsStatusByTaskIdGet($args['projectKey'], $args['taskId'], $body, $headers, $this->getClient());
     }
-
 }

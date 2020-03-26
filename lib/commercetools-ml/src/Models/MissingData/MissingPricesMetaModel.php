@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingPricesMetaModel extends JsonObjectModel implements MissingPricesMeta
 {
-
     /**
      * @var ?MissingPricesProductLevel
      */
@@ -38,7 +36,6 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     ) {
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
-
     }
 
     /**
@@ -86,7 +83,4 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     {
         $this->variantLevel = $variantLevel;
     }
-
-
-
 }

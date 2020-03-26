@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Client;
 
+use Commercetools\Client\ApiResource;
 use Commercetools\Ml\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
-use Commercetools\Client\ApiResource;
 
 class MlRequestBuilder extends ApiResource
 {
@@ -32,5 +32,4 @@ class MlRequestBuilder extends ApiResource
 
         return new ResourceByProjectKey($args, $this->getClient());
     }
-
 }

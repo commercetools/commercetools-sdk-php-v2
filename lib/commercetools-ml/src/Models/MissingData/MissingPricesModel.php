@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\ProductReference;
+
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class MissingPricesModel extends JsonObjectModel implements MissingPrices
 {
-
     /**
      * @var ?ProductReference
      */
@@ -40,7 +39,6 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
-
     }
 
     /**
@@ -89,7 +87,4 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     {
         $this->variantId = $variantId;
     }
-
-
-
 }

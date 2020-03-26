@@ -20,7 +20,8 @@ class ResourceByProjectKeyMissingDataImagesStatus extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/missing-data/images/status', $args, $client);
     }
 
@@ -33,5 +34,4 @@ class ResourceByProjectKeyMissingDataImagesStatus extends ApiResource
 
         return new ResourceByProjectKeyMissingDataImagesStatusByTaskId($args, $this->getClient());
     }
-
 }

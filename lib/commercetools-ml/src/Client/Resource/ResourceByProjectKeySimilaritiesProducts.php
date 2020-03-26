@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Commercetools\Ml\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use Commercetools\Ml\Models\SimilarProducts\SimilarProductSearchRequest;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
-use Commercetools\Ml\Models\SimilarProducts\SimilarProductSearchRequest;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,7 +21,8 @@ class ResourceByProjectKeySimilaritiesProducts extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/similarities/products', $args, $client);
     }
 
@@ -42,5 +43,4 @@ class ResourceByProjectKeySimilaritiesProducts extends ApiResource
 
         return new ByProjectKeySimilaritiesProductsPost($args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObjectModel implements GeneralCategoryRecommendationPagedQueryResponse
 {
-
     /**
      * @var ?int
      */
@@ -52,7 +50,6 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
         $this->total = $total;
         $this->offset = $offset;
         $this->results = $results;
-
     }
 
     /**
@@ -142,7 +139,4 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     {
         $this->results = $results;
     }
-
-
-
 }

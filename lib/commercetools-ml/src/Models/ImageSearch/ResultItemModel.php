@@ -12,16 +12,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\ProductVariantCollection;
+
+use stdClass;
 
 /**
  * @internal
  */
 final class ResultItemModel extends JsonObjectModel implements ResultItem
 {
-
     /**
      * @var ?string
      */
@@ -39,7 +38,6 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     ) {
         $this->imageUrl = $imageUrl;
         $this->productVariants = $productVariants;
-
     }
 
     /**
@@ -89,7 +87,4 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     {
         $this->productVariants = $productVariants;
     }
-
-
-
 }

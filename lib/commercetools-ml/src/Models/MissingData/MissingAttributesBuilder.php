@@ -13,11 +13,11 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Ml\Models\Common\ProductReference;
 use Commercetools\Ml\Models\Common\ProductReferenceBuilder;
 use Commercetools\Ml\Models\Common\ProductTypeReference;
 use Commercetools\Ml\Models\Common\ProductTypeReferenceBuilder;
+use stdClass;
 
 /**
  * @implements Builder<MissingAttributes>

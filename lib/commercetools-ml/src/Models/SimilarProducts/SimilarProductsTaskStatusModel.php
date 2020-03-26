@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
+
 use DateTimeImmutableModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class SimilarProductsTaskStatusModel extends JsonObjectModel implements SimilarProductsTaskStatus
 {
-
     /**
      * @var ?string
      */
@@ -47,7 +46,6 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
         $this->state = $state;
         $this->expires = $expires;
         $this->result = $result;
-
     }
 
     /**
@@ -134,5 +132,4 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
         }
         return (object) $data;
     }
-
 }

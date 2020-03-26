@@ -20,7 +20,8 @@ class ResourceByProjectKeyMissingDataAttributesStatusByTaskId extends ApiResourc
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/missing-data/attributes/status/{taskId}', $args, $client);
     }
 
@@ -34,5 +35,4 @@ class ResourceByProjectKeyMissingDataAttributesStatusByTaskId extends ApiResourc
 
         return new ByProjectKeyMissingDataAttributesStatusByTaskIdGet($args['projectKey'], $args['taskId'], $body, $headers, $this->getClient());
     }
-
 }

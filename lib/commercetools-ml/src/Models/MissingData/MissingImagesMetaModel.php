@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingImagesMetaModel extends JsonObjectModel implements MissingImagesMeta
 {
-
     /**
      * @var ?MissingImagesProductLevel
      */
@@ -45,7 +43,6 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
         $this->threshold = $threshold;
-
     }
 
     /**
@@ -117,7 +114,4 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     {
         $this->threshold = $threshold;
     }
-
-
-
 }

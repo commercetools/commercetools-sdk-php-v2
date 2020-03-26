@@ -8,22 +8,22 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Test\Client\Resource;
 
-use PHPUnit\Framework\TestCase;
+use Commercetools\Base\JsonObject;
+use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Base\JsonObject;
 use Commercetools\Ml\Client\MlRequestBuilder;
-use Psr\Http\Message\RequestInterface;
-use Prophecy\Argument;
+use Commercetools\Ml\Client\Resource\ResourceByProjectKeyImageSearch;
+use Commercetools\Ml\Client\Resource\ResourceByProjectKeyMissingData;
+use Commercetools\Ml\Client\Resource\ResourceByProjectKeyRecommendations;
+use Commercetools\Ml\Client\Resource\ResourceByProjectKeySimilarities;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
-use Commercetools\Ml\Client\Resource\ResourceByProjectKeyImageSearch;
-use Commercetools\Ml\Client\Resource\ResourceByProjectKeyRecommendations;
-use Commercetools\Ml\Client\Resource\ResourceByProjectKeyMissingData;
-use Commercetools\Ml\Client\Resource\ResourceByProjectKeySimilarities;
+use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Ml\Client\Resource\ResourceByProjectKey

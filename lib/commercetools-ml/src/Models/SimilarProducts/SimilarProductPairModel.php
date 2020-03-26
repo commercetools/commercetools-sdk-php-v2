@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class SimilarProductPairModel extends JsonObjectModel implements SimilarProductPair
 {
-
     /**
      * @var ?int
      */
@@ -38,7 +36,6 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     ) {
         $this->confidence = $confidence;
         $this->products = $products;
-
     }
 
     /**
@@ -86,7 +83,4 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     {
         $this->products = $products;
     }
-
-
-
 }

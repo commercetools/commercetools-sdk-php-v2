@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class SimilarProductsPagedQueryResultModel extends JsonObjectModel implements SimilarProductsPagedQueryResult
 {
-
     /**
      * @var ?int
      */
@@ -59,7 +57,6 @@ final class SimilarProductsPagedQueryResultModel extends JsonObjectModel impleme
         $this->offset = $offset;
         $this->results = $results;
         $this->meta = $meta;
-
     }
 
     /**
@@ -172,7 +169,4 @@ final class SimilarProductsPagedQueryResultModel extends JsonObjectModel impleme
     {
         $this->meta = $meta;
     }
-
-
-
 }

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MissingImagesCount extends JsonObject
 {
-
     public const FIELD_MISSING_IMAGES = 'missingImages';
     public const FIELD_TOTAL = 'total';
 

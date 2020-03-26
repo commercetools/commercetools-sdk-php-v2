@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\ProductReference;
+
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class MissingImagesModel extends JsonObjectModel implements MissingImages
 {
-
     /**
      * @var ?ProductReference
      */
@@ -47,7 +46,6 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
         $this->product = $product;
         $this->variantId = $variantId;
         $this->imageCount = $imageCount;
-
     }
 
     /**
@@ -120,7 +118,4 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     {
         $this->imageCount = $imageCount;
     }
-
-
-
 }

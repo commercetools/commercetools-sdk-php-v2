@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingPricesProductCountModel extends JsonObjectModel implements MissingPricesProductCount
 {
-
     /**
      * @var ?int
      */
@@ -38,7 +36,6 @@ final class MissingPricesProductCountModel extends JsonObjectModel implements Mi
     ) {
         $this->total = $total;
         $this->missingPrices = $missingPrices;
-
     }
 
     /**
@@ -84,7 +81,4 @@ final class MissingPricesProductCountModel extends JsonObjectModel implements Mi
     {
         $this->missingPrices = $missingPrices;
     }
-
-
-
 }

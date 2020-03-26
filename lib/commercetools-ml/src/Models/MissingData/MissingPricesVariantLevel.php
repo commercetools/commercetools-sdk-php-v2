@@ -8,13 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface MissingPricesVariantLevel extends MissingPricesProductCount
 {
-
-
     /**
      * <p>Number of product variants scanned.</p>
      *

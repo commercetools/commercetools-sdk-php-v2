@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\GeneralCategoryRecommendations;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface GeneralCategoryRecommendation extends JsonObject
 {
-
     public const FIELD_CATEGORY_NAME = 'categoryName';
     public const FIELD_CONFIDENCE = 'confidence';
 

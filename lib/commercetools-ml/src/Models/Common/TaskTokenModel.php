@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class TaskTokenModel extends JsonObjectModel implements TaskToken
 {
-
     /**
      * @var ?string
      */
@@ -38,7 +36,6 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     ) {
         $this->taskId = $taskId;
         $this->uriPath = $uriPath;
-
     }
 
     /**
@@ -88,7 +85,4 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     {
         $this->uriPath = $uriPath;
     }
-
-
-
 }

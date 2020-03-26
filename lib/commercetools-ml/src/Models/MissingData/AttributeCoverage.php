@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface AttributeCoverage extends JsonObject
 {
-
     public const FIELD_NAMES = 'names';
     public const FIELD_VALUES = 'values';
 

@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingAttributesSearchRequestModel extends JsonObjectModel implements MissingAttributesSearchRequest
 {
-
     /**
      * @var ?int
      */
@@ -108,7 +106,6 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
         $this->productIds = $productIds;
         $this->productTypeIds = $productTypeIds;
         $this->attributeName = $attributeName;
-
     }
 
     /**
@@ -398,7 +395,4 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         $this->attributeName = $attributeName;
     }
-
-
-
 }

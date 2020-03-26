@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingImagesPagedQueryResultModel extends JsonObjectModel implements MissingImagesPagedQueryResult
 {
-
     /**
      * @var ?int
      */
@@ -59,7 +57,6 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
         $this->offset = $offset;
         $this->results = $results;
         $this->meta = $meta;
-
     }
 
     /**
@@ -172,7 +169,4 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     {
         $this->meta = $meta;
     }
-
-
-
 }

@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
@@ -77,7 +76,4 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     {
         $this->id = $id;
     }
-
-
-
 }

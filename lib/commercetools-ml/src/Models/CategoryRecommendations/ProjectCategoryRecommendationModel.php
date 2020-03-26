@@ -12,17 +12,16 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\CategoryReference;
+
 use Commercetools\Ml\Models\Common\CategoryReferenceModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class ProjectCategoryRecommendationModel extends JsonObjectModel implements ProjectCategoryRecommendation
 {
-
     /**
      * @var ?CategoryReference
      */
@@ -47,7 +46,6 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
         $this->category = $category;
         $this->confidence = $confidence;
         $this->path = $path;
-
     }
 
     /**
@@ -122,7 +120,4 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     {
         $this->path = $path;
     }
-
-
-
 }

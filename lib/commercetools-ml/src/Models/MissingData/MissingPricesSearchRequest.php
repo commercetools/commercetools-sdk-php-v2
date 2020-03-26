@@ -8,13 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MissingPricesSearchRequest extends JsonObject
 {
-
     public const FIELD_LIMIT = 'limit';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_STAGED = 'staged';

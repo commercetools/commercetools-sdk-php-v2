@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class SimilarProductSearchRequestMetaModel extends JsonObjectModel implements SimilarProductSearchRequestMeta
 {
-
     /**
      * @var ?SimilarityMeasures
      */
@@ -31,7 +29,6 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
         SimilarityMeasures $similarityMeasures = null
     ) {
         $this->similarityMeasures = $similarityMeasures;
-
     }
 
     /**
@@ -58,7 +55,4 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
     {
         $this->similarityMeasures = $similarityMeasures;
     }
-
-
-
 }

@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\SimilarProducts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SimilarProductSearchRequest extends JsonObject
 {
-
     public const FIELD_LIMIT = 'limit';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_LANGUAGE = 'language';

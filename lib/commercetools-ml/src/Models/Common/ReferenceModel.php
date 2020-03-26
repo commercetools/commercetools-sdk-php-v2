@@ -14,7 +14,6 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
@@ -33,7 +32,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
     /**
      * @psalm-var array<string, class-string<Reference> >
-     * 
+     *
      */
     private static $discriminatorClasses = [
        'category' => CategoryReferenceModel::class,
@@ -95,24 +94,24 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      */
     public static function resolveDiscriminatorClass($value): string
     {
-       $fieldName = Reference::DISCRIMINATOR_FIELD;
-       if (is_object($value) && isset($value->$fieldName)) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value->$fieldName;
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+        $fieldName = Reference::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
-       if (is_array($value) && isset($value[$fieldName])) {
-           /** @psalm-var string $discriminatorValue */
-           $discriminatorValue = $value[$fieldName];
-           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-           }
-       }
+            }
+        }
 
-       /** @psalm-var class-string<Reference> */
-       $type = ReferenceModel::class;
-       return $type;
+        /** @psalm-var class-string<Reference> */
+        $type = ReferenceModel::class;
+        return $type;
     }
 }

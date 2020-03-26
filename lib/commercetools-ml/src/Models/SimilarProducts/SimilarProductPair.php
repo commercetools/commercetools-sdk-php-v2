@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\SimilarProducts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 
 interface SimilarProductPair extends JsonObject
 {
-
     public const FIELD_CONFIDENCE = 'confidence';
     public const FIELD_PRODUCTS = 'products';
 

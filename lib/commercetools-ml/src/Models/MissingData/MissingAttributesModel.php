@@ -12,19 +12,18 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Ml\Models\Common\ProductReference;
+
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
 use Commercetools\Ml\Models\Common\ProductTypeReference;
 use Commercetools\Ml\Models\Common\ProductTypeReferenceModel;
+use stdClass;
 
 /**
  * @internal
  */
 final class MissingAttributesModel extends JsonObjectModel implements MissingAttributes
 {
-
     /**
      * @var ?ProductReference
      */
@@ -77,7 +76,6 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
         $this->missingAttributeNames = $missingAttributeNames;
         $this->attributeCount = $attributeCount;
         $this->attributeCoverage = $attributeCoverage;
-
     }
 
     /**
@@ -243,7 +241,4 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         $this->attributeCoverage = $attributeCoverage;
     }
-
-
-
 }

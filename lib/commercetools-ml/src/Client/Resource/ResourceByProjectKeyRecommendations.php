@@ -20,7 +20,8 @@ class ResourceByProjectKeyRecommendations extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/recommendations', $args, $client);
     }
 
@@ -36,5 +37,4 @@ class ResourceByProjectKeyRecommendations extends ApiResource
 
         return new ResourceByProjectKeyRecommendationsGeneralCategories($args, $this->getClient());
     }
-
 }

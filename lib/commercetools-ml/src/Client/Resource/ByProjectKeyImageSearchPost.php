@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Client\Resource;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Ml\Models\ImageSearch\ImageSearchResponse;
 use Commercetools\Ml\Models\ImageSearch\ImageSearchResponseModel;
-use Psr\Http\Message\UploadedFileInterface;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UploadedFileInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ByProjectKeyImageSearchPost extends ApiRequest
@@ -91,7 +91,7 @@ class ByProjectKeyImageSearchPost extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $limit
      */
     public function withLimit($limit): ByProjectKeyImageSearchPost
@@ -100,7 +100,7 @@ class ByProjectKeyImageSearchPost extends ApiRequest
     }
 
     /**
-     * 
+     *
      * @psalm-param scalar|scalar[] $offset
      */
     public function withOffset($offset): ByProjectKeyImageSearchPost

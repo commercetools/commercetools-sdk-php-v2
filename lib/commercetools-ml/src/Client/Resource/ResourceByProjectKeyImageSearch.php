@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Commercetools\Ml\Client\Resource;
 
 use Commercetools\Client\ApiResource;
+use File;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
-use \File;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,7 +21,8 @@ class ResourceByProjectKeyImageSearch extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}/image-search', $args, $client);
     }
 
@@ -35,5 +36,4 @@ class ResourceByProjectKeyImageSearch extends ApiResource
 
         return new ByProjectKeyImageSearchPost($args['projectKey'], $body, $headers, $this->getClient());
     }
-
 }

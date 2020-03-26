@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class AttributeCountModel extends JsonObjectModel implements AttributeCount
 {
-
     /**
      * @var ?int
      */
@@ -45,7 +43,6 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
         $this->productTypeAttributes = $productTypeAttributes;
         $this->variantAttributes = $variantAttributes;
         $this->missingAttributeValues = $missingAttributeValues;
-
     }
 
     /**
@@ -119,7 +116,4 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     {
         $this->missingAttributeValues = $missingAttributeValues;
     }
-
-
-
 }

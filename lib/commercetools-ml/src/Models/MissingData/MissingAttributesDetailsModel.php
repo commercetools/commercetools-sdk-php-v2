@@ -14,13 +14,11 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
-
 /**
  * @internal
  */
 final class MissingAttributesDetailsModel extends JsonObjectModel implements MissingAttributesDetails
 {
-
     /**
      * @var ?int
      */
@@ -45,7 +43,6 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
         $this->total = $total;
         $this->missingAttributeNames = $missingAttributeNames;
         $this->missingAttributeValues = $missingAttributeValues;
-
     }
 
     /**
@@ -119,7 +116,4 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     {
         $this->missingAttributeValues = $missingAttributeValues;
     }
-
-
-
 }

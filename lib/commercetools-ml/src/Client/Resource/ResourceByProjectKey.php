@@ -20,7 +20,8 @@ class ResourceByProjectKey extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null) {
+    public function __construct(array $args = [], ClientInterface $client = null)
+    {
         parent::__construct('/{projectKey}', $args, $client);
     }
 
@@ -48,5 +49,4 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeySimilarities($args, $this->getClient());
     }
-
 }

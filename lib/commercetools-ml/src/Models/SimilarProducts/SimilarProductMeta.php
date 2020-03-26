@@ -8,14 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\SimilarProducts;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
 use Commercetools\Ml\Models\Common\LocalizedString;
 use Commercetools\Ml\Models\Common\Money;
 
 interface SimilarProductMeta extends JsonObject
 {
-
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_PRICE = 'price';
