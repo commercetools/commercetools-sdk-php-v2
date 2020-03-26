@@ -75,7 +75,7 @@ jobs:
           ini-values: assert.exception=1, zend.assertions=1
 
       - name: "Install tools"
-        run: phive install phpunit
+        run: phive selfupdate && phive install phpunit
 
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
