@@ -79,7 +79,7 @@ jobs:
         run: composer update --no-ansi --no-interaction --no-progress --no-suggest
 
       - name: Run psalm
-        run: php -dmemory_limit=-1 vendor/bin/psalm --output-format=github
+        run: php -dmemory_limit=-1 vendor/bin/psalm --output-format=github --no-progress --stats
 
   tests:
     name: Tests
