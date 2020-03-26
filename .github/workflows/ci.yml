@@ -7,6 +7,43 @@ on:
 name: CI
 
 jobs:
+  coding-guidelines:
+    name: Coding Guidelines
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+        dependencies:
+          - highest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: "Install PHP with extensions"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: json, mbstring, intl
+          tools: composer
+
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache
+          key: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+
+      - name: Install dependencies with composer
+        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+
+      - name: Run easy coding standard
+        run: php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly
+
   tests:
     name: Tests
 
@@ -37,6 +74,9 @@ jobs:
           tools: composer, phive
           ini-values: assert.exception=1, zend.assertions=1, pcov.directory=., pcov.exclude="~vendor~"
 
+      - name: "Install tools"
+        run: phive install
+
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1
         with:
@@ -53,10 +93,9 @@ jobs:
         run: composer update --no-ansi --no-interaction --no-progress --no-suggest
 
       - name: Run tests with phpunit
-        run: vendor/bin/phpunit --testsuite=unit --coverage-clover=coverage.xml
+        run: ./tools/phpunit --testsuite=unit --coverage-clover=coverage.xml
 
       - name: Send code coverage report to Codecov.io
-        if: matrix.php-version == '7.4'
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: bash <(curl -s https://codecov.io/bash) || true
