@@ -72,7 +72,7 @@ jobs:
           coverage: pcov
           extensions: json, mbstring, intl
           tools: composer
-          ini-values: assert.exception=1, zend.assertions=1
+          ini-values: assert.exception=1, zend.assertions=1, pcov.directory=., pcov.exclude="~vendor~"
 
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1

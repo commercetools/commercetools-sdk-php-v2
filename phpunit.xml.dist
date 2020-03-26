@@ -43,7 +43,5 @@
     </filter>
     <php>
         <ini name="memory_limit" value="-1"/>
-        <ini name="pcov.directory" value="."/>
-        <ini name="pcov.exclude" value="~vendor~"/>
     </php>
 </phpunit>
