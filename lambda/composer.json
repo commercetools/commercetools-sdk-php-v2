@@ -1,0 +1,14 @@
+{
+    "name": "jenschude/extension_responder",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jens Schulze",
+            "email": "jenschude@gmail.com"
+        }
+    ],
+    "require": {
+        "bref/bref": "^0.5.20"
+    }
+}

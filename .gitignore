@@ -5,3 +5,4 @@ vendor
 cache
 logs
 .ecs_cache
+/lambda/.serverless/

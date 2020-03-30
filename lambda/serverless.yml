@@ -1,0 +1,27 @@
+service: extension-responder
+
+provider:
+    name: aws
+    region: eu-west-1
+    runtime: provided
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    api:
+        handler: index.php
+        reservedConcurrency: 1
+        description: ''
+        timeout: 5 # in seconds (API Gateway has a timeout of 29 seconds)
+        layers:
+            - ${bref:layer.php-73-fpm}
+        events:
+            -   http: 'ANY /'
+            -   http: 'ANY /{proxy+}'
+
+# Exclude files from deployment
+package:
+    exclude:
+        - 'node_modules/**'
+        - 'tests/**'
