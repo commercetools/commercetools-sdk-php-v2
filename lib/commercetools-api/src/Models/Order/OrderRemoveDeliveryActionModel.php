@@ -45,7 +45,7 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderRemoveDeliveryAction::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
 
         return $this->deliveryId;
     }
+
 
     public function setDeliveryId(?string $deliveryId): void
     {

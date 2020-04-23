@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     {
         if (is_null($this->zone)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethodAddShippingRateAction::FIELD_ZONE);
+            $data = $this->raw(self::FIELD_ZONE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     {
         if (is_null($this->shippingRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethodAddShippingRateAction::FIELD_SHIPPING_RATE);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -100,6 +99,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
 
         return $this->shippingRate;
     }
+
 
     public function setZone(?ZoneResourceIdentifier $zone): void
     {

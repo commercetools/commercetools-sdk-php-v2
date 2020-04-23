@@ -59,7 +59,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(PriceChangedError::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     {
         if (is_null($this->shipping)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(PriceChangedError::FIELD_SHIPPING);
+            $data = $this->raw(self::FIELD_SHIPPING);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
 
         return $this->shipping;
     }
+
 
     public function setMessage(?string $message): void
     {

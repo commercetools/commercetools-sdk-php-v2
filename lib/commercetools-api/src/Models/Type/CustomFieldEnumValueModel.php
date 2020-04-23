@@ -45,7 +45,7 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomFieldEnumValue::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     {
         if (is_null($this->label)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomFieldEnumValue::FIELD_LABEL);
+            $data = $this->raw(self::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
 
         return $this->label;
     }
+
 
     public function setKey(?string $key): void
     {

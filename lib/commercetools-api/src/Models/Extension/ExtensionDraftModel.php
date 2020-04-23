@@ -61,7 +61,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +80,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     {
         if (is_null($this->destination)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionDraft::FIELD_DESTINATION);
+            $data = $this->raw(self::FIELD_DESTINATION);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     {
         if (is_null($this->triggers)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ExtensionDraft::FIELD_TRIGGERS);
+            $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;
             }
@@ -122,7 +122,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     {
         if (is_null($this->timeoutInMs)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ExtensionDraft::FIELD_TIMEOUT_IN_MS);
+            $data = $this->raw(self::FIELD_TIMEOUT_IN_MS);
             if (is_null($data)) {
                 return null;
             }
@@ -131,6 +131,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
 
         return $this->timeoutInMs;
     }
+
 
     public function setKey(?string $key): void
     {

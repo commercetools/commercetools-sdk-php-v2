@@ -28,7 +28,7 @@ interface ProjectCategoryRecommendation extends JsonObject
     /**
      * <p>Probability score for the category recommendation.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence();
 
@@ -41,7 +41,7 @@ interface ProjectCategoryRecommendation extends JsonObject
 
     public function setCategory(?CategoryReference $category): void;
 
-    public function setConfidence(?int $confidence): void;
+    public function setConfidence(?float $confidence): void;
 
     public function setPath(?string $path): void;
 }

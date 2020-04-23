@@ -45,7 +45,7 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     {
         if (is_null($this->url)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExternalOAuth::FIELD_URL);
+            $data = $this->raw(self::FIELD_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     {
         if (is_null($this->authorizationHeader)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExternalOAuth::FIELD_AUTHORIZATION_HEADER);
+            $data = $this->raw(self::FIELD_AUTHORIZATION_HEADER);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
 
         return $this->authorizationHeader;
     }
+
 
     public function setUrl(?string $url): void
     {

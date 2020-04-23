@@ -53,7 +53,7 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,6 +62,7 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
 
         return $this->action;
     }
+
 
 
 

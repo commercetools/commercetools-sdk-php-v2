@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Product\AttributeModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->attribute)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DuplicateAttributeValueError::FIELD_ATTRIBUTE);
+            $data = $this->raw(self::FIELD_ATTRIBUTE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
 
         return $this->attribute;
     }
+
 
     public function setMessage(?string $message): void
     {

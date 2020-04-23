@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -48,7 +46,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +63,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     {
         if (is_null($this->expectedDelivery)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntrySetExpectedDeliveryAction::FIELD_EXPECTED_DELIVERY);
+            $data = $this->raw(self::FIELD_EXPECTED_DELIVERY);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +76,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
 
         return $this->expectedDelivery;
     }
+
 
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
     {

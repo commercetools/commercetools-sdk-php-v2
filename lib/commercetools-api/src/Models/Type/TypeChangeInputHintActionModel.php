@@ -52,7 +52,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     {
         if (is_null($this->fieldName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeChangeInputHintAction::FIELD_FIELD_NAME);
+            $data = $this->raw(self::FIELD_FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     {
         if (is_null($this->inputHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeChangeInputHintAction::FIELD_INPUT_HINT);
+            $data = $this->raw(self::FIELD_INPUT_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
 
         return $this->inputHint;
     }
+
 
     public function setFieldName(?string $fieldName): void
     {

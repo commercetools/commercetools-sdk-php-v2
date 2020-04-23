@@ -45,7 +45,7 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
     {
         if (is_null($this->addressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerAddBillingAddressIdAction::FIELD_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
 
         return $this->addressId;
     }
+
 
     public function setAddressId(?string $addressId): void
     {

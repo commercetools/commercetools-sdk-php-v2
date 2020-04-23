@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -47,7 +46,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +63,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->errors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditPreviewFailure::FIELD_ERRORS);
+            $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +72,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
 
         return $this->errors;
     }
+
 
     public function setErrors(?ErrorObjectCollection $errors): void
     {

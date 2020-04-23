@@ -38,7 +38,7 @@ final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements Cust
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }

@@ -21,7 +21,7 @@ use stdClass;
 final class DiscountedLineItemPriceForQuantityBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -31,7 +31,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     private $discountedPrice;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -49,7 +49,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

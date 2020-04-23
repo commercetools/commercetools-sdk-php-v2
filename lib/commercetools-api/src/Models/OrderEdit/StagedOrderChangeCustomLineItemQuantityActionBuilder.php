@@ -28,7 +28,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     private $customLineItemId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -41,7 +41,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -61,7 +61,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

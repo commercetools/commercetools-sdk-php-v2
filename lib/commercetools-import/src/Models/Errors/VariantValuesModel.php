@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Prices\PriceImportCollection;
-
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(VariantValues::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->prices)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(VariantValues::FIELD_PRICES);
+            $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -98,6 +97,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
 
         return $this->attributes;
     }
+
 
     public function setSku(?string $sku): void
     {

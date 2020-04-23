@@ -45,7 +45,7 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     {
         if (is_null($this->taxCalculationMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartChangeTaxCalculationModeAction::FIELD_TAX_CALCULATION_MODE);
+            $data = $this->raw(self::FIELD_TAX_CALCULATION_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
 
         return $this->taxCalculationMode;
     }
+
 
     public function setTaxCalculationMode(?string $taxCalculationMode): void
     {

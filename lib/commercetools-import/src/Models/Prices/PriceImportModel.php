@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
-
 use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
@@ -26,7 +25,6 @@ use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -109,7 +107,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportResource::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -129,7 +127,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +147,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PriceImport::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +166,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PriceImport::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PriceImport::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -217,7 +215,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -240,7 +238,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_CHANNEL);
+            $data = $this->raw(self::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -263,7 +261,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->productVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_PRODUCT_VARIANT);
+            $data = $this->raw(self::FIELD_PRODUCT_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -286,7 +284,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -296,6 +294,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
 
         return $this->product;
     }
+
 
     public function setKey(?string $key): void
     {

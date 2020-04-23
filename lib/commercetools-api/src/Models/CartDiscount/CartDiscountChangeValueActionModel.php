@@ -45,7 +45,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountChangeValueAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
 
         return $this->value;
     }
+
 
     public function setValue(?CartDiscountValueDraft $value): void
     {

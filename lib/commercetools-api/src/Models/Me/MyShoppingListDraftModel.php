@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -80,7 +79,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -98,7 +97,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -116,7 +115,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -133,7 +132,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->textLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -152,7 +151,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -172,7 +171,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     {
         if (is_null($this->deleteDaysAfterLastModification)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -181,6 +180,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
 
         return $this->deleteDaysAfterLastModification;
     }
+
 
     public function setName(?LocalizedString $name): void
     {

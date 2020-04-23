@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -50,7 +49,7 @@ final class StagedOrderRemovePaymentActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +66,7 @@ final class StagedOrderRemovePaymentActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->payment)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderRemovePaymentAction::FIELD_PAYMENT);
+            $data = $this->raw(self::FIELD_PAYMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class StagedOrderRemovePaymentActionModel extends JsonObjectModel implemen
 
         return $this->payment;
     }
+
 
     public function setPayment(?PaymentResourceIdentifier $payment): void
     {

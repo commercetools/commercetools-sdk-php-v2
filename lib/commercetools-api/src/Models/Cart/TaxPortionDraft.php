@@ -24,7 +24,7 @@ interface TaxPortionDraft extends JsonObject
     public function getName();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getRate();
 
@@ -35,7 +35,7 @@ interface TaxPortionDraft extends JsonObject
 
     public function setName(?string $name): void;
 
-    public function setRate(?int $rate): void;
+    public function setRate(?float $rate): void;
 
     public function setAmount(?Money $amount): void;
 }

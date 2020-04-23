@@ -45,7 +45,7 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +66,7 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentSetKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

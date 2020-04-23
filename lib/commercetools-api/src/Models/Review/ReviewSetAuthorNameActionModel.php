@@ -45,7 +45,7 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     {
         if (is_null($this->authorName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewSetAuthorNameAction::FIELD_AUTHOR_NAME);
+            $data = $this->raw(self::FIELD_AUTHOR_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
 
         return $this->authorName;
     }
+
 
     public function setAuthorName(?string $authorName): void
     {

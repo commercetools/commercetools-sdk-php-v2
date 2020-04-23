@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -34,7 +33,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     protected $lineItemId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -56,7 +55,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
 
     public function __construct(
         string $lineItemId = null,
-        int $quantity = null,
+        float $quantity = null,
         Money $externalPrice = null,
         ExternalLineItemTotalPrice $externalTotalPrice = null,
         ItemShippingDetailsDraft $shippingDetailsToRemove = null
@@ -76,7 +75,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartRemoveLineItemAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -104,17 +103,17 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CartRemoveLineItemAction::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -127,7 +126,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     {
         if (is_null($this->externalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartRemoveLineItemAction::FIELD_EXTERNAL_PRICE);
+            $data = $this->raw(self::FIELD_EXTERNAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -145,7 +144,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     {
         if (is_null($this->externalTotalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartRemoveLineItemAction::FIELD_EXTERNAL_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -163,7 +162,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     {
         if (is_null($this->shippingDetailsToRemove)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartRemoveLineItemAction::FIELD_SHIPPING_DETAILS_TO_REMOVE);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS_TO_REMOVE);
             if (is_null($data)) {
                 return null;
             }
@@ -174,12 +173,13 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
         return $this->shippingDetailsToRemove;
     }
 
+
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

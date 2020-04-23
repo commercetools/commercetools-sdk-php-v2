@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -83,7 +82,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateDraft::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +116,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StateDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -135,7 +134,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StateDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +152,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->initial)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(StateDraft::FIELD_INITIAL);
+            $data = $this->raw(self::FIELD_INITIAL);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +169,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->roles)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(StateDraft::FIELD_ROLES);
+            $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
             }
@@ -187,7 +186,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     {
         if (is_null($this->transitions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StateDraft::FIELD_TRANSITIONS);
+            $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -196,6 +195,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
 
         return $this->transitions;
     }
+
 
     public function setKey(?string $key): void
     {

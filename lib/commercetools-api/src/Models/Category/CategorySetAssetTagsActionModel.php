@@ -59,7 +59,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetTagsAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetTagsAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->tags)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(CategorySetAssetTagsAction::FIELD_TAGS);
+            $data = $this->raw(self::FIELD_TAGS);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
 
         return $this->tags;
     }
+
 
     public function setAssetId(?string $assetId): void
     {

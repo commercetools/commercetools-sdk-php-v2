@@ -66,7 +66,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
 
         return $this->value;
     }
+
 
     public function setAssetId(?string $assetId): void
     {

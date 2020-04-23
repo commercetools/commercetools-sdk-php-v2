@@ -13,7 +13,6 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerGroupSetMessagePayload::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
 
         return $this->customerGroup;
     }
+
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {

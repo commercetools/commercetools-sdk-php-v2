@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -98,7 +96,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -115,7 +113,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ReturnItem::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -132,7 +130,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +147,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->comment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_COMMENT);
+            $data = $this->raw(self::FIELD_COMMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -166,7 +164,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -183,7 +181,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -200,7 +198,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -221,7 +219,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -234,6 +232,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
         return $this->createdAt;
     }
+
 
     public function setId(?string $id): void
     {

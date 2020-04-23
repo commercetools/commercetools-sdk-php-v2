@@ -13,14 +13,12 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -220,7 +218,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->customerNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_CUSTOMER_NUMBER);
+            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -241,7 +239,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -258,7 +256,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->password)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_PASSWORD);
+            $data = $this->raw(self::FIELD_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -275,7 +273,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->firstName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_FIRST_NAME);
+            $data = $this->raw(self::FIELD_FIRST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -292,7 +290,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->lastName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_LAST_NAME);
+            $data = $this->raw(self::FIELD_LAST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -309,7 +307,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->middleName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_MIDDLE_NAME);
+            $data = $this->raw(self::FIELD_MIDDLE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -326,7 +324,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -345,7 +343,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->anonymousCartId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_ANONYMOUS_CART_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_CART_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -364,7 +362,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -381,7 +379,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->dateOfBirth)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_DATE_OF_BIRTH);
+            $data = $this->raw(self::FIELD_DATE_OF_BIRTH);
             if (is_null($data)) {
                 return null;
             }
@@ -402,7 +400,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->companyName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_COMPANY_NAME);
+            $data = $this->raw(self::FIELD_COMPANY_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -419,7 +417,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->vatId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_VAT_ID);
+            $data = $this->raw(self::FIELD_VAT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -438,7 +436,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->addresses)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomerDraft::FIELD_ADDRESSES);
+            $data = $this->raw(self::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -458,7 +456,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->defaultShippingAddress)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerDraft::FIELD_DEFAULT_SHIPPING_ADDRESS);
+            $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -478,7 +476,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->shippingAddresses)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(CustomerDraft::FIELD_SHIPPING_ADDRESSES);
+            $data = $this->raw(self::FIELD_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -498,7 +496,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->defaultBillingAddress)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerDraft::FIELD_DEFAULT_BILLING_ADDRESS);
+            $data = $this->raw(self::FIELD_DEFAULT_BILLING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -518,7 +516,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->billingAddresses)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(CustomerDraft::FIELD_BILLING_ADDRESSES);
+            $data = $this->raw(self::FIELD_BILLING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -535,7 +533,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->isEmailVerified)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CustomerDraft::FIELD_IS_EMAIL_VERIFIED);
+            $data = $this->raw(self::FIELD_IS_EMAIL_VERIFIED);
             if (is_null($data)) {
                 return null;
             }
@@ -552,7 +550,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -569,7 +567,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerDraft::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -589,7 +587,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -609,7 +607,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -626,7 +624,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->salutation)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_SALUTATION);
+            $data = $this->raw(self::FIELD_SALUTATION);
             if (is_null($data)) {
                 return null;
             }
@@ -647,7 +645,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -668,7 +666,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     {
         if (is_null($this->stores)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomerDraft::FIELD_STORES);
+            $data = $this->raw(self::FIELD_STORES);
             if (is_null($data)) {
                 return null;
             }
@@ -677,6 +675,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
 
         return $this->stores;
     }
+
 
     public function setCustomerNumber(?string $customerNumber): void
     {

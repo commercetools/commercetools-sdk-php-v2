@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -54,7 +53,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +70,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->preview)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditPreviewSuccess::FIELD_PREVIEW);
+            $data = $this->raw(self::FIELD_PREVIEW);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->messagePayloads)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditPreviewSuccess::FIELD_MESSAGE_PAYLOADS);
+            $data = $this->raw(self::FIELD_MESSAGE_PAYLOADS);
             if (is_null($data)) {
                 return null;
             }
@@ -98,6 +97,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
 
         return $this->messagePayloads;
     }
+
 
     public function setPreview(?StagedOrder $preview): void
     {

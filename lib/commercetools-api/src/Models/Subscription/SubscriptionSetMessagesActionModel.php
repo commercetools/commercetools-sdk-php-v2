@@ -45,7 +45,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->messages)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SubscriptionSetMessagesAction::FIELD_MESSAGES);
+            $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
 
         return $this->messages;
     }
+
 
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {

@@ -45,7 +45,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     {
         if (is_null($this->updatedPrices)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductPriceDiscountsSetMessagePayload::FIELD_UPDATED_PRICES);
+            $data = $this->raw(self::FIELD_UPDATED_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
 
         return $this->updatedPrices;
     }
+
 
     public function setUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\ReturnInfoModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->returnInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderReturnInfoAddedMessagePayload::FIELD_RETURN_INFO);
+            $data = $this->raw(self::FIELD_RETURN_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
 
         return $this->returnInfo;
     }
+
 
     public function setReturnInfo(?ReturnInfo $returnInfo): void
     {

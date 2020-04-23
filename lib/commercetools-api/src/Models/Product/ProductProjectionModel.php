@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
@@ -27,7 +26,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -203,7 +201,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -222,7 +220,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductProjection::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -239,7 +237,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -260,7 +258,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -283,7 +281,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -300,7 +298,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_PRODUCT_TYPE);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -318,7 +316,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -336,7 +334,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -354,7 +352,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -374,7 +372,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->categories)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductProjection::FIELD_CATEGORIES);
+            $data = $this->raw(self::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
             }
@@ -391,7 +389,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->categoryOrderHints)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_CATEGORY_ORDER_HINTS);
+            $data = $this->raw(self::FIELD_CATEGORY_ORDER_HINTS);
             if (is_null($data)) {
                 return null;
             }
@@ -409,7 +407,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->metaTitle)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_META_TITLE);
+            $data = $this->raw(self::FIELD_META_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -427,7 +425,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_META_DESCRIPTION);
+            $data = $this->raw(self::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -445,7 +443,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_META_KEYWORDS);
+            $data = $this->raw(self::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -463,7 +461,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->searchKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_SEARCH_KEYWORDS);
+            $data = $this->raw(self::FIELD_SEARCH_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -481,7 +479,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->hasStagedChanges)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductProjection::FIELD_HAS_STAGED_CHANGES);
+            $data = $this->raw(self::FIELD_HAS_STAGED_CHANGES);
             if (is_null($data)) {
                 return null;
             }
@@ -498,7 +496,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->published)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductProjection::FIELD_PUBLISHED);
+            $data = $this->raw(self::FIELD_PUBLISHED);
             if (is_null($data)) {
                 return null;
             }
@@ -515,7 +513,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->masterVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_MASTER_VARIANT);
+            $data = $this->raw(self::FIELD_MASTER_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -533,7 +531,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->variants)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductProjection::FIELD_VARIANTS);
+            $data = $this->raw(self::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -550,7 +548,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -568,7 +566,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -588,7 +586,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->reviewRatingStatistics)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_REVIEW_RATING_STATISTICS);
+            $data = $this->raw(self::FIELD_REVIEW_RATING_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -598,6 +596,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
 
         return $this->reviewRatingStatistics;
     }
+
 
     public function setId(?string $id): void
     {

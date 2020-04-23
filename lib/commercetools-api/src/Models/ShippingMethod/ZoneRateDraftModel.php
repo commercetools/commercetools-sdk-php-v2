@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Zone\ZoneResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     {
         if (is_null($this->zone)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ZoneRateDraft::FIELD_ZONE);
+            $data = $this->raw(self::FIELD_ZONE);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     {
         if (is_null($this->shippingRates)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ZoneRateDraft::FIELD_SHIPPING_RATES);
+            $data = $this->raw(self::FIELD_SHIPPING_RATES);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
 
         return $this->shippingRates;
     }
+
 
     public function setZone(?ZoneResourceIdentifier $zone): void
     {

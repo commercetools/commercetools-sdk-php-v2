@@ -45,7 +45,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     {
         if (is_null($this->removedImageUrls)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductRevertedStagedChangesMessagePayload::FIELD_REMOVED_IMAGE_URLS);
+            $data = $this->raw(self::FIELD_REMOVED_IMAGE_URLS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
 
         return $this->removedImageUrls;
     }
+
 
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {

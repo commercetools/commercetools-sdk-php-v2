@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryChangeSlugAction::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +77,7 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
 
         return $this->slug;
     }
+
 
     public function setSlug(?LocalizedString $slug): void
     {

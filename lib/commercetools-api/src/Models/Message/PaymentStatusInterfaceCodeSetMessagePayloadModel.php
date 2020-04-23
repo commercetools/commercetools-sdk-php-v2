@@ -52,7 +52,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     {
         if (is_null($this->paymentId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatusInterfaceCodeSetMessagePayload::FIELD_PAYMENT_ID);
+            $data = $this->raw(self::FIELD_PAYMENT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     {
         if (is_null($this->interfaceCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatusInterfaceCodeSetMessagePayload::FIELD_INTERFACE_CODE);
+            $data = $this->raw(self::FIELD_INTERFACE_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
 
         return $this->interfaceCode;
     }
+
 
     public function setPaymentId(?string $paymentId): void
     {

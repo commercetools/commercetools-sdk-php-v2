@@ -67,7 +67,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypedMoney::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -84,7 +84,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     {
         if (is_null($this->fractionDigits)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(TypedMoney::FIELD_FRACTION_DIGITS);
+            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
             if (is_null($data)) {
                 return null;
             }
@@ -101,7 +101,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     {
         if (is_null($this->centAmount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(TypedMoney::FIELD_CENT_AMOUNT);
+            $data = $this->raw(self::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +120,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypedMoney::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -129,6 +129,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 
         return $this->currencyCode;
     }
+
 
     public function setFractionDigits(?int $fractionDigits): void
     {

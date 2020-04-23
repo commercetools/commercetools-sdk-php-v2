@@ -45,7 +45,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     {
         if (is_null($this->fieldNames)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(TypeChangeFieldDefinitionOrderAction::FIELD_FIELD_NAMES);
+            $data = $this->raw(self::FIELD_FIELD_NAMES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
 
         return $this->fieldNames;
     }
+
 
     public function setFieldNames(?array $fieldNames): void
     {

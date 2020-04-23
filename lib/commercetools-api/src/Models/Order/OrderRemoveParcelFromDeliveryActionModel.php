@@ -45,7 +45,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderRemoveParcelFromDeliveryAction::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
 
         return $this->parcelId;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

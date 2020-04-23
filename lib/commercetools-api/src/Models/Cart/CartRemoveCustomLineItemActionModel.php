@@ -45,7 +45,7 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartRemoveCustomLineItemAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
 
         return $this->customLineItemId;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

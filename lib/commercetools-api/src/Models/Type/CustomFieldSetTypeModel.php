@@ -45,7 +45,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     {
         if (is_null($this->elementType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomFieldSetType::FIELD_ELEMENT_TYPE);
+            $data = $this->raw(self::FIELD_ELEMENT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
 
         return $this->elementType;
     }
+
 
     public function setElementType(?FieldType $elementType): void
     {

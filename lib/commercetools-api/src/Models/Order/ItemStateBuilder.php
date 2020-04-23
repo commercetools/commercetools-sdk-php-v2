@@ -23,7 +23,7 @@ use stdClass;
 final class ItemStateBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -33,7 +33,7 @@ final class ItemStateBuilder implements Builder
     private $state;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -51,7 +51,7 @@ final class ItemStateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

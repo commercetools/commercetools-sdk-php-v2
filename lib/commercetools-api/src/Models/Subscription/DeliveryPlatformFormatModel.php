@@ -38,7 +38,7 @@ final class DeliveryPlatformFormatModel extends JsonObjectModel implements Deliv
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DeliveryFormat::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }

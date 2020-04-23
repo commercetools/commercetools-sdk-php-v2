@@ -39,10 +39,9 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
              */
             function ($value) {
                 return !is_null($value);
-            },
-            ARRAY_FILTER_USE_BOTH
+            }
         );
-        $data = array_merge($this->getRawDataArray(), $data);
+        $data = array_replace($this->getRawDataArray(), $data);
         return $data;
     }
 }

@@ -47,7 +47,7 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
     {
         if (is_null($this->value)) {
             /** @psalm-var ?array<int, string> $data */
-            $data = $this->raw(DateSetField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
 
         return $this->value;
     }
+
 
     public function setValue(?DateTimeImmutableCollection $value): void
     {

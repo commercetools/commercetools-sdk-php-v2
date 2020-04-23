@@ -21,59 +21,59 @@ use stdClass;
 final class OperationStatesBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Accepted;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $ValidationFailed;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Unresolved;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Resolved;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $WaitForMasterVariant;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Imported;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Deleted;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Rejected;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Skipped;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $Expired;
 
     /**
      * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAccepted()
     {
@@ -83,7 +83,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getValidationFailed()
     {
@@ -93,7 +93,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Unresolved</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getUnresolved()
     {
@@ -103,7 +103,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Resolved</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getResolved()
     {
@@ -113,7 +113,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>WaitForMasterVariant</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getWaitForMasterVariant()
     {
@@ -123,7 +123,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Imported</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getImported()
     {
@@ -133,7 +133,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getDeleted()
     {
@@ -143,7 +143,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Rejected</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getRejected()
     {
@@ -153,7 +153,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Skipped</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getSkipped()
     {
@@ -163,7 +163,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of import operations that are in the state <code>Expired</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getExpired()
     {
@@ -173,7 +173,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAccepted(?int $Accepted)
+    public function withAccepted(?float $Accepted)
     {
         $this->Accepted = $Accepted;
 
@@ -183,7 +183,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidationFailed(?int $ValidationFailed)
+    public function withValidationFailed(?float $ValidationFailed)
     {
         $this->ValidationFailed = $ValidationFailed;
 
@@ -193,7 +193,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withUnresolved(?int $Unresolved)
+    public function withUnresolved(?float $Unresolved)
     {
         $this->Unresolved = $Unresolved;
 
@@ -203,7 +203,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResolved(?int $Resolved)
+    public function withResolved(?float $Resolved)
     {
         $this->Resolved = $Resolved;
 
@@ -213,7 +213,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withWaitForMasterVariant(?int $WaitForMasterVariant)
+    public function withWaitForMasterVariant(?float $WaitForMasterVariant)
     {
         $this->WaitForMasterVariant = $WaitForMasterVariant;
 
@@ -223,7 +223,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withImported(?int $Imported)
+    public function withImported(?float $Imported)
     {
         $this->Imported = $Imported;
 
@@ -233,7 +233,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDeleted(?int $Deleted)
+    public function withDeleted(?float $Deleted)
     {
         $this->Deleted = $Deleted;
 
@@ -243,7 +243,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRejected(?int $Rejected)
+    public function withRejected(?float $Rejected)
     {
         $this->Rejected = $Rejected;
 
@@ -253,7 +253,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSkipped(?int $Skipped)
+    public function withSkipped(?float $Skipped)
     {
         $this->Skipped = $Skipped;
 
@@ -263,7 +263,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExpired(?int $Expired)
+    public function withExpired(?float $Expired)
     {
         $this->Expired = $Expired;
 

@@ -45,7 +45,7 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetOrderNumberAction::FIELD_ORDER_NUMBER);
+            $data = $this->raw(self::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
 
         return $this->orderNumber;
     }
+
 
     public function setOrderNumber(?string $orderNumber): void
     {

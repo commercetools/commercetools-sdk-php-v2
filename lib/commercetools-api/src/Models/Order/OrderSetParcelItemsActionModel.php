@@ -52,7 +52,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetParcelItemsAction::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderSetParcelItemsAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
 
         return $this->items;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

@@ -61,12 +61,12 @@ interface SimilarProductSearchRequest extends JsonObject
     public function getProductSetSelectors();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMin();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMax();
 
@@ -82,7 +82,7 @@ interface SimilarProductSearchRequest extends JsonObject
 
     public function setProductSetSelectors(?ProductSetSelectorCollection $productSetSelectors): void;
 
-    public function setConfidenceMin(?int $confidenceMin): void;
+    public function setConfidenceMin(?float $confidenceMin): void;
 
-    public function setConfidenceMax(?int $confidenceMax): void;
+    public function setConfidenceMax(?float $confidenceMax): void;
 }

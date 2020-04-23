@@ -26,11 +26,11 @@ interface ImportSummary extends JsonObject
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getTotal();
 
     public function setStates(?OperationStates $states): void;
 
-    public function setTotal(?int $total): void;
+    public function setTotal(?float $total): void;
 }

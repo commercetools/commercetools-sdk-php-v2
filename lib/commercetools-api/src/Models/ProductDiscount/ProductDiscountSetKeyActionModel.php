@@ -45,7 +45,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountSetKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class ProductDiscountSetKeyActionModel extends JsonObjectModel implements 
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

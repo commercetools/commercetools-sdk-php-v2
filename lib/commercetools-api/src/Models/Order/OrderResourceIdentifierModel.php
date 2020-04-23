@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderResourceIdentifierModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class OrderResourceIdentifierModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class OrderResourceIdentifierModel extends JsonObjectModel implements Orde
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -98,6 +97,7 @@ final class OrderResourceIdentifierModel extends JsonObjectModel implements Orde
 
         return $this->key;
     }
+
 
     public function setId(?string $id): void
     {

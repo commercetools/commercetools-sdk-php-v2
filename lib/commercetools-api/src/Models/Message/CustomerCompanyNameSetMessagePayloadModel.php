@@ -45,7 +45,7 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->companyName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerCompanyNameSetMessagePayload::FIELD_COMPANY_NAME);
+            $data = $this->raw(self::FIELD_COMPANY_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
 
         return $this->companyName;
     }
+
 
     public function setCompanyName(?string $companyName): void
     {

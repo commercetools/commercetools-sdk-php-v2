@@ -73,7 +73,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductSetAssetKeyAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +107,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetKeyAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +124,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAssetKeyAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +141,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetKeyAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +161,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetKeyAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -170,6 +170,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
 
         return $this->assetKey;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

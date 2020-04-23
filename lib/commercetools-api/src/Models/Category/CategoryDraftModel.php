@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -121,7 +120,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +143,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -162,7 +161,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -183,7 +182,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->parent)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_PARENT);
+            $data = $this->raw(self::FIELD_PARENT);
             if (is_null($data)) {
                 return null;
             }
@@ -204,7 +203,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryDraft::FIELD_ORDER_HINT);
+            $data = $this->raw(self::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -221,7 +220,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryDraft::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -238,7 +237,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->metaTitle)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_META_TITLE);
+            $data = $this->raw(self::FIELD_META_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -256,7 +255,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_META_DESCRIPTION);
+            $data = $this->raw(self::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -274,7 +273,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_META_KEYWORDS);
+            $data = $this->raw(self::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -294,7 +293,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -312,7 +311,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategoryDraft::FIELD_ASSETS);
+            $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -332,7 +331,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -341,6 +340,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
 
         return $this->key;
     }
+
 
     public function setName(?LocalizedString $name): void
     {

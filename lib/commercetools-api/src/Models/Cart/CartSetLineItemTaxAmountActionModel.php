@@ -52,7 +52,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetLineItemTaxAmountAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->externalTaxAmount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetLineItemTaxAmountAction::FIELD_EXTERNAL_TAX_AMOUNT);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
 
         return $this->externalTaxAmount;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

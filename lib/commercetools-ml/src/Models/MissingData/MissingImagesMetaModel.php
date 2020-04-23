@@ -52,7 +52,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     {
         if (is_null($this->productLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingImagesMeta::FIELD_PRODUCT_LEVEL);
+            $data = $this->raw(self::FIELD_PRODUCT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -70,7 +70,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     {
         if (is_null($this->variantLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingImagesMeta::FIELD_VARIANT_LEVEL);
+            $data = $this->raw(self::FIELD_VARIANT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     {
         if (is_null($this->threshold)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesMeta::FIELD_THRESHOLD);
+            $data = $this->raw(self::FIELD_THRESHOLD);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +99,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
 
         return $this->threshold;
     }
+
 
     public function setProductLevel(?MissingImagesProductLevel $productLevel): void
     {

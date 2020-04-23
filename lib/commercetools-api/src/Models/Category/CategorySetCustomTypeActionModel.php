@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +75,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategorySetCustomTypeAction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategorySetCustomTypeAction::FIELD_FIELDS);
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -106,6 +105,7 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
 
         return $this->fields;
     }
+
 
     public function setType(?TypeResourceIdentifier $type): void
     {

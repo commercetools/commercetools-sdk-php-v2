@@ -28,7 +28,7 @@ final class TaxPortionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $rate;
 
@@ -48,7 +48,7 @@ final class TaxPortionBuilder implements Builder
     /**
      * <p>A number in the range [0..1]</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getRate()
     {
@@ -76,7 +76,7 @@ final class TaxPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRate(?int $rate)
+    public function withRate(?float $rate)
     {
         $this->rate = $rate;
 

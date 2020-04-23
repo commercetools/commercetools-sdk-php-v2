@@ -13,7 +13,6 @@ use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     {
         if (is_null($this->interfaceCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatusDraft::FIELD_INTERFACE_CODE);
+            $data = $this->raw(self::FIELD_INTERFACE_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     {
         if (is_null($this->interfaceText)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatusDraft::FIELD_INTERFACE_TEXT);
+            $data = $this->raw(self::FIELD_INTERFACE_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentStatusDraft::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
 
         return $this->state;
     }
+
 
     public function setInterfaceCode(?string $interfaceCode): void
     {

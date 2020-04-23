@@ -36,7 +36,7 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     public function getName();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -64,7 +64,7 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
 
     public function setName(?LocalizedString $name): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setSlug(?string $slug): void;
 

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
-
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
@@ -62,7 +61,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     protected $slug;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -104,7 +103,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         TaxedItemPrice $taxedPrice = null,
         TypedMoney $totalPrice = null,
         string $slug = null,
-        int $quantity = null,
+        float $quantity = null,
         ItemStateCollection $state = null,
         TaxCategoryReference $taxCategory = null,
         TaxRate $taxRate = null,
@@ -136,7 +135,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomLineItem::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -155,7 +154,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -176,7 +175,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->money)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_MONEY);
+            $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;
             }
@@ -196,7 +195,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -219,7 +218,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -239,7 +238,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->slug)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomLineItem::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -253,17 +252,17 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomLineItem::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -276,7 +275,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->state)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomLineItem::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -293,7 +292,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -314,7 +313,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -332,7 +331,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->discountedPricePerQuantity)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomLineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -349,7 +348,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -371,7 +370,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     {
         if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_SHIPPING_DETAILS);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
@@ -381,6 +380,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
         return $this->shippingDetails;
     }
+
 
     public function setId(?string $id): void
     {
@@ -412,7 +412,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->slug = $slug;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

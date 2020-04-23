@@ -45,7 +45,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     {
         if (is_null($this->resourceTypeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionTrigger::FIELD_RESOURCE_TYPE_ID);
+            $data = $this->raw(self::FIELD_RESOURCE_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     {
         if (is_null($this->actions)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ExtensionTrigger::FIELD_ACTIONS);
+            $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
 
         return $this->actions;
     }
+
 
     public function setResourceTypeId(?string $resourceTypeId): void
     {

@@ -73,7 +73,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->password)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_PASSWORD);
+            $data = $this->raw(self::FIELD_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +107,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->anonymousCartId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_CART_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_CART_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +124,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->anonymousCartSignInMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_CART_SIGN_IN_MODE);
+            $data = $this->raw(self::FIELD_ANONYMOUS_CART_SIGN_IN_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +141,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -158,7 +158,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     {
         if (is_null($this->updateProductData)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CustomerSignin::FIELD_UPDATE_PRODUCT_DATA);
+            $data = $this->raw(self::FIELD_UPDATE_PRODUCT_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -167,6 +167,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
 
         return $this->updateProductData;
     }
+
 
     public function setEmail(?string $email): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -71,7 +70,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountValue::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +87,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountValueGiftLineItem::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -106,7 +105,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CartDiscountValueGiftLineItem::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +122,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountValueGiftLineItem::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +140,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     {
         if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountValueGiftLineItem::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -151,6 +150,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
 
         return $this->distributionChannel;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

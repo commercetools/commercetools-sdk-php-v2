@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\ParcelMeasurementsModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetParcelMeasurementsAction::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     {
         if (is_null($this->measurements)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetParcelMeasurementsAction::FIELD_MEASUREMENTS);
+            $data = $this->raw(self::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
 
         return $this->measurements;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

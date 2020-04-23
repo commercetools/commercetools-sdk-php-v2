@@ -45,7 +45,7 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->cartPredicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeSetCartPredicateAction::FIELD_CART_PREDICATE);
+            $data = $this->raw(self::FIELD_CART_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
 
         return $this->cartPredicate;
     }
+
 
     public function setCartPredicate(?string $cartPredicate): void
     {

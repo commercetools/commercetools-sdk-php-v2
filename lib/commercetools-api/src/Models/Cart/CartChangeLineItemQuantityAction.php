@@ -25,7 +25,7 @@ interface CartChangeLineItemQuantityAction extends CartUpdateAction
     public function getLineItemId();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -41,7 +41,7 @@ interface CartChangeLineItemQuantityAction extends CartUpdateAction
 
     public function setLineItemId(?string $lineItemId): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setExternalPrice(?Money $externalPrice): void;
 

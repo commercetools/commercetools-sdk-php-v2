@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\OrderModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     {
         if (is_null($this->order)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderCreatedMessagePayload::FIELD_ORDER);
+            $data = $this->raw(self::FIELD_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
 
         return $this->order;
     }
+
 
     public function setOrder(?Order $order): void
     {

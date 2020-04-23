@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -36,7 +35,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     protected $lineItemId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -53,7 +52,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
 
     public function __construct(
         string $lineItemId = null,
-        int $quantity = null,
+        float $quantity = null,
         Money $externalPrice = null,
         ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
@@ -71,7 +70,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +87,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartChangeLineItemQuantityAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -99,17 +98,17 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyCartChangeLineItemQuantityAction::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -122,7 +121,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->externalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartChangeLineItemQuantityAction::FIELD_EXTERNAL_PRICE);
+            $data = $this->raw(self::FIELD_EXTERNAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -140,7 +139,7 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->externalTotalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartChangeLineItemQuantityAction::FIELD_EXTERNAL_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -151,12 +150,13 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
         return $this->externalTotalPrice;
     }
 
+
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

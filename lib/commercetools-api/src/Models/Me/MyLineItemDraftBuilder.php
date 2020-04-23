@@ -37,7 +37,7 @@ final class MyLineItemDraftBuilder implements Builder
     private $variantId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -83,7 +83,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -164,7 +164,7 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

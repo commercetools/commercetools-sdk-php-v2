@@ -48,7 +48,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     {
         if (is_null($this->targets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ItemShippingDetails::FIELD_TARGETS);
+            $data = $this->raw(self::FIELD_TARGETS);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     {
         if (is_null($this->valid)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ItemShippingDetails::FIELD_VALID);
+            $data = $this->raw(self::FIELD_VALID);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +78,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
 
         return $this->valid;
     }
+
 
     public function setTargets(?ItemShippingTargetCollection $targets): void
     {

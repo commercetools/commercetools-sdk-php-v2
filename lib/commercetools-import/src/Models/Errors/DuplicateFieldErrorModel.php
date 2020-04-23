@@ -59,7 +59,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -78,7 +78,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +97,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->field)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_FIELD);
+            $data = $this->raw(self::FIELD_FIELD);
             if (is_null($data)) {
                 return null;
             }
@@ -116,7 +116,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->duplicateValue)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_DUPLICATE_VALUE);
+            $data = $this->raw(self::FIELD_DUPLICATE_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -125,6 +125,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
 
         return $this->duplicateValue;
     }
+
 
     public function setMessage(?string $message): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderAddDeliveryAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderAddDeliveryAction::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     {
         if (is_null($this->parcels)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderAddDeliveryAction::FIELD_PARCELS);
+            $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
 
         return $this->parcels;
     }
+
 
     public function setItems(?DeliveryItemCollection $items): void
     {

@@ -22,11 +22,11 @@ interface DeliveryItem extends JsonObject
     public function getId();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
     public function setId(?string $id): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 }

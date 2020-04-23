@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
@@ -26,7 +25,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -160,7 +158,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingList::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +177,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingList::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -196,7 +194,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingList::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -217,7 +215,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingList::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -240,7 +238,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -260,7 +258,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -278,7 +276,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -296,7 +294,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -316,7 +314,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->deleteDaysAfterLastModification)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingList::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -333,7 +331,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -353,7 +351,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingList::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -370,7 +368,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingList::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -387,7 +385,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -409,7 +407,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -427,7 +425,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->textLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingList::FIELD_TEXT_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -446,7 +444,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingList::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -455,6 +453,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 
         return $this->anonymousId;
     }
+
 
     public function setId(?string $id): void
     {

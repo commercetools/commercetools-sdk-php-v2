@@ -25,6 +25,7 @@ final class SuggestionResultModel extends JsonObjectModel implements SuggestionR
 
 
 
+
     /**
      * @return mixed
      */

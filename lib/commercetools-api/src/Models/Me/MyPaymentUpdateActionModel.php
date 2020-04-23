@@ -50,7 +50,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyPaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -59,6 +59,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
 
         return $this->action;
     }
+
 
 
 

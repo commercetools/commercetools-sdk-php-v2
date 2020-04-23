@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -47,7 +46,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +65,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->stagedActions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditSetStagedActionsAction::FIELD_STAGED_ACTIONS);
+            $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
 
         return $this->stagedActions;
     }
+
 
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
     {

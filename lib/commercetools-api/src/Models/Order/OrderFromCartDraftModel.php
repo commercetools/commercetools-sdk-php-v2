@@ -13,7 +13,6 @@ use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -85,7 +84,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -102,7 +101,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +124,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_ORDER_NUMBER);
+            $data = $this->raw(self::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +141,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -159,7 +158,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -178,7 +177,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->orderState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_ORDER_STATE);
+            $data = $this->raw(self::FIELD_ORDER_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -195,7 +194,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -205,6 +204,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
 
         return $this->state;
     }
+
 
     public function setId(?string $id): void
     {

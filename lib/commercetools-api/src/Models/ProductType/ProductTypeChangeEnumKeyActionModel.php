@@ -59,7 +59,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeEnumKeyAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeEnumKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->newKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeEnumKeyAction::FIELD_NEW_KEY);
+            $data = $this->raw(self::FIELD_NEW_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
 
         return $this->newKey;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

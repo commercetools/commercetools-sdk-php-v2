@@ -45,7 +45,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
 
         return $this->id;
     }
+
 
     public function setId(?string $id): void
     {

@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -90,7 +88,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +105,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +122,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->discountCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +139,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->reason)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_REASON);
+            $data = $this->raw(self::FIELD_REASON);
             if (is_null($data)) {
                 return null;
             }
@@ -158,7 +156,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->dicountCodeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DICOUNT_CODE_ID);
+            $data = $this->raw(self::FIELD_DICOUNT_CODE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -175,7 +173,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -196,7 +194,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -217,7 +215,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     {
         if (is_null($this->validityCheckTime)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME);
+            $data = $this->raw(self::FIELD_VALIDITY_CHECK_TIME);
             if (is_null($data)) {
                 return null;
             }
@@ -230,6 +228,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
 
         return $this->validityCheckTime;
     }
+
 
     public function setMessage(?string $message): void
     {

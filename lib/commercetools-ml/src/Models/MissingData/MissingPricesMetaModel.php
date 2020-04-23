@@ -45,7 +45,7 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     {
         if (is_null($this->productLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingPricesMeta::FIELD_PRODUCT_LEVEL);
+            $data = $this->raw(self::FIELD_PRODUCT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -63,7 +63,7 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     {
         if (is_null($this->variantLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingPricesMeta::FIELD_VARIANT_LEVEL);
+            $data = $this->raw(self::FIELD_VARIANT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
 
         return $this->variantLevel;
     }
+
 
     public function setProductLevel(?MissingPricesProductLevel $productLevel): void
     {

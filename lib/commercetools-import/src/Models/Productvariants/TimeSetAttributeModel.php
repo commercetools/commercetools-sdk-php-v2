@@ -56,7 +56,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     {
         if (is_null($this->value)) {
             /** @psalm-var ?array<int, string> $data */
-            $data = $this->raw(TimeSetAttribute::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +99,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
 
         return $this->value;
     }
+
 
     public function setName(?string $name): void
     {

@@ -52,7 +52,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     {
         if (is_null($this->transactionId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentChangeTransactionInteractionIdAction::FIELD_TRANSACTION_ID);
+            $data = $this->raw(self::FIELD_TRANSACTION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     {
         if (is_null($this->interactionId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentChangeTransactionInteractionIdAction::FIELD_INTERACTION_ID);
+            $data = $this->raw(self::FIELD_INTERACTION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
 
         return $this->interactionId;
     }
+
 
     public function setTransactionId(?string $transactionId): void
     {

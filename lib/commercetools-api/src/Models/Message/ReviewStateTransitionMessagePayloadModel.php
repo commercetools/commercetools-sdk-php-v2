@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -85,7 +84,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -102,7 +101,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->oldState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_OLD_STATE);
+            $data = $this->raw(self::FIELD_OLD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +119,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->newState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_NEW_STATE);
+            $data = $this->raw(self::FIELD_NEW_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -138,7 +137,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->oldIncludedInStatistics)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_OLD_INCLUDED_IN_STATISTICS);
+            $data = $this->raw(self::FIELD_OLD_INCLUDED_IN_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -155,7 +154,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->newIncludedInStatistics)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_NEW_INCLUDED_IN_STATISTICS);
+            $data = $this->raw(self::FIELD_NEW_INCLUDED_IN_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -172,7 +171,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -190,7 +189,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->force)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_FORCE);
+            $data = $this->raw(self::FIELD_FORCE);
             if (is_null($data)) {
                 return null;
             }
@@ -199,6 +198,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
 
         return $this->force;
     }
+
 
     public function setOldState(?StateReference $oldState): void
     {

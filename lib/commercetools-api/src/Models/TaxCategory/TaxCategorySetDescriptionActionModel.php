@@ -45,7 +45,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategorySetDescriptionAction::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
 
         return $this->description;
     }
+
 
     public function setDescription(?string $description): void
     {

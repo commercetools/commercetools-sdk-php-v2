@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AssetDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -76,7 +75,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +109,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +126,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +143,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->asset)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_ASSET);
+            $data = $this->raw(self::FIELD_ASSET);
             if (is_null($data)) {
                 return null;
             }
@@ -164,7 +163,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->position)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_POSITION);
+            $data = $this->raw(self::FIELD_POSITION);
             if (is_null($data)) {
                 return null;
             }
@@ -173,6 +172,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
 
         return $this->position;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

@@ -49,7 +49,7 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -58,6 +58,7 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
 
         return $this->action;
     }
+
 
 
 

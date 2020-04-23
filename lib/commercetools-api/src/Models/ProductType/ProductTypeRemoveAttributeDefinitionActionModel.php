@@ -45,7 +45,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeRemoveAttributeDefinitionAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
 
         return $this->name;
     }
+
 
     public function setName(?string $name): void
     {

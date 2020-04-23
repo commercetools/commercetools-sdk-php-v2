@@ -20,7 +20,7 @@ use stdClass;
 final class SimilarProductPairModel extends JsonObjectModel implements SimilarProductPair
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $confidence;
 
@@ -31,7 +31,7 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
 
 
     public function __construct(
-        int $confidence = null,
+        float $confidence = null,
         SimilarProductCollection $products = null
     ) {
         $this->confidence = $confidence;
@@ -41,17 +41,17 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>The probability of product similarity.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence()
     {
         if (is_null($this->confidence)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductPair::FIELD_CONFIDENCE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_CONFIDENCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->confidence = (int) $data;
+            $this->confidence = (float) $data;
         }
 
         return $this->confidence;
@@ -64,7 +64,7 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     {
         if (is_null($this->products)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SimilarProductPair::FIELD_PRODUCTS);
+            $data = $this->raw(self::FIELD_PRODUCTS);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +74,8 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
         return $this->products;
     }
 
-    public function setConfidence(?int $confidence): void
+
+    public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;
     }

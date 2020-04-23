@@ -45,7 +45,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     {
         if (is_null($this->isDefault)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ShippingMethodChangeIsDefaultAction::FIELD_IS_DEFAULT);
+            $data = $this->raw(self::FIELD_IS_DEFAULT);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
 
         return $this->isDefault;
     }
+
 
     public function setIsDefault(?bool $isDefault): void
     {

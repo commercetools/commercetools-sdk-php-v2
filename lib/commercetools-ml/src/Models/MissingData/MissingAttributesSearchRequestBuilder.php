@@ -46,12 +46,12 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     private $includeVariants;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $coverageMin;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $coverageMax;
 
@@ -129,7 +129,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     /**
      * <p>Minimum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMin()
     {
@@ -139,7 +139,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     /**
      * <p>Maximum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMax()
     {
@@ -253,7 +253,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCoverageMin(?int $coverageMin)
+    public function withCoverageMin(?float $coverageMin)
     {
         $this->coverageMin = $coverageMin;
 
@@ -263,7 +263,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCoverageMax(?int $coverageMax)
+    public function withCoverageMax(?float $coverageMax)
     {
         $this->coverageMax = $coverageMax;
 

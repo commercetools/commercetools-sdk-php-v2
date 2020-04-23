@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
     {
         if (is_null($this->fieldName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeChangeFieldDefinitionLabelAction::FIELD_FIELD_NAME);
+            $data = $this->raw(self::FIELD_FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TypeChangeFieldDefinitionLabelAction::FIELD_LABEL);
+            $data = $this->raw(self::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
 
         return $this->label;
     }
+
 
     public function setFieldName(?string $fieldName): void
     {

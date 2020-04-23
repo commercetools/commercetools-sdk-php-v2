@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxAmountDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetCustomLineItemTaxAmountAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     {
         if (is_null($this->externalTaxAmount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetCustomLineItemTaxAmountAction::FIELD_EXTERNAL_TAX_AMOUNT);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
 
         return $this->externalTaxAmount;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

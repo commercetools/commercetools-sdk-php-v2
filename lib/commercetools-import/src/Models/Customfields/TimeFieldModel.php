@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -50,7 +48,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +65,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TimeField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -80,6 +78,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
 
         return $this->value;
     }
+
 
     public function setValue(?DateTimeImmutable $value): void
     {

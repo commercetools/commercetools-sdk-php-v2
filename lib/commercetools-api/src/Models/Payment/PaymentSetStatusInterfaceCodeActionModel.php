@@ -45,7 +45,7 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
     {
         if (is_null($this->interfaceCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentSetStatusInterfaceCodeAction::FIELD_INTERFACE_CODE);
+            $data = $this->raw(self::FIELD_INTERFACE_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
 
         return $this->interfaceCode;
     }
+
 
     public function setInterfaceCode(?string $interfaceCode): void
     {

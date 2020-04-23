@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -81,7 +80,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->priceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductChangePriceAction::FIELD_PRICE_ID);
+            $data = $this->raw(self::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -98,7 +97,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductChangePriceAction::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -116,7 +115,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangePriceAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -125,6 +124,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
 
         return $this->staged;
     }
+
 
     public function setPriceId(?string $priceId): void
     {

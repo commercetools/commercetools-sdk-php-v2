@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
@@ -63,7 +62,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +79,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderCustomLineItemDiscountSetMessagePayload::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +96,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     {
         if (is_null($this->discountedPricePerQuantity)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderCustomLineItemDiscountSetMessagePayload::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderCustomLineItemDiscountSetMessagePayload::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -124,6 +123,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
 
         return $this->taxedPrice;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

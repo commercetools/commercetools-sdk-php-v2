@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -71,7 +70,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(FieldDefinition::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +93,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldDefinition::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(FieldDefinition::FIELD_LABEL);
+            $data = $this->raw(self::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -133,7 +132,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         if (is_null($this->required)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(FieldDefinition::FIELD_REQUIRED);
+            $data = $this->raw(self::FIELD_REQUIRED);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +152,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     {
         if (is_null($this->inputHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldDefinition::FIELD_INPUT_HINT);
+            $data = $this->raw(self::FIELD_INPUT_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -162,6 +161,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
 
         return $this->inputHint;
     }
+
 
     public function setType(?FieldType $type): void
     {

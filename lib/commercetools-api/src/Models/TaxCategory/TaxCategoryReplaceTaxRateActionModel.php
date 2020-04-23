@@ -52,7 +52,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->taxRateId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryReplaceTaxRateAction::FIELD_TAX_RATE_ID);
+            $data = $this->raw(self::FIELD_TAX_RATE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxCategoryReplaceTaxRateAction::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
 
         return $this->taxRate;
     }
+
 
     public function setTaxRateId(?string $taxRateId): void
     {

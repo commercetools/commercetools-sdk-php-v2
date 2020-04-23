@@ -22,11 +22,11 @@ interface SubRate extends JsonObject
     public function getName();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
     public function setName(?string $name): void;
 
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 }

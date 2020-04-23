@@ -45,7 +45,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     {
         if (is_null($this->values)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(AttributeEnumType::FIELD_VALUES);
+            $data = $this->raw(self::FIELD_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
 
         return $this->values;
     }
+
 
     public function setValues(?AttributePlainEnumValueCollection $values): void
     {

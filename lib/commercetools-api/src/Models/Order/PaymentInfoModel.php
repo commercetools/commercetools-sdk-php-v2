@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -40,7 +39,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     {
         if (is_null($this->payments)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PaymentInfo::FIELD_PAYMENTS);
+            $data = $this->raw(self::FIELD_PAYMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -49,6 +48,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 
         return $this->payments;
     }
+
 
     public function setPayments(?PaymentReferenceCollection $payments): void
     {

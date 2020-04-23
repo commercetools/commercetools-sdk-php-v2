@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     {
         if (is_null($this->obj)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TypeReference::FIELD_OBJ);
+            $data = $this->raw(self::FIELD_OBJ);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 
         return $this->obj;
     }
+
 
     public function setId(?string $id): void
     {

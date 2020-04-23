@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetCustomLineItemCustomFieldAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetCustomLineItemCustomFieldAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(StagedOrderSetCustomLineItemCustomFieldAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -122,6 +121,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
 
         return $this->value;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

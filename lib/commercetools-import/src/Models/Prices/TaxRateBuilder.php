@@ -31,7 +31,7 @@ final class TaxRateBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $amount;
 
@@ -72,7 +72,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
@@ -136,7 +136,7 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?int $amount)
+    public function withAmount(?float $amount)
     {
         $this->amount = $amount;
 

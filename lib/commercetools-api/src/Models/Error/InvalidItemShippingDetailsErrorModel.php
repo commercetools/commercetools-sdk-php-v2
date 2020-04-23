@@ -59,7 +59,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     {
         if (is_null($this->subject)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InvalidItemShippingDetailsError::FIELD_SUBJECT);
+            $data = $this->raw(self::FIELD_SUBJECT);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     {
         if (is_null($this->itemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InvalidItemShippingDetailsError::FIELD_ITEM_ID);
+            $data = $this->raw(self::FIELD_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
 
         return $this->itemId;
     }
+
 
     public function setMessage(?string $message): void
     {

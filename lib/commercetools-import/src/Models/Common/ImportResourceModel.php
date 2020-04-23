@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Categories\CategoryImport;
-
 use Commercetools\Import\Models\Categories\CategoryImportModel;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Prices\PriceImportModel;
@@ -51,7 +50,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportResource::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -60,6 +59,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

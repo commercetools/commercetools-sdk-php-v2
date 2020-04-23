@@ -54,7 +54,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesDetails::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     {
         if (is_null($this->missingAttributeNames)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesDetails::FIELD_MISSING_ATTRIBUTE_NAMES);
+            $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_NAMES);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +92,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     {
         if (is_null($this->missingAttributeValues)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesDetails::FIELD_MISSING_ATTRIBUTE_VALUES);
+            $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +101,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
 
         return $this->missingAttributeValues;
     }
+
 
     public function setTotal(?int $total): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportCollection;
-
 use stdClass;
 
 /**
@@ -49,7 +48,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportRequest::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->resources)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantImportRequest::FIELD_RESOURCES);
+            $data = $this->raw(self::FIELD_RESOURCES);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
 
         return $this->resources;
     }
+
 
     public function setResources(?ProductVariantImportCollection $resources): void
     {

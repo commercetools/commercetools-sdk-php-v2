@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -50,7 +49,7 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +66,7 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetShippingMethodTaxRateAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
 
         return $this->externalTaxRate;
     }
+
 
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {

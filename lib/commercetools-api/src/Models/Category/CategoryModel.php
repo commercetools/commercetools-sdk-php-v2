@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
-
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -25,7 +24,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -180,7 +178,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -199,7 +197,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Category::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -216,7 +214,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -237,7 +235,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -260,7 +258,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -280,7 +278,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -298,7 +296,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -319,7 +317,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -337,7 +335,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -357,7 +355,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->ancestors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Category::FIELD_ANCESTORS);
+            $data = $this->raw(self::FIELD_ANCESTORS);
             if (is_null($data)) {
                 return null;
             }
@@ -376,7 +374,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->parent)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_PARENT);
+            $data = $this->raw(self::FIELD_PARENT);
             if (is_null($data)) {
                 return null;
             }
@@ -396,7 +394,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_ORDER_HINT);
+            $data = $this->raw(self::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -413,7 +411,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -430,7 +428,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->metaTitle)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_TITLE);
+            $data = $this->raw(self::FIELD_META_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -448,7 +446,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
+            $data = $this->raw(self::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -466,7 +464,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_KEYWORDS);
+            $data = $this->raw(self::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -484,7 +482,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -504,7 +502,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Category::FIELD_ASSETS);
+            $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -523,7 +521,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -532,6 +530,7 @@ final class CategoryModel extends JsonObjectModel implements Category
 
         return $this->key;
     }
+
 
     public function setId(?string $id): void
     {

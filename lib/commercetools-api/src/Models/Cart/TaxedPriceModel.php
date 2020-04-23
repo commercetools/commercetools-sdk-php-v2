@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     {
         if (is_null($this->totalNet)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedPrice::FIELD_TOTAL_NET);
+            $data = $this->raw(self::FIELD_TOTAL_NET);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +72,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     {
         if (is_null($this->totalGross)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedPrice::FIELD_TOTAL_GROSS);
+            $data = $this->raw(self::FIELD_TOTAL_GROSS);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     {
         if (is_null($this->taxPortions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxedPrice::FIELD_TAX_PORTIONS);
+            $data = $this->raw(self::FIELD_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +101,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 
         return $this->taxPortions;
     }
+
 
     public function setTotalNet(?TypedMoney $totalNet): void
     {

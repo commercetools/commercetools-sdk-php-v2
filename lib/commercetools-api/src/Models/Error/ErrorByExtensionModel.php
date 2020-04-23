@@ -45,7 +45,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorByExtension::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorByExtension::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
 
         return $this->key;
     }
+
 
     public function setId(?string $id): void
     {

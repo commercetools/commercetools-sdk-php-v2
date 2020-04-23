@@ -50,7 +50,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Destination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -59,6 +59,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
 
         return $this->type;
     }
+
 
 
 

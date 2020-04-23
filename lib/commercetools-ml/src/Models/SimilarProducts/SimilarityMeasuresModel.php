@@ -68,7 +68,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         if (is_null($this->name)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarityMeasures::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +87,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         if (is_null($this->description)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarityMeasures::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -106,7 +106,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         if (is_null($this->attribute)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarityMeasures::FIELD_ATTRIBUTE);
+            $data = $this->raw(self::FIELD_ATTRIBUTE);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +125,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         if (is_null($this->variantCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarityMeasures::FIELD_VARIANT_COUNT);
+            $data = $this->raw(self::FIELD_VARIANT_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +144,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     {
         if (is_null($this->price)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarityMeasures::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -153,6 +153,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
 
         return $this->price;
     }
+
 
     public function setName(?int $name): void
     {

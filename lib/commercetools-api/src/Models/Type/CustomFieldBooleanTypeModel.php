@@ -38,7 +38,7 @@ final class CustomFieldBooleanTypeModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }

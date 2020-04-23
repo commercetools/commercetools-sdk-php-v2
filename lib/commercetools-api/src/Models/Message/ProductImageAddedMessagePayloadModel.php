@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ImageModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductImageAddedMessagePayload::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->image)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImageAddedMessagePayload::FIELD_IMAGE);
+            $data = $this->raw(self::FIELD_IMAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductImageAddedMessagePayload::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
 
         return $this->staged;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

@@ -27,7 +27,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $amount;
 
@@ -65,7 +65,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
@@ -127,7 +127,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?int $amount)
+    public function withAmount(?float $amount)
     {
         $this->amount = $amount;
 

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -75,7 +74,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditSetCustomTypeAction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,7 +94,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditSetCustomTypeAction::FIELD_FIELDS);
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -104,6 +103,7 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
 
         return $this->fields;
     }
+
 
     public function setType(?TypeResourceIdentifier $type): void
     {

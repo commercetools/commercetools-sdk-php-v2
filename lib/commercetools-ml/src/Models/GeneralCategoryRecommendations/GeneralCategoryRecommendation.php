@@ -26,11 +26,11 @@ interface GeneralCategoryRecommendation extends JsonObject
     /**
      * <p>Probability score for the category recommendation.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence();
 
     public function setCategoryName(?string $categoryName): void;
 
-    public function setConfidence(?int $confidence): void;
+    public function setConfidence(?float $confidence): void;
 }

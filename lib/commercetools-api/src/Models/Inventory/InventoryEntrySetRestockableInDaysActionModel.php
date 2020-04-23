@@ -45,7 +45,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     {
         if (is_null($this->restockableInDays)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntrySetRestockableInDaysAction::FIELD_RESTOCKABLE_IN_DAYS);
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
 
         return $this->restockableInDays;
     }
+
 
     public function setRestockableInDays(?int $restockableInDays): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
-
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -21,7 +20,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -139,7 +137,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -156,7 +154,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -173,7 +171,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -194,7 +192,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -215,7 +213,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -233,7 +231,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -251,7 +249,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->sequenceNumber)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_SEQUENCE_NUMBER);
+            $data = $this->raw(self::FIELD_SEQUENCE_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -268,7 +266,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -286,7 +284,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->resourceVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_VERSION);
+            $data = $this->raw(self::FIELD_RESOURCE_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -303,7 +301,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -320,7 +318,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->resourceUserProvidedIdentifiers)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            $data = $this->raw(self::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -338,7 +336,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DeliveryItemsUpdatedMessage::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -355,7 +353,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DeliveryItemsUpdatedMessage::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -372,7 +370,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     {
         if (is_null($this->oldItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DeliveryItemsUpdatedMessage::FIELD_OLD_ITEMS);
+            $data = $this->raw(self::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -381,6 +379,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
 
         return $this->oldItems;
     }
+
 
     public function setId(?string $id): void
     {

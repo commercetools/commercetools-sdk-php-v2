@@ -13,14 +13,12 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
-
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -85,12 +83,12 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     protected $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $oldRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $newRating;
 
@@ -116,8 +114,8 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
         Reference $resource = null,
         int $resourceVersion = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        int $oldRating = null,
-        int $newRating = null,
+        float $oldRating = null,
+        float $newRating = null,
         bool $includedInStatistics = null,
         Reference $target = null
     ) {
@@ -145,7 +143,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -162,7 +160,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +177,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -200,7 +198,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -221,7 +219,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -239,7 +237,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -257,7 +255,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->sequenceNumber)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_SEQUENCE_NUMBER);
+            $data = $this->raw(self::FIELD_SEQUENCE_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -274,7 +272,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -292,7 +290,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->resourceVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_VERSION);
+            $data = $this->raw(self::FIELD_RESOURCE_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -309,7 +307,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -326,7 +324,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->resourceUserProvidedIdentifiers)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            $data = $this->raw(self::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -338,34 +336,34 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getOldRating()
     {
         if (is_null($this->oldRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingSetMessage::FIELD_OLD_RATING);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_OLD_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->oldRating = (int) $data;
+            $this->oldRating = (float) $data;
         }
 
         return $this->oldRating;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getNewRating()
     {
         if (is_null($this->newRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingSetMessage::FIELD_NEW_RATING);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_NEW_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->newRating = (int) $data;
+            $this->newRating = (float) $data;
         }
 
         return $this->newRating;
@@ -378,7 +376,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->includedInStatistics)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewRatingSetMessage::FIELD_INCLUDED_IN_STATISTICS);
+            $data = $this->raw(self::FIELD_INCLUDED_IN_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -395,7 +393,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewRatingSetMessage::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -405,6 +403,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
 
         return $this->target;
     }
+
 
     public function setId(?string $id): void
     {
@@ -456,12 +455,12 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setOldRating(?int $oldRating): void
+    public function setOldRating(?float $oldRating): void
     {
         $this->oldRating = $oldRating;
     }
 
-    public function setNewRating(?int $newRating): void
+    public function setNewRating(?float $newRating): void
     {
         $this->newRating = $newRating;
     }

@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -45,7 +43,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     protected $productId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -60,7 +58,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         CustomFieldsDraft $custom = null,
         string $sku = null,
         string $productId = null,
-        int $quantity = null,
+        float $quantity = null,
         int $variantId = null
     ) {
         $this->addedAt = $addedAt;
@@ -78,7 +76,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     {
         if (is_null($this->addedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_ADDED_AT);
+            $data = $this->raw(self::FIELD_ADDED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -99,7 +97,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +115,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +132,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -145,17 +143,17 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -168,7 +166,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -177,6 +175,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
 
         return $this->variantId;
     }
+
 
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
@@ -198,7 +197,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         $this->productId = $productId;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

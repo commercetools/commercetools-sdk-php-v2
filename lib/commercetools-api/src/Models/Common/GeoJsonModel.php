@@ -45,7 +45,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GeoJson::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -54,6 +54,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 
         return $this->type;
     }
+
 
 
 

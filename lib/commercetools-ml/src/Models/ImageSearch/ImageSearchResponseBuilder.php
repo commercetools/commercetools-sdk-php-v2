@@ -26,7 +26,7 @@ final class ImageSearchResponseBuilder implements Builder
     private $count;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $offset;
 
@@ -53,7 +53,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * <p>The offset into the results matching the query. An offset of 0 is the default value indicating that no results should be skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset()
     {
@@ -93,7 +93,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOffset(?int $offset)
+    public function withOffset(?float $offset)
     {
         $this->offset = $offset;
 

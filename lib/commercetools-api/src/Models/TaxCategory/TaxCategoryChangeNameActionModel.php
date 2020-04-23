@@ -45,7 +45,7 @@ final class TaxCategoryChangeNameActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TaxCategoryChangeNameActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryChangeNameAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class TaxCategoryChangeNameActionModel extends JsonObjectModel implements 
 
         return $this->name;
     }
+
 
     public function setName(?string $name): void
     {

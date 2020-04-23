@@ -59,7 +59,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     {
         if (is_null($this->isOnStock)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductVariantAvailability::FIELD_IS_ON_STOCK);
+            $data = $this->raw(self::FIELD_IS_ON_STOCK);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     {
         if (is_null($this->restockableInDays)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariantAvailability::FIELD_RESTOCKABLE_IN_DAYS);
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     {
         if (is_null($this->availableQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariantAvailability::FIELD_AVAILABLE_QUANTITY);
+            $data = $this->raw(self::FIELD_AVAILABLE_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     {
         if (is_null($this->channels)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariantAvailability::FIELD_CHANNELS);
+            $data = $this->raw(self::FIELD_CHANNELS);
             if (is_null($data)) {
                 return null;
             }
@@ -120,6 +120,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
 
         return $this->channels;
     }
+
 
     public function setIsOnStock(?bool $isOnStock): void
     {

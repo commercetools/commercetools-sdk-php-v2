@@ -52,7 +52,7 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetDeliveryItemsAction::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderSetDeliveryItemsAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
 
         return $this->items;
     }
+
 
     public function setDeliveryId(?string $deliveryId): void
     {

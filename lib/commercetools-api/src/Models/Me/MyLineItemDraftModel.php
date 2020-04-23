@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -37,7 +36,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     protected $variantId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -70,7 +69,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     public function __construct(
         string $productId = null,
         int $variantId = null,
-        int $quantity = null,
+        float $quantity = null,
         ChannelResourceIdentifier $supplyChannel = null,
         ChannelResourceIdentifier $distributionChannel = null,
         CustomFieldsDraft $custom = null,
@@ -94,7 +93,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -111,7 +110,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -122,17 +121,17 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -149,7 +148,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +169,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -190,7 +189,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -210,7 +209,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_SHIPPING_DETAILS);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
@@ -228,7 +227,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyLineItemDraft::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -237,6 +236,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
 
         return $this->sku;
     }
+
 
     public function setProductId(?string $productId): void
     {
@@ -248,7 +248,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         $this->variantId = $variantId;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

@@ -45,7 +45,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Destination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     {
         if (is_null($this->connectionString)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AzureServiceBusDestination::FIELD_CONNECTION_STRING);
+            $data = $this->raw(self::FIELD_CONNECTION_STRING);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
 
         return $this->connectionString;
     }
+
 
     public function setConnectionString(?string $connectionString): void
     {

@@ -52,7 +52,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductLegacySetSkuAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductLegacySetSkuAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
 
         return $this->variantId;
     }
+
 
     public function setSku(?string $sku): void
     {

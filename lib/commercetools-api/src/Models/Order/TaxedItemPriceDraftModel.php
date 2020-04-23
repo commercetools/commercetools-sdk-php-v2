@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
     {
         if (is_null($this->totalNet)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedItemPriceDraft::FIELD_TOTAL_NET);
+            $data = $this->raw(self::FIELD_TOTAL_NET);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +65,7 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
     {
         if (is_null($this->totalGross)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedItemPriceDraft::FIELD_TOTAL_GROSS);
+            $data = $this->raw(self::FIELD_TOTAL_GROSS);
             if (is_null($data)) {
                 return null;
             }
@@ -76,6 +75,7 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
 
         return $this->totalGross;
     }
+
 
     public function setTotalNet(?Money $totalNet): void
     {

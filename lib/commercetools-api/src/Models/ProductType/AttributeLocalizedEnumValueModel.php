@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_LABEL);
+            $data = $this->raw(self::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
 
         return $this->label;
     }
+
 
     public function setKey(?string $key): void
     {

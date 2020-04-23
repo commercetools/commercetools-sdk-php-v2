@@ -45,7 +45,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
     {
         if (is_null($this->roles)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(StateRemoveRolesAction::FIELD_ROLES);
+            $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
 
         return $this->roles;
     }
+
 
     public function setRoles(?array $roles): void
     {

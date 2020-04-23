@@ -13,14 +13,12 @@ use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -110,7 +108,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +125,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Extension::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +142,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -165,7 +163,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -188,7 +186,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Extension::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -208,7 +206,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Extension::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -226,7 +224,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -243,7 +241,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->destination)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Extension::FIELD_DESTINATION);
+            $data = $this->raw(self::FIELD_DESTINATION);
             if (is_null($data)) {
                 return null;
             }
@@ -261,7 +259,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->triggers)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Extension::FIELD_TRIGGERS);
+            $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;
             }
@@ -281,7 +279,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     {
         if (is_null($this->timeoutInMs)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Extension::FIELD_TIMEOUT_IN_MS);
+            $data = $this->raw(self::FIELD_TIMEOUT_IN_MS);
             if (is_null($data)) {
                 return null;
             }
@@ -290,6 +288,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
 
         return $this->timeoutInMs;
     }
+
 
     public function setId(?string $id): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -74,7 +73,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     {
         if (is_null($this->projectKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_PROJECT_KEY);
+            $data = $this->raw(self::FIELD_PROJECT_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     {
         if (is_null($this->notificationType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +107,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     {
         if (is_null($this->resourceUserProvidedIdentifiers)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            $data = $this->raw(self::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -136,6 +135,7 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
 
         return $this->resourceUserProvidedIdentifiers;
     }
+
 
     public function setProjectKey(?string $projectKey): void
     {

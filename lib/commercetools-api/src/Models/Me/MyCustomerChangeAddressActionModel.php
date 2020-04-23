@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     {
         if (is_null($this->addressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerChangeAddressAction::FIELD_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomerChangeAddressAction::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
 
         return $this->address;
     }
+
 
     public function setAddressId(?string $addressId): void
     {

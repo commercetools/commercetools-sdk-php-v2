@@ -45,7 +45,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     {
         if (is_null($this->scope)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPublishAction::FIELD_SCOPE);
+            $data = $this->raw(self::FIELD_SCOPE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
 
         return $this->scope;
     }
+
 
     public function setScope(?string $scope): void
     {

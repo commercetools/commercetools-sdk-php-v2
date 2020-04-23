@@ -52,7 +52,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     {
         if (is_null($this->query)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GraphQLRequest::FIELD_QUERY);
+            $data = $this->raw(self::FIELD_QUERY);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     {
         if (is_null($this->operationName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GraphQLRequest::FIELD_OPERATION_NAME);
+            $data = $this->raw(self::FIELD_OPERATION_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     {
         if (is_null($this->variables)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(GraphQLRequest::FIELD_VARIABLES);
+            $data = $this->raw(self::FIELD_VARIABLES);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
 
         return $this->variables;
     }
+
 
     public function setQuery(?string $query): void
     {

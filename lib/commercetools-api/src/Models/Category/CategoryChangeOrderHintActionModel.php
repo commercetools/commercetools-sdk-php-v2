@@ -45,7 +45,7 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryChangeOrderHintAction::FIELD_ORDER_HINT);
+            $data = $this->raw(self::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
 
         return $this->orderHint;
     }
+
 
     public function setOrderHint(?string $orderHint): void
     {

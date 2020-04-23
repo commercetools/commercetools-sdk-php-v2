@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -80,7 +78,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -99,7 +97,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->timestamp)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_TIMESTAMP);
+            $data = $this->raw(self::FIELD_TIMESTAMP);
             if (is_null($data)) {
                 return null;
             }
@@ -122,7 +120,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -139,7 +137,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->amount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Transaction::FIELD_AMOUNT);
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -160,7 +158,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->interactionId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_INTERACTION_ID);
+            $data = $this->raw(self::FIELD_INTERACTION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +177,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -188,6 +186,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
         return $this->state;
     }
+
 
     public function setId(?string $id): void
     {

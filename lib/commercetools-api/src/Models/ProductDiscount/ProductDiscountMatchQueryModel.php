@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\QueryPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
 
         return $this->price;
     }
+
 
     public function setProductId(?string $productId): void
     {

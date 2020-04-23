@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
-
 use Commercetools\Api\Models\Order\TrackingData;
 use Commercetools\Api\Models\Order\TrackingDataModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -74,7 +73,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +107,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     {
         if (is_null($this->measurements)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_MEASUREMENTS);
+            $data = $this->raw(self::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     {
         if (is_null($this->trackingData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_TRACKING_DATA);
+            $data = $this->raw(self::FIELD_TRACKING_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +143,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -153,6 +152,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
 
         return $this->items;
     }
+
 
     public function setDeliveryId(?string $deliveryId): void
     {

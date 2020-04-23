@@ -21,17 +21,17 @@ use stdClass;
 final class ReviewRatingStatisticsBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $averageRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $highestRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $lowestRating;
 
@@ -49,7 +49,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
      * <p>Average rating of one target
      * This number is rounded with 5 decimals.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAverageRating()
     {
@@ -59,7 +59,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * <p>Highest rating of one target</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getHighestRating()
     {
@@ -69,7 +69,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * <p>Lowest rating of one target</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getLowestRating()
     {
@@ -101,7 +101,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAverageRating(?int $averageRating)
+    public function withAverageRating(?float $averageRating)
     {
         $this->averageRating = $averageRating;
 
@@ -111,7 +111,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withHighestRating(?int $highestRating)
+    public function withHighestRating(?float $highestRating)
     {
         $this->highestRating = $highestRating;
 
@@ -121,7 +121,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLowestRating(?int $lowestRating)
+    public function withLowestRating(?float $lowestRating)
     {
         $this->lowestRating = $lowestRating;
 

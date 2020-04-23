@@ -20,7 +20,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getScore();
 
@@ -39,7 +39,7 @@ interface CartScoreTier extends ShippingRatePriceTier
      */
     public function getIsMatching();
 
-    public function setScore(?int $score): void;
+    public function setScore(?float $score): void;
 
     public function setPrice(?Money $price): void;
 

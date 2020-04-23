@@ -26,11 +26,24 @@ final class CustomerRemoveShippingAddressIdActionBuilder implements Builder
     private $addressId;
 
     /**
+     * @var ?string
+     */
+    private $addressKey;
+
+    /**
      * @return null|string
      */
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        return $this->addressKey;
     }
 
     /**
@@ -43,11 +56,22 @@ final class CustomerRemoveShippingAddressIdActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAddressKey(?string $addressKey)
+    {
+        $this->addressKey = $addressKey;
+
+        return $this;
+    }
+
 
     public function build(): CustomerRemoveShippingAddressIdAction
     {
         return new CustomerRemoveShippingAddressIdActionModel(
-            $this->addressId
+            $this->addressId,
+            $this->addressKey
         );
     }
 

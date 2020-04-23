@@ -73,7 +73,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FacetResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->dataType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TermFacetResult::FIELD_DATA_TYPE);
+            $data = $this->raw(self::FIELD_DATA_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +107,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->missing)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(TermFacetResult::FIELD_MISSING);
+            $data = $this->raw(self::FIELD_MISSING);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +124,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(TermFacetResult::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +141,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->other)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(TermFacetResult::FIELD_OTHER);
+            $data = $this->raw(self::FIELD_OTHER);
             if (is_null($data)) {
                 return null;
             }
@@ -158,7 +158,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     {
         if (is_null($this->terms)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TermFacetResult::FIELD_TERMS);
+            $data = $this->raw(self::FIELD_TERMS);
             if (is_null($data)) {
                 return null;
             }
@@ -167,6 +167,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
 
         return $this->terms;
     }
+
 
     public function setDataType(?string $dataType): void
     {

@@ -62,7 +62,7 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public function getSku();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -98,7 +98,7 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
 
     public function setSku(?string $sku): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 

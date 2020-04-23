@@ -94,7 +94,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -103,6 +103,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
 
         return $this->action;
     }
+
 
 
 

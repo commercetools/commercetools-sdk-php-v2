@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\LocalizedString;
-
 use Commercetools\Ml\Models\Common\LocalizedStringModel;
 use Commercetools\Ml\Models\Common\Money;
 use Commercetools\Ml\Models\Common\MoneyModel;
@@ -66,7 +65,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProductMeta::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +85,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProductMeta::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -106,7 +105,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProductMeta::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     {
         if (is_null($this->variantCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductMeta::FIELD_VARIANT_COUNT);
+            $data = $this->raw(self::FIELD_VARIANT_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -135,6 +134,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
 
         return $this->variantCount;
     }
+
 
     public function setName(?LocalizedString $name): void
     {

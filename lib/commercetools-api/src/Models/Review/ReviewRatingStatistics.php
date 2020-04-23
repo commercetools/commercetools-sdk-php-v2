@@ -23,21 +23,21 @@ interface ReviewRatingStatistics extends JsonObject
      * <p>Average rating of one target
      * This number is rounded with 5 decimals.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAverageRating();
 
     /**
      * <p>Highest rating of one target</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getHighestRating();
 
     /**
      * <p>Lowest rating of one target</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getLowestRating();
 
@@ -57,11 +57,11 @@ interface ReviewRatingStatistics extends JsonObject
      */
     public function getRatingsDistribution();
 
-    public function setAverageRating(?int $averageRating): void;
+    public function setAverageRating(?float $averageRating): void;
 
-    public function setHighestRating(?int $highestRating): void;
+    public function setHighestRating(?float $highestRating): void;
 
-    public function setLowestRating(?int $lowestRating): void;
+    public function setLowestRating(?float $lowestRating): void;
 
     public function setCount(?int $count): void;
 

@@ -52,7 +52,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     {
         if (is_null($this->measurements)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelDraft::FIELD_MEASUREMENTS);
+            $data = $this->raw(self::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -70,7 +70,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     {
         if (is_null($this->trackingData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelDraft::FIELD_TRACKING_DATA);
+            $data = $this->raw(self::FIELD_TRACKING_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelDraft::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +99,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
 
         return $this->items;
     }
+
 
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {

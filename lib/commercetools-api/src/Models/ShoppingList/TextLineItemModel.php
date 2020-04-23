@@ -13,12 +13,10 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -52,7 +50,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     protected $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -63,7 +61,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         LocalizedString $description = null,
         string $id = null,
         LocalizedString $name = null,
-        int $quantity = null
+        float $quantity = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -82,7 +80,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     {
         if (is_null($this->addedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TextLineItem::FIELD_ADDED_AT);
+            $data = $this->raw(self::FIELD_ADDED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +101,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TextLineItem::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -121,7 +119,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TextLineItem::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +139,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TextLineItem::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -158,7 +156,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TextLineItem::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -170,21 +168,22 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TextLineItem::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
     }
+
 
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
@@ -211,7 +210,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         $this->name = $name;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -69,7 +68,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +85,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +102,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->localizedMessage)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionNoResponseError::FIELD_LOCALIZED_MESSAGE);
+            $data = $this->raw(self::FIELD_LOCALIZED_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -121,7 +120,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->extensionExtraInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionNoResponseError::FIELD_EXTENSION_EXTRA_INFO);
+            $data = $this->raw(self::FIELD_EXTENSION_EXTRA_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -138,7 +137,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->errorByExtension)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionNoResponseError::FIELD_ERROR_BY_EXTENSION);
+            $data = $this->raw(self::FIELD_ERROR_BY_EXTENSION);
             if (is_null($data)) {
                 return null;
             }
@@ -148,6 +147,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
 
         return $this->errorByExtension;
     }
+
 
     public function setMessage(?string $message): void
     {

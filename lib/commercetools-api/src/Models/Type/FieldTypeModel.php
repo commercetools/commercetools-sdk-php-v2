@@ -56,7 +56,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -65,6 +65,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
 
         return $this->name;
     }
+
 
 
 

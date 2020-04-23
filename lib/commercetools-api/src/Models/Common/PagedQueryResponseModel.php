@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Product\FacetResultsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -83,7 +82,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +116,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +133,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -151,7 +150,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->results)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_RESULTS);
+            $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +167,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->facets)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_FACETS);
+            $data = $this->raw(self::FIELD_FACETS);
             if (is_null($data)) {
                 return null;
             }
@@ -186,7 +185,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     {
         if (is_null($this->meta)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PagedQueryResponse::FIELD_META);
+            $data = $this->raw(self::FIELD_META);
             if (is_null($data)) {
                 return null;
             }
@@ -195,6 +194,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
 
         return $this->meta;
     }
+
 
     public function setLimit(?int $limit): void
     {

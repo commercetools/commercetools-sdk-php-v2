@@ -66,7 +66,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Destination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         if (is_null($this->accessKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SqsDestination::FIELD_ACCESS_KEY);
+            $data = $this->raw(self::FIELD_ACCESS_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         if (is_null($this->accessSecret)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SqsDestination::FIELD_ACCESS_SECRET);
+            $data = $this->raw(self::FIELD_ACCESS_SECRET);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         if (is_null($this->queueUrl)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SqsDestination::FIELD_QUEUE_URL);
+            $data = $this->raw(self::FIELD_QUEUE_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     {
         if (is_null($this->region)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SqsDestination::FIELD_REGION);
+            $data = $this->raw(self::FIELD_REGION);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
 
         return $this->region;
     }
+
 
     public function setAccessKey(?string $accessKey): void
     {

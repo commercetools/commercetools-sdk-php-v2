@@ -13,7 +13,6 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->discountCode)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderDiscountCodeAddedMessagePayload::FIELD_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
 
         return $this->discountCode;
     }
+
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {

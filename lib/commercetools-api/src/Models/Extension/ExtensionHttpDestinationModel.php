@@ -52,7 +52,7 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionDestination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->url)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionHttpDestination::FIELD_URL);
+            $data = $this->raw(self::FIELD_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     {
         if (is_null($this->authentication)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionHttpDestination::FIELD_AUTHENTICATION);
+            $data = $this->raw(self::FIELD_AUTHENTICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
 
         return $this->authentication;
     }
+
 
     public function setUrl(?string $url): void
     {

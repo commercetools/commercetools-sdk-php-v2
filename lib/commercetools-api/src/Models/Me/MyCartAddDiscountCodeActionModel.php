@@ -45,7 +45,7 @@ final class MyCartAddDiscountCodeActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCartAddDiscountCodeActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartAddDiscountCodeAction::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCartAddDiscountCodeActionModel extends JsonObjectModel implements 
 
         return $this->code;
     }
+
 
     public function setCode(?string $code): void
     {

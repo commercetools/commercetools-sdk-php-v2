@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\LineItemModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->lineItem)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderLineItemAddedMessagePayload::FIELD_LINE_ITEM);
+            $data = $this->raw(self::FIELD_LINE_ITEM);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->addedQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderLineItemAddedMessagePayload::FIELD_ADDED_QUANTITY);
+            $data = $this->raw(self::FIELD_ADDED_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
 
         return $this->addedQuantity;
     }
+
 
     public function setLineItem(?LineItem $lineItem): void
     {

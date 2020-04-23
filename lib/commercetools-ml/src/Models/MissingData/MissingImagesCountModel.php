@@ -45,7 +45,7 @@ final class MissingImagesCountModel extends JsonObjectModel implements MissingIm
     {
         if (is_null($this->missingImages)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesCount::FIELD_MISSING_IMAGES);
+            $data = $this->raw(self::FIELD_MISSING_IMAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class MissingImagesCountModel extends JsonObjectModel implements MissingIm
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesCount::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class MissingImagesCountModel extends JsonObjectModel implements MissingIm
 
         return $this->total;
     }
+
 
     public function setMissingImages(?int $missingImages): void
     {

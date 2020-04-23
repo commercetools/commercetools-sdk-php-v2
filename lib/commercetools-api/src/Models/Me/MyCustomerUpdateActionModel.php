@@ -65,7 +65,7 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
 
         return $this->action;
     }
+
 
 
 

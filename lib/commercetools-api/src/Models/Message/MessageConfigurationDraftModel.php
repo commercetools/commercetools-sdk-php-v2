@@ -45,7 +45,7 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
     {
         if (is_null($this->enabled)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MessageConfigurationDraft::FIELD_ENABLED);
+            $data = $this->raw(self::FIELD_ENABLED);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
     {
         if (is_null($this->deleteDaysAfterCreation)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MessageConfigurationDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_CREATION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
 
         return $this->deleteDaysAfterCreation;
     }
+
 
     public function setEnabled(?bool $enabled): void
     {

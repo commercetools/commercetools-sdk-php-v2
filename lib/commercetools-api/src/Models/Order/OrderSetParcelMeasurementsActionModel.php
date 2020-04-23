@@ -52,7 +52,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetParcelMeasurementsAction::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     {
         if (is_null($this->measurements)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderSetParcelMeasurementsAction::FIELD_MEASUREMENTS);
+            $data = $this->raw(self::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
 
         return $this->measurements;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

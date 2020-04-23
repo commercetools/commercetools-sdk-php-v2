@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetCountryAction::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +73,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
 
         return $this->country;
     }
+
 
     public function setCountry(?string $country): void
     {

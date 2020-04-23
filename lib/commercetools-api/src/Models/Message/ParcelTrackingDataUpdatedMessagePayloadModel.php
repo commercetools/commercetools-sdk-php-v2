@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\TrackingDataModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelTrackingDataUpdatedMessagePayload::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelTrackingDataUpdatedMessagePayload::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->trackingData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelTrackingDataUpdatedMessagePayload::FIELD_TRACKING_DATA);
+            $data = $this->raw(self::FIELD_TRACKING_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
 
         return $this->trackingData;
     }
+
 
     public function setDeliveryId(?string $deliveryId): void
     {

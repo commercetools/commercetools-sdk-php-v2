@@ -52,7 +52,7 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetLineItemShippingDetailsAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     {
         if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetLineItemShippingDetailsAction::FIELD_SHIPPING_DETAILS);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
 
         return $this->shippingDetails;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

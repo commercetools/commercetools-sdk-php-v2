@@ -26,6 +26,11 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
     private $addressId;
 
     /**
+     * @var ?string
+     */
+    private $addressKey;
+
+    /**
      * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
      *
      * @return null|string
@@ -33,6 +38,14 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        return $this->addressKey;
     }
 
     /**
@@ -45,11 +58,22 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAddressKey(?string $addressKey)
+    {
+        $this->addressKey = $addressKey;
+
+        return $this;
+    }
+
 
     public function build(): CustomerSetDefaultShippingAddressAction
     {
         return new CustomerSetDefaultShippingAddressActionModel(
-            $this->addressId
+            $this->addressId,
+            $this->addressKey
         );
     }
 

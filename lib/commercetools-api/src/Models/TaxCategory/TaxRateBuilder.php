@@ -31,7 +31,7 @@ final class TaxRateBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $amount;
 
@@ -79,7 +79,7 @@ final class TaxRateBuilder implements Builder
      * <p>Percentage in the range of [0..1].
      * The sum of the amounts of all <code>subRates</code>, if there are any.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
@@ -149,7 +149,7 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?int $amount)
+    public function withAmount(?float $amount)
     {
         $this->amount = $amount;
 

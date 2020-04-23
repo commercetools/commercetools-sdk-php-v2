@@ -45,7 +45,7 @@ final class OrderRemoveItemShippingAddressActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderRemoveItemShippingAddressActionModel extends JsonObjectModel im
     {
         if (is_null($this->addressKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderRemoveItemShippingAddressAction::FIELD_ADDRESS_KEY);
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderRemoveItemShippingAddressActionModel extends JsonObjectModel im
 
         return $this->addressKey;
     }
+
 
     public function setAddressKey(?string $addressKey): void
     {

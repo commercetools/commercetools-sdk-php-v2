@@ -45,7 +45,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     {
         if (is_null($this->referenceTypeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeReferenceType::FIELD_REFERENCE_TYPE_ID);
+            $data = $this->raw(self::FIELD_REFERENCE_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
 
         return $this->referenceTypeId;
     }
+
 
     public function setReferenceTypeId(?string $referenceTypeId): void
     {

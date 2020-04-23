@@ -25,7 +25,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     protected $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $amount;
 
@@ -52,7 +52,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 
     public function __construct(
         string $name = null,
-        int $amount = null,
+        float $amount = null,
         bool $includedInPrice = null,
         string $country = null,
         string $state = null,
@@ -73,7 +73,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxRateDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -89,17 +89,17 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
         if (is_null($this->amount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TaxRateDraft::FIELD_AMOUNT);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->amount = (int) $data;
+            $this->amount = (float) $data;
         }
 
         return $this->amount;
@@ -112,7 +112,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         if (is_null($this->includedInPrice)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(TaxRateDraft::FIELD_INCLUDED_IN_PRICE);
+            $data = $this->raw(self::FIELD_INCLUDED_IN_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -131,7 +131,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxRateDraft::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +150,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxRateDraft::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -171,7 +171,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     {
         if (is_null($this->subRates)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxRateDraft::FIELD_SUB_RATES);
+            $data = $this->raw(self::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;
             }
@@ -181,12 +181,13 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         return $this->subRates;
     }
 
+
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setAmount(?int $amount): void
+    public function setAmount(?float $amount): void
     {
         $this->amount = $amount;
     }

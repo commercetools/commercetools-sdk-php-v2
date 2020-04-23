@@ -45,7 +45,7 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->taxRoundingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartChangeTaxRoundingModeAction::FIELD_TAX_ROUNDING_MODE);
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
 
         return $this->taxRoundingMode;
     }
+
 
     public function setTaxRoundingMode(?string $taxRoundingMode): void
     {

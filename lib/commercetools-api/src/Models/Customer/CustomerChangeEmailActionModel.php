@@ -45,7 +45,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerChangeEmailAction::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
 
         return $this->email;
     }
+
 
     public function setEmail(?string $email): void
     {

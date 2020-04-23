@@ -54,7 +54,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     {
         if (is_null($this->productTypeAttributes)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(AttributeCount::FIELD_PRODUCT_TYPE_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     {
         if (is_null($this->variantAttributes)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(AttributeCount::FIELD_VARIANT_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_VARIANT_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +92,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     {
         if (is_null($this->missingAttributeValues)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(AttributeCount::FIELD_MISSING_ATTRIBUTE_VALUES);
+            $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +101,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
 
         return $this->missingAttributeValues;
     }
+
 
     public function setProductTypeAttributes(?int $productTypeAttributes): void
     {

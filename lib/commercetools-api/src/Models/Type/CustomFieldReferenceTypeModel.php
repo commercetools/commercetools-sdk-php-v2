@@ -45,7 +45,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FieldType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     {
         if (is_null($this->referenceTypeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomFieldReferenceType::FIELD_REFERENCE_TYPE_ID);
+            $data = $this->raw(self::FIELD_REFERENCE_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
 
         return $this->referenceTypeId;
     }
+
 
     public function setReferenceTypeId(?string $referenceTypeId): void
     {

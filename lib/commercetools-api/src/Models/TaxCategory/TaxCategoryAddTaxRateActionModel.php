@@ -45,7 +45,7 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxCategoryAddTaxRateAction::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
 
         return $this->taxRate;
     }
+
 
     public function setTaxRate(?TaxRateDraft $taxRate): void
     {

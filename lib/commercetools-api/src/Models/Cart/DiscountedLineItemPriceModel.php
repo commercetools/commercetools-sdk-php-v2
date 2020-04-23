@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPrice::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +65,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     {
         if (is_null($this->includedDiscounts)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountedLineItemPrice::FIELD_INCLUDED_DISCOUNTS);
+            $data = $this->raw(self::FIELD_INCLUDED_DISCOUNTS);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
 
         return $this->includedDiscounts;
     }
+
 
     public function setValue(?TypedMoney $value): void
     {

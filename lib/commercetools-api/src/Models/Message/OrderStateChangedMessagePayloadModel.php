@@ -52,7 +52,7 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->orderState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderStateChangedMessagePayload::FIELD_ORDER_STATE);
+            $data = $this->raw(self::FIELD_ORDER_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     {
         if (is_null($this->oldOrderState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderStateChangedMessagePayload::FIELD_OLD_ORDER_STATE);
+            $data = $this->raw(self::FIELD_OLD_ORDER_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
 
         return $this->oldOrderState;
     }
+
 
     public function setOrderState(?string $orderState): void
     {

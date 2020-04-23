@@ -45,7 +45,7 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->firstName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetFirstNameAction::FIELD_FIRST_NAME);
+            $data = $this->raw(self::FIELD_FIRST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
 
         return $this->firstName;
     }
+
 
     public function setFirstName(?string $firstName): void
     {

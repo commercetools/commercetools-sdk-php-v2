@@ -52,7 +52,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeInputHintAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     {
         if (is_null($this->newValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeInputHintAction::FIELD_NEW_VALUE);
+            $data = $this->raw(self::FIELD_NEW_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
 
         return $this->newValue;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

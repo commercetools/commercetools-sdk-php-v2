@@ -52,7 +52,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FacetResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FilteredFacetResult::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     {
         if (is_null($this->productCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FilteredFacetResult::FIELD_PRODUCT_COUNT);
+            $data = $this->raw(self::FIELD_PRODUCT_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
 
         return $this->productCount;
     }
+
 
     public function setCount(?int $count): void
     {

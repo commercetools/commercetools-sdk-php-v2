@@ -45,7 +45,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         if (is_null($this->centAmount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Money::FIELD_CENT_AMOUNT);
+            $data = $this->raw(self::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Money::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class MoneyModel extends JsonObjectModel implements Money
 
         return $this->currencyCode;
     }
+
 
     public function setCentAmount(?int $centAmount): void
     {

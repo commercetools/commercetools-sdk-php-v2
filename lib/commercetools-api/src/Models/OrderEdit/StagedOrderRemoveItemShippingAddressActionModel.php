@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
     {
         if (is_null($this->addressKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderRemoveItemShippingAddressAction::FIELD_ADDRESS_KEY);
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +73,7 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
 
         return $this->addressKey;
     }
+
 
     public function setAddressKey(?string $addressKey): void
     {

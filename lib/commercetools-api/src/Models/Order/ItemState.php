@@ -18,7 +18,7 @@ interface ItemState extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -27,7 +27,7 @@ interface ItemState extends JsonObject
      */
     public function getState();
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setState(?StateReference $state): void;
 }

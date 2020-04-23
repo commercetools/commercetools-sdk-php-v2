@@ -52,7 +52,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     {
         if (is_null($this->term)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(FacetResultTerm::FIELD_TERM);
+            $data = $this->raw(self::FIELD_TERM);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultTerm::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     {
         if (is_null($this->productCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultTerm::FIELD_PRODUCT_COUNT);
+            $data = $this->raw(self::FIELD_PRODUCT_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
 
         return $this->productCount;
     }
+
 
     public function setTerm(?JsonObject $term): void
     {

@@ -13,12 +13,10 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -129,7 +127,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -151,7 +149,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +166,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -186,7 +184,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -206,7 +204,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->cartPredicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_CART_PREDICATE);
+            $data = $this->raw(self::FIELD_CART_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -225,7 +223,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -247,7 +245,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->sortOrder)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_SORT_ORDER);
+            $data = $this->raw(self::FIELD_SORT_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -267,7 +265,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->isActive)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_IS_ACTIVE);
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
             if (is_null($data)) {
                 return null;
             }
@@ -284,7 +282,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -305,7 +303,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -329,7 +327,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->requiresDiscountCode)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_REQUIRES_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_REQUIRES_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -349,7 +347,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->stackingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_STACKING_MODE);
+            $data = $this->raw(self::FIELD_STACKING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -366,7 +364,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -376,6 +374,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
 
         return $this->custom;
     }
+
 
     public function setName(?LocalizedString $name): void
     {

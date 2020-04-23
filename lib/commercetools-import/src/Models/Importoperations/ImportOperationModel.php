@@ -13,9 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
-
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -54,7 +52,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $resourceVersion;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $retryCount;
 
@@ -86,7 +84,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         string $id = null,
         string $state = null,
         int $resourceVersion = null,
-        int $retryCount = null,
+        float $retryCount = null,
         ErrorObjectCollection $errors = null,
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -114,7 +112,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperation::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -133,7 +131,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->importSinkKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_IMPORT_SINK_KEY);
+            $data = $this->raw(self::FIELD_IMPORT_SINK_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -152,7 +150,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->resourceKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_RESOURCE_KEY);
+            $data = $this->raw(self::FIELD_RESOURCE_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -171,7 +169,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -190,7 +188,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -209,7 +207,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->resourceVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperation::FIELD_RESOURCE_VERSION);
+            $data = $this->raw(self::FIELD_RESOURCE_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -222,17 +220,17 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getRetryCount()
     {
         if (is_null($this->retryCount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperation::FIELD_RETRY_COUNT);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_RETRY_COUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->retryCount = (int) $data;
+            $this->retryCount = (float) $data;
         }
 
         return $this->retryCount;
@@ -248,7 +246,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->errors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportOperation::FIELD_ERRORS);
+            $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
             }
@@ -267,7 +265,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -290,7 +288,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -313,7 +311,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     {
         if (is_null($this->expiresAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperation::FIELD_EXPIRES_AT);
+            $data = $this->raw(self::FIELD_EXPIRES_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -326,6 +324,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
 
         return $this->expiresAt;
     }
+
 
     public function setVersion(?int $version): void
     {
@@ -357,7 +356,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         $this->resourceVersion = $resourceVersion;
     }
 
-    public function setRetryCount(?int $retryCount): void
+    public function setRetryCount(?float $retryCount): void
     {
         $this->retryCount = $retryCount;
     }

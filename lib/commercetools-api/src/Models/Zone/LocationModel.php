@@ -47,7 +47,7 @@ final class LocationModel extends JsonObjectModel implements Location
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Location::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class LocationModel extends JsonObjectModel implements Location
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Location::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class LocationModel extends JsonObjectModel implements Location
 
         return $this->state;
     }
+
 
     public function setCountry(?string $country): void
     {

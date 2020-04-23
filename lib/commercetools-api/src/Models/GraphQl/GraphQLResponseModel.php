@@ -45,7 +45,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     {
         if (is_null($this->data)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(GraphQLResponse::FIELD_DATA);
+            $data = $this->raw(self::FIELD_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     {
         if (is_null($this->errors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(GraphQLResponse::FIELD_ERRORS);
+            $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
 
         return $this->errors;
     }
+
 
     public function setData(?JsonObject $data): void
     {

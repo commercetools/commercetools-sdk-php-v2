@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -92,7 +91,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -109,7 +108,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +142,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -160,7 +159,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->currency)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CURRENCY);
+            $data = $this->raw(self::FIELD_CURRENCY);
             if (is_null($data)) {
                 return null;
             }
@@ -177,7 +176,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -194,7 +193,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -212,7 +211,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CHANNEL);
+            $data = $this->raw(self::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -222,6 +221,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
 
         return $this->channel;
     }
+
 
     public function setMessage(?string $message): void
     {

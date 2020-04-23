@@ -45,7 +45,7 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductRevertStagedVariantChangesAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
 
         return $this->variantId;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

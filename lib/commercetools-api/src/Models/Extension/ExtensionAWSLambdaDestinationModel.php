@@ -59,7 +59,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionDestination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     {
         if (is_null($this->arn)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionAWSLambdaDestination::FIELD_ARN);
+            $data = $this->raw(self::FIELD_ARN);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     {
         if (is_null($this->accessKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionAWSLambdaDestination::FIELD_ACCESS_KEY);
+            $data = $this->raw(self::FIELD_ACCESS_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     {
         if (is_null($this->accessSecret)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionAWSLambdaDestination::FIELD_ACCESS_SECRET);
+            $data = $this->raw(self::FIELD_ACCESS_SECRET);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
 
         return $this->accessSecret;
     }
+
 
     public function setArn(?string $arn): void
     {

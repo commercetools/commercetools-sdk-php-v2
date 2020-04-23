@@ -50,12 +50,12 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     protected $productSetSelectors;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $confidenceMin;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $confidenceMax;
 
@@ -67,8 +67,8 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
         string $currencyCode = null,
         SimilarityMeasures $similarityMeasures = null,
         ProductSetSelectorCollection $productSetSelectors = null,
-        int $confidenceMin = null,
-        int $confidenceMax = null
+        float $confidenceMin = null,
+        float $confidenceMax = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -87,7 +87,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -104,7 +104,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +123,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->language)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_LANGUAGE);
+            $data = $this->raw(self::FIELD_LANGUAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +142,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +161,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->similarityMeasures)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_SIMILARITY_MEASURES);
+            $data = $this->raw(self::FIELD_SIMILARITY_MEASURES);
             if (is_null($data)) {
                 return null;
             }
@@ -181,7 +181,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     {
         if (is_null($this->productSetSelectors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_PRODUCT_SET_SELECTORS);
+            $data = $this->raw(self::FIELD_PRODUCT_SET_SELECTORS);
             if (is_null($data)) {
                 return null;
             }
@@ -192,38 +192,39 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMin()
     {
         if (is_null($this->confidenceMin)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_CONFIDENCE_MIN);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_CONFIDENCE_MIN);
             if (is_null($data)) {
                 return null;
             }
-            $this->confidenceMin = (int) $data;
+            $this->confidenceMin = (float) $data;
         }
 
         return $this->confidenceMin;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMax()
     {
         if (is_null($this->confidenceMax)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProductSearchRequest::FIELD_CONFIDENCE_MAX);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_CONFIDENCE_MAX);
             if (is_null($data)) {
                 return null;
             }
-            $this->confidenceMax = (int) $data;
+            $this->confidenceMax = (float) $data;
         }
 
         return $this->confidenceMax;
     }
+
 
     public function setLimit(?int $limit): void
     {
@@ -255,12 +256,12 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
         $this->productSetSelectors = $productSetSelectors;
     }
 
-    public function setConfidenceMin(?int $confidenceMin): void
+    public function setConfidenceMin(?float $confidenceMin): void
     {
         $this->confidenceMin = $confidenceMin;
     }
 
-    public function setConfidenceMax(?int $confidenceMax): void
+    public function setConfidenceMax(?float $confidenceMax): void
     {
         $this->confidenceMax = $confidenceMax;
     }

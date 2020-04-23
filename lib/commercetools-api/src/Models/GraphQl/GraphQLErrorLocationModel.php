@@ -45,7 +45,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     {
         if (is_null($this->line)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(GraphQLErrorLocation::FIELD_LINE);
+            $data = $this->raw(self::FIELD_LINE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     {
         if (is_null($this->column)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(GraphQLErrorLocation::FIELD_COLUMN);
+            $data = $this->raw(self::FIELD_COLUMN);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
 
         return $this->column;
     }
+
 
     public function setLine(?int $line): void
     {

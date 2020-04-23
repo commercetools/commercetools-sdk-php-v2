@@ -21,7 +21,7 @@ use stdClass;
 final class FacetResultRangeBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $from;
 
@@ -31,7 +31,7 @@ final class FacetResultRangeBuilder implements Builder
     private $fromStr;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $to;
 
@@ -56,22 +56,22 @@ final class FacetResultRangeBuilder implements Builder
     private $total;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $min;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $max;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $mean;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getFrom()
     {
@@ -87,7 +87,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTo()
     {
@@ -127,7 +127,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMin()
     {
@@ -135,7 +135,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMax()
     {
@@ -143,7 +143,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMean()
     {
@@ -153,7 +153,7 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFrom(?int $from)
+    public function withFrom(?float $from)
     {
         $this->from = $from;
 
@@ -173,7 +173,7 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTo(?int $to)
+    public function withTo(?float $to)
     {
         $this->to = $to;
 
@@ -223,7 +223,7 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMin(?int $min)
+    public function withMin(?float $min)
     {
         $this->min = $min;
 
@@ -233,7 +233,7 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMax(?int $max)
+    public function withMax(?float $max)
     {
         $this->max = $max;
 
@@ -243,7 +243,7 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMean(?int $mean)
+    public function withMean(?float $mean)
     {
         $this->mean = $mean;
 

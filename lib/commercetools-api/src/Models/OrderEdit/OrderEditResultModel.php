@@ -48,7 +48,7 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -57,6 +57,7 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
 
         return $this->type;
     }
+
 
 
 

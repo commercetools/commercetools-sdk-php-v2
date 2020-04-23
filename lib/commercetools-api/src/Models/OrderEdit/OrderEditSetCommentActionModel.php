@@ -45,7 +45,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     {
         if (is_null($this->comment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditSetCommentAction::FIELD_COMMENT);
+            $data = $this->raw(self::FIELD_COMMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
 
         return $this->comment;
     }
+
 
     public function setComment(?string $comment): void
     {

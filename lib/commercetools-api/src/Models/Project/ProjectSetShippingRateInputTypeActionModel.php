@@ -45,7 +45,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     {
         if (is_null($this->shippingRateInputType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProjectSetShippingRateInputTypeAction::FIELD_SHIPPING_RATE_INPUT_TYPE);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
 
         return $this->shippingRateInputType;
     }
+
 
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void
     {

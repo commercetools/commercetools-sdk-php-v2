@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -69,7 +68,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +85,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TypeDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -104,7 +103,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TypeDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +123,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         if (is_null($this->resourceTypeIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(TypeDraft::FIELD_RESOURCE_TYPE_IDS);
+            $data = $this->raw(self::FIELD_RESOURCE_TYPE_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +140,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     {
         if (is_null($this->fieldDefinitions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TypeDraft::FIELD_FIELD_DEFINITIONS);
+            $data = $this->raw(self::FIELD_FIELD_DEFINITIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -150,6 +149,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
 
         return $this->fieldDefinitions;
     }
+
 
     public function setKey(?string $key): void
     {

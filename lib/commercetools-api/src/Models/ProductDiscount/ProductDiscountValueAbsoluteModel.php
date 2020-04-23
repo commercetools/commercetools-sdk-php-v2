@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -47,7 +46,7 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountValue::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +63,7 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     {
         if (is_null($this->money)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductDiscountValueAbsolute::FIELD_MONEY);
+            $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +72,7 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
 
         return $this->money;
     }
+
 
     public function setMoney(?TypedMoneyCollection $money): void
     {

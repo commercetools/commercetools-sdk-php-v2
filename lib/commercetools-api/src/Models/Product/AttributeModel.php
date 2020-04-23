@@ -45,7 +45,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(Attribute::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 
         return $this->value;
     }
+
 
     public function setName(?string $name): void
     {

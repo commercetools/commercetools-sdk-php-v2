@@ -45,7 +45,7 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderChangeShipmentStateAction::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
 
         return $this->shipmentState;
     }
+
 
     public function setShipmentState(?string $shipmentState): void
     {

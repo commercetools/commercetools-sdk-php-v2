@@ -51,12 +51,12 @@ final class SimilarProductSearchRequestBuilder implements Builder
     private $productSetSelectors;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $confidenceMin;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $confidenceMax;
 
@@ -117,7 +117,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMin()
     {
@@ -125,7 +125,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getConfidenceMax()
     {
@@ -195,7 +195,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * @return $this
      */
-    public function withConfidenceMin(?int $confidenceMin)
+    public function withConfidenceMin(?float $confidenceMin)
     {
         $this->confidenceMin = $confidenceMin;
 
@@ -205,7 +205,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * @return $this
      */
-    public function withConfidenceMax(?int $confidenceMax)
+    public function withConfidenceMax(?float $confidenceMax)
     {
         $this->confidenceMax = $confidenceMax;
 

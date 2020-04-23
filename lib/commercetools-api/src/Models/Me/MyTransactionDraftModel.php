@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -66,7 +64,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     {
         if (is_null($this->timestamp)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyTransactionDraft::FIELD_TIMESTAMP);
+            $data = $this->raw(self::FIELD_TIMESTAMP);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +89,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyTransactionDraft::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +106,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     {
         if (is_null($this->amount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyTransactionDraft::FIELD_AMOUNT);
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -131,7 +129,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     {
         if (is_null($this->interactionId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyTransactionDraft::FIELD_INTERACTION_ID);
+            $data = $this->raw(self::FIELD_INTERACTION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -140,6 +138,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
 
         return $this->interactionId;
     }
+
 
     public function setTimestamp(?DateTimeImmutable $timestamp): void
     {

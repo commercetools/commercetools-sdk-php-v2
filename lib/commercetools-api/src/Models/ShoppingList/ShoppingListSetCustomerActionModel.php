@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListSetCustomerAction::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
 
         return $this->customer;
     }
+
 
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {

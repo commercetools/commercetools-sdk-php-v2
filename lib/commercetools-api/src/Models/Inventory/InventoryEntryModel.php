@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
-
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
@@ -24,7 +23,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -137,7 +135,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -154,7 +152,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -171,7 +169,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -192,7 +190,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -215,7 +213,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -235,7 +233,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -253,7 +251,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -272,7 +270,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -293,7 +291,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->quantityOnStock)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_QUANTITY_ON_STOCK);
+            $data = $this->raw(self::FIELD_QUANTITY_ON_STOCK);
             if (is_null($data)) {
                 return null;
             }
@@ -313,7 +311,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->availableQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_AVAILABLE_QUANTITY);
+            $data = $this->raw(self::FIELD_AVAILABLE_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -332,7 +330,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->restockableInDays)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_RESTOCKABLE_IN_DAYS);
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
             if (is_null($data)) {
                 return null;
             }
@@ -351,7 +349,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->expectedDelivery)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_EXPECTED_DELIVERY);
+            $data = $this->raw(self::FIELD_EXPECTED_DELIVERY);
             if (is_null($data)) {
                 return null;
             }
@@ -372,7 +370,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -382,6 +380,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
         return $this->custom;
     }
+
 
     public function setId(?string $id): void
     {

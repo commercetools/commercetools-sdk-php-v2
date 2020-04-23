@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionInput::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionInput::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
 
         return $this->resource;
     }
+
 
     public function setAction(?string $action): void
     {

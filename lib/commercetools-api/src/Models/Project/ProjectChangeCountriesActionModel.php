@@ -45,7 +45,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->countries)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProjectChangeCountriesAction::FIELD_COUNTRIES);
+            $data = $this->raw(self::FIELD_COUNTRIES);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
 
         return $this->countries;
     }
+
 
     public function setCountries(?array $countries): void
     {

@@ -45,7 +45,7 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->interfaceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentSetInterfaceIdAction::FIELD_INTERFACE_ID);
+            $data = $this->raw(self::FIELD_INTERFACE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
 
         return $this->interfaceId;
     }
+
 
     public function setInterfaceId(?string $interfaceId): void
     {

@@ -45,7 +45,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->vatId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetVatIdAction::FIELD_VAT_ID);
+            $data = $this->raw(self::FIELD_VAT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
 
         return $this->vatId;
     }
+
 
     public function setVatId(?string $vatId): void
     {

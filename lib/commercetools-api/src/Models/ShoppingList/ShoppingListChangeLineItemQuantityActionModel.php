@@ -52,7 +52,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListChangeLineItemQuantityAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListChangeLineItemQuantityAction::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
 
         return $this->quantity;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

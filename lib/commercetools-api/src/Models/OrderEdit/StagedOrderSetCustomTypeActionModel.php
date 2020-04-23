@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -59,7 +58,7 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +75,7 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetCustomTypeAction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +93,7 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetCustomTypeAction::FIELD_FIELDS);
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -104,6 +103,7 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
 
         return $this->fields;
     }
+
 
     public function setType(?TypeResourceIdentifier $type): void
     {

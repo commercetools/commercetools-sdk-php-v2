@@ -21,27 +21,27 @@ use stdClass;
 final class ParcelMeasurementsBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $heightInMillimeter;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $lengthInMillimeter;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $widthInMillimeter;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $weightInGram;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getHeightInMillimeter()
     {
@@ -49,7 +49,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getLengthInMillimeter()
     {
@@ -57,7 +57,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getWidthInMillimeter()
     {
@@ -65,7 +65,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getWeightInGram()
     {
@@ -75,7 +75,7 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withHeightInMillimeter(?int $heightInMillimeter)
+    public function withHeightInMillimeter(?float $heightInMillimeter)
     {
         $this->heightInMillimeter = $heightInMillimeter;
 
@@ -85,7 +85,7 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLengthInMillimeter(?int $lengthInMillimeter)
+    public function withLengthInMillimeter(?float $lengthInMillimeter)
     {
         $this->lengthInMillimeter = $lengthInMillimeter;
 
@@ -95,7 +95,7 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withWidthInMillimeter(?int $widthInMillimeter)
+    public function withWidthInMillimeter(?float $widthInMillimeter)
     {
         $this->widthInMillimeter = $widthInMillimeter;
 
@@ -105,7 +105,7 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withWeightInGram(?int $weightInGram)
+    public function withWeightInGram(?float $weightInGram)
     {
         $this->weightInGram = $weightInGram;
 

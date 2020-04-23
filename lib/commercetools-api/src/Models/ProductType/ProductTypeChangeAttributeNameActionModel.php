@@ -52,7 +52,7 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeAttributeNameAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     {
         if (is_null($this->newAttributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeAttributeNameAction::FIELD_NEW_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_NEW_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
 
         return $this->newAttributeName;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

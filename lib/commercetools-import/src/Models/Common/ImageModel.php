@@ -52,7 +52,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->url)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Image::FIELD_URL);
+            $data = $this->raw(self::FIELD_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->dimensions)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Image::FIELD_DIMENSIONS);
+            $data = $this->raw(self::FIELD_DIMENSIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +87,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->label)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Image::FIELD_LABEL);
+            $data = $this->raw(self::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class ImageModel extends JsonObjectModel implements Image
 
         return $this->label;
     }
+
 
     public function setUrl(?string $url): void
     {

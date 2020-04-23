@@ -34,7 +34,7 @@ final class CustomLineItemDraftBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -80,7 +80,7 @@ final class CustomLineItemDraftBuilder implements Builder
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -156,7 +156,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -34,14 +33,14 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     protected $customLineItemId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
 
     public function __construct(
         string $customLineItemId = null,
-        int $quantity = null
+        float $quantity = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
@@ -55,7 +54,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderChangeCustomLineItemQuantityAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -83,28 +82,29 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(StagedOrderChangeCustomLineItemQuantityAction::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

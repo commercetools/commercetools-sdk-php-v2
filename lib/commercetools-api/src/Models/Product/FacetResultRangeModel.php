@@ -20,7 +20,7 @@ use stdClass;
 final class FacetResultRangeModel extends JsonObjectModel implements FacetResultRange
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $from;
 
@@ -30,7 +30,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     protected $fromStr;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $to;
 
@@ -55,32 +55,32 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     protected $total;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $min;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $max;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $mean;
 
 
     public function __construct(
-        int $from = null,
+        float $from = null,
         string $fromStr = null,
-        int $to = null,
+        float $to = null,
         string $toStr = null,
         int $count = null,
         int $productCount = null,
         int $total = null,
-        int $min = null,
-        int $max = null,
-        int $mean = null
+        float $min = null,
+        float $max = null,
+        float $mean = null
     ) {
         $this->from = $from;
         $this->fromStr = $fromStr;
@@ -95,17 +95,17 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getFrom()
     {
         if (is_null($this->from)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_FROM);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_FROM);
             if (is_null($data)) {
                 return null;
             }
-            $this->from = (int) $data;
+            $this->from = (float) $data;
         }
 
         return $this->from;
@@ -118,7 +118,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         if (is_null($this->fromStr)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FacetResultRange::FIELD_FROM_STR);
+            $data = $this->raw(self::FIELD_FROM_STR);
             if (is_null($data)) {
                 return null;
             }
@@ -129,17 +129,17 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTo()
     {
         if (is_null($this->to)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_TO);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_TO);
             if (is_null($data)) {
                 return null;
             }
-            $this->to = (int) $data;
+            $this->to = (float) $data;
         }
 
         return $this->to;
@@ -152,7 +152,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         if (is_null($this->toStr)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(FacetResultRange::FIELD_TO_STR);
+            $data = $this->raw(self::FIELD_TO_STR);
             if (is_null($data)) {
                 return null;
             }
@@ -169,7 +169,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -186,7 +186,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         if (is_null($this->productCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_PRODUCT_COUNT);
+            $data = $this->raw(self::FIELD_PRODUCT_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -203,7 +203,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -214,57 +214,58 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMin()
     {
         if (is_null($this->min)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_MIN);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_MIN);
             if (is_null($data)) {
                 return null;
             }
-            $this->min = (int) $data;
+            $this->min = (float) $data;
         }
 
         return $this->min;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMax()
     {
         if (is_null($this->max)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_MAX);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_MAX);
             if (is_null($data)) {
                 return null;
             }
-            $this->max = (int) $data;
+            $this->max = (float) $data;
         }
 
         return $this->max;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMean()
     {
         if (is_null($this->mean)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultRange::FIELD_MEAN);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_MEAN);
             if (is_null($data)) {
                 return null;
             }
-            $this->mean = (int) $data;
+            $this->mean = (float) $data;
         }
 
         return $this->mean;
     }
 
-    public function setFrom(?int $from): void
+
+    public function setFrom(?float $from): void
     {
         $this->from = $from;
     }
@@ -274,7 +275,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
         $this->fromStr = $fromStr;
     }
 
-    public function setTo(?int $to): void
+    public function setTo(?float $to): void
     {
         $this->to = $to;
     }
@@ -299,17 +300,17 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
         $this->total = $total;
     }
 
-    public function setMin(?int $min): void
+    public function setMin(?float $min): void
     {
         $this->min = $min;
     }
 
-    public function setMax(?int $max): void
+    public function setMax(?float $max): void
     {
         $this->max = $max;
     }
 
-    public function setMean(?int $mean): void
+    public function setMean(?float $mean): void
     {
         $this->mean = $mean;
     }

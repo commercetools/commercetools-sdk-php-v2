@@ -45,7 +45,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
 
         return $this->message;
     }
+
 
     public function setMessage(?string $message): void
     {

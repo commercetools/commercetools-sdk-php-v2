@@ -52,7 +52,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Destination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     {
         if (is_null($this->projectId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GoogleCloudPubSubDestination::FIELD_PROJECT_ID);
+            $data = $this->raw(self::FIELD_PROJECT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     {
         if (is_null($this->topic)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GoogleCloudPubSubDestination::FIELD_TOPIC);
+            $data = $this->raw(self::FIELD_TOPIC);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
 
         return $this->topic;
     }
+
 
     public function setProjectId(?string $projectId): void
     {

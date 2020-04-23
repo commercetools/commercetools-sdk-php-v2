@@ -45,12 +45,12 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     protected $includeVariants;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $coverageMin;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $coverageMax;
 
@@ -86,8 +86,8 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
         bool $staged = null,
         int $productSetLimit = null,
         bool $includeVariants = null,
-        int $coverageMin = null,
-        int $coverageMax = null,
+        float $coverageMin = null,
+        float $coverageMax = null,
         string $sortBy = null,
         bool $showMissingAttributeNames = null,
         array $productIds = null,
@@ -115,7 +115,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -132,7 +132,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -151,7 +151,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +170,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->productSetLimit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_PRODUCT_SET_LIMIT);
+            $data = $this->raw(self::FIELD_PRODUCT_SET_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -189,7 +189,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->includeVariants)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_INCLUDE_VARIANTS);
+            $data = $this->raw(self::FIELD_INCLUDE_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -202,17 +202,17 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Minimum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMin()
     {
         if (is_null($this->coverageMin)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_COVERAGE_MIN);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_COVERAGE_MIN);
             if (is_null($data)) {
                 return null;
             }
-            $this->coverageMin = (int) $data;
+            $this->coverageMin = (float) $data;
         }
 
         return $this->coverageMin;
@@ -221,17 +221,17 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Maximum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMax()
     {
         if (is_null($this->coverageMax)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_COVERAGE_MAX);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_COVERAGE_MAX);
             if (is_null($data)) {
                 return null;
             }
-            $this->coverageMax = (int) $data;
+            $this->coverageMax = (float) $data;
         }
 
         return $this->coverageMax;
@@ -247,7 +247,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->sortBy)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_SORT_BY);
+            $data = $this->raw(self::FIELD_SORT_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -266,7 +266,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->showMissingAttributeNames)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_SHOW_MISSING_ATTRIBUTE_NAMES);
+            $data = $this->raw(self::FIELD_SHOW_MISSING_ATTRIBUTE_NAMES);
             if (is_null($data)) {
                 return null;
             }
@@ -286,7 +286,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->productIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_PRODUCT_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -306,7 +306,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->productTypeIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_PRODUCT_TYPE_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -326,7 +326,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingAttributesSearchRequest::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -335,6 +335,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
 
         return $this->attributeName;
     }
+
 
     public function setLimit(?int $limit): void
     {
@@ -361,12 +362,12 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
         $this->includeVariants = $includeVariants;
     }
 
-    public function setCoverageMin(?int $coverageMin): void
+    public function setCoverageMin(?float $coverageMin): void
     {
         $this->coverageMin = $coverageMin;
     }
 
-    public function setCoverageMax(?int $coverageMax): void
+    public function setCoverageMax(?float $coverageMax): void
     {
         $this->coverageMax = $coverageMax;
     }

@@ -45,7 +45,7 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneSetDescriptionAction::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
 
         return $this->description;
     }
+
 
     public function setDescription(?string $description): void
     {

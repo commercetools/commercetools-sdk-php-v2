@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -71,7 +69,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Delivery::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +86,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Delivery::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +110,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Delivery::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -129,7 +127,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     {
         if (is_null($this->parcels)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Delivery::FIELD_PARCELS);
+            $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;
             }
@@ -146,7 +144,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Delivery::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -156,6 +154,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
 
         return $this->address;
     }
+
 
     public function setId(?string $id): void
     {

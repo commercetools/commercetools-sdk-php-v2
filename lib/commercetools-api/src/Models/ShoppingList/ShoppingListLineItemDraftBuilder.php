@@ -44,7 +44,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     private $productId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -86,7 +86,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -144,7 +144,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

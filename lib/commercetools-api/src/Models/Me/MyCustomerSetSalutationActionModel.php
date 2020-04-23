@@ -45,7 +45,7 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
     {
         if (is_null($this->salutation)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerSetSalutationAction::FIELD_SALUTATION);
+            $data = $this->raw(self::FIELD_SALUTATION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
 
         return $this->salutation;
     }
+
 
     public function setSalutation(?string $salutation): void
     {

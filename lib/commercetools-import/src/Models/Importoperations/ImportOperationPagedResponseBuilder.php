@@ -21,17 +21,17 @@ use stdClass;
 final class ImportOperationPagedResponseBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $limit;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $offset;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $count;
 
@@ -43,7 +43,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getLimit()
     {
@@ -53,7 +53,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset()
     {
@@ -63,7 +63,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCount()
     {
@@ -83,7 +83,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLimit(?int $limit)
+    public function withLimit(?float $limit)
     {
         $this->limit = $limit;
 
@@ -93,7 +93,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOffset(?int $offset)
+    public function withOffset(?float $offset)
     {
         $this->offset = $offset;
 
@@ -103,7 +103,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCount(?int $count)
+    public function withCount(?float $count)
     {
         $this->count = $count;
 

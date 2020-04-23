@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
@@ -56,7 +55,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +72,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetDeliveryItemsAction::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderSetDeliveryItemsAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
 
         return $this->items;
     }
+
 
     public function setDeliveryId(?string $deliveryId): void
     {

@@ -13,13 +13,11 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -123,7 +121,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +139,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -163,7 +161,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -183,7 +181,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->cartDiscounts)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_CART_DISCOUNTS);
+            $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
             }
@@ -202,7 +200,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->cartPredicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_CART_PREDICATE);
+            $data = $this->raw(self::FIELD_CART_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -219,7 +217,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->isActive)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_IS_ACTIVE);
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
             if (is_null($data)) {
                 return null;
             }
@@ -236,7 +234,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->maxApplications)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS);
+            $data = $this->raw(self::FIELD_MAX_APPLICATIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -253,7 +251,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->maxApplicationsPerCustomer)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
+            $data = $this->raw(self::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -270,7 +268,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -290,7 +288,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->groups)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_GROUPS);
+            $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;
             }
@@ -310,7 +308,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -334,7 +332,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeDraft::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -347,6 +345,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
         return $this->validUntil;
     }
+
 
     public function setName(?LocalizedString $name): void
     {

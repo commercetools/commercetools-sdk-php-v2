@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->category)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductAddToCategoryAction::FIELD_CATEGORY);
+            $data = $this->raw(self::FIELD_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +96,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddToCategoryAction::FIELD_ORDER_HINT);
+            $data = $this->raw(self::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddToCategoryAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
 
         return $this->staged;
     }
+
 
     public function setCategory(?CategoryResourceIdentifier $category): void
     {

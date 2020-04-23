@@ -45,7 +45,7 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerSetTitleAction::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
 
         return $this->title;
     }
+
 
     public function setTitle(?string $title): void
     {

@@ -45,7 +45,7 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     {
         if (is_null($this->addressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerSetDefaultShippingAddressAction::FIELD_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
 
         return $this->addressId;
     }
+
 
     public function setAddressId(?string $addressId): void
     {

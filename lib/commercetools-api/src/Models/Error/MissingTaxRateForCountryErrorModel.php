@@ -66,7 +66,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->taxCategoryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingTaxRateForCountryError::FIELD_TAX_CATEGORY_ID);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingTaxRateForCountryError::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingTaxRateForCountryError::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
 
         return $this->state;
     }
+
 
     public function setMessage(?string $message): void
     {

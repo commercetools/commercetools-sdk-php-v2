@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
@@ -25,7 +24,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -131,7 +129,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEdit::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +148,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEdit::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -167,7 +165,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEdit::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -188,7 +186,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEdit::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -211,7 +209,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEdit::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -231,7 +229,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEdit::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -251,7 +249,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEdit::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -270,7 +268,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEdit::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -291,7 +289,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->stagedActions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEdit::FIELD_STAGED_ACTIONS);
+            $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -308,7 +306,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEdit::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -329,7 +327,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->result)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEdit::FIELD_RESULT);
+            $data = $this->raw(self::FIELD_RESULT);
             if (is_null($data)) {
                 return null;
             }
@@ -349,7 +347,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->comment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEdit::FIELD_COMMENT);
+            $data = $this->raw(self::FIELD_COMMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -358,6 +356,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
 
         return $this->comment;
     }
+
 
     public function setId(?string $id): void
     {

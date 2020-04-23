@@ -59,7 +59,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(GeneralCategoryRecommendationPagedQueryResponse::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(GeneralCategoryRecommendationPagedQueryResponse::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(GeneralCategoryRecommendationPagedQueryResponse::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     {
         if (is_null($this->results)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(GeneralCategoryRecommendationPagedQueryResponse::FIELD_RESULTS);
+            $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
 
         return $this->results;
     }
+
 
     public function setCount(?int $count): void
     {

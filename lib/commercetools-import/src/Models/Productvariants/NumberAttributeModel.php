@@ -31,14 +31,14 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $value;
 
 
     public function __construct(
         string $name = null,
-        int $value = null
+        float $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -56,7 +56,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -84,28 +84,29 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(NumberAttribute::FIELD_VALUE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = (int) $data;
+            $this->value = (float) $data;
         }
 
         return $this->value;
     }
+
 
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setValue(?int $value): void
+    public function setValue(?float $value): void
     {
         $this->value = $value;
     }

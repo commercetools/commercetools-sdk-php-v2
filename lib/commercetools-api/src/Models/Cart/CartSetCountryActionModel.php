@@ -45,7 +45,7 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetCountryAction::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
 
         return $this->country;
     }
+
 
     public function setCountry(?string $country): void
     {

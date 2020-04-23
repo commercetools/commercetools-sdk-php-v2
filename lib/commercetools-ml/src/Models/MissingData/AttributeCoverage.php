@@ -19,18 +19,18 @@ interface AttributeCoverage extends JsonObject
     /**
      * <p>The percentage of attributes from the product type defined in the product variant. A value of <code>1.0</code> indicates a product variant contains all attributes defined in the product type.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getNames();
 
     /**
      * <p>Represents the percentage of attributes in the product variant that contain values.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getValues();
 
-    public function setNames(?int $names): void;
+    public function setNames(?float $names): void;
 
-    public function setValues(?int $values): void;
+    public function setValues(?float $values): void;
 }

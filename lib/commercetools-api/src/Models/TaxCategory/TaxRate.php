@@ -39,7 +39,7 @@ interface TaxRate extends JsonObject
      * <p>Percentage in the range of [0..1].
      * The sum of the amounts of all <code>subRates</code>, if there are any.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
@@ -75,7 +75,7 @@ interface TaxRate extends JsonObject
 
     public function setName(?string $name): void;
 
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 
     public function setIncludedInPrice(?bool $includedInPrice): void;
 

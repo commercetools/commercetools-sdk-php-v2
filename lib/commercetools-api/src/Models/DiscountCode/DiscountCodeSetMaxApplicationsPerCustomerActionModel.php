@@ -45,7 +45,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     {
         if (is_null($this->maxApplicationsPerCustomer)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCodeSetMaxApplicationsPerCustomerAction::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
+            $data = $this->raw(self::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
 
         return $this->maxApplicationsPerCustomer;
     }
+
 
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
     {

@@ -54,7 +54,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     {
         if (is_null($this->productName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectCategoryRecommendationMeta::FIELD_PRODUCT_NAME);
+            $data = $this->raw(self::FIELD_PRODUCT_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     {
         if (is_null($this->productImageUrl)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectCategoryRecommendationMeta::FIELD_PRODUCT_IMAGE_URL);
+            $data = $this->raw(self::FIELD_PRODUCT_IMAGE_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +92,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     {
         if (is_null($this->generalCategoryNames)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProjectCategoryRecommendationMeta::FIELD_GENERAL_CATEGORY_NAMES);
+            $data = $this->raw(self::FIELD_GENERAL_CATEGORY_NAMES);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +101,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
 
         return $this->generalCategoryNames;
     }
+
 
     public function setProductName(?string $productName): void
     {

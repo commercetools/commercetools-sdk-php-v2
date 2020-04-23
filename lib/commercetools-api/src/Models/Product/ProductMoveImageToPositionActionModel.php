@@ -73,7 +73,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +107,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +126,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->imageUrl)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_IMAGE_URL);
+            $data = $this->raw(self::FIELD_IMAGE_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +143,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->position)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_POSITION);
+            $data = $this->raw(self::FIELD_POSITION);
             if (is_null($data)) {
                 return null;
             }
@@ -160,7 +160,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -169,6 +169,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
 
         return $this->staged;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

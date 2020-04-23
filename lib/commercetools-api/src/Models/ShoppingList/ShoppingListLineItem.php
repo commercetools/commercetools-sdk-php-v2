@@ -71,7 +71,7 @@ interface ShoppingListLineItem extends JsonObject
     public function getProductType();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -101,7 +101,7 @@ interface ShoppingListLineItem extends JsonObject
 
     public function setProductType(?ProductTypeReference $productType): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setVariant(?ProductVariant $variant): void;
 

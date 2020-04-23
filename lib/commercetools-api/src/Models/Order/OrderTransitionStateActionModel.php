@@ -13,7 +13,6 @@ use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionStateAction::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     {
         if (is_null($this->force)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderTransitionStateAction::FIELD_FORCE);
+            $data = $this->raw(self::FIELD_FORCE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
 
         return $this->force;
     }
+
 
     public function setState(?StateResourceIdentifier $state): void
     {

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Order\OrderReference;
+use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -20,7 +22,7 @@ use stdClass;
 final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft
 {
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $reference;
 
@@ -32,17 +34,53 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
-     * @return null|JsonObject
+     * @return ?mixed
      */
     public function getReference()
     {
         if (is_null($this->reference)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ReplicaCartDraft::FIELD_REFERENCE);
+            /** @psalm-var ?mixed $data */
+            $data = $this->raw(self::FIELD_REFERENCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->reference = JsonObjectModel::of($data);
+            $this->reference = $data;
+        }
+
+        return $this->reference;
+    }
+
+    /**
+     * @return null|CartReference
+     */
+    public function getReferenceAsCartReference()
+    {
+        if (!$this->reference instanceof CartReference) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_REFERENCE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->reference = CartReferenceModel::of($data);
+        }
+
+        return $this->reference;
+    }
+
+    /**
+     * @return null|OrderReference
+     */
+    public function getReferenceAsOrderReference()
+    {
+        if (!$this->reference instanceof OrderReference) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_REFERENCE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->reference = OrderReferenceModel::of($data);
         }
 
         return $this->reference;

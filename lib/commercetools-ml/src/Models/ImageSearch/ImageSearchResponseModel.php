@@ -25,7 +25,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     protected $count;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $offset;
 
@@ -42,7 +42,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
 
     public function __construct(
         int $count = null,
-        int $offset = null,
+        float $offset = null,
         int $total = null,
         ResultItemCollection $results = null
     ) {
@@ -61,7 +61,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ImageSearchResponse::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -74,17 +74,17 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     /**
      * <p>The offset into the results matching the query. An offset of 0 is the default value indicating that no results should be skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset()
     {
         if (is_null($this->offset)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImageSearchResponse::FIELD_OFFSET);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
-            $this->offset = (int) $data;
+            $this->offset = (float) $data;
         }
 
         return $this->offset;
@@ -99,7 +99,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ImageSearchResponse::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -118,7 +118,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     {
         if (is_null($this->results)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImageSearchResponse::FIELD_RESULTS);
+            $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
             }
@@ -128,12 +128,13 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
         return $this->results;
     }
 
+
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
-    public function setOffset(?int $offset): void
+    public function setOffset(?float $offset): void
     {
         $this->offset = $offset;
     }

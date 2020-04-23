@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Importoperations\ImportOperationStatusCollection;
-
 use stdClass;
 
 /**
@@ -40,7 +39,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     {
         if (is_null($this->operationStatus)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportResponse::FIELD_OPERATION_STATUS);
+            $data = $this->raw(self::FIELD_OPERATION_STATUS);
             if (is_null($data)) {
                 return null;
             }
@@ -49,6 +48,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
 
         return $this->operationStatus;
     }
+
 
     public function setOperationStatus(?ImportOperationStatusCollection $operationStatus): void
     {

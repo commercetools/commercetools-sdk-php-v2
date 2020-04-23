@@ -52,7 +52,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     {
         if (is_null($this->tokenValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerResetPassword::FIELD_TOKEN_VALUE);
+            $data = $this->raw(self::FIELD_TOKEN_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     {
         if (is_null($this->newPassword)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerResetPassword::FIELD_NEW_PASSWORD);
+            $data = $this->raw(self::FIELD_NEW_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerResetPassword::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
 
         return $this->version;
     }
+
 
     public function setTokenValue(?string $tokenValue): void
     {

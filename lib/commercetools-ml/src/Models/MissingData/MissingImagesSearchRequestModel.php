@@ -94,7 +94,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -111,7 +111,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -130,7 +130,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +149,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productSetLimit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_PRODUCT_SET_LIMIT);
+            $data = $this->raw(self::FIELD_PRODUCT_SET_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +168,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->includeVariants)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_INCLUDE_VARIANTS);
+            $data = $this->raw(self::FIELD_INCLUDE_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -187,7 +187,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->autoThreshold)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_AUTO_THRESHOLD);
+            $data = $this->raw(self::FIELD_AUTO_THRESHOLD);
             if (is_null($data)) {
                 return null;
             }
@@ -206,7 +206,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->threshold)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_THRESHOLD);
+            $data = $this->raw(self::FIELD_THRESHOLD);
             if (is_null($data)) {
                 return null;
             }
@@ -225,7 +225,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_PRODUCT_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -244,7 +244,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productTypeIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingImagesSearchRequest::FIELD_PRODUCT_TYPE_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -253,6 +253,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
 
         return $this->productTypeIds;
     }
+
 
     public function setLimit(?int $limit): void
     {

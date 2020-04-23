@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Api\Models\Common\LocalizedString;
-
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
@@ -89,7 +88,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ChannelDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +107,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->roles)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ChannelDraft::FIELD_ROLES);
+            $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +124,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +142,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +160,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -181,7 +180,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -199,7 +198,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     {
         if (is_null($this->geoLocation)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
+            $data = $this->raw(self::FIELD_GEO_LOCATION);
             if (is_null($data)) {
                 return null;
             }
@@ -209,6 +208,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 
         return $this->geoLocation;
     }
+
 
     public function setKey(?string $key): void
     {

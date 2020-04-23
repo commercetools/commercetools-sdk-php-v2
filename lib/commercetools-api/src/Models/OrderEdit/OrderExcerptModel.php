@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\TaxedPriceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderExcerpt::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -75,7 +74,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderExcerpt::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderExcerpt::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +101,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
 
         return $this->version;
     }
+
 
     public function setTotalPrice(?TypedMoney $totalPrice): void
     {

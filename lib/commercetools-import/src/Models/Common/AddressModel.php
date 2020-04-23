@@ -206,7 +206,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -223,7 +223,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -240,7 +240,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -257,7 +257,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->salutation)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_SALUTATION);
+            $data = $this->raw(self::FIELD_SALUTATION);
             if (is_null($data)) {
                 return null;
             }
@@ -274,7 +274,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->firstName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_FIRST_NAME);
+            $data = $this->raw(self::FIELD_FIRST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -291,7 +291,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->lastName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_LAST_NAME);
+            $data = $this->raw(self::FIELD_LAST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -308,7 +308,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->streetName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_STREET_NAME);
+            $data = $this->raw(self::FIELD_STREET_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -325,7 +325,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->streetNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_STREET_NUMBER);
+            $data = $this->raw(self::FIELD_STREET_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -342,7 +342,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->additionalStreetInfo)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_ADDITIONAL_STREET_INFO);
+            $data = $this->raw(self::FIELD_ADDITIONAL_STREET_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -359,7 +359,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->postalCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_POSTAL_CODE);
+            $data = $this->raw(self::FIELD_POSTAL_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -376,7 +376,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->city)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_CITY);
+            $data = $this->raw(self::FIELD_CITY);
             if (is_null($data)) {
                 return null;
             }
@@ -393,7 +393,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->region)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_REGION);
+            $data = $this->raw(self::FIELD_REGION);
             if (is_null($data)) {
                 return null;
             }
@@ -410,7 +410,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -429,7 +429,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -446,7 +446,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->company)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_COMPANY);
+            $data = $this->raw(self::FIELD_COMPANY);
             if (is_null($data)) {
                 return null;
             }
@@ -463,7 +463,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->department)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_DEPARTMENT);
+            $data = $this->raw(self::FIELD_DEPARTMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -480,7 +480,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->building)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_BUILDING);
+            $data = $this->raw(self::FIELD_BUILDING);
             if (is_null($data)) {
                 return null;
             }
@@ -497,7 +497,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->apartment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_APARTMENT);
+            $data = $this->raw(self::FIELD_APARTMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -514,7 +514,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->pOBox)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_P_O_BOX);
+            $data = $this->raw(self::FIELD_P_O_BOX);
             if (is_null($data)) {
                 return null;
             }
@@ -531,7 +531,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->phone)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_PHONE);
+            $data = $this->raw(self::FIELD_PHONE);
             if (is_null($data)) {
                 return null;
             }
@@ -548,7 +548,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->mobile)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_MOBILE);
+            $data = $this->raw(self::FIELD_MOBILE);
             if (is_null($data)) {
                 return null;
             }
@@ -565,7 +565,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -582,7 +582,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->fax)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_FAX);
+            $data = $this->raw(self::FIELD_FAX);
             if (is_null($data)) {
                 return null;
             }
@@ -599,7 +599,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->additionalAddressInfo)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_ADDITIONAL_ADDRESS_INFO);
+            $data = $this->raw(self::FIELD_ADDITIONAL_ADDRESS_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -616,7 +616,7 @@ final class AddressModel extends JsonObjectModel implements Address
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Address::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -625,6 +625,7 @@ final class AddressModel extends JsonObjectModel implements Address
 
         return $this->externalId;
     }
+
 
     public function setId(?string $id): void
     {

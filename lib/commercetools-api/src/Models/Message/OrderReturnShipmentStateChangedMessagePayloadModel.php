@@ -52,7 +52,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     {
         if (is_null($this->returnItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_ITEM_ID);
+            $data = $this->raw(self::FIELD_RETURN_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     {
         if (is_null($this->returnShipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_RETURN_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
 
         return $this->returnShipmentState;
     }
+
 
     public function setReturnItemId(?string $returnItemId): void
     {

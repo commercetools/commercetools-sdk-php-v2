@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -55,7 +53,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingImagesTaskStatus::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +72,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     {
         if (is_null($this->expires)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingImagesTaskStatus::FIELD_EXPIRES);
+            $data = $this->raw(self::FIELD_EXPIRES);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +95,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     {
         if (is_null($this->result)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingImagesTaskStatus::FIELD_RESULT);
+            $data = $this->raw(self::FIELD_RESULT);
             if (is_null($data)) {
                 return null;
             }
@@ -107,6 +105,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
 
         return $this->result;
     }
+
 
     public function setState(?string $state): void
     {

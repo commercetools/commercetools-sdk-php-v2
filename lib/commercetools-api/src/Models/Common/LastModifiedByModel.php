@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     {
         if (is_null($this->clientId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ClientLogging::FIELD_CLIENT_ID);
+            $data = $this->raw(self::FIELD_CLIENT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     {
         if (is_null($this->externalUserId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ClientLogging::FIELD_EXTERNAL_USER_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_USER_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ClientLogging::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ClientLogging::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
 
         return $this->anonymousId;
     }
+
 
     public function setClientId(?string $clientId): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -57,7 +56,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerGroupDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     {
         if (is_null($this->groupName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerGroupDraft::FIELD_GROUP_NAME);
+            $data = $this->raw(self::FIELD_GROUP_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerGroupDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
 
         return $this->custom;
     }
+
 
     public function setKey(?string $key): void
     {

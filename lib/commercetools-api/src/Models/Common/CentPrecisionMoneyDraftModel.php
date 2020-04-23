@@ -52,7 +52,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     {
         if (is_null($this->centAmount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Money::FIELD_CENT_AMOUNT);
+            $data = $this->raw(self::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +71,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Money::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +88,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypedMoneyDraft::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -97,6 +97,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
 
         return $this->type;
     }
+
 
     public function setCentAmount(?int $centAmount): void
     {

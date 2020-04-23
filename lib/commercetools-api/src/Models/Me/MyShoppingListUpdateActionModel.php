@@ -63,7 +63,7 @@ final class MyShoppingListUpdateActionModel extends JsonObjectModel implements M
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class MyShoppingListUpdateActionModel extends JsonObjectModel implements M
 
         return $this->action;
     }
+
 
 
 

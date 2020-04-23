@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Price;
-
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
@@ -184,7 +183,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItem::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -201,7 +200,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItem::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -220,7 +219,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -243,7 +242,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->productSlug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_PRODUCT_SLUG);
+            $data = $this->raw(self::FIELD_PRODUCT_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -261,7 +260,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_PRODUCT_TYPE);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -282,7 +281,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->variant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_VARIANT);
+            $data = $this->raw(self::FIELD_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -303,7 +302,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -323,7 +322,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -346,7 +345,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -367,7 +366,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(LineItem::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -384,7 +383,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->state)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(LineItem::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -404,7 +403,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -426,7 +425,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -447,7 +446,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -465,7 +464,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->discountedPricePerQuantity)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(LineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -482,7 +481,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->priceMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItem::FIELD_PRICE_MODE);
+            $data = $this->raw(self::FIELD_PRICE_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -499,7 +498,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->lineItemMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItem::FIELD_LINE_ITEM_MODE);
+            $data = $this->raw(self::FIELD_LINE_ITEM_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -516,7 +515,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -536,7 +535,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItem::FIELD_SHIPPING_DETAILS);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
@@ -546,6 +545,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
         return $this->shippingDetails;
     }
+
 
     public function setId(?string $id): void
     {

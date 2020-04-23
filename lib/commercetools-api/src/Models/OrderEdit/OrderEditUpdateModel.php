@@ -52,7 +52,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEditUpdate::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     {
         if (is_null($this->actions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditUpdate::FIELD_ACTIONS);
+            $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     {
         if (is_null($this->dryRun)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderEditUpdate::FIELD_DRY_RUN);
+            $data = $this->raw(self::FIELD_DRY_RUN);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
 
         return $this->dryRun;
     }
+
 
     public function setVersion(?int $version): void
     {

@@ -45,7 +45,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyPaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
     {
         if (is_null($this->method)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyPaymentSetMethodInfoMethodAction::FIELD_METHOD);
+            $data = $this->raw(self::FIELD_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
 
         return $this->method;
     }
+
 
     public function setMethod(?string $method): void
     {

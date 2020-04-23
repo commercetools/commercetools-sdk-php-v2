@@ -26,7 +26,7 @@ interface TaxPortion extends JsonObject
     /**
      * <p>A number in the range [0..1]</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getRate();
 
@@ -37,7 +37,7 @@ interface TaxPortion extends JsonObject
 
     public function setName(?string $name): void;
 
-    public function setRate(?int $rate): void;
+    public function setRate(?float $rate): void;
 
     public function setAmount(?TypedMoney $amount): void;
 }

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->interaction)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentInteractionAddedMessagePayload::FIELD_INTERACTION);
+            $data = $this->raw(self::FIELD_INTERACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
 
         return $this->interaction;
     }
+
 
     public function setInteraction(?CustomFields $interaction): void
     {

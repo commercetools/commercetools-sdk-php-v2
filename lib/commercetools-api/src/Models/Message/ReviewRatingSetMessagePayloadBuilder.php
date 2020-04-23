@@ -23,12 +23,12 @@ use stdClass;
 final class ReviewRatingSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $oldRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $newRating;
 
@@ -43,7 +43,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     private $target;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getOldRating()
     {
@@ -51,7 +51,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getNewRating()
     {
@@ -77,7 +77,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldRating(?int $oldRating)
+    public function withOldRating(?float $oldRating)
     {
         $this->oldRating = $oldRating;
 
@@ -87,7 +87,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNewRating(?int $newRating)
+    public function withNewRating(?float $newRating)
     {
         $this->newRating = $newRating;
 

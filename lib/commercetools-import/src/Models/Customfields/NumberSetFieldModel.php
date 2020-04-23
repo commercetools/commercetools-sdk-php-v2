@@ -47,7 +47,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     {
         if (is_null($this->value)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(NumberSetField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
 
         return $this->value;
     }
+
 
     public function setValue(?array $value): void
     {

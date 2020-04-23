@@ -52,7 +52,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderPaymentStateChangedMessagePayload::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     {
         if (is_null($this->oldPaymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderPaymentStateChangedMessagePayload::FIELD_OLD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_OLD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
 
         return $this->oldPaymentState;
     }
+
 
     public function setPaymentState(?string $paymentState): void
     {

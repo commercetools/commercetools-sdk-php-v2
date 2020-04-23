@@ -47,7 +47,7 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LocalizedEnumField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
 
         return $this->value;
     }
+
 
     public function setValue(?string $value): void
     {

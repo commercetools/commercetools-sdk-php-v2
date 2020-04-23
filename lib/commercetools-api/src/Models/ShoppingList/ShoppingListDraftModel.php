@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -110,7 +109,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -128,7 +127,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -148,7 +147,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->deleteDaysAfterLastModification)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -165,7 +164,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -185,7 +184,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -202,7 +201,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -219,7 +218,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -241,7 +240,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -259,7 +258,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->textLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -278,7 +277,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -287,6 +286,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
 
         return $this->anonymousId;
     }
+
 
     public function setCustom(?CustomFieldsDraft $custom): void
     {

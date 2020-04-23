@@ -45,7 +45,7 @@ abstract class BaseJsonObject implements JsonObject
      */
     final public static function fromArray(array $data = [])
     {
-        return static::of((object)$data);
+        return self::fromStdClass((object)$data);
     }
 
     /**

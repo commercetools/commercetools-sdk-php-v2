@@ -45,7 +45,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     {
         if (is_null($this->initial)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(StateChangeInitialAction::FIELD_INITIAL);
+            $data = $this->raw(self::FIELD_INITIAL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
 
         return $this->initial;
     }
+
 
     public function setInitial(?bool $initial): void
     {

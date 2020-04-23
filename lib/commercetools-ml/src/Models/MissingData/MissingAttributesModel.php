@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\ProductReference;
-
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
 use Commercetools\Ml\Models\Common\ProductTypeReference;
 use Commercetools\Ml\Models\Common\ProductTypeReferenceModel;
@@ -85,7 +84,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributes::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +102,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributes::FIELD_PRODUCT_TYPE);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +122,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingAttributes::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +141,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->missingAttributeValues)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingAttributes::FIELD_MISSING_ATTRIBUTE_VALUES);
+            $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +160,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->missingAttributeNames)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingAttributes::FIELD_MISSING_ATTRIBUTE_NAMES);
+            $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_NAMES);
             if (is_null($data)) {
                 return null;
             }
@@ -178,7 +177,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->attributeCount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributes::FIELD_ATTRIBUTE_COUNT);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -196,7 +195,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     {
         if (is_null($this->attributeCoverage)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributes::FIELD_ATTRIBUTE_COVERAGE);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_COVERAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -206,6 +205,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
 
         return $this->attributeCoverage;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

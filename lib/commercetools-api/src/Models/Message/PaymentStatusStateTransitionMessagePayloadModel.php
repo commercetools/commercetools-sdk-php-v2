@@ -13,7 +13,6 @@ use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentStatusStateTransitionMessagePayload::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     {
         if (is_null($this->force)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(PaymentStatusStateTransitionMessagePayload::FIELD_FORCE);
+            $data = $this->raw(self::FIELD_FORCE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
 
         return $this->force;
     }
+
 
     public function setState(?StateReference $state): void
     {

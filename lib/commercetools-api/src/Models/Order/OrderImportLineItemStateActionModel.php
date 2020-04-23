@@ -52,7 +52,7 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportLineItemStateAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->state)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportLineItemStateAction::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
 
         return $this->state;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

@@ -66,7 +66,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     {
         if (is_null($this->assetOrder)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_ASSET_ORDER);
+            $data = $this->raw(self::FIELD_ASSET_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
 
         return $this->assetOrder;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

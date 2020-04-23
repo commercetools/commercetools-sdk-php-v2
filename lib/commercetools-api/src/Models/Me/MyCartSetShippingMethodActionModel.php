@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     {
         if (is_null($this->shippingMethod)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetShippingMethodAction::FIELD_SHIPPING_METHOD);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +101,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
 
         return $this->externalTaxRate;
     }
+
 
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {

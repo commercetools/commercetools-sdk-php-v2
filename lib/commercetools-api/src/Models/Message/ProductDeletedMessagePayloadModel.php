@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Product\ProductProjectionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     {
         if (is_null($this->removedImageUrls)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductDeletedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
+            $data = $this->raw(self::FIELD_REMOVED_IMAGE_URLS);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     {
         if (is_null($this->currentProjection)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDeletedMessagePayload::FIELD_CURRENT_PROJECTION);
+            $data = $this->raw(self::FIELD_CURRENT_PROJECTION);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
 
         return $this->currentProjection;
     }
+
 
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {

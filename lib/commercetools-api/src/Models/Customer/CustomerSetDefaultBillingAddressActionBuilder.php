@@ -26,6 +26,11 @@ final class CustomerSetDefaultBillingAddressActionBuilder implements Builder
     private $addressId;
 
     /**
+     * @var ?string
+     */
+    private $addressKey;
+
+    /**
      * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>
      *
      * @return null|string
@@ -33,6 +38,14 @@ final class CustomerSetDefaultBillingAddressActionBuilder implements Builder
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        return $this->addressKey;
     }
 
     /**
@@ -45,11 +58,22 @@ final class CustomerSetDefaultBillingAddressActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAddressKey(?string $addressKey)
+    {
+        $this->addressKey = $addressKey;
+
+        return $this;
+    }
+
 
     public function build(): CustomerSetDefaultBillingAddressAction
     {
         return new CustomerSetDefaultBillingAddressActionModel(
-            $this->addressId
+            $this->addressId,
+            $this->addressKey
         );
     }
 

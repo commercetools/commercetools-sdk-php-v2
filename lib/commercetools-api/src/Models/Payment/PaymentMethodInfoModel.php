@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -59,7 +58,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     {
         if (is_null($this->paymentInterface)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentMethodInfo::FIELD_PAYMENT_INTERFACE);
+            $data = $this->raw(self::FIELD_PAYMENT_INTERFACE);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +79,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     {
         if (is_null($this->method)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentMethodInfo::FIELD_METHOD);
+            $data = $this->raw(self::FIELD_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentMethodInfo::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -110,6 +109,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
 
         return $this->name;
     }
+
 
     public function setPaymentInterface(?string $paymentInterface): void
     {

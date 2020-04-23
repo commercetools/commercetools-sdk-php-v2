@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\ProductReference;
-
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingImages::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -75,7 +74,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImages::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +93,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     {
         if (is_null($this->imageCount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImages::FIELD_IMAGE_COUNT);
+            $data = $this->raw(self::FIELD_IMAGE_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -103,6 +102,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
 
         return $this->imageCount;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

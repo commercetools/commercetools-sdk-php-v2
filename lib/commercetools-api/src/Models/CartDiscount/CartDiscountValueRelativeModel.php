@@ -45,7 +45,7 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountValue::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->permyriad)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CartDiscountValueRelative::FIELD_PERMYRIAD);
+            $data = $this->raw(self::FIELD_PERMYRIAD);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
 
         return $this->permyriad;
     }
+
 
     public function setPermyriad(?int $permyriad): void
     {

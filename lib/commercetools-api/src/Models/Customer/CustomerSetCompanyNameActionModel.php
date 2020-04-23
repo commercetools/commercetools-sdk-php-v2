@@ -45,7 +45,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     {
         if (is_null($this->companyName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetCompanyNameAction::FIELD_COMPANY_NAME);
+            $data = $this->raw(self::FIELD_COMPANY_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
 
         return $this->companyName;
     }
+
 
     public function setCompanyName(?string $companyName): void
     {

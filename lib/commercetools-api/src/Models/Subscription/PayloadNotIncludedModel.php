@@ -45,7 +45,7 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     {
         if (is_null($this->reason)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PayloadNotIncluded::FIELD_REASON);
+            $data = $this->raw(self::FIELD_REASON);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     {
         if (is_null($this->payloadType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PayloadNotIncluded::FIELD_PAYLOAD_TYPE);
+            $data = $this->raw(self::FIELD_PAYLOAD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
 
         return $this->payloadType;
     }
+
 
     public function setReason(?string $reason): void
     {

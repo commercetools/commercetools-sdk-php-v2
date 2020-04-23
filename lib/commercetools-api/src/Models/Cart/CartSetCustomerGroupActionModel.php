@@ -13,7 +13,6 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetCustomerGroupAction::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
 
         return $this->customerGroup;
     }
+
 
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {

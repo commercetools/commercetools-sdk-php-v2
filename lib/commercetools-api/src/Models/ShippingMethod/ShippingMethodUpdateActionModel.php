@@ -55,7 +55,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,6 +64,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
 
         return $this->action;
     }
+
 
 
 

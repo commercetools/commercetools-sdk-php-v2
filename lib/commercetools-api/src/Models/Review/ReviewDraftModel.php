@@ -8,12 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -57,7 +60,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     protected $text;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $target;
 
@@ -117,7 +120,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -137,7 +140,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->uniquenessValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_UNIQUENESS_VALUE);
+            $data = $this->raw(self::FIELD_UNIQUENESS_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -154,7 +157,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -171,7 +174,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->authorName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_AUTHOR_NAME);
+            $data = $this->raw(self::FIELD_AUTHOR_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -188,7 +191,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -205,7 +208,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_TEXT);
+            $data = $this->raw(self::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -219,17 +222,17 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
-     * @return null|JsonObject
+     * @return ?mixed
      */
     public function getTarget()
     {
         if (is_null($this->target)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ReviewDraft::FIELD_TARGET);
+            /** @psalm-var ?mixed $data */
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
-            $this->target = JsonObjectModel::of($data);
+            $this->target = $data;
         }
 
         return $this->target;
@@ -242,7 +245,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewDraft::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -265,7 +268,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->rating)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewDraft::FIELD_RATING);
+            $data = $this->raw(self::FIELD_RATING);
             if (is_null($data)) {
                 return null;
             }
@@ -284,7 +287,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewDraft::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -302,7 +305,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -311,6 +314,48 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>
+     *
+     * @return null|ProductResourceIdentifier
+     */
+    public function getTargetAsProductResourceIdentifier()
+    {
+        if (!$this->target instanceof ProductResourceIdentifier) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ProductResourceIdentifierModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getTargetAsChannelResourceIdentifier()
+    {
+        if (!$this->target instanceof ChannelResourceIdentifier) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->target;
     }
 
     public function setKey(?string $key): void

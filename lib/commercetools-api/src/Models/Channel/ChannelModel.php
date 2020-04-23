@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
-
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
@@ -30,7 +29,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -150,7 +148,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -167,7 +165,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Channel::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -184,7 +182,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -205,7 +203,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -228,7 +226,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -248,7 +246,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -268,7 +266,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -288,7 +286,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->roles)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Channel::FIELD_ROLES);
+            $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
             }
@@ -307,7 +305,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -327,7 +325,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -348,7 +346,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -368,7 +366,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->reviewRatingStatistics)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_REVIEW_RATING_STATISTICS);
+            $data = $this->raw(self::FIELD_REVIEW_RATING_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -386,7 +384,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -406,7 +404,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->geoLocation)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_GEO_LOCATION);
+            $data = $this->raw(self::FIELD_GEO_LOCATION);
             if (is_null($data)) {
                 return null;
             }
@@ -416,6 +414,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
 
         return $this->geoLocation;
     }
+
 
     public function setId(?string $id): void
     {

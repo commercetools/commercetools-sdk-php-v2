@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -29,12 +28,12 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $oldRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $newRating;
 
@@ -50,8 +49,8 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
 
 
     public function __construct(
-        int $oldRating = null,
-        int $newRating = null,
+        float $oldRating = null,
+        float $newRating = null,
         bool $includedInStatistics = null,
         Reference $target = null
     ) {
@@ -69,7 +68,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -80,34 +79,34 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getOldRating()
     {
         if (is_null($this->oldRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_OLD_RATING);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_OLD_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->oldRating = (int) $data;
+            $this->oldRating = (float) $data;
         }
 
         return $this->oldRating;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getNewRating()
     {
         if (is_null($this->newRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_NEW_RATING);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_NEW_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->newRating = (int) $data;
+            $this->newRating = (float) $data;
         }
 
         return $this->newRating;
@@ -120,7 +119,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     {
         if (is_null($this->includedInStatistics)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_INCLUDED_IN_STATISTICS);
+            $data = $this->raw(self::FIELD_INCLUDED_IN_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -137,7 +136,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -148,12 +147,13 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
         return $this->target;
     }
 
-    public function setOldRating(?int $oldRating): void
+
+    public function setOldRating(?float $oldRating): void
     {
         $this->oldRating = $oldRating;
     }
 
-    public function setNewRating(?int $newRating): void
+    public function setNewRating(?float $newRating): void
     {
         $this->newRating = $newRating;
     }

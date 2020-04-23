@@ -25,7 +25,7 @@ interface FacetResultRange extends JsonObject
     public const FIELD_MEAN = 'mean';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getFrom();
 
@@ -35,7 +35,7 @@ interface FacetResultRange extends JsonObject
     public function getFromStr();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTo();
 
@@ -60,25 +60,25 @@ interface FacetResultRange extends JsonObject
     public function getTotal();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMin();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMax();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getMean();
 
-    public function setFrom(?int $from): void;
+    public function setFrom(?float $from): void;
 
     public function setFromStr(?string $fromStr): void;
 
-    public function setTo(?int $to): void;
+    public function setTo(?float $to): void;
 
     public function setToStr(?string $toStr): void;
 
@@ -88,9 +88,9 @@ interface FacetResultRange extends JsonObject
 
     public function setTotal(?int $total): void;
 
-    public function setMin(?int $min): void;
+    public function setMin(?float $min): void;
 
-    public function setMax(?int $max): void;
+    public function setMax(?float $max): void;
 
-    public function setMean(?int $mean): void;
+    public function setMean(?float $mean): void;
 }

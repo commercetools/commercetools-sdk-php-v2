@@ -13,7 +13,6 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderAddCustomLineItemActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDeliveryActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDiscountCodeAction;
-
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddDiscountCodeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddItemShippingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderAddItemShippingAddressActionModel;
@@ -252,7 +251,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -261,6 +260,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
 
         return $this->action;
     }
+
 
 
 

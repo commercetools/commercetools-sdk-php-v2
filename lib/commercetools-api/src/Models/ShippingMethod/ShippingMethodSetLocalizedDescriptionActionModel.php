@@ -45,7 +45,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     {
         if (is_null($this->localizedDescription)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodSetLocalizedDescriptionAction::FIELD_LOCALIZED_DESCRIPTION);
+            $data = $this->raw(self::FIELD_LOCALIZED_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
 
         return $this->localizedDescription;
     }
+
 
     public function setLocalizedDescription(?string $localizedDescription): void
     {

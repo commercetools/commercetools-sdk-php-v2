@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
-
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
@@ -26,7 +25,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -249,7 +247,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -266,7 +264,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyCustomer::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -283,7 +281,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -304,7 +302,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -325,7 +323,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomer::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -343,7 +341,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomer::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -361,7 +359,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->customerNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_CUSTOMER_NUMBER);
+            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -378,7 +376,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -395,7 +393,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->password)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_PASSWORD);
+            $data = $this->raw(self::FIELD_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -412,7 +410,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->firstName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_FIRST_NAME);
+            $data = $this->raw(self::FIELD_FIRST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -429,7 +427,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->lastName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_LAST_NAME);
+            $data = $this->raw(self::FIELD_LAST_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -446,7 +444,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->middleName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_MIDDLE_NAME);
+            $data = $this->raw(self::FIELD_MIDDLE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -463,7 +461,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -480,7 +478,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->dateOfBirth)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_DATE_OF_BIRTH);
+            $data = $this->raw(self::FIELD_DATE_OF_BIRTH);
             if (is_null($data)) {
                 return null;
             }
@@ -501,7 +499,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->companyName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_COMPANY_NAME);
+            $data = $this->raw(self::FIELD_COMPANY_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -518,7 +516,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->vatId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_VAT_ID);
+            $data = $this->raw(self::FIELD_VAT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -535,7 +533,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->addresses)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyCustomer::FIELD_ADDRESSES);
+            $data = $this->raw(self::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -552,7 +550,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->defaultShippingAddressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_DEFAULT_SHIPPING_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -569,7 +567,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->shippingAddressIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MyCustomer::FIELD_SHIPPING_ADDRESS_IDS);
+            $data = $this->raw(self::FIELD_SHIPPING_ADDRESS_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -586,7 +584,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->defaultBillingAddressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_DEFAULT_BILLING_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_DEFAULT_BILLING_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -603,7 +601,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->billingAddressIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MyCustomer::FIELD_BILLING_ADDRESS_IDS);
+            $data = $this->raw(self::FIELD_BILLING_ADDRESS_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -620,7 +618,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->isEmailVerified)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MyCustomer::FIELD_IS_EMAIL_VERIFIED);
+            $data = $this->raw(self::FIELD_IS_EMAIL_VERIFIED);
             if (is_null($data)) {
                 return null;
             }
@@ -637,7 +635,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -654,7 +652,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomer::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -672,7 +670,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomer::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -690,7 +688,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -707,7 +705,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->salutation)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_SALUTATION);
+            $data = $this->raw(self::FIELD_SALUTATION);
             if (is_null($data)) {
                 return null;
             }
@@ -724,7 +722,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomer::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -741,7 +739,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     {
         if (is_null($this->stores)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyCustomer::FIELD_STORES);
+            $data = $this->raw(self::FIELD_STORES);
             if (is_null($data)) {
                 return null;
             }
@@ -750,6 +748,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
 
         return $this->stores;
     }
+
 
     public function setId(?string $id): void
     {

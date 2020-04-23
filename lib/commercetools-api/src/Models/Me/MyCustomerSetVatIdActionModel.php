@@ -45,7 +45,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     {
         if (is_null($this->vatId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerSetVatIdAction::FIELD_VAT_ID);
+            $data = $this->raw(self::FIELD_VAT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
 
         return $this->vatId;
     }
+
 
     public function setVatId(?string $vatId): void
     {

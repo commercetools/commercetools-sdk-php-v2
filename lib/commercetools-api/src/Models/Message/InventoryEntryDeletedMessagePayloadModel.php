@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
 
         return $this->supplyChannel;
     }
+
 
     public function setSku(?string $sku): void
     {

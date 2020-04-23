@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -54,7 +53,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +70,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartApplyDeltaToLineItemShippingDetailsTargetsAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +87,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     {
         if (is_null($this->targetsDelta)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyCartApplyDeltaToLineItemShippingDetailsTargetsAction::FIELD_TARGETS_DELTA);
+            $data = $this->raw(self::FIELD_TARGETS_DELTA);
             if (is_null($data)) {
                 return null;
             }
@@ -97,6 +96,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
 
         return $this->targetsDelta;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Product\ProductProjectionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     {
         if (is_null($this->productProjection)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductCreatedMessagePayload::FIELD_PRODUCT_PROJECTION);
+            $data = $this->raw(self::FIELD_PRODUCT_PROJECTION);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
 
         return $this->productProjection;
     }
+
 
     public function setProductProjection(?ProductProjection $productProjection): void
     {

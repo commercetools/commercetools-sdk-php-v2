@@ -26,7 +26,7 @@ final class DeliveryItemBuilder implements Builder
     private $id;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -39,7 +39,7 @@ final class DeliveryItemBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -59,7 +59,7 @@ final class DeliveryItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

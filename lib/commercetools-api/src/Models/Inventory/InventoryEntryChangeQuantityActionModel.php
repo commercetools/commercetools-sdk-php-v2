@@ -45,7 +45,7 @@ final class InventoryEntryChangeQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class InventoryEntryChangeQuantityActionModel extends JsonObjectModel impl
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntryChangeQuantityAction::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class InventoryEntryChangeQuantityActionModel extends JsonObjectModel impl
 
         return $this->quantity;
     }
+
 
     public function setQuantity(?int $quantity): void
     {

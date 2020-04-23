@@ -57,7 +57,7 @@ interface LineItemImportDraft extends JsonObject
     public function getPrice();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -110,7 +110,7 @@ interface LineItemImportDraft extends JsonObject
 
     public function setPrice(?PriceDraft $price): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setState(?ItemStateCollection $state): void;
 

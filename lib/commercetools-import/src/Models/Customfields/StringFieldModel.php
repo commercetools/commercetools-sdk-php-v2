@@ -47,7 +47,7 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StringField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class StringFieldModel extends JsonObjectModel implements StringField
 
         return $this->value;
     }
+
 
     public function setValue(?string $value): void
     {

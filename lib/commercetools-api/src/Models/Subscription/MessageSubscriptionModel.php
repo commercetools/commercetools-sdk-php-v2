@@ -45,7 +45,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     {
         if (is_null($this->resourceTypeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessageSubscription::FIELD_RESOURCE_TYPE_ID);
+            $data = $this->raw(self::FIELD_RESOURCE_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     {
         if (is_null($this->types)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MessageSubscription::FIELD_TYPES);
+            $data = $this->raw(self::FIELD_TYPES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
 
         return $this->types;
     }
+
 
     public function setResourceTypeId(?string $resourceTypeId): void
     {

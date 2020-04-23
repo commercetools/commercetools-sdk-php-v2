@@ -53,7 +53,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportRequest::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,6 +62,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 
         return $this->type;
     }
+
 
 
 

@@ -52,7 +52,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryRemoveAssetAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryRemoveAssetAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
 
         return $this->assetKey;
     }
+
 
     public function setAssetId(?string $assetId): void
     {

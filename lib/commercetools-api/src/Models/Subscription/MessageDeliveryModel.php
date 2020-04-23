@@ -13,12 +13,10 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -115,7 +113,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->projectKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_PROJECT_KEY);
+            $data = $this->raw(self::FIELD_PROJECT_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -132,7 +130,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->notificationType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            $data = $this->raw(self::FIELD_NOTIFICATION_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +147,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -167,7 +165,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->resourceUserProvidedIdentifiers)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            $data = $this->raw(self::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -185,7 +183,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessageDelivery::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -202,7 +200,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MessageDelivery::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -219,7 +217,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessageDelivery::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -240,7 +238,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessageDelivery::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -261,7 +259,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->sequenceNumber)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MessageDelivery::FIELD_SEQUENCE_NUMBER);
+            $data = $this->raw(self::FIELD_SEQUENCE_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -278,7 +276,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->resourceVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MessageDelivery::FIELD_RESOURCE_VERSION);
+            $data = $this->raw(self::FIELD_RESOURCE_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -295,7 +293,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     {
         if (is_null($this->payloadNotIncluded)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MessageDelivery::FIELD_PAYLOAD_NOT_INCLUDED);
+            $data = $this->raw(self::FIELD_PAYLOAD_NOT_INCLUDED);
             if (is_null($data)) {
                 return null;
             }
@@ -305,6 +303,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
 
         return $this->payloadNotIncluded;
     }
+
 
     public function setProjectKey(?string $projectKey): void
     {

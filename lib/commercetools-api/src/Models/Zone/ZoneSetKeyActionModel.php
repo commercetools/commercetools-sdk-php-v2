@@ -45,7 +45,7 @@ final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyA
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyA
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneSetKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyA
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

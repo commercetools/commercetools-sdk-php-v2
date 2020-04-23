@@ -20,12 +20,12 @@ interface ReviewRatingSetMessagePayload extends MessagePayload
     public const FIELD_TARGET = 'target';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getOldRating();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getNewRating();
 
@@ -39,9 +39,9 @@ interface ReviewRatingSetMessagePayload extends MessagePayload
      */
     public function getTarget();
 
-    public function setOldRating(?int $oldRating): void;
+    public function setOldRating(?float $oldRating): void;
 
-    public function setNewRating(?int $newRating): void;
+    public function setNewRating(?float $newRating): void;
 
     public function setIncludedInStatistics(?bool $includedInStatistics): void;
 

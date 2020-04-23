@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountModel;
 use Commercetools\Api\Models\Category\Category;
-
 use Commercetools\Api\Models\Category\CategoryModel;
 use Commercetools\Api\Models\Channel\Channel;
 use Commercetools\Api\Models\Channel\ChannelModel;
@@ -76,7 +75,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -124,7 +122,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -141,7 +139,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -158,7 +156,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +177,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -192,6 +190,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
 
         return $this->lastModifiedAt;
     }
+
 
     public function setId(?string $id): void
     {

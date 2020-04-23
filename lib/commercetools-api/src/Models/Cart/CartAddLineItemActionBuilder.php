@@ -57,7 +57,7 @@ final class CartAddLineItemActionBuilder implements Builder
     private $sku;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -130,7 +130,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -232,7 +232,7 @@ final class CartAddLineItemActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

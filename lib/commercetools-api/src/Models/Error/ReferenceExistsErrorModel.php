@@ -52,7 +52,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     {
         if (is_null($this->referencedBy)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReferenceExistsError::FIELD_REFERENCED_BY);
+            $data = $this->raw(self::FIELD_REFERENCED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
 
         return $this->referencedBy;
     }
+
 
     public function setMessage(?string $message): void
     {

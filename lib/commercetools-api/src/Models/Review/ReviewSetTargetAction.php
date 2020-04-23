@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -20,7 +22,7 @@ interface ReviewSetTargetAction extends ReviewUpdateAction
      * Can be a Product or a Channel.
      * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTarget();
 

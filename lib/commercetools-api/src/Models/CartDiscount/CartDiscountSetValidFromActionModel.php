@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -48,7 +46,7 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +65,7 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountSetValidFromAction::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -80,6 +78,7 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
 
         return $this->validFrom;
     }
+
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {

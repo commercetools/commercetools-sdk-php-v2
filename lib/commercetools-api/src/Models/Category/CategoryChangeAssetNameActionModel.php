@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryChangeAssetNameAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryChangeAssetNameAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryChangeAssetNameAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
 
         return $this->name;
     }
+
 
     public function setAssetId(?string $assetId): void
     {

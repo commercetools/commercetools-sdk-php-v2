@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -69,7 +68,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +85,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +102,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->field)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_FIELD);
+            $data = $this->raw(self::FIELD_FIELD);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +119,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->duplicateValue)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_DUPLICATE_VALUE);
+            $data = $this->raw(self::FIELD_DUPLICATE_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -137,7 +136,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     {
         if (is_null($this->conflictingResource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_CONFLICTING_RESOURCE);
+            $data = $this->raw(self::FIELD_CONFLICTING_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -147,6 +146,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
 
         return $this->conflictingResource;
     }
+
 
     public function setMessage(?string $message): void
     {

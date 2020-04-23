@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     {
         if (is_null($this->amount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentChangeAmountPlannedAction::FIELD_AMOUNT);
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
 
         return $this->amount;
     }
+
 
     public function setAmount(?Money $amount): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -66,7 +65,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +82,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderAddDeliveryAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddDeliveryAction::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -118,7 +117,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     {
         if (is_null($this->parcels)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderAddDeliveryAction::FIELD_PARCELS);
+            $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;
             }
@@ -127,6 +126,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
 
         return $this->parcels;
     }
+
 
     public function setItems(?DeliveryItemCollection $items): void
     {

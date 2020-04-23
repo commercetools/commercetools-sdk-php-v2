@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ImportResource;
-
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportResource::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -81,7 +80,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeImport::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeImport::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -119,7 +118,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductTypeImport::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -128,6 +127,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
 
         return $this->attributes;
     }
+
 
     public function setKey(?string $key): void
     {

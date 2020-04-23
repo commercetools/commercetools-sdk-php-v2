@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\LocalizedString;
-
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\Common\PriceDraftModel;
@@ -53,7 +52,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     protected $price;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -93,7 +92,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         LocalizedString $name = null,
         ProductVariantImportDraft $variant = null,
         PriceDraft $price = null,
-        int $quantity = null,
+        float $quantity = null,
         ItemStateCollection $state = null,
         ChannelResourceIdentifier $supplyChannel = null,
         ChannelResourceIdentifier $distributionChannel = null,
@@ -124,7 +123,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +142,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +160,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->variant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_VARIANT);
+            $data = $this->raw(self::FIELD_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +178,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -191,17 +190,17 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -214,7 +213,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->state)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -237,7 +236,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -258,7 +257,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -276,7 +275,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -296,7 +295,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -314,7 +313,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     {
         if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_SHIPPING_DETAILS);
+            $data = $this->raw(self::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
@@ -324,6 +323,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
         return $this->shippingDetails;
     }
+
 
     public function setProductId(?string $productId): void
     {
@@ -345,7 +345,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->price = $price;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

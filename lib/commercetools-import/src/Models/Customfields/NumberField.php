@@ -16,9 +16,9 @@ interface NumberField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getValue();
 
-    public function setValue(?int $value): void;
+    public function setValue(?float $value): void;
 }

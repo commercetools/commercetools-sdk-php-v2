@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -76,7 +75,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +109,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_ORDER_NUMBER);
+            $data = $this->raw(self::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +126,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->customerNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_CUSTOMER_NUMBER);
+            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +143,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +160,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -171,6 +170,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
 
         return $this->slug;
     }
+
 
     public function setKey(?string $key): void
     {

@@ -45,7 +45,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerCreatePasswordResetToken::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     {
         if (is_null($this->ttlMinutes)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerCreatePasswordResetToken::FIELD_TTL_MINUTES);
+            $data = $this->raw(self::FIELD_TTL_MINUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
 
         return $this->ttlMinutes;
     }
+
 
     public function setEmail(?string $email): void
     {

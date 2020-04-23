@@ -47,7 +47,7 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     {
         if (is_null($this->missingImages)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesProductLevel::FIELD_MISSING_IMAGES);
+            $data = $this->raw(self::FIELD_MISSING_IMAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +66,7 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingImagesProductLevel::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
 
         return $this->total;
     }
+
 
     public function setMissingImages(?int $missingImages): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-
 use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeType::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +66,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->typeReference)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AttributeNestedType::FIELD_TYPE_REFERENCE);
+            $data = $this->raw(self::FIELD_TYPE_REFERENCE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
 
         return $this->typeReference;
     }
+
 
     public function setTypeReference(?ProductTypeKeyReference $typeReference): void
     {

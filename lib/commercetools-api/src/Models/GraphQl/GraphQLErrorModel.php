@@ -52,7 +52,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GraphQLError::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     {
         if (is_null($this->locations)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(GraphQLError::FIELD_LOCATIONS);
+            $data = $this->raw(self::FIELD_LOCATIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     {
         if (is_null($this->path)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(GraphQLError::FIELD_PATH);
+            $data = $this->raw(self::FIELD_PATH);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
 
         return $this->path;
     }
+
 
     public function setMessage(?string $message): void
     {

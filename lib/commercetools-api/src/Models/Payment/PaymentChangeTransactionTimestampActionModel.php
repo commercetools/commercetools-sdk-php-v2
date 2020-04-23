@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -55,7 +53,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +70,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     {
         if (is_null($this->transactionId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentChangeTransactionTimestampAction::FIELD_TRANSACTION_ID);
+            $data = $this->raw(self::FIELD_TRANSACTION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +87,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     {
         if (is_null($this->timestamp)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentChangeTransactionTimestampAction::FIELD_TIMESTAMP);
+            $data = $this->raw(self::FIELD_TIMESTAMP);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +100,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
 
         return $this->timestamp;
     }
+
 
     public function setTransactionId(?string $transactionId): void
     {

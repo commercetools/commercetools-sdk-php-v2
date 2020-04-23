@@ -45,7 +45,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     {
         if (is_null($this->fieldDefinition)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TypeAddFieldDefinitionAction::FIELD_FIELD_DEFINITION);
+            $data = $this->raw(self::FIELD_FIELD_DEFINITION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
 
         return $this->fieldDefinition;
     }
+
 
     public function setFieldDefinition(?FieldDefinition $fieldDefinition): void
     {

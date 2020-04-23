@@ -13,7 +13,6 @@ use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     {
         if (is_null($this->edit)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditAppliedMessagePayload::FIELD_EDIT);
+            $data = $this->raw(self::FIELD_EDIT);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     {
         if (is_null($this->result)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditAppliedMessagePayload::FIELD_RESULT);
+            $data = $this->raw(self::FIELD_RESULT);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +101,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
 
         return $this->result;
     }
+
 
     public function setEdit(?OrderEditReference $edit): void
     {

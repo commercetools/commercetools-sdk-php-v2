@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntrySetSupplyChannelAction::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +77,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
 
         return $this->supplyChannel;
     }
+
 
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {

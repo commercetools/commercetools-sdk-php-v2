@@ -73,7 +73,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountTarget::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->predicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MultiBuyCustomLineItemsTarget::FIELD_PREDICATE);
+            $data = $this->raw(self::FIELD_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +112,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->triggerQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MultiBuyCustomLineItemsTarget::FIELD_TRIGGER_QUANTITY);
+            $data = $this->raw(self::FIELD_TRIGGER_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -131,7 +131,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->discountedQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MultiBuyCustomLineItemsTarget::FIELD_DISCOUNTED_QUANTITY);
+            $data = $this->raw(self::FIELD_DISCOUNTED_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +150,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->maxOccurrence)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MultiBuyCustomLineItemsTarget::FIELD_MAX_OCCURRENCE);
+            $data = $this->raw(self::FIELD_MAX_OCCURRENCE);
             if (is_null($data)) {
                 return null;
             }
@@ -167,7 +167,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     {
         if (is_null($this->selectionMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MultiBuyCustomLineItemsTarget::FIELD_SELECTION_MODE);
+            $data = $this->raw(self::FIELD_SELECTION_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -176,6 +176,7 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
 
         return $this->selectionMode;
     }
+
 
     public function setPredicate(?string $predicate): void
     {

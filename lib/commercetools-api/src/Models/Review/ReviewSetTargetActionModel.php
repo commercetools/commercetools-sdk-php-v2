@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -26,7 +30,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     protected $action;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $target;
 
@@ -45,7 +49,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -60,17 +64,61 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
      * Can be a Product or a Channel.
      * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
-     * @return null|JsonObject
+     * @return ?mixed
      */
     public function getTarget()
     {
         if (is_null($this->target)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ReviewSetTargetAction::FIELD_TARGET);
+            /** @psalm-var ?mixed $data */
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
-            $this->target = JsonObjectModel::of($data);
+            $this->target = $data;
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel.
+     * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     *
+     * @return null|ProductResourceIdentifier
+     */
+    public function getTargetAsProductResourceIdentifier()
+    {
+        if (!$this->target instanceof ProductResourceIdentifier) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ProductResourceIdentifierModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel.
+     * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getTargetAsChannelResourceIdentifier()
+    {
+        if (!$this->target instanceof ChannelResourceIdentifier) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ChannelResourceIdentifierModel::of($data);
         }
 
         return $this->target;

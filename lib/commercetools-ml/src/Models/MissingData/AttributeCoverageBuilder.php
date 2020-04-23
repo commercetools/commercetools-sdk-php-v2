@@ -21,19 +21,19 @@ use stdClass;
 final class AttributeCoverageBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $names;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $values;
 
     /**
      * <p>The percentage of attributes from the product type defined in the product variant. A value of <code>1.0</code> indicates a product variant contains all attributes defined in the product type.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getNames()
     {
@@ -43,7 +43,7 @@ final class AttributeCoverageBuilder implements Builder
     /**
      * <p>Represents the percentage of attributes in the product variant that contain values.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getValues()
     {
@@ -53,7 +53,7 @@ final class AttributeCoverageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNames(?int $names)
+    public function withNames(?float $names)
     {
         $this->names = $names;
 
@@ -63,7 +63,7 @@ final class AttributeCoverageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValues(?int $values)
+    public function withValues(?float $values)
     {
         $this->values = $values;
 

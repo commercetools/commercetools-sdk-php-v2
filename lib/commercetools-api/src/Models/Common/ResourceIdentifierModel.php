@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifier;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifierModel;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
-
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
@@ -125,7 +124,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +141,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -159,7 +158,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResourceIdentifier::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -168,6 +167,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
 
         return $this->key;
     }
+
 
     public function setId(?string $id): void
     {

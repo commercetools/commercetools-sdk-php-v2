@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -29,7 +28,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $score;
 
@@ -50,7 +49,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
 
 
     public function __construct(
-        int $score = null,
+        float $score = null,
         Money $price = null,
         PriceFunction $priceFunction = null,
         bool $isMatching = null
@@ -69,7 +68,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRatePriceTier::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -80,17 +79,17 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getScore()
     {
         if (is_null($this->score)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CartScoreTier::FIELD_SCORE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_SCORE);
             if (is_null($data)) {
                 return null;
             }
-            $this->score = (int) $data;
+            $this->score = (float) $data;
         }
 
         return $this->score;
@@ -103,7 +102,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartScoreTier::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -121,7 +120,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     {
         if (is_null($this->priceFunction)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartScoreTier::FIELD_PRICE_FUNCTION);
+            $data = $this->raw(self::FIELD_PRICE_FUNCTION);
             if (is_null($data)) {
                 return null;
             }
@@ -139,7 +138,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     {
         if (is_null($this->isMatching)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartScoreTier::FIELD_IS_MATCHING);
+            $data = $this->raw(self::FIELD_IS_MATCHING);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +148,8 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         return $this->isMatching;
     }
 
-    public function setScore(?int $score): void
+
+    public function setScore(?float $score): void
     {
         $this->score = $score;
     }

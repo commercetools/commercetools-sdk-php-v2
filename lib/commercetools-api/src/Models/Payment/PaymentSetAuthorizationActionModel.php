@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -57,7 +55,7 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +72,7 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     {
         if (is_null($this->amount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentSetAuthorizationAction::FIELD_AMOUNT);
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +90,7 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     {
         if (is_null($this->until)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentSetAuthorizationAction::FIELD_UNTIL);
+            $data = $this->raw(self::FIELD_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -105,6 +103,7 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
 
         return $this->until;
     }
+
 
     public function setAmount(?Money $amount): void
     {

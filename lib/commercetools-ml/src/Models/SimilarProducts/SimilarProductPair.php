@@ -19,7 +19,7 @@ interface SimilarProductPair extends JsonObject
     /**
      * <p>The probability of product similarity.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence();
 
@@ -28,7 +28,7 @@ interface SimilarProductPair extends JsonObject
      */
     public function getProducts();
 
-    public function setConfidence(?int $confidence): void;
+    public function setConfidence(?float $confidence): void;
 
     public function setProducts(?SimilarProductCollection $products): void;
 }

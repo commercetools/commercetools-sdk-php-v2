@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Message\MessageConfigurationDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     {
         if (is_null($this->messagesConfiguration)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProjectChangeMessagesConfigurationAction::FIELD_MESSAGES_CONFIGURATION);
+            $data = $this->raw(self::FIELD_MESSAGES_CONFIGURATION);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
 
         return $this->messagesConfiguration;
     }
+
 
     public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void
     {

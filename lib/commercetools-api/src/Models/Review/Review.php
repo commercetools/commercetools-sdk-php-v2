@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -109,7 +111,7 @@ interface Review extends BaseResource
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTarget();
 

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     {
         if (is_null($this->totalNet)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedPriceDraft::FIELD_TOTAL_NET);
+            $data = $this->raw(self::FIELD_TOTAL_NET);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +72,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     {
         if (is_null($this->totalGross)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedPriceDraft::FIELD_TOTAL_GROSS);
+            $data = $this->raw(self::FIELD_TOTAL_GROSS);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +90,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     {
         if (is_null($this->taxPortions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxedPriceDraft::FIELD_TAX_PORTIONS);
+            $data = $this->raw(self::FIELD_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -100,6 +99,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
 
         return $this->taxPortions;
     }
+
 
     public function setTotalNet(?TypedMoneyDraft $totalNet): void
     {

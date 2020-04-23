@@ -45,7 +45,7 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetCustomerEmailAction::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
 
         return $this->email;
     }
+
 
     public function setEmail(?string $email): void
     {

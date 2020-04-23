@@ -45,7 +45,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     {
         if (is_null($this->attribute)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductTypeAddAttributeDefinitionAction::FIELD_ATTRIBUTE);
+            $data = $this->raw(self::FIELD_ATTRIBUTE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
 
         return $this->attribute;
     }
+
 
     public function setAttribute(?AttributeDefinitionDraft $attribute): void
     {

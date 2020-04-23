@@ -59,7 +59,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->uri)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AssetSource::FIELD_URI);
+            $data = $this->raw(self::FIELD_URI);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AssetSource::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->dimensions)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AssetSource::FIELD_DIMENSIONS);
+            $data = $this->raw(self::FIELD_DIMENSIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -111,7 +111,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->contentType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(AssetSource::FIELD_CONTENT_TYPE);
+            $data = $this->raw(self::FIELD_CONTENT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -120,6 +120,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
 
         return $this->contentType;
     }
+
 
     public function setUri(?string $uri): void
     {

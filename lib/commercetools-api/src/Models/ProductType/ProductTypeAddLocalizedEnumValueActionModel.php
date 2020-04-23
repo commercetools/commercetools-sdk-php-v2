@@ -52,7 +52,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeAddLocalizedEnumValueAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductTypeAddLocalizedEnumValueAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
 
         return $this->value;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

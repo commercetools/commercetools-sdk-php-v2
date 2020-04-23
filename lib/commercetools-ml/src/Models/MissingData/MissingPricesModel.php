@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\ProductReference;
-
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingPrices::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPrices::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
 
         return $this->variantId;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

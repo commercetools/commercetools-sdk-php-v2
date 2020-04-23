@@ -25,6 +25,7 @@ final class LocalizedStringModel extends JsonObjectModel implements LocalizedStr
 
 
 
+
     /**
      * @return mixed
      */

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\ProductReference;
-
 use Commercetools\Ml\Models\Common\ProductReferenceModel;
 use stdClass;
 
@@ -57,7 +56,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProduct::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -77,7 +76,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(SimilarProduct::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     {
         if (is_null($this->meta)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProduct::FIELD_META);
+            $data = $this->raw(self::FIELD_META);
             if (is_null($data)) {
                 return null;
             }
@@ -106,6 +105,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
 
         return $this->meta;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

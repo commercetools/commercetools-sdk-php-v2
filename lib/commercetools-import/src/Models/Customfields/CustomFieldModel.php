@@ -68,7 +68,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +77,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
 
         return $this->type;
     }
+
 
 
 

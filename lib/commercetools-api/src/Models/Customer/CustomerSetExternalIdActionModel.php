@@ -45,7 +45,7 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetExternalIdAction::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
 
         return $this->externalId;
     }
+
 
     public function setExternalId(?string $externalId): void
     {

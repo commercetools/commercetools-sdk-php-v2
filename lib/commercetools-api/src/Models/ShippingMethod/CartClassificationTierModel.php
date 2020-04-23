@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRatePriceTier::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartClassificationTier::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartClassificationTier::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->isMatching)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartClassificationTier::FIELD_IS_MATCHING);
+            $data = $this->raw(self::FIELD_IS_MATCHING);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
 
         return $this->isMatching;
     }
+
 
     public function setValue(?string $value): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AssetDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     {
         if (is_null($this->asset)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryAddAssetAction::FIELD_ASSET);
+            $data = $this->raw(self::FIELD_ASSET);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     {
         if (is_null($this->position)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CategoryAddAssetAction::FIELD_POSITION);
+            $data = $this->raw(self::FIELD_POSITION);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
 
         return $this->position;
     }
+
 
     public function setAsset(?AssetDraft $asset): void
     {

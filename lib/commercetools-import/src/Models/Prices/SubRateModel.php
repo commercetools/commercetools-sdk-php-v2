@@ -25,14 +25,14 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     protected $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $amount;
 
 
     public function __construct(
         string $name = null,
-        int $amount = null
+        float $amount = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -45,7 +45,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubRate::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -56,28 +56,29 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getAmount()
     {
         if (is_null($this->amount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(SubRate::FIELD_AMOUNT);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->amount = (int) $data;
+            $this->amount = (float) $data;
         }
 
         return $this->amount;
     }
+
 
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setAmount(?int $amount): void
+    public function setAmount(?float $amount): void
     {
         $this->amount = $amount;
     }

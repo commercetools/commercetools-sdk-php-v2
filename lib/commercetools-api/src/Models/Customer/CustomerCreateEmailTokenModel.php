@@ -52,7 +52,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerCreateEmailToken::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerCreateEmailToken::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     {
         if (is_null($this->ttlMinutes)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerCreateEmailToken::FIELD_TTL_MINUTES);
+            $data = $this->raw(self::FIELD_TTL_MINUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
 
         return $this->ttlMinutes;
     }
+
 
     public function setId(?string $id): void
     {

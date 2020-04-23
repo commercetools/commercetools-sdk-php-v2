@@ -59,7 +59,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(OutOfStockError::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     {
         if (is_null($this->skus)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(OutOfStockError::FIELD_SKUS);
+            $data = $this->raw(self::FIELD_SKUS);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
 
         return $this->skus;
     }
+
 
     public function setMessage(?string $message): void
     {

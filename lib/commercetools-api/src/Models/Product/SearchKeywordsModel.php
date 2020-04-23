@@ -25,6 +25,7 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
 
 
 
+
     /**
      * @return mixed
      */

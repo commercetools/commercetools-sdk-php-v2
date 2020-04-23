@@ -45,7 +45,7 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
     {
         if (is_null($this->externalTaxAmount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetShippingMethodTaxAmountAction::FIELD_EXTERNAL_TAX_AMOUNT);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
 
         return $this->externalTaxAmount;
     }
+
 
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void
     {

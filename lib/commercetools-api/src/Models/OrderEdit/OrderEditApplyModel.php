@@ -45,7 +45,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     {
         if (is_null($this->editVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEditApply::FIELD_EDIT_VERSION);
+            $data = $this->raw(self::FIELD_EDIT_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     {
         if (is_null($this->resourceVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEditApply::FIELD_RESOURCE_VERSION);
+            $data = $this->raw(self::FIELD_RESOURCE_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
 
         return $this->resourceVersion;
     }
+
 
     public function setEditVersion(?int $editVersion): void
     {

@@ -25,6 +25,7 @@ final class AttributesModel extends JsonObjectModel implements Attributes
 
 
 
+
     /**
      * @return mixed
      */

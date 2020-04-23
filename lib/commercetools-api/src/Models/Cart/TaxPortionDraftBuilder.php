@@ -28,7 +28,7 @@ final class TaxPortionDraftBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $rate;
 
@@ -46,7 +46,7 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getRate()
     {
@@ -74,7 +74,7 @@ final class TaxPortionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRate(?int $rate)
+    public function withRate(?float $rate)
     {
         $this->rate = $rate;
 

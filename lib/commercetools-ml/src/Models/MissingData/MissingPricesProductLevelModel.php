@@ -47,7 +47,7 @@ final class MissingPricesProductLevelModel extends JsonObjectModel implements Mi
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPricesProductLevel::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +66,7 @@ final class MissingPricesProductLevelModel extends JsonObjectModel implements Mi
     {
         if (is_null($this->missingPrices)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPricesProductLevel::FIELD_MISSING_PRICES);
+            $data = $this->raw(self::FIELD_MISSING_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class MissingPricesProductLevelModel extends JsonObjectModel implements Mi
 
         return $this->missingPrices;
     }
+
 
     public function setTotal(?int $total): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ProductKeyReference;
-
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
@@ -62,7 +61,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     {
         if (is_null($this->productVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariantPatch::FIELD_PRODUCT_VARIANT);
+            $data = $this->raw(self::FIELD_PRODUCT_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -85,7 +84,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariantPatch::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +107,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     {
         if (is_null($this->attributes)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariantPatch::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -118,6 +117,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
 
         return $this->attributes;
     }
+
 
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {

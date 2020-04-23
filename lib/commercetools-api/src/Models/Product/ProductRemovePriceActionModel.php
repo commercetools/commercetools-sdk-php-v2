@@ -52,7 +52,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +71,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->priceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductRemovePriceAction::FIELD_PRICE_ID);
+            $data = $this->raw(self::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +88,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductRemovePriceAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -97,6 +97,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
 
         return $this->staged;
     }
+
 
     public function setPriceId(?string $priceId): void
     {

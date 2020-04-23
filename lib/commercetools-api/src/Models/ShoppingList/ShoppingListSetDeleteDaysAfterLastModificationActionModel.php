@@ -45,7 +45,7 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends Js
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends Js
     {
         if (is_null($this->deleteDaysAfterLastModification)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListSetDeleteDaysAfterLastModificationAction::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends Js
 
         return $this->deleteDaysAfterLastModification;
     }
+
 
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {

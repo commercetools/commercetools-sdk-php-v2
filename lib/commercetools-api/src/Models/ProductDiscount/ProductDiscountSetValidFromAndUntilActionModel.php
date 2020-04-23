@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -55,7 +53,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +70,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +94,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -109,6 +107,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
 
         return $this->validUntil;
     }
+
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {

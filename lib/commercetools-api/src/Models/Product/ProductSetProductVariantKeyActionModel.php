@@ -66,7 +66,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -119,7 +119,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -136,7 +136,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -145,6 +145,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
 
         return $this->staged;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->externalTotalGross)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetCartTotalTaxAction::FIELD_EXTERNAL_TOTAL_GROSS);
+            $data = $this->raw(self::FIELD_EXTERNAL_TOTAL_GROSS);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->externalTaxPortions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartSetCartTotalTaxAction::FIELD_EXTERNAL_TAX_PORTIONS);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
 
         return $this->externalTaxPortions;
     }
+
 
     public function setExternalTotalGross(?Money $externalTotalGross): void
     {

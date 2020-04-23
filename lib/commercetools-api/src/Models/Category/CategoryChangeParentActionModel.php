@@ -45,7 +45,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->parent)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryChangeParentAction::FIELD_PARENT);
+            $data = $this->raw(self::FIELD_PARENT);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
 
         return $this->parent;
     }
+
 
     public function setParent(?CategoryResourceIdentifier $parent): void
     {

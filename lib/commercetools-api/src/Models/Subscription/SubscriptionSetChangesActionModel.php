@@ -45,7 +45,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->changes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SubscriptionSetChangesAction::FIELD_CHANGES);
+            $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
 
         return $this->changes;
     }
+
 
     public function setChanges(?ChangeSubscriptionCollection $changes): void
     {

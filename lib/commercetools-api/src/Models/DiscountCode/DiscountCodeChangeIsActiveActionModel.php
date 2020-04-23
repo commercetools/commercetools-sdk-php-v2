@@ -45,7 +45,7 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     {
         if (is_null($this->isActive)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(DiscountCodeChangeIsActiveAction::FIELD_IS_ACTIVE);
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
 
         return $this->isActive;
     }
+
 
     public function setIsActive(?bool $isActive): void
     {

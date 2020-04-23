@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\DeliveryModel;
 use Commercetools\Api\Models\Order\Parcel;
 use Commercetools\Api\Models\Order\ParcelModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->delivery)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelAddedToDeliveryMessagePayload::FIELD_DELIVERY);
+            $data = $this->raw(self::FIELD_DELIVERY);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->parcel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelAddedToDeliveryMessagePayload::FIELD_PARCEL);
+            $data = $this->raw(self::FIELD_PARCEL);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +101,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
 
         return $this->parcel;
     }
+
 
     public function setDelivery(?Delivery $delivery): void
     {

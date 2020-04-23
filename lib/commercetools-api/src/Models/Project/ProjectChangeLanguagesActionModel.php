@@ -45,7 +45,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     {
         if (is_null($this->languages)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProjectChangeLanguagesAction::FIELD_LANGUAGES);
+            $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
 
         return $this->languages;
     }
+
 
     public function setLanguages(?array $languages): void
     {

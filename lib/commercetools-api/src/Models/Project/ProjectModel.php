@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Message\MessageConfigurationModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -115,7 +113,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Project::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +132,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Project::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +151,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Project::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -172,7 +170,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->countries)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Project::FIELD_COUNTRIES);
+            $data = $this->raw(self::FIELD_COUNTRIES);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->currencies)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Project::FIELD_CURRENCIES);
+            $data = $this->raw(self::FIELD_CURRENCIES);
             if (is_null($data)) {
                 return null;
             }
@@ -208,7 +206,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->languages)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Project::FIELD_LANGUAGES);
+            $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -225,7 +223,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Project::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -248,7 +246,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->trialUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Project::FIELD_TRIAL_UNTIL);
+            $data = $this->raw(self::FIELD_TRIAL_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -265,7 +263,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->messages)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Project::FIELD_MESSAGES);
+            $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -283,7 +281,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->shippingRateInputType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Project::FIELD_SHIPPING_RATE_INPUT_TYPE);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -301,7 +299,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     {
         if (is_null($this->externalOAuth)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Project::FIELD_EXTERNAL_O_AUTH);
+            $data = $this->raw(self::FIELD_EXTERNAL_O_AUTH);
             if (is_null($data)) {
                 return null;
             }
@@ -311,6 +309,7 @@ final class ProjectModel extends JsonObjectModel implements Project
 
         return $this->externalOAuth;
     }
+
 
     public function setVersion(?int $version): void
     {

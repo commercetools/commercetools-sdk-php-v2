@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -146,7 +145,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -166,7 +165,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -183,7 +182,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -204,7 +203,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->interfaceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_ID);
+            $data = $this->raw(self::FIELD_INTERFACE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -224,7 +223,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->amountPlanned)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_PLANNED);
+            $data = $this->raw(self::FIELD_AMOUNT_PLANNED);
             if (is_null($data)) {
                 return null;
             }
@@ -242,7 +241,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->amountAuthorized)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_AUTHORIZED);
+            $data = $this->raw(self::FIELD_AMOUNT_AUTHORIZED);
             if (is_null($data)) {
                 return null;
             }
@@ -260,7 +259,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->authorizedUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_AUTHORIZED_UNTIL);
+            $data = $this->raw(self::FIELD_AUTHORIZED_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -277,7 +276,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->amountPaid)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_PAID);
+            $data = $this->raw(self::FIELD_AMOUNT_PAID);
             if (is_null($data)) {
                 return null;
             }
@@ -295,7 +294,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->amountRefunded)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_REFUNDED);
+            $data = $this->raw(self::FIELD_AMOUNT_REFUNDED);
             if (is_null($data)) {
                 return null;
             }
@@ -313,7 +312,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->paymentMethodInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_PAYMENT_METHOD_INFO);
+            $data = $this->raw(self::FIELD_PAYMENT_METHOD_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -331,7 +330,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->paymentStatus)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_PAYMENT_STATUS);
+            $data = $this->raw(self::FIELD_PAYMENT_STATUS);
             if (is_null($data)) {
                 return null;
             }
@@ -351,7 +350,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->transactions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PaymentDraft::FIELD_TRANSACTIONS);
+            $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -373,7 +372,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->interfaceInteractions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_INTERACTIONS);
+            $data = $this->raw(self::FIELD_INTERFACE_INTERACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -390,7 +389,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -411,7 +410,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -420,6 +419,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
 
         return $this->key;
     }
+
 
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {

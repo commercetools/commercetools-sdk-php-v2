@@ -28,7 +28,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     private $category;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $confidence;
 
@@ -50,7 +50,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     /**
      * <p>Probability score for the category recommendation.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence()
     {
@@ -80,7 +80,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withConfidence(?int $confidence)
+    public function withConfidence(?float $confidence)
     {
         $this->confidence = $confidence;
 

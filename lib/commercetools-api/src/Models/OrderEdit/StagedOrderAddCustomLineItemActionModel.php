@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
-
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
@@ -49,7 +48,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     protected $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -77,7 +76,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function __construct(
         Money $money = null,
         LocalizedString $name = null,
-        int $quantity = null,
+        float $quantity = null,
         string $slug = null,
         TaxCategoryResourceIdentifier $taxCategory = null,
         CustomFieldsDraft $custom = null,
@@ -100,7 +99,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +116,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->money)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_MONEY);
+            $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;
             }
@@ -135,7 +134,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -147,17 +146,17 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -170,7 +169,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->slug)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -187,7 +186,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -205,7 +204,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -223,7 +222,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -233,6 +232,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
 
         return $this->externalTaxRate;
     }
+
 
     public function setMoney(?Money $money): void
     {
@@ -244,7 +244,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         $this->name = $name;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

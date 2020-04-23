@@ -25,14 +25,14 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     protected $id;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
 
     public function __construct(
         string $id = null,
-        int $quantity = null
+        float $quantity = null
     ) {
         $this->id = $id;
         $this->quantity = $quantity;
@@ -45,7 +45,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DeliveryItem::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -56,28 +56,29 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DeliveryItem::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
     }
+
 
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

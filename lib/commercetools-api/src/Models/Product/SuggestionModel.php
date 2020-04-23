@@ -40,7 +40,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     {
         if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Suggestion::FIELD_TEXT);
+            $data = $this->raw(self::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -49,6 +49,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
 
         return $this->text;
     }
+
 
     public function setText(?string $text): void
     {

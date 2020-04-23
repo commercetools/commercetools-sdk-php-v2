@@ -66,7 +66,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     {
         if (is_null($this->count)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_COUNT);
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     {
         if (is_null($this->total)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_TOTAL);
+            $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     {
         if (is_null($this->results)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_RESULTS);
+            $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
 
         return $this->results;
     }
+
 
     public function setLimit(?int $limit): void
     {

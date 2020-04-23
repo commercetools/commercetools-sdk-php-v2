@@ -46,7 +46,7 @@ final class TextLineItemDraftBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -89,7 +89,7 @@ final class TextLineItemDraftBuilder implements Builder
     /**
      * <p>Defaults to <code>1</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -139,7 +139,7 @@ final class TextLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

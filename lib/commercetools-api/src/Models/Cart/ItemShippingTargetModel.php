@@ -25,14 +25,14 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     protected $addressKey;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
 
     public function __construct(
         string $addressKey = null,
-        int $quantity = null
+        float $quantity = null
     ) {
         $this->addressKey = $addressKey;
         $this->quantity = $quantity;
@@ -47,7 +47,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     {
         if (is_null($this->addressKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ItemShippingTarget::FIELD_ADDRESS_KEY);
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -62,28 +62,29 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
      * Only positive values are allowed.
      * Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ItemShippingTarget::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
     }
+
 
     public function setAddressKey(?string $addressKey): void
     {
         $this->addressKey = $addressKey;
     }
 
-    public function setQuantity(?int $quantity): void
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

@@ -45,7 +45,7 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +67,7 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
     {
         if (is_null($this->updateProductData)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartRecalculateAction::FIELD_UPDATE_PRODUCT_DATA);
+            $data = $this->raw(self::FIELD_UPDATE_PRODUCT_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -76,6 +76,7 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
 
         return $this->updateProductData;
     }
+
 
     public function setUpdateProductData(?bool $updateProductData): void
     {

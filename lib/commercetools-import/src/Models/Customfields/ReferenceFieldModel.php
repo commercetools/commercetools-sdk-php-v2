@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\KeyReference;
-
 use Commercetools\Import\Models\Common\KeyReferenceModel;
 use stdClass;
 
@@ -50,7 +49,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +68,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReferenceField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -79,6 +78,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
 
         return $this->value;
     }
+
 
     public function setValue(?KeyReference $value): void
     {

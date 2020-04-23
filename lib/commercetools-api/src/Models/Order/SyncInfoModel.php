@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -59,7 +57,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SyncInfo::FIELD_CHANNEL);
+            $data = $this->raw(self::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +77,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SyncInfo::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +94,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     {
         if (is_null($this->syncedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SyncInfo::FIELD_SYNCED_AT);
+            $data = $this->raw(self::FIELD_SYNCED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -109,6 +107,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 
         return $this->syncedAt;
     }
+
 
     public function setChannel(?ChannelReference $channel): void
     {

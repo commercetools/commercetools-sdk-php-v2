@@ -45,7 +45,7 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     {
         if (is_null($this->destination)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExtensionChangeDestinationAction::FIELD_DESTINATION);
+            $data = $this->raw(self::FIELD_DESTINATION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
 
         return $this->destination;
     }
+
 
     public function setDestination(?ExtensionDestination $destination): void
     {

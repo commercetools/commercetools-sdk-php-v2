@@ -66,7 +66,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ReturnItemDraft::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItemDraft::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +100,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItemDraft::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +117,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         if (is_null($this->comment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItemDraft::FIELD_COMMENT);
+            $data = $this->raw(self::FIELD_COMMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +134,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItemDraft::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -143,6 +143,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
 
         return $this->shipmentState;
     }
+
 
     public function setQuantity(?int $quantity): void
     {

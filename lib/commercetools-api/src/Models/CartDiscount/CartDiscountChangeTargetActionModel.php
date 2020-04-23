@@ -45,7 +45,7 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountChangeTargetAction::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
 
         return $this->target;
     }
+
 
     public function setTarget(?CartDiscountTarget $target): void
     {

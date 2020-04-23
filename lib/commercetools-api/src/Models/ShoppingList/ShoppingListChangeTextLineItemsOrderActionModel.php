@@ -45,7 +45,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     {
         if (is_null($this->textLineItemOrder)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ShoppingListChangeTextLineItemsOrderAction::FIELD_TEXT_LINE_ITEM_ORDER);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
 
         return $this->textLineItemOrder;
     }
+
 
     public function setTextLineItemOrder(?array $textLineItemOrder): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\LocalizedString;
-
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use stdClass;
 
@@ -59,7 +58,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +75,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Attribute::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LocalizableTextAttribute::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -103,6 +102,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
 
         return $this->value;
     }
+
 
     public function setName(?string $name): void
     {

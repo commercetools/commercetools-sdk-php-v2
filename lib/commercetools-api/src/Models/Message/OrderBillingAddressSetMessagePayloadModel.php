@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->address)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderBillingAddressSetMessagePayload::FIELD_ADDRESS);
+            $data = $this->raw(self::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->oldAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderBillingAddressSetMessagePayload::FIELD_OLD_ADDRESS);
+            $data = $this->raw(self::FIELD_OLD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -100,6 +99,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
 
         return $this->oldAddress;
     }
+
 
     public function setAddress(?Address $address): void
     {

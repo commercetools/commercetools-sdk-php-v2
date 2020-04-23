@@ -45,7 +45,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     {
         if (is_null($this->location)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ZoneRemoveLocationAction::FIELD_LOCATION);
+            $data = $this->raw(self::FIELD_LOCATION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
 
         return $this->location;
     }
+
 
     public function setLocation(?Location $location): void
     {

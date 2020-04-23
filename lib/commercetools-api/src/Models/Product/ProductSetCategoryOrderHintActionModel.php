@@ -59,7 +59,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     {
         if (is_null($this->categoryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetCategoryOrderHintAction::FIELD_CATEGORY_ID);
+            $data = $this->raw(self::FIELD_CATEGORY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetCategoryOrderHintAction::FIELD_ORDER_HINT);
+            $data = $this->raw(self::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetCategoryOrderHintAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
 
         return $this->staged;
     }
+
 
     public function setCategoryId(?string $categoryId): void
     {

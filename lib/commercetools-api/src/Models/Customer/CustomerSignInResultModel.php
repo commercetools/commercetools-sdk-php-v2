@@ -45,7 +45,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerSignInResult::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +66,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     {
         if (is_null($this->cart)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerSignInResult::FIELD_CART);
+            $data = $this->raw(self::FIELD_CART);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
 
         return $this->cart;
     }
+
 
     public function setCustomer(?Customer $customer): void
     {

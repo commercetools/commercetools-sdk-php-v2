@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
 use Commercetools\Api\Models\Category\CategoryReference;
-
 use Commercetools\Api\Models\Category\CategoryReferenceModel;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
@@ -121,7 +120,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -138,7 +137,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Reference::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -147,6 +146,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
         return $this->id;
     }
+
 
     public function setId(?string $id): void
     {

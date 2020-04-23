@@ -52,7 +52,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClientDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     {
         if (is_null($this->scope)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClientDraft::FIELD_SCOPE);
+            $data = $this->raw(self::FIELD_SCOPE);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +88,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     {
         if (is_null($this->deleteDaysAfterCreation)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ApiClientDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_CREATION);
             if (is_null($data)) {
                 return null;
             }
@@ -97,6 +97,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
 
         return $this->deleteDaysAfterCreation;
     }
+
 
     public function setName(?string $name): void
     {

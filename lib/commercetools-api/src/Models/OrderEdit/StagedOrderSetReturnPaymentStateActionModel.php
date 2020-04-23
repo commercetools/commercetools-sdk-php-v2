@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
     {
         if (is_null($this->returnItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetReturnPaymentStateAction::FIELD_RETURN_ITEM_ID);
+            $data = $this->raw(self::FIELD_RETURN_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderSetReturnPaymentStateAction::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -98,6 +97,7 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
 
         return $this->paymentState;
     }
+
 
     public function setReturnItemId(?string $returnItemId): void
     {

@@ -30,11 +30,18 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
      */
     protected $addressId;
 
+    /**
+     * @var ?string
+     */
+    protected $addressKey;
+
 
     public function __construct(
-        string $addressId = null
+        string $addressId = null,
+        string $addressKey = null
     ) {
         $this->addressId = $addressId;
+        $this->addressKey = $addressKey;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -45,7 +52,7 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +71,7 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     {
         if (is_null($this->addressId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetDefaultShippingAddressAction::FIELD_ADDRESS_ID);
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -74,8 +81,31 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
         return $this->addressId;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        if (is_null($this->addressKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressKey = (string) $data;
+        }
+
+        return $this->addressKey;
+    }
+
+
     public function setAddressId(?string $addressId): void
     {
         $this->addressId = $addressId;
+    }
+
+    public function setAddressKey(?string $addressKey): void
+    {
+        $this->addressKey = $addressKey;
     }
 }

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
-
 use stdClass;
 
 /**
@@ -56,7 +55,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     {
         if (is_null($this->operationId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperationStatus::FIELD_OPERATION_ID);
+            $data = $this->raw(self::FIELD_OPERATION_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -75,7 +74,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportOperationStatus::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +93,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     {
         if (is_null($this->errors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportOperationStatus::FIELD_ERRORS);
+            $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
             }
@@ -103,6 +102,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
 
         return $this->errors;
     }
+
 
     public function setOperationId(?string $operationId): void
     {

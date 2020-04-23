@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -69,7 +68,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +85,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +102,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +119,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -138,7 +137,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -147,6 +146,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
 
         return $this->staged;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

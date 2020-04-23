@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -69,7 +67,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Parcel::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +84,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Parcel::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +105,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     {
         if (is_null($this->measurements)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Parcel::FIELD_MEASUREMENTS);
+            $data = $this->raw(self::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +123,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     {
         if (is_null($this->trackingData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Parcel::FIELD_TRACKING_DATA);
+            $data = $this->raw(self::FIELD_TRACKING_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -145,7 +143,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Parcel::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -154,6 +152,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
 
         return $this->items;
     }
+
 
     public function setId(?string $id): void
     {

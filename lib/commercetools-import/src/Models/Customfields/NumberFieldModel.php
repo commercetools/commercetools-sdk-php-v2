@@ -26,13 +26,13 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $value;
 
 
     public function __construct(
-        int $value = null
+        float $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -47,7 +47,7 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -58,23 +58,24 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(NumberField::FIELD_VALUE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = (int) $data;
+            $this->value = (float) $data;
         }
 
         return $this->value;
     }
 
-    public function setValue(?int $value): void
+
+    public function setValue(?float $value): void
     {
         $this->value = $value;
     }

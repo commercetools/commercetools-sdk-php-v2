@@ -61,7 +61,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     {
         if (is_null($this->container)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_CONTAINER);
+            $data = $this->raw(self::FIELD_CONTAINER);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +80,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +97,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +114,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +123,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
 
         return $this->version;
     }
+
 
     public function setContainer(?string $container): void
     {

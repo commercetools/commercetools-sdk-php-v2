@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -111,7 +109,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->limit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_LIMIT);
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -128,7 +126,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->offset)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_OFFSET);
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
@@ -147,7 +145,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -166,7 +164,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productSetLimit)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_PRODUCT_SET_LIMIT);
+            $data = $this->raw(self::FIELD_PRODUCT_SET_LIMIT);
             if (is_null($data)) {
                 return null;
             }
@@ -185,7 +183,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->includeVariants)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_INCLUDE_VARIANTS);
+            $data = $this->raw(self::FIELD_INCLUDE_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -204,7 +202,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -223,7 +221,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->checkDate)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_CHECK_DATE);
+            $data = $this->raw(self::FIELD_CHECK_DATE);
             if (is_null($data)) {
                 return null;
             }
@@ -242,7 +240,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -265,7 +263,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -288,7 +286,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_PRODUCT_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -307,7 +305,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     {
         if (is_null($this->productTypeIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingPricesSearchRequest::FIELD_PRODUCT_TYPE_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -316,6 +314,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
         return $this->productTypeIds;
     }
+
 
     public function setLimit(?int $limit): void
     {

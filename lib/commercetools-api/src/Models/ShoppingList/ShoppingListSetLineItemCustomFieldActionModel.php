@@ -59,7 +59,7 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListSetLineItemCustomFieldAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListSetLineItemCustomFieldAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ShoppingListSetLineItemCustomFieldAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
 
         return $this->value;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

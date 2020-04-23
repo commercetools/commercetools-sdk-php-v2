@@ -45,7 +45,7 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountTarget::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     {
         if (is_null($this->predicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountCustomLineItemsTarget::FIELD_PREDICATE);
+            $data = $this->raw(self::FIELD_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
 
         return $this->predicate;
     }
+
 
     public function setPredicate(?string $predicate): void
     {

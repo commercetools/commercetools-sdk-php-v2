@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     {
         if (is_null($this->textLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListChangeTextLineItemNameAction::FIELD_TEXT_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListChangeTextLineItemNameAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
 
         return $this->name;
     }
+
 
     public function setTextLineItemId(?string $textLineItemId): void
     {

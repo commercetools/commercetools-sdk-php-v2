@@ -114,7 +114,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +123,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
 
         return $this->type;
     }
+
 
 
 

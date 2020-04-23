@@ -45,7 +45,7 @@ final class CustomerSetMiddleNameActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerSetMiddleNameActionModel extends JsonObjectModel implements 
     {
         if (is_null($this->middleName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetMiddleNameAction::FIELD_MIDDLE_NAME);
+            $data = $this->raw(self::FIELD_MIDDLE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerSetMiddleNameActionModel extends JsonObjectModel implements 
 
         return $this->middleName;
     }
+
 
     public function setMiddleName(?string $middleName): void
     {

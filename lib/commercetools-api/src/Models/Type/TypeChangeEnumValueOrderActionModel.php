@@ -52,7 +52,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->fieldName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeChangeEnumValueOrderAction::FIELD_FIELD_NAME);
+            $data = $this->raw(self::FIELD_FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->keys)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(TypeChangeEnumValueOrderAction::FIELD_KEYS);
+            $data = $this->raw(self::FIELD_KEYS);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
 
         return $this->keys;
     }
+
 
     public function setFieldName(?string $fieldName): void
     {

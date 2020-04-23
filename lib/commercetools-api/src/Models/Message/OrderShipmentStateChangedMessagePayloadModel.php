@@ -52,7 +52,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderShipmentStateChangedMessagePayload::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->oldShipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderShipmentStateChangedMessagePayload::FIELD_OLD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_OLD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
 
         return $this->oldShipmentState;
     }
+
 
     public function setShipmentState(?string $shipmentState): void
     {

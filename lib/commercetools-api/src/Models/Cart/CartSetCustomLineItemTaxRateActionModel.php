@@ -52,7 +52,7 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetCustomLineItemTaxRateAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetCustomLineItemTaxRateAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
 
         return $this->externalTaxRate;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

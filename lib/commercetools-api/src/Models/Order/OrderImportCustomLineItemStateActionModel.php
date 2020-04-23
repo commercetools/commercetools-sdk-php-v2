@@ -52,7 +52,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
     {
         if (is_null($this->customLineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportCustomLineItemStateAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
     {
         if (is_null($this->state)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportCustomLineItemStateAction::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
 
         return $this->state;
     }
+
 
     public function setCustomLineItemId(?string $customLineItemId): void
     {

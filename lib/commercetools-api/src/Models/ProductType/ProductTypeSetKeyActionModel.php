@@ -45,7 +45,7 @@ final class ProductTypeSetKeyActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ProductTypeSetKeyActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeSetKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ProductTypeSetKeyActionModel extends JsonObjectModel implements Prod
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

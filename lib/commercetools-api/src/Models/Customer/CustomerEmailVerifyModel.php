@@ -45,7 +45,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerEmailVerify::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     {
         if (is_null($this->tokenValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerEmailVerify::FIELD_TOKEN_VALUE);
+            $data = $this->raw(self::FIELD_TOKEN_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
 
         return $this->tokenValue;
     }
+
 
     public function setVersion(?int $version): void
     {

@@ -66,7 +66,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -85,7 +85,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -104,7 +104,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->specifiedVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ConcurrentModificationError::FIELD_SPECIFIED_VERSION);
+            $data = $this->raw(self::FIELD_SPECIFIED_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +123,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->currentVersion)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ConcurrentModificationError::FIELD_CURRENT_VERSION);
+            $data = $this->raw(self::FIELD_CURRENT_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +142,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->conflictedResource)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ConcurrentModificationError::FIELD_CONFLICTED_RESOURCE);
+            $data = $this->raw(self::FIELD_CONFLICTED_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -151,6 +151,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
 
         return $this->conflictedResource;
     }
+
 
     public function setMessage(?string $message): void
     {

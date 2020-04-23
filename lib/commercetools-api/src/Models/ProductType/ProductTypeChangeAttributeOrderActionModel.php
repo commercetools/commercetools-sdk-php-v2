@@ -45,7 +45,7 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductTypeChangeAttributeOrderAction::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
 
         return $this->attributes;
     }
+
 
     public function setAttributes(?AttributeDefinitionCollection $attributes): void
     {

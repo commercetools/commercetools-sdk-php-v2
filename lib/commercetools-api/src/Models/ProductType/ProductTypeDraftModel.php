@@ -63,7 +63,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +80,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +97,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +114,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductTypeDraft::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +123,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
 
         return $this->attributes;
     }
+
 
     public function setKey(?string $key): void
     {

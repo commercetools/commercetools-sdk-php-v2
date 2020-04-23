@@ -21,12 +21,12 @@ use stdClass;
 final class NumberFieldBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $value;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getValue()
     {
@@ -36,7 +36,7 @@ final class NumberFieldBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?int $value)
+    public function withValue(?float $value)
     {
         $this->value = $value;
 

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -73,7 +72,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
     {
         if (is_null($this->shippingMethodName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartSetCustomShippingMethodAction::FIELD_SHIPPING_METHOD_NAME);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +106,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
     {
         if (is_null($this->shippingRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetCustomShippingMethodAction::FIELD_SHIPPING_RATE);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +124,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetCustomShippingMethodAction::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +142,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetCustomShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -153,6 +152,7 @@ final class MyCartSetCustomShippingMethodActionModel extends JsonObjectModel imp
 
         return $this->externalTaxRate;
     }
+
 
     public function setShippingMethodName(?string $shippingMethodName): void
     {

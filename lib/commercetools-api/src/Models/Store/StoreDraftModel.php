@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -59,7 +58,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StoreDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -78,7 +77,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StoreDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     {
         if (is_null($this->languages)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(StoreDraft::FIELD_LANGUAGES);
+            $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -105,6 +104,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
         return $this->languages;
     }
+
 
     public function setKey(?string $key): void
     {

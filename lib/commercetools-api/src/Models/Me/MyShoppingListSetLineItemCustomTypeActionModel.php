@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -64,7 +63,7 @@ final class MyShoppingListSetLineItemCustomTypeActionModel extends JsonObjectMod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -81,7 +80,7 @@ final class MyShoppingListSetLineItemCustomTypeActionModel extends JsonObjectMod
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListSetLineItemCustomTypeAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -98,7 +97,7 @@ final class MyShoppingListSetLineItemCustomTypeActionModel extends JsonObjectMod
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListSetLineItemCustomTypeAction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -116,7 +115,7 @@ final class MyShoppingListSetLineItemCustomTypeActionModel extends JsonObjectMod
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListSetLineItemCustomTypeAction::FIELD_FIELDS);
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -126,6 +125,7 @@ final class MyShoppingListSetLineItemCustomTypeActionModel extends JsonObjectMod
 
         return $this->fields;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

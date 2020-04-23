@@ -26,7 +26,7 @@ final class NumberAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $value;
 
@@ -43,7 +43,7 @@ final class NumberAttributeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getValue()
     {
@@ -63,7 +63,7 @@ final class NumberAttributeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?int $value)
+    public function withValue(?float $value)
     {
         $this->value = $value;
 

@@ -47,7 +47,7 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     {
         if (is_null($this->taskId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaskToken::FIELD_TASK_ID);
+            $data = $this->raw(self::FIELD_TASK_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +66,7 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     {
         if (is_null($this->uriPath)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaskToken::FIELD_URI_PATH);
+            $data = $this->raw(self::FIELD_URI_PATH);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
 
         return $this->uriPath;
     }
+
 
     public function setTaskId(?string $taskId): void
     {

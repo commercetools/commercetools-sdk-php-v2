@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -48,7 +46,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +65,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
     {
         if (is_null($this->dateOfBirth)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH);
+            $data = $this->raw(self::FIELD_DATE_OF_BIRTH);
             if (is_null($data)) {
                 return null;
             }
@@ -80,6 +78,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
 
         return $this->dateOfBirth;
     }
+
 
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
     {

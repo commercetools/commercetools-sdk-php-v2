@@ -20,64 +20,65 @@ use stdClass;
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $w;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $h;
 
 
     public function __construct(
-        int $w = null,
-        int $h = null
+        float $w = null,
+        float $h = null
     ) {
         $this->w = $w;
         $this->h = $h;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getW()
     {
         if (is_null($this->w)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(AssetDimensions::FIELD_W);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_W);
             if (is_null($data)) {
                 return null;
             }
-            $this->w = (int) $data;
+            $this->w = (float) $data;
         }
 
         return $this->w;
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getH()
     {
         if (is_null($this->h)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(AssetDimensions::FIELD_H);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_H);
             if (is_null($data)) {
                 return null;
             }
-            $this->h = (int) $data;
+            $this->h = (float) $data;
         }
 
         return $this->h;
     }
 
-    public function setW(?int $w): void
+
+    public function setW(?float $w): void
     {
         $this->w = $w;
     }
 
-    public function setH(?int $h): void
+    public function setH(?float $h): void
     {
         $this->h = $h;
     }

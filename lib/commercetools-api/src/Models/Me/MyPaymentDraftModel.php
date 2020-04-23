@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
-
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -69,7 +68,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     {
         if (is_null($this->amountPlanned)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPaymentDraft::FIELD_AMOUNT_PLANNED);
+            $data = $this->raw(self::FIELD_AMOUNT_PLANNED);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +86,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     {
         if (is_null($this->paymentMethodInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPaymentDraft::FIELD_PAYMENT_METHOD_INFO);
+            $data = $this->raw(self::FIELD_PAYMENT_METHOD_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -105,7 +104,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPaymentDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     {
         if (is_null($this->transaction)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPaymentDraft::FIELD_TRANSACTION);
+            $data = $this->raw(self::FIELD_TRANSACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -136,6 +135,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
 
         return $this->transaction;
     }
+
 
     public function setAmountPlanned(?Money $amountPlanned): void
     {

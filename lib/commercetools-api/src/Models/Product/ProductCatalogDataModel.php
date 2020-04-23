@@ -59,7 +59,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     {
         if (is_null($this->published)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductCatalogData::FIELD_PUBLISHED);
+            $data = $this->raw(self::FIELD_PUBLISHED);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     {
         if (is_null($this->current)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductCatalogData::FIELD_CURRENT);
+            $data = $this->raw(self::FIELD_CURRENT);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +94,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     {
         if (is_null($this->staged)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductCatalogData::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +112,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     {
         if (is_null($this->hasStagedChanges)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductCatalogData::FIELD_HAS_STAGED_CHANGES);
+            $data = $this->raw(self::FIELD_HAS_STAGED_CHANGES);
             if (is_null($data)) {
                 return null;
             }
@@ -121,6 +121,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
 
         return $this->hasStagedChanges;
     }
+
 
     public function setPublished(?bool $published): void
     {

@@ -52,7 +52,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +71,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->variantValues)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DuplicateVariantValuesError::FIELD_VARIANT_VALUES);
+            $data = $this->raw(self::FIELD_VARIANT_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -100,6 +100,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
 
         return $this->variantValues;
     }
+
 
     public function setMessage(?string $message): void
     {

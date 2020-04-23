@@ -13,7 +13,6 @@ use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -23,7 +22,7 @@ use stdClass;
 final class ItemStateModel extends JsonObjectModel implements ItemState
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -34,7 +33,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
 
 
     public function __construct(
-        int $quantity = null,
+        float $quantity = null,
         StateReference $state = null
     ) {
         $this->quantity = $quantity;
@@ -42,17 +41,17 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ItemState::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -65,7 +64,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ItemState::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +75,8 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
         return $this->state;
     }
 
-    public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

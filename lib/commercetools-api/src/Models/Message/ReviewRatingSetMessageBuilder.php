@@ -78,12 +78,12 @@ final class ReviewRatingSetMessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $oldRating;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $newRating;
 
@@ -178,7 +178,7 @@ final class ReviewRatingSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getOldRating()
     {
@@ -186,7 +186,7 @@ final class ReviewRatingSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getNewRating()
     {
@@ -312,7 +312,7 @@ final class ReviewRatingSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldRating(?int $oldRating)
+    public function withOldRating(?float $oldRating)
     {
         $this->oldRating = $oldRating;
 
@@ -322,7 +322,7 @@ final class ReviewRatingSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNewRating(?int $newRating)
+    public function withNewRating(?float $newRating)
     {
         $this->newRating = $newRating;
 

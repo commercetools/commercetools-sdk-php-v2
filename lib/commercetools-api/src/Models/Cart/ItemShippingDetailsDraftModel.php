@@ -43,7 +43,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     {
         if (is_null($this->targets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ItemShippingDetailsDraft::FIELD_TARGETS);
+            $data = $this->raw(self::FIELD_TARGETS);
             if (is_null($data)) {
                 return null;
             }
@@ -52,6 +52,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
 
         return $this->targets;
     }
+
 
     public function setTargets(?ItemShippingTargetCollection $targets): void
     {

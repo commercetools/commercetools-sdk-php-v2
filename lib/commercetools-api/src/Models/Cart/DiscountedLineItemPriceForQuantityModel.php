@@ -20,7 +20,7 @@ use stdClass;
 final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel implements DiscountedLineItemPriceForQuantity
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $quantity;
 
@@ -31,7 +31,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
 
 
     public function __construct(
-        int $quantity = null,
+        float $quantity = null,
         DiscountedLineItemPrice $discountedPrice = null
     ) {
         $this->quantity = $quantity;
@@ -39,17 +39,17 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountedLineItemPriceForQuantity::FIELD_QUANTITY);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->quantity = (float) $data;
         }
 
         return $this->quantity;
@@ -62,7 +62,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     {
         if (is_null($this->discountedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPriceForQuantity::FIELD_DISCOUNTED_PRICE);
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,8 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
         return $this->discountedPrice;
     }
 
-    public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }

@@ -13,10 +13,8 @@ use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -85,7 +83,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -102,7 +100,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -119,7 +117,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->productId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_PRODUCT_ID);
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -136,7 +134,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +151,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +168,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->addedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_ADDED_AT);
+            $data = $this->raw(self::FIELD_ADDED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListAddLineItemAction::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -201,6 +199,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
 
         return $this->custom;
     }
+
 
     public function setSku(?string $sku): void
     {

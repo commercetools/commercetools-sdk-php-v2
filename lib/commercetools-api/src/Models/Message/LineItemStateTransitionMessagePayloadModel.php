@@ -13,10 +13,8 @@ use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -78,7 +76,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,7 +93,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +110,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->transitionDate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_TRANSITION_DATE);
+            $data = $this->raw(self::FIELD_TRANSITION_DATE);
             if (is_null($data)) {
                 return null;
             }
@@ -133,7 +131,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +148,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->fromState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_FROM_STATE);
+            $data = $this->raw(self::FIELD_FROM_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +166,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     {
         if (is_null($this->toState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_TO_STATE);
+            $data = $this->raw(self::FIELD_TO_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -178,6 +176,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
 
         return $this->toState;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

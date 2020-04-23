@@ -46,7 +46,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SuggestTokenizer::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -55,6 +55,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
 
         return $this->type;
     }
+
 
 
 

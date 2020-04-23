@@ -83,7 +83,7 @@ interface CustomLineItem extends JsonObject
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -136,7 +136,7 @@ interface CustomLineItem extends JsonObject
 
     public function setSlug(?string $slug): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setState(?ItemStateCollection $state): void;
 

@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -47,7 +46,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRateInputType::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +63,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     {
         if (is_null($this->values)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartClassificationType::FIELD_VALUES);
+            $data = $this->raw(self::FIELD_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +72,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
 
         return $this->values;
     }
+
 
     public function setValues(?CustomFieldLocalizedEnumValueCollection $values): void
     {

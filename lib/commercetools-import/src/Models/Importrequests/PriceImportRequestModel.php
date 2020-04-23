@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Prices\PriceImportCollection;
-
 use stdClass;
 
 /**
@@ -49,7 +48,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportRequest::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     {
         if (is_null($this->resources)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PriceImportRequest::FIELD_RESOURCES);
+            $data = $this->raw(self::FIELD_RESOURCES);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
 
         return $this->resources;
     }
+
 
     public function setResources(?PriceImportCollection $resources): void
     {

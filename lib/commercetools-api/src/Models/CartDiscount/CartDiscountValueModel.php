@@ -47,7 +47,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountValue::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -56,6 +56,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
 
         return $this->type;
     }
+
 
 
 

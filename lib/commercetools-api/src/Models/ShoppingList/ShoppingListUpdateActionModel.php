@@ -67,7 +67,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,6 +76,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
 
         return $this->action;
     }
+
 
 
 

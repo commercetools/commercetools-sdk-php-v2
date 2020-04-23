@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\DiscountedPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -76,7 +75,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +92,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->variantKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_KEY);
+            $data = $this->raw(self::FIELD_VARIANT_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +109,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +126,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->priceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_PRICE_ID);
+            $data = $this->raw(self::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +143,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->discounted)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_DISCOUNTED);
+            $data = $this->raw(self::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
@@ -162,7 +161,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -171,6 +170,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
 
         return $this->staged;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

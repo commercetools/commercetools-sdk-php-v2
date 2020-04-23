@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -50,7 +49,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     {
         if (is_null($this->totalGross)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TOTAL_GROSS);
+            $data = $this->raw(self::FIELD_TOTAL_GROSS);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +77,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
 
         return $this->taxRate;
     }
+
 
     public function setTotalGross(?Money $totalGross): void
     {

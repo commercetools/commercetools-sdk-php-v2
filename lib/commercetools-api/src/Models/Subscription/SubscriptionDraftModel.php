@@ -66,7 +66,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         if (is_null($this->changes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_CHANGES);
+            $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         if (is_null($this->destination)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_DESTINATION);
+            $data = $this->raw(self::FIELD_DESTINATION);
             if (is_null($data)) {
                 return null;
             }
@@ -101,7 +101,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -118,7 +118,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         if (is_null($this->messages)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_MESSAGES);
+            $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -135,7 +135,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     {
         if (is_null($this->format)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_FORMAT);
+            $data = $this->raw(self::FIELD_FORMAT);
             if (is_null($data)) {
                 return null;
             }
@@ -145,6 +145,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
 
         return $this->format;
     }
+
 
     public function setChanges(?ChangeSubscriptionCollection $changes): void
     {

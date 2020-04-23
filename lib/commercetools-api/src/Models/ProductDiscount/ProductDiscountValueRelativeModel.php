@@ -45,7 +45,7 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountValue::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
     {
         if (is_null($this->permyriad)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductDiscountValueRelative::FIELD_PERMYRIAD);
+            $data = $this->raw(self::FIELD_PERMYRIAD);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
 
         return $this->permyriad;
     }
+
 
     public function setPermyriad(?int $permyriad): void
     {

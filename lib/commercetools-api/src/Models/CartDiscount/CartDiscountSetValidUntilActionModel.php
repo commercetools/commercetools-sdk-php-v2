@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -48,7 +46,7 @@ final class CartDiscountSetValidUntilActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +65,7 @@ final class CartDiscountSetValidUntilActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountSetValidUntilAction::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -80,6 +78,7 @@ final class CartDiscountSetValidUntilActionModel extends JsonObjectModel impleme
 
         return $this->validUntil;
     }
+
 
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {

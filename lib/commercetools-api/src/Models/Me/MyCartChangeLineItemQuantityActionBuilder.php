@@ -30,7 +30,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -53,7 +53,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -89,7 +89,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

@@ -53,7 +53,7 @@ interface TextLineItem extends JsonObject
     public function getName();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -67,5 +67,5 @@ interface TextLineItem extends JsonObject
 
     public function setName(?LocalizedString $name): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 }

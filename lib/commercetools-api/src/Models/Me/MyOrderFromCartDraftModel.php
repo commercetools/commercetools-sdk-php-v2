@@ -47,7 +47,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyOrderFromCartDraft::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyOrderFromCartDraft::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
 
         return $this->version;
     }
+
 
     public function setId(?string $id): void
     {

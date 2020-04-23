@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Inventory\InventoryEntryModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     {
         if (is_null($this->inventoryEntry)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntryCreatedMessagePayload::FIELD_INVENTORY_ENTRY);
+            $data = $this->raw(self::FIELD_INVENTORY_ENTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
 
         return $this->inventoryEntry;
     }
+
 
     public function setInventoryEntry(?InventoryEntry $inventoryEntry): void
     {

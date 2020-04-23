@@ -20,17 +20,17 @@ use stdClass;
 final class ImportOperationPagedResponseModel extends JsonObjectModel implements ImportOperationPagedResponse
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $limit;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $offset;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $count;
 
@@ -41,9 +41,9 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
 
 
     public function __construct(
-        int $limit = null,
-        int $offset = null,
-        int $count = null,
+        float $limit = null,
+        float $offset = null,
+        float $count = null,
         ImportOperationCollection $results = null
     ) {
         $this->limit = $limit;
@@ -55,17 +55,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getLimit()
     {
         if (is_null($this->limit)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperationPagedResponse::FIELD_LIMIT);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
-            $this->limit = (int) $data;
+            $this->limit = (float) $data;
         }
 
         return $this->limit;
@@ -74,17 +74,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset()
     {
         if (is_null($this->offset)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperationPagedResponse::FIELD_OFFSET);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
-            $this->offset = (int) $data;
+            $this->offset = (float) $data;
         }
 
         return $this->offset;
@@ -93,17 +93,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCount()
     {
         if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportOperationPagedResponse::FIELD_COUNT);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->count = (int) $data;
+            $this->count = (float) $data;
         }
 
         return $this->count;
@@ -118,7 +118,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     {
         if (is_null($this->results)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportOperationPagedResponse::FIELD_RESULTS);
+            $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
             }
@@ -128,17 +128,18 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
         return $this->results;
     }
 
-    public function setLimit(?int $limit): void
+
+    public function setLimit(?float $limit): void
     {
         $this->limit = $limit;
     }
 
-    public function setOffset(?int $offset): void
+    public function setOffset(?float $offset): void
     {
         $this->offset = $offset;
     }
 
-    public function setCount(?int $count): void
+    public function setCount(?float $count): void
     {
         $this->count = $count;
     }

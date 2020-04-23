@@ -28,7 +28,7 @@ interface ImageSearchResponse extends JsonObject
     /**
      * <p>The offset into the results matching the query. An offset of 0 is the default value indicating that no results should be skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset();
 
@@ -48,7 +48,7 @@ interface ImageSearchResponse extends JsonObject
 
     public function setCount(?int $count): void;
 
-    public function setOffset(?int $offset): void;
+    public function setOffset(?float $offset): void;
 
     public function setTotal(?int $total): void;
 

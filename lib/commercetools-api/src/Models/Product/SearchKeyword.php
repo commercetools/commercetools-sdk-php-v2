@@ -22,7 +22,7 @@ interface SearchKeyword extends JsonObject
     public function getText();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getSuggestTokenizer();
 

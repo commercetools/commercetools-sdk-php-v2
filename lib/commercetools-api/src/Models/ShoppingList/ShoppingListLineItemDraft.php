@@ -43,7 +43,7 @@ interface ShoppingListLineItemDraft extends JsonObject
     public function getProductId();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -60,7 +60,7 @@ interface ShoppingListLineItemDraft extends JsonObject
 
     public function setProductId(?string $productId): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setVariantId(?int $variantId): void;
 }

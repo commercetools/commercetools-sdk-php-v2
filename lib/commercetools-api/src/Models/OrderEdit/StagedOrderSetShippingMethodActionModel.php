@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
-
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -59,7 +58,7 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +75,7 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
     {
         if (is_null($this->shippingMethod)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetShippingMethodAction::FIELD_SHIPPING_METHOD);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +93,7 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
     {
         if (is_null($this->externalTaxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -104,6 +103,7 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
 
         return $this->externalTaxRate;
     }
+
 
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {

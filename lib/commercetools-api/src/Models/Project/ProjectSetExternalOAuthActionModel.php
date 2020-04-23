@@ -45,7 +45,7 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     {
         if (is_null($this->externalOAuth)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProjectSetExternalOAuthAction::FIELD_EXTERNAL_O_AUTH);
+            $data = $this->raw(self::FIELD_EXTERNAL_O_AUTH);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
 
         return $this->externalOAuth;
     }
+
 
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void
     {

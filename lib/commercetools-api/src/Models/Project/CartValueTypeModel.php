@@ -38,7 +38,7 @@ final class CartValueTypeModel extends JsonObjectModel implements CartValueType
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRateInputType::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }

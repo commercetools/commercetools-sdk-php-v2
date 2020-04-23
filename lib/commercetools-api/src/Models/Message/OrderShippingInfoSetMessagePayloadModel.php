@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\ShippingInfoModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->shippingInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_SHIPPING_INFO);
+            $data = $this->raw(self::FIELD_SHIPPING_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->oldShippingInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_OLD_SHIPPING_INFO);
+            $data = $this->raw(self::FIELD_OLD_SHIPPING_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -100,6 +99,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
 
         return $this->oldShippingInfo;
     }
+
 
     public function setShippingInfo(?ShippingInfo $shippingInfo): void
     {

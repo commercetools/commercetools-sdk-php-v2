@@ -45,7 +45,7 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     {
         if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerEmailChangedMessagePayload::FIELD_EMAIL);
+            $data = $this->raw(self::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
 
         return $this->email;
     }
+
 
     public function setEmail(?string $email): void
     {

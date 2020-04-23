@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -92,7 +91,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -109,7 +108,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -126,7 +125,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +142,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->localizedDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_LOCALIZED_DESCRIPTION);
+            $data = $this->raw(self::FIELD_LOCALIZED_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +160,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -179,7 +178,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->zoneRates)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_ZONE_RATES);
+            $data = $this->raw(self::FIELD_ZONE_RATES);
             if (is_null($data)) {
                 return null;
             }
@@ -198,7 +197,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->isDefault)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_IS_DEFAULT);
+            $data = $this->raw(self::FIELD_IS_DEFAULT);
             if (is_null($data)) {
                 return null;
             }
@@ -217,7 +216,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     {
         if (is_null($this->predicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_PREDICATE);
+            $data = $this->raw(self::FIELD_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -226,6 +225,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
 
         return $this->predicate;
     }
+
 
     public function setKey(?string $key): void
     {

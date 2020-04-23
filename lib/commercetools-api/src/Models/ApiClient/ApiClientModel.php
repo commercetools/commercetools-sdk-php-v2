@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -86,7 +84,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +101,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +121,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->scope)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_SCOPE);
+            $data = $this->raw(self::FIELD_SCOPE);
             if (is_null($data)) {
                 return null;
             }
@@ -140,7 +138,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -163,7 +161,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->lastUsedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_LAST_USED_AT);
+            $data = $this->raw(self::FIELD_LAST_USED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -186,7 +184,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->deleteAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_DELETE_AT);
+            $data = $this->raw(self::FIELD_DELETE_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -210,7 +208,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     {
         if (is_null($this->secret)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClient::FIELD_SECRET);
+            $data = $this->raw(self::FIELD_SECRET);
             if (is_null($data)) {
                 return null;
             }
@@ -219,6 +217,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
 
         return $this->secret;
     }
+
 
     public function setId(?string $id): void
     {

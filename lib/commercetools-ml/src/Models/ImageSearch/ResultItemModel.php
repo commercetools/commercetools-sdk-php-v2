@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\ProductVariantCollection;
-
 use stdClass;
 
 /**
@@ -49,7 +48,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     {
         if (is_null($this->imageUrl)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ResultItem::FIELD_IMAGE_URL);
+            $data = $this->raw(self::FIELD_IMAGE_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     {
         if (is_null($this->productVariants)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ResultItem::FIELD_PRODUCT_VARIANTS);
+            $data = $this->raw(self::FIELD_PRODUCT_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
 
         return $this->productVariants;
     }
+
 
     public function setImageUrl(?string $imageUrl): void
     {

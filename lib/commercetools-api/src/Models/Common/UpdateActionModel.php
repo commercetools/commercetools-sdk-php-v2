@@ -38,7 +38,7 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -47,6 +47,7 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
 
         return $this->action;
     }
+
 
     public function setAction(?string $action): void
     {

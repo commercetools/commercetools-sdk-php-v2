@@ -60,14 +60,14 @@ interface MissingAttributesSearchRequest extends JsonObject
     /**
      * <p>Minimum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMin();
 
     /**
      * <p>Maximum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCoverageMax();
 
@@ -120,9 +120,9 @@ interface MissingAttributesSearchRequest extends JsonObject
 
     public function setIncludeVariants(?bool $includeVariants): void;
 
-    public function setCoverageMin(?int $coverageMin): void;
+    public function setCoverageMin(?float $coverageMin): void;
 
-    public function setCoverageMax(?int $coverageMax): void;
+    public function setCoverageMax(?float $coverageMax): void;
 
     public function setSortBy(?string $sortBy): void;
 

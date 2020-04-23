@@ -52,7 +52,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     {
         if (is_null($this->isOnStock)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductVariantChannelAvailability::FIELD_IS_ON_STOCK);
+            $data = $this->raw(self::FIELD_IS_ON_STOCK);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     {
         if (is_null($this->restockableInDays)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariantChannelAvailability::FIELD_RESTOCKABLE_IN_DAYS);
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     {
         if (is_null($this->availableQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariantChannelAvailability::FIELD_AVAILABLE_QUANTITY);
+            $data = $this->raw(self::FIELD_AVAILABLE_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
 
         return $this->availableQuantity;
     }
+
 
     public function setIsOnStock(?bool $isOnStock): void
     {

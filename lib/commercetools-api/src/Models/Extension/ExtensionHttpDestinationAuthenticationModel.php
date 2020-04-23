@@ -46,7 +46,7 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionHttpDestinationAuthentication::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -55,6 +55,7 @@ final class ExtensionHttpDestinationAuthenticationModel extends JsonObjectModel 
 
         return $this->type;
     }
+
 
 
 

@@ -25,14 +25,14 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     protected $categoryName;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $confidence;
 
 
     public function __construct(
         string $categoryName = null,
-        int $confidence = null
+        float $confidence = null
     ) {
         $this->categoryName = $categoryName;
         $this->confidence = $confidence;
@@ -47,7 +47,7 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     {
         if (is_null($this->categoryName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GeneralCategoryRecommendation::FIELD_CATEGORY_NAME);
+            $data = $this->raw(self::FIELD_CATEGORY_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -60,28 +60,29 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>Probability score for the category recommendation.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence()
     {
         if (is_null($this->confidence)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(GeneralCategoryRecommendation::FIELD_CONFIDENCE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_CONFIDENCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->confidence = (int) $data;
+            $this->confidence = (float) $data;
         }
 
         return $this->confidence;
     }
+
 
     public function setCategoryName(?string $categoryName): void
     {
         $this->categoryName = $categoryName;
     }
 
-    public function setConfidence(?int $confidence): void
+    public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;
     }

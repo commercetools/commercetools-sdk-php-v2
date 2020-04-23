@@ -13,10 +13,8 @@ use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -78,7 +76,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -95,7 +93,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +110,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->quantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_QUANTITY);
+            $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -129,7 +127,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->fromState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_FROM_STATE);
+            $data = $this->raw(self::FIELD_FROM_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -147,7 +145,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->toState)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_TO_STATE);
+            $data = $this->raw(self::FIELD_TO_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -165,7 +163,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     {
         if (is_null($this->actualTransitionDate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_ACTUAL_TRANSITION_DATE);
+            $data = $this->raw(self::FIELD_ACTUAL_TRANSITION_DATE);
             if (is_null($data)) {
                 return null;
             }
@@ -178,6 +176,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
 
         return $this->actualTransitionDate;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

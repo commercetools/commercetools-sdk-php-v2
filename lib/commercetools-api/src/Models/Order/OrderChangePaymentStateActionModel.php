@@ -45,7 +45,7 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderChangePaymentStateAction::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
 
         return $this->paymentState;
     }
+
 
     public function setPaymentState(?string $paymentState): void
     {

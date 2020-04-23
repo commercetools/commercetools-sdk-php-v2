@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     {
         if (is_null($this->store)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderStoreSetMessagePayload::FIELD_STORE);
+            $data = $this->raw(self::FIELD_STORE);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
 
         return $this->store;
     }
+
 
     public function setStore(?StoreKeyReference $store): void
     {

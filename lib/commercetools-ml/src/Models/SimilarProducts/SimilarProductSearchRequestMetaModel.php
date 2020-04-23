@@ -40,7 +40,7 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
     {
         if (is_null($this->similarityMeasures)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SimilarProductSearchRequestMeta::FIELD_SIMILARITY_MEASURES);
+            $data = $this->raw(self::FIELD_SIMILARITY_MEASURES);
             if (is_null($data)) {
                 return null;
             }
@@ -50,6 +50,7 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
 
         return $this->similarityMeasures;
     }
+
 
     public function setSimilarityMeasures(?SimilarityMeasures $similarityMeasures): void
     {

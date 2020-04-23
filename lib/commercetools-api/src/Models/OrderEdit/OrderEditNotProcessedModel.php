@@ -38,7 +38,7 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditResult::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }

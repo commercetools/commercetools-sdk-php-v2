@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -64,7 +63,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -81,7 +80,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->shoppingList)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddShoppingListAction::FIELD_SHOPPING_LIST);
+            $data = $this->raw(self::FIELD_SHOPPING_LIST);
             if (is_null($data)) {
                 return null;
             }
@@ -99,7 +98,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddShoppingListAction::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +116,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     {
         if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddShoppingListAction::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -127,6 +126,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
 
         return $this->distributionChannel;
     }
+
 
     public function setShoppingList(?ShoppingListResourceIdentifier $shoppingList): void
     {

@@ -52,7 +52,7 @@ final class MyCartSetCustomFieldActionModel extends JsonObjectModel implements M
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class MyCartSetCustomFieldActionModel extends JsonObjectModel implements M
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyCartSetCustomFieldAction::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class MyCartSetCustomFieldActionModel extends JsonObjectModel implements M
     {
         if (is_null($this->value)) {
             /** @psalm-var ?stdClass $data */
-            $data = $this->raw(MyCartSetCustomFieldAction::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class MyCartSetCustomFieldActionModel extends JsonObjectModel implements M
 
         return $this->value;
     }
+
 
     public function setName(?string $name): void
     {

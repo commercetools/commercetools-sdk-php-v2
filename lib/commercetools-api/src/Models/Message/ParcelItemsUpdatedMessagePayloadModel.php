@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -68,7 +67,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -85,7 +84,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -102,7 +101,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->deliveryId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_DELIVERY_ID);
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -119,7 +118,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -136,7 +135,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     {
         if (is_null($this->oldItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
+            $data = $this->raw(self::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -145,6 +144,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
 
         return $this->oldItems;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

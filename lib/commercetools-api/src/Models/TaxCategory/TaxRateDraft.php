@@ -31,7 +31,7 @@ interface TaxRateDraft extends JsonObject
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
@@ -65,7 +65,7 @@ interface TaxRateDraft extends JsonObject
 
     public function setName(?string $name): void;
 
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 
     public function setIncludedInPrice(?bool $includedInPrice): void;
 

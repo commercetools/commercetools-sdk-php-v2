@@ -45,7 +45,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomFields::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomFields::FIELD_FIELDS);
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +75,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 
         return $this->fields;
     }
+
 
     public function setType(?TypeReference $type): void
     {

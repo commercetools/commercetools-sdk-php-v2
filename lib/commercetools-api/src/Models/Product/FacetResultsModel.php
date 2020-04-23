@@ -25,6 +25,7 @@ final class FacetResultsModel extends JsonObjectModel implements FacetResults
 
 
 
+
     /**
      * @return mixed
      */

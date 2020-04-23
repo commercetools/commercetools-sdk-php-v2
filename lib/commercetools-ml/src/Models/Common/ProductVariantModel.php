@@ -54,7 +54,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariant::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +74,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductVariant::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariant::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -102,6 +102,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
 
         return $this->variantId;
     }
+
 
     public function setProduct(?ProductReference $product): void
     {

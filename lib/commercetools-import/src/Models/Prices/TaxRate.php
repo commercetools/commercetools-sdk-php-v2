@@ -32,7 +32,7 @@ interface TaxRate extends JsonObject
     public function getName();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getAmount();
 
@@ -62,7 +62,7 @@ interface TaxRate extends JsonObject
 
     public function setName(?string $name): void;
 
-    public function setAmount(?int $amount): void;
+    public function setAmount(?float $amount): void;
 
     public function setIncludedInPrice(?bool $includedInPrice): void;
 

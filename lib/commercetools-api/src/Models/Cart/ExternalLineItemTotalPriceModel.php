@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalLineItemTotalPrice::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +65,7 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalLineItemTotalPrice::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -76,6 +75,7 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
 
         return $this->totalPrice;
     }
+
 
     public function setPrice(?Money $price): void
     {

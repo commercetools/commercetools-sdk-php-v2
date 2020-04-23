@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->store)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerRemoveStoreAction::FIELD_STORE);
+            $data = $this->raw(self::FIELD_STORE);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
 
         return $this->store;
     }
+
 
     public function setStore(?StoreResourceIdentifier $store): void
     {

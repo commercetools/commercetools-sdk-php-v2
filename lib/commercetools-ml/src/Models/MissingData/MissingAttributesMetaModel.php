@@ -52,7 +52,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     {
         if (is_null($this->productLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributesMeta::FIELD_PRODUCT_LEVEL);
+            $data = $this->raw(self::FIELD_PRODUCT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -70,7 +70,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     {
         if (is_null($this->variantLevel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MissingAttributesMeta::FIELD_VARIANT_LEVEL);
+            $data = $this->raw(self::FIELD_VARIANT_LEVEL);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +90,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     {
         if (is_null($this->productTypeIds)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MissingAttributesMeta::FIELD_PRODUCT_TYPE_IDS);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +99,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
 
         return $this->productTypeIds;
     }
+
 
     public function setProductLevel(?MissingAttributesDetails $productLevel): void
     {

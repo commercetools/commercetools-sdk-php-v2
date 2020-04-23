@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
@@ -91,7 +90,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +107,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -125,7 +124,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +141,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->prices)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_PRICES);
+            $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -159,7 +158,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->images)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_IMAGES);
+            $data = $this->raw(self::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -176,7 +175,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_ATTRIBUTES);
+            $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -193,7 +192,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -210,7 +209,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_ASSETS);
+            $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -219,6 +218,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
 
         return $this->assets;
     }
+
 
     public function setSku(?string $sku): void
     {

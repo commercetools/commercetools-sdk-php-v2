@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
-
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraftModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
@@ -105,7 +104,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->shippingMethodName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_NAME);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -122,7 +121,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +141,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->shippingRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_RATE);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -160,7 +159,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->taxRate)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_RATE);
+            $data = $this->raw(self::FIELD_TAX_RATE);
             if (is_null($data)) {
                 return null;
             }
@@ -178,7 +177,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -198,7 +197,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->shippingMethod)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -218,7 +217,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->deliveries)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_DELIVERIES);
+            $data = $this->raw(self::FIELD_DELIVERIES);
             if (is_null($data)) {
                 return null;
             }
@@ -235,7 +234,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->discountedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_DISCOUNTED_PRICE);
+            $data = $this->raw(self::FIELD_DISCOUNTED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -255,7 +254,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     {
         if (is_null($this->shippingMethodState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_STATE);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -264,6 +263,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
 
         return $this->shippingMethodState;
     }
+
 
     public function setShippingMethodName(?string $shippingMethodName): void
     {

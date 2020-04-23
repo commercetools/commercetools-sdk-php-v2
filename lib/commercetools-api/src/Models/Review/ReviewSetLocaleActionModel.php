@@ -45,7 +45,7 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewSetLocaleAction::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
 
         return $this->locale;
     }
+
 
     public function setLocale(?string $locale): void
     {

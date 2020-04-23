@@ -13,7 +13,6 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -50,7 +49,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     {
         if (is_null($this->discount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPortion::FIELD_DISCOUNT);
+            $data = $this->raw(self::FIELD_DISCOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -68,7 +67,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     {
         if (is_null($this->discountedAmount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPortion::FIELD_DISCOUNTED_AMOUNT);
+            $data = $this->raw(self::FIELD_DISCOUNTED_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -78,6 +77,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
         return $this->discountedAmount;
     }
+
 
     public function setDiscount(?CartDiscountReference $discount): void
     {

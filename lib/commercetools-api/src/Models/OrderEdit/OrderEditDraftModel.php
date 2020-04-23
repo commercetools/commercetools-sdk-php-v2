@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -81,7 +80,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->resource)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditDraft::FIELD_RESOURCE);
+            $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +119,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->stagedActions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditDraft::FIELD_STAGED_ACTIONS);
+            $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -139,7 +138,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -159,7 +158,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->comment)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditDraft::FIELD_COMMENT);
+            $data = $this->raw(self::FIELD_COMMENT);
             if (is_null($data)) {
                 return null;
             }
@@ -178,7 +177,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     {
         if (is_null($this->dryRun)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderEditDraft::FIELD_DRY_RUN);
+            $data = $this->raw(self::FIELD_DRY_RUN);
             if (is_null($data)) {
                 return null;
             }
@@ -187,6 +186,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
 
         return $this->dryRun;
     }
+
 
     public function setKey(?string $key): void
     {

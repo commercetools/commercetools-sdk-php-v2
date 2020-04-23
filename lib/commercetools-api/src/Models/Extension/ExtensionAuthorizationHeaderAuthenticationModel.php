@@ -45,7 +45,7 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionHttpDestinationAuthentication::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     {
         if (is_null($this->headerValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionAuthorizationHeaderAuthentication::FIELD_HEADER_VALUE);
+            $data = $this->raw(self::FIELD_HEADER_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
 
         return $this->headerValue;
     }
+
 
     public function setHeaderValue(?string $headerValue): void
     {

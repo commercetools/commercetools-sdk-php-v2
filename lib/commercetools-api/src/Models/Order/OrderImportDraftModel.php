@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
-
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
@@ -28,7 +27,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -206,7 +204,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ORDER_NUMBER);
+            $data = $this->raw(self::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -225,7 +223,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->customerId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_ID);
+            $data = $this->raw(self::FIELD_CUSTOMER_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -244,7 +242,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->customerEmail)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_EMAIL);
+            $data = $this->raw(self::FIELD_CUSTOMER_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -263,7 +261,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -282,7 +280,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->customLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -299,7 +297,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -320,7 +318,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -338,7 +336,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->shippingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_SHIPPING_ADDRESS);
+            $data = $this->raw(self::FIELD_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -356,7 +354,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->billingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_BILLING_ADDRESS);
+            $data = $this->raw(self::FIELD_BILLING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -377,7 +375,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -398,7 +396,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -417,7 +415,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->orderState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ORDER_STATE);
+            $data = $this->raw(self::FIELD_ORDER_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -434,7 +432,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -451,7 +449,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -470,7 +468,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->shippingInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_SHIPPING_INFO);
+            $data = $this->raw(self::FIELD_SHIPPING_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -488,7 +486,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->completedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_COMPLETED_AT);
+            $data = $this->raw(self::FIELD_COMPLETED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -511,7 +509,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -531,7 +529,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->inventoryMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_INVENTORY_MODE);
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -550,7 +548,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->taxRoundingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_TAX_ROUNDING_MODE);
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -569,7 +567,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->itemShippingAddresses)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
+            $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -586,7 +584,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->store)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_STORE);
+            $data = $this->raw(self::FIELD_STORE);
             if (is_null($data)) {
                 return null;
             }
@@ -606,7 +604,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     {
         if (is_null($this->origin)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ORIGIN);
+            $data = $this->raw(self::FIELD_ORIGIN);
             if (is_null($data)) {
                 return null;
             }
@@ -615,6 +613,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
 
         return $this->origin;
     }
+
 
     public function setOrderNumber(?string $orderNumber): void
     {

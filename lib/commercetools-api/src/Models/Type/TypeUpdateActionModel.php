@@ -59,7 +59,7 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -68,6 +68,7 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
 
         return $this->action;
     }
+
 
 
 

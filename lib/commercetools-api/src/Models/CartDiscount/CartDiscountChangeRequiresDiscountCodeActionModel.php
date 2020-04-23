@@ -45,7 +45,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     {
         if (is_null($this->requiresDiscountCode)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscountChangeRequiresDiscountCodeAction::FIELD_REQUIRES_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_REQUIRES_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
 
         return $this->requiresDiscountCode;
     }
+
 
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
     {

@@ -13,12 +13,10 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -80,7 +78,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +95,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -115,7 +113,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->quantityOnStock)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_QUANTITY_ON_STOCK);
+            $data = $this->raw(self::FIELD_QUANTITY_ON_STOCK);
             if (is_null($data)) {
                 return null;
             }
@@ -132,7 +130,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->restockableInDays)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_RESTOCKABLE_IN_DAYS);
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
             if (is_null($data)) {
                 return null;
             }
@@ -149,7 +147,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->expectedDelivery)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_EXPECTED_DELIVERY);
+            $data = $this->raw(self::FIELD_EXPECTED_DELIVERY);
             if (is_null($data)) {
                 return null;
             }
@@ -172,7 +170,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -182,6 +180,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
 
         return $this->custom;
     }
+
 
     public function setSku(?string $sku): void
     {

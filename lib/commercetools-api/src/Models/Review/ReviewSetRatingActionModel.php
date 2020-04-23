@@ -45,7 +45,7 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     {
         if (is_null($this->rating)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewSetRatingAction::FIELD_RATING);
+            $data = $this->raw(self::FIELD_RATING);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
 
         return $this->rating;
     }
+
 
     public function setRating(?int $rating): void
     {

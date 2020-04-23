@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -28,7 +27,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     protected $name;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $rate;
 
@@ -40,7 +39,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
 
     public function __construct(
         string $name = null,
-        int $rate = null,
+        float $rate = null,
         Money $amount = null
     ) {
         $this->name = $name;
@@ -55,7 +54,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxPortionDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -66,17 +65,17 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getRate()
     {
         if (is_null($this->rate)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TaxPortionDraft::FIELD_RATE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_RATE);
             if (is_null($data)) {
                 return null;
             }
-            $this->rate = (int) $data;
+            $this->rate = (float) $data;
         }
 
         return $this->rate;
@@ -89,7 +88,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     {
         if (is_null($this->amount)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxPortionDraft::FIELD_AMOUNT);
+            $data = $this->raw(self::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -100,12 +99,13 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
         return $this->amount;
     }
 
+
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setRate(?int $rate): void
+    public function setRate(?float $rate): void
     {
         $this->rate = $rate;
     }

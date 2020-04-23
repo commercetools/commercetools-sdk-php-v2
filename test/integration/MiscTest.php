@@ -10,7 +10,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Project\ProjectModel;
+use Commercetools\Api\Models\Project\Project;
 use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
@@ -23,6 +23,7 @@ use GuzzleHttp\HandlerStack;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @internal
@@ -87,6 +88,35 @@ class MiscTest extends TestCase
         $this->assertSame($this->projectKey, $project->getKey());
         $this->assertInstanceOf(\DateTimeImmutable::class, $project->getCreatedAt());
         $this->assertInstanceOf(MessageConfiguration::class, $project->getMessages());
+    }
+
+    public function testGetProjectAsync()
+    {
+        $client = $this->client;
+
+        $root = new ApiRequestBuilder($this->projectKey, $client);
+        $key = $root
+            ->with()
+            ->get()
+            ->executeAsync()->then(function (Project $p) { return $p->getKey(); })
+        ;
+
+        $this->assertSame($this->projectKey, $key->wait());
+    }
+
+    public function testProjectAsyncException()
+    {
+        $client = $this->client;
+
+        $root = new ApiRequestBuilder($this->projectKey, $client);
+        $key = $root
+            ->with()
+            ->post(null)
+            ->executeAsync()
+        ;
+
+        $this->expectException(ApiClientException::class);
+        $key->wait();
     }
 
     public function testCategories()

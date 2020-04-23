@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
@@ -25,7 +24,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -187,7 +185,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -206,7 +204,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CartDiscount::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -223,7 +221,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -244,7 +242,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -267,7 +265,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -287,7 +285,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -305,7 +303,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -326,7 +324,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -343,7 +341,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -361,7 +359,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -381,7 +379,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->cartPredicate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_CART_PREDICATE);
+            $data = $this->raw(self::FIELD_CART_PREDICATE);
             if (is_null($data)) {
                 return null;
             }
@@ -400,7 +398,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->target)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_TARGET);
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
@@ -423,7 +421,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->sortOrder)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_SORT_ORDER);
+            $data = $this->raw(self::FIELD_SORT_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -442,7 +440,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->isActive)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscount::FIELD_IS_ACTIVE);
+            $data = $this->raw(self::FIELD_IS_ACTIVE);
             if (is_null($data)) {
                 return null;
             }
@@ -459,7 +457,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -480,7 +478,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -503,7 +501,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->requiresDiscountCode)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscount::FIELD_REQUIRES_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_REQUIRES_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -523,7 +521,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->references)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartDiscount::FIELD_REFERENCES);
+            $data = $this->raw(self::FIELD_REFERENCES);
             if (is_null($data)) {
                 return null;
             }
@@ -543,7 +541,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->stackingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscount::FIELD_STACKING_MODE);
+            $data = $this->raw(self::FIELD_STACKING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -560,7 +558,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscount::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -570,6 +568,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
 
         return $this->custom;
     }
+
 
     public function setId(?string $id): void
     {

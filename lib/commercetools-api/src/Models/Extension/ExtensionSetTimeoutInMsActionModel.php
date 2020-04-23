@@ -45,7 +45,7 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +67,7 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     {
         if (is_null($this->timeoutInMs)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ExtensionSetTimeoutInMsAction::FIELD_TIMEOUT_IN_MS);
+            $data = $this->raw(self::FIELD_TIMEOUT_IN_MS);
             if (is_null($data)) {
                 return null;
             }
@@ -76,6 +76,7 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
 
         return $this->timeoutInMs;
     }
+
 
     public function setTimeoutInMs(?int $timeoutInMs): void
     {

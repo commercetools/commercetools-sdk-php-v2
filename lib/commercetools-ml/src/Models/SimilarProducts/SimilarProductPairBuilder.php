@@ -21,7 +21,7 @@ use stdClass;
 final class SimilarProductPairBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $confidence;
 
@@ -33,7 +33,7 @@ final class SimilarProductPairBuilder implements Builder
     /**
      * <p>The probability of product similarity.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence()
     {
@@ -51,7 +51,7 @@ final class SimilarProductPairBuilder implements Builder
     /**
      * @return $this
      */
-    public function withConfidence(?int $confidence)
+    public function withConfidence(?float $confidence)
     {
         $this->confidence = $confidence;
 

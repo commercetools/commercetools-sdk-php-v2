@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetMetaKeywordsAction::FIELD_META_KEYWORDS);
+            $data = $this->raw(self::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetMetaKeywordsAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
 
         return $this->staged;
     }
+
 
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {

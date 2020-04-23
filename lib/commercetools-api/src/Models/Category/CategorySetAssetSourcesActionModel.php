@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-
 use stdClass;
 
 /**
@@ -61,7 +60,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -78,7 +77,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetSourcesAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -95,7 +94,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetSourcesAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -112,7 +111,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     {
         if (is_null($this->sources)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategorySetAssetSourcesAction::FIELD_SOURCES);
+            $data = $this->raw(self::FIELD_SOURCES);
             if (is_null($data)) {
                 return null;
             }
@@ -121,6 +120,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
 
         return $this->sources;
     }
+
 
     public function setAssetId(?string $assetId): void
     {

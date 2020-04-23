@@ -21,21 +21,21 @@ interface ImportSinkPagedResponse extends JsonObject
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getLimit();
 
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getOffset();
 
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getCount();
 
@@ -46,11 +46,11 @@ interface ImportSinkPagedResponse extends JsonObject
      */
     public function getResults();
 
-    public function setLimit(?int $limit): void;
+    public function setLimit(?float $limit): void;
 
-    public function setOffset(?int $offset): void;
+    public function setOffset(?float $offset): void;
 
-    public function setCount(?int $count): void;
+    public function setCount(?float $count): void;
 
     public function setResults(?ImportSinkCollection $results): void;
 }

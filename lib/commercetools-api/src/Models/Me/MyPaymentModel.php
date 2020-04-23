@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
-
 use Commercetools\Api\Models\Payment\PaymentMethodInfoModel;
 use Commercetools\Api\Models\Payment\TransactionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -97,7 +96,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyPayment::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MyPayment::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -133,7 +132,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +152,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MyPayment::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -173,7 +172,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->amountPlanned)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_AMOUNT_PLANNED);
+            $data = $this->raw(self::FIELD_AMOUNT_PLANNED);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +190,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->paymentMethodInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_PAYMENT_METHOD_INFO);
+            $data = $this->raw(self::FIELD_PAYMENT_METHOD_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -212,7 +211,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->transactions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyPayment::FIELD_TRANSACTIONS);
+            $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -229,7 +228,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -239,6 +238,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
 
         return $this->custom;
     }
+
 
     public function setId(?string $id): void
     {

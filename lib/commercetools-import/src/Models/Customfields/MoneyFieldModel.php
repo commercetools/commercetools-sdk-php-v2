@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\Money;
-
 use Commercetools\Import\Models\Common\MoneyModel;
 use stdClass;
 
@@ -50,7 +49,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomField::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +66,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MoneyField::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +76,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
 
         return $this->value;
     }
+
 
     public function setValue(?Money $value): void
     {

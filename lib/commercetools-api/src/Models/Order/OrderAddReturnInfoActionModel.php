@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -62,7 +60,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +77,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     {
         if (is_null($this->returnTrackingId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderAddReturnInfoAction::FIELD_RETURN_TRACKING_ID);
+            $data = $this->raw(self::FIELD_RETURN_TRACKING_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +94,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     {
         if (is_null($this->items)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderAddReturnInfoAction::FIELD_ITEMS);
+            $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +111,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     {
         if (is_null($this->returnDate)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderAddReturnInfoAction::FIELD_RETURN_DATE);
+            $data = $this->raw(self::FIELD_RETURN_DATE);
             if (is_null($data)) {
                 return null;
             }
@@ -126,6 +124,7 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
 
         return $this->returnDate;
     }
+
 
     public function setReturnTrackingId(?string $returnTrackingId): void
     {

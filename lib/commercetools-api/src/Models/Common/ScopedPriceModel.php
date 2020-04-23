@@ -13,14 +13,12 @@ use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
-
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -110,7 +108,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ScopedPrice::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +125,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -145,7 +143,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->currentValue)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_CURRENT_VALUE);
+            $data = $this->raw(self::FIELD_CURRENT_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -165,7 +163,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ScopedPrice::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -182,7 +180,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -200,7 +198,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_CHANNEL);
+            $data = $this->raw(self::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -218,7 +216,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ScopedPrice::FIELD_VALID_FROM);
+            $data = $this->raw(self::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -239,7 +237,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ScopedPrice::FIELD_VALID_UNTIL);
+            $data = $this->raw(self::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -260,7 +258,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->discounted)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_DISCOUNTED);
+            $data = $this->raw(self::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
@@ -278,7 +276,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ScopedPrice::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -288,6 +286,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
 
         return $this->custom;
     }
+
 
     public function setId(?string $id): void
     {

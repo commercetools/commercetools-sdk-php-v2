@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -76,7 +74,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +91,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +112,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -135,7 +133,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->customerId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_CUSTOMER_ID);
+            $data = $this->raw(self::FIELD_CUSTOMER_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -152,7 +150,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->expiresAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_EXPIRES_AT);
+            $data = $this->raw(self::FIELD_EXPIRES_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -173,7 +171,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -182,6 +180,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 
         return $this->value;
     }
+
 
     public function setId(?string $id): void
     {

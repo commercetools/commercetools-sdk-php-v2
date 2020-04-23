@@ -45,7 +45,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(GeoJson::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     {
         if (is_null($this->coordinates)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(GeoJsonPoint::FIELD_COORDINATES);
+            $data = $this->raw(self::FIELD_COORDINATES);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
 
         return $this->coordinates;
     }
+
 
     public function setCoordinates(?array $coordinates): void
     {

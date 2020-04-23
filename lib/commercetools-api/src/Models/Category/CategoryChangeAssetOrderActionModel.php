@@ -45,7 +45,7 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->assetOrder)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(CategoryChangeAssetOrderAction::FIELD_ASSET_ORDER);
+            $data = $this->raw(self::FIELD_ASSET_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
 
         return $this->assetOrder;
     }
+
 
     public function setAssetOrder(?array $assetOrder): void
     {

@@ -8,15 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -26,7 +29,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -95,7 +97,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $text;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $target;
 
@@ -174,7 +176,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -193,7 +195,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Review::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -210,7 +212,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -231,7 +233,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -254,7 +256,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -274,7 +276,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -294,7 +296,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -311,7 +313,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->uniquenessValue)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_UNIQUENESS_VALUE);
+            $data = $this->raw(self::FIELD_UNIQUENESS_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -328,7 +330,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -345,7 +347,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->authorName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_AUTHOR_NAME);
+            $data = $this->raw(self::FIELD_AUTHOR_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -362,7 +364,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->title)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_TITLE);
+            $data = $this->raw(self::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -379,7 +381,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_TEXT);
+            $data = $this->raw(self::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -393,17 +395,17 @@ final class ReviewModel extends JsonObjectModel implements Review
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
-     * @return null|JsonObject
+     * @return ?mixed
      */
     public function getTarget()
     {
         if (is_null($this->target)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(Review::FIELD_TARGET);
+            /** @psalm-var ?mixed $data */
+            $data = $this->raw(self::FIELD_TARGET);
             if (is_null($data)) {
                 return null;
             }
-            $this->target = JsonObjectModel::of($data);
+            $this->target = $data;
         }
 
         return $this->target;
@@ -420,7 +422,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->includedInStatistics)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(Review::FIELD_INCLUDED_IN_STATISTICS);
+            $data = $this->raw(self::FIELD_INCLUDED_IN_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -439,7 +441,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->rating)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Review::FIELD_RATING);
+            $data = $this->raw(self::FIELD_RATING);
             if (is_null($data)) {
                 return null;
             }
@@ -456,7 +458,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -476,7 +478,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_CUSTOMER);
+            $data = $this->raw(self::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
@@ -494,7 +496,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -503,6 +505,48 @@ final class ReviewModel extends JsonObjectModel implements Review
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>
+     *
+     * @return null|ProductReference
+     */
+    public function getTargetAsProductReference()
+    {
+        if (!$this->target instanceof ProductReference) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ProductReferenceModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>
+     *
+     * @return null|ChannelReference
+     */
+    public function getTargetAsChannelReference()
+    {
+        if (!$this->target instanceof ChannelReference) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = ChannelReferenceModel::of($data);
+        }
+
+        return $this->target;
     }
 
     public function setId(?string $id): void

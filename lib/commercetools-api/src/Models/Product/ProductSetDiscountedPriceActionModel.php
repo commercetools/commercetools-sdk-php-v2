@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\DiscountedPriceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->priceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_PRICE_ID);
+            $data = $this->raw(self::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +95,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -113,7 +112,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->discounted)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_DISCOUNTED);
+            $data = $this->raw(self::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
 
         return $this->discounted;
     }
+
 
     public function setPriceId(?string $priceId): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
-
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
@@ -47,7 +46,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -356,7 +354,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -375,7 +373,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Order::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -392,7 +390,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -413,7 +411,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -436,7 +434,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -456,7 +454,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -476,7 +474,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->completedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_COMPLETED_AT);
+            $data = $this->raw(self::FIELD_COMPLETED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -502,7 +500,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_ORDER_NUMBER);
+            $data = $this->raw(self::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -519,7 +517,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->customerId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_CUSTOMER_ID);
+            $data = $this->raw(self::FIELD_CUSTOMER_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -536,7 +534,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->customerEmail)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_CUSTOMER_EMAIL);
+            $data = $this->raw(self::FIELD_CUSTOMER_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -555,7 +553,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -572,7 +570,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->store)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_STORE);
+            $data = $this->raw(self::FIELD_STORE);
             if (is_null($data)) {
                 return null;
             }
@@ -590,7 +588,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -607,7 +605,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->customLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_CUSTOM_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -624,7 +622,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->totalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_TOTAL_PRICE);
+            $data = $this->raw(self::FIELD_TOTAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -644,7 +642,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->taxedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_TAXED_PRICE);
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -662,7 +660,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->shippingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_SHIPPING_ADDRESS);
+            $data = $this->raw(self::FIELD_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -680,7 +678,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->billingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_BILLING_ADDRESS);
+            $data = $this->raw(self::FIELD_BILLING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -698,7 +696,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->taxMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_TAX_MODE);
+            $data = $this->raw(self::FIELD_TAX_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -717,7 +715,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->taxRoundingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_TAX_ROUNDING_MODE);
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -737,7 +735,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -758,7 +756,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -777,7 +775,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->orderState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_ORDER_STATE);
+            $data = $this->raw(self::FIELD_ORDER_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -796,7 +794,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -814,7 +812,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->shipmentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_SHIPMENT_STATE);
+            $data = $this->raw(self::FIELD_SHIPMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -831,7 +829,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_PAYMENT_STATE);
+            $data = $this->raw(self::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -850,7 +848,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->shippingInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_SHIPPING_INFO);
+            $data = $this->raw(self::FIELD_SHIPPING_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -868,7 +866,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->syncInfo)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_SYNC_INFO);
+            $data = $this->raw(self::FIELD_SYNC_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -885,7 +883,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->returnInfo)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_RETURN_INFO);
+            $data = $this->raw(self::FIELD_RETURN_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -902,7 +900,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->discountCodes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_DISCOUNT_CODES);
+            $data = $this->raw(self::FIELD_DISCOUNT_CODES);
             if (is_null($data)) {
                 return null;
             }
@@ -922,7 +920,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->lastMessageSequenceNumber)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Order::FIELD_LAST_MESSAGE_SEQUENCE_NUMBER);
+            $data = $this->raw(self::FIELD_LAST_MESSAGE_SEQUENCE_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -942,7 +940,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->cart)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_CART);
+            $data = $this->raw(self::FIELD_CART);
             if (is_null($data)) {
                 return null;
             }
@@ -960,7 +958,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -978,7 +976,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->paymentInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_PAYMENT_INFO);
+            $data = $this->raw(self::FIELD_PAYMENT_INFO);
             if (is_null($data)) {
                 return null;
             }
@@ -996,7 +994,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -1013,7 +1011,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->inventoryMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_INVENTORY_MODE);
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -1030,7 +1028,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->origin)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_ORIGIN);
+            $data = $this->raw(self::FIELD_ORIGIN);
             if (is_null($data)) {
                 return null;
             }
@@ -1049,7 +1047,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->taxCalculationMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Order::FIELD_TAX_CALCULATION_MODE);
+            $data = $this->raw(self::FIELD_TAX_CALCULATION_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -1068,7 +1066,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->shippingRateInput)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Order::FIELD_SHIPPING_RATE_INPUT);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT);
             if (is_null($data)) {
                 return null;
             }
@@ -1088,7 +1086,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->itemShippingAddresses)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_ITEM_SHIPPING_ADDRESSES);
+            $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -1107,7 +1105,7 @@ final class OrderModel extends JsonObjectModel implements Order
     {
         if (is_null($this->refusedGifts)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Order::FIELD_REFUSED_GIFTS);
+            $data = $this->raw(self::FIELD_REFUSED_GIFTS);
             if (is_null($data)) {
                 return null;
             }
@@ -1116,6 +1114,7 @@ final class OrderModel extends JsonObjectModel implements Order
 
         return $this->refusedGifts;
     }
+
 
     public function setId(?string $id): void
     {

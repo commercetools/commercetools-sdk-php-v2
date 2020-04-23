@@ -54,7 +54,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ImportSinkDraft::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +73,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportSinkDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +92,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->resourceType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ImportSinkDraft::FIELD_RESOURCE_TYPE);
+            $data = $this->raw(self::FIELD_RESOURCE_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +101,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
 
         return $this->resourceType;
     }
+
 
     public function setVersion(?int $version): void
     {

@@ -59,7 +59,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryDraft::FIELD_NAME);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     {
         if (is_null($this->description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryDraft::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     {
         if (is_null($this->rates)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxCategoryDraft::FIELD_RATES);
+            $data = $this->raw(self::FIELD_RATES);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
 
         return $this->key;
     }
+
 
     public function setName(?string $name): void
     {

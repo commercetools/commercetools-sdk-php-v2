@@ -26,13 +26,13 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $score;
 
 
     public function __construct(
-        int $score = null
+        float $score = null
     ) {
         $this->score = $score;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -45,7 +45,7 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRateInputDraft::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -56,23 +56,24 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getScore()
     {
         if (is_null($this->score)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ScoreShippingRateInputDraft::FIELD_SCORE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_SCORE);
             if (is_null($data)) {
                 return null;
             }
-            $this->score = (int) $data;
+            $this->score = (float) $data;
         }
 
         return $this->score;
     }
 
-    public function setScore(?int $score): void
+
+    public function setScore(?float $score): void
     {
         $this->score = $score;
     }

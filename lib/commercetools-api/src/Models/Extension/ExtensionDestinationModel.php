@@ -46,7 +46,7 @@ final class ExtensionDestinationModel extends JsonObjectModel implements Extensi
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionDestination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -55,6 +55,7 @@ final class ExtensionDestinationModel extends JsonObjectModel implements Extensi
 
         return $this->type;
     }
+
 
 
 

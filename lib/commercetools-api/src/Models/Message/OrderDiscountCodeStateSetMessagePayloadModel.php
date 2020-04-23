@@ -13,7 +13,6 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -79,7 +78,7 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->discountCode)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderDiscountCodeStateSetMessagePayload::FIELD_DISCOUNT_CODE);
+            $data = $this->raw(self::FIELD_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +96,7 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderDiscountCodeStateSetMessagePayload::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -114,7 +113,7 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     {
         if (is_null($this->oldState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderDiscountCodeStateSetMessagePayload::FIELD_OLD_STATE);
+            $data = $this->raw(self::FIELD_OLD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -123,6 +122,7 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
 
         return $this->oldState;
     }
+
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {

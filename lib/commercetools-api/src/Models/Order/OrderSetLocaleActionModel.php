@@ -45,7 +45,7 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetLocaleAction::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
 
         return $this->locale;
     }
+
 
     public function setLocale(?string $locale): void
     {

@@ -45,7 +45,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->customerNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetCustomerNumberAction::FIELD_CUSTOMER_NUMBER);
+            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
 
         return $this->customerNumber;
     }
+
 
     public function setCustomerNumber(?string $customerNumber): void
     {

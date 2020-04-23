@@ -45,7 +45,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     {
         if (is_null($this->transitions)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StateSetTransitionsAction::FIELD_TRANSITIONS);
+            $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
 
         return $this->transitions;
     }
+
 
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void
     {

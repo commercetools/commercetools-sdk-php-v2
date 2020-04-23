@@ -26,7 +26,7 @@ final class ItemShippingTargetBuilder implements Builder
     private $addressKey;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $quantity;
 
@@ -45,7 +45,7 @@ final class ItemShippingTargetBuilder implements Builder
      * Only positive values are allowed.
      * Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity()
     {
@@ -65,7 +65,7 @@ final class ItemShippingTargetBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
 

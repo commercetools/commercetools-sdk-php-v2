@@ -57,7 +57,7 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -66,6 +66,7 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
 
         return $this->action;
     }
+
 
 
 

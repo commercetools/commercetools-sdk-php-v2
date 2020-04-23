@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -67,7 +69,7 @@ interface ReviewDraft extends JsonObject
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTarget();
 

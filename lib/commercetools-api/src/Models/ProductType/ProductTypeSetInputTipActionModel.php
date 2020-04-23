@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeSetInputTipAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     {
         if (is_null($this->inputTip)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductTypeSetInputTipAction::FIELD_INPUT_TIP);
+            $data = $this->raw(self::FIELD_INPUT_TIP);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
 
         return $this->inputTip;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

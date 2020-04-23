@@ -45,7 +45,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SearchKeyword::FIELD_TEXT);
+            $data = $this->raw(self::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         if (is_null($this->suggestTokenizer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SearchKeyword::FIELD_SUGGEST_TOKENIZER);
+            $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 
         return $this->suggestTokenizer;
     }
+
 
     public function setText(?string $text): void
     {

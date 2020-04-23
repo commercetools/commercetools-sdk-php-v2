@@ -45,7 +45,7 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingRateInputDraft::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ClassificationShippingRateInputDraft::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

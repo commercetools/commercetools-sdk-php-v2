@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
-
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
@@ -57,7 +56,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +73,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderTransitionStateAction::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +91,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     {
         if (is_null($this->force)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(StagedOrderTransitionStateAction::FIELD_FORCE);
+            $data = $this->raw(self::FIELD_FORCE);
             if (is_null($data)) {
                 return null;
             }
@@ -101,6 +100,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
 
         return $this->force;
     }
+
 
     public function setState(?StateResourceIdentifier $state): void
     {

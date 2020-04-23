@@ -47,7 +47,7 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PriceFunction::FIELD_CURRENCY_CODE);
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     {
         if (is_null($this->function)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PriceFunction::FIELD_FUNCTION);
+            $data = $this->raw(self::FIELD_FUNCTION);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
 
         return $this->function;
     }
+
 
     public function setCurrencyCode(?string $currencyCode): void
     {

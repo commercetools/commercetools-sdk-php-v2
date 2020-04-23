@@ -59,7 +59,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_CODE);
+            $data = $this->raw(self::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -78,7 +78,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            $data = $this->raw(self::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +97,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->currentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InvalidStateTransitionError::FIELD_CURRENT_STATE);
+            $data = $this->raw(self::FIELD_CURRENT_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -116,7 +116,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->newState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(InvalidStateTransitionError::FIELD_NEW_STATE);
+            $data = $this->raw(self::FIELD_NEW_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -125,6 +125,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
 
         return $this->newState;
     }
+
 
     public function setMessage(?string $message): void
     {

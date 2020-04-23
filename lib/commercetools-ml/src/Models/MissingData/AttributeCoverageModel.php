@@ -20,19 +20,19 @@ use stdClass;
 final class AttributeCoverageModel extends JsonObjectModel implements AttributeCoverage
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $names;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $values;
 
 
     public function __construct(
-        int $names = null,
-        int $values = null
+        float $names = null,
+        float $values = null
     ) {
         $this->names = $names;
         $this->values = $values;
@@ -41,17 +41,17 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     /**
      * <p>The percentage of attributes from the product type defined in the product variant. A value of <code>1.0</code> indicates a product variant contains all attributes defined in the product type.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getNames()
     {
         if (is_null($this->names)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(AttributeCoverage::FIELD_NAMES);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_NAMES);
             if (is_null($data)) {
                 return null;
             }
-            $this->names = (int) $data;
+            $this->names = (float) $data;
         }
 
         return $this->names;
@@ -60,28 +60,29 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     /**
      * <p>Represents the percentage of attributes in the product variant that contain values.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getValues()
     {
         if (is_null($this->values)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(AttributeCoverage::FIELD_VALUES);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_VALUES);
             if (is_null($data)) {
                 return null;
             }
-            $this->values = (int) $data;
+            $this->values = (float) $data;
         }
 
         return $this->values;
     }
 
-    public function setNames(?int $names): void
+
+    public function setNames(?float $names): void
     {
         $this->names = $names;
     }
 
-    public function setValues(?int $values): void
+    public function setValues(?float $values): void
     {
         $this->values = $values;
     }

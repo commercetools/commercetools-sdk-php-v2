@@ -23,7 +23,7 @@ use stdClass;
 final class CartScoreTierBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?float
      */
     private $score;
 
@@ -43,7 +43,7 @@ final class CartScoreTierBuilder implements Builder
     private $isMatching;
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getScore()
     {
@@ -77,7 +77,7 @@ final class CartScoreTierBuilder implements Builder
     /**
      * @return $this
      */
-    public function withScore(?int $score)
+    public function withScore(?float $score)
     {
         $this->score = $score;
 

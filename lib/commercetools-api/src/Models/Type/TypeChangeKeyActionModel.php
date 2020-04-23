@@ -45,7 +45,7 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeChangeKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface CustomerSetDefaultShippingAddressAction extends CustomerUpdateAction
 {
     public const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
      * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
@@ -22,5 +23,12 @@ interface CustomerSetDefaultShippingAddressAction extends CustomerUpdateAction
      */
     public function getAddressId();
 
+    /**
+     * @return null|string
+     */
+    public function getAddressKey();
+
     public function setAddressId(?string $addressId): void;
+
+    public function setAddressKey(?string $addressKey): void;
 }

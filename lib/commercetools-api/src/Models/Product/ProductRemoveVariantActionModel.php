@@ -59,7 +59,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->id)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductRemoveVariantAction::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductRemoveVariantAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductRemoveVariantAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
 
         return $this->staged;
     }
+
 
     public function setId(?int $id): void
     {

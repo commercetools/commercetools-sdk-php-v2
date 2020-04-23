@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
-
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
@@ -28,7 +27,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 use stdClass;
 
 /**
@@ -134,7 +132,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Product::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -153,7 +151,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(Product::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +168,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Product::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Product::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -214,7 +212,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -234,7 +232,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_CREATED_BY);
+            $data = $this->raw(self::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -255,7 +253,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Product::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -272,7 +270,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_PRODUCT_TYPE);
+            $data = $this->raw(self::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -292,7 +290,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->masterData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_MASTER_DATA);
+            $data = $this->raw(self::FIELD_MASTER_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -310,7 +308,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_TAX_CATEGORY);
+            $data = $this->raw(self::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -328,7 +326,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_STATE);
+            $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -348,7 +346,7 @@ final class ProductModel extends JsonObjectModel implements Product
     {
         if (is_null($this->reviewRatingStatistics)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Product::FIELD_REVIEW_RATING_STATISTICS);
+            $data = $this->raw(self::FIELD_REVIEW_RATING_STATISTICS);
             if (is_null($data)) {
                 return null;
             }
@@ -358,6 +356,7 @@ final class ProductModel extends JsonObjectModel implements Product
 
         return $this->reviewRatingStatistics;
     }
+
 
     public function setId(?string $id): void
     {

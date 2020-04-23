@@ -45,7 +45,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     {
         if (is_null($this->sortOrder)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountChangeSortOrderAction::FIELD_SORT_ORDER);
+            $data = $this->raw(self::FIELD_SORT_ORDER);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
 
         return $this->sortOrder;
     }
+
 
     public function setSortOrder(?string $sortOrder): void
     {

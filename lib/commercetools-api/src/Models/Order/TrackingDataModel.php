@@ -68,7 +68,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         if (is_null($this->trackingId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_TRACKING_ID);
+            $data = $this->raw(self::FIELD_TRACKING_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +87,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         if (is_null($this->carrier)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_CARRIER);
+            $data = $this->raw(self::FIELD_CARRIER);
             if (is_null($data)) {
                 return null;
             }
@@ -104,7 +104,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         if (is_null($this->provider)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_PROVIDER);
+            $data = $this->raw(self::FIELD_PROVIDER);
             if (is_null($data)) {
                 return null;
             }
@@ -121,7 +121,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         if (is_null($this->providerTransaction)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_PROVIDER_TRANSACTION);
+            $data = $this->raw(self::FIELD_PROVIDER_TRANSACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -140,7 +140,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     {
         if (is_null($this->isReturn)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(TrackingData::FIELD_IS_RETURN);
+            $data = $this->raw(self::FIELD_IS_RETURN);
             if (is_null($data)) {
                 return null;
             }
@@ -149,6 +149,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
 
         return $this->isReturn;
     }
+
 
     public function setTrackingId(?string $trackingId): void
     {

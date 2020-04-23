@@ -59,7 +59,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerChangePassword::FIELD_ID);
+            $data = $this->raw(self::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +76,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerChangePassword::FIELD_VERSION);
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +93,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->currentPassword)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerChangePassword::FIELD_CURRENT_PASSWORD);
+            $data = $this->raw(self::FIELD_CURRENT_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +110,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     {
         if (is_null($this->newPassword)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerChangePassword::FIELD_NEW_PASSWORD);
+            $data = $this->raw(self::FIELD_NEW_PASSWORD);
             if (is_null($data)) {
                 return null;
             }
@@ -119,6 +119,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
 
         return $this->newPassword;
     }
+
 
     public function setId(?string $id): void
     {

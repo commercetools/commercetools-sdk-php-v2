@@ -45,7 +45,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->groups)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(DiscountCodeChangeGroupsAction::FIELD_GROUPS);
+            $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
 
         return $this->groups;
     }
+
 
     public function setGroups(?array $groups): void
     {

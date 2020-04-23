@@ -45,7 +45,7 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     {
         if (is_null($this->fieldName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TypeRemoveFieldDefinitionAction::FIELD_FIELD_NAME);
+            $data = $this->raw(self::FIELD_FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
 
         return $this->fieldName;
     }
+
 
     public function setFieldName(?string $fieldName): void
     {

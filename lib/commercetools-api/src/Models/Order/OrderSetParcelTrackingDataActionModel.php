@@ -52,7 +52,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     {
         if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetParcelTrackingDataAction::FIELD_PARCEL_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     {
         if (is_null($this->trackingData)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderSetParcelTrackingDataAction::FIELD_TRACKING_DATA);
+            $data = $this->raw(self::FIELD_TRACKING_DATA);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
 
         return $this->trackingData;
     }
+
 
     public function setParcelId(?string $parcelId): void
     {

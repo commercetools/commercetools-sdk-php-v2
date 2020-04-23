@@ -45,7 +45,7 @@ final class CustomerSetKeyActionModel extends JsonObjectModel implements Custome
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +64,7 @@ final class CustomerSetKeyActionModel extends JsonObjectModel implements Custome
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSetKeyAction::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -73,6 +73,7 @@ final class CustomerSetKeyActionModel extends JsonObjectModel implements Custome
 
         return $this->key;
     }
+
 
     public function setKey(?string $key): void
     {

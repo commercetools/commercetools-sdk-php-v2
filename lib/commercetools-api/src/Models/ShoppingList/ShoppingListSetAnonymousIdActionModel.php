@@ -45,7 +45,7 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +65,7 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListSetAnonymousIdAction::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -74,6 +74,7 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
 
         return $this->anonymousId;
     }
+
 
     public function setAnonymousId(?string $anonymousId): void
     {

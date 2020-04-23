@@ -63,7 +63,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getSku();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -99,7 +99,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
 
     public function setSku(?string $sku): void;
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 

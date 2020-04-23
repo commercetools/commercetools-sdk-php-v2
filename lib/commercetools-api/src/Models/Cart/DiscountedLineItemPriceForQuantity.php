@@ -17,7 +17,7 @@ interface DiscountedLineItemPriceForQuantity extends JsonObject
     public const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getQuantity();
 
@@ -26,7 +26,7 @@ interface DiscountedLineItemPriceForQuantity extends JsonObject
      */
     public function getDiscountedPrice();
 
-    public function setQuantity(?int $quantity): void;
+    public function setQuantity(?float $quantity): void;
 
     public function setDiscountedPrice(?DiscountedLineItemPrice $discountedPrice): void;
 }

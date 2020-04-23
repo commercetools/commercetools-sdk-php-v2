@@ -72,7 +72,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getRetryCount();
 
@@ -117,7 +117,7 @@ interface ImportOperation extends JsonObject
 
     public function setResourceVersion(?int $resourceVersion): void;
 
-    public function setRetryCount(?int $retryCount): void;
+    public function setRetryCount(?float $retryCount): void;
 
     public function setErrors(?ErrorObjectCollection $errors): void;
 

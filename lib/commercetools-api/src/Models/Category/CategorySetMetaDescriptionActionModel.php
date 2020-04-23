@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -48,7 +47,7 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +64,7 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategorySetMetaDescriptionAction::FIELD_META_DESCRIPTION);
+            $data = $this->raw(self::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -75,6 +74,7 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
 
         return $this->metaDescription;
     }
+
 
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Ml\Models\Common\CategoryReference;
-
 use Commercetools\Ml\Models\Common\CategoryReferenceModel;
 use stdClass;
 
@@ -28,7 +27,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     protected $category;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $confidence;
 
@@ -40,7 +39,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
 
     public function __construct(
         CategoryReference $category = null,
-        int $confidence = null,
+        float $confidence = null,
         string $path = null
     ) {
         $this->category = $category;
@@ -57,7 +56,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     {
         if (is_null($this->category)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProjectCategoryRecommendation::FIELD_CATEGORY);
+            $data = $this->raw(self::FIELD_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -71,17 +70,17 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>Probability score for the category recommendation.</p>
      *
-     * @return null|int
+     * @return null|float
      */
     public function getConfidence()
     {
         if (is_null($this->confidence)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProjectCategoryRecommendation::FIELD_CONFIDENCE);
+            /** @psalm-var ?float $data */
+            $data = $this->raw(self::FIELD_CONFIDENCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->confidence = (int) $data;
+            $this->confidence = (float) $data;
         }
 
         return $this->confidence;
@@ -96,7 +95,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     {
         if (is_null($this->path)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectCategoryRecommendation::FIELD_PATH);
+            $data = $this->raw(self::FIELD_PATH);
             if (is_null($data)) {
                 return null;
             }
@@ -106,12 +105,13 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
         return $this->path;
     }
 
+
     public function setCategory(?CategoryReference $category): void
     {
         $this->category = $category;
     }
 
-    public function setConfidence(?int $confidence): void
+    public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;
     }

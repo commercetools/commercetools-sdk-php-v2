@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -83,7 +82,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +99,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_VARIANT_ID);
+            $data = $this->raw(self::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -117,7 +116,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_SKU);
+            $data = $this->raw(self::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -134,7 +133,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -151,7 +150,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->assetId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_ASSET_ID);
+            $data = $this->raw(self::FIELD_ASSET_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -168,7 +167,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->assetKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_ASSET_KEY);
+            $data = $this->raw(self::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -185,7 +184,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetAssetDescriptionAction::FIELD_DESCRIPTION);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -195,6 +194,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
 
         return $this->description;
     }
+
 
     public function setVariantId(?int $variantId): void
     {

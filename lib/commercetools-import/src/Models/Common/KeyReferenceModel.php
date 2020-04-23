@@ -64,7 +64,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(KeyReference::FIELD_KEY);
+            $data = $this->raw(self::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +83,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(KeyReference::FIELD_TYPE_ID);
+            $data = $this->raw(self::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -92,6 +92,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
         return $this->typeId;
     }
+
 
     public function setKey(?string $key): void
     {

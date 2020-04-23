@@ -45,7 +45,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SuggestTokenizer::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     {
         if (is_null($this->inputs)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(CustomTokenizer::FIELD_INPUTS);
+            $data = $this->raw(self::FIELD_INPUTS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
 
         return $this->inputs;
     }
+
 
     public function setInputs(?array $inputs): void
     {

@@ -45,7 +45,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     {
         if (is_null($this->triggers)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ExtensionChangeTriggersAction::FIELD_TRIGGERS);
+            $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
 
         return $this->triggers;
     }
+
 
     public function setTriggers(?ExtensionTriggerCollection $triggers): void
     {

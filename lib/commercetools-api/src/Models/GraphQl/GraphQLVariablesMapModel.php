@@ -25,6 +25,7 @@ final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLV
 
 
 
+
     /**
      * @return mixed
      */

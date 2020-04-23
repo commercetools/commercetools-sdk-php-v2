@@ -45,7 +45,7 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
     {
         if (is_null($this->minimumQuantity)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(PriceTierDraft::FIELD_MINIMUM_QUANTITY);
+            $data = $this->raw(self::FIELD_MINIMUM_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceTierDraft::FIELD_VALUE);
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,6 +72,7 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
 
         return $this->value;
     }
+
 
     public function setMinimumQuantity(?int $minimumQuantity): void
     {

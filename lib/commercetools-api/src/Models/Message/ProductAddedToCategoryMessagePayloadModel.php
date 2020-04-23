@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Category\CategoryReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->category)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductAddedToCategoryMessagePayload::FIELD_CATEGORY);
+            $data = $this->raw(self::FIELD_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +89,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddedToCategoryMessagePayload::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
 
         return $this->staged;
     }
+
 
     public function setCategory(?CategoryReference $category): void
     {

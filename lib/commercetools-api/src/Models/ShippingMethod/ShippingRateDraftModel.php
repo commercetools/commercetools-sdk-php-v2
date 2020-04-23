@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingRateDraft::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,7 +76,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     {
         if (is_null($this->freeAbove)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingRateDraft::FIELD_FREE_ABOVE);
+            $data = $this->raw(self::FIELD_FREE_ABOVE);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +96,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     {
         if (is_null($this->tiers)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingRateDraft::FIELD_TIERS);
+            $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -106,6 +105,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
 
         return $this->tiers;
     }
+
 
     public function setPrice(?Money $price): void
     {

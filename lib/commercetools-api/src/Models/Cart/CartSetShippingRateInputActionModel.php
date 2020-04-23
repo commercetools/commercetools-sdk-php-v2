@@ -45,7 +45,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +67,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->shippingRateInput)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetShippingRateInputAction::FIELD_SHIPPING_RATE_INPUT);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT);
             if (is_null($data)) {
                 return null;
             }
@@ -77,6 +77,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
 
         return $this->shippingRateInput;
     }
+
 
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
     {

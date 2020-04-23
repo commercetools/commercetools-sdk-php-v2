@@ -45,7 +45,7 @@ final class PaymentSetExternalIdActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class PaymentSetExternalIdActionModel extends JsonObjectModel implements P
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentSetExternalIdAction::FIELD_EXTERNAL_ID);
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class PaymentSetExternalIdActionModel extends JsonObjectModel implements P
 
         return $this->externalId;
     }
+
 
     public function setExternalId(?string $externalId): void
     {

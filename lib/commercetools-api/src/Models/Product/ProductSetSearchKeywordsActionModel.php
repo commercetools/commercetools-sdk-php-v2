@@ -52,7 +52,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->searchKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetSearchKeywordsAction::FIELD_SEARCH_KEYWORDS);
+            $data = $this->raw(self::FIELD_SEARCH_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +87,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     {
         if (is_null($this->staged)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetSearchKeywordsAction::FIELD_STAGED);
+            $data = $this->raw(self::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
@@ -96,6 +96,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
 
         return $this->staged;
     }
+
 
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {

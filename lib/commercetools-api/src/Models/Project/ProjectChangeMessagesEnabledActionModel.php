@@ -45,7 +45,7 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProjectUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     {
         if (is_null($this->messagesEnabled)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProjectChangeMessagesEnabledAction::FIELD_MESSAGES_ENABLED);
+            $data = $this->raw(self::FIELD_MESSAGES_ENABLED);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
 
         return $this->messagesEnabled;
     }
+
 
     public function setMessagesEnabled(?bool $messagesEnabled): void
     {

@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -62,7 +61,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     {
         if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingRate::FIELD_PRICE);
+            $data = $this->raw(self::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -84,7 +83,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     {
         if (is_null($this->freeAbove)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingRate::FIELD_FREE_ABOVE);
+            $data = $this->raw(self::FIELD_FREE_ABOVE);
             if (is_null($data)) {
                 return null;
             }
@@ -104,7 +103,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     {
         if (is_null($this->isMatching)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ShippingRate::FIELD_IS_MATCHING);
+            $data = $this->raw(self::FIELD_IS_MATCHING);
             if (is_null($data)) {
                 return null;
             }
@@ -123,7 +122,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     {
         if (is_null($this->tiers)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingRate::FIELD_TIERS);
+            $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;
             }
@@ -132,6 +131,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 
         return $this->tiers;
     }
+
 
     public function setPrice(?TypedMoney $price): void
     {

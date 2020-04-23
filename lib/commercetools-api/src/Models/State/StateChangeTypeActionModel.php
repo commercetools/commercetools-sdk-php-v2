@@ -45,7 +45,7 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(StateChangeTypeAction::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
 
         return $this->type;
     }
+
 
     public function setType(?string $type): void
     {

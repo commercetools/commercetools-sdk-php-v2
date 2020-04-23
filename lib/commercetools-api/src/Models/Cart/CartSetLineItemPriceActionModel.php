@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
 use Commercetools\Base\MapperFactory;
 use stdClass;
 
@@ -55,7 +54,7 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +71,7 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->lineItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetLineItemPriceAction::FIELD_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +88,7 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     {
         if (is_null($this->externalPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetLineItemPriceAction::FIELD_EXTERNAL_PRICE);
+            $data = $this->raw(self::FIELD_EXTERNAL_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -99,6 +98,7 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
 
         return $this->externalPrice;
     }
+
 
     public function setLineItemId(?string $lineItemId): void
     {

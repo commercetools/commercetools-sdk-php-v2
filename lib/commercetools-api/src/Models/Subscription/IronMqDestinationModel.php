@@ -45,7 +45,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Destination::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     {
         if (is_null($this->uri)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(IronMqDestination::FIELD_URI);
+            $data = $this->raw(self::FIELD_URI);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
 
         return $this->uri;
     }
+
 
     public function setUri(?string $uri): void
     {

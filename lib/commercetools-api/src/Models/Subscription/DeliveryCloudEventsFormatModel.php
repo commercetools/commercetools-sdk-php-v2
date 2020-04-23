@@ -45,7 +45,7 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DeliveryFormat::FIELD_TYPE);
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +62,7 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     {
         if (is_null($this->cloudEventsVersion)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DeliveryCloudEventsFormat::FIELD_CLOUD_EVENTS_VERSION);
+            $data = $this->raw(self::FIELD_CLOUD_EVENTS_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -71,6 +71,7 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
 
         return $this->cloudEventsVersion;
     }
+
 
     public function setCloudEventsVersion(?string $cloudEventsVersion): void
     {

@@ -52,7 +52,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +69,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     {
         if (is_null($this->attributeName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_ATTRIBUTE_NAME);
+            $data = $this->raw(self::FIELD_ATTRIBUTE_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +86,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     {
         if (is_null($this->isSearchable)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_IS_SEARCHABLE);
+            $data = $this->raw(self::FIELD_IS_SEARCHABLE);
             if (is_null($data)) {
                 return null;
             }
@@ -95,6 +95,7 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
 
         return $this->isSearchable;
     }
+
 
     public function setAttributeName(?string $attributeName): void
     {

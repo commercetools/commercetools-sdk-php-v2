@@ -13,7 +13,6 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
-
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -206,7 +205,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->currency)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_CURRENCY);
+            $data = $this->raw(self::FIELD_CURRENCY);
             if (is_null($data)) {
                 return null;
             }
@@ -225,7 +224,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->customerId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_CUSTOMER_ID);
+            $data = $this->raw(self::FIELD_CUSTOMER_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -242,7 +241,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->customerEmail)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_CUSTOMER_EMAIL);
+            $data = $this->raw(self::FIELD_CUSTOMER_EMAIL);
             if (is_null($data)) {
                 return null;
             }
@@ -262,7 +261,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -282,7 +281,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->anonymousId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -302,7 +301,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->store)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_STORE);
+            $data = $this->raw(self::FIELD_STORE);
             if (is_null($data)) {
                 return null;
             }
@@ -322,7 +321,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_COUNTRY);
+            $data = $this->raw(self::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -341,7 +340,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->inventoryMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_INVENTORY_MODE);
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -360,7 +359,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->taxMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_TAX_MODE);
+            $data = $this->raw(self::FIELD_TAX_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -379,7 +378,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->taxRoundingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_TAX_ROUNDING_MODE);
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -398,7 +397,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->taxCalculationMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_TAX_CALCULATION_MODE);
+            $data = $this->raw(self::FIELD_TAX_CALCULATION_MODE);
             if (is_null($data)) {
                 return null;
             }
@@ -415,7 +414,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->lineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartDraft::FIELD_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -432,7 +431,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->customLineItems)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartDraft::FIELD_CUSTOM_LINE_ITEMS);
+            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
@@ -451,7 +450,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->shippingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_SHIPPING_ADDRESS);
+            $data = $this->raw(self::FIELD_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -469,7 +468,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->billingAddress)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_BILLING_ADDRESS);
+            $data = $this->raw(self::FIELD_BILLING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
@@ -487,7 +486,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->shippingMethod)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_SHIPPING_METHOD);
+            $data = $this->raw(self::FIELD_SHIPPING_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -507,7 +506,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->externalTaxRateForShippingMethod)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD);
+            $data = $this->raw(self::FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD);
             if (is_null($data)) {
                 return null;
             }
@@ -527,7 +526,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -547,7 +546,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->locale)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_LOCALE);
+            $data = $this->raw(self::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
@@ -567,7 +566,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->deleteDaysAfterLastModification)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(CartDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
             if (is_null($data)) {
                 return null;
             }
@@ -586,7 +585,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->origin)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDraft::FIELD_ORIGIN);
+            $data = $this->raw(self::FIELD_ORIGIN);
             if (is_null($data)) {
                 return null;
             }
@@ -609,7 +608,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->shippingRateInput)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDraft::FIELD_SHIPPING_RATE_INPUT);
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT);
             if (is_null($data)) {
                 return null;
             }
@@ -633,7 +632,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     {
         if (is_null($this->itemShippingAddresses)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CartDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
+            $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
@@ -642,6 +641,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
 
         return $this->itemShippingAddresses;
     }
+
 
     public function setCurrency(?string $currency): void
     {

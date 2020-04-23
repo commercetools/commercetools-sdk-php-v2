@@ -17,16 +17,16 @@ interface AssetDimensions extends JsonObject
     public const FIELD_H = 'h';
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getW();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getH();
 
-    public function setW(?int $w): void;
+    public function setW(?float $w): void;
 
-    public function setH(?int $h): void;
+    public function setH(?float $h): void;
 }

@@ -48,7 +48,7 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->action)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerGroupUpdateAction::FIELD_ACTION);
+            $data = $this->raw(self::FIELD_ACTION);
             if (is_null($data)) {
                 return null;
             }
@@ -57,6 +57,7 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
 
         return $this->action;
     }
+
 
 
 

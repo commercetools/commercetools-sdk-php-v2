@@ -20,7 +20,9 @@ use Commercetools\Import\Models\Importoperations\ImportOperation;
 use Commercetools\Import\Models\Importoperations\ImportOperationModel;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -92,5 +94,31 @@ class ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperationsByIdGet ex
         }
 
         return $this->mapFromResponse($response, $resultType);
+    }
+
+    /**
+     * @template T of JsonObject
+     * @psalm-param ?class-string<T> $resultType
+     *
+     * @return PromiseInterface
+     */
+    public function executeAsync(array $options = [], string $resultType = null)
+    {
+        return $this->sendAsync($options)->then(
+            function (ResponseInterface $response) use ($resultType) {
+                return $this->mapFromResponse($response, $resultType);
+            },
+            function (RequestException $e) {
+                if ($e instanceof ServerException) {
+                    $result = $this->mapFromResponse($e->getResponse());
+                    throw new ApiServerException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
+                }
+                if ($e instanceof ClientException) {
+                    $result = $this->mapFromResponse($e->getResponse());
+                    throw new ApiClientException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
+                }
+                throw $e;
+            }
+        );
     }
 }
