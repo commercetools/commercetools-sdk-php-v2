@@ -98,7 +98,9 @@ class MiscTest extends TestCase
         $key = $root
             ->with()
             ->get()
-            ->executeAsync()->then(function (Project $p) { return $p->getKey(); })
+            ->executeAsync()->then(function (Project $p) {
+                return $p->getKey();
+            })
         ;
 
         $this->assertSame($this->projectKey, $key->wait());

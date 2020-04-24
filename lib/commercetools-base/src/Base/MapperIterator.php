@@ -24,6 +24,7 @@ class MapperIterator extends \IteratorIterator
 
     public function current()
     {
+        /** @psalm-suppress MixedReturnStatement */
         return call_user_func($this->mapper, parent::current(), parent::key());
     }
 }
