@@ -9,25 +9,38 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Commercetools\Base\MapperMap;
 use stdClass;
 
 /**
  * @implements Builder<LocalizedString>
+ * @extends MapperMap<LocalizedString>
  */
-final class LocalizedStringBuilder implements Builder
+final class LocalizedStringBuilder extends MapperMap implements Builder
 {
-    public function build(): LocalizedString
+    /**
+     * @psalm-return callable(string):?LocalizedString
+     */
+    protected function mapper()
     {
-        return new LocalizedStringModel(
-        );
+        return
+            /**
+             * @psalm-return ?LocalizedString
+             */
+            function (string $key) {
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = LocalizedStringModel::of($data);
+                }
+                return $data;
+            };
     }
 
-    public static function of(): LocalizedStringBuilder
+    /**
+     * @return LocalizedString
+     */
+    public function build()
     {
-        return new self();
+        return new LocalizedStringModel($this->toArray());
     }
 }

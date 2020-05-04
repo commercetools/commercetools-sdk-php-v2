@@ -8,10 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Commercetools\Base\Collection;
 
-interface LocalizedString extends JsonObject
+interface LocalizedString extends Collection
 {
-    public const FIELD_PATTERN0 = '/^[a-z]{2}(-[A-Z]{2})?$/';
 }
