@@ -52,11 +52,11 @@ class MiddlewareFactory
     {
         return Middleware::mapRequest(
             function (RequestInterface $request) use ($correlationIdProvider) {
-               return $request->withAddedHeader(
-                   'X_CORRELATION_ID',
-                   $correlationIdProvider->getCorrelationId()
-               );
-           }
+                return $request->withAddedHeader(
+                    'X_CORRELATION_ID',
+                    $correlationIdProvider->getCorrelationId()
+                );
+            }
         );
     }
 
