@@ -26,7 +26,8 @@ class MiddlewareFactory
     public static function createDefaultMiddlewares(
         ?OAuth2Handler $handler = null,
         ?LoggerInterface $logger = null,
-        int $maxRetries = 0
+        int $maxRetries = 0,
+        ?CorrelationIdProvider $correlationIdProvider = null
     ) {
         $middlewares = [];
         if (!is_null($handler)) {
@@ -39,8 +40,24 @@ class MiddlewareFactory
         if ($maxRetries > 0) {
             $middlewares['retryNA'] = self::createRetryNAMiddleware($maxRetries);
         }
+        $middlewares['correlation_id'] = self::createCorrelationIdMiddleware($correlationIdProvider ?? new DefaultCorrelationIdProvider());
         
         return $middlewares;
+    }
+
+    /**
+     * @psalm-return callable
+     */
+    public static function createCorrelationIdMiddleware(CorrelationIdProvider $correlationIdProvider)
+    {
+        return Middleware::mapRequest(
+            function (RequestInterface $request) use ($correlationIdProvider) {
+               return $request->withAddedHeader(
+                   'X_CORRELATION_ID',
+                   $correlationIdProvider->getCorrelationId()
+               );
+           }
+        );
     }
 
     /**

@@ -51,7 +51,8 @@ class ClientFactory
     public function createGuzzleClientForMiddlewares(
         Config $config,
         array $middlewares = []
-    ): ClientInterface {
+    ): ClientInterface
+    {
         return $this->createGuzzleClientWithOptions($config->getOptions(), $middlewares);
     }
 
