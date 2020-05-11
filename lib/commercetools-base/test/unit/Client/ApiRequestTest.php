@@ -23,8 +23,8 @@ class ApiRequestTest extends TestCase
 {
     public function testWithQueryParam()
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $request = new ApiRequest($client->reveal(), 'get', '/');
+        $client = $this->createMock(ClientInterface::class);
+        $request = new ApiRequest($client, 'get', '/');
         $request = $request->withQueryParam('foo', 'bar');
         $this->assertSame('foo=bar', $request->getUri()->getQuery());
         $request = $request->withQueryParam('foo', 'baz');
@@ -37,8 +37,8 @@ class ApiRequestTest extends TestCase
 
     public function testWithQueryParamArray()
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $request = new ApiRequest($client->reveal(), 'get', '/');
+        $client = $this->createMock(ClientInterface::class);
+        $request = new ApiRequest($client, 'get', '/');
         $request = $request->withQueryParam('foo', ['bar']);
         $this->assertSame('foo=bar', $request->getUri()->getQuery());
         $request = $request->withQueryParam('foo', 'baz');
@@ -49,15 +49,15 @@ class ApiRequestTest extends TestCase
 
     public function testContentTypeHeader()
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $request = new ApiRequest($client->reveal(), 'get', '/');
+        $client = $this->createMock(ClientInterface::class);
+        $request = new ApiRequest($client, 'get', '/');
         $this->assertSame('application/json', $request->getHeaderLine('content-type'));
     }
 
     public function testEnsureHeaders()
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $request = new ApiRequest($client->reveal(), 'get', '/', ['X-Foo' => 'bar']);
+        $client = $this->createMock(ClientInterface::class);
+        $request = new ApiRequest($client, 'get', '/', ['X-Foo' => 'bar']);
         $this->assertSame('application/json', $request->getHeaderLine('content-type'));
         $this->assertSame('bar', $request->getHeaderLine('x-foo'));
     }

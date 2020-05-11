@@ -11,6 +11,7 @@ use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Project\Project;
+use Commercetools\Api\Models\Project\ProjectModel;
 use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
@@ -23,7 +24,6 @@ use GuzzleHttp\HandlerStack;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @internal

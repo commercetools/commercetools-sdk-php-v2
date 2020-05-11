@@ -23,7 +23,6 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -78,11 +77,12 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
      */
     public function testExecuteClientException(callable $builderFunction)
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $client->send(Argument::any(), Argument::any())->willThrow(ClientException::class);
+        $client = $this->createMock(ClientInterface::class);
 
-        $builder = new ApiRequestBuilder($client->reveal());
+        $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+
         $this->expectException(ApiClientException::class);
         $request->execute();
     }
@@ -92,11 +92,12 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
      */
     public function testExecuteServerException(callable $builderFunction)
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $client->send(Argument::any(), Argument::any())->willThrow(ServerException::class);
+        $client = $this->createMock(ClientInterface::class);
 
-        $builder = new ApiRequestBuilder($client->reveal());
+        $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+
         $this->expectException(ApiServerException::class);
         $request->execute();
     }

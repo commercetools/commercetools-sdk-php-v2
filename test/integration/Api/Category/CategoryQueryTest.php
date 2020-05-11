@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Category;
 
-
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponse;

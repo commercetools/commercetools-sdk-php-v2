@@ -18,8 +18,8 @@ class ApiRequestBuilderTest extends TestCase
 {
     public function testConstruct()
     {
-        $client = $this->prophesize(ClientInterface::class);
-        $root = new ApiRequestBuilder($client->reveal());
+        $client = $this->createMock(ClientInterface::class);
+        $root = new ApiRequestBuilder($client);
         $this->assertInstanceOf(ClientInterface::class, $root->getClient());
         $this->assertSame('', $root->getUri());
     }
