@@ -5,14 +5,14 @@ namespace Commercetools\IntegrationTest\Api\Category;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
+use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ApiRequestBuilder;
 use Ramsey\Uuid\Uuid;
-use GuzzleHttp\ClientInterface;
 
 class CategoryFixture
 {
-    const RAND_MAX = 10000;
+    public const RAND_MAX = 10000;
 
     final public static function uniqueCategoryString()
     {
@@ -30,12 +30,12 @@ class CategoryFixture
         return $builder;
     }
 
-    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draft)
+    final public static function defaultCategoryDraftBuilderFunction(CategoryDraftBuilder $draftBuilder)
     {
-        return $draft->build();
+        return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
+    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraftModel $draft)
     {
         $request = $builder->with()->categories()->post($draft);
 
@@ -95,36 +95,37 @@ class CategoryFixture
             $draftFunction
         );
     }
-        final public static function withUpdateableDraftCategory(
-            ApiRequestBuilder $builder,
-            callable $draftBuilderFunction,
-            callable $assertFunction,
-            callable $createFunction = null,
-            callable $deleteFunction = null,
-            callable $draftFunction = null,
-            array $additionalResources = []
-        ) {
-            if ($draftFunction == null) {
-                $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
-            }
-            if ($createFunction == null) {
-                $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
-            }
-            if ($deleteFunction == null) {
-                $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
-            }
-            $initialDraft = call_user_func($draftFunction);
 
-            $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
+    final public static function withUpdateableDraftCategory(
+        ApiRequestBuilder $builder,
+        callable $draftBuilderFunction,
+        callable $assertFunction,
+        callable $createFunction = null,
+        callable $deleteFunction = null,
+        callable $draftFunction = null,
+        array $additionalResources = []
+    ) {
+        if ($draftFunction == null) {
+            $draftFunction = [__CLASS__, 'defaultCategoryDraftFunction'];
+        }
+        if ($createFunction == null) {
+            $createFunction = [__CLASS__, 'defaultCategoryCreateFunction'];
+        }
+        if ($deleteFunction == null) {
+            $deleteFunction = [__CLASS__, 'defaultCategoryDeleteFunction'];
+        }
+        $initialDraft = call_user_func($draftFunction);
 
-            $resource = call_user_func($createFunction, $builder, $resourceDraft, ...$additionalResources);
+        $resourceDraft = call_user_func($draftBuilderFunction, $initialDraft);
 
-            $updatedResource = null;
-            try {
-                $updatedResource = call_user_func($assertFunction, $resource, ...$additionalResources);
-            } finally {
-                call_user_func($deleteFunction, $builder, $updatedResource != null ? $updatedResource : $resource);
-            }
+        $resource = call_user_func($createFunction, $builder, $resourceDraft, ...$additionalResources);
+
+        $updatedResource = null;
+        try {
+            $updatedResource = call_user_func($assertFunction, $resource, ...$additionalResources);
+        } finally {
+            call_user_func($deleteFunction, $builder, $updatedResource != null ? $updatedResource : $resource);
+        }
     }
 
     final public static function withUpdateableCategory(
