@@ -5,6 +5,7 @@ namespace Commercetools\IntegrationTest\Api\Category;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponse;
+use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Exception\BadRequestException;
 use Commercetools\IntegrationTest\ApiTestCase;
@@ -24,7 +25,6 @@ class CategoryQueryTest extends ApiTestCase
                 $this->assertInstanceOf(CategoryPagedQueryResponse::class, $categoryQueryResponse);
                 $this->assertCount(1, $categoryQueryResponse->getResults());
                 $this->assertSame($category->getId(), $categoryQueryResponse->getResults()->current()->getId());
-
             }
         );
     }
