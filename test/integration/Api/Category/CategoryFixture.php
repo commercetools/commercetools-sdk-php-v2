@@ -35,7 +35,7 @@ class CategoryFixture
         return $draftBuilder->build();
     }
 
-    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraftModel $draft)
+    final public static function defaultCategoryCreateFunction(ApiRequestBuilder $builder, CategoryDraft $draft)
     {
         $request = $builder->with()->categories()->post($draft);
 
