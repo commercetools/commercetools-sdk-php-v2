@@ -23,6 +23,8 @@ class CategoryQueryTest extends ApiTestCase
 
                 $this->assertInstanceOf(CategoryPagedQueryResponse::class, $categoryQueryResponse);
                 $this->assertCount(1, $categoryQueryResponse->getResults());
+                $this->assertSame($category->getId(), $categoryQueryResponse->getResults()->current()->getId());
+
             }
         );
     }
