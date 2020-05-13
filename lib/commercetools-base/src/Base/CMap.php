@@ -14,7 +14,7 @@ use stdClass;
 /**
  * @template TObject
  */
-interface CMap extends Collection
+interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
     /**
      * @template T

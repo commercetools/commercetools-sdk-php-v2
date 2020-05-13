@@ -15,7 +15,7 @@ use stdClass;
  * @template TObject
  * @implements CSequence<TObject, stdClass>
  */
-abstract class MapperSequence implements CSequence, \ArrayAccess, \JsonSerializable, \IteratorAggregate
+abstract class MapperSequence implements CSequence
 {
     /** @psalm-var ?array<int, TObject|stdClass> */
     private $data;

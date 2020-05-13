@@ -15,7 +15,7 @@ use stdClass;
  * @template TScalar
  * @implements CSequence<TScalar, scalar>
  */
-abstract class MapperScalarSequence implements CSequence, \ArrayAccess, \JsonSerializable, \IteratorAggregate
+abstract class MapperScalarSequence implements CSequence
 {
     /** @psalm-var ?array<int, TScalar|scalar> */
     private $data;

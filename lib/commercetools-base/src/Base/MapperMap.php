@@ -15,7 +15,7 @@ use stdClass;
  * @template TObject
  * @implements CMap<TObject>
  */
-abstract class MapperMap implements CMap, \ArrayAccess, \JsonSerializable, \IteratorAggregate
+abstract class MapperMap implements CMap
 {
     /** @psalm-var ?array<string, TObject|stdClass> */
     private $data;

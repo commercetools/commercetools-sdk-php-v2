@@ -15,7 +15,7 @@ use stdClass;
  * @template TObject
  * @template TRaw
  */
-interface CSequence extends Collection
+interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
     public function toArray(): ?array;
     
