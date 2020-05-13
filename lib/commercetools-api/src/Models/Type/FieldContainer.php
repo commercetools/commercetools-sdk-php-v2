@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\Collection;
+use Commercetools\Base\CMap;
 
-interface FieldContainer extends Collection
+interface FieldContainer extends CMap
 {
 }

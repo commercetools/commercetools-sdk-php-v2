@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Collection;
+use Commercetools\Base\CMap;
 
-interface LocalizedString extends Collection
+interface LocalizedString extends CMap
 {
 }
