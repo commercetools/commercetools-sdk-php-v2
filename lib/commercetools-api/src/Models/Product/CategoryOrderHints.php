@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Collection;
+use Commercetools\Base\CMap;
 
-interface CategoryOrderHints extends Collection
+interface CategoryOrderHints extends CMap
 {
 }
