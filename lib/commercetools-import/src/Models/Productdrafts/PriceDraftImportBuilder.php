@@ -19,6 +19,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
 use stdClass;
 
@@ -56,6 +58,11 @@ final class PriceDraftImportBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $validUntil;
+
+    /**
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
      * @return null|Money
@@ -109,6 +116,16 @@ final class PriceDraftImportBuilder implements Builder
     public function getValidUntil()
     {
         return $this->validUntil;
+    }
+
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -174,6 +191,16 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
@@ -201,6 +228,16 @@ final class PriceDraftImportBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): PriceDraftImport
     {
         return new PriceDraftImportModel(
@@ -209,7 +246,8 @@ final class PriceDraftImportBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
-            $this->validUntil
+            $this->validUntil,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

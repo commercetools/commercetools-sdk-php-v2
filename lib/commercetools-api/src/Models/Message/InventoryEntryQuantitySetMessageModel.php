@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\BaseResource;
-use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -26,9 +24,9 @@ use stdClass;
 /**
  * @internal
  */
-final class MessageModel extends JsonObjectModel implements Message
+final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implements InventoryEntryQuantitySetMessage
 {
-    public const DISCRIMINATOR_VALUE = '';
+    public const DISCRIMINATOR_VALUE = 'InventoryEntryQuantitySet';
     /**
      * @var ?string
      */
@@ -85,82 +83,25 @@ final class MessageModel extends JsonObjectModel implements Message
     protected $resourceUserProvidedIdentifiers;
 
     /**
-     * @psalm-var array<string, class-string<Message> >
-     * @psalm-suppress InvalidPropertyAssignmentValue
+     * @var ?int
      */
-    private static $discriminatorClasses = [
-       'CategoryCreated' => CategoryCreatedMessageModel::class,
-       'CategorySlugChanged' => CategorySlugChangedMessageModel::class,
-       'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessageModel::class,
-       'CustomerAddressAdded' => CustomerAddressAddedMessageModel::class,
-       'CustomerAddressChanged' => CustomerAddressChangedMessageModel::class,
-       'CustomerAddressRemoved' => CustomerAddressRemovedMessageModel::class,
-       'CustomerCompanyNameSet' => CustomerCompanyNameSetMessageModel::class,
-       'CustomerCreated' => CustomerCreatedMessageModel::class,
-       'CustomerDateOfBirthSet' => CustomerDateOfBirthSetMessageModel::class,
-       'CustomerEmailChanged' => CustomerEmailChangedMessageModel::class,
-       'CustomerEmailVerified' => CustomerEmailVerifiedMessageModel::class,
-       'CustomerGroupSet' => CustomerGroupSetMessageModel::class,
-       'DeliveryAdded' => DeliveryAddedMessageModel::class,
-       'DeliveryAddressSet' => DeliveryAddressSetMessageModel::class,
-       'DeliveryItemsUpdated' => DeliveryItemsUpdatedMessageModel::class,
-       'DeliveryRemoved' => DeliveryRemovedMessageModel::class,
-       'InventoryEntryCreated' => InventoryEntryCreatedMessageModel::class,
-       'InventoryEntryDeleted' => InventoryEntryDeletedMessageModel::class,
-       'InventoryEntryQuantitySet' => InventoryEntryQuantitySetMessageModel::class,
-       'LineItemStateTransition' => LineItemStateTransitionMessageModel::class,
-       'OrderBillingAddressSet' => OrderBillingAddressSetMessageModel::class,
-       'OrderCreated' => OrderCreatedMessageModel::class,
-       'OrderCustomLineItemDiscountSet' => OrderCustomLineItemDiscountSetMessageModel::class,
-       'OrderCustomerEmailSet' => OrderCustomerEmailSetMessageModel::class,
-       'OrderCustomerGroupSet' => OrderCustomerGroupSetMessageModel::class,
-       'OrderCustomerSet' => OrderCustomerSetMessageModel::class,
-       'OrderDeleted' => OrderDeletedMessageModel::class,
-       'OrderDiscountCodeAdded' => OrderDiscountCodeAddedMessageModel::class,
-       'OrderDiscountCodeRemoved' => OrderDiscountCodeRemovedMessageModel::class,
-       'OrderDiscountCodeStateSet' => OrderDiscountCodeStateSetMessageModel::class,
-       'OrderEditApplied' => OrderEditAppliedMessageModel::class,
-       'OrderImported' => OrderImportedMessageModel::class,
-       'OrderLineItemAdded' => OrderLineItemAddedMessageModel::class,
-       'OrderLineItemDiscountSet' => OrderLineItemDiscountSetMessageModel::class,
-       'OrderPaymentStateChanged' => OrderPaymentStateChangedMessageModel::class,
-       'OrderReturnShipmentStateChanged' => OrderReturnShipmentStateChangedMessageModel::class,
-       'OrderShipmentStateChanged' => OrderShipmentStateChangedMessageModel::class,
-       'OrderShippingAddressSet' => OrderShippingAddressSetMessageModel::class,
-       'OrderShippingInfoSet' => OrderShippingInfoSetMessageModel::class,
-       'OrderShippingRateInputSet' => OrderShippingRateInputSetMessageModel::class,
-       'OrderStateChanged' => OrderStateChangedMessageModel::class,
-       'OrderStateTransition' => OrderStateTransitionMessageModel::class,
-       'OrderStoreSet' => OrderStoreSetMessageModel::class,
-       'ParcelAddedToDelivery' => ParcelAddedToDeliveryMessageModel::class,
-       'ParcelItemsUpdated' => ParcelItemsUpdatedMessageModel::class,
-       'ParcelMeasurementsUpdated' => ParcelMeasurementsUpdatedMessageModel::class,
-       'ParcelRemovedFromDelivery' => ParcelRemovedFromDeliveryMessageModel::class,
-       'ParcelTrackingDataUpdated' => ParcelTrackingDataUpdatedMessageModel::class,
-       'PaymentCreated' => PaymentCreatedMessageModel::class,
-       'PaymentInteractionAdded' => PaymentInteractionAddedMessageModel::class,
-       'PaymentStatusInterfaceCodeSet' => PaymentStatusInterfaceCodeSetMessageModel::class,
-       'PaymentStatusStateTransition' => PaymentStatusStateTransitionMessageModel::class,
-       'PaymentTransactionAdded' => PaymentTransactionAddedMessageModel::class,
-       'PaymentTransactionStateChanged' => PaymentTransactionStateChangedMessageModel::class,
-       'ProductAddedToCategory' => ProductAddedToCategoryMessageModel::class,
-       'ProductCreated' => ProductCreatedMessageModel::class,
-       'ProductDeleted' => ProductDeletedMessageModel::class,
-       'ProductImageAdded' => ProductImageAddedMessageModel::class,
-       'ProductPriceDiscountsSet' => ProductPriceDiscountsSetMessageModel::class,
-       'ProductPriceExternalDiscountSet' => ProductPriceExternalDiscountSetMessageModel::class,
-       'ProductPublished' => ProductPublishedMessageModel::class,
-       'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessageModel::class,
-       'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessageModel::class,
-       'ProductSlugChanged' => ProductSlugChangedMessageModel::class,
-       'ProductStateTransition' => ProductStateTransitionMessageModel::class,
-       'ProductUnpublished' => ProductUnpublishedMessageModel::class,
-       'ProductVariantDeleted' => ProductVariantDeletedMessageModel::class,
-       'ReturnInfoAdded' => OrderReturnInfoAddedMessageModel::class,
-       'ReviewCreated' => ReviewCreatedMessageModel::class,
-       'ReviewRatingSet' => ReviewRatingSetMessageModel::class,
-       'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
-    ];
+    protected $oldQuantityOnStock;
+
+    /**
+     * @var ?int
+     */
+    protected $newQuantityOnStock;
+
+    /**
+     * @var ?int
+     */
+    protected $oldAvailableQuantity;
+
+    /**
+     * @var ?int
+     */
+    protected $newAvailableQuantity;
+
 
     public function __construct(
         string $id = null,
@@ -172,7 +113,11 @@ final class MessageModel extends JsonObjectModel implements Message
         int $sequenceNumber = null,
         Reference $resource = null,
         int $resourceVersion = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        int $oldQuantityOnStock = null,
+        int $newQuantityOnStock = null,
+        int $oldAvailableQuantity = null,
+        int $newAvailableQuantity = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -184,6 +129,10 @@ final class MessageModel extends JsonObjectModel implements Message
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->oldQuantityOnStock = $oldQuantityOnStock;
+        $this->newQuantityOnStock = $newQuantityOnStock;
+        $this->oldAvailableQuantity = $oldAvailableQuantity;
+        $this->newAvailableQuantity = $newAvailableQuantity;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -386,6 +335,74 @@ final class MessageModel extends JsonObjectModel implements Message
         return $this->resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * @return null|int
+     */
+    public function getOldQuantityOnStock()
+    {
+        if (is_null($this->oldQuantityOnStock)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_OLD_QUANTITY_ON_STOCK);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldQuantityOnStock = (int) $data;
+        }
+
+        return $this->oldQuantityOnStock;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getNewQuantityOnStock()
+    {
+        if (is_null($this->newQuantityOnStock)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_NEW_QUANTITY_ON_STOCK);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newQuantityOnStock = (int) $data;
+        }
+
+        return $this->newQuantityOnStock;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getOldAvailableQuantity()
+    {
+        if (is_null($this->oldAvailableQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_OLD_AVAILABLE_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldAvailableQuantity = (int) $data;
+        }
+
+        return $this->oldAvailableQuantity;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getNewAvailableQuantity()
+    {
+        if (is_null($this->newAvailableQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_NEW_AVAILABLE_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newAvailableQuantity = (int) $data;
+        }
+
+        return $this->newAvailableQuantity;
+    }
+
 
     public function setId(?string $id): void
     {
@@ -437,6 +454,26 @@ final class MessageModel extends JsonObjectModel implements Message
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+    public function setOldQuantityOnStock(?int $oldQuantityOnStock): void
+    {
+        $this->oldQuantityOnStock = $oldQuantityOnStock;
+    }
+
+    public function setNewQuantityOnStock(?int $newQuantityOnStock): void
+    {
+        $this->newQuantityOnStock = $newQuantityOnStock;
+    }
+
+    public function setOldAvailableQuantity(?int $oldAvailableQuantity): void
+    {
+        $this->oldAvailableQuantity = $oldAvailableQuantity;
+    }
+
+    public function setNewAvailableQuantity(?int $newAvailableQuantity): void
+    {
+        $this->newAvailableQuantity = $newAvailableQuantity;
+    }
+
 
     public function jsonSerialize()
     {
@@ -449,32 +486,5 @@ final class MessageModel extends JsonObjectModel implements Message
             $data[Message::FIELD_LAST_MODIFIED_AT] = $data[Message::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
-    }
-
-    /**
-     * @psalm-param stdClass|array<string, mixed> $value
-     * @psalm-return class-string<Message>
-     */
-    public static function resolveDiscriminatorClass($value): string
-    {
-        $fieldName = Message::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
-                return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
-                return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-
-        /** @psalm-var class-string<Message> */
-        $type = MessageModel::class;
-        return $type;
     }
 }

@@ -18,6 +18,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
 use stdClass;
 
@@ -56,6 +58,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      */
     protected $validUntil;
 
+    /**
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     public function __construct(
         Money $value = null,
@@ -63,7 +70,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         CustomerGroupKeyReference $customerGroup = null,
         ChannelKeyReference $channel = null,
         DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null
+        DateTimeImmutable $validUntil = null,
+        Custom $custom = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -71,6 +79,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->channel = $channel;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
+        $this->custom = $custom;
     }
 
     /**
@@ -192,6 +201,26 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         return $this->validUntil;
     }
 
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     public function setValue(?Money $value): void
     {
@@ -221,6 +250,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
+    }
+
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

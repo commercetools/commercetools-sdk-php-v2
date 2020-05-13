@@ -48,6 +48,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'DeliveryRemoved' => DeliveryRemovedMessagePayloadModel::class,
        'InventoryEntryCreated' => InventoryEntryCreatedMessagePayloadModel::class,
        'InventoryEntryDeleted' => InventoryEntryDeletedMessagePayloadModel::class,
+       'InventoryEntryQuantitySet' => InventoryEntryQuantitySetMessagePayloadModel::class,
        'LineItemStateTransition' => LineItemStateTransitionMessagePayloadModel::class,
        'OrderBillingAddressSet' => OrderBillingAddressSetMessagePayloadModel::class,
        'OrderCreated' => OrderCreatedMessagePayloadModel::class,

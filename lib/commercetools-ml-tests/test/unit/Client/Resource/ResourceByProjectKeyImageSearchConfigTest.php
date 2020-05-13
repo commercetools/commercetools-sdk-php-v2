@@ -13,7 +13,6 @@ use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Ml\Client\MlRequestBuilder;
-use Commercetools\Ml\Client\Resource\ResourceByProjectKeyImageSearchConfig;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -22,10 +21,11 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Ml\Client\Resource\ByProjectKeyImageSearchPost
- * @covers \Commercetools\Ml\Client\Resource\ResourceByProjectKeyImageSearch
+ * @covers \Commercetools\Ml\Client\Resource\ByProjectKeyImageSearchConfigGet
+ * @covers \Commercetools\Ml\Client\Resource\ByProjectKeyImageSearchConfigPost
+ * @covers \Commercetools\Ml\Client\Resource\ResourceByProjectKeyImageSearchConfig
  */
-class ResourceByProjectKeyImageSearchTest extends TestCase
+class ResourceByProjectKeyImageSearchConfigTest extends TestCase
 {
     /**
      * @dataProvider getRequests()
@@ -43,16 +43,7 @@ class ResourceByProjectKeyImageSearchTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new MlRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -100,37 +91,27 @@ class ResourceByProjectKeyImageSearchTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyImageSearchPost_withLimit' => [
-                function (MlRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->imageSearch()
-                        ->post(null)
-                        ->withLimit('limit');
-                },
-                'post',
-                'test_projectKey/image-search?limit=limit',
-            ],
-            'ByProjectKeyImageSearchPost_withOffset' => [
-                function (MlRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->imageSearch()
-                        ->post(null)
-                        ->withOffset('offset');
-                },
-                'post',
-                'test_projectKey/image-search?offset=offset',
-            ],
-            'ByProjectKeyImageSearchPost' => [
+            'ByProjectKeyImageSearchConfigGet' => [
                 function (MlRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->imageSearch()
+                        ->config()
+                        ->get();
+                },
+                'get',
+                'test_projectKey/image-search/config',
+            ],
+            'ByProjectKeyImageSearchConfigPost' => [
+                function (MlRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->imageSearch()
+                        ->config()
                         ->post(null);
                 },
                 'post',
-                'test_projectKey/image-search',
+                'test_projectKey/image-search/config',
             ]
         ];
     }
@@ -138,28 +119,27 @@ class ResourceByProjectKeyImageSearchTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyImageSearchConfig' => [
-                function (MlRequestBuilder $builder): ResourceByProjectKeyImageSearchConfig {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->imageSearch()
-                        ->config();
-                },
-                ResourceByProjectKeyImageSearchConfig::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/image-search/config'
-            ]
         ];
     }
 
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyImageSearchPost' => [
+            'ByProjectKeyImageSearchConfigGet' => [
                 function (MlRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->imageSearch()
+                        ->config()
+                        ->get();
+                }
+            ],
+            'ByProjectKeyImageSearchConfigPost' => [
+                function (MlRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->imageSearch()
+                        ->config()
                         ->post(null);
                 }
             ]
@@ -169,20 +149,42 @@ class ResourceByProjectKeyImageSearchTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyImageSearchPost_200' => [
+            'ByProjectKeyImageSearchConfigGet_200' => [
                 function (MlRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->imageSearch()
+                        ->config()
+                        ->get();
+                },
+                200
+            ],
+            'ByProjectKeyImageSearchConfigGet_599' => [
+                function (MlRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->imageSearch()
+                        ->config()
+                        ->get();
+                },
+                599
+            ],
+            'ByProjectKeyImageSearchConfigPost_200' => [
+                function (MlRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->imageSearch()
+                        ->config()
                         ->post(null);
                 },
                 200
             ],
-            'ByProjectKeyImageSearchPost_599' => [
+            'ByProjectKeyImageSearchConfigPost_599' => [
                 function (MlRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->imageSearch()
+                        ->config()
                         ->post(null);
                 },
                 599

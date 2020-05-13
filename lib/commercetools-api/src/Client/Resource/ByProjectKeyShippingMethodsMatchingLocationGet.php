@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponse;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -41,7 +43,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -51,7 +53,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = JsonObjectModel::class;
+                    $resultType = ShippingMethodPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -88,7 +90,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

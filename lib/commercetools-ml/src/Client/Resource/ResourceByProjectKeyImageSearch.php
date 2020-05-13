@@ -26,6 +26,13 @@ class ResourceByProjectKeyImageSearch extends ApiResource
         parent::__construct('/{projectKey}/image-search', $args, $client);
     }
 
+    public function config(): ResourceByProjectKeyImageSearchConfig
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyImageSearchConfig($args, $this->getClient());
+    }
+
     /**
      * @psalm-param ?UploadedFileInterface $body
      * @psalm-param array<string, scalar|scalar[]> $headers

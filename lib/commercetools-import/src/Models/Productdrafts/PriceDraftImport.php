@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
 interface PriceDraftImport extends JsonObject
@@ -23,6 +24,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|Money
@@ -60,6 +62,13 @@ interface PriceDraftImport extends JsonObject
      */
     public function getValidUntil();
 
+    /**
+     * <p>The custom fields for this category.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom();
+
     public function setValue(?Money $value): void;
 
     public function setCountry(?string $country): void;
@@ -71,4 +80,6 @@ interface PriceDraftImport extends JsonObject
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
+
+    public function setCustom(?Custom $custom): void;
 }

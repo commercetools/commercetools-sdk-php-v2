@@ -23,6 +23,36 @@ $request = $builder
                 ->imageSearch()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->imageSearch()->config()->get()`
+
+Get the current image search config.
+
+### Example
+```php
+use Commercetools\Ml\Client\MlRequestBuilder;
+
+$builder =  new MlRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->imageSearch()
+                ->config()
+                ->get();
+```
+## `withProjectKey("projectKey")->imageSearch()->config()->post(null)`
+
+Endpoint to update the image search config.
+
+### Example
+```php
+use Commercetools\Ml\Client\MlRequestBuilder;
+
+$builder =  new MlRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->imageSearch()
+                ->config()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->missingData()->attributes()->post(null)`
 
 null

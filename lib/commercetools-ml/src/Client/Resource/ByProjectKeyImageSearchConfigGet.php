@@ -6,12 +6,8 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Client\Resource;
+namespace Commercetools\Ml\Client\Resource;
 
-use Commercetools\Api\Models\Error\ErrorResponse;
-use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponse;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -19,6 +15,8 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\ExceptionFactory;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Ml\Models\ImageSearchConfig\ImageSearchConfigResponse;
+use Commercetools\Ml\Models\ImageSearchConfig\ImageSearchConfigResponseModel;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
@@ -28,7 +26,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
+class ByProjectKeyImageSearchConfigGet extends ApiRequest
 {
     /**
      * @param ?object $body
@@ -36,14 +34,14 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/shipping-methods/matching-orderedit');
+        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/image-search/config');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse|T|null
+     * @return ImageSearchConfigResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,27 +51,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = ShippingMethodPagedQueryResponseModel::class;
-
-                    break;
-                case '400':
-                    $resultType = ErrorResponseModel::class;
-
-                    break;
-                case '401':
-                    $resultType = ErrorResponseModel::class;
-
-                    break;
-                case '403':
-                    $resultType = ErrorResponseModel::class;
-
-                    break;
-                case '500':
-                    $resultType = ErrorResponseModel::class;
-
-                    break;
-                case '503':
-                    $resultType = ErrorResponseModel::class;
+                    $resultType = ImageSearchConfigResponseModel::class;
 
                     break;
                 default:
@@ -90,7 +68,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
+     * @return null|ImageSearchConfigResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -132,32 +110,5 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $orderEditId
-     */
-    public function withOrderEditId($orderEditId): ByProjectKeyShippingMethodsMatchingOrdereditGet
-    {
-        return $this->withQueryParam('orderEditId', $orderEditId);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $country
-     */
-    public function withCountry($country): ByProjectKeyShippingMethodsMatchingOrdereditGet
-    {
-        return $this->withQueryParam('country', $country);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $state
-     */
-    public function withState($state): ByProjectKeyShippingMethodsMatchingOrdereditGet
-    {
-        return $this->withQueryParam('state', $state);
     }
 }
