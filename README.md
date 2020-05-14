@@ -5,7 +5,7 @@ Client and Request Builder for making API requests against [Commercetools](https
 ## Installation
 
 ```sh
-composer require commercetools/spec-sdks
+composer require commercetools/commercetools-sdk
 ```
 
 ## Usage
