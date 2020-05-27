@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Api\Models\Category\CategoryRemoveAssetActionModel;
+use Commercetools\Api\Models\Category\CategoryResourceIdentifierBuilder;
+use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Category\CategorySetAssetDescriptionActionModel;
 use Commercetools\Api\Models\Category\CategorySetAssetKeyActionModel;
 use Commercetools\Api\Models\Category\CategorySetAssetSourcesActionModel;
@@ -70,7 +72,6 @@ class CategoryUpdateTest extends ApiTestCase
             throw new InvalidArgumentException();
         }
 
-
         return $assetDraftCollection;
     }
 
@@ -90,27 +91,6 @@ class CategoryUpdateTest extends ApiTestCase
 
         return $assetDraftBuilder->build();
     }
-
-//    protected function getAssetDraftFromKeySourcesAndName($assetKey)
-//    {
-//        return AssetDraft::ofKeySourcesAndName(
-//            $assetKey,
-//            AssetSourceCollection::of()->add(
-//                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
-//            ),
-//            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString())
-//        );
-//    }
-//
-//    protected function getAssetDraftFromNameAndSources()
-//    {
-//        return AssetDraft::ofNameAndSources(
-//            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString()),
-//            AssetSourceCollection::of()->add(
-//                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
-//            )
-//        );
-//    }
 
     public function testChangeName()
     {
@@ -172,6 +152,8 @@ class CategoryUpdateTest extends ApiTestCase
         );
     }
 
+    //TODO  testUpdateLocalizedName is missing => handling LocalizedString for locale
+
     public function testChangeOrderHint()
     {
         $builder = $this->getApiBuilder();
@@ -196,6 +178,39 @@ class CategoryUpdateTest extends ApiTestCase
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testChangeParent()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withCategory(
+            $builder,
+            function (Category $category1) use ($builder) {
+                CategoryFixture::withUpdateableCategory(
+                    $builder,
+                    function (Category $category2) use ($builder, $category1) {
+                        $categoryResourceIdentifier = CategoryResourceIdentifierBuilder::of()->withId($category1->getId())->build();
+
+                        $updateAction = new CategoryChangeParentActionModel();
+                        $updateAction->setParent($categoryResourceIdentifier);
+                        $updateActionCollection = new CategoryUpdateActionCollection();
+                        $updateActionCollection->add($updateAction);
+                        $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category2->getVersion())
+                            ->withActions($updateActionCollection)->build();
+                        $request = $builder->with()->categories()->withId($category2->getId())
+                            ->post($categoryUpdate);
+                        $categoryQueryResponse = $request->execute();
+
+                        $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                        $this->assertSame($category1->getId(), $categoryQueryResponse->getParent()->getId());
+                        $this->assertNotSame($category2->getVersion(), $categoryQueryResponse->getVersion());
+
+                        return $categoryQueryResponse;
+                    }
+                );
             }
         );
     }
@@ -797,6 +812,85 @@ class CategoryUpdateTest extends ApiTestCase
                 $this->assertSame(
                     $newDescription,
                     $categoryQueryResponse->getAssets()->current()->getDescription()->current()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetTagsByKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetKey = uniqid();
+                $assetDraftCollection = $this->getAssetDraftCollection($assetKey);
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newTag[] = 'new-tag-' . CategoryFixture::uniqueCategoryString();
+
+                $updateAction = new CategorySetAssetTagsActionModel();
+                $updateAction->setAssetKey($category->getAssets()->current()->getKey());
+                $updateAction->setTags($newTag);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newTag,
+                    $categoryQueryResponse->getAssets()->current()->getTags()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetSourcesByKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetKey = uniqid();
+                $assetDraftCollection = $this->getAssetDraftCollection($assetKey);
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $assetSource = AssetSourceBuilder::of()
+                    ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
+                $newSource = new AssetSourceCollection();
+                $newSource->add($assetSource->build());
+
+                $updateAction = new CategorySetAssetSourcesActionModel();
+                $updateAction->setAssetKey($category->getAssets()->current()->getKey());
+                $updateAction->setSources($newSource);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertStringContainsString(
+                    $assetSource->getUri(),
+                    $categoryQueryResponse->getAssets()->current()->getSources()->current()->getUri()
                 );
 
                 return $categoryQueryResponse;

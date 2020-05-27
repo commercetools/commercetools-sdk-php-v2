@@ -50,4 +50,14 @@ class ApiTestCase extends TestCase
         $client = $this->getApiClient();
         return new ApiRequestBuilder(self::$projectKey, $client);
     }
+
+    protected function map(callable $callback, $collection)
+    {
+        $result = [];
+        foreach ($collection as $item) {
+            $result[] = $callback($item);
+        }
+
+        return $result;
+    }
 }
