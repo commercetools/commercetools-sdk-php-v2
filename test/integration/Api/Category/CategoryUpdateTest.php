@@ -4,6 +4,7 @@ namespace Commercetools\IntegrationTest\Api\Category;
 
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryAddAssetActionModel;
+use Commercetools\Api\Models\Category\CategoryChangeAssetNameActionModel;
 use Commercetools\Api\Models\Category\CategoryChangeNameAction;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionBuilder;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionCollection;
@@ -15,6 +16,10 @@ use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Api\Models\Category\CategoryRemoveAssetActionModel;
+use Commercetools\Api\Models\Category\CategorySetAssetDescriptionActionModel;
+use Commercetools\Api\Models\Category\CategorySetAssetKeyActionModel;
+use Commercetools\Api\Models\Category\CategorySetAssetSourcesActionModel;
+use Commercetools\Api\Models\Category\CategorySetAssetTagsActionModel;
 use Commercetools\Api\Models\Category\CategorySetDescriptionActionModel;
 use Commercetools\Api\Models\Category\CategorySetExternalIdActionModel;
 use Commercetools\Api\Models\Category\CategorySetMetaDescriptionActionModel;
@@ -35,6 +40,7 @@ use Commercetools\Api\Models\Common\AssetSourceBuilder;
 use Commercetools\Api\Models\Common\AssetSourceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\IntegrationTest\ApiTestCase;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
@@ -42,36 +48,69 @@ use function Sodium\add;
 
 class CategoryUpdateTest extends ApiTestCase
 {
-
-    public function getAssetDraft($assetNameBuilder): AssetDraft
+    public function getAssetDraftCollection($assetKey = null): AssetDraftCollection
     {
+        $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
+        $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();
         $assetSource = AssetSourceBuilder::of()
             ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
         $sources = new AssetSourceCollection();
         $sources->add($assetSource->build());
-        return AssetDraftBuilder::of()->withName($assetNameBuilder)->withSources($sources)->build();
+        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertNameBuilder)->withSources($sources);
+
+        if ($assetKey !== null) {
+            $assetDraftBuilder->withKey($assetKey);
+        }
+        $assetDraftBuilder = $assetDraftBuilder->build();
+        $assetDraftCollection = new AssetDraftCollection();
+
+        try {
+            $assetDraftCollection->add($assetDraftBuilder);
+        } catch (InvalidArgumentException $e) {
+            throw new InvalidArgumentException();
+        }
+
+
+        return $assetDraftCollection;
     }
 
-    protected function getAssetDraftFromKeySourcesAndName($assetKey)
+    public function getAssertDraft($assetKey = null): AssetDraft
     {
-        return AssetDraft::ofKeySourcesAndName(
-            $assetKey,
-            AssetSourceCollection::of()->add(
-                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
-            ),
-            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString())
-        );
+        $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
+        $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();
+        $assetSource = AssetSourceBuilder::of()
+            ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
+        $sources = new AssetSourceCollection();
+        $sources->add($assetSource->build());
+
+        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertNameBuilder)->withSources($sources);
+        if ($assetKey !== null) {
+            $assetDraftBuilder->withKey($assetKey);
+        }
+
+        return $assetDraftBuilder->build();
     }
 
-    protected function getAssetDraftFromNameAndSources()
-    {
-        return AssetDraft::ofNameAndSources(
-            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString()),
-            AssetSourceCollection::of()->add(
-                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
-            )
-        );
-    }
+//    protected function getAssetDraftFromKeySourcesAndName($assetKey)
+//    {
+//        return AssetDraft::ofKeySourcesAndName(
+//            $assetKey,
+//            AssetSourceCollection::of()->add(
+//                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
+//            ),
+//            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString())
+//        );
+//    }
+//
+//    protected function getAssetDraftFromNameAndSources()
+//    {
+//        return AssetDraft::ofNameAndSources(
+//            LocalizedString::ofLangAndText('en', CategoryFixture::uniqueCategoryString()),
+//            AssetSourceCollection::of()->add(
+//                AssetSource::of()->setUri(CategoryFixture::uniqueCategoryString() . '.jpg')->setKey('test')
+//            )
+//        );
+//    }
 
     public function testChangeName()
     {
@@ -339,18 +378,18 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $keywords = 'keywords-' . CategoryFixture::uniqueCategoryString();
-                $keywordsBuilder = LocalizedStringBuilder::of()->put('en', $keywords)->build();
-                $draftBuilder->withMetaTitle($keywordsBuilder);
+                $assetKeywords = 'keywords-' . CategoryFixture::uniqueCategoryString();
+                $assetKeywordsBuilder = LocalizedStringBuilder::of()->put('en', $assetKeywords)->build();
+                $draftBuilder->withMetaTitle($assetKeywordsBuilder);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $keywords = 'new-keywords-' . CategoryFixture::uniqueCategoryString();
-                $keywordsBuilder = LocalizedStringBuilder::of()->put('en', $keywords)->build();
+                $assetKeywords = 'new-keywords-' . CategoryFixture::uniqueCategoryString();
+                $assetKeywordsBuilder = LocalizedStringBuilder::of()->put('en', $assetKeywords)->build();
 
                 $updateAction = new CategorySetMetaKeywordsActionModel();
-                $updateAction->setMetaKeywords($keywordsBuilder);
+                $updateAction->setMetaKeywords($assetKeywordsBuilder);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -360,7 +399,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($keywords, $categoryQueryResponse->getMetaKeywords()->current());
+                $this->assertSame($assetKeywords, $categoryQueryResponse->getMetaKeywords()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -376,10 +415,7 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $assetName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
-                $assetNameBuilder = LocalizedStringBuilder::of()->put('en', $assetName)->build();
-
-                $assetDraft = $this->getAssetDraft($assetNameBuilder);
+                $assetDraft = $this->getAssertDraft();
 
                 $updateAction = new CategoryAddAssetActionModel();
                 $updateAction->setAsset($assetDraft);
@@ -411,17 +447,12 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $assetName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
-                $assetNameBuilder = LocalizedStringBuilder::of()->put('en', $assetName)->build();
-                $assetDraft = $this->getAssetDraft($assetNameBuilder);
-                $assetDraftCollection = new AssetDraftCollection();
-                $assetDraftCollection->add($assetDraft);
+                $assetDraftCollection = $this->getAssetDraftCollection();
                 $draftBuilder->withAssets($assetDraftCollection);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-
                 $updateAction = new CategoryRemoveAssetActionModel();
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
@@ -439,6 +470,337 @@ class CategoryUpdateTest extends ApiTestCase
             }
         );
     }
+
+    public function testChangeAssetName()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetDraftCollection = $this->getAssetDraftCollection();
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newName = 'new-name-' . CategoryFixture::uniqueCategoryString();
+                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
+
+                $updateAction = new CategoryChangeAssetNameActionModel();
+                $updateAction->setName($newNameBuilder);
+                $updateAction->setAssetId($category->getAssets()->current()->getId());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newName,
+                    $categoryQueryResponse->getAssets()->current()->getName()->current()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetDescription()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetDraftCollection = $this->getAssetDraftCollection();
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $newDescription)->build();
+
+                $updateAction = new CategorySetAssetDescriptionActionModel();
+                $updateAction->setDescription($newDescriptionBuilder);
+                $updateAction->setAssetId($category->getAssets()->current()->getId());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newDescription,
+                    $categoryQueryResponse->getAssets()->current()->getDescription()->current()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetTags()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetDraftCollection = $this->getAssetDraftCollection();
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newTag[] = 'new-tag-' . CategoryFixture::uniqueCategoryString();
+
+                $updateAction = new CategorySetAssetTagsActionModel();
+                $updateAction->setTags($newTag);
+                $updateAction->setAssetId($category->getAssets()->current()->getId());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newTag,
+                    $categoryQueryResponse->getAssets()->current()->getTags()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetSources()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetDraftCollection = $this->getAssetDraftCollection();
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $uri = CategoryFixture::uniqueCategoryString() . '-new.jpq';
+                $newSource = AssetSourceBuilder::of()->withUri($uri)->withKey('test');
+
+                $sources = new AssetSourceCollection();
+                $sources->add($newSource->build());
+                $updateAction = new CategorySetAssetSourcesActionModel();
+                $updateAction->setSources($sources);
+                $updateAction->setAssetId($category->getAssets()->current()->getId());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newSource->getUri(),
+                    $categoryQueryResponse->getAssets()->current()->getSources()->current()->getUri()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetDraftCollection = $this->getAssetDraftCollection();
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $assetKey = uniqid();
+
+                $updateAction = new CategorySetAssetKeyActionModel();
+                $updateAction->setAssetKey($assetKey);
+                $updateAction->setAssetId($category->getAssets()->current()->getId());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $assetKey,
+                    $categoryQueryResponse->getAssets()->current()->getKey()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testAddAssetWithKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableCategory(
+            $builder,
+            function (Category $category) use ($builder) {
+                $assetKey = uniqid();
+                $assetDraft = $this->getAssertDraft($assetKey);
+
+                $updateAction = new CategoryAddAssetActionModel();
+                $updateAction->setAsset($assetDraft);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertNotNull($categoryQueryResponse->getAssets()->current()->getId());
+                $this->assertSame($assetKey, $categoryQueryResponse->getAssets()->current()->getKey());
+                $this->assertSame(
+                    $assetDraft->getSources()->current()->getUri(),
+                    $categoryQueryResponse->getAssets()->current()->getSources()->current()->getUri()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testRemoveAssetByKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetKey = uniqid();
+                $assetDraftCollection = $this->getAssetDraftCollection($assetKey);
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $updateAction = new CategoryRemoveAssetActionModel();
+                $updateAction->setAssetKey($category->getAssets()->current()->getKey());
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertCount(0, $categoryQueryResponse->getAssets());
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testChangeAssetNameByKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetKey = uniqid();
+                $assetDraftCollection = $this->getAssetDraftCollection($assetKey);
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newName = 'new-name-' . CategoryFixture::uniqueCategoryString();
+                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
+
+                $updateAction = new CategoryChangeAssetNameActionModel();
+                $updateAction->setAssetKey($category->getAssets()->current()->getKey());
+                $updateAction->setName($newNameBuilder);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newName,
+                    $categoryQueryResponse->getAssets()->current()->getName()->current()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
+
+    public function testSetAssetDescriptionByKey()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableDraftCategory(
+            $builder,
+            function (CategoryDraftBuilder $draftBuilder) {
+                $assetKey = uniqid();
+                $assetDraftCollection = $this->getAssetDraftCollection($assetKey);
+                $draftBuilder->withAssets($assetDraftCollection);
+
+                return $draftBuilder->build();
+            },
+            function (Category $category) use ($builder) {
+                $newDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $newDescription)->build();
+
+                $updateAction = new CategorySetAssetDescriptionActionModel();
+                $updateAction->setAssetKey($category->getAssets()->current()->getKey());
+                $updateAction->setDescription($newDescriptionBuilder);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+                $request = $builder->with()->categories()->withId($category->getId())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertSame(
+                    $newDescription,
+                    $categoryQueryResponse->getAssets()->current()->getDescription()->current()
+                );
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
 }
-
-
