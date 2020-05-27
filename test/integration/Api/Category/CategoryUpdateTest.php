@@ -5,19 +5,13 @@ namespace Commercetools\IntegrationTest\Api\Category;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryAddAssetActionModel;
 use Commercetools\Api\Models\Category\CategoryChangeAssetNameActionModel;
-use Commercetools\Api\Models\Category\CategoryChangeNameAction;
-use Commercetools\Api\Models\Category\CategoryChangeNameActionBuilder;
-use Commercetools\Api\Models\Category\CategoryChangeNameActionCollection;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionModel;
 use Commercetools\Api\Models\Category\CategoryChangeOrderHintActionModel;
 use Commercetools\Api\Models\Category\CategoryChangeParentActionModel;
 use Commercetools\Api\Models\Category\CategoryChangeSlugActionModel;
-use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
-use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Api\Models\Category\CategoryRemoveAssetActionModel;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierBuilder;
-use Commercetools\Api\Models\Category\CategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Category\CategorySetAssetDescriptionActionModel;
 use Commercetools\Api\Models\Category\CategorySetAssetKeyActionModel;
 use Commercetools\Api\Models\Category\CategorySetAssetSourcesActionModel;
@@ -27,30 +21,20 @@ use Commercetools\Api\Models\Category\CategorySetExternalIdActionModel;
 use Commercetools\Api\Models\Category\CategorySetMetaDescriptionActionModel;
 use Commercetools\Api\Models\Category\CategorySetMetaKeywordsActionModel;
 use Commercetools\Api\Models\Category\CategorySetMetaTitleActionModel;
-use Commercetools\Api\Models\Category\CategoryUpdate;
-use Commercetools\Api\Models\Category\CategoryUpdateAction;
-use Commercetools\Api\Models\Category\CategoryUpdateActionBuilder;
 use Commercetools\Api\Models\Category\CategoryUpdateActionCollection;
-use Commercetools\Api\Models\Category\CategoryUpdateActionModel;
 use Commercetools\Api\Models\Category\CategoryUpdateBuilder;
-use Commercetools\Api\Models\Category\CategoryUpdateModel;
 use Commercetools\Api\Models\Common\AssetDraft;
 use Commercetools\Api\Models\Common\AssetDraftBuilder;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
-use Commercetools\Api\Models\Common\AssetSource;
 use Commercetools\Api\Models\Common\AssetSourceBuilder;
 use Commercetools\Api\Models\Common\AssetSourceCollection;
-use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\IntegrationTest\ApiTestCase;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
-use function Sodium\add;
 
 class CategoryUpdateTest extends ApiTestCase
 {
-    public function getAssetDraftCollection($assetKey = null): AssetDraftCollection
+    private function getAssetDraftCollection($assetKey = null): AssetDraftCollection
     {
         $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
         $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();
@@ -75,7 +59,7 @@ class CategoryUpdateTest extends ApiTestCase
         return $assetDraftCollection;
     }
 
-    public function getAssertDraft($assetKey = null): AssetDraft
+    private function getAssertDraft($assetKey = null): AssetDraft
     {
         $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
         $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();

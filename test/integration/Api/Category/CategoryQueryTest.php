@@ -5,7 +5,6 @@ namespace Commercetools\IntegrationTest\Api\Category;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponse;
-use Commercetools\Api\Models\Category\CategoryReference;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Exception\BadRequestException;
