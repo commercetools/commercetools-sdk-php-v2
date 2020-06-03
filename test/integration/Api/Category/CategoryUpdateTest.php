@@ -136,7 +136,37 @@ class CategoryUpdateTest extends ApiTestCase
         );
     }
 
-    //TODO  testUpdateLocalizedName is missing => handling LocalizedString for locale
+
+    public function testUpdateLocalizedName()
+    {
+        $builder = $this->getApiBuilder();
+
+        CategoryFixture::withUpdateableCategory(
+            $builder,
+            function (Category $category) use ($builder) {
+                $newName = 'new name-' . CategoryFixture::uniqueCategoryString();
+                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->put('en-US', $newName)->build();
+
+                $updateAction = new CategoryChangeNameActionModel();
+                $updateAction->setName($newNameBuilder);
+                $updateActionCollection = new CategoryUpdateActionCollection();
+                $updateActionCollection->add($updateAction);
+                $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
+                    ->withActions($updateActionCollection)->build();
+
+                $request = $builder->with()->categories()->withKey($category->getKey())
+                    ->post($categoryUpdate);
+                $categoryQueryResponse = $request->execute();
+
+                $bla = '{"en": ' . $newName . ', "en-US": ' . $newName . '}';
+                $this->assertJsonStringEqualsJsonString('{"en":"' . $newName . '", "en-US":"' . $newName . '"}', json_encode($newNameBuilder));
+                $this->assertInstanceOf(Category::class, $categoryQueryResponse);
+                $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
+
+                return $categoryQueryResponse;
+            }
+        );
+    }
 
     public function testChangeOrderHint()
     {
