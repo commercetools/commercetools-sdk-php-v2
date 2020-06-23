@@ -7,6 +7,7 @@ use Commercetools\Api\Client\Resource\ByProjectKeyGet;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Product\ProductDraftModel;
@@ -66,6 +67,9 @@ class MiscTest extends TestCase
             '{"description":{"en":"test"},"variants":[{"sku":"123"}]}',
             json_encode($t)
         );
+
+        $l = LocalizedStringBuilder::of()->put('en', 'testEN')->put('de-DE', 'testDE');
+        $this->assertJsonStringEqualsJsonString('{"en": "testEN", "de-DE": "testDE"}', json_encode($l->build()));
 
         $d = ProductVariantDraftModel::fromArray(['sku' => 'test']);
         $this->assertSame('test', $d->getSku());

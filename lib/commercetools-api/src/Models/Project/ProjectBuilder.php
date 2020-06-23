@@ -79,6 +79,11 @@ final class ProjectBuilder implements Builder
     private $externalOAuth;
 
     /**
+     * @var null|CartsConfiguration|CartsConfigurationBuilder
+     */
+    private $carts;
+
+    /**
      * <p>The current version of the project.</p>
      *
      * @return null|int
@@ -176,6 +181,14 @@ final class ProjectBuilder implements Builder
     public function getExternalOAuth()
     {
         return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
+    }
+
+    /**
+     * @return null|CartsConfiguration
+     */
+    public function getCarts()
+    {
+        return $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts;
     }
 
     /**
@@ -291,6 +304,16 @@ final class ProjectBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCarts(?CartsConfiguration $carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
     {
         $this->messages = $messages;
@@ -318,6 +341,16 @@ final class ProjectBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCartsBuilder(?CartsConfigurationBuilder $carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
     public function build(): Project
     {
         return new ProjectModel(
@@ -331,7 +364,8 @@ final class ProjectBuilder implements Builder
             $this->trialUntil,
             $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages,
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
-            $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth
+            $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
+            $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts
         );
     }
 

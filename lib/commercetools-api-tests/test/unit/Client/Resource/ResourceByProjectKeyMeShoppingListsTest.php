@@ -244,7 +244,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withProjectKey("test_projectKey")
                         ->me()
                         ->shoppingLists()
-                        ->keyWithKeyValue("test_key");
+                        ->withKey("test_key");
                 },
                 ResourceByProjectKeyMeShoppingListsKeyByKey::class,
                 ['projectKey' => 'test_projectKey', 'key' => 'test_key'],

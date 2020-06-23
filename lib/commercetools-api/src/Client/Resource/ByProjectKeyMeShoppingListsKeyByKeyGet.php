@@ -28,7 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMeShoppingListsKeyByKeyPost extends ApiRequest
+class ByProjectKeyMeShoppingListsKeyByKeyGet extends ApiRequest
 {
     /**
      * @param ?object $body
@@ -37,7 +37,7 @@ class ByProjectKeyMeShoppingListsKeyByKeyPost extends ApiRequest
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/me/shopping-lists/key={key}');
-        parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
@@ -54,10 +54,6 @@ class ByProjectKeyMeShoppingListsKeyByKeyPost extends ApiRequest
             switch ($response->getStatusCode()) {
                 case '200':
                     $resultType = MyShoppingListModel::class;
-
-                    break;
-                case '409':
-                    $resultType = ErrorResponseModel::class;
 
                     break;
                 case '400':
@@ -142,7 +138,7 @@ class ByProjectKeyMeShoppingListsKeyByKeyPost extends ApiRequest
      *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyMeShoppingListsKeyByKeyPost
+    public function withExpand($expand): ByProjectKeyMeShoppingListsKeyByKeyGet
     {
         return $this->withQueryParam('expand', $expand);
     }

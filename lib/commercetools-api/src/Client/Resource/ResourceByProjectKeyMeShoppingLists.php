@@ -35,7 +35,7 @@ class ResourceByProjectKeyMeShoppingLists extends ApiResource
 
         return new ResourceByProjectKeyMeShoppingListsByID($args, $this->getClient());
     }
-    public function keyWithKeyValue(string $key = null): ResourceByProjectKeyMeShoppingListsKeyByKey
+    public function withKey(string $key = null): ResourceByProjectKeyMeShoppingListsKeyByKey
     {
         $args = $this->getArgs();
         if (!is_null($key)) {

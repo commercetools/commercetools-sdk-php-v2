@@ -2410,9 +2410,9 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->shoppingLists()->keyWithKeyValue("key")->post(null)`
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->get()`
 
-null
+Get MyShoppingList by key
 
 ### Example
 ```php
@@ -2423,8 +2423,40 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->shoppingLists()
-                ->keyWithKeyValue("key")
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
+
+Update MyShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
                 ->post(null);
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->delete()`
+
+Delete MyShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->signup()->post(null)`
 

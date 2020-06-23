@@ -27,6 +27,16 @@ class ResourceByProjectKeyMeShoppingListsKeyByKey extends ApiResource
     }
 
     /**
+     * @psalm-param ?object $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function get($body = null, array $headers = []): ByProjectKeyMeShoppingListsKeyByKeyGet
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeShoppingListsKeyByKeyGet($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
@@ -35,5 +45,15 @@ class ResourceByProjectKeyMeShoppingListsKeyByKey extends ApiResource
         $args = $this->getArgs();
 
         return new ByProjectKeyMeShoppingListsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
+    }
+    /**
+     * @psalm-param ?object $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function delete($body = null, array $headers = []): ByProjectKeyMeShoppingListsKeyByKeyDelete
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyMeShoppingListsKeyByKeyDelete($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
 }

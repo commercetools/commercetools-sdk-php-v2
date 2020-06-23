@@ -77,6 +77,11 @@ final class ProjectModel extends JsonObjectModel implements Project
      */
     protected $externalOAuth;
 
+    /**
+     * @var ?CartsConfiguration
+     */
+    protected $carts;
+
 
     public function __construct(
         int $version = null,
@@ -89,7 +94,8 @@ final class ProjectModel extends JsonObjectModel implements Project
         string $trialUntil = null,
         MessageConfiguration $messages = null,
         ShippingRateInputType $shippingRateInputType = null,
-        ExternalOAuth $externalOAuth = null
+        ExternalOAuth $externalOAuth = null,
+        CartsConfiguration $carts = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -102,6 +108,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->messages = $messages;
         $this->shippingRateInputType = $shippingRateInputType;
         $this->externalOAuth = $externalOAuth;
+        $this->carts = $carts;
     }
 
     /**
@@ -310,6 +317,24 @@ final class ProjectModel extends JsonObjectModel implements Project
         return $this->externalOAuth;
     }
 
+    /**
+     * @return null|CartsConfiguration
+     */
+    public function getCarts()
+    {
+        if (is_null($this->carts)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CARTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->carts = CartsConfigurationModel::of($data);
+        }
+
+        return $this->carts;
+    }
+
 
     public function setVersion(?int $version): void
     {
@@ -364,6 +389,11 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void
     {
         $this->externalOAuth = $externalOAuth;
+    }
+
+    public function setCarts(?CartsConfiguration $carts): void
+    {
+        $this->carts = $carts;
     }
 
 
