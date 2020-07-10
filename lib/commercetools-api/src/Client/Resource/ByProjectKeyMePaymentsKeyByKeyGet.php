@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\Me\MyPayment;
+use Commercetools\Api\Models\Me\MyPaymentModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -24,7 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMePaymentKeyByKeyPost extends ApiRequest
+class ByProjectKeyMePaymentsKeyByKeyGet extends ApiRequest
 {
     /**
      * @param ?object $body
@@ -32,14 +36,14 @@ class ByProjectKeyMePaymentKeyByKeyPost extends ApiRequest
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/me/payment/key={key}');
-        parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/me/payments/key={key}');
+        parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return JsonObject|T|null
+     * @return ErrorResponse|JsonObject|MyPayment|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -48,6 +52,30 @@ class ByProjectKeyMePaymentKeyByKeyPost extends ApiRequest
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '200':
+                    $resultType = MyPaymentModel::class;
+
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
@@ -62,7 +90,7 @@ class ByProjectKeyMePaymentKeyByKeyPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|JsonObject
+     * @return null|ErrorResponse|JsonObject|MyPayment
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -104,5 +132,14 @@ class ByProjectKeyMePaymentKeyByKeyPost extends ApiRequest
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyMePaymentsKeyByKeyGet
+    {
+        return $this->withQueryParam('expand', $expand);
     }
 }

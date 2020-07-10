@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -43,16 +42,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -118,19 +108,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
-                        ->customers()
-                        ->password()
-                        ->reset();
-                },
-                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset::class,
-                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
-                '/{projectKey}/in-store/key={storeKey}/customers/password/reset'
-            ]
         ];
     }
 

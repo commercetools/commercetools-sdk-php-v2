@@ -85,6 +85,7 @@ class ClientFactory
             if (!is_callable($middleware)) {
                 throw new InvalidArgumentException('Middleware isn\'t callable');
             }
+            /** @psalm-var callable(callable): callable $middleware */
             $name = is_numeric($key) ? '' : $key;
             $stack->push($middleware, $name);
         }

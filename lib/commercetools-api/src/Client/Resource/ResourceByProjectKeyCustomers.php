@@ -50,17 +50,23 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyCustomersEmailToken($args, $this->getClient());
     }
-    public function email(): ResourceByProjectKeyCustomersEmail
+    public function emailConfirm(): ResourceByProjectKeyCustomersEmailConfirm
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyCustomersEmail($args, $this->getClient());
+        return new ResourceByProjectKeyCustomersEmailConfirm($args, $this->getClient());
     }
     public function password(): ResourceByProjectKeyCustomersPassword
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersPassword($args, $this->getClient());
+    }
+    public function passwordReset(): ResourceByProjectKeyCustomersPasswordReset
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomersPasswordReset($args, $this->getClient());
     }
     public function passwordToken(): ResourceByProjectKeyCustomersPasswordToken
     {

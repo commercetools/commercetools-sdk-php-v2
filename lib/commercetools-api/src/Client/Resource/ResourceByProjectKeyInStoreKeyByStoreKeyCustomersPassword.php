@@ -26,13 +26,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword extends ApiResou
         parent::__construct('/{projectKey}/in-store/key={storeKey}/customers/password', $args, $client);
     }
 
-    public function reset(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($args, $this->getClient());
-    }
-
     /**
      * @psalm-param ?CustomerChangePassword $body
      * @psalm-param array<string, scalar|scalar[]> $headers

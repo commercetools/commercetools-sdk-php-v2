@@ -12,6 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
+use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
@@ -25,6 +26,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISCOUNTED = 'discounted';
 
     /**
      * @return null|Money
@@ -69,6 +71,13 @@ interface PriceDraftImport extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted();
+
     public function setValue(?Money $value): void;
 
     public function setCountry(?string $country): void;
@@ -82,4 +91,6 @@ interface PriceDraftImport extends JsonObject
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
     public function setCustom(?Custom $custom): void;
+
+    public function setDiscounted(?DiscountedPrice $discounted): void;
 }

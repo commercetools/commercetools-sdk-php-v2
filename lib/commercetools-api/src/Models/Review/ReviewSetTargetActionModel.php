@@ -89,17 +89,13 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
      */
     public function getTargetAsProductResourceIdentifier()
     {
-        if (!$this->target instanceof ProductResourceIdentifier) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TARGET);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->target = ProductResourceIdentifierModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_TARGET);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->target;
+        return ProductResourceIdentifierModel::of($data);
     }
 
     /**
@@ -111,17 +107,13 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
      */
     public function getTargetAsChannelResourceIdentifier()
     {
-        if (!$this->target instanceof ChannelResourceIdentifier) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TARGET);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->target = ChannelResourceIdentifierModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_TARGET);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->target;
+        return ChannelResourceIdentifierModel::of($data);
     }
 
     public function setTarget(?JsonObject $target): void

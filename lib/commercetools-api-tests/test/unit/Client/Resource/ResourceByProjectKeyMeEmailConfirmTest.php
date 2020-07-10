@@ -95,8 +95,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 'post',
@@ -119,8 +118,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 }
             ]
@@ -135,8 +133,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 400
@@ -146,8 +143,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 401
@@ -157,8 +153,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 403
@@ -168,8 +163,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 404
@@ -179,8 +173,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 500
@@ -190,8 +183,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 503
@@ -201,8 +193,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 200
@@ -212,8 +203,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post();
                 },
                 599

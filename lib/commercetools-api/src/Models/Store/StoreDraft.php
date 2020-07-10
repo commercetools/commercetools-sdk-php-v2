@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,6 +18,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
 
     /**
      * <p>User-specific unique identifier for the store.
@@ -39,9 +41,18 @@ interface StoreDraft extends JsonObject
      */
     public function getLanguages();
 
+    /**
+     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getDistributionChannels();
+
     public function setKey(?string $key): void;
 
     public function setName(?LocalizedString $name): void;
 
     public function setLanguages(?array $languages): void;
+
+    public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void;
 }

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -73,6 +74,11 @@ final class StoreBuilder implements Builder
      * @var ?array
      */
     private $languages;
+
+    /**
+     * @var ?ChannelReferenceCollection
+     */
+    private $distributionChannels;
 
     /**
      * @return null|string
@@ -150,6 +156,16 @@ final class StoreBuilder implements Builder
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelReferenceCollection
+     */
+    public function getDistributionChannels()
+    {
+        return $this->distributionChannels;
     }
 
     /**
@@ -245,6 +261,16 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDistributionChannels(?ChannelReferenceCollection $distributionChannels)
+    {
+        $this->distributionChannels = $distributionChannels;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
@@ -283,7 +309,8 @@ final class StoreBuilder implements Builder
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
-            $this->languages
+            $this->languages,
+            $this->distributionChannels
         );
     }
 

@@ -10,11 +10,12 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersEmail;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersEmailConfirm;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersEmailToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersEmailTokenByEmailToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPassword;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordReset;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordTokenByPasswordToken;
 use Commercetools\Base\JsonObject;
@@ -255,16 +256,16 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/email-token'
             ],
-            'ResourceByProjectKeyCustomersEmail' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmail {
+            'ResourceByProjectKeyCustomersEmailConfirm' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersEmailConfirm {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->email();
+                        ->emailConfirm();
                 },
-                ResourceByProjectKeyCustomersEmail::class,
+                ResourceByProjectKeyCustomersEmailConfirm::class,
                 ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/customers/email'
+                '/{projectKey}/customers/email/confirm'
             ],
             'ResourceByProjectKeyCustomersPassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPassword {
@@ -276,6 +277,17 @@ class ResourceByProjectKeyCustomersTest extends TestCase
                 ResourceByProjectKeyCustomersPassword::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers/password'
+            ],
+            'ResourceByProjectKeyCustomersPasswordReset' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordReset {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->customers()
+                        ->passwordReset();
+                },
+                ResourceByProjectKeyCustomersPasswordReset::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/customers/password/reset'
             ],
             'ResourceByProjectKeyCustomersPasswordToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordToken {

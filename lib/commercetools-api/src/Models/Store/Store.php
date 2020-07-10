@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -23,6 +24,7 @@ interface Store extends BaseResource
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
 
     /**
      * @return null|string
@@ -75,6 +77,13 @@ interface Store extends BaseResource
      */
     public function getLanguages();
 
+    /**
+     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelReferenceCollection
+     */
+    public function getDistributionChannels();
+
     public function setId(?string $id): void;
 
     public function setVersion(?int $version): void;
@@ -92,4 +101,6 @@ interface Store extends BaseResource
     public function setName(?LocalizedString $name): void;
 
     public function setLanguages(?array $languages): void;
+
+    public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void;
 }

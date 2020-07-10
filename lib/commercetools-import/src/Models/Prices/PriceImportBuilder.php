@@ -17,6 +17,8 @@ use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\DiscountedPrice;
+use Commercetools\Import\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\Money;
@@ -67,6 +69,11 @@ final class PriceImportBuilder implements Builder
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $channel;
+
+    /**
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
+     */
+    private $discounted;
 
     /**
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
@@ -151,6 +158,16 @@ final class PriceImportBuilder implements Builder
     public function getChannel()
     {
         return $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel;
+    }
+
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted()
+    {
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -252,6 +269,16 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDiscounted(?DiscountedPrice $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
         $this->productVariant = $productVariant;
@@ -302,6 +329,16 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
         $this->productVariant = $productVariant;
@@ -329,6 +366,7 @@ final class PriceImportBuilder implements Builder
             $this->validUntil,
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );

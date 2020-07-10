@@ -42,6 +42,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
        'customer-group' => CustomerGroupKeyReferenceModel::class,
        'price' => PriceKeyReferenceModel::class,
        'product' => ProductKeyReferenceModel::class,
+       'product-discount' => ProductDiscountKeyReferenceModel::class,
        'product-type' => ProductTypeKeyReferenceModel::class,
        'product-variant' => ProductVariantKeyReferenceModel::class,
        'shipping-method' => ShippingMethodKeyReferenceModel::class,

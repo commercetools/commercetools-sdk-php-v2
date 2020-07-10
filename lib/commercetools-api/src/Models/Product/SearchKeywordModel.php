@@ -77,17 +77,13 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
      */
     public function getSuggestTokenizerAsSuggestTokenizer()
     {
-        if (!$this->suggestTokenizer instanceof SuggestTokenizer) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
-            $this->suggestTokenizer = $className::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
+        if (is_null($data)) {
+            return null;
         }
-
-        return $this->suggestTokenizer;
+        $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
+        return $className::of($data);
     }
 
     /**
@@ -95,17 +91,13 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
      */
     public function getSuggestTokenizerAsWhitespaceTokenizer()
     {
-        if (!$this->suggestTokenizer instanceof WhitespaceTokenizer) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->suggestTokenizer = WhitespaceTokenizerModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->suggestTokenizer;
+        return WhitespaceTokenizerModel::of($data);
     }
 
     /**
@@ -113,17 +105,13 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
      */
     public function getSuggestTokenizerAsCustomTokenizer()
     {
-        if (!$this->suggestTokenizer instanceof CustomTokenizer) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->suggestTokenizer = CustomTokenizerModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->suggestTokenizer;
+        return CustomTokenizerModel::of($data);
     }
 
     public function setText(?string $text): void

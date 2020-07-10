@@ -95,8 +95,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 'post',
@@ -119,8 +118,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 }
             ]
@@ -135,8 +133,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 200
@@ -146,8 +143,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 400
@@ -157,8 +153,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 401
@@ -168,8 +163,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 403
@@ -179,8 +173,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 404
@@ -190,8 +183,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 500
@@ -201,8 +193,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 503
@@ -212,8 +203,7 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
                     return $builder
                         ->withProjectKey("projectKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 599

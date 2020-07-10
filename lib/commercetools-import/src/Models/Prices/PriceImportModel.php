@@ -16,6 +16,8 @@ use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
+use Commercetools\Import\Models\Common\DiscountedPrice;
+use Commercetools\Import\Models\Common\DiscountedPriceModel;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\Money;
@@ -68,6 +70,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $channel;
 
     /**
+     * @var ?DiscountedPrice
+     */
+    protected $discounted;
+
+    /**
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
@@ -86,6 +93,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         DateTimeImmutable $validUntil = null,
         CustomerGroupKeyReference $customerGroup = null,
         ChannelKeyReference $channel = null,
+        DiscountedPrice $discounted = null,
         ProductVariantKeyReference $productVariant = null,
         ProductKeyReference $product = null
     ) {
@@ -96,6 +104,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->validUntil = $validUntil;
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
+        $this->discounted = $discounted;
         $this->productVariant = $productVariant;
         $this->product = $product;
     }
@@ -250,6 +259,26 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted()
+    {
+        if (is_null($this->discounted)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_DISCOUNTED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discounted = DiscountedPriceModel::of($data);
+        }
+
+        return $this->discounted;
+    }
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -329,6 +358,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     public function setChannel(?ChannelKeyReference $channel): void
     {
         $this->channel = $channel;
+    }
+
+    public function setDiscounted(?DiscountedPrice $discounted): void
+    {
+        $this->discounted = $discounted;
     }
 
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void

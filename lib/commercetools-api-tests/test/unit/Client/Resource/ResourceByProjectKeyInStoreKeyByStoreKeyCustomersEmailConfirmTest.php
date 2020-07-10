@@ -96,8 +96,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("test_projectKey")
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 'post',
@@ -121,8 +120,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 }
             ]
@@ -138,8 +136,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 200
@@ -150,8 +147,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 400
@@ -162,8 +158,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 401
@@ -174,8 +169,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 403
@@ -186,8 +180,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 404
@@ -198,8 +191,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 500
@@ -210,8 +202,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 503
@@ -222,8 +213,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                         ->withProjectKey("projectKey")
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->customers()
-                        ->email()
-                        ->confirm()
+                        ->emailConfirm()
                         ->post(null);
                 },
                 599

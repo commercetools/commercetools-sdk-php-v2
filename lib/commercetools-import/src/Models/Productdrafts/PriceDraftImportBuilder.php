@@ -17,6 +17,8 @@ use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\ChannelKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\DiscountedPrice;
+use Commercetools\Import\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -63,6 +65,11 @@ final class PriceDraftImportBuilder implements Builder
      * @var null|Custom|CustomBuilder
      */
     private $custom;
+
+    /**
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
+     */
+    private $discounted;
 
     /**
      * @return null|Money
@@ -126,6 +133,16 @@ final class PriceDraftImportBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted()
+    {
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -201,6 +218,16 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDiscounted(?DiscountedPrice $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
@@ -238,6 +265,16 @@ final class PriceDraftImportBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
     public function build(): PriceDraftImport
     {
         return new PriceDraftImportModel(
@@ -247,7 +284,8 @@ final class PriceDraftImportBuilder implements Builder
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 

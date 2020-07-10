@@ -26,11 +26,11 @@ class ResourceByProjectKeyMe extends ApiResource
         parent::__construct('/{projectKey}/me', $args, $client);
     }
 
-    public function email(): ResourceByProjectKeyMeEmail
+    public function emailConfirm(): ResourceByProjectKeyMeEmailConfirm
     {
         $args = $this->getArgs();
 
-        return new ResourceByProjectKeyMeEmail($args, $this->getClient());
+        return new ResourceByProjectKeyMeEmailConfirm($args, $this->getClient());
     }
     public function password(): ResourceByProjectKeyMePassword
     {
@@ -79,12 +79,6 @@ class ResourceByProjectKeyMe extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyMeShoppingLists($args, $this->getClient());
-    }
-    public function payment(): ResourceByProjectKeyMePayment
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyMePayment($args, $this->getClient());
     }
 
     /**

@@ -13,7 +13,7 @@ use Commercetools\Client\Config as BaseConfig;
 
 class Config implements BaseConfig
 {
-    public const API_URI = 'https://api.europe-west1.gcp.commercetools.com/';
+    public const API_URI = 'https://api.europe-west1.gcp.commercetools.com';
 
 
     /** @psalm-var string */

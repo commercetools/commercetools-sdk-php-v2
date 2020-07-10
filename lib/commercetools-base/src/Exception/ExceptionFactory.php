@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 
 class ExceptionFactory
@@ -25,7 +26,7 @@ class ExceptionFactory
     ): ApiServerException {
         if (is_null($response)) {
             $message = 'Error completing request: ' . $e->getMessage();
-            return new ApiServerException($message, null, $request, $response, $e, []);
+            return new ApiServerException($message, null, $request, new Response(400), $e, []);
         }
 
         $message = 'Server error response [url] ' . (string)$request->getUri()
@@ -54,7 +55,7 @@ class ExceptionFactory
     ): ApiClientException {
         if (is_null($response)) {
             $message = 'Error completing request: ' . $e->getMessage();
-            return new ApiClientException($message, null, $request, $response, $e, []);
+            return new ApiClientException($message, null, $request, new Response(400), $e, []);
         }
 
         $message = 'Client error response [url] ' . (string)$request->getUri()

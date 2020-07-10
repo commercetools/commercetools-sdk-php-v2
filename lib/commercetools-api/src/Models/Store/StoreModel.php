@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -73,6 +74,11 @@ final class StoreModel extends JsonObjectModel implements Store
      */
     protected $languages;
 
+    /**
+     * @var ?ChannelReferenceCollection
+     */
+    protected $distributionChannels;
+
 
     public function __construct(
         string $id = null,
@@ -83,7 +89,8 @@ final class StoreModel extends JsonObjectModel implements Store
         CreatedBy $createdBy = null,
         string $key = null,
         LocalizedString $name = null,
-        array $languages = null
+        array $languages = null,
+        ChannelReferenceCollection $distributionChannels = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -94,6 +101,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
+        $this->distributionChannels = $distributionChannels;
     }
 
     /**
@@ -266,6 +274,25 @@ final class StoreModel extends JsonObjectModel implements Store
         return $this->languages;
     }
 
+    /**
+     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelReferenceCollection
+     */
+    public function getDistributionChannels()
+    {
+        if (is_null($this->distributionChannels)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNELS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->distributionChannels = ChannelReferenceCollection::fromArray($data);
+        }
+
+        return $this->distributionChannels;
+    }
+
 
     public function setId(?string $id): void
     {
@@ -310,6 +337,11 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
+    }
+
+    public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void
+    {
+        $this->distributionChannels = $distributionChannels;
     }
 
 

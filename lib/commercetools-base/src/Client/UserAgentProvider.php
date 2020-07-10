@@ -39,7 +39,7 @@ class UserAgentProvider
         }
         $this->userAgent = $userAgent;
     }
-    
+
     public function getUserAgent(): string
     {
         return $this->userAgent;
