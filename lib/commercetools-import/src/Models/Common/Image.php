@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface Image extends JsonObject
 {
+
     public const FIELD_URL = 'url';
     public const FIELD_DIMENSIONS = 'dimensions';
     public const FIELD_LABEL = 'label';

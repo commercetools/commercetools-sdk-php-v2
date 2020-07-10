@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -26,13 +27,13 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     protected $type;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $value;
 
 
     public function __construct(
-        float $value = null
+        int $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -47,7 +48,7 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -58,25 +59,27 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(NumberField::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = (float) $data;
+            $this->value = (int) $data;
         }
 
         return $this->value;
     }
 
-
-    public function setValue(?float $value): void
+    public function setValue(?int $value): void
     {
         $this->value = $value;
     }
+
+
+
 }

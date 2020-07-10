@@ -6,19 +6,20 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Categories\CategoryImport;
-use Commercetools\Import\Models\Prices\PriceImport;
-use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
-use Commercetools\Import\Models\Products\ProductImport;
-use Commercetools\Import\Models\Producttypes\ProductTypeImport;
-use Commercetools\Import\Models\Productvariants\ProductVariantImport;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Categories\CategoryImport;
+use Models\Prices\PriceImport;
+use Models\Productdrafts\ProductDraftImport;
+use Models\Products\ProductImport;
+use Models\Producttypes\ProductTypeImport;
+use Models\Productvariants\ProductVariantImport;
 
 interface ImportResource extends JsonObject
 {
+
     public const FIELD_KEY = 'key';
 
     /**

@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importoperations;
+namespace Models\Importoperations;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Errors\ErrorObjectCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
+use Models\Errors\ErrorObjectCollection;
 
 interface ImportOperation extends JsonObject
 {
+
     public const FIELD_VERSION = 'version';
     public const FIELD_IMPORT_SINK_KEY = 'importSinkKey';
     public const FIELD_RESOURCE_KEY = 'resourceKey';
@@ -72,7 +73,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getRetryCount();
 
@@ -117,7 +118,7 @@ interface ImportOperation extends JsonObject
 
     public function setResourceVersion(?int $resourceVersion): void;
 
-    public function setRetryCount(?float $retryCount): void;
+    public function setRetryCount(?int $retryCount): void;
 
     public function setErrors(?ErrorObjectCollection $errors): void;
 

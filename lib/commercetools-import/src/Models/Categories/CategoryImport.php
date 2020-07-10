@@ -6,18 +6,19 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Categories;
+namespace Models\Categories;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\CategoryKeyReference;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Customfields\Custom;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\AssetCollection;
+use Models\Common\CategoryKeyReference;
+use Models\Common\ImportResource;
+use Models\Common\LocalizedString;
+use Models\Customfields\Custom;
 
 interface CategoryImport extends ImportResource
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';
     public const FIELD_DESCRIPTION = 'description';

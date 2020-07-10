@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface BooleanField extends CustomField
 {
+
     public const FIELD_VALUE = 'value';
 
     /**

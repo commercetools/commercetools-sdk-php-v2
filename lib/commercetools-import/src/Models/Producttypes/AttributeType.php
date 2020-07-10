@@ -6,10 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface AttributeType extends JsonObject
 {
@@ -20,4 +20,5 @@ interface AttributeType extends JsonObject
      * @return null|string
      */
     public function getName();
+
 }

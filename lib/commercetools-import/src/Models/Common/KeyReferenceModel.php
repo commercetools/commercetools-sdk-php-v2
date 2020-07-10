@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -32,7 +33,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
     /**
      * @psalm-var array<string, class-string<KeyReference> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'cart-discount' => CartDiscountKeyReferenceModel::class,
@@ -42,6 +43,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
        'customer-group' => CustomerGroupKeyReferenceModel::class,
        'price' => PriceKeyReferenceModel::class,
        'product' => ProductKeyReferenceModel::class,
+       'product-discount' => ProductDiscountKeyReferenceModel::class,
        'product-type' => ProductTypeKeyReferenceModel::class,
        'product-variant' => ProductVariantKeyReferenceModel::class,
        'shipping-method' => ShippingMethodKeyReferenceModel::class,
@@ -64,7 +66,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(KeyReference::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -83,7 +85,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE_ID);
+            $data = $this->raw(KeyReference::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +94,6 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
         return $this->typeId;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -107,24 +108,24 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = KeyReference::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = KeyReference::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<KeyReference> */
-        $type = KeyReferenceModel::class;
-        return $type;
+       /** @psalm-var class-string<KeyReference> */
+       $type = KeyReferenceModel::class;
+       return $type;
     }
 }

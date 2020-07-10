@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importrequests;
+namespace Models\Importrequests;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Prices\PriceImportCollection;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Prices\PriceImportCollection;
 
 /**
  * @internal
@@ -48,7 +49,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(ImportRequest::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -67,7 +68,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     {
         if (is_null($this->resources)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_RESOURCES);
+            $data = $this->raw(PriceImportRequest::FIELD_RESOURCES);
             if (is_null($data)) {
                 return null;
             }
@@ -77,9 +78,11 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
         return $this->resources;
     }
 
-
     public function setResources(?PriceImportCollection $resources): void
     {
         $this->resources = $resources;
     }
+
+
+
 }

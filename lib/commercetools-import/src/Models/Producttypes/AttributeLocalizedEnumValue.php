@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\LocalizedString;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\LocalizedString;
 
 interface AttributeLocalizedEnumValue extends JsonObject
 {
+
     public const FIELD_KEY = 'key';
     public const FIELD_LABEL = 'label';
 

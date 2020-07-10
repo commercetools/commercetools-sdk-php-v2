@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface AttributeReferenceType extends AttributeType
 {
+
     public const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**

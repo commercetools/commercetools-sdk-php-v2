@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -31,14 +32,14 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     protected $type;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $value;
 
 
     public function __construct(
         string $name = null,
-        float $value = null
+        int $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -56,7 +57,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(Attribute::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +74,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(Attribute::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -84,30 +85,32 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(NumberAttribute::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = (float) $data;
+            $this->value = (int) $data;
         }
 
         return $this->value;
     }
-
 
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setValue(?float $value): void
+    public function setValue(?int $value): void
     {
         $this->value = $value;
     }
+
+
+
 }

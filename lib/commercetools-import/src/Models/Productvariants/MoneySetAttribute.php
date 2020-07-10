@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\MoneyCollection;
 
 interface MoneySetAttribute extends Attribute
 {
+
     public const FIELD_VALUE = 'value';
 
     /**

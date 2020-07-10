@@ -6,21 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringModel;
 
 /**
  * @internal
  */
 final class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
 {
+
     /**
      * @var ?AttributeType
      */
@@ -80,6 +82,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
+
     }
 
     /**
@@ -89,7 +92,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(AttributeDefinition::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +110,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(AttributeDefinition::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +127,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LABEL);
+            $data = $this->raw(AttributeDefinition::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -142,7 +145,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->isRequired)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_REQUIRED);
+            $data = $this->raw(AttributeDefinition::FIELD_IS_REQUIRED);
             if (is_null($data)) {
                 return null;
             }
@@ -159,7 +162,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->attributeConstraint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE_CONSTRAINT);
+            $data = $this->raw(AttributeDefinition::FIELD_ATTRIBUTE_CONSTRAINT);
             if (is_null($data)) {
                 return null;
             }
@@ -176,7 +179,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->inputTip)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_INPUT_TIP);
+            $data = $this->raw(AttributeDefinition::FIELD_INPUT_TIP);
             if (is_null($data)) {
                 return null;
             }
@@ -194,7 +197,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->inputHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_INPUT_HINT);
+            $data = $this->raw(AttributeDefinition::FIELD_INPUT_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -211,7 +214,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->isSearchable)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_SEARCHABLE);
+            $data = $this->raw(AttributeDefinition::FIELD_IS_SEARCHABLE);
             if (is_null($data)) {
                 return null;
             }
@@ -220,7 +223,6 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
 
         return $this->isSearchable;
     }
-
 
     public function setType(?AttributeType $type): void
     {
@@ -261,4 +263,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     {
         $this->isSearchable = $isSearchable;
     }
+
+
+
 }

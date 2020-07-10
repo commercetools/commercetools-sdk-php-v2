@@ -6,28 +6,33 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ChannelKeyReference;
-use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
-use Commercetools\Import\Models\Customfields\Custom;
-use Commercetools\Import\Models\Customfields\CustomModel;
-use DateTimeImmutable;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
+use Models\Common\ChannelKeyReference;
+use Models\Common\ChannelKeyReferenceModel;
+use Models\Common\CustomerGroupKeyReference;
+use Models\Common\CustomerGroupKeyReferenceModel;
+use Models\Common\DiscountedPrice;
+use Models\Common\DiscountedPriceModel;
+use Models\Common\Money;
+use Models\Common\MoneyModel;
+use Models\Customfields\Custom;
+use Models\Customfields\CustomModel;
 
 /**
  * @internal
  */
 final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftImport
 {
+
     /**
      * @var ?Money
      */
@@ -63,6 +68,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      */
     protected $custom;
 
+    /**
+     * @var ?DiscountedPrice
+     */
+    protected $discounted;
+
 
     public function __construct(
         Money $value = null,
@@ -71,7 +81,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         ChannelKeyReference $channel = null,
         DateTimeImmutable $validFrom = null,
         DateTimeImmutable $validUntil = null,
-        Custom $custom = null
+        Custom $custom = null,
+        DiscountedPrice $discounted = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -80,6 +91,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
         $this->custom = $custom;
+        $this->discounted = $discounted;
+
     }
 
     /**
@@ -89,7 +102,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(PriceDraftImport::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -109,7 +122,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_COUNTRY);
+            $data = $this->raw(PriceDraftImport::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -128,7 +141,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(PriceDraftImport::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -148,7 +161,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CHANNEL);
+            $data = $this->raw(PriceDraftImport::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -166,7 +179,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALID_FROM);
+            $data = $this->raw(PriceDraftImport::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -187,7 +200,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALID_UNTIL);
+            $data = $this->raw(PriceDraftImport::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -210,7 +223,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
+            $data = $this->raw(PriceDraftImport::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -221,6 +234,25 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         return $this->custom;
     }
 
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted()
+    {
+        if (is_null($this->discounted)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PriceDraftImport::FIELD_DISCOUNTED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discounted = DiscountedPriceModel::of($data);
+        }
+
+        return $this->discounted;
+    }
 
     public function setValue(?Money $value): void
     {
@@ -257,6 +289,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->custom = $custom;
     }
 
+    public function setDiscounted(?DiscountedPrice $discounted): void
+    {
+        $this->discounted = $discounted;
+    }
+
 
     public function jsonSerialize()
     {
@@ -270,4 +307,5 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         }
         return (object) $data;
     }
+
 }

@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Productvariants\Attribute;
-use Commercetools\Import\Models\Productvariants\AttributeModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Productvariants\Attribute;
+use Models\Productvariants\AttributeModel;
 
 /**
  * @internal
@@ -54,7 +55,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CODE);
+            $data = $this->raw(ErrorObject::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +74,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +93,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         if (is_null($this->attribute)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTE);
+            $data = $this->raw(DuplicateAttributeValueError::FIELD_ATTRIBUTE);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +104,6 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
         return $this->attribute;
     }
 
-
     public function setMessage(?string $message): void
     {
         $this->message = $message;
@@ -113,4 +113,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         $this->attribute = $attribute;
     }
+
+
+
 }

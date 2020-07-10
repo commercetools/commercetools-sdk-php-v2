@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -45,7 +46,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(KeyReference::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +65,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     {
         if (is_null($this->typeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE_ID);
+            $data = $this->raw(KeyReference::FIELD_TYPE_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -74,9 +75,11 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
         return $this->typeId;
     }
 
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
+
+
+
 }

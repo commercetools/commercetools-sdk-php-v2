@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -47,7 +48,7 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +65,7 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
     {
         if (is_null($this->value)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(StringSetField::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -74,9 +75,11 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
         return $this->value;
     }
 
-
     public function setValue(?array $value): void
     {
         $this->value = $value;
     }
+
+
+
 }

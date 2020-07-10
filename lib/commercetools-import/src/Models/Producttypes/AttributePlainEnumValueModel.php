@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -36,6 +38,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -45,7 +48,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(AttributePlainEnumValue::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +65,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     {
         if (is_null($this->label)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LABEL);
+            $data = $this->raw(AttributePlainEnumValue::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +74,6 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
 
         return $this->label;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -82,4 +84,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     {
         $this->label = $label;
     }
+
+
+
 }

@@ -6,20 +6,20 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceBuilder;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use Models\Common\AssetCollection;
+use Models\Common\ImageCollection;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceBuilder;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductKeyReferenceBuilder;
 
 /**
  * @implements Builder<ProductVariantImport>

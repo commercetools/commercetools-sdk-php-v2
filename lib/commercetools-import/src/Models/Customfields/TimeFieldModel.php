@@ -6,14 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 /**
  * @internal
@@ -48,7 +50,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -65,7 +67,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     {
         if (is_null($this->value)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(TimeField::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -78,7 +80,6 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
 
         return $this->value;
     }
-
 
     public function setValue(?DateTimeImmutable $value): void
     {
@@ -94,4 +95,5 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
         }
         return (object) $data;
     }
+
 }

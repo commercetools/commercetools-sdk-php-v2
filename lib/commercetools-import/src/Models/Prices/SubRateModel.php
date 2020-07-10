@@ -6,36 +6,39 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Prices;
+namespace Models\Prices;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
+
     /**
      * @var ?string
      */
     protected $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $amount;
 
 
     public function __construct(
         string $name = null,
-        float $amount = null
+        int $amount = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
+
     }
 
     /**
@@ -45,7 +48,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(SubRate::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -56,30 +59,32 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getAmount()
     {
         if (is_null($this->amount)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_AMOUNT);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(SubRate::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->amount = (float) $data;
+            $this->amount = (int) $data;
         }
 
         return $this->amount;
     }
-
 
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setAmount(?float $amount): void
+    public function setAmount(?int $amount): void
     {
         $this->amount = $amount;
     }
+
+
+
 }

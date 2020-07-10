@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class ImageModel extends JsonObjectModel implements Image
 {
+
     /**
      * @var ?string
      */
@@ -43,6 +45,7 @@ final class ImageModel extends JsonObjectModel implements Image
         $this->url = $url;
         $this->dimensions = $dimensions;
         $this->label = $label;
+
     }
 
     /**
@@ -52,7 +55,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->url)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_URL);
+            $data = $this->raw(Image::FIELD_URL);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +72,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->dimensions)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DIMENSIONS);
+            $data = $this->raw(Image::FIELD_DIMENSIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +90,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         if (is_null($this->label)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LABEL);
+            $data = $this->raw(Image::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -96,7 +99,6 @@ final class ImageModel extends JsonObjectModel implements Image
 
         return $this->label;
     }
-
 
     public function setUrl(?string $url): void
     {
@@ -112,4 +114,7 @@ final class ImageModel extends JsonObjectModel implements Image
     {
         $this->label = $label;
     }
+
+
+
 }

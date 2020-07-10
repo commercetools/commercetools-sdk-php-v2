@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Prices;
+namespace Models\Prices;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class TaxRateModel extends JsonObjectModel implements TaxRate
 {
+
     /**
      * @var ?string
      */
@@ -30,7 +32,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     protected $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $amount;
 
@@ -58,7 +60,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     public function __construct(
         string $id = null,
         string $name = null,
-        float $amount = null,
+        int $amount = null,
         bool $includedInPrice = null,
         string $country = null,
         string $state = null,
@@ -71,6 +73,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
+
     }
 
     /**
@@ -80,7 +83,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ID);
+            $data = $this->raw(TaxRate::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +100,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(TaxRate::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -108,17 +111,17 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getAmount()
     {
         if (is_null($this->amount)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_AMOUNT);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TaxRate::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->amount = (float) $data;
+            $this->amount = (int) $data;
         }
 
         return $this->amount;
@@ -131,7 +134,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->includedInPrice)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_INCLUDED_IN_PRICE);
+            $data = $this->raw(TaxRate::FIELD_INCLUDED_IN_PRICE);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +153,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_COUNTRY);
+            $data = $this->raw(TaxRate::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -167,7 +170,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->state)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_STATE);
+            $data = $this->raw(TaxRate::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -184,7 +187,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         if (is_null($this->subRates)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_SUB_RATES);
+            $data = $this->raw(TaxRate::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;
             }
@@ -193,7 +196,6 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
 
         return $this->subRates;
     }
-
 
     public function setId(?string $id): void
     {
@@ -205,7 +207,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         $this->name = $name;
     }
 
-    public function setAmount(?float $amount): void
+    public function setAmount(?int $amount): void
     {
         $this->amount = $amount;
     }
@@ -229,4 +231,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     {
         $this->subRates = $subRates;
     }
+
+
+
 }

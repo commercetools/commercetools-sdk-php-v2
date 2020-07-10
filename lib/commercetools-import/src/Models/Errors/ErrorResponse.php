@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface ErrorResponse extends JsonObject
 {
+
     public const FIELD_STATUS_CODE = 'statusCode';
     public const FIELD_MESSAGE = 'message';
     public const FIELD_ERROR = 'error';

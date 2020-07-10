@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class AssetSourceModel extends JsonObjectModel implements AssetSource
 {
+
     /**
      * @var ?string
      */
@@ -50,6 +52,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
         $this->key = $key;
         $this->dimensions = $dimensions;
         $this->contentType = $contentType;
+
     }
 
     /**
@@ -59,7 +62,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->uri)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_URI);
+            $data = $this->raw(AssetSource::FIELD_URI);
             if (is_null($data)) {
                 return null;
             }
@@ -76,7 +79,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(AssetSource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +96,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->dimensions)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DIMENSIONS);
+            $data = $this->raw(AssetSource::FIELD_DIMENSIONS);
             if (is_null($data)) {
                 return null;
             }
@@ -111,7 +114,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         if (is_null($this->contentType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CONTENT_TYPE);
+            $data = $this->raw(AssetSource::FIELD_CONTENT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -120,7 +123,6 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
 
         return $this->contentType;
     }
-
 
     public function setUri(?string $uri): void
     {
@@ -141,4 +143,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     {
         $this->contentType = $contentType;
     }
+
+
+
 }

@@ -6,23 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Categories;
+namespace Models\Categories;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\CategoryKeyReference;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceBuilder;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceBuilder;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringBuilder;
-use Commercetools\Import\Models\Customfields\Custom;
-use Commercetools\Import\Models\Customfields\CustomBuilder;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use Models\Common\AssetCollection;
+use Models\Common\CategoryKeyReference;
+use Models\Common\CategoryKeyReferenceBuilder;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceBuilder;
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringBuilder;
+use Models\Customfields\Custom;
+use Models\Customfields\CustomBuilder;
 
 /**
  * @implements Builder<CategoryImport>

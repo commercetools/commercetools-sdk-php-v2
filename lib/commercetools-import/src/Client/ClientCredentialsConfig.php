@@ -7,10 +7,10 @@ declare(strict_types=1);
  */
 
 
-namespace Commercetools\Import\Client;
+namespace Client;
 
-use Commercetools\Client\ClientCredentials;
-use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
+use Shared\Client\ClientCredentials;
+use Shared\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class ClientCredentialsConfig extends BaseAuthConfig implements BaseClientCredentialsConfig
 {

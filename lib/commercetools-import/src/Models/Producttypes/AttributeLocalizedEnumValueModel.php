@@ -6,21 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringModel;
 
 /**
  * @internal
  */
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -38,6 +40,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -47,7 +50,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +67,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LABEL);
+            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -75,7 +78,6 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
         return $this->label;
     }
 
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
@@ -85,4 +87,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     {
         $this->label = $label;
     }
+
+
+
 }

@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
 
 /**
@@ -21,12 +21,12 @@ use stdClass;
 final class NumberFieldBuilder implements Builder
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     private $value;
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getValue()
     {
@@ -36,7 +36,7 @@ final class NumberFieldBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?float $value)
+    public function withValue(?int $value)
     {
         $this->value = $value;
 

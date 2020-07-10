@@ -6,20 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-use Commercetools\Import\Models\Common\StateKeyReference;
-use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
-use Commercetools\Import\Models\Products\SearchKeywords;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\CategoryKeyReferenceCollection;
+use Models\Common\ImportResource;
+use Models\Common\LocalizedString;
+use Models\Common\ProductTypeKeyReference;
+use Models\Common\StateKeyReference;
+use Models\Common\TaxCategoryKeyReference;
+use Models\Products\SearchKeywords;
 
 interface ProductDraftImport extends ImportResource
 {
+
     public const FIELD_PRODUCT_TYPE = 'productType';
     public const FIELD_NAME = 'name';
     public const FIELD_SLUG = 'slug';

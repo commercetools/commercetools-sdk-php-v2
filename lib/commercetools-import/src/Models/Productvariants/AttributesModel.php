@@ -6,23 +6,27 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class AttributesModel extends JsonObjectModel implements Attributes
 {
+
+
+
     public function __construct(
     ) {
-    }
 
+    }
 
 
 
@@ -42,4 +46,6 @@ final class AttributesModel extends JsonObjectModel implements Attributes
 
         return $data;
     }
+
+
 }

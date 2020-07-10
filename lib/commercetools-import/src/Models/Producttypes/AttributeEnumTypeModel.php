@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -45,7 +46,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(AttributeType::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +63,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     {
         if (is_null($this->values)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_VALUES);
+            $data = $this->raw(AttributeEnumType::FIELD_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -72,9 +73,11 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
         return $this->values;
     }
 
-
     public function setValues(?AttributePlainEnumValueCollection $values): void
     {
         $this->values = $values;
     }
+
+
+
 }

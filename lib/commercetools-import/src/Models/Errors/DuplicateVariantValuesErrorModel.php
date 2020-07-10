@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -52,7 +53,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CODE);
+            $data = $this->raw(ErrorObject::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +72,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +91,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         if (is_null($this->variantValues)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_VARIANT_VALUES);
+            $data = $this->raw(DuplicateVariantValuesError::FIELD_VARIANT_VALUES);
             if (is_null($data)) {
                 return null;
             }
@@ -101,7 +102,6 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
         return $this->variantValues;
     }
 
-
     public function setMessage(?string $message): void
     {
         $this->message = $message;
@@ -111,4 +111,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     {
         $this->variantValues = $variantValues;
     }
+
+
+
 }

@@ -6,12 +6,12 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client\Resource;
+namespace Client\Resource;
 
-use Commercetools\Client\ApiResource;
-use Commercetools\Import\Models\Importrequests\ProductVariantPatchRequest;
+use Shared\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Models\Importrequests\ProductVariantPatchRequest;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,8 +21,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey exte
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
-    {
+    public function __construct(array $args = [], ClientInterface $client = null) {
         parent::__construct('/{projectKey}/product-variant-patches/importSinkKey={importSinkKey}', $args, $client);
     }
 
@@ -43,4 +42,5 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey exte
 
         return new ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
+
 }

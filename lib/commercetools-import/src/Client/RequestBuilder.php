@@ -7,13 +7,13 @@ declare(strict_types=1);
  */
 
 
-namespace Commercetools\Import\Client;
+namespace Client;
 
-use Commercetools\Client\ApiResource;
-use Commercetools\Import\Client\Resource\ResourceByProjectKey;
+use Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
+use Shared\Client\ApiResource;
 
-class ImportRequestBuilder extends ApiResource
+class RequestBuilder extends ApiResource
 {
     /**
      * @psalm-param array<string, string> $args
@@ -32,4 +32,5 @@ class ImportRequestBuilder extends ApiResource
 
         return new ResourceByProjectKey($args, $this->getClient());
     }
+
 }

@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsinks;
+namespace Models\Importsinks;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface ImportSinkPagedResponse extends JsonObject
 {
+
     public const FIELD_LIMIT = 'limit';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_COUNT = 'count';
@@ -21,21 +22,21 @@ interface ImportSinkPagedResponse extends JsonObject
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLimit();
 
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getOffset();
 
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getCount();
 
@@ -46,11 +47,11 @@ interface ImportSinkPagedResponse extends JsonObject
      */
     public function getResults();
 
-    public function setLimit(?float $limit): void;
+    public function setLimit(?int $limit): void;
 
-    public function setOffset(?float $offset): void;
+    public function setOffset(?int $offset): void;
 
-    public function setCount(?float $count): void;
+    public function setCount(?int $count): void;
 
     public function setResults(?ImportSinkCollection $results): void;
 }

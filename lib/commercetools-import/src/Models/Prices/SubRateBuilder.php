@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Prices;
+namespace Models\Prices;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
 
 /**
@@ -26,7 +26,7 @@ final class SubRateBuilder implements Builder
     private $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $amount;
 
@@ -39,7 +39,7 @@ final class SubRateBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getAmount()
     {
@@ -59,7 +59,7 @@ final class SubRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?float $amount)
+    public function withAmount(?int $amount)
     {
         $this->amount = $amount;
 

@@ -6,27 +6,28 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface AssetDimensions extends JsonObject
 {
+
     public const FIELD_W = 'w';
     public const FIELD_H = 'h';
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getW();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getH();
 
-    public function setW(?float $w): void;
+    public function setW(?int $w): void;
 
-    public function setH(?float $h): void;
+    public function setH(?int $h): void;
 }

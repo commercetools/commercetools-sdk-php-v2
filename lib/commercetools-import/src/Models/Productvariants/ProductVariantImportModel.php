@@ -6,25 +6,27 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceModel;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\AssetCollection;
+use Models\Common\ImageCollection;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceModel;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductKeyReferenceModel;
 
 /**
  * @internal
  */
 final class ProductVariantImportModel extends JsonObjectModel implements ProductVariantImport
 {
+
     /**
      * @var ?string
      */
@@ -77,6 +79,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->images = $images;
         $this->assets = $assets;
         $this->product = $product;
+
     }
 
     /**
@@ -86,7 +89,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportResource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -105,7 +108,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
+            $data = $this->raw(ProductVariantImport::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -124,7 +127,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->isMasterVariant)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_MASTER_VARIANT);
+            $data = $this->raw(ProductVariantImport::FIELD_IS_MASTER_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -146,7 +149,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            $data = $this->raw(ProductVariantImport::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -165,7 +168,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->images)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_IMAGES);
+            $data = $this->raw(ProductVariantImport::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -184,7 +187,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ASSETS);
+            $data = $this->raw(ProductVariantImport::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -206,7 +209,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT);
+            $data = $this->raw(ProductVariantImport::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -216,7 +219,6 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
         return $this->product;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -252,4 +254,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     {
         $this->product = $product;
     }
+
+
+
 }

@@ -6,26 +6,29 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Prices;
+namespace Models\Prices;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\ChannelKeyReference;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
+use Models\Common\ChannelKeyReference;
+use Models\Common\CustomerGroupKeyReference;
+use Models\Common\DiscountedPrice;
+use Models\Common\ImportResource;
+use Models\Common\Money;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductVariantKeyReference;
 
 interface PriceImport extends ImportResource
 {
+
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CHANNEL = 'channel';
+    public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_PRODUCT = 'product';
 
@@ -79,6 +82,13 @@ interface PriceImport extends ImportResource
     public function getChannel();
 
     /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted();
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -109,6 +119,8 @@ interface PriceImport extends ImportResource
     public function setCustomerGroup(?CustomerGroupKeyReference $customerGroup): void;
 
     public function setChannel(?ChannelKeyReference $channel): void;
+
+    public function setDiscounted(?DiscountedPrice $discounted): void;
 
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void;
 

@@ -6,17 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ProductKeyReference;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\AssetCollection;
+use Models\Common\ImageCollection;
+use Models\Common\ImportResource;
+use Models\Common\ProductKeyReference;
 
 interface ProductVariantImport extends ImportResource
 {
+
     public const FIELD_SKU = 'sku';
     public const FIELD_IS_MASTER_VARIANT = 'isMasterVariant';
     public const FIELD_ATTRIBUTES = 'attributes';

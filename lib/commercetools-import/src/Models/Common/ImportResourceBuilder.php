@@ -6,26 +6,26 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Categories\CategoryImport;
-use Commercetools\Import\Models\Categories\CategoryImportBuilder;
-use Commercetools\Import\Models\Prices\PriceImport;
-use Commercetools\Import\Models\Prices\PriceImportBuilder;
-use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
-use Commercetools\Import\Models\Productdrafts\ProductDraftImportBuilder;
-use Commercetools\Import\Models\Products\ProductImport;
-use Commercetools\Import\Models\Products\ProductImportBuilder;
-use Commercetools\Import\Models\Producttypes\ProductTypeImport;
-use Commercetools\Import\Models\Producttypes\ProductTypeImportBuilder;
-use Commercetools\Import\Models\Productvariants\ProductVariantImport;
-use Commercetools\Import\Models\Productvariants\ProductVariantImportBuilder;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use Models\Categories\CategoryImport;
+use Models\Categories\CategoryImportBuilder;
+use Models\Prices\PriceImport;
+use Models\Prices\PriceImportBuilder;
+use Models\Productdrafts\ProductDraftImport;
+use Models\Productdrafts\ProductDraftImportBuilder;
+use Models\Products\ProductImport;
+use Models\Products\ProductImportBuilder;
+use Models\Producttypes\ProductTypeImport;
+use Models\Producttypes\ProductTypeImportBuilder;
+use Models\Productvariants\ProductVariantImport;
+use Models\Productvariants\ProductVariantImportBuilder;
 
 /**
  * @implements Builder<ImportResource>

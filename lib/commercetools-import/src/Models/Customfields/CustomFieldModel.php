@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -27,7 +28,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
 
     /**
      * @psalm-var array<string, class-string<CustomField> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'Boolean' => BooleanFieldModel::class,
@@ -68,7 +69,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -81,31 +82,30 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
 
 
 
-
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<CustomField>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = CustomField::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = CustomField::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<CustomField> */
-        $type = CustomFieldModel::class;
-        return $type;
+       /** @psalm-var class-string<CustomField> */
+       $type = CustomFieldModel::class;
+       return $type;
     }
 }

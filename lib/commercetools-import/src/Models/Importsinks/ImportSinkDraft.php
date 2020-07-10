@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsinks;
+namespace Models\Importsinks;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface ImportSinkDraft extends JsonObject
 {
+
     public const FIELD_VERSION = 'version';
     public const FIELD_KEY = 'key';
     public const FIELD_RESOURCE_TYPE = 'resourceType';

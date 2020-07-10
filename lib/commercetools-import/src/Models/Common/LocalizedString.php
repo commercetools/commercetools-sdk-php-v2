@@ -6,10 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\CMap;
+use Shared\Base\Collection;
 
-interface LocalizedString extends CMap
+interface LocalizedString extends Collection
 {
 }

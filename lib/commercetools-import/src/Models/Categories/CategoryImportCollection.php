@@ -6,10 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Categories;
+namespace Models\Categories;
 
-use Commercetools\Base\MapperSequence;
-use Commercetools\Exception\InvalidArgumentException;
+use Shared\Base\MapperSequence;
+use Shared\Exception\InvalidArgumentException;
 use stdClass;
 
 /**

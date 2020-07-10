@@ -6,21 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\TypeKeyReference;
-use Commercetools\Import\Models\Common\TypeKeyReferenceModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\TypeKeyReference;
+use Models\Common\TypeKeyReferenceModel;
 
 /**
  * @internal
  */
 final class CustomModel extends JsonObjectModel implements Custom
 {
+
     /**
      * @var ?TypeKeyReference
      */
@@ -38,6 +40,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     ) {
         $this->type = $type;
         $this->fields = $fields;
+
     }
 
     /**
@@ -49,7 +52,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     {
         if (is_null($this->type)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(Custom::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -69,7 +72,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     {
         if (is_null($this->fields)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_FIELDS);
+            $data = $this->raw(Custom::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
@@ -80,7 +83,6 @@ final class CustomModel extends JsonObjectModel implements Custom
         return $this->fields;
     }
 
-
     public function setType(?TypeKeyReference $type): void
     {
         $this->type = $type;
@@ -90,4 +92,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     {
         $this->fields = $fields;
     }
+
+
+
 }

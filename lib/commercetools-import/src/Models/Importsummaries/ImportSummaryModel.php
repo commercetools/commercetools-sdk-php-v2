@@ -6,36 +6,39 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsummaries;
+namespace Models\Importsummaries;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
 {
+
     /**
      * @var ?OperationStates
      */
     protected $states;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $total;
 
 
     public function __construct(
         OperationStates $states = null,
-        float $total = null
+        int $total = null
     ) {
         $this->states = $states;
         $this->total = $total;
+
     }
 
     /**
@@ -47,7 +50,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     {
         if (is_null($this->states)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_STATES);
+            $data = $this->raw(ImportSummary::FIELD_STATES);
             if (is_null($data)) {
                 return null;
             }
@@ -61,30 +64,32 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getTotal()
     {
         if (is_null($this->total)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_TOTAL);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportSummary::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
-            $this->total = (float) $data;
+            $this->total = (int) $data;
         }
 
         return $this->total;
     }
-
 
     public function setStates(?OperationStates $states): void
     {
         $this->states = $states;
     }
 
-    public function setTotal(?float $total): void
+    public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
+
+
+
 }

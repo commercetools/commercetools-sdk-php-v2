@@ -6,32 +6,34 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceModel;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringModel;
-use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
-use Commercetools\Import\Models\Common\StateKeyReference;
-use Commercetools\Import\Models\Common\StateKeyReferenceModel;
-use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
-use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
-use Commercetools\Import\Models\Products\SearchKeywords;
-use Commercetools\Import\Models\Products\SearchKeywordsModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\CategoryKeyReferenceCollection;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceModel;
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringModel;
+use Models\Common\ProductTypeKeyReference;
+use Models\Common\ProductTypeKeyReferenceModel;
+use Models\Common\StateKeyReference;
+use Models\Common\StateKeyReferenceModel;
+use Models\Common\TaxCategoryKeyReference;
+use Models\Common\TaxCategoryKeyReferenceModel;
+use Models\Products\SearchKeywords;
+use Models\Products\SearchKeywordsModel;
 
 /**
  * @internal
  */
 final class ProductDraftImportModel extends JsonObjectModel implements ProductDraftImport
 {
+
     /**
      * @var ?string
      */
@@ -133,6 +135,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         $this->taxCategory = $taxCategory;
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
+
     }
 
     /**
@@ -142,7 +145,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportResource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -164,7 +167,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT_TYPE);
+            $data = $this->raw(ProductDraftImport::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -182,7 +185,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(ProductDraftImport::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -203,7 +206,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SLUG);
+            $data = $this->raw(ProductDraftImport::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -223,7 +226,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DESCRIPTION);
+            $data = $this->raw(ProductDraftImport::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -246,7 +249,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->categories)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_CATEGORIES);
+            $data = $this->raw(ProductDraftImport::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
             }
@@ -263,7 +266,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->metaTitle)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_TITLE);
+            $data = $this->raw(ProductDraftImport::FIELD_META_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -281,7 +284,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_DESCRIPTION);
+            $data = $this->raw(ProductDraftImport::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -299,7 +302,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_KEYWORDS);
+            $data = $this->raw(ProductDraftImport::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -320,7 +323,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->masterVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_MASTER_VARIANT);
+            $data = $this->raw(ProductDraftImport::FIELD_MASTER_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -340,7 +343,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->variants)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_VARIANTS);
+            $data = $this->raw(ProductDraftImport::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
@@ -362,7 +365,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->taxCategory)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TAX_CATEGORY);
+            $data = $this->raw(ProductDraftImport::FIELD_TAX_CATEGORY);
             if (is_null($data)) {
                 return null;
             }
@@ -380,7 +383,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->searchKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SEARCH_KEYWORDS);
+            $data = $this->raw(ProductDraftImport::FIELD_SEARCH_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -403,7 +406,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         if (is_null($this->state)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_STATE);
+            $data = $this->raw(ProductDraftImport::FIELD_STATE);
             if (is_null($data)) {
                 return null;
             }
@@ -413,7 +416,6 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
 
         return $this->state;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -484,4 +486,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     {
         $this->state = $state;
     }
+
+
+
 }

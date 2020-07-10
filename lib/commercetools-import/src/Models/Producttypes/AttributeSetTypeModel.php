@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -45,7 +46,7 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(AttributeType::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +63,7 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     {
         if (is_null($this->elementType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ELEMENT_TYPE);
+            $data = $this->raw(AttributeSetType::FIELD_ELEMENT_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,9 +74,11 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
         return $this->elementType;
     }
 
-
     public function setElementType(?AttributeType $elementType): void
     {
         $this->elementType = $elementType;
     }
+
+
+
 }

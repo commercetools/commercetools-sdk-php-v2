@@ -6,28 +6,30 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Categories;
+namespace Models\Categories;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\CategoryKeyReference;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceModel;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceModel;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringModel;
-use Commercetools\Import\Models\Customfields\Custom;
-use Commercetools\Import\Models\Customfields\CustomModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\AssetCollection;
+use Models\Common\CategoryKeyReference;
+use Models\Common\CategoryKeyReferenceModel;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceModel;
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringModel;
+use Models\Customfields\Custom;
+use Models\Customfields\CustomModel;
 
 /**
  * @internal
  */
 final class CategoryImportModel extends JsonObjectModel implements CategoryImport
 {
+
     /**
      * @var ?string
      */
@@ -115,6 +117,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->metaKeywords = $metaKeywords;
         $this->assets = $assets;
         $this->custom = $custom;
+
     }
 
     /**
@@ -124,7 +127,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportResource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -143,7 +146,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(CategoryImport::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -164,7 +167,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->slug)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SLUG);
+            $data = $this->raw(CategoryImport::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
@@ -184,7 +187,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DESCRIPTION);
+            $data = $this->raw(CategoryImport::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -207,7 +210,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->parent)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PARENT);
+            $data = $this->raw(CategoryImport::FIELD_PARENT);
             if (is_null($data)) {
                 return null;
             }
@@ -227,7 +230,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->orderHint)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ORDER_HINT);
+            $data = $this->raw(CategoryImport::FIELD_ORDER_HINT);
             if (is_null($data)) {
                 return null;
             }
@@ -246,7 +249,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->externalId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_ID);
+            $data = $this->raw(CategoryImport::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -265,7 +268,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->metaTitle)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_TITLE);
+            $data = $this->raw(CategoryImport::FIELD_META_TITLE);
             if (is_null($data)) {
                 return null;
             }
@@ -285,7 +288,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_DESCRIPTION);
+            $data = $this->raw(CategoryImport::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -305,7 +308,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_META_KEYWORDS);
+            $data = $this->raw(CategoryImport::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
@@ -323,7 +326,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ASSETS);
+            $data = $this->raw(CategoryImport::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -342,7 +345,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
+            $data = $this->raw(CategoryImport::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
@@ -352,7 +355,6 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
 
         return $this->custom;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -413,4 +415,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     {
         $this->custom = $custom;
     }
+
+
+
 }

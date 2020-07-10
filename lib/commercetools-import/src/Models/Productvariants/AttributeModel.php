@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -32,7 +33,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 
     /**
      * @psalm-var array<string, class-string<Attribute> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'boolean' => BooleanAttributeModel::class,
@@ -77,7 +78,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(Attribute::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -94,7 +95,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(Attribute::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +104,6 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 
         return $this->type;
     }
-
 
     public function setName(?string $name): void
     {
@@ -118,24 +118,24 @@ final class AttributeModel extends JsonObjectModel implements Attribute
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = Attribute::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = Attribute::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<Attribute> */
-        $type = AttributeModel::class;
-        return $type;
+       /** @psalm-var class-string<Attribute> */
+       $type = AttributeModel::class;
+       return $type;
     }
 }

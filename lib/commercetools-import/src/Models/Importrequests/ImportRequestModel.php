@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importrequests;
+namespace Models\Importrequests;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -27,7 +28,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 
     /**
      * @psalm-var array<string, class-string<ImportRequest> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'category' => CategoryImportRequestModel::class,
@@ -53,7 +54,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(ImportRequest::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -66,31 +67,30 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 
 
 
-
     /**
      * @psalm-param stdClass|array<string, mixed> $value
      * @psalm-return class-string<ImportRequest>
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ImportRequest::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ImportRequest::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ImportRequest> */
-        $type = ImportRequestModel::class;
-        return $type;
+       /** @psalm-var class-string<ImportRequest> */
+       $type = ImportRequestModel::class;
+       return $type;
     }
 }

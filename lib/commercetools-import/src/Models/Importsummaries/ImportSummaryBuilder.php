@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsummaries;
+namespace Models\Importsummaries;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
 
 /**
@@ -26,7 +26,7 @@ final class ImportSummaryBuilder implements Builder
     private $states;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $total;
 
@@ -43,7 +43,7 @@ final class ImportSummaryBuilder implements Builder
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getTotal()
     {
@@ -63,7 +63,7 @@ final class ImportSummaryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotal(?float $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
 

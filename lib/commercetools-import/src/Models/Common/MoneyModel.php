@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class MoneyModel extends JsonObjectModel implements Money
 {
+
     /**
      * @var ?int
      */
@@ -36,6 +38,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+
     }
 
     /**
@@ -45,7 +48,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         if (is_null($this->centAmount)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_CENT_AMOUNT);
+            $data = $this->raw(Money::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
@@ -64,7 +67,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         if (is_null($this->currencyCode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CURRENCY_CODE);
+            $data = $this->raw(Money::FIELD_CURRENCY_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +76,6 @@ final class MoneyModel extends JsonObjectModel implements Money
 
         return $this->currencyCode;
     }
-
 
     public function setCentAmount(?int $centAmount): void
     {
@@ -84,4 +86,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     {
         $this->currencyCode = $currencyCode;
     }
+
+
+
 }

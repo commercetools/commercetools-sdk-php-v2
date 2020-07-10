@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedStringCollection;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\LocalizedStringCollection;
 
 /**
  * @internal
@@ -57,7 +58,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(Attribute::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -74,7 +75,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(Attribute::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +92,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     {
         if (is_null($this->value)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(LocalizableTextSetAttribute::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +101,6 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
 
         return $this->value;
     }
-
 
     public function setName(?string $name): void
     {
@@ -111,4 +111,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     {
         $this->value = $value;
     }
+
+
+
 }

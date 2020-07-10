@@ -6,13 +6,13 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
 
 /**
@@ -21,17 +21,17 @@ use stdClass;
 final class AssetDimensionsBuilder implements Builder
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     private $w;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $h;
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getW()
     {
@@ -39,7 +39,7 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getH()
     {
@@ -49,7 +49,7 @@ final class AssetDimensionsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withW(?float $w)
+    public function withW(?int $w)
     {
         $this->w = $w;
 
@@ -59,7 +59,7 @@ final class AssetDimensionsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withH(?float $h)
+    public function withH(?int $h)
     {
         $this->h = $h;
 

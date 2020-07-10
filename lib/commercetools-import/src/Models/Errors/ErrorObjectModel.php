@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -32,7 +33,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 
     /**
      * @psalm-var array<string, class-string<ErrorObject> >
-     *
+     * 
      */
     private static $discriminatorClasses = [
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
@@ -72,7 +73,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CODE);
+            $data = $this->raw(ErrorObject::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -91,7 +92,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -100,7 +101,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 
         return $this->message;
     }
-
 
     public function setMessage(?string $message): void
     {
@@ -115,24 +115,24 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
      */
     public static function resolveDiscriminatorClass($value): string
     {
-        $fieldName = ErrorObject::DISCRIMINATOR_FIELD;
-        if (is_object($value) && isset($value->$fieldName)) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+       $fieldName = ErrorObject::DISCRIMINATOR_FIELD;
+       if (is_object($value) && isset($value->$fieldName)) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value->$fieldName;
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        if (is_array($value) && isset($value[$fieldName])) {
-            /** @psalm-var string $discriminatorValue */
-            $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+           }
+       }
+       if (is_array($value) && isset($value[$fieldName])) {
+           /** @psalm-var string $discriminatorValue */
+           $discriminatorValue = $value[$fieldName];
+           if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
+           }
+       }
 
-        /** @psalm-var class-string<ErrorObject> */
-        $type = ErrorObjectModel::class;
-        return $type;
+       /** @psalm-var class-string<ErrorObject> */
+       $type = ErrorObjectModel::class;
+       return $type;
     }
 }

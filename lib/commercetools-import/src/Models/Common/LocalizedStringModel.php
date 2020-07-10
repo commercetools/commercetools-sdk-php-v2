@@ -6,9 +6,9 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\MapperMap;
+use Shared\Base\MapperMap;
 
 /**
  * @internal
@@ -24,8 +24,8 @@ final class LocalizedStringModel extends MapperMap implements LocalizedString
             /**
              * @psalm-return ?mixed
              */
-            function (string $key) {
-                return $this->get($key);
+            function(string $key) {
+               return $this->get($key);
             };
     }
 }

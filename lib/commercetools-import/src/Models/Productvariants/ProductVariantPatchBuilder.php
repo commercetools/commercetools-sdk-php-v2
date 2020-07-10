@@ -6,18 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
-use Commercetools\Import\Models\Common\ProductVariantKeyReference;
-use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductKeyReferenceBuilder;
+use Models\Common\ProductVariantKeyReference;
+use Models\Common\ProductVariantKeyReferenceBuilder;
 
 /**
  * @implements Builder<ProductVariantPatch>

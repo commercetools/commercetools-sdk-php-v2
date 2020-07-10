@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\ImportResource;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\ImportResource;
 
 interface ProductTypeImport extends ImportResource
 {
+
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_ATTRIBUTES = 'attributes';

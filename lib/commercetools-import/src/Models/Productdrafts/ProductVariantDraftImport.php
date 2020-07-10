@@ -6,16 +6,17 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\AssetCollection;
+use Models\Common\ImageCollection;
+use Models\Productvariants\AttributeCollection;
 
 interface ProductVariantDraftImport extends JsonObject
 {
+
     public const FIELD_SKU = 'sku';
     public const FIELD_KEY = 'key';
     public const FIELD_PRICES = 'prices';

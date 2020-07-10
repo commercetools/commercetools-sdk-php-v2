@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductVariantKeyReference;
 
 interface ProductVariantPatch extends JsonObject
 {
+
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_PRODUCT = 'product';
     public const FIELD_ATTRIBUTES = 'attributes';

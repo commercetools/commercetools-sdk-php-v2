@@ -6,27 +6,27 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceBuilder;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringBuilder;
-use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
-use Commercetools\Import\Models\Common\StateKeyReference;
-use Commercetools\Import\Models\Common\StateKeyReferenceBuilder;
-use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
-use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceBuilder;
-use Commercetools\Import\Models\Products\SearchKeywords;
-use Commercetools\Import\Models\Products\SearchKeywordsBuilder;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use Models\Common\CategoryKeyReferenceCollection;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceBuilder;
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringBuilder;
+use Models\Common\ProductTypeKeyReference;
+use Models\Common\ProductTypeKeyReferenceBuilder;
+use Models\Common\StateKeyReference;
+use Models\Common\StateKeyReferenceBuilder;
+use Models\Common\TaxCategoryKeyReference;
+use Models\Common\TaxCategoryKeyReferenceBuilder;
+use Models\Products\SearchKeywords;
+use Models\Products\SearchKeywordsBuilder;
 
 /**
  * @implements Builder<ProductDraftImport>

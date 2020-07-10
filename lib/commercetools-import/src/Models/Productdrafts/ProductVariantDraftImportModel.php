@@ -6,22 +6,24 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\AssetCollection;
+use Models\Common\ImageCollection;
+use Models\Productvariants\AttributeCollection;
 
 /**
  * @internal
  */
 final class ProductVariantDraftImportModel extends JsonObjectModel implements ProductVariantDraftImport
 {
+
     /**
      * @var ?string
      */
@@ -67,6 +69,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
         $this->attributes = $attributes;
         $this->images = $images;
         $this->assets = $assets;
+
     }
 
     /**
@@ -76,7 +79,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -93,7 +96,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -110,7 +113,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->prices)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_PRICES);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +130,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -144,7 +147,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->images)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_IMAGES);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
             }
@@ -161,7 +164,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ASSETS);
+            $data = $this->raw(ProductVariantDraftImport::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
@@ -170,7 +173,6 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
 
         return $this->assets;
     }
-
 
     public function setSku(?string $sku): void
     {
@@ -201,4 +203,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     {
         $this->assets = $assets;
     }
+
+
+
 }

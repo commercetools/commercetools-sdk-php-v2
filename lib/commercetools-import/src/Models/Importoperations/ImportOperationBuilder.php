@@ -6,16 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importoperations;
+namespace Models\Importoperations;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Errors\ErrorObjectCollection;
-use DateTimeImmutable;
+use Shared\Base\Builder;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+use DateTimeImmutable;
+use Models\Errors\ErrorObjectCollection;
 
 /**
  * @implements Builder<ImportOperation>
@@ -53,7 +53,7 @@ final class ImportOperationBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $retryCount;
 
@@ -140,7 +140,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getRetryCount()
     {
@@ -251,7 +251,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRetryCount(?float $retryCount)
+    public function withRetryCount(?int $retryCount)
     {
         $this->retryCount = $retryCount;
 

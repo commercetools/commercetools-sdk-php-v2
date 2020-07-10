@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 {
+
     /**
      * @var ?int
      */
@@ -57,6 +59,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
         $this->error = $error;
         $this->error_description = $error_description;
         $this->errors = $errors;
+
     }
 
     /**
@@ -68,7 +71,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         if (is_null($this->statusCode)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_STATUS_CODE);
+            $data = $this->raw(ErrorResponse::FIELD_STATUS_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -87,7 +90,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorResponse::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -107,7 +110,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         if (is_null($this->error)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ERROR);
+            $data = $this->raw(ErrorResponse::FIELD_ERROR);
             if (is_null($data)) {
                 return null;
             }
@@ -128,7 +131,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         if (is_null($this->error_description)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ERROR_DESCRIPTION);
+            $data = $this->raw(ErrorResponse::FIELD_ERROR_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -147,7 +150,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         if (is_null($this->errors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ERRORS);
+            $data = $this->raw(ErrorResponse::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
             }
@@ -156,7 +159,6 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 
         return $this->errors;
     }
-
 
     public function setStatusCode(?int $statusCode): void
     {
@@ -182,4 +184,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     {
         $this->errors = $errors;
     }
+
+
+
 }

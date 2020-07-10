@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Productvariants\AttributeCollection;
 
 /**
  * @internal
@@ -53,7 +54,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CODE);
+            $data = $this->raw(ErrorObject::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -72,7 +73,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +90,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            $data = $this->raw(DuplicateAttributeValuesError::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -98,7 +99,6 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
 
         return $this->attributes;
     }
-
 
     public function setMessage(?string $message): void
     {
@@ -109,4 +109,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

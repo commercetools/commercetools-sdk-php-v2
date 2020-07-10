@@ -6,12 +6,12 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client\Resource;
+namespace Client\Resource;
 
-use Commercetools\Client\ApiResource;
-use Commercetools\Import\Models\Importrequests\ProductDraftImportRequest;
+use Shared\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Models\Importrequests\ProductDraftImportRequest;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,8 +21,7 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey extends ApiR
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
-    {
+    public function __construct(array $args = [], ClientInterface $client = null) {
         parent::__construct('/{projectKey}/product-drafts/importSinkKey={importSinkKey}', $args, $client);
     }
 
@@ -52,4 +51,5 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey extends ApiR
 
         return new ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyPost($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
+
 }

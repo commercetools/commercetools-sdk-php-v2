@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsummaries;
+namespace Models\Importsummaries;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface ImportSummary extends JsonObject
 {
+
     public const FIELD_STATES = 'states';
     public const FIELD_TOTAL = 'total';
 
@@ -26,11 +27,11 @@ interface ImportSummary extends JsonObject
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getTotal();
 
     public function setStates(?OperationStates $states): void;
 
-    public function setTotal(?float $total): void;
+    public function setTotal(?int $total): void;
 }

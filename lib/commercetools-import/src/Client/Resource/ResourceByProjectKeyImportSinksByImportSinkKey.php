@@ -6,12 +6,12 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client\Resource;
+namespace Client\Resource;
 
-use Commercetools\Client\ApiResource;
-use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
+use Shared\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Models\Importsinks\ImportSinkDraft;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
@@ -21,8 +21,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
-    {
+    public function __construct(array $args = [], ClientInterface $client = null) {
         parent::__construct('/{projectKey}/import-sinks/{importSinkKey}', $args, $client);
     }
 
@@ -56,4 +55,5 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
 
         return new ByProjectKeyImportSinksByImportSinkKeyDelete($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
+
 }

@@ -6,22 +6,19 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client\Resource;
+namespace Client\Resource;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Client\ApiRequest;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ExceptionFactory;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Import\Models\Importoperations\ImportOperationStatus;
-use Commercetools\Import\Models\Importoperations\ImportOperationStatusModel;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Exception\ClientException;
+use Shared\Exception\InvalidArgumentException;
+use Shared\Exception\ApiServerException;
+use Shared\Exception\ApiClientException;
+use Shared\Client\ApiRequest;
+use Models\Importoperations\ImportOperationStatus;
+use Models\Importoperations\ImportOperationStatusModel;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -75,40 +72,16 @@ class ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
         try {
             $response = $this->send($options);
         } catch (ServerException $e) {
-            $response = $e->getResponse();
-            $e = ExceptionFactory::createServerException($e, $this, $response, $this->mapFromResponse($response, $resultType));
-            throw $e;
+            $result = $this->mapFromResponse($e->getResponse());
+
+            throw new ApiServerException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
         } catch (ClientException $e) {
-            $response = $e->getResponse();
-            $e = ExceptionFactory::createClientException($e, $this, $response, $this->mapFromResponse($response, $resultType));
-            throw $e;
+            $result = $this->mapFromResponse($e->getResponse());
+
+            throw new ApiClientException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
         }
 
         return $this->mapFromResponse($response, $resultType);
     }
 
-    /**
-     * @template T of JsonObject
-     * @psalm-param ?class-string<T> $resultType
-     *
-     * @return PromiseInterface
-     */
-    public function executeAsync(array $options = [], string $resultType = null)
-    {
-        return $this->sendAsync($options)->then(
-            function (ResponseInterface $response) use ($resultType) {
-                return $this->mapFromResponse($response, $resultType);
-            },
-            function (RequestException $e) use ($resultType) {
-                $response = $e->getResponse();
-                if ($e instanceof ServerException) {
-                    $e = ExceptionFactory::createServerException($e, $this, $response, $this->mapFromResponse($response, $resultType));
-                }
-                if ($e instanceof ClientException) {
-                    $e = ExceptionFactory::createClientException($e, $this, $response, $this->mapFromResponse($response, $resultType));
-                }
-                throw $e;
-            }
-        );
-    }
 }

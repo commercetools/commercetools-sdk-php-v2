@@ -6,20 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsinks;
+namespace Models\Importsinks;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use DateTimeImmutable;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
 
 /**
  * @internal
  */
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
+
     /**
      * @var ?string
      */
@@ -58,6 +61,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+
     }
 
     /**
@@ -69,7 +73,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportSink::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -89,7 +93,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     {
         if (is_null($this->resourceType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_RESOURCE_TYPE);
+            $data = $this->raw(ImportSink::FIELD_RESOURCE_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -108,7 +112,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VERSION);
+            $data = $this->raw(ImportSink::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +131,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CREATED_AT);
+            $data = $this->raw(ImportSink::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -150,7 +154,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(ImportSink::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -163,7 +167,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
 
         return $this->lastModifiedAt;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -203,4 +206,5 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         }
         return (object) $data;
     }
+
 }

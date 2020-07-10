@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Products;
+namespace Models\Products;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
+
     /**
      * @var ?string
      */
@@ -36,6 +38,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     ) {
         $this->text = $text;
         $this->suggestTokenizer = $suggestTokenizer;
+
     }
 
     /**
@@ -45,7 +48,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TEXT);
+            $data = $this->raw(SearchKeyword::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +65,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         if (is_null($this->suggestTokenizer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
+            $data = $this->raw(SearchKeyword::FIELD_SUGGEST_TOKENIZER);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +76,6 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
         return $this->suggestTokenizer;
     }
 
-
     public function setText(?string $text): void
     {
         $this->text = $text;
@@ -83,4 +85,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     {
         $this->suggestTokenizer = $suggestTokenizer;
     }
+
+
+
 }

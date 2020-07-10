@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface InvalidFieldError extends ErrorObject
 {
+
     public const FIELD_FIELD = 'field';
     public const FIELD_INVALID_VALUE = 'invalidValue';
     public const FIELD_ALLOWED_VALUES = 'allowedValues';

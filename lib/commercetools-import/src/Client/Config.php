@@ -7,13 +7,13 @@ declare(strict_types=1);
  */
 
 
-namespace Commercetools\Import\Client;
+namespace Client;
 
-use Commercetools\Client\Config as BaseConfig;
+use Shared\Client\Config as BaseConfig;
 
 class Config implements BaseConfig
 {
-    public const API_URI = 'https://import.commercetools.com';
+    public const API_URI = 'https://import.europe-west1.gcp.commercetools.com';
 
 
     /** @psalm-var string */

@@ -6,80 +6,85 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
+
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $w;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $h;
 
 
     public function __construct(
-        float $w = null,
-        float $h = null
+        int $w = null,
+        int $h = null
     ) {
         $this->w = $w;
         $this->h = $h;
+
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getW()
     {
         if (is_null($this->w)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_W);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(AssetDimensions::FIELD_W);
             if (is_null($data)) {
                 return null;
             }
-            $this->w = (float) $data;
+            $this->w = (int) $data;
         }
 
         return $this->w;
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getH()
     {
         if (is_null($this->h)) {
-            /** @psalm-var ?float $data */
-            $data = $this->raw(self::FIELD_H);
+            /** @psalm-var ?int $data */
+            $data = $this->raw(AssetDimensions::FIELD_H);
             if (is_null($data)) {
                 return null;
             }
-            $this->h = (float) $data;
+            $this->h = (int) $data;
         }
 
         return $this->h;
     }
 
-
-    public function setW(?float $w): void
+    public function setW(?int $w): void
     {
         $this->w = $w;
     }
 
-    public function setH(?float $h): void
+    public function setH(?int $h): void
     {
         $this->h = $h;
     }
+
+
+
 }

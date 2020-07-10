@@ -6,14 +6,15 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importrequests;
+namespace Models\Importrequests;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Prices\PriceImportCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
+use Models\Prices\PriceImportCollection;
 
 interface PriceImportRequest extends ImportRequest
 {
+
     public const FIELD_RESOURCES = 'resources';
 
     /**

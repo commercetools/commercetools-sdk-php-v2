@@ -6,18 +6,20 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productdrafts;
+namespace Models\Productdrafts;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\ChannelKeyReference;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Customfields\Custom;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 use DateTimeImmutable;
+use Models\Common\ChannelKeyReference;
+use Models\Common\CustomerGroupKeyReference;
+use Models\Common\DiscountedPrice;
+use Models\Common\Money;
+use Models\Customfields\Custom;
 
 interface PriceDraftImport extends JsonObject
 {
+
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -25,6 +27,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_DISCOUNTED = 'discounted';
 
     /**
      * @return null|Money
@@ -69,6 +72,13 @@ interface PriceDraftImport extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted();
+
     public function setValue(?Money $value): void;
 
     public function setCountry(?string $country): void;
@@ -82,4 +92,6 @@ interface PriceDraftImport extends JsonObject
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
     public function setCustom(?Custom $custom): void;
+
+    public function setDiscounted(?DiscountedPrice $discounted): void;
 }

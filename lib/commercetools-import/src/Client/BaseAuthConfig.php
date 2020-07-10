@@ -7,9 +7,9 @@ declare(strict_types=1);
  */
 
 
-namespace Commercetools\Import\Client;
+namespace Client;
 
-use Commercetools\Client\AuthConfig;
+use Shared\Client\AuthConfig;
 
 abstract class BaseAuthConfig implements AuthConfig
 {

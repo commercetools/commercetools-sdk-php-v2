@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class LocalizedEnumValueModel extends JsonObjectModel implements LocalizedEnumValue
 {
+
     /**
      * @var ?string
      */
@@ -36,6 +38,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     ) {
         $this->key = $key;
         $this->label = $label;
+
     }
 
     /**
@@ -45,7 +48,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(LocalizedEnumValue::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -62,7 +65,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     {
         if (is_null($this->label)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LABEL);
+            $data = $this->raw(LocalizedEnumValue::FIELD_LABEL);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +76,6 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
         return $this->label;
     }
 
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
@@ -83,4 +85,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     {
         $this->label = $label;
     }
+
+
+
 }

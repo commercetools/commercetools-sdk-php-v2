@@ -6,11 +6,11 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\MapperMap;
 use stdClass;
+use Shared\Base\MapperMap;
+use Shared\Base\Builder;
 
 /**
  * @implements Builder<LocalizedString>
@@ -27,7 +27,7 @@ final class LocalizedStringBuilder extends MapperMap implements Builder
             /**
              * @psalm-return ?LocalizedString
              */
-            function (string $key) {
+            function(string $key) {
                 $data = $this->get($key);
                 if ($data instanceof stdClass) {
                     $data = LocalizedStringModel::of($data);

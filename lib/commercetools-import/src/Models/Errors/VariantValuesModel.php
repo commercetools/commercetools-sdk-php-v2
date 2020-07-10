@@ -6,21 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Prices\PriceImportCollection;
-use Commercetools\Import\Models\Productvariants\AttributeCollection;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Prices\PriceImportCollection;
+use Models\Productvariants\AttributeCollection;
 
 /**
  * @internal
  */
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
+
     /**
      * @var ?string
      */
@@ -45,6 +47,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
         $this->sku = $sku;
         $this->prices = $prices;
         $this->attributes = $attributes;
+
     }
 
     /**
@@ -54,7 +57,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->sku)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
+            $data = $this->raw(VariantValues::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +74,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->prices)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_PRICES);
+            $data = $this->raw(VariantValues::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
             }
@@ -88,7 +91,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         if (is_null($this->attributes)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_ATTRIBUTES);
+            $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
@@ -97,7 +100,6 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
 
         return $this->attributes;
     }
-
 
     public function setSku(?string $sku): void
     {
@@ -113,4 +115,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

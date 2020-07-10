@@ -6,9 +6,9 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Client\Resource;
+namespace Client\Resource;
 
-use Commercetools\Client\ApiResource;
+use Shared\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -20,8 +20,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperationsBy
     /**
      * @psalm-param array<string, string> $args
      */
-    public function __construct(array $args = [], ClientInterface $client = null)
-    {
+    public function __construct(array $args = [], ClientInterface $client = null) {
         parent::__construct('/{projectKey}/products/importSinkKey={importSinkKey}/import-operations/{id}', $args, $client);
     }
 
@@ -35,4 +34,5 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperationsBy
 
         return new ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperationsByIdGet($args['projectKey'], $args['importSinkKey'], $args['id'], $body, $headers, $this->getClient());
     }
+
 }

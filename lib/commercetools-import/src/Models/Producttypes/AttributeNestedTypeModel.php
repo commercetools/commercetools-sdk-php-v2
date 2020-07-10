@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Producttypes;
+namespace Models\Producttypes;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductTypeKeyReference;
-use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\ProductTypeKeyReference;
+use Models\Common\ProductTypeKeyReferenceModel;
 
 /**
  * @internal
@@ -47,7 +48,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(AttributeType::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +67,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     {
         if (is_null($this->typeReference)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TYPE_REFERENCE);
+            $data = $this->raw(AttributeNestedType::FIELD_TYPE_REFERENCE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,9 +78,11 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
         return $this->typeReference;
     }
 
-
     public function setTypeReference(?ProductTypeKeyReference $typeReference): void
     {
         $this->typeReference = $typeReference;
     }
+
+
+
 }

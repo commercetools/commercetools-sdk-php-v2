@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
@@ -52,7 +53,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         if (is_null($this->code)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CODE);
+            $data = $this->raw(ErrorObject::FIELD_CODE);
             if (is_null($data)) {
                 return null;
             }
@@ -71,7 +72,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         if (is_null($this->message)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_MESSAGE);
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
             if (is_null($data)) {
                 return null;
             }
@@ -90,7 +91,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         if (is_null($this->field)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_FIELD);
+            $data = $this->raw(RequiredFieldError::FIELD_FIELD);
             if (is_null($data)) {
                 return null;
             }
@@ -99,7 +100,6 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
 
         return $this->field;
     }
-
 
     public function setMessage(?string $message): void
     {
@@ -110,4 +110,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         $this->field = $field;
     }
+
+
+
 }

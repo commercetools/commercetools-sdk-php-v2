@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class AssetModel extends JsonObjectModel implements Asset
 {
+
     /**
      * @var ?string
      */
@@ -57,6 +59,7 @@ final class AssetModel extends JsonObjectModel implements Asset
         $this->name = $name;
         $this->description = $description;
         $this->tags = $tags;
+
     }
 
     /**
@@ -69,7 +72,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(Asset::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -86,7 +89,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         if (is_null($this->sources)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(self::FIELD_SOURCES);
+            $data = $this->raw(Asset::FIELD_SOURCES);
             if (is_null($data)) {
                 return null;
             }
@@ -103,7 +106,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
+            $data = $this->raw(Asset::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
@@ -121,7 +124,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DESCRIPTION);
+            $data = $this->raw(Asset::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
@@ -139,7 +142,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         if (is_null($this->tags)) {
             /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(self::FIELD_TAGS);
+            $data = $this->raw(Asset::FIELD_TAGS);
             if (is_null($data)) {
                 return null;
             }
@@ -148,7 +151,6 @@ final class AssetModel extends JsonObjectModel implements Asset
 
         return $this->tags;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -174,4 +176,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     {
         $this->tags = $tags;
     }
+
+
+
 }

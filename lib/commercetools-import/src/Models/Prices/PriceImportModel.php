@@ -6,32 +6,37 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Prices;
+namespace Models\Prices;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ChannelKeyReference;
-use Commercetools\Import\Models\Common\ChannelKeyReferenceModel;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
-use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceModel;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
-use Commercetools\Import\Models\Common\ProductVariantKeyReference;
-use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
-use DateTimeImmutable;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use DateTimeImmutable;
+use DateTimeImmutableModel;
+use Models\Common\ChannelKeyReference;
+use Models\Common\ChannelKeyReferenceModel;
+use Models\Common\CustomerGroupKeyReference;
+use Models\Common\CustomerGroupKeyReferenceModel;
+use Models\Common\DiscountedPrice;
+use Models\Common\DiscountedPriceModel;
+use Models\Common\ImportResource;
+use Models\Common\ImportResourceModel;
+use Models\Common\Money;
+use Models\Common\MoneyModel;
+use Models\Common\ProductKeyReference;
+use Models\Common\ProductKeyReferenceModel;
+use Models\Common\ProductVariantKeyReference;
+use Models\Common\ProductVariantKeyReferenceModel;
 
 /**
  * @internal
  */
 final class PriceImportModel extends JsonObjectModel implements PriceImport
 {
+
     /**
      * @var ?string
      */
@@ -68,6 +73,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $channel;
 
     /**
+     * @var ?DiscountedPrice
+     */
+    protected $discounted;
+
+    /**
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
@@ -86,6 +96,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         DateTimeImmutable $validUntil = null,
         CustomerGroupKeyReference $customerGroup = null,
         ChannelKeyReference $channel = null,
+        DiscountedPrice $discounted = null,
         ProductVariantKeyReference $productVariant = null,
         ProductKeyReference $product = null
     ) {
@@ -96,8 +107,10 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->validUntil = $validUntil;
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
+        $this->discounted = $discounted;
         $this->productVariant = $productVariant;
         $this->product = $product;
+
     }
 
     /**
@@ -107,7 +120,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportResource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -127,7 +140,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(PriceImport::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -147,7 +160,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_COUNTRY);
+            $data = $this->raw(PriceImport::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
@@ -166,7 +179,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALID_FROM);
+            $data = $this->raw(PriceImport::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -189,7 +202,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_VALID_UNTIL);
+            $data = $this->raw(PriceImport::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
@@ -215,7 +228,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->customerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOMER_GROUP);
+            $data = $this->raw(PriceImport::FIELD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
@@ -238,7 +251,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->channel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CHANNEL);
+            $data = $this->raw(PriceImport::FIELD_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
@@ -247,6 +260,26 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         }
 
         return $this->channel;
+    }
+
+    /**
+     * <p>Sets a discounted price from an external service.</p>
+     *
+     * @return null|DiscountedPrice
+     */
+    public function getDiscounted()
+    {
+        if (is_null($this->discounted)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PriceImport::FIELD_DISCOUNTED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discounted = DiscountedPriceModel::of($data);
+        }
+
+        return $this->discounted;
     }
 
     /**
@@ -261,7 +294,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->productVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT_VARIANT);
+            $data = $this->raw(PriceImport::FIELD_PRODUCT_VARIANT);
             if (is_null($data)) {
                 return null;
             }
@@ -284,7 +317,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     {
         if (is_null($this->product)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT);
+            $data = $this->raw(PriceImport::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
@@ -294,7 +327,6 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
 
         return $this->product;
     }
-
 
     public function setKey(?string $key): void
     {
@@ -331,6 +363,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->channel = $channel;
     }
 
+    public function setDiscounted(?DiscountedPrice $discounted): void
+    {
+        $this->discounted = $discounted;
+    }
+
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
         $this->productVariant = $productVariant;
@@ -354,4 +391,5 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         }
         return (object) $data;
     }
+
 }

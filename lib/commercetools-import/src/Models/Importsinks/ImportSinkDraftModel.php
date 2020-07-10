@@ -6,19 +6,21 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Importsinks;
+namespace Models\Importsinks;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
 
 /**
  * @internal
  */
 final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDraft
 {
+
     /**
      * @var ?int
      */
@@ -43,6 +45,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
         $this->version = $version;
         $this->key = $key;
         $this->resourceType = $resourceType;
+
     }
 
     /**
@@ -54,7 +57,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VERSION);
+            $data = $this->raw(ImportSinkDraft::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -73,7 +76,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportSinkDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -92,7 +95,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         if (is_null($this->resourceType)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_RESOURCE_TYPE);
+            $data = $this->raw(ImportSinkDraft::FIELD_RESOURCE_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -101,7 +104,6 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
 
         return $this->resourceType;
     }
-
 
     public function setVersion(?int $version): void
     {
@@ -117,4 +119,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     {
         $this->resourceType = $resourceType;
     }
+
+
+
 }

@@ -6,19 +6,20 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Productvariants;
+namespace Models\Productvariants;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface NumberAttribute extends Attribute
 {
+
     public const FIELD_VALUE = 'value';
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getValue();
 
-    public function setValue(?float $value): void;
+    public function setValue(?int $value): void;
 }

@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\LocalizedString;
-use Commercetools\Import\Models\Common\LocalizedStringModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\LocalizedString;
+use Models\Common\LocalizedStringModel;
 
 /**
  * @internal
@@ -49,7 +50,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +67,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(LocalizedStringField::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,9 +78,11 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
         return $this->value;
     }
 
-
     public function setValue(?LocalizedString $value): void
     {
         $this->value = $value;
     }
+
+
+
 }

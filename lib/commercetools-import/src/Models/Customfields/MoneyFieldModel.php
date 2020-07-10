@@ -6,15 +6,16 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Customfields;
+namespace Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Common\Money;
+use Models\Common\MoneyModel;
 
 /**
  * @internal
@@ -49,7 +50,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     {
         if (is_null($this->type)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
+            $data = $this->raw(CustomField::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
@@ -66,7 +67,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     {
         if (is_null($this->value)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_VALUE);
+            $data = $this->raw(MoneyField::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
@@ -77,9 +78,11 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
         return $this->value;
     }
 
-
     public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
+
+
+
 }

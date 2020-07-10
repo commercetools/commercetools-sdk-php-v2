@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Errors;
+namespace Models\Errors;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface DuplicateFieldError extends ErrorObject
 {
+
     public const FIELD_FIELD = 'field';
     public const FIELD_DUPLICATE_VALUE = 'duplicateValue';
 

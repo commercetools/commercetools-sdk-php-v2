@@ -6,13 +6,14 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Products;
+namespace Models\Products;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Shared\Base\JsonObject;
+use Shared\Base\DateTimeImmutableCollection;
 
 interface SearchKeyword extends JsonObject
 {
+
     public const FIELD_TEXT = 'text';
     public const FIELD_SUGGEST_TOKENIZER = 'suggestTokenizer';
 

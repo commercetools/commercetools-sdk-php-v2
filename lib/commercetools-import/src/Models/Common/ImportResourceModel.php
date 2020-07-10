@@ -6,31 +6,33 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Import\Models\Common;
+namespace Models\Common;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Categories\CategoryImport;
-use Commercetools\Import\Models\Categories\CategoryImportModel;
-use Commercetools\Import\Models\Prices\PriceImport;
-use Commercetools\Import\Models\Prices\PriceImportModel;
-use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
-use Commercetools\Import\Models\Productdrafts\ProductDraftImportModel;
-use Commercetools\Import\Models\Products\ProductImport;
-use Commercetools\Import\Models\Products\ProductImportModel;
-use Commercetools\Import\Models\Producttypes\ProductTypeImport;
-use Commercetools\Import\Models\Producttypes\ProductTypeImportModel;
-use Commercetools\Import\Models\Productvariants\ProductVariantImport;
-use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
+use Shared\Base\DateTimeImmutableCollection;
+use Shared\Base\JsonObject;
+use Shared\Base\JsonObjectModel;
+use Shared\Base\MapperFactory;
 use stdClass;
+
+use Models\Categories\CategoryImport;
+use Models\Categories\CategoryImportModel;
+use Models\Prices\PriceImport;
+use Models\Prices\PriceImportModel;
+use Models\Productdrafts\ProductDraftImport;
+use Models\Productdrafts\ProductDraftImportModel;
+use Models\Products\ProductImport;
+use Models\Products\ProductImportModel;
+use Models\Producttypes\ProductTypeImport;
+use Models\Producttypes\ProductTypeImportModel;
+use Models\Productvariants\ProductVariantImport;
+use Models\Productvariants\ProductVariantImportModel;
 
 /**
  * @internal
  */
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
+
     /**
      * @var ?string
      */
@@ -41,6 +43,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
         string $key = null
     ) {
         $this->key = $key;
+
     }
 
     /**
@@ -50,7 +53,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     {
         if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+            $data = $this->raw(ImportResource::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
@@ -60,9 +63,11 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
         return $this->key;
     }
 
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
+
+
+
 }
