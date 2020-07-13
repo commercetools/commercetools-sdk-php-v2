@@ -11,15 +11,14 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Product\AttributeAccessor;
-use Commercetools\Api\Models\Product\AttributeHelper;
 use Commercetools\Api\Models\Product\AttributeModel;
 use Commercetools\Api\Models\Product\ProductDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\Product\ProductVariantDraftModel;
+use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Ml\Models\Common\ProductVariantModel;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -112,5 +111,40 @@ class MiscTest extends TestCase
 
         $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", ["test"]);
         $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
+    }
+
+    public function testAttributes()
+    {
+        $variant = ProductVariantModel::of([
+            'attributes' => [
+                AttributeModel::fromArray([
+                    'name' => 'enum',
+                    'value' => [
+                        'key' => 'foo',
+                        'label' => 'foo'
+                    ]
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'lenum',
+                    'value' => [
+                        'key' => 'foo',
+                        'label' => [
+                            'en' => 'foo'
+                        ]
+                    ]
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'text',
+                    'value' => 'foo'
+                ])
+            ]
+        ]);
+        $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getEnumValue();
+        $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getLocalizedEnumValue();
+        $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTextValue();
+
+        var_dump($enum->getLabel());
+        var_dump($lenum->getLabel());
+        var_dump($text);
     }
 }

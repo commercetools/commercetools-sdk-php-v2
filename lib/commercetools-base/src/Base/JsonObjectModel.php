@@ -48,14 +48,12 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
     /**
      * @return static|mixed
      */
-    public function tap(callable $callback = null)
+    public function with(callable $callback = null)
     {
         if (is_null($callback)) {
             return $this;
         }
 
-        $callback($this);
-
-        return $this;
+        return $callback($this);
     }
 }

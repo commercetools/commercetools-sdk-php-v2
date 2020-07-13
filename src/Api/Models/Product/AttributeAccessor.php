@@ -3,6 +3,12 @@
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValue;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValueModel;
+use Commercetools\Api\Models\ProductType\AttributePlainEnumValue;
+use Commercetools\Api\Models\ProductType\AttributePlainEnumValueModel;
+use stdClass;
+
 class AttributeAccessor
 {
     /**
@@ -29,7 +35,30 @@ class AttributeAccessor
     public static function of()
     {
         return function (Attribute $attribute): AttributeAccessor {
-            return new self($attribute);
+            return new static($attribute);
         };
+    }
+
+    public function getEnumValue(): AttributePlainEnumValue
+    {
+        /**
+         * @psalm-var array<string, mixed>|null|stdClass $value
+         */
+        $value = $this->attribute->getValue();
+        return AttributePlainEnumValueModel::of($value);
+    }
+
+    public function getLocalizedEnumValue(): AttributeLocalizedEnumValue
+    {
+        /**
+         * @psalm-var array<string, mixed>|null|stdClass $value
+         */
+        $value = $this->attribute->getValue();
+        return AttributeLocalizedEnumValueModel::of($value);
+    }
+
+    public function getTextValue(): string
+    {
+        return (string)$this->attribute->getValue();
     }
 }

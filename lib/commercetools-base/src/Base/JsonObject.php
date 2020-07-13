@@ -20,24 +20,24 @@ interface JsonObject extends \JsonSerializable
     
     /**
      * @psalm-param stdClass|array<string, mixed>|null $data
-     * @psalm-return static
+     * @return static
      */
     public static function of($data = null);
 
     /**
      * @psalm-param array<string, mixed> $data
-     * @psalm-return static
+     * @return static
      */
     public static function fromArray(array $data = []);
 
     /**
      * @psalm-param ?stdClass $data
-     * @psalm-return static
+     * @return static
      */
     public static function fromStdClass(stdClass $data = null);
     
     /**
-     * @return mixed
+     * @return static|mixed
      */
-    public function tap(callable $callable = null);
+    public function with(callable $callable = null);
 }
