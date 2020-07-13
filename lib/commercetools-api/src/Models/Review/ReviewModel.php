@@ -515,17 +515,13 @@ final class ReviewModel extends JsonObjectModel implements Review
      */
     public function getTargetAsProductReference()
     {
-        if (!$this->target instanceof ProductReference) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TARGET);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->target = ProductReferenceModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_TARGET);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->target;
+        return ProductReferenceModel::of($data);
     }
 
     /**
@@ -536,17 +532,13 @@ final class ReviewModel extends JsonObjectModel implements Review
      */
     public function getTargetAsChannelReference()
     {
-        if (!$this->target instanceof ChannelReference) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TARGET);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->target = ChannelReferenceModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_TARGET);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->target;
+        return ChannelReferenceModel::of($data);
     }
 
     public function setId(?string $id): void

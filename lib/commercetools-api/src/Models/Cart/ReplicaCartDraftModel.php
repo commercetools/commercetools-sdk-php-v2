@@ -55,17 +55,13 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
      */
     public function getReferenceAsCartReference()
     {
-        if (!$this->reference instanceof CartReference) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_REFERENCE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->reference = CartReferenceModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_REFERENCE);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->reference;
+        return CartReferenceModel::of($data);
     }
 
     /**
@@ -73,17 +69,13 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
      */
     public function getReferenceAsOrderReference()
     {
-        if (!$this->reference instanceof OrderReference) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_REFERENCE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->reference = OrderReferenceModel::of($data);
+        /** @psalm-var stdClass|array<string, mixed>|null $data */
+        $data = $this->raw(self::FIELD_REFERENCE);
+        if (is_null($data)) {
+            return null;
         }
 
-        return $this->reference;
+        return OrderReferenceModel::of($data);
     }
 
     public function setReference(?JsonObject $reference): void

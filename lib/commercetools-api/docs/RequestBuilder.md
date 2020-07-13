@@ -807,7 +807,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->customers()->email()->confirm()->post(null)`
+## `withProjectKey("projectKey")->customers()->emailConfirm()->post(null)`
 
 Verifies customer's email using a token.
 
@@ -819,8 +819,7 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
-                ->email()
-                ->confirm()
+                ->emailConfirm()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
@@ -913,7 +912,7 @@ $request = $builder
                 ->password()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->customers()->password()->reset()->post(null)`
+## `withProjectKey("projectKey")->customers()->passwordReset()->post(null)`
 
 Set a new password using a token.
 
@@ -925,8 +924,7 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->customers()
-                ->password()
-                ->reset()
+                ->passwordReset()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->customers()->passwordToken()->post(null)`
@@ -1373,7 +1371,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->email()->confirm()->post(null)`
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailConfirm()->post(null)`
 
 Verifies customer's email using a token.
 
@@ -1386,8 +1384,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
                 ->customers()
-                ->email()
-                ->confirm()
+                ->emailConfirm()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
@@ -1492,7 +1489,7 @@ $request = $builder
                 ->password()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->password()->reset()->post(null)`
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordReset()->post(null)`
 
 Set a new password using a token.
 
@@ -1505,8 +1502,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->inStoreKeyWithStoreKeyValue("storeKey")
                 ->customers()
-                ->password()
-                ->reset()
+                ->passwordReset()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordToken()->post(null)`
@@ -2098,7 +2094,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->email()->confirm()->post()`
+## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
 
 null
 
@@ -2110,8 +2106,7 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
-                ->email()
-                ->confirm()
+                ->emailConfirm()
                 ->post();
 ```
 ## `withProjectKey("projectKey")->me()->login()->post(null)`
@@ -2222,38 +2217,6 @@ $request = $builder
                 ->reset()
                 ->post();
 ```
-## `withProjectKey("projectKey")->me()->payment()->withIDValue("ID")->post(null)`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->payment()
-                ->withIDValue("ID")
-                ->post(null);
-```
-## `withProjectKey("projectKey")->me()->payment()->keyWithKeyValue("key")->post(null)`
-
-null
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->payment()
-                ->keyWithKeyValue("key")
-                ->post(null);
-```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
 Query payments
@@ -2330,6 +2293,54 @@ $request = $builder
                 ->me()
                 ->payments()
                 ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->me()->payments()->withKey("key")->get()`
+
+Get MyPayment by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->payments()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->payments()->withKey("key")->post(null)`
+
+Update MyPayment by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->payments()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->payments()->withKey("key")->delete()`
+
+Delete MyPayment by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->payments()
+                ->withKey("key")
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
@@ -2410,9 +2421,9 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->shoppingLists()->keyWithKeyValue("key")->post(null)`
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->get()`
 
-null
+Get MyShoppingList by key
 
 ### Example
 ```php
@@ -2423,8 +2434,40 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->shoppingLists()
-                ->keyWithKeyValue("key")
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
+
+Update MyShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
                 ->post(null);
+```
+## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->delete()`
+
+Delete MyShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->signup()->post(null)`
 

@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomersPasswordReset;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -43,16 +42,7 @@ class ResourceByProjectKeyCustomersPasswordTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -76,7 +66,7 @@ class ResourceByProjectKeyCustomersPasswordTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request, new Response(400)));
 
         $this->expectException(ApiClientException::class);
         $request->execute();
@@ -91,7 +81,7 @@ class ResourceByProjectKeyCustomersPasswordTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request, new Response(500)));
 
         $this->expectException(ApiServerException::class);
         $request->execute();
@@ -117,18 +107,6 @@ class ResourceByProjectKeyCustomersPasswordTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyCustomersPasswordReset' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomersPasswordReset {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->customers()
-                        ->password()
-                        ->reset();
-                },
-                ResourceByProjectKeyCustomersPasswordReset::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/customers/password/reset'
-            ]
         ];
     }
 

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePaymentsByID;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePaymentsKeyByKey;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -77,7 +78,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request, new Response(400)));
 
         $this->expectException(ApiClientException::class);
         $request->execute();
@@ -92,7 +93,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request, new Response(500)));
 
         $this->expectException(ApiServerException::class);
         $request->execute();
@@ -225,6 +226,18 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyMePaymentsKeyByKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMePaymentsKeyByKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->payments()
+                        ->withKey("test_key");
+                },
+                ResourceByProjectKeyMePaymentsKeyByKey::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
+                '/{projectKey}/me/payments/key={key}'
+            ],
             'ResourceByProjectKeyMePaymentsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePaymentsByID {
                     return $builder

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -36,15 +37,22 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $languages;
 
+    /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    protected $distributionChannels;
+
 
     public function __construct(
         string $key = null,
         LocalizedString $name = null,
-        array $languages = null
+        array $languages = null,
+        ChannelResourceIdentifierCollection $distributionChannels = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
+        $this->distributionChannels = $distributionChannels;
     }
 
     /**
@@ -105,6 +113,25 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->languages;
     }
 
+    /**
+     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getDistributionChannels()
+    {
+        if (is_null($this->distributionChannels)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNELS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->distributionChannels = ChannelResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->distributionChannels;
+    }
+
 
     public function setKey(?string $key): void
     {
@@ -119,5 +146,10 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
+    }
+
+    public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void
+    {
+        $this->distributionChannels = $distributionChannels;
     }
 }

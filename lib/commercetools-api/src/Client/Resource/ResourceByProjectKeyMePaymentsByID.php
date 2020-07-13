@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Common\Update;
+use Commercetools\Api\Models\Me\MyPaymentUpdate;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -37,10 +37,10 @@ class ResourceByProjectKeyMePaymentsByID extends ApiResource
         return new ByProjectKeyMePaymentsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?Update $body
+     * @psalm-param ?MyPaymentUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?Update $body = null, array $headers = []): ByProjectKeyMePaymentsByIDPost
+    public function post(?MyPaymentUpdate $body = null, array $headers = []): ByProjectKeyMePaymentsByIDPost
     {
         $args = $this->getArgs();
 

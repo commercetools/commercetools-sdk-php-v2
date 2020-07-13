@@ -115,7 +115,7 @@ class ApiRequest extends Request
     public function send(array $options = []): ResponseInterface
     {
         if (is_null($this->client)) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException('No http client set to send the request');
         }
         return $this->client->send($this, $options);
     }
@@ -129,7 +129,7 @@ class ApiRequest extends Request
     public function sendAsync(array $options = []): PromiseInterface
     {
         if (is_null($this->client)) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException('No http client set to send the request');
         }
         return $this->client->sendAsync($this, $options);
     }
@@ -148,7 +148,7 @@ class ApiRequest extends Request
         /** @psalm-var ?stdClass $data */
         $data = json_decode($body);
         if (is_null($data)) {
-            throw new InvalidArgumentException();
+            return new stdClass();
         }
         return $data;
     }

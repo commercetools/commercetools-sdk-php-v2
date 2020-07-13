@@ -78,10 +78,14 @@ class ClientFactory
             ],
             $options
         );
+        if (!isset($options['headers']['user-agent'])) {
+            $options['headers']['user-agent'] = (new UserAgentProvider())->getUserAgent();
+        }
         foreach ($middlewares as $key => $middleware) {
             if (!is_callable($middleware)) {
                 throw new InvalidArgumentException('Middleware isn\'t callable');
             }
+            /** @psalm-var callable(callable): callable $middleware */
             $name = is_numeric($key) ? '' : $key;
             $stack->push($middleware, $name);
         }

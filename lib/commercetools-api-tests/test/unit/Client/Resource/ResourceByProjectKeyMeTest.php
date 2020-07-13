@@ -11,11 +11,10 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeActiveCart;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCarts;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeEmail;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeEmailConfirm;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeLogin;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeOrders;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePassword;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayment;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayments;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeShoppingLists;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeSignup;
@@ -87,7 +86,7 @@ class ResourceByProjectKeyMeTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request, new Response(400)));
 
         $this->expectException(ApiClientException::class);
         $request->execute();
@@ -102,7 +101,7 @@ class ResourceByProjectKeyMeTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request, new Response(500)));
 
         $this->expectException(ApiServerException::class);
         $request->execute();
@@ -235,16 +234,16 @@ class ResourceByProjectKeyMeTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyMeEmail' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeEmail {
+            'ResourceByProjectKeyMeEmailConfirm' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeEmailConfirm {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->me()
-                        ->email();
+                        ->emailConfirm();
                 },
-                ResourceByProjectKeyMeEmail::class,
+                ResourceByProjectKeyMeEmailConfirm::class,
                 ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/me/email'
+                '/{projectKey}/me/email/confirm'
             ],
             'ResourceByProjectKeyMePassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMePassword {
@@ -333,17 +332,6 @@ class ResourceByProjectKeyMeTest extends TestCase
                 ResourceByProjectKeyMeShoppingLists::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/shopping-lists'
-            ],
-            'ResourceByProjectKeyMePayment' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyMePayment {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->payment();
-                },
-                ResourceByProjectKeyMePayment::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/me/payment'
             ]
         ];
     }

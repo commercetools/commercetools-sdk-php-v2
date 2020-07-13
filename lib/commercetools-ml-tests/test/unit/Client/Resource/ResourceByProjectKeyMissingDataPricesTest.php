@@ -76,7 +76,7 @@ class ResourceByProjectKeyMissingDataPricesTest extends TestCase
 
         $builder = new MlRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request, new Response(400)));
 
         $this->expectException(ApiClientException::class);
         $request->execute();
@@ -91,7 +91,7 @@ class ResourceByProjectKeyMissingDataPricesTest extends TestCase
 
         $builder = new MlRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request, new Response(500)));
 
         $this->expectException(ApiServerException::class);
         $request->execute();

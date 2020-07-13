@@ -26,6 +26,7 @@ interface Project extends JsonObject
     public const FIELD_MESSAGES = 'messages';
     public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
+    public const FIELD_CARTS = 'carts';
 
     /**
      * <p>The current version of the project.</p>
@@ -94,6 +95,11 @@ interface Project extends JsonObject
      */
     public function getExternalOAuth();
 
+    /**
+     * @return null|CartsConfiguration
+     */
+    public function getCarts();
+
     public function setVersion(?int $version): void;
 
     public function setKey(?string $key): void;
@@ -115,4 +121,6 @@ interface Project extends JsonObject
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void;
 
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void;
+
+    public function setCarts(?CartsConfiguration $carts): void;
 }

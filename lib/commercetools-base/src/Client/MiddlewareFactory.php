@@ -98,6 +98,7 @@ class MiddlewareFactory
     }
 
     /**
+     * @psalm-param 'alert'|'critical'|'debug'|'emergency'|'error'|'info'|'notice'|'warning' $logLevel
      * @psalm-return callable
      */
     public static function createLoggerMiddleware(LoggerInterface $logger, string $logLevel = LogLevel::INFO, string $template = MessageFormatter::CLF)

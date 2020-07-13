@@ -55,6 +55,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'InvalidJsonInput' => InvalidJsonInputErrorModel::class,
        'InvalidOperation' => InvalidOperationErrorModel::class,
        'InvalidSubject' => InvalidSubjectErrorModel::class,
+       'LanguageUsedInStores' => LanguageUsedInStoresErrorModel::class,
        'MatchingPriceNotFound' => MatchingPriceNotFoundErrorModel::class,
        'MissingTaxRateForCountry' => MissingTaxRateForCountryErrorModel::class,
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,

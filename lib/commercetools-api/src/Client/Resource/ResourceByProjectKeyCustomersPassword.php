@@ -26,13 +26,6 @@ class ResourceByProjectKeyCustomersPassword extends ApiResource
         parent::__construct('/{projectKey}/customers/password', $args, $client);
     }
 
-    public function reset(): ResourceByProjectKeyCustomersPasswordReset
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyCustomersPasswordReset($args, $this->getClient());
-    }
-
     /**
      * @psalm-param ?CustomerChangePassword $body
      * @psalm-param array<string, scalar|scalar[]> $headers

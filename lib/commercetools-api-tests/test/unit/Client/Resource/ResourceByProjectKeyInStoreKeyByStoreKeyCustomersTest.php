@@ -10,11 +10,12 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken;
 use Commercetools\Base\JsonObject;
@@ -84,7 +85,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ClientException("Oops!", $request));
+        $client->method("send")->willThrowException(new ClientException("Oops!", $request, new Response(400)));
 
         $this->expectException(ApiClientException::class);
         $request->execute();
@@ -99,7 +100,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
 
         $builder = new ApiRequestBuilder($client);
         $request = $builderFunction($builder);
-        $client->method("send")->willThrowException(new ServerException("Oops!", $request));
+        $client->method("send")->willThrowException(new ServerException("Oops!", $request, new Response(500)));
 
         $this->expectException(ApiServerException::class);
         $request->execute();
@@ -268,17 +269,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers/email-token'
             ],
-            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail {
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->customers()
-                        ->email();
+                        ->emailConfirm();
                 },
-                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmail::class,
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
-                '/{projectKey}/in-store/key={storeKey}/customers/email'
+                '/{projectKey}/in-store/key={storeKey}/customers/email/confirm'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword {
@@ -291,6 +292,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/customers/password'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->customers()
+                        ->passwordReset();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/customers/password/reset'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken {

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Base\Builder;
@@ -38,6 +39,11 @@ final class StoreDraftBuilder implements Builder
     private $languages;
 
     /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    private $distributionChannels;
+
+    /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
      * It is used to reference the store.</p>
@@ -65,6 +71,16 @@ final class StoreDraftBuilder implements Builder
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getDistributionChannels()
+    {
+        return $this->distributionChannels;
     }
 
     /**
@@ -100,6 +116,16 @@ final class StoreDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels)
+    {
+        $this->distributionChannels = $distributionChannels;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
@@ -112,7 +138,8 @@ final class StoreDraftBuilder implements Builder
         return new StoreDraftModel(
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
-            $this->languages
+            $this->languages,
+            $this->distributionChannels
         );
     }
 
