@@ -36,13 +36,13 @@ class CategoryUpdateTest extends ApiTestCase
 {
     private function getAssetDraftCollection($assetKey = null): AssetDraftCollection
     {
-        $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
-        $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();
+        $assertName = LocalizedStringBuilder::of()
+            ->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())->build();
         $assetSource = AssetSourceBuilder::of()
             ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
         $sources = new AssetSourceCollection();
         $sources->add($assetSource->build());
-        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertNameBuilder)->withSources($sources);
+        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertName)->withSources($sources);
 
         if ($assetKey !== null) {
             $assetDraftBuilder->withKey($assetKey);
@@ -61,14 +61,14 @@ class CategoryUpdateTest extends ApiTestCase
 
     private function getAssertDraft($assetKey = null): AssetDraft
     {
-        $assertName = 'asset-name-' . CategoryFixture::uniqueCategoryString();
-        $assertNameBuilder = LocalizedStringBuilder::of()->put('en', $assertName)->build();
+        $assertName = LocalizedStringBuilder::of()->put('en', 'asset-name-' . CategoryFixture::uniqueCategoryString())
+            ->build();
         $assetSource = AssetSourceBuilder::of()
             ->withUri(CategoryFixture::uniqueCategoryString() . '.jpg')->withKey('test');
         $sources = new AssetSourceCollection();
         $sources->add($assetSource->build());
 
-        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertNameBuilder)->withSources($sources);
+        $assetDraftBuilder = AssetDraftBuilder::of()->withName($assertName)->withSources($sources);
         if ($assetKey !== null) {
             $assetDraftBuilder->withKey($assetKey);
         }
@@ -83,11 +83,11 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $newName = 'new name-' . CategoryFixture::uniqueCategoryString();
-                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
-
+                $randomName = 'new name-' . CategoryFixture::uniqueCategoryString();
+                $newName = LocalizedStringBuilder::of()->put('en', $randomName)->build();
+                $newName->current();
                 $updateAction = new CategoryChangeNameActionModel();
-                $updateAction->setName($newNameBuilder);
+                $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -98,7 +98,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($newName, $categoryQueryResponse->getName()->current());
+                $this->assertSame($randomName, $categoryQueryResponse->getName()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -113,11 +113,11 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $newName = 'new name-' . CategoryFixture::uniqueCategoryString();
-                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
+                $randomName = 'new name-' . CategoryFixture::uniqueCategoryString();
+                $newName = LocalizedStringBuilder::of()->put('en', $randomName)->build();
 
                 $updateAction = new CategoryChangeNameActionModel();
-                $updateAction->setName($newNameBuilder);
+                $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -128,7 +128,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($newName, $categoryQueryResponse->getName()->current());
+                $this->assertSame($randomName, $categoryQueryResponse->getName()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -144,11 +144,11 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $newName = 'new name-' . CategoryFixture::uniqueCategoryString();
-                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->put('en-US', $newName)->build();
+                $randomName = 'new name-' . CategoryFixture::uniqueCategoryString();
+                $newName = LocalizedStringBuilder::of()->put('en', $randomName)->put('en-US', $randomName)->build();
 
                 $updateAction = new CategoryChangeNameActionModel();
-                $updateAction->setName($newNameBuilder);
+                $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -158,8 +158,7 @@ class CategoryUpdateTest extends ApiTestCase
                     ->post($categoryUpdate);
                 $categoryQueryResponse = $request->execute();
 
-                $bla = '{"en": ' . $newName . ', "en-US": ' . $newName . '}';
-                $this->assertJsonStringEqualsJsonString('{"en":"' . $newName . '", "en-US":"' . $newName . '"}', json_encode($newNameBuilder));
+                $this->assertJsonStringEqualsJsonString('{"en":"' . $randomName . '", "en-US":"' . $randomName . '"}', json_encode($newName));
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
@@ -236,11 +235,11 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableCategory(
             $builder,
             function (Category $category) use ($builder) {
-                $newSlug = 'new-slug-' . CategoryFixture::uniqueCategoryString();
-                $newSlugBuilder = LocalizedStringBuilder::of()->put('en', $newSlug)->build();
+                $randomSlug = 'new-slug-' . CategoryFixture::uniqueCategoryString();
+                $newSlug = LocalizedStringBuilder::of()->put('en', $randomSlug)->build();
 
                 $updateAction = new CategoryChangeSlugActionModel();
-                $updateAction->setSlug($newSlugBuilder);
+                $updateAction->setSlug($newSlug);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -250,7 +249,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($newSlug, $categoryQueryResponse->getSlug()->current());
+                $this->assertSame($randomSlug, $categoryQueryResponse->getSlug()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -265,18 +264,18 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $description = 'description-' . CategoryFixture::uniqueCategoryString();
-                $descriptionBuilder = LocalizedStringBuilder::of()->put('en', $description)->build();
-                $draftBuilder->withDescription($descriptionBuilder);
+                $randomDescription = 'description-' . CategoryFixture::uniqueCategoryString();
+                $description = LocalizedStringBuilder::of()->put('en', $randomDescription)->build();
+                $draftBuilder->withDescription($description);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $description = 'new-description-' . CategoryFixture::uniqueCategoryString();
-                $descriptionBuilder = LocalizedStringBuilder::of()->put('en', $description)->build();
+                $randomNewDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newDescription = LocalizedStringBuilder::of()->put('en', $randomNewDescription)->build();
 
                 $updateAction = new CategorySetDescriptionActionModel();
-                $updateAction->setDescription($descriptionBuilder);
+                $updateAction->setDescription($newDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -286,7 +285,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($description, $categoryQueryResponse->getDescription()->current());
+                $this->assertSame($randomNewDescription, $categoryQueryResponse->getDescription()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -335,18 +334,18 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $metaDescription = 'meta-description-' . CategoryFixture::uniqueCategoryString();
-                $metaDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $metaDescription)->build();
-                $draftBuilder->withMetaDescription($metaDescriptionBuilder);
+                $randomMetaDescription = 'meta-description-' . CategoryFixture::uniqueCategoryString();
+                $metaDescription = LocalizedStringBuilder::of()->put('en', $randomMetaDescription)->build();
+                $draftBuilder->withMetaDescription($metaDescription);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $metaDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
-                $metaDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $metaDescription)->build();
+                $randomNewMetaDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newMetaDescription = LocalizedStringBuilder::of()->put('en', $randomNewMetaDescription)->build();
 
                 $updateAction = new CategorySetMetaDescriptionActionModel();
-                $updateAction->setMetaDescription($metaDescriptionBuilder);
+                $updateAction->setMetaDescription($newMetaDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -356,7 +355,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($metaDescription, $categoryQueryResponse->getMetaDescription()->current());
+                $this->assertSame($randomNewMetaDescription, $categoryQueryResponse->getMetaDescription()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -371,18 +370,18 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $title = 'title-' . CategoryFixture::uniqueCategoryString();
-                $titleBuilder = LocalizedStringBuilder::of()->put('en', $title)->build();
-                $draftBuilder->withMetaTitle($titleBuilder);
+                $randomTitle = 'title-' . CategoryFixture::uniqueCategoryString();
+                $title = LocalizedStringBuilder::of()->put('en', $randomTitle)->build();
+                $draftBuilder->withMetaTitle($title);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $title = 'new-title-' . CategoryFixture::uniqueCategoryString();
-                $titleBuilder = LocalizedStringBuilder::of()->put('en', $title)->build();
+                $randomNewTitle = 'new-title-' . CategoryFixture::uniqueCategoryString();
+                $newTitle = LocalizedStringBuilder::of()->put('en', $randomNewTitle)->build();
 
                 $updateAction = new CategorySetMetaTitleActionModel();
-                $updateAction->setMetaTitle($titleBuilder);
+                $updateAction->setMetaTitle($newTitle);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -392,7 +391,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($title, $categoryQueryResponse->getMetaTitle()->current());
+                $this->assertSame($randomNewTitle, $categoryQueryResponse->getMetaTitle()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -407,18 +406,18 @@ class CategoryUpdateTest extends ApiTestCase
         CategoryFixture::withUpdateableDraftCategory(
             $builder,
             function (CategoryDraftBuilder $draftBuilder) {
-                $assetKeywords = 'keywords-' . CategoryFixture::uniqueCategoryString();
-                $assetKeywordsBuilder = LocalizedStringBuilder::of()->put('en', $assetKeywords)->build();
-                $draftBuilder->withMetaTitle($assetKeywordsBuilder);
+                $randomAssetKeywords = 'keywords-' . CategoryFixture::uniqueCategoryString();
+                $assetKeywords = LocalizedStringBuilder::of()->put('en', $randomAssetKeywords)->build();
+                $draftBuilder->withMetaTitle($assetKeywords);
 
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $assetKeywords = 'new-keywords-' . CategoryFixture::uniqueCategoryString();
-                $assetKeywordsBuilder = LocalizedStringBuilder::of()->put('en', $assetKeywords)->build();
+                $randomNewAssetKeywords = 'new-keywords-' . CategoryFixture::uniqueCategoryString();
+                $newAssetKeywords = LocalizedStringBuilder::of()->put('en', $randomNewAssetKeywords)->build();
 
                 $updateAction = new CategorySetMetaKeywordsActionModel();
-                $updateAction->setMetaKeywords($assetKeywordsBuilder);
+                $updateAction->setMetaKeywords($newAssetKeywords);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -428,7 +427,7 @@ class CategoryUpdateTest extends ApiTestCase
                 $categoryQueryResponse = $request->execute();
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
-                $this->assertSame($assetKeywords, $categoryQueryResponse->getMetaKeywords()->current());
+                $this->assertSame($randomNewAssetKeywords, $categoryQueryResponse->getMetaKeywords()->current());
                 $this->assertNotSame($category->getVersion(), $categoryQueryResponse->getVersion());
 
                 return $categoryQueryResponse;
@@ -513,11 +512,11 @@ class CategoryUpdateTest extends ApiTestCase
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $newName = 'new-name-' . CategoryFixture::uniqueCategoryString();
-                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
+                $randomNewName = 'new-name-' . CategoryFixture::uniqueCategoryString();
+                $newName = LocalizedStringBuilder::of()->put('en', $randomNewName)->build();
 
                 $updateAction = new CategoryChangeAssetNameActionModel();
-                $updateAction->setName($newNameBuilder);
+                $updateAction->setName($newName);
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
@@ -529,7 +528,7 @@ class CategoryUpdateTest extends ApiTestCase
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertSame(
-                    $newName,
+                    $randomNewName,
                     $categoryQueryResponse->getAssets()->current()->getName()->current()
                 );
 
@@ -551,11 +550,11 @@ class CategoryUpdateTest extends ApiTestCase
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $newDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
-                $newDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $newDescription)->build();
+                $randomNewDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newDescription = LocalizedStringBuilder::of()->put('en', $randomNewDescription)->build();
 
                 $updateAction = new CategorySetAssetDescriptionActionModel();
-                $updateAction->setDescription($newDescriptionBuilder);
+                $updateAction->setDescription($newDescription);
                 $updateAction->setAssetId($category->getAssets()->current()->getId());
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
@@ -567,7 +566,7 @@ class CategoryUpdateTest extends ApiTestCase
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertSame(
-                    $newDescription,
+                    $randomNewDescription,
                     $categoryQueryResponse->getAssets()->current()->getDescription()->current()
                 );
 
@@ -769,12 +768,12 @@ class CategoryUpdateTest extends ApiTestCase
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $newName = 'new-name-' . CategoryFixture::uniqueCategoryString();
-                $newNameBuilder = LocalizedStringBuilder::of()->put('en', $newName)->build();
+                $randomNewName = 'new-name-' . CategoryFixture::uniqueCategoryString();
+                $newName = LocalizedStringBuilder::of()->put('en', $randomNewName)->build();
 
                 $updateAction = new CategoryChangeAssetNameActionModel();
                 $updateAction->setAssetKey($category->getAssets()->current()->getKey());
-                $updateAction->setName($newNameBuilder);
+                $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -785,7 +784,7 @@ class CategoryUpdateTest extends ApiTestCase
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertSame(
-                    $newName,
+                    $randomNewName,
                     $categoryQueryResponse->getAssets()->current()->getName()->current()
                 );
 
@@ -808,12 +807,12 @@ class CategoryUpdateTest extends ApiTestCase
                 return $draftBuilder->build();
             },
             function (Category $category) use ($builder) {
-                $newDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
-                $newDescriptionBuilder = LocalizedStringBuilder::of()->put('en', $newDescription)->build();
+                $randomNewDescription = 'new-description-' . CategoryFixture::uniqueCategoryString();
+                $newDescription = LocalizedStringBuilder::of()->put('en', $randomNewDescription)->build();
 
                 $updateAction = new CategorySetAssetDescriptionActionModel();
                 $updateAction->setAssetKey($category->getAssets()->current()->getKey());
-                $updateAction->setDescription($newDescriptionBuilder);
+                $updateAction->setDescription($newDescription);
                 $updateActionCollection = new CategoryUpdateActionCollection();
                 $updateActionCollection->add($updateAction);
                 $categoryUpdate = CategoryUpdateBuilder::of()->withVersion($category->getVersion())
@@ -824,7 +823,7 @@ class CategoryUpdateTest extends ApiTestCase
 
                 $this->assertInstanceOf(Category::class, $categoryQueryResponse);
                 $this->assertSame(
-                    $newDescription,
+                    $randomNewDescription,
                     $categoryQueryResponse->getAssets()->current()->getDescription()->current()
                 );
 
