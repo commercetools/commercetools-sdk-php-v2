@@ -51,6 +51,7 @@ final class GeneralCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @param ?string $categoryName
      * @return $this
      */
     public function withCategoryName(?string $categoryName)
@@ -61,6 +62,7 @@ final class GeneralCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @param ?float $confidence
      * @return $this
      */
     public function withConfidence(?float $confidence)

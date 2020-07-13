@@ -31,8 +31,11 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     protected $externalOAuth;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ExternalOAuth $externalOAuth = null
+        ?ExternalOAuth $externalOAuth = null
     ) {
         $this->externalOAuth = $externalOAuth;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -77,6 +80,9 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?ExternalOAuth $externalOAuth
+     */
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void
     {
         $this->externalOAuth = $externalOAuth;

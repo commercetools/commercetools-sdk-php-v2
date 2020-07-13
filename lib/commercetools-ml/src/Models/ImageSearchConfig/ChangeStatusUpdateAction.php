@@ -20,5 +20,8 @@ interface ChangeStatusUpdateAction extends ImageSearchConfigUpdateAction
      */
     public function getStatus();
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void;
 }

@@ -32,9 +32,18 @@ interface ProductVariantChannelAvailability extends JsonObject
      */
     public function getAvailableQuantity();
 
+    /**
+     * @param ?bool $isOnStock
+     */
     public function setIsOnStock(?bool $isOnStock): void;
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void;
 
+    /**
+     * @param ?int $availableQuantity
+     */
     public function setAvailableQuantity(?int $availableQuantity): void;
 }

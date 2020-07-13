@@ -348,6 +348,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -358,6 +359,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -368,6 +370,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)
@@ -378,6 +381,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $salutation
      * @return $this
      */
     public function withSalutation(?string $salutation)
@@ -388,6 +392,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $firstName
      * @return $this
      */
     public function withFirstName(?string $firstName)
@@ -398,6 +403,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $lastName
      * @return $this
      */
     public function withLastName(?string $lastName)
@@ -408,6 +414,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $streetName
      * @return $this
      */
     public function withStreetName(?string $streetName)
@@ -418,6 +425,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $streetNumber
      * @return $this
      */
     public function withStreetNumber(?string $streetNumber)
@@ -428,6 +436,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $additionalStreetInfo
      * @return $this
      */
     public function withAdditionalStreetInfo(?string $additionalStreetInfo)
@@ -438,6 +447,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $postalCode
      * @return $this
      */
     public function withPostalCode(?string $postalCode)
@@ -448,6 +458,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $city
      * @return $this
      */
     public function withCity(?string $city)
@@ -458,6 +469,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $region
      * @return $this
      */
     public function withRegion(?string $region)
@@ -468,6 +480,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -478,6 +491,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -488,6 +502,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $company
      * @return $this
      */
     public function withCompany(?string $company)
@@ -498,6 +513,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $department
      * @return $this
      */
     public function withDepartment(?string $department)
@@ -508,6 +524,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $building
      * @return $this
      */
     public function withBuilding(?string $building)
@@ -518,6 +535,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $apartment
      * @return $this
      */
     public function withApartment(?string $apartment)
@@ -528,6 +546,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $pOBox
      * @return $this
      */
     public function withPOBox(?string $pOBox)
@@ -538,6 +557,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $phone
      * @return $this
      */
     public function withPhone(?string $phone)
@@ -548,6 +568,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $mobile
      * @return $this
      */
     public function withMobile(?string $mobile)
@@ -558,6 +579,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -568,6 +590,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $fax
      * @return $this
      */
     public function withFax(?string $fax)
@@ -578,6 +601,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $additionalAddressInfo
      * @return $this
      */
     public function withAdditionalAddressInfo(?string $additionalAddressInfo)
@@ -588,6 +612,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)

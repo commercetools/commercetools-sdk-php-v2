@@ -87,19 +87,22 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     protected $status;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        ChangeSubscriptionCollection $changes = null,
-        Destination $destination = null,
-        string $key = null,
-        MessageSubscriptionCollection $messages = null,
-        DeliveryFormat $format = null,
-        string $status = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?ChangeSubscriptionCollection $changes = null,
+        ?Destination $destination = null,
+        ?string $key = null,
+        ?MessageSubscriptionCollection $messages = null,
+        ?DeliveryFormat $format = null,
+        ?string $status = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -336,61 +339,97 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void
     {
         $this->changes = $changes;
     }
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void
     {
         $this->destination = $destination;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;
     }
 
+    /**
+     * @param ?DeliveryFormat $format
+     */
     public function setFormat(?DeliveryFormat $format): void
     {
         $this->format = $format;
     }
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void
     {
         $this->status = $status;

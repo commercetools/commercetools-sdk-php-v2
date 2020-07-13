@@ -50,6 +50,7 @@ final class StagedOrderSetDeliveryItemsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -60,6 +61,7 @@ final class StagedOrderSetDeliveryItemsActionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)

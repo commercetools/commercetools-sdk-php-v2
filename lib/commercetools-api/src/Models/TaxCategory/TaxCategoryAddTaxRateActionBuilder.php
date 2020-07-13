@@ -34,6 +34,7 @@ final class TaxCategoryAddTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRateDraft $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRateDraft $taxRate)

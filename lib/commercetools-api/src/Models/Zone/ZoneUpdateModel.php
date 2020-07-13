@@ -30,9 +30,12 @@ final class ZoneUpdateModel extends JsonObjectModel implements ZoneUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ZoneUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ZoneUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ZoneUpdateModel extends JsonObjectModel implements ZoneUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ZoneUpdateActionCollection $actions
+     */
     public function setActions(?ZoneUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

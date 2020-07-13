@@ -49,6 +49,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -59,6 +60,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Parcel $parcel
      * @return $this
      */
     public function withParcel(?Parcel $parcel)

@@ -189,6 +189,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -199,6 +200,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?string $importSinkKey
      * @return $this
      */
     public function withImportSinkKey(?string $importSinkKey)
@@ -209,6 +211,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceKey
      * @return $this
      */
     public function withResourceKey(?string $resourceKey)
@@ -219,6 +222,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -229,6 +233,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -239,6 +244,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -249,6 +255,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?float $retryCount
      * @return $this
      */
     public function withRetryCount(?float $retryCount)
@@ -259,6 +266,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?ErrorObjectCollection $errors
      * @return $this
      */
     public function withErrors(?ErrorObjectCollection $errors)
@@ -269,6 +277,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -279,6 +288,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -289,6 +299,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expiresAt
      * @return $this
      */
     public function withExpiresAt(?DateTimeImmutable $expiresAt)

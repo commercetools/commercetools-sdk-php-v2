@@ -47,13 +47,28 @@ interface MyShoppingListAddTextLineItemAction extends MyShoppingListUpdateAction
      */
     public function getCustom();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 }

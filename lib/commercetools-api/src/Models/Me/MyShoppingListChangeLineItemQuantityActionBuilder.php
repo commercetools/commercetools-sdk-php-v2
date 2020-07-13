@@ -47,6 +47,7 @@ final class MyShoppingListChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -57,6 +58,7 @@ final class MyShoppingListChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)

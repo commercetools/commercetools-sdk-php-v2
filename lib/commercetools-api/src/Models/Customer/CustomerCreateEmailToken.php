@@ -32,9 +32,18 @@ interface CustomerCreateEmailToken extends JsonObject
      */
     public function getTtlMinutes();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?int $ttlMinutes
+     */
     public function setTtlMinutes(?int $ttlMinutes): void;
 }

@@ -49,6 +49,7 @@ final class PaymentStatusStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)
@@ -59,6 +60,7 @@ final class PaymentStatusStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $force
      * @return $this
      */
     public function withForce(?bool $force)

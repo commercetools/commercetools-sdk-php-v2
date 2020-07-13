@@ -31,8 +31,11 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
     protected $lineItemOrder;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $lineItemOrder = null
+        ?array $lineItemOrder = null
     ) {
         $this->lineItemOrder = $lineItemOrder;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?array $lineItemOrder
+     */
     public function setLineItemOrder(?array $lineItemOrder): void
     {
         $this->lineItemOrder = $lineItemOrder;

@@ -90,20 +90,23 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        string $key = null,
-        LocalizedString $description = null,
-        CartDiscountValueDraft $value = null,
-        string $cartPredicate = null,
-        CartDiscountTarget $target = null,
-        string $sortOrder = null,
-        bool $isActive = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        bool $requiresDiscountCode = null,
-        string $stackingMode = null,
-        CustomFields $custom = null
+        ?LocalizedString $name = null,
+        ?string $key = null,
+        ?LocalizedString $description = null,
+        ?CartDiscountValueDraft $value = null,
+        ?string $cartPredicate = null,
+        ?CartDiscountTarget $target = null,
+        ?string $sortOrder = null,
+        ?bool $isActive = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?bool $requiresDiscountCode = null,
+        ?string $stackingMode = null,
+        ?CustomFields $custom = null
     ) {
         $this->name = $name;
         $this->key = $key;
@@ -376,66 +379,105 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CartDiscountValueDraft $value
+     */
     public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
     }
 
+    /**
+     * @param ?CartDiscountTarget $target
+     */
     public function setTarget(?CartDiscountTarget $target): void
     {
         $this->target = $target;
     }
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
     }
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?bool $requiresDiscountCode
+     */
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
     {
         $this->requiresDiscountCode = $requiresDiscountCode;
     }
 
+    /**
+     * @param ?string $stackingMode
+     */
     public function setStackingMode(?string $stackingMode): void
     {
         $this->stackingMode = $stackingMode;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;

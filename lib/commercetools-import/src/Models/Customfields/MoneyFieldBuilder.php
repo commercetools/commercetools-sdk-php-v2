@@ -36,6 +36,7 @@ final class MoneyFieldBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)

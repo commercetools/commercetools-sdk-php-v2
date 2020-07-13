@@ -46,11 +46,23 @@ interface ImportSinkPagedResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?float $limit
+     */
     public function setLimit(?float $limit): void;
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void;
 
+    /**
+     * @param ?float $count
+     */
     public function setCount(?float $count): void;
 
+    /**
+     * @param ?ImportSinkCollection $results
+     */
     public function setResults(?ImportSinkCollection $results): void;
 }

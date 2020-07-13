@@ -23,11 +23,17 @@ interface StagedOrderSetCustomFieldAction extends StagedOrderUpdateAction
     public function getName();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 }

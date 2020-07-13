@@ -75,6 +75,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -85,6 +86,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -95,6 +97,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalPrice
      * @return $this
      */
     public function withExternalPrice(?Money $externalPrice)
@@ -105,6 +108,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)

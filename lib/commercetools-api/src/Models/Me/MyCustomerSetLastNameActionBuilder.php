@@ -34,6 +34,7 @@ final class MyCustomerSetLastNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lastName
      * @return $this
      */
     public function withLastName(?string $lastName)

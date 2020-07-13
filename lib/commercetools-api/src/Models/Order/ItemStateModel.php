@@ -32,9 +32,12 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $quantity = null,
-        StateReference $state = null
+        ?float $quantity = null,
+        ?StateReference $state = null
     ) {
         $this->quantity = $quantity;
         $this->state = $state;
@@ -76,11 +79,17 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;

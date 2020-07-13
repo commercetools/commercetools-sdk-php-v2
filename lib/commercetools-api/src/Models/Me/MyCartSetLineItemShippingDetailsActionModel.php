@@ -38,9 +38,12 @@ final class MyCartSetLineItemShippingDetailsActionModel extends JsonObjectModel 
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?string $lineItemId = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->shippingDetails = $shippingDetails;
@@ -100,11 +103,17 @@ final class MyCartSetLineItemShippingDetailsActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

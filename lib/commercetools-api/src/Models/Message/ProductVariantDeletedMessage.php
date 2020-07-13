@@ -27,7 +27,13 @@ interface ProductVariantDeletedMessage extends Message
      */
     public function getRemovedImageUrls();
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void;
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

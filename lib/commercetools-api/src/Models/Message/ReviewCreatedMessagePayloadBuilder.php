@@ -36,6 +36,7 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Review $review
      * @return $this
      */
     public function withReview(?Review $review)

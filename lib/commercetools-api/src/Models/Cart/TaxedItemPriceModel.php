@@ -32,9 +32,12 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     protected $totalGross;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoney $totalNet = null,
-        TypedMoney $totalGross = null
+        ?TypedMoney $totalNet = null,
+        ?TypedMoney $totalGross = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
@@ -79,11 +82,17 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     }
 
 
+    /**
+     * @param ?TypedMoney $totalNet
+     */
     public function setTotalNet(?TypedMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
+    /**
+     * @param ?TypedMoney $totalGross
+     */
     public function setTotalGross(?TypedMoney $totalGross): void
     {
         $this->totalGross = $totalGross;

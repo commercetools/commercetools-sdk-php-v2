@@ -34,15 +34,27 @@ interface CategorySetAssetCustomFieldAction extends CategoryUpdateAction
     public function getName();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 }

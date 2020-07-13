@@ -36,6 +36,7 @@ final class DiscountCodeSetCartPredicateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartPredicate
      * @return $this
      */
     public function withCartPredicate(?string $cartPredicate)

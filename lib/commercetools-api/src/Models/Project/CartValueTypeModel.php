@@ -26,6 +26,9 @@ final class CartValueTypeModel extends JsonObjectModel implements CartValueType
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

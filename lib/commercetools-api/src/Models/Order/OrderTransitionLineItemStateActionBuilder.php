@@ -89,6 +89,7 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -99,6 +100,7 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -109,6 +111,7 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $fromState
      * @return $this
      */
     public function withFromState(?StateResourceIdentifier $fromState)
@@ -119,6 +122,7 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $toState
      * @return $this
      */
     public function withToState(?StateResourceIdentifier $toState)
@@ -129,6 +133,7 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $actualTransitionDate
      * @return $this
      */
     public function withActualTransitionDate(?DateTimeImmutable $actualTransitionDate)

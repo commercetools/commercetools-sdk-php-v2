@@ -36,9 +36,12 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     protected $topic;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $projectId = null,
-        string $topic = null
+        ?string $projectId = null,
+        ?string $topic = null
     ) {
         $this->projectId = $projectId;
         $this->topic = $topic;
@@ -97,11 +100,17 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?string $projectId
+     */
     public function setProjectId(?string $projectId): void
     {
         $this->projectId = $projectId;
     }
 
+    /**
+     * @param ?string $topic
+     */
     public function setTopic(?string $topic): void
     {
         $this->topic = $topic;

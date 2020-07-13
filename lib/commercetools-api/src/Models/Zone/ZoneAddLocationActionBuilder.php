@@ -34,6 +34,7 @@ final class ZoneAddLocationActionBuilder implements Builder
     }
 
     /**
+     * @param ?Location $location
      * @return $this
      */
     public function withLocation(?Location $location)

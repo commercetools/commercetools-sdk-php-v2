@@ -23,5 +23,8 @@ interface ProductSetTaxCategoryAction extends ProductUpdateAction
      */
     public function getTaxCategory();
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 }

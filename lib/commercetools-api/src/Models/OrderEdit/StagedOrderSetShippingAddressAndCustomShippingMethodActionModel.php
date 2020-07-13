@@ -61,12 +61,15 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     protected $externalTaxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Address $address = null,
-        string $shippingMethodName = null,
-        ShippingRateDraft $shippingRate = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        ExternalTaxRateDraft $externalTaxRate = null
+        ?Address $address = null,
+        ?string $shippingMethodName = null,
+        ?ShippingRateDraft $shippingRate = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
         $this->address = $address;
         $this->shippingMethodName = $shippingMethodName;
@@ -183,26 +186,41 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?string $shippingMethodName
+     */
     public function setShippingMethodName(?string $shippingMethodName): void
     {
         $this->shippingMethodName = $shippingMethodName;
     }
 
+    /**
+     * @param ?ShippingRateDraft $shippingRate
+     */
     public function setShippingRate(?ShippingRateDraft $shippingRate): void
     {
         $this->shippingRate = $shippingRate;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;

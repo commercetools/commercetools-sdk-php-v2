@@ -38,11 +38,23 @@ interface GeneralCategoryRecommendationPagedQueryResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?GeneralCategoryRecommendationCollection $results
+     */
     public function setResults(?GeneralCategoryRecommendationCollection $results): void;
 }

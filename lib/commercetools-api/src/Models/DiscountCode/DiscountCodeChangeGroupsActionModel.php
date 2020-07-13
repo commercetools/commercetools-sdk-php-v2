@@ -31,8 +31,11 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     protected $groups;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $groups = null
+        ?array $groups = null
     ) {
         $this->groups = $groups;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?array $groups
+     */
     public function setGroups(?array $groups): void
     {
         $this->groups = $groups;

@@ -139,28 +139,31 @@ final class PaymentModel extends JsonObjectModel implements Payment
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        CustomerReference $customer = null,
-        string $anonymousId = null,
-        string $externalId = null,
-        string $interfaceId = null,
-        TypedMoney $amountPlanned = null,
-        TypedMoney $amountAuthorized = null,
-        string $authorizedUntil = null,
-        TypedMoney $amountPaid = null,
-        TypedMoney $amountRefunded = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        PaymentStatus $paymentStatus = null,
-        TransactionCollection $transactions = null,
-        CustomFieldsCollection $interfaceInteractions = null,
-        CustomFields $custom = null,
-        string $key = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?CustomerReference $customer = null,
+        ?string $anonymousId = null,
+        ?string $externalId = null,
+        ?string $interfaceId = null,
+        ?TypedMoney $amountPlanned = null,
+        ?TypedMoney $amountAuthorized = null,
+        ?string $authorizedUntil = null,
+        ?TypedMoney $amountPaid = null,
+        ?TypedMoney $amountRefunded = null,
+        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?PaymentStatus $paymentStatus = null,
+        ?TransactionCollection $transactions = null,
+        ?CustomFieldsCollection $interfaceInteractions = null,
+        ?CustomFields $custom = null,
+        ?string $key = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -586,106 +589,169 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?string $interfaceId
+     */
     public function setInterfaceId(?string $interfaceId): void
     {
         $this->interfaceId = $interfaceId;
     }
 
+    /**
+     * @param ?TypedMoney $amountPlanned
+     */
     public function setAmountPlanned(?TypedMoney $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
     }
 
+    /**
+     * @param ?TypedMoney $amountAuthorized
+     */
     public function setAmountAuthorized(?TypedMoney $amountAuthorized): void
     {
         $this->amountAuthorized = $amountAuthorized;
     }
 
+    /**
+     * @param ?string $authorizedUntil
+     */
     public function setAuthorizedUntil(?string $authorizedUntil): void
     {
         $this->authorizedUntil = $authorizedUntil;
     }
 
+    /**
+     * @param ?TypedMoney $amountPaid
+     */
     public function setAmountPaid(?TypedMoney $amountPaid): void
     {
         $this->amountPaid = $amountPaid;
     }
 
+    /**
+     * @param ?TypedMoney $amountRefunded
+     */
     public function setAmountRefunded(?TypedMoney $amountRefunded): void
     {
         $this->amountRefunded = $amountRefunded;
     }
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }
 
+    /**
+     * @param ?PaymentStatus $paymentStatus
+     */
     public function setPaymentStatus(?PaymentStatus $paymentStatus): void
     {
         $this->paymentStatus = $paymentStatus;
     }
 
+    /**
+     * @param ?TransactionCollection $transactions
+     */
     public function setTransactions(?TransactionCollection $transactions): void
     {
         $this->transactions = $transactions;
     }
 
+    /**
+     * @param ?CustomFieldsCollection $interfaceInteractions
+     */
     public function setInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions): void
     {
         $this->interfaceInteractions = $interfaceInteractions;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

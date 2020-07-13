@@ -43,10 +43,13 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     protected $parcels;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DeliveryItemCollection $items = null,
-        Address $address = null,
-        ParcelDraftCollection $parcels = null
+        ?DeliveryItemCollection $items = null,
+        ?Address $address = null,
+        ?ParcelDraftCollection $parcels = null
     ) {
         $this->items = $items;
         $this->address = $address;
@@ -124,16 +127,25 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?ParcelDraftCollection $parcels
+     */
     public function setParcels(?ParcelDraftCollection $parcels): void
     {
         $this->parcels = $parcels;

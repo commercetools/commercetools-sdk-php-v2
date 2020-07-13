@@ -20,5 +20,8 @@ interface EnumAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void;
 }

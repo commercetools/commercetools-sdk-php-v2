@@ -50,6 +50,7 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amount
      * @return $this
      */
     public function withAmount(?Money $amount)
@@ -60,6 +61,7 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $until
      * @return $this
      */
     public function withUntil(?DateTimeImmutable $until)

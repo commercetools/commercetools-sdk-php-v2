@@ -36,9 +36,12 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     protected $targetsDelta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        ItemShippingTargetCollection $targetsDelta = null
+        ?string $customLineItemId = null,
+        ?ItemShippingTargetCollection $targetsDelta = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->targetsDelta = $targetsDelta;
@@ -97,11 +100,17 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
+     */
     public function setTargetsDelta(?ItemShippingTargetCollection $targetsDelta): void
     {
         $this->targetsDelta = $targetsDelta;

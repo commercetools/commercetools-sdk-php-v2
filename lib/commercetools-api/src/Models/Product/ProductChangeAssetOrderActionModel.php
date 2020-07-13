@@ -46,11 +46,14 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     protected $assetOrder;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        bool $staged = null,
-        array $assetOrder = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?bool $staged = null,
+        ?array $assetOrder = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -145,21 +148,33 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?array $assetOrder
+     */
     public function setAssetOrder(?array $assetOrder): void
     {
         $this->assetOrder = $assetOrder;

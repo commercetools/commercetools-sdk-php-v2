@@ -33,7 +33,13 @@ interface ItemShippingDetails extends JsonObject
      */
     public function getValid();
 
+    /**
+     * @param ?ItemShippingTargetCollection $targets
+     */
     public function setTargets(?ItemShippingTargetCollection $targets): void;
 
+    /**
+     * @param ?bool $valid
+     */
     public function setValid(?bool $valid): void;
 }

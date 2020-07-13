@@ -23,5 +23,8 @@ interface DiscountCodeSetValidFromAction extends DiscountCodeUpdateAction
      */
     public function getValidFrom();
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 }

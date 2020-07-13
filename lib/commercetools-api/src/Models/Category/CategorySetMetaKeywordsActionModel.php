@@ -33,8 +33,11 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     protected $metaKeywords;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaKeywords = null
+        ?LocalizedString $metaKeywords = null
     ) {
         $this->metaKeywords = $metaKeywords;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;

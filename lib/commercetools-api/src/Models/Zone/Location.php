@@ -28,7 +28,13 @@ interface Location extends JsonObject
      */
     public function getState();
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 }

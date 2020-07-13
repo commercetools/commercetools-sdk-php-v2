@@ -45,12 +45,15 @@ final class TypePagedQueryResponseModel extends JsonObjectModel implements TypeP
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        TypeCollection $results = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?TypeCollection $results = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -145,26 +148,41 @@ final class TypePagedQueryResponseModel extends JsonObjectModel implements TypeP
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?TypeCollection $results
+     */
     public function setResults(?TypeCollection $results): void
     {
         $this->results = $results;

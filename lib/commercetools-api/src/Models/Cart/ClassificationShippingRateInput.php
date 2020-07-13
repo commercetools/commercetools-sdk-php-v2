@@ -27,7 +27,13 @@ interface ClassificationShippingRateInput extends ShippingRateInput
      */
     public function getLabel();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 }

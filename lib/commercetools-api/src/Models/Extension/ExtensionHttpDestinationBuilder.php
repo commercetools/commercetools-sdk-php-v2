@@ -47,6 +47,7 @@ final class ExtensionHttpDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $url
      * @return $this
      */
     public function withUrl(?string $url)
@@ -57,6 +58,7 @@ final class ExtensionHttpDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionHttpDestinationAuthentication $authentication
      * @return $this
      */
     public function withAuthentication(?ExtensionHttpDestinationAuthentication $authentication)

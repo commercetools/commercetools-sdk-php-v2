@@ -108,9 +108,12 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'zone' => ZoneResourceIdentifierModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $key = null
+        ?string $id = null,
+        ?string $key = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -169,11 +172,17 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

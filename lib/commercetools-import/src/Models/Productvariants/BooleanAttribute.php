@@ -20,5 +20,8 @@ interface BooleanAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?bool $value
+     */
     public function setValue(?bool $value): void;
 }

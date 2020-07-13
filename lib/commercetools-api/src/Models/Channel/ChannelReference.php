@@ -21,5 +21,8 @@ interface ChannelReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Channel $obj
+     */
     public function setObj(?Channel $obj): void;
 }

@@ -20,5 +20,8 @@ interface CustomFieldEnumType extends FieldType
      */
     public function getValues();
 
+    /**
+     * @param ?CustomFieldEnumValueCollection $values
+     */
     public function setValues(?CustomFieldEnumValueCollection $values): void;
 }

@@ -30,9 +30,12 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     protected $tokenValue;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        string $tokenValue = null
+        ?int $version = null,
+        ?string $tokenValue = null
     ) {
         $this->version = $version;
         $this->tokenValue = $tokenValue;
@@ -73,11 +76,17 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $tokenValue
+     */
     public function setTokenValue(?string $tokenValue): void
     {
         $this->tokenValue = $tokenValue;

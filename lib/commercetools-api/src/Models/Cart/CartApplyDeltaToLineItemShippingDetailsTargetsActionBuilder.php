@@ -47,6 +47,7 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -57,6 +58,7 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     }
 
     /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
      * @return $this
      */
     public function withTargetsDelta(?ItemShippingTargetCollection $targetsDelta)

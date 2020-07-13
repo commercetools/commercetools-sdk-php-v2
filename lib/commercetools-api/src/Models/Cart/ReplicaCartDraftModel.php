@@ -27,8 +27,11 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     protected $reference;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        JsonObject $reference = null
+        ?JsonObject $reference = null
     ) {
         $this->reference = $reference;
     }
@@ -78,6 +81,9 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
         return OrderReferenceModel::of($data);
     }
 
+    /**
+     * @param ?JsonObject $reference
+     */
     public function setReference(?JsonObject $reference): void
     {
         $this->reference = $reference;

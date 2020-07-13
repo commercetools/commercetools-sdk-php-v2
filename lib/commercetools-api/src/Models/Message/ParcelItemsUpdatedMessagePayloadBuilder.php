@@ -74,6 +74,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -84,6 +85,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -94,6 +96,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -104,6 +107,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $oldItems
      * @return $this
      */
     public function withOldItems(?DeliveryItemCollection $oldItems)

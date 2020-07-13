@@ -34,6 +34,7 @@ final class StateSetRolesActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $roles
      * @return $this
      */
     public function withRoles(?array $roles)

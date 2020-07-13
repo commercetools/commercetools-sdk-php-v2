@@ -77,18 +77,21 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $expiresAt;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        string $importSinkKey = null,
-        string $resourceKey = null,
-        string $id = null,
-        string $state = null,
-        int $resourceVersion = null,
-        float $retryCount = null,
-        ErrorObjectCollection $errors = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        DateTimeImmutable $expiresAt = null
+        ?int $version = null,
+        ?string $importSinkKey = null,
+        ?string $resourceKey = null,
+        ?string $id = null,
+        ?string $state = null,
+        ?int $resourceVersion = null,
+        ?float $retryCount = null,
+        ?ErrorObjectCollection $errors = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?DateTimeImmutable $expiresAt = null
     ) {
         $this->version = $version;
         $this->importSinkKey = $importSinkKey;
@@ -326,56 +329,89 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $importSinkKey
+     */
     public function setImportSinkKey(?string $importSinkKey): void
     {
         $this->importSinkKey = $importSinkKey;
     }
 
+    /**
+     * @param ?string $resourceKey
+     */
     public function setResourceKey(?string $resourceKey): void
     {
         $this->resourceKey = $resourceKey;
     }
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
+    /**
+     * @param ?float $retryCount
+     */
     public function setRetryCount(?float $retryCount): void
     {
         $this->retryCount = $retryCount;
     }
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void
     {
         $this->errors = $errors;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
         $this->expiresAt = $expiresAt;

@@ -38,9 +38,12 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        CartDiscount $obj = null
+        ?string $id = null,
+        ?CartDiscount $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?CartDiscount $obj
+     */
     public function setObj(?CartDiscount $obj): void
     {
         $this->obj = $obj;

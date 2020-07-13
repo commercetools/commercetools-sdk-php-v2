@@ -64,6 +64,7 @@ final class CartSetCustomLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -74,6 +75,7 @@ final class CartSetCustomLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -84,6 +86,7 @@ final class CartSetCustomLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

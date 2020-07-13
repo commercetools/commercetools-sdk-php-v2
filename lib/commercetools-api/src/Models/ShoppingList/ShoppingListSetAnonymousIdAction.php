@@ -23,5 +23,8 @@ interface ShoppingListSetAnonymousIdAction extends ShoppingListUpdateAction
      */
     public function getAnonymousId();
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 }

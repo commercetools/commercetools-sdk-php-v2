@@ -62,6 +62,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceId
      * @return $this
      */
     public function withPriceId(?string $priceId)
@@ -72,6 +73,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -82,6 +84,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
     public function withDiscounted(?DiscountedPrice $discounted)

@@ -38,9 +38,12 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     protected $externalPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        Money $externalPrice = null
+        ?string $lineItemId = null,
+        ?Money $externalPrice = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalPrice = $externalPrice;
@@ -100,11 +103,17 @@ final class CartSetLineItemPriceActionModel extends JsonObjectModel implements C
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;

@@ -38,9 +38,12 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     protected $inputTip;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        LocalizedString $inputTip = null
+        ?string $attributeName = null,
+        ?LocalizedString $inputTip = null
     ) {
         $this->attributeName = $attributeName;
         $this->inputTip = $inputTip;
@@ -100,11 +103,17 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?LocalizedString $inputTip
+     */
     public function setInputTip(?LocalizedString $inputTip): void
     {
         $this->inputTip = $inputTip;

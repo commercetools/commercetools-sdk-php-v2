@@ -166,53 +166,128 @@ interface Address extends JsonObject
      */
     public function getExternalId();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void;
 
+    /**
+     * @param ?string $salutation
+     */
     public function setSalutation(?string $salutation): void;
 
+    /**
+     * @param ?string $firstName
+     */
     public function setFirstName(?string $firstName): void;
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void;
 
+    /**
+     * @param ?string $streetName
+     */
     public function setStreetName(?string $streetName): void;
 
+    /**
+     * @param ?string $streetNumber
+     */
     public function setStreetNumber(?string $streetNumber): void;
 
+    /**
+     * @param ?string $additionalStreetInfo
+     */
     public function setAdditionalStreetInfo(?string $additionalStreetInfo): void;
 
+    /**
+     * @param ?string $postalCode
+     */
     public function setPostalCode(?string $postalCode): void;
 
+    /**
+     * @param ?string $city
+     */
     public function setCity(?string $city): void;
 
+    /**
+     * @param ?string $region
+     */
     public function setRegion(?string $region): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $company
+     */
     public function setCompany(?string $company): void;
 
+    /**
+     * @param ?string $department
+     */
     public function setDepartment(?string $department): void;
 
+    /**
+     * @param ?string $building
+     */
     public function setBuilding(?string $building): void;
 
+    /**
+     * @param ?string $apartment
+     */
     public function setApartment(?string $apartment): void;
 
+    /**
+     * @param ?string $pOBox
+     */
     public function setPOBox(?string $pOBox): void;
 
+    /**
+     * @param ?string $phone
+     */
     public function setPhone(?string $phone): void;
 
+    /**
+     * @param ?string $mobile
+     */
     public function setMobile(?string $mobile): void;
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 
+    /**
+     * @param ?string $fax
+     */
     public function setFax(?string $fax): void;
 
+    /**
+     * @param ?string $additionalAddressInfo
+     */
     public function setAdditionalAddressInfo(?string $additionalAddressInfo): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 }

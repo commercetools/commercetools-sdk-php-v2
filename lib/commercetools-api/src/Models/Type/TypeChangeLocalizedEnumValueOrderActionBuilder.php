@@ -47,6 +47,7 @@ final class TypeChangeLocalizedEnumValueOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $fieldName
      * @return $this
      */
     public function withFieldName(?string $fieldName)
@@ -57,6 +58,7 @@ final class TypeChangeLocalizedEnumValueOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $keys
      * @return $this
      */
     public function withKeys(?array $keys)

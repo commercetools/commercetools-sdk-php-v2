@@ -59,13 +59,16 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        string $productId = null,
-        int $variantId = null,
-        int $quantity = null,
-        DateTimeImmutable $addedAt = null,
-        CustomFieldsDraft $custom = null
+        ?string $sku = null,
+        ?string $productId = null,
+        ?int $variantId = null,
+        ?int $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->sku = $sku;
         $this->productId = $productId;
@@ -201,31 +204,49 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;

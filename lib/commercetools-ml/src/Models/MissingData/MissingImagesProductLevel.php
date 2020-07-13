@@ -27,7 +27,13 @@ interface MissingImagesProductLevel extends MissingImagesCount
      */
     public function getTotal();
 
+    /**
+     * @param ?int $missingImages
+     */
     public function setMissingImages(?int $missingImages): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 }

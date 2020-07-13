@@ -21,5 +21,8 @@ interface CategorySetMetaKeywordsAction extends CategoryUpdateAction
      */
     public function getMetaKeywords();
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 }

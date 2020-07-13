@@ -33,8 +33,11 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     protected $orderState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderState = null
+        ?string $orderState = null
     ) {
         $this->orderState = $orderState;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;

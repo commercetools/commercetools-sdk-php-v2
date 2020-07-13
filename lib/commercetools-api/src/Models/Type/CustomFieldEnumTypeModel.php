@@ -31,8 +31,11 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomFieldEnumValueCollection $values = null
+        ?CustomFieldEnumValueCollection $values = null
     ) {
         $this->values = $values;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     }
 
 
+    /**
+     * @param ?CustomFieldEnumValueCollection $values
+     */
     public function setValues(?CustomFieldEnumValueCollection $values): void
     {
         $this->values = $values;

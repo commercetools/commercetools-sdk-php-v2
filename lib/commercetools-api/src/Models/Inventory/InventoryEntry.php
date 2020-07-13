@@ -112,29 +112,68 @@ interface InventoryEntry extends BaseResource
      */
     public function getCustom();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
+    /**
+     * @param ?int $quantityOnStock
+     */
     public function setQuantityOnStock(?int $quantityOnStock): void;
 
+    /**
+     * @param ?int $availableQuantity
+     */
     public function setAvailableQuantity(?int $availableQuantity): void;
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void;
 
+    /**
+     * @param ?DateTimeImmutable $expectedDelivery
+     */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

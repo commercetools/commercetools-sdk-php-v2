@@ -30,9 +30,12 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     protected $discountedPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $quantity = null,
-        DiscountedLineItemPrice $discountedPrice = null
+        ?float $quantity = null,
+        ?DiscountedLineItemPrice $discountedPrice = null
     ) {
         $this->quantity = $quantity;
         $this->discountedPrice = $discountedPrice;
@@ -74,11 +77,17 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
+     */
     public function setDiscountedPrice(?DiscountedLineItemPrice $discountedPrice): void
     {
         $this->discountedPrice = $discountedPrice;

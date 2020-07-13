@@ -85,18 +85,21 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $uniquenessValue = null,
-        string $locale = null,
-        string $authorName = null,
-        string $title = null,
-        string $text = null,
-        JsonObject $target = null,
-        StateResourceIdentifier $state = null,
-        int $rating = null,
-        CustomerResourceIdentifier $customer = null,
-        CustomFieldsDraft $custom = null
+        ?string $key = null,
+        ?string $uniquenessValue = null,
+        ?string $locale = null,
+        ?string $authorName = null,
+        ?string $title = null,
+        ?string $text = null,
+        ?JsonObject $target = null,
+        ?StateResourceIdentifier $state = null,
+        ?int $rating = null,
+        ?CustomerResourceIdentifier $customer = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
         $this->uniquenessValue = $uniquenessValue;
@@ -350,56 +353,89 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         return ChannelResourceIdentifierModel::of($data);
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $uniquenessValue
+     */
     public function setUniquenessValue(?string $uniquenessValue): void
     {
         $this->uniquenessValue = $uniquenessValue;
     }
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void
     {
         $this->authorName = $authorName;
     }
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void
     {
         $this->text = $text;
     }
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void
     {
         $this->target = $target;
     }
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void
     {
         $this->rating = $rating;
     }
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;

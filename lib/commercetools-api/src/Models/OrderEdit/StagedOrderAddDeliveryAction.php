@@ -36,9 +36,18 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
      */
     public function getParcels();
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 
+    /**
+     * @param ?ParcelDraftCollection $parcels
+     */
     public function setParcels(?ParcelDraftCollection $parcels): void;
 }

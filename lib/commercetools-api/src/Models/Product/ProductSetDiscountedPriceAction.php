@@ -33,9 +33,18 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
      */
     public function getDiscounted();
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void;
 }

@@ -41,9 +41,18 @@ interface SubscriptionDelivery extends JsonObject
      */
     public function getResourceUserProvidedIdentifiers();
 
+    /**
+     * @param ?string $projectKey
+     */
     public function setProjectKey(?string $projectKey): void;
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void;
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void;
 }

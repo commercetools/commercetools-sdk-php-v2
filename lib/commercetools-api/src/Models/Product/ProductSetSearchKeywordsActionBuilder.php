@@ -47,6 +47,7 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)
@@ -57,6 +58,7 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

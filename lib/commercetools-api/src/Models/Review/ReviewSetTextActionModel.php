@@ -31,8 +31,11 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     protected $text;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $text = null
+        ?string $text = null
     ) {
         $this->text = $text;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     }
 
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void
     {
         $this->text = $text;

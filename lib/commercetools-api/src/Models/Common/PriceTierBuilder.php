@@ -47,6 +47,7 @@ final class PriceTierBuilder implements Builder
     }
 
     /**
+     * @param ?int $minimumQuantity
      * @return $this
      */
     public function withMinimumQuantity(?int $minimumQuantity)
@@ -57,6 +58,7 @@ final class PriceTierBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $value
      * @return $this
      */
     public function withValue(?TypedMoney $value)

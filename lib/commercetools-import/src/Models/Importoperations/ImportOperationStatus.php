@@ -39,9 +39,18 @@ interface ImportOperationStatus extends JsonObject
      */
     public function getErrors();
 
+    /**
+     * @param ?string $operationId
+     */
     public function setOperationId(?string $operationId): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void;
 }

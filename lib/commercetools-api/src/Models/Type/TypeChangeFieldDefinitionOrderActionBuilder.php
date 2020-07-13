@@ -34,6 +34,7 @@ final class TypeChangeFieldDefinitionOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $fieldNames
      * @return $this
      */
     public function withFieldNames(?array $fieldNames)

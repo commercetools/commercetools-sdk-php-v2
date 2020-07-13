@@ -33,8 +33,11 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
     protected $zone;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ZoneResourceIdentifier $zone = null
+        ?ZoneResourceIdentifier $zone = null
     ) {
         $this->zone = $zone;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void
     {
         $this->zone = $zone;

@@ -51,12 +51,15 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     protected $terms;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $dataType = null,
-        int $missing = null,
-        int $total = null,
-        int $other = null,
-        FacetResultTermCollection $terms = null
+        ?string $dataType = null,
+        ?int $missing = null,
+        ?int $total = null,
+        ?int $other = null,
+        ?FacetResultTermCollection $terms = null
     ) {
         $this->dataType = $dataType;
         $this->missing = $missing;
@@ -169,26 +172,41 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
 
+    /**
+     * @param ?string $dataType
+     */
     public function setDataType(?string $dataType): void
     {
         $this->dataType = $dataType;
     }
 
+    /**
+     * @param ?int $missing
+     */
     public function setMissing(?int $missing): void
     {
         $this->missing = $missing;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $other
+     */
     public function setOther(?int $other): void
     {
         $this->other = $other;
     }
 
+    /**
+     * @param ?FacetResultTermCollection $terms
+     */
     public function setTerms(?FacetResultTermCollection $terms): void
     {
         $this->terms = $terms;

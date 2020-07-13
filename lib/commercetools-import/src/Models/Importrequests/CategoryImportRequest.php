@@ -23,5 +23,8 @@ interface CategoryImportRequest extends ImportRequest
      */
     public function getResources();
 
+    /**
+     * @param ?CategoryImportCollection $resources
+     */
     public function setResources(?CategoryImportCollection $resources): void;
 }

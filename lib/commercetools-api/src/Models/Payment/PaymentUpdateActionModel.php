@@ -54,6 +54,9 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
        'transitionState' => PaymentTransitionStateActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

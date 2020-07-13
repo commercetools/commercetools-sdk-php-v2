@@ -40,11 +40,14 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     protected $locations;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $name = null,
-        string $description = null,
-        LocationCollection $locations = null
+        ?string $key = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?LocationCollection $locations = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -125,21 +128,33 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocationCollection $locations
+     */
     public function setLocations(?LocationCollection $locations): void
     {
         $this->locations = $locations;

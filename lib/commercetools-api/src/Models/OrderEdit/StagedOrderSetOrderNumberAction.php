@@ -21,5 +21,8 @@ interface StagedOrderSetOrderNumberAction extends StagedOrderUpdateAction
      */
     public function getOrderNumber();
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void;
 }

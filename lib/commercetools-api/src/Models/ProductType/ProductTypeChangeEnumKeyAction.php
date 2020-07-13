@@ -32,9 +32,18 @@ interface ProductTypeChangeEnumKeyAction extends ProductTypeUpdateAction
      */
     public function getNewKey();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $newKey
+     */
     public function setNewKey(?string $newKey): void;
 }

@@ -21,5 +21,8 @@ interface StagedOrderSetCountryAction extends StagedOrderUpdateAction
      */
     public function getCountry();
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 }

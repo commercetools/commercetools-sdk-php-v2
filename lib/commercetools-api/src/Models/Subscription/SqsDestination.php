@@ -38,11 +38,23 @@ interface SqsDestination extends Destination
      */
     public function getRegion();
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void;
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void;
 
+    /**
+     * @param ?string $queueUrl
+     */
     public function setQueueUrl(?string $queueUrl): void;
 
+    /**
+     * @param ?string $region
+     */
     public function setRegion(?string $region): void;
 }

@@ -47,6 +47,7 @@ final class MessageConfigurationBuilder implements Builder
     }
 
     /**
+     * @param ?bool $enabled
      * @return $this
      */
     public function withEnabled(?bool $enabled)
@@ -57,6 +58,7 @@ final class MessageConfigurationBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterCreation
      * @return $this
      */
     public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)

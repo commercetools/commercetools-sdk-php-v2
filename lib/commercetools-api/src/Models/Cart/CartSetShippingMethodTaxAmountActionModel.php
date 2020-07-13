@@ -31,8 +31,11 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
     protected $externalTaxAmount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ExternalTaxAmountDraft $externalTaxAmount = null
+        ?ExternalTaxAmountDraft $externalTaxAmount = null
     ) {
         $this->externalTaxAmount = $externalTaxAmount;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class CartSetShippingMethodTaxAmountActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
+     */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void
     {
         $this->externalTaxAmount = $externalTaxAmount;

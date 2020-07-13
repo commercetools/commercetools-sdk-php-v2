@@ -27,7 +27,13 @@ interface OrderLineItemAddedMessage extends Message
      */
     public function getAddedQuantity();
 
+    /**
+     * @param ?LineItem $lineItem
+     */
     public function setLineItem(?LineItem $lineItem): void;
 
+    /**
+     * @param ?int $addedQuantity
+     */
     public function setAddedQuantity(?int $addedQuantity): void;
 }

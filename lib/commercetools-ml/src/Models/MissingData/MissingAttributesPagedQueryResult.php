@@ -44,13 +44,28 @@ interface MissingAttributesPagedQueryResult extends JsonObject
      */
     public function getMeta();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?MissingAttributesCollection $results
+     */
     public function setResults(?MissingAttributesCollection $results): void;
 
+    /**
+     * @param ?MissingAttributesMeta $meta
+     */
     public function setMeta(?MissingAttributesMeta $meta): void;
 }

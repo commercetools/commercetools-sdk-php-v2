@@ -34,6 +34,7 @@ final class ChangeStatusUpdateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $status
      * @return $this
      */
     public function withStatus(?string $status)

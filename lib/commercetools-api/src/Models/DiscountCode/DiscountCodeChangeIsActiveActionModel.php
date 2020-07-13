@@ -31,8 +31,11 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     protected $isActive;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $isActive = null
+        ?bool $isActive = null
     ) {
         $this->isActive = $isActive;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;

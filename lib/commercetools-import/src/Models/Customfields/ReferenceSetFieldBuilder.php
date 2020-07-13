@@ -35,6 +35,7 @@ final class ReferenceSetFieldBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReferenceCollection $value
      * @return $this
      */
     public function withValue(?KeyReferenceCollection $value)

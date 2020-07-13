@@ -26,7 +26,13 @@ interface ProductSetSearchKeywordsAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

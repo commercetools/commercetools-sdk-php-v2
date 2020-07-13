@@ -36,9 +36,12 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null,
-        CustomFieldEnumValue $value = null
+        ?string $fieldName = null,
+        ?CustomFieldEnumValue $value = null
     ) {
         $this->fieldName = $fieldName;
         $this->value = $value;
@@ -98,11 +101,17 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
     }
 
+    /**
+     * @param ?CustomFieldEnumValue $value
+     */
     public function setValue(?CustomFieldEnumValue $value): void
     {
         $this->value = $value;

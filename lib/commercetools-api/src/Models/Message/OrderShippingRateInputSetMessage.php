@@ -27,7 +27,13 @@ interface OrderShippingRateInputSetMessage extends Message
      */
     public function getOldShippingRateInput();
 
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
 
+    /**
+     * @param ?ShippingRateInput $oldShippingRateInput
+     */
     public function setOldShippingRateInput(?ShippingRateInput $oldShippingRateInput): void;
 }

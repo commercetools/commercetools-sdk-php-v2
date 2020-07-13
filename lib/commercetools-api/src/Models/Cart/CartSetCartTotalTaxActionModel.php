@@ -38,9 +38,12 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     protected $externalTaxPortions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $externalTotalGross = null,
-        TaxPortionDraftCollection $externalTaxPortions = null
+        ?Money $externalTotalGross = null,
+        ?TaxPortionDraftCollection $externalTaxPortions = null
     ) {
         $this->externalTotalGross = $externalTotalGross;
         $this->externalTaxPortions = $externalTaxPortions;
@@ -102,11 +105,17 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
 
+    /**
+     * @param ?Money $externalTotalGross
+     */
     public function setExternalTotalGross(?Money $externalTotalGross): void
     {
         $this->externalTotalGross = $externalTotalGross;
     }
 
+    /**
+     * @param ?TaxPortionDraftCollection $externalTaxPortions
+     */
     public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
     {
         $this->externalTaxPortions = $externalTaxPortions;

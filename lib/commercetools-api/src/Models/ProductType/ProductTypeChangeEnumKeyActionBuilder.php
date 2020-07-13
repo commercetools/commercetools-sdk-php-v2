@@ -60,6 +60,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -70,6 +71,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -80,6 +82,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $newKey
      * @return $this
      */
     public function withNewKey(?string $newKey)

@@ -26,7 +26,13 @@ interface GoogleCloudPubSubDestination extends Destination
      */
     public function getTopic();
 
+    /**
+     * @param ?string $projectId
+     */
     public function setProjectId(?string $projectId): void;
 
+    /**
+     * @param ?string $topic
+     */
     public function setTopic(?string $topic): void;
 }

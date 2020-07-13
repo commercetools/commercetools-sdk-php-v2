@@ -47,6 +47,7 @@ final class MyPaymentUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class MyPaymentUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?MyPaymentUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?MyPaymentUpdateActionCollection $actions)

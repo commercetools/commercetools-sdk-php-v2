@@ -210,6 +210,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -220,6 +221,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -230,6 +232,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -240,6 +243,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -250,6 +254,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -260,6 +265,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -270,6 +276,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -280,6 +287,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -290,6 +298,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -300,6 +309,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -310,6 +320,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldQuantityOnStock
      * @return $this
      */
     public function withOldQuantityOnStock(?int $oldQuantityOnStock)
@@ -320,6 +331,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $newQuantityOnStock
      * @return $this
      */
     public function withNewQuantityOnStock(?int $newQuantityOnStock)
@@ -330,6 +342,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldAvailableQuantity
      * @return $this
      */
     public function withOldAvailableQuantity(?int $oldAvailableQuantity)
@@ -340,6 +353,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $newAvailableQuantity
      * @return $this
      */
     public function withNewAvailableQuantity(?int $newAvailableQuantity)

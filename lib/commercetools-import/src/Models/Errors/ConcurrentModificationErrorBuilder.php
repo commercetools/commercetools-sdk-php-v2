@@ -36,7 +36,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $currentVersion;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $conflictedResource;
 
@@ -73,7 +73,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     /**
      * <p>The conflicted resource.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getConflictedResource()
     {
@@ -81,6 +81,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -91,6 +92,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param ?int $specifiedVersion
      * @return $this
      */
     public function withSpecifiedVersion(?int $specifiedVersion)
@@ -101,6 +103,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param ?int $currentVersion
      * @return $this
      */
     public function withCurrentVersion(?int $currentVersion)
@@ -111,9 +114,10 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param mixed $conflictedResource
      * @return $this
      */
-    public function withConflictedResource(?JsonObject $conflictedResource)
+    public function withConflictedResource($conflictedResource)
     {
         $this->conflictedResource = $conflictedResource;
 

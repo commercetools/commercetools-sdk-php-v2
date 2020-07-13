@@ -51,6 +51,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?OrderEditReference $edit
      * @return $this
      */
     public function withEdit(?OrderEditReference $edit)
@@ -61,6 +62,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?OrderEditApplied $result
      * @return $this
      */
     public function withResult(?OrderEditApplied $result)

@@ -31,8 +31,11 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     protected $typeId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->typeId = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

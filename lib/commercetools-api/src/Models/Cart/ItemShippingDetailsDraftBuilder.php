@@ -39,6 +39,7 @@ final class ItemShippingDetailsDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingTargetCollection $targets
      * @return $this
      */
     public function withTargets(?ItemShippingTargetCollection $targets)

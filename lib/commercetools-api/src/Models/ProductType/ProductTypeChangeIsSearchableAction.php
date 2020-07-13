@@ -26,7 +26,13 @@ interface ProductTypeChangeIsSearchableAction extends ProductTypeUpdateAction
      */
     public function getIsSearchable();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?bool $isSearchable
+     */
     public function setIsSearchable(?bool $isSearchable): void;
 }

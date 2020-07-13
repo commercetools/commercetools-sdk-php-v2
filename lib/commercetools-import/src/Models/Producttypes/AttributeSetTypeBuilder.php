@@ -34,6 +34,7 @@ final class AttributeSetTypeBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeType $elementType
      * @return $this
      */
     public function withElementType(?AttributeType $elementType)

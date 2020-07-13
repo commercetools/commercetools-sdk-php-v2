@@ -37,6 +37,7 @@ final class DiscountCodeSetValidFromActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)

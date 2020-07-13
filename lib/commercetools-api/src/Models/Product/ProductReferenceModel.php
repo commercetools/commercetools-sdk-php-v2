@@ -38,9 +38,12 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Product $obj = null
+        ?string $id = null,
+        ?Product $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Product $obj
+     */
     public function setObj(?Product $obj): void
     {
         $this->obj = $obj;

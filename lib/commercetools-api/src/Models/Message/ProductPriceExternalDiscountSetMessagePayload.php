@@ -51,15 +51,33 @@ interface ProductPriceExternalDiscountSetMessagePayload extends MessagePayload
      */
     public function getStaged();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $variantKey
+     */
     public function setVariantKey(?string $variantKey): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

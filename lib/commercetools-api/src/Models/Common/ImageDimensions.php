@@ -26,7 +26,13 @@ interface ImageDimensions extends JsonObject
      */
     public function getH();
 
+    /**
+     * @param ?float $w
+     */
     public function setW(?float $w): void;
 
+    /**
+     * @param ?float $h
+     */
     public function setH(?float $h): void;
 }

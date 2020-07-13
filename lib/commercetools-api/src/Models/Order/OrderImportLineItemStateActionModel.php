@@ -36,9 +36,12 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ItemStateCollection $state = null
+        ?string $lineItemId = null,
+        ?ItemStateCollection $state = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->state = $state;
@@ -97,11 +100,17 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;

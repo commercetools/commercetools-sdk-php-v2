@@ -34,6 +34,7 @@ final class SubscriptionChangeDestinationActionBuilder implements Builder
     }
 
     /**
+     * @param ?Destination $destination
      * @return $this
      */
     public function withDestination(?Destination $destination)

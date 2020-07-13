@@ -51,15 +51,33 @@ interface ProductChangeAssetNameAction extends ProductUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

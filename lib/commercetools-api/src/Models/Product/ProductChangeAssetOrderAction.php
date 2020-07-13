@@ -38,11 +38,23 @@ interface ProductChangeAssetOrderAction extends ProductUpdateAction
      */
     public function getAssetOrder();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?array $assetOrder
+     */
     public function setAssetOrder(?array $assetOrder): void;
 }

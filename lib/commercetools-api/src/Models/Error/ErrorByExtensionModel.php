@@ -30,9 +30,12 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $key = null
+        ?string $id = null,
+        ?string $key = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -73,11 +76,17 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

@@ -122,6 +122,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
@@ -132,6 +133,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeReference $productType)
@@ -142,6 +144,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -152,6 +155,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?array $missingAttributeValues
      * @return $this
      */
     public function withMissingAttributeValues(?array $missingAttributeValues)
@@ -162,6 +166,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?array $missingAttributeNames
      * @return $this
      */
     public function withMissingAttributeNames(?array $missingAttributeNames)
@@ -172,6 +177,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCount $attributeCount
      * @return $this
      */
     public function withAttributeCount(?AttributeCount $attributeCount)
@@ -182,6 +188,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCoverage $attributeCoverage
      * @return $this
      */
     public function withAttributeCoverage(?AttributeCoverage $attributeCoverage)

@@ -26,7 +26,13 @@ interface ProductTypeChangePlainEnumValueOrderAction extends ProductTypeUpdateAc
      */
     public function getValues();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?AttributePlainEnumValueCollection $values
+     */
     public function setValues(?AttributePlainEnumValueCollection $values): void;
 }

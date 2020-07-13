@@ -63,15 +63,33 @@ interface Transaction extends JsonObject
      */
     public function getState();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?DateTimeImmutable $timestamp
+     */
     public function setTimestamp(?DateTimeImmutable $timestamp): void;
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void;
 
+    /**
+     * @param ?TypedMoney $amount
+     */
     public function setAmount(?TypedMoney $amount): void;
 
+    /**
+     * @param ?string $interactionId
+     */
     public function setInteractionId(?string $interactionId): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 }

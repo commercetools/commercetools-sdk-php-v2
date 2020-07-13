@@ -21,5 +21,8 @@ interface StateReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?State $obj
+     */
     public function setObj(?State $obj): void;
 }

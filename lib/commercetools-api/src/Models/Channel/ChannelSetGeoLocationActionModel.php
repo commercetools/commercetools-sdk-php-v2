@@ -33,8 +33,11 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     protected $geoLocation;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        GeoJson $geoLocation = null
+        ?GeoJson $geoLocation = null
     ) {
         $this->geoLocation = $geoLocation;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?GeoJson $geoLocation
+     */
     public function setGeoLocation(?GeoJson $geoLocation): void
     {
         $this->geoLocation = $geoLocation;

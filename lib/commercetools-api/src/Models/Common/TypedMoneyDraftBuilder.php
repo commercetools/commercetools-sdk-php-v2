@@ -49,6 +49,7 @@ final class TypedMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $centAmount
      * @return $this
      */
     public function withCentAmount(?int $centAmount)
@@ -59,6 +60,7 @@ final class TypedMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)

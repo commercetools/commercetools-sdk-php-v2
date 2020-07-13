@@ -31,8 +31,11 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     protected $connectionString;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $connectionString = null
+        ?string $connectionString = null
     ) {
         $this->connectionString = $connectionString;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     }
 
 
+    /**
+     * @param ?string $connectionString
+     */
     public function setConnectionString(?string $connectionString): void
     {
         $this->connectionString = $connectionString;

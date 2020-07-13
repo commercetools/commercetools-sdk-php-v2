@@ -49,6 +49,7 @@ final class PriceFunctionBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)
@@ -59,6 +60,7 @@ final class PriceFunctionBuilder implements Builder
     }
 
     /**
+     * @param ?string $function
      * @return $this
      */
     public function withFunction(?string $function)

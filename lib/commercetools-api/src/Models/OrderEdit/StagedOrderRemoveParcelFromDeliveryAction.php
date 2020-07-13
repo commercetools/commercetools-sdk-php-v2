@@ -21,5 +21,8 @@ interface StagedOrderRemoveParcelFromDeliveryAction extends StagedOrderUpdateAct
      */
     public function getParcelId();
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 }

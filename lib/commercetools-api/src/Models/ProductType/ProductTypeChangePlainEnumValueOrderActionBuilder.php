@@ -47,6 +47,7 @@ final class ProductTypeChangePlainEnumValueOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeChangePlainEnumValueOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributePlainEnumValueCollection $values
      * @return $this
      */
     public function withValues(?AttributePlainEnumValueCollection $values)

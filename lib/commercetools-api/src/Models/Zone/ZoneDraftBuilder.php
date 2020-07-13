@@ -77,6 +77,7 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -87,6 +88,7 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -97,6 +99,7 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -107,6 +110,7 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocationCollection $locations
      * @return $this
      */
     public function withLocations(?LocationCollection $locations)

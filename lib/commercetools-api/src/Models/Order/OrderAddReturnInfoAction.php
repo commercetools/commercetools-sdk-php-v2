@@ -33,9 +33,18 @@ interface OrderAddReturnInfoAction extends OrderUpdateAction
      */
     public function getReturnDate();
 
+    /**
+     * @param ?string $returnTrackingId
+     */
     public function setReturnTrackingId(?string $returnTrackingId): void;
 
+    /**
+     * @param ?ReturnItemDraftCollection $items
+     */
     public function setItems(?ReturnItemDraftCollection $items): void;
 
+    /**
+     * @param ?DateTimeImmutable $returnDate
+     */
     public function setReturnDate(?DateTimeImmutable $returnDate): void;
 }

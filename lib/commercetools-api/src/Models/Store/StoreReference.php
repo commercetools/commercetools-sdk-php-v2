@@ -21,5 +21,8 @@ interface StoreReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Store $obj
+     */
     public function setObj(?Store $obj): void;
 }

@@ -49,6 +49,7 @@ final class CategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class CategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?Category $obj
      * @return $this
      */
     public function withObj(?Category $obj)

@@ -35,9 +35,18 @@ interface CustomerGroupDraft extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $groupName
+     */
     public function setGroupName(?string $groupName): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

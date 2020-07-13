@@ -184,6 +184,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?int $id
      * @return $this
      */
     public function withId(?int $id)
@@ -194,6 +195,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -204,6 +206,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -214,6 +217,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?PriceCollection $prices
      * @return $this
      */
     public function withPrices(?PriceCollection $prices)
@@ -224,6 +228,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeCollection $attributes)
@@ -234,6 +239,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?Price $price
      * @return $this
      */
     public function withPrice(?Price $price)
@@ -244,6 +250,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?ImageCollection $images
      * @return $this
      */
     public function withImages(?ImageCollection $images)
@@ -254,6 +261,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?AssetCollection $assets
      * @return $this
      */
     public function withAssets(?AssetCollection $assets)
@@ -264,6 +272,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantAvailability $availability
      * @return $this
      */
     public function withAvailability(?ProductVariantAvailability $availability)
@@ -274,6 +283,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMatchingVariant
      * @return $this
      */
     public function withIsMatchingVariant(?bool $isMatchingVariant)
@@ -284,6 +294,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?ScopedPrice $scopedPrice
      * @return $this
      */
     public function withScopedPrice(?ScopedPrice $scopedPrice)
@@ -294,6 +305,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?bool $scopedPriceDiscounted
      * @return $this
      */
     public function withScopedPriceDiscounted(?bool $scopedPriceDiscounted)

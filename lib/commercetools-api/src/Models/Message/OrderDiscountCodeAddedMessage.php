@@ -21,5 +21,8 @@ interface OrderDiscountCodeAddedMessage extends Message
      */
     public function getDiscountCode();
 
+    /**
+     * @param ?DiscountCodeReference $discountCode
+     */
     public function setDiscountCode(?DiscountCodeReference $discountCode): void;
 }

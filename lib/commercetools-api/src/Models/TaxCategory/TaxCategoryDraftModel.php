@@ -40,11 +40,14 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        string $description = null,
-        TaxRateDraftCollection $rates = null,
-        string $key = null
+        ?string $name = null,
+        ?string $description = null,
+        ?TaxRateDraftCollection $rates = null,
+        ?string $key = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -121,21 +124,33 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?TaxRateDraftCollection $rates
+     */
     public function setRates(?TaxRateDraftCollection $rates): void
     {
         $this->rates = $rates;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

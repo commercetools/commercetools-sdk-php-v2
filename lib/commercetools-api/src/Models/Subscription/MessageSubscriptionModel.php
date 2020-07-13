@@ -30,9 +30,12 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     protected $types;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $resourceTypeId = null,
-        array $types = null
+        ?string $resourceTypeId = null,
+        ?array $types = null
     ) {
         $this->resourceTypeId = $resourceTypeId;
         $this->types = $types;
@@ -73,11 +76,17 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     }
 
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void
     {
         $this->resourceTypeId = $resourceTypeId;
     }
 
+    /**
+     * @param ?array $types
+     */
     public function setTypes(?array $types): void
     {
         $this->types = $types;

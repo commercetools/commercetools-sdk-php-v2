@@ -51,6 +51,7 @@ final class MissingPricesBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
@@ -61,6 +62,7 @@ final class MissingPricesBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)

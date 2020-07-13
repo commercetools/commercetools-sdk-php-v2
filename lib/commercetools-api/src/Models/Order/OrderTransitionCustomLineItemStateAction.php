@@ -46,13 +46,28 @@ interface OrderTransitionCustomLineItemStateAction extends OrderUpdateAction
      */
     public function getActualTransitionDate();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?StateResourceIdentifier $fromState
+     */
     public function setFromState(?StateResourceIdentifier $fromState): void;
 
+    /**
+     * @param ?StateResourceIdentifier $toState
+     */
     public function setToState(?StateResourceIdentifier $toState): void;
 
+    /**
+     * @param ?DateTimeImmutable $actualTransitionDate
+     */
     public function setActualTransitionDate(?DateTimeImmutable $actualTransitionDate): void;
 }

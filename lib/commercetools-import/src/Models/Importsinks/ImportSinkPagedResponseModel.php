@@ -40,11 +40,14 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $limit = null,
-        float $offset = null,
-        float $count = null,
-        ImportSinkCollection $results = null
+        ?float $limit = null,
+        ?float $offset = null,
+        ?float $count = null,
+        ?ImportSinkCollection $results = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -129,21 +132,33 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
     }
 
 
+    /**
+     * @param ?float $limit
+     */
     public function setLimit(?float $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?float $count
+     */
     public function setCount(?float $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?ImportSinkCollection $results
+     */
     public function setResults(?ImportSinkCollection $results): void
     {
         $this->results = $results;

@@ -20,5 +20,8 @@ interface CustomerSetTitleAction extends CustomerUpdateAction
      */
     public function getTitle();
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void;
 }

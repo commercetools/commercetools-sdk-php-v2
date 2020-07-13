@@ -38,9 +38,12 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        State $obj = null
+        ?string $id = null,
+        ?State $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?State $obj
+     */
     public function setObj(?State $obj): void
     {
         $this->obj = $obj;

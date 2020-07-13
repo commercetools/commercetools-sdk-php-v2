@@ -70,14 +70,17 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
        'LineItemReturnItem' => LineItemReturnItemModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $quantity = null,
-        string $comment = null,
-        string $shipmentState = null,
-        string $paymentState = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        DateTimeImmutable $createdAt = null
+        ?string $id = null,
+        ?int $quantity = null,
+        ?string $comment = null,
+        ?string $shipmentState = null,
+        ?string $paymentState = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?DateTimeImmutable $createdAt = null
     ) {
         $this->id = $id;
         $this->quantity = $quantity;
@@ -234,36 +237,57 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;

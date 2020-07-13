@@ -33,8 +33,11 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
     protected $email;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $email = null
+        ?string $email = null
     ) {
         $this->email = $email;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;

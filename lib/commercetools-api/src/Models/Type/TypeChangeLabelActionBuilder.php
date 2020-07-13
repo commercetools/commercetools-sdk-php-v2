@@ -49,6 +49,7 @@ final class TypeChangeLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $fieldName
      * @return $this
      */
     public function withFieldName(?string $fieldName)
@@ -59,6 +60,7 @@ final class TypeChangeLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $label
      * @return $this
      */
     public function withLabel(?LocalizedString $label)

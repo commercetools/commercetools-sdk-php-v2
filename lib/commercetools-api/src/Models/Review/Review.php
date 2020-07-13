@@ -148,39 +148,93 @@ interface Review extends BaseResource
      */
     public function getCustom();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $uniquenessValue
+     */
     public function setUniquenessValue(?string $uniquenessValue): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void;
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void;
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void;
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void;
 
+    /**
+     * @param ?bool $includedInStatistics
+     */
     public function setIncludedInStatistics(?bool $includedInStatistics): void;
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

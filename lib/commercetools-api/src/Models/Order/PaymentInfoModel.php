@@ -26,8 +26,11 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     protected $payments;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        PaymentReferenceCollection $payments = null
+        ?PaymentReferenceCollection $payments = null
     ) {
         $this->payments = $payments;
     }
@@ -50,6 +53,9 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     }
 
 
+    /**
+     * @param ?PaymentReferenceCollection $payments
+     */
     public function setPayments(?PaymentReferenceCollection $payments): void
     {
         $this->payments = $payments;

@@ -30,9 +30,12 @@ final class StateUpdateModel extends JsonObjectModel implements StateUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        StateUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?StateUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class StateUpdateModel extends JsonObjectModel implements StateUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?StateUpdateActionCollection $actions
+     */
     public function setActions(?StateUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

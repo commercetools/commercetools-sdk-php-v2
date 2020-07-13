@@ -51,6 +51,7 @@ final class CategoryAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?AssetDraft $asset
      * @return $this
      */
     public function withAsset(?AssetDraft $asset)
@@ -61,6 +62,7 @@ final class CategoryAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $position
      * @return $this
      */
     public function withPosition(?int $position)

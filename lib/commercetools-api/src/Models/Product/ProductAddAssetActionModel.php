@@ -53,12 +53,15 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     protected $position;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        bool $staged = null,
-        AssetDraft $asset = null,
-        int $position = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?bool $staged = null,
+        ?AssetDraft $asset = null,
+        ?int $position = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -174,26 +177,41 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?AssetDraft $asset
+     */
     public function setAsset(?AssetDraft $asset): void
     {
         $this->asset = $asset;
     }
 
+    /**
+     * @param ?int $position
+     */
     public function setPosition(?int $position): void
     {
         $this->position = $position;

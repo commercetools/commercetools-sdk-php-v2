@@ -27,11 +27,17 @@ interface CartDiscountSetCustomFieldAction extends CartDiscountUpdateAction
      * If <code>value</code> is provided, set the <code>value</code> of the field defined by the <code>name</code>.
      * The FieldDefinition determines the format for the <code>value</code> to be provided.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 }

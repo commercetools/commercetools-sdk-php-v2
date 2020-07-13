@@ -31,8 +31,11 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
     protected $salutation;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $salutation = null
+        ?string $salutation = null
     ) {
         $this->salutation = $salutation;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $salutation
+     */
     public function setSalutation(?string $salutation): void
     {
         $this->salutation = $salutation;

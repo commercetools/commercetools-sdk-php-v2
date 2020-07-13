@@ -113,23 +113,26 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     protected $anonymousId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        CustomFields $custom = null,
-        CustomerReference $customer = null,
-        int $deleteDaysAfterLastModification = null,
-        LocalizedString $description = null,
-        string $key = null,
-        ShoppingListLineItemCollection $lineItems = null,
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        TextLineItemCollection $textLineItems = null,
-        string $anonymousId = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?CustomFields $custom = null,
+        ?CustomerReference $customer = null,
+        ?int $deleteDaysAfterLastModification = null,
+        ?LocalizedString $description = null,
+        ?string $key = null,
+        ?ShoppingListLineItemCollection $lineItems = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?TextLineItemCollection $textLineItems = null,
+        ?string $anonymousId = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -455,81 +458,129 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ShoppingListLineItemCollection $lineItems
+     */
     public function setLineItems(?ShoppingListLineItemCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?TextLineItemCollection $textLineItems
+     */
     public function setTextLineItems(?TextLineItemCollection $textLineItems): void
     {
         $this->textLineItems = $textLineItems;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;

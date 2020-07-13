@@ -31,8 +31,11 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     protected $parent;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CategoryResourceIdentifier $parent = null
+        ?CategoryResourceIdentifier $parent = null
     ) {
         $this->parent = $parent;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     }
 
 
+    /**
+     * @param ?CategoryResourceIdentifier $parent
+     */
     public function setParent(?CategoryResourceIdentifier $parent): void
     {
         $this->parent = $parent;

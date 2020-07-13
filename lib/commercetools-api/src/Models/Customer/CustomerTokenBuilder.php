@@ -100,6 +100,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -110,6 +111,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -120,6 +122,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -130,6 +133,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerId
      * @return $this
      */
     public function withCustomerId(?string $customerId)
@@ -140,6 +144,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expiresAt
      * @return $this
      */
     public function withExpiresAt(?DateTimeImmutable $expiresAt)
@@ -150,6 +155,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $value
      * @return $this
      */
     public function withValue(?string $value)

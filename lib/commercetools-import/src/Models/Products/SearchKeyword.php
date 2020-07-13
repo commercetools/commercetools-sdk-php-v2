@@ -26,7 +26,13 @@ interface SearchKeyword extends JsonObject
      */
     public function getSuggestTokenizer();
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void;
 
+    /**
+     * @param ?SuggestTokenizer $suggestTokenizer
+     */
     public function setSuggestTokenizer(?SuggestTokenizer $suggestTokenizer): void;
 }

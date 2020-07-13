@@ -53,6 +53,7 @@ final class StagedOrderSetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -63,6 +64,7 @@ final class StagedOrderSetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

@@ -49,6 +49,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

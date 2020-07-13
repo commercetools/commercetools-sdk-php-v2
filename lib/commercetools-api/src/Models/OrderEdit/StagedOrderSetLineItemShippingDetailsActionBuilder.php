@@ -51,6 +51,7 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

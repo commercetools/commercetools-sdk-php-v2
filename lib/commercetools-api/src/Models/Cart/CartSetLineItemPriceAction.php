@@ -27,7 +27,13 @@ interface CartSetLineItemPriceAction extends CartUpdateAction
      */
     public function getExternalPrice();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void;
 }

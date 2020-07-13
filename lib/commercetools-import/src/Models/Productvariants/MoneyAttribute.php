@@ -21,5 +21,8 @@ interface MoneyAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 }

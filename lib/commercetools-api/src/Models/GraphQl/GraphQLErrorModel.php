@@ -35,10 +35,13 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     protected $path;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        GraphQLErrorLocationCollection $locations = null,
-        array $path = null
+        ?string $message = null,
+        ?GraphQLErrorLocationCollection $locations = null,
+        ?array $path = null
     ) {
         $this->message = $message;
         $this->locations = $locations;
@@ -97,16 +100,25 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?GraphQLErrorLocationCollection $locations
+     */
     public function setLocations(?GraphQLErrorLocationCollection $locations): void
     {
         $this->locations = $locations;
     }
 
+    /**
+     * @param ?array $path
+     */
     public function setPath(?array $path): void
     {
         $this->path = $path;

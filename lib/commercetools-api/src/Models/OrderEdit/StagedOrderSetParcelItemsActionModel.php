@@ -39,9 +39,12 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $parcelId = null,
-        DeliveryItemCollection $items = null
+        ?string $parcelId = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->parcelId = $parcelId;
         $this->items = $items;
@@ -100,11 +103,17 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

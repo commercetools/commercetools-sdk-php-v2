@@ -60,6 +60,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -70,6 +71,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $subject
      * @return $this
      */
     public function withSubject(?string $subject)
@@ -80,6 +82,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $itemId
      * @return $this
      */
     public function withItemId(?string $itemId)

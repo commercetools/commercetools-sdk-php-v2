@@ -49,6 +49,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -59,6 +60,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)

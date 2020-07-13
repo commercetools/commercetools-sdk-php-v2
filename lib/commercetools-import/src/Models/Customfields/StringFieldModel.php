@@ -31,8 +31,11 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $value = null
+        ?string $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     }
 
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;

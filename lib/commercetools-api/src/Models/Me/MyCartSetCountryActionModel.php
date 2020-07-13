@@ -31,8 +31,11 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
     protected $country;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $country = null
+        ?string $country = null
     ) {
         $this->country = $country;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
     }
 
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;

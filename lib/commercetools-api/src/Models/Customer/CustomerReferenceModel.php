@@ -38,9 +38,12 @@ final class CustomerReferenceModel extends JsonObjectModel implements CustomerRe
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Customer $obj = null
+        ?string $id = null,
+        ?Customer $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class CustomerReferenceModel extends JsonObjectModel implements CustomerRe
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Customer $obj
+     */
     public function setObj(?Customer $obj): void
     {
         $this->obj = $obj;

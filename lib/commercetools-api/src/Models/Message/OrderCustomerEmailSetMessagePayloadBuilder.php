@@ -47,6 +47,7 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -57,6 +58,7 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $oldEmail
      * @return $this
      */
     public function withOldEmail(?string $oldEmail)

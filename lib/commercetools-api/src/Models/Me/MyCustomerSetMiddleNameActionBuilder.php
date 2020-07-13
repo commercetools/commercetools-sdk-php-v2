@@ -34,6 +34,7 @@ final class MyCustomerSetMiddleNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $middleName
      * @return $this
      */
     public function withMiddleName(?string $middleName)

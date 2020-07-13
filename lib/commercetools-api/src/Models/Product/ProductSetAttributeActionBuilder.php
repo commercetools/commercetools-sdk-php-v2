@@ -36,7 +36,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -74,7 +74,7 @@ final class ProductSetAttributeActionBuilder implements Builder
      * If the attribute exists and a value is provided, the new value is applied.
      * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -90,6 +90,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -100,6 +101,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -110,6 +112,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -120,9 +123,10 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 
@@ -130,6 +134,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

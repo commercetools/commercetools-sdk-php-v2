@@ -31,8 +31,11 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     protected $cloudEventsVersion;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $cloudEventsVersion = null
+        ?string $cloudEventsVersion = null
     ) {
         $this->cloudEventsVersion = $cloudEventsVersion;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     }
 
 
+    /**
+     * @param ?string $cloudEventsVersion
+     */
     public function setCloudEventsVersion(?string $cloudEventsVersion): void
     {
         $this->cloudEventsVersion = $cloudEventsVersion;

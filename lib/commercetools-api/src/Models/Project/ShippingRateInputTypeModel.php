@@ -35,6 +35,9 @@ final class ShippingRateInputTypeModel extends JsonObjectModel implements Shippi
        'CartValue' => CartValueTypeModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

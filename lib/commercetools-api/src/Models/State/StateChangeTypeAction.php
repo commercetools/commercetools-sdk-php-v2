@@ -20,5 +20,8 @@ interface StateChangeTypeAction extends StateUpdateAction
      */
     public function getType();
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void;
 }

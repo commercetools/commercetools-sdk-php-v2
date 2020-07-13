@@ -31,8 +31,11 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     protected $interfaceId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $interfaceId = null
+        ?string $interfaceId = null
     ) {
         $this->interfaceId = $interfaceId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $interfaceId
+     */
     public function setInterfaceId(?string $interfaceId): void
     {
         $this->interfaceId = $interfaceId;

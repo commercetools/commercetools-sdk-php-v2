@@ -20,5 +20,8 @@ interface SubscriptionChangeDestinationAction extends SubscriptionUpdateAction
      */
     public function getDestination();
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void;
 }

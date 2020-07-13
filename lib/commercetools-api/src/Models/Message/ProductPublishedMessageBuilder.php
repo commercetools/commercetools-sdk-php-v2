@@ -199,6 +199,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -209,6 +210,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -219,6 +221,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -229,6 +232,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -239,6 +243,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -249,6 +254,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -259,6 +265,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -269,6 +276,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -279,6 +287,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -289,6 +298,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -299,6 +309,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?array $removedImageUrls
      * @return $this
      */
     public function withRemovedImageUrls(?array $removedImageUrls)
@@ -309,6 +320,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?ProductProjection $productProjection
      * @return $this
      */
     public function withProductProjection(?ProductProjection $productProjection)
@@ -319,6 +331,7 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $scope
      * @return $this
      */
     public function withScope(?string $scope)

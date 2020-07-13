@@ -89,6 +89,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -99,6 +100,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -109,6 +111,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -119,6 +122,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -129,6 +133,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)

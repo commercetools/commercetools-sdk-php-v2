@@ -36,9 +36,12 @@ final class CustomerRemoveBillingAddressIdActionModel extends JsonObjectModel im
     protected $addressKey;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $addressId = null,
-        string $addressKey = null
+        ?string $addressId = null,
+        ?string $addressKey = null
     ) {
         $this->addressId = $addressId;
         $this->addressKey = $addressKey;
@@ -97,11 +100,17 @@ final class CustomerRemoveBillingAddressIdActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void
     {
         $this->addressId = $addressId;
     }
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void
     {
         $this->addressKey = $addressKey;

@@ -44,13 +44,28 @@ interface ReturnItemDraft extends JsonObject
      */
     public function getShipmentState();
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void;
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 }

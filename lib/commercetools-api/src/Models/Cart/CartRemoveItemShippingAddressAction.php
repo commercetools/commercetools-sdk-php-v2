@@ -20,5 +20,8 @@ interface CartRemoveItemShippingAddressAction extends CartUpdateAction
      */
     public function getAddressKey();
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 }

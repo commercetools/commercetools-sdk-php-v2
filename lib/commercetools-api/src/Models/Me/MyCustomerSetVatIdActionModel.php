@@ -31,8 +31,11 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     protected $vatId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $vatId = null
+        ?string $vatId = null
     ) {
         $this->vatId = $vatId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     }
 
 
+    /**
+     * @param ?string $vatId
+     */
     public function setVatId(?string $vatId): void
     {
         $this->vatId = $vatId;

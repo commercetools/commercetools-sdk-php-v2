@@ -28,7 +28,13 @@ interface SimilarProductPair extends JsonObject
      */
     public function getProducts();
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void;
 
+    /**
+     * @param ?SimilarProductCollection $products
+     */
     public function setProducts(?SimilarProductCollection $products): void;
 }

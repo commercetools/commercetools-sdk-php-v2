@@ -29,7 +29,13 @@ interface CategorySetAssetKeyAction extends CategoryUpdateAction
      */
     public function getAssetKey();
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 }

@@ -77,17 +77,20 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $name = null,
-        string $description = null,
-        TaxRateCollection $rates = null,
-        string $key = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?TaxRateCollection $rates = null,
+        ?string $key = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -294,51 +297,81 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?TaxRateCollection $rates
+     */
     public function setRates(?TaxRateCollection $rates): void
     {
         $this->rates = $rates;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

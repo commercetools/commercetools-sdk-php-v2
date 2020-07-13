@@ -21,5 +21,8 @@ interface DeliveryRemovedMessagePayload extends MessagePayload
      */
     public function getDelivery();
 
+    /**
+     * @param ?Delivery $delivery
+     */
     public function setDelivery(?Delivery $delivery): void;
 }

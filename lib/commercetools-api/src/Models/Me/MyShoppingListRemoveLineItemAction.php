@@ -26,7 +26,13 @@ interface MyShoppingListRemoveLineItemAction extends MyShoppingListUpdateAction
      */
     public function getQuantity();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 }

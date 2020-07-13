@@ -38,9 +38,12 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
     protected $paymentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $returnItemId = null,
-        string $paymentState = null
+        ?string $returnItemId = null,
+        ?string $paymentState = null
     ) {
         $this->returnItemId = $returnItemId;
         $this->paymentState = $paymentState;
@@ -99,11 +102,17 @@ final class StagedOrderSetReturnPaymentStateActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;

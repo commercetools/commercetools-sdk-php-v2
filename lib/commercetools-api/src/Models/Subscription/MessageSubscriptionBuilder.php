@@ -47,6 +47,7 @@ final class MessageSubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceTypeId
      * @return $this
      */
     public function withResourceTypeId(?string $resourceTypeId)
@@ -57,6 +58,7 @@ final class MessageSubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?array $types
      * @return $this
      */
     public function withTypes(?array $types)

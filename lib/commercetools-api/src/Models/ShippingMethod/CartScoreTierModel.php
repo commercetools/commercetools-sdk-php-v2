@@ -48,11 +48,14 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     protected $isMatching;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $score = null,
-        Money $price = null,
-        PriceFunction $priceFunction = null,
-        bool $isMatching = null
+        ?float $score = null,
+        ?Money $price = null,
+        ?PriceFunction $priceFunction = null,
+        ?bool $isMatching = null
     ) {
         $this->score = $score;
         $this->price = $price;
@@ -149,21 +152,33 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
 
+    /**
+     * @param ?float $score
+     */
     public function setScore(?float $score): void
     {
         $this->score = $score;
     }
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?PriceFunction $priceFunction
+     */
     public function setPriceFunction(?PriceFunction $priceFunction): void
     {
         $this->priceFunction = $priceFunction;
     }
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;

@@ -36,6 +36,7 @@ final class StagedOrderChangeOrderStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderState
      * @return $this
      */
     public function withOrderState(?string $orderState)

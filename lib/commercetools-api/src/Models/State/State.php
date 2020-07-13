@@ -120,31 +120,73 @@ interface State extends BaseResource
      */
     public function getTransitions();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void;
 
+    /**
+     * @param ?bool $builtIn
+     */
     public function setBuiltIn(?bool $builtIn): void;
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void;
 
+    /**
+     * @param ?StateReferenceCollection $transitions
+     */
     public function setTransitions(?StateReferenceCollection $transitions): void;
 }

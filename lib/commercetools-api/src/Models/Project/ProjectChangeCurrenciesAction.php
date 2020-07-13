@@ -22,5 +22,8 @@ interface ProjectChangeCurrenciesAction extends ProjectUpdateAction
      */
     public function getCurrencies();
 
+    /**
+     * @param ?array $currencies
+     */
     public function setCurrencies(?array $currencies): void;
 }

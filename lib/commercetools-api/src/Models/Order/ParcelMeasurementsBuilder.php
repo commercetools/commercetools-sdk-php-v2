@@ -73,6 +73,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * @param ?float $heightInMillimeter
      * @return $this
      */
     public function withHeightInMillimeter(?float $heightInMillimeter)
@@ -83,6 +84,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * @param ?float $lengthInMillimeter
      * @return $this
      */
     public function withLengthInMillimeter(?float $lengthInMillimeter)
@@ -93,6 +95,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * @param ?float $widthInMillimeter
      * @return $this
      */
     public function withWidthInMillimeter(?float $widthInMillimeter)
@@ -103,6 +106,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+     * @param ?float $weightInGram
      * @return $this
      */
     public function withWeightInGram(?float $weightInGram)

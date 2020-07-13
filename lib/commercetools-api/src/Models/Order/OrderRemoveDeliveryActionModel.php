@@ -31,8 +31,11 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     protected $deliveryId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null
+        ?string $deliveryId = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;

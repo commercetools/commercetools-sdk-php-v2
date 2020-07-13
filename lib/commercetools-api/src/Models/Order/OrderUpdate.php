@@ -26,7 +26,13 @@ interface OrderUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?OrderUpdateActionCollection $actions
+     */
     public function setActions(?OrderUpdateActionCollection $actions): void;
 }

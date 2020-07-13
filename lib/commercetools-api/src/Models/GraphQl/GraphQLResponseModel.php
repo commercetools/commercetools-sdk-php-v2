@@ -20,7 +20,7 @@ use stdClass;
 final class GraphQLResponseModel extends JsonObjectModel implements GraphQLResponse
 {
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $data;
 
@@ -30,26 +30,29 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     protected $errors;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        JsonObject $data = null,
-        GraphQLErrorCollection $errors = null
+        $data = null,
+        ?GraphQLErrorCollection $errors = null
     ) {
         $this->data = $data;
         $this->errors = $errors;
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getData()
     {
         if (is_null($this->data)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_DATA);
             if (is_null($data)) {
                 return null;
             }
-            $this->data = JsonObjectModel::of($data);
+            $this->data = $data;
         }
 
         return $this->data;
@@ -73,11 +76,17 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     }
 
 
-    public function setData(?JsonObject $data): void
+    /**
+     * @param mixed $data
+     */
+    public function setData($data): void
     {
         $this->data = $data;
     }
 
+    /**
+     * @param ?GraphQLErrorCollection $errors
+     */
     public function setErrors(?GraphQLErrorCollection $errors): void
     {
         $this->errors = $errors;

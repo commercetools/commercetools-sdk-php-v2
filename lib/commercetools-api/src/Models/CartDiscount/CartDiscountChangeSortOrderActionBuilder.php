@@ -37,6 +37,7 @@ final class CartDiscountChangeSortOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortOrder
      * @return $this
      */
     public function withSortOrder(?string $sortOrder)

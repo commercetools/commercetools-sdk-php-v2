@@ -50,13 +50,16 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     protected $updateProductData;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $email = null,
-        string $password = null,
-        string $anonymousCartId = null,
-        string $anonymousCartSignInMode = null,
-        string $anonymousId = null,
-        bool $updateProductData = null
+        ?string $email = null,
+        ?string $password = null,
+        ?string $anonymousCartId = null,
+        ?string $anonymousCartSignInMode = null,
+        ?string $anonymousId = null,
+        ?bool $updateProductData = null
     ) {
         $this->email = $email;
         $this->password = $password;
@@ -169,31 +172,49 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @param ?string $password
+     */
     public function setPassword(?string $password): void
     {
         $this->password = $password;
     }
 
+    /**
+     * @param ?string $anonymousCartId
+     */
     public function setAnonymousCartId(?string $anonymousCartId): void
     {
         $this->anonymousCartId = $anonymousCartId;
     }
 
+    /**
+     * @param ?string $anonymousCartSignInMode
+     */
     public function setAnonymousCartSignInMode(?string $anonymousCartSignInMode): void
     {
         $this->anonymousCartSignInMode = $anonymousCartSignInMode;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?bool $updateProductData
+     */
     public function setUpdateProductData(?bool $updateProductData): void
     {
         $this->updateProductData = $updateProductData;

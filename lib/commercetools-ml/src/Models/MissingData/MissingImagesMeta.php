@@ -34,9 +34,18 @@ interface MissingImagesMeta extends JsonObject
      */
     public function getThreshold();
 
+    /**
+     * @param ?MissingImagesProductLevel $productLevel
+     */
     public function setProductLevel(?MissingImagesProductLevel $productLevel): void;
 
+    /**
+     * @param ?MissingImagesVariantLevel $variantLevel
+     */
     public function setVariantLevel(?MissingImagesVariantLevel $variantLevel): void;
 
+    /**
+     * @param ?int $threshold
+     */
     public function setThreshold(?int $threshold): void;
 }

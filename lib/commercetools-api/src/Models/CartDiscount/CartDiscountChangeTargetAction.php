@@ -20,5 +20,8 @@ interface CartDiscountChangeTargetAction extends CartDiscountUpdateAction
      */
     public function getTarget();
 
+    /**
+     * @param ?CartDiscountTarget $target
+     */
     public function setTarget(?CartDiscountTarget $target): void;
 }

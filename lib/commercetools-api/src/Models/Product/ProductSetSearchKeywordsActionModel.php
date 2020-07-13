@@ -36,9 +36,12 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        SearchKeywords $searchKeywords = null,
-        bool $staged = null
+        ?SearchKeywords $searchKeywords = null,
+        ?bool $staged = null
     ) {
         $this->searchKeywords = $searchKeywords;
         $this->staged = $staged;
@@ -98,11 +101,17 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

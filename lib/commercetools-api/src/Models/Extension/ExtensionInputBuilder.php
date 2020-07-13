@@ -49,6 +49,7 @@ final class ExtensionInputBuilder implements Builder
     }
 
     /**
+     * @param ?string $action
      * @return $this
      */
     public function withAction(?string $action)
@@ -59,6 +60,7 @@ final class ExtensionInputBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)

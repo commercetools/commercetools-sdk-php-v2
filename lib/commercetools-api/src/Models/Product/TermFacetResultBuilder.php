@@ -86,6 +86,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?string $dataType
      * @return $this
      */
     public function withDataType(?string $dataType)
@@ -96,6 +97,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $missing
      * @return $this
      */
     public function withMissing(?int $missing)
@@ -106,6 +108,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -116,6 +119,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $other
      * @return $this
      */
     public function withOther(?int $other)
@@ -126,6 +130,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?FacetResultTermCollection $terms
      * @return $this
      */
     public function withTerms(?FacetResultTermCollection $terms)

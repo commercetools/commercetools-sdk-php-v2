@@ -64,6 +64,7 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -74,6 +75,7 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $groupName
      * @return $this
      */
     public function withGroupName(?string $groupName)
@@ -84,6 +86,7 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

@@ -25,8 +25,11 @@ final class ImageSearchConfigRequestModel extends JsonObjectModel implements Ima
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ImageSearchConfigUpdateActionCollection $actions = null
+        ?ImageSearchConfigUpdateActionCollection $actions = null
     ) {
         $this->actions = $actions;
     }
@@ -51,6 +54,9 @@ final class ImageSearchConfigRequestModel extends JsonObjectModel implements Ima
     }
 
 
+    /**
+     * @param ?ImageSearchConfigUpdateActionCollection $actions
+     */
     public function setActions(?ImageSearchConfigUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

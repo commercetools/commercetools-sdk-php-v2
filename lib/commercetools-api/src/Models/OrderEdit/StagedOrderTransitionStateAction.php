@@ -28,7 +28,13 @@ interface StagedOrderTransitionStateAction extends StagedOrderUpdateAction
      */
     public function getForce();
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void;
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void;
 }

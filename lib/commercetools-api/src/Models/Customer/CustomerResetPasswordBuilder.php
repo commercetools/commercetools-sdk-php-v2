@@ -60,6 +60,7 @@ final class CustomerResetPasswordBuilder implements Builder
     }
 
     /**
+     * @param ?string $tokenValue
      * @return $this
      */
     public function withTokenValue(?string $tokenValue)
@@ -70,6 +71,7 @@ final class CustomerResetPasswordBuilder implements Builder
     }
 
     /**
+     * @param ?string $newPassword
      * @return $this
      */
     public function withNewPassword(?string $newPassword)
@@ -80,6 +82,7 @@ final class CustomerResetPasswordBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)

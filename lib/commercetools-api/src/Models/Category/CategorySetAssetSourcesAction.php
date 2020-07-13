@@ -33,9 +33,18 @@ interface CategorySetAssetSourcesAction extends CategoryUpdateAction
      */
     public function getSources();
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?AssetSourceCollection $sources
+     */
     public function setSources(?AssetSourceCollection $sources): void;
 }

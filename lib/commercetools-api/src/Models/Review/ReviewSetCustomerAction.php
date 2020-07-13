@@ -24,5 +24,8 @@ interface ReviewSetCustomerAction extends ReviewUpdateAction
      */
     public function getCustomer();
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
 }

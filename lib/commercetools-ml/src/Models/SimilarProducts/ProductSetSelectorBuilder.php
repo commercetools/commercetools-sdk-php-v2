@@ -111,6 +111,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?string $projectKey
      * @return $this
      */
     public function withProjectKey(?string $projectKey)
@@ -121,6 +122,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?array $productIds
      * @return $this
      */
     public function withProductIds(?array $productIds)
@@ -131,6 +133,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?array $productTypeIds
      * @return $this
      */
     public function withProductTypeIds(?array $productTypeIds)
@@ -141,6 +144,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -151,6 +155,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includeVariants
      * @return $this
      */
     public function withIncludeVariants(?bool $includeVariants)
@@ -161,6 +166,7 @@ final class ProductSetSelectorBuilder implements Builder
     }
 
     /**
+     * @param ?int $productSetLimit
      * @return $this
      */
     public function withProductSetLimit(?int $productSetLimit)

@@ -35,6 +35,7 @@ final class CustomerDateOfBirthSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $dateOfBirth
      * @return $this
      */
     public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)

@@ -84,18 +84,21 @@ final class TypeModel extends JsonObjectModel implements Type
     protected $fieldDefinitions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        array $resourceTypeIds = null,
-        FieldDefinitionCollection $fieldDefinitions = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?array $resourceTypeIds = null,
+        ?FieldDefinitionCollection $fieldDefinitions = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -323,56 +326,89 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?array $resourceTypeIds
+     */
     public function setResourceTypeIds(?array $resourceTypeIds): void
     {
         $this->resourceTypeIds = $resourceTypeIds;
     }
 
+    /**
+     * @param ?FieldDefinitionCollection $fieldDefinitions
+     */
     public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
     {
         $this->fieldDefinitions = $fieldDefinitions;

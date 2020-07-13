@@ -49,6 +49,7 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
     }
 
     /**
+     * @param ?string $textLineItemId
      * @return $this
      */
     public function withTextLineItemId(?string $textLineItemId)
@@ -59,6 +60,7 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)

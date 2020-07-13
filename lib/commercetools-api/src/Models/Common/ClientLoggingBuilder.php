@@ -75,6 +75,7 @@ final class ClientLoggingBuilder implements Builder
     }
 
     /**
+     * @param ?string $clientId
      * @return $this
      */
     public function withClientId(?string $clientId)
@@ -85,6 +86,7 @@ final class ClientLoggingBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalUserId
      * @return $this
      */
     public function withExternalUserId(?string $externalUserId)
@@ -95,6 +97,7 @@ final class ClientLoggingBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -105,6 +108,7 @@ final class ClientLoggingBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

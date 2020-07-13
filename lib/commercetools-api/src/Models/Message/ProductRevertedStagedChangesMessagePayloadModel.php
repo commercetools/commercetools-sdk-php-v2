@@ -31,8 +31,11 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     protected $removedImageUrls;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $removedImageUrls = null
+        ?array $removedImageUrls = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;

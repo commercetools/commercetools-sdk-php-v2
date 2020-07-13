@@ -42,11 +42,14 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     protected $anonymousId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $clientId = null,
-        string $externalUserId = null,
-        CustomerReference $customer = null,
-        string $anonymousId = null
+        ?string $clientId = null,
+        ?string $externalUserId = null,
+        ?CustomerReference $customer = null,
+        ?string $anonymousId = null
     ) {
         $this->clientId = $clientId;
         $this->externalUserId = $externalUserId;
@@ -124,21 +127,33 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
 
+    /**
+     * @param ?string $clientId
+     */
     public function setClientId(?string $clientId): void
     {
         $this->clientId = $clientId;
     }
 
+    /**
+     * @param ?string $externalUserId
+     */
     public function setExternalUserId(?string $externalUserId): void
     {
         $this->externalUserId = $externalUserId;
     }
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;

@@ -26,7 +26,13 @@ interface ExternalOAuth extends JsonObject
      */
     public function getAuthorizationHeader();
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void;
 
+    /**
+     * @param ?string $authorizationHeader
+     */
     public function setAuthorizationHeader(?string $authorizationHeader): void;
 }

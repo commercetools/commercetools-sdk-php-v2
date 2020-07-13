@@ -38,6 +38,7 @@ final class ReferenceFieldBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReference $value
      * @return $this
      */
     public function withValue(?KeyReference $value)

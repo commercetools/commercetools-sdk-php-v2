@@ -31,8 +31,11 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     protected $taxRateId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $taxRateId = null
+        ?string $taxRateId = null
     ) {
         $this->taxRateId = $taxRateId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $taxRateId
+     */
     public function setTaxRateId(?string $taxRateId): void
     {
         $this->taxRateId = $taxRateId;

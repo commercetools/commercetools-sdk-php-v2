@@ -40,11 +40,14 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     protected $newPassword;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        string $currentPassword = null,
-        string $newPassword = null
+        ?string $id = null,
+        ?int $version = null,
+        ?string $currentPassword = null,
+        ?string $newPassword = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -121,21 +124,33 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $currentPassword
+     */
     public function setCurrentPassword(?string $currentPassword): void
     {
         $this->currentPassword = $currentPassword;
     }
 
+    /**
+     * @param ?string $newPassword
+     */
     public function setNewPassword(?string $newPassword): void
     {
         $this->newPassword = $newPassword;

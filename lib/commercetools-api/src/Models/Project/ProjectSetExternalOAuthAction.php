@@ -23,5 +23,8 @@ interface ProjectSetExternalOAuthAction extends ProjectUpdateAction
      */
     public function getExternalOAuth();
 
+    /**
+     * @param ?ExternalOAuth $externalOAuth
+     */
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void;
 }

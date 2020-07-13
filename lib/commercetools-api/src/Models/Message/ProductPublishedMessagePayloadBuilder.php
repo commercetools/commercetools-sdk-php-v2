@@ -62,6 +62,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?array $removedImageUrls
      * @return $this
      */
     public function withRemovedImageUrls(?array $removedImageUrls)
@@ -72,6 +73,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductProjection $productProjection
      * @return $this
      */
     public function withProductProjection(?ProductProjection $productProjection)
@@ -82,6 +84,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $scope
      * @return $this
      */
     public function withScope(?string $scope)

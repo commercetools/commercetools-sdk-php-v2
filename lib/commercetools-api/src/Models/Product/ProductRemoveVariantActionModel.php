@@ -41,10 +41,13 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $id = null,
-        string $sku = null,
-        bool $staged = null
+        ?int $id = null,
+        ?string $sku = null,
+        ?bool $staged = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
@@ -121,16 +124,25 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

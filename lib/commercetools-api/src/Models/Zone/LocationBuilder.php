@@ -49,6 +49,7 @@ final class LocationBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -59,6 +60,7 @@ final class LocationBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)

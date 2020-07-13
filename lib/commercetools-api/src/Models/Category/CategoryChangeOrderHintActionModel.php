@@ -31,8 +31,11 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     protected $orderHint;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderHint = null
+        ?string $orderHint = null
     ) {
         $this->orderHint = $orderHint;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;

@@ -109,23 +109,26 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     protected $publish;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductTypeResourceIdentifier $productType = null,
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        string $key = null,
-        LocalizedString $description = null,
-        CategoryResourceIdentifierCollection $categories = null,
-        CategoryOrderHints $categoryOrderHints = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        ProductVariantDraft $masterVariant = null,
-        ProductVariantDraftCollection $variants = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        SearchKeywords $searchKeywords = null,
-        StateResourceIdentifier $state = null,
-        bool $publish = null
+        ?ProductTypeResourceIdentifier $productType = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?string $key = null,
+        ?LocalizedString $description = null,
+        ?CategoryResourceIdentifierCollection $categories = null,
+        ?CategoryOrderHints $categoryOrderHints = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?ProductVariantDraft $masterVariant = null,
+        ?ProductVariantDraftCollection $variants = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?SearchKeywords $searchKeywords = null,
+        ?StateResourceIdentifier $state = null,
+        ?bool $publish = null
     ) {
         $this->productType = $productType;
         $this->name = $name;
@@ -449,81 +452,129 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
 
+    /**
+     * @param ?ProductTypeResourceIdentifier $productType
+     */
     public function setProductType(?ProductTypeResourceIdentifier $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CategoryResourceIdentifierCollection $categories
+     */
     public function setCategories(?CategoryResourceIdentifierCollection $categories): void
     {
         $this->categories = $categories;
     }
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
     {
         $this->categoryOrderHints = $categoryOrderHints;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?ProductVariantDraft $masterVariant
+     */
     public function setMasterVariant(?ProductVariantDraft $masterVariant): void
     {
         $this->masterVariant = $masterVariant;
     }
 
+    /**
+     * @param ?ProductVariantDraftCollection $variants
+     */
     public function setVariants(?ProductVariantDraftCollection $variants): void
     {
         $this->variants = $variants;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?bool $publish
+     */
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;

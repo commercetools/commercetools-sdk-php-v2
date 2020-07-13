@@ -52,13 +52,16 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     protected $slug;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $externalId = null,
-        string $orderNumber = null,
-        string $customerNumber = null,
-        string $sku = null,
-        LocalizedString $slug = null
+        ?string $key = null,
+        ?string $externalId = null,
+        ?string $orderNumber = null,
+        ?string $customerNumber = null,
+        ?string $sku = null,
+        ?LocalizedString $slug = null
     ) {
         $this->key = $key;
         $this->externalId = $externalId;
@@ -172,31 +175,49 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }
 
+    /**
+     * @param ?string $customerNumber
+     */
     public function setCustomerNumber(?string $customerNumber): void
     {
         $this->customerNumber = $customerNumber;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;

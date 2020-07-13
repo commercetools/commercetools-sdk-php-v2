@@ -27,7 +27,13 @@ interface StagedOrderSetReturnPaymentStateAction extends StagedOrderUpdateAction
      */
     public function getPaymentState();
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void;
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 }

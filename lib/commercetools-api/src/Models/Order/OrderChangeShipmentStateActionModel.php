@@ -31,8 +31,11 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     protected $shipmentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $shipmentState = null
+        ?string $shipmentState = null
     ) {
         $this->shipmentState = $shipmentState;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;

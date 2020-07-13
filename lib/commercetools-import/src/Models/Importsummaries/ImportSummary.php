@@ -30,7 +30,13 @@ interface ImportSummary extends JsonObject
      */
     public function getTotal();
 
+    /**
+     * @param ?OperationStates $states
+     */
     public function setStates(?OperationStates $states): void;
 
+    /**
+     * @param ?float $total
+     */
     public function setTotal(?float $total): void;
 }

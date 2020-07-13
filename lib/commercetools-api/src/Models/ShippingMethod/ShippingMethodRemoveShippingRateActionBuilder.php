@@ -49,6 +49,7 @@ final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneResourceIdentifier $zone
      * @return $this
      */
     public function withZone(?ZoneResourceIdentifier $zone)
@@ -59,6 +60,7 @@ final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateDraft $shippingRate
      * @return $this
      */
     public function withShippingRate(?ShippingRateDraft $shippingRate)

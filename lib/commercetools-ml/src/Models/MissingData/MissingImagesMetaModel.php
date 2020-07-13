@@ -35,10 +35,13 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     protected $threshold;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MissingImagesProductLevel $productLevel = null,
-        MissingImagesVariantLevel $variantLevel = null,
-        int $threshold = null
+        ?MissingImagesProductLevel $productLevel = null,
+        ?MissingImagesVariantLevel $variantLevel = null,
+        ?int $threshold = null
     ) {
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
@@ -101,16 +104,25 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     }
 
 
+    /**
+     * @param ?MissingImagesProductLevel $productLevel
+     */
     public function setProductLevel(?MissingImagesProductLevel $productLevel): void
     {
         $this->productLevel = $productLevel;
     }
 
+    /**
+     * @param ?MissingImagesVariantLevel $variantLevel
+     */
     public function setVariantLevel(?MissingImagesVariantLevel $variantLevel): void
     {
         $this->variantLevel = $variantLevel;
     }
 
+    /**
+     * @param ?int $threshold
+     */
     public function setThreshold(?int $threshold): void
     {
         $this->threshold = $threshold;

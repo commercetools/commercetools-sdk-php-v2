@@ -482,6 +482,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -492,6 +493,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -502,6 +504,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -512,6 +515,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -522,6 +526,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -532,6 +537,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -542,6 +548,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerId
      * @return $this
      */
     public function withCustomerId(?string $customerId)
@@ -552,6 +559,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerEmail
      * @return $this
      */
     public function withCustomerEmail(?string $customerEmail)
@@ -562,6 +570,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -572,6 +581,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReference $store
      * @return $this
      */
     public function withStore(?StoreKeyReference $store)
@@ -582,6 +592,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?LineItemCollection $lineItems
      * @return $this
      */
     public function withLineItems(?LineItemCollection $lineItems)
@@ -592,6 +603,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?CustomLineItemCollection $customLineItems
      * @return $this
      */
     public function withCustomLineItems(?CustomLineItemCollection $customLineItems)
@@ -602,6 +614,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalPrice
      * @return $this
      */
     public function withTotalPrice(?TypedMoney $totalPrice)
@@ -612,6 +625,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedPrice $taxedPrice)
@@ -622,6 +636,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartState
      * @return $this
      */
     public function withCartState(?string $cartState)
@@ -632,6 +647,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?Address $shippingAddress
      * @return $this
      */
     public function withShippingAddress(?Address $shippingAddress)
@@ -642,6 +658,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?Address $billingAddress
      * @return $this
      */
     public function withBillingAddress(?Address $billingAddress)
@@ -652,6 +669,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
      * @return $this
      */
     public function withInventoryMode(?string $inventoryMode)
@@ -662,6 +680,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxMode
      * @return $this
      */
     public function withTaxMode(?string $taxMode)
@@ -672,6 +691,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRoundingMode
      * @return $this
      */
     public function withTaxRoundingMode(?string $taxRoundingMode)
@@ -682,6 +702,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxCalculationMode
      * @return $this
      */
     public function withTaxCalculationMode(?string $taxCalculationMode)
@@ -692,6 +713,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)
@@ -702,6 +724,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -712,6 +735,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingInfo $shippingInfo
      * @return $this
      */
     public function withShippingInfo(?ShippingInfo $shippingInfo)
@@ -722,6 +746,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
      * @return $this
      */
     public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
@@ -732,6 +757,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -742,6 +768,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentInfo $paymentInfo
      * @return $this
      */
     public function withPaymentInfo(?PaymentInfo $paymentInfo)
@@ -752,6 +779,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -762,6 +790,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
@@ -772,6 +801,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
      * @return $this
      */
     public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
@@ -782,6 +812,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?string $origin
      * @return $this
      */
     public function withOrigin(?string $origin)
@@ -792,6 +823,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateInput $shippingRateInput
      * @return $this
      */
     public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
@@ -802,6 +834,7 @@ final class MyCartBuilder implements Builder
     }
 
     /**
+     * @param ?AddressCollection $itemShippingAddresses
      * @return $this
      */
     public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)

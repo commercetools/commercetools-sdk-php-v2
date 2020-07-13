@@ -36,9 +36,12 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     protected $keys;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null,
-        array $keys = null
+        ?string $fieldName = null,
+        ?array $keys = null
     ) {
         $this->fieldName = $fieldName;
         $this->keys = $keys;
@@ -97,11 +100,17 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
     }
 
+    /**
+     * @param ?array $keys
+     */
     public function setKeys(?array $keys): void
     {
         $this->keys = $keys;

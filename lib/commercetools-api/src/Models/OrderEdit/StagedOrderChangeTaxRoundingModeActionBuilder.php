@@ -36,6 +36,7 @@ final class StagedOrderChangeTaxRoundingModeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRoundingMode
      * @return $this
      */
     public function withTaxRoundingMode(?string $taxRoundingMode)

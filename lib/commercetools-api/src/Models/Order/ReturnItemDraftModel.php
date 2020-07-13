@@ -45,12 +45,15 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     protected $shipmentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $quantity = null,
-        string $lineItemId = null,
-        string $customLineItemId = null,
-        string $comment = null,
-        string $shipmentState = null
+        ?int $quantity = null,
+        ?string $lineItemId = null,
+        ?string $customLineItemId = null,
+        ?string $comment = null,
+        ?string $shipmentState = null
     ) {
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
@@ -145,26 +148,41 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;

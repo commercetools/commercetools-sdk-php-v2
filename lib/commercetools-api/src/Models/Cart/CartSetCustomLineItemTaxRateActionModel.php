@@ -36,9 +36,12 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     protected $externalTaxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        ExternalTaxRateDraft $externalTaxRate = null
+        ?string $customLineItemId = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->externalTaxRate = $externalTaxRate;
@@ -98,11 +101,17 @@ final class CartSetCustomLineItemTaxRateActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;

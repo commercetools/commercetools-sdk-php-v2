@@ -68,7 +68,7 @@ final class CustomObjectBuilder implements Builder
     private $key;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -139,7 +139,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -147,6 +147,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -157,6 +158,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -167,6 +169,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -177,6 +180,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -187,6 +191,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -197,6 +202,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -207,6 +213,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $container
      * @return $this
      */
     public function withContainer(?string $container)
@@ -217,6 +224,7 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -227,9 +235,10 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

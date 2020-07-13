@@ -31,8 +31,11 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     protected $restockableInDays;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $restockableInDays = null
+        ?int $restockableInDays = null
     ) {
         $this->restockableInDays = $restockableInDays;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     }
 
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void
     {
         $this->restockableInDays = $restockableInDays;

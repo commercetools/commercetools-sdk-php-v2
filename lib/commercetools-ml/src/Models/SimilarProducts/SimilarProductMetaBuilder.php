@@ -85,6 +85,7 @@ final class SimilarProductMetaBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -95,6 +96,7 @@ final class SimilarProductMetaBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -105,6 +107,7 @@ final class SimilarProductMetaBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -115,6 +118,7 @@ final class SimilarProductMetaBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantCount
      * @return $this
      */
     public function withVariantCount(?int $variantCount)

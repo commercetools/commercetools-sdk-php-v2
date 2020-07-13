@@ -26,7 +26,13 @@ interface MessageConfigurationDraft extends JsonObject
      */
     public function getDeleteDaysAfterCreation();
 
+    /**
+     * @param ?bool $enabled
+     */
     public function setEnabled(?bool $enabled): void;
 
+    /**
+     * @param ?int $deleteDaysAfterCreation
+     */
     public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void;
 }

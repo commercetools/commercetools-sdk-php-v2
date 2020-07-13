@@ -31,8 +31,11 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     protected $location;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Location $location = null
+        ?Location $location = null
     ) {
         $this->location = $location;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     }
 
 
+    /**
+     * @param ?Location $location
+     */
     public function setLocation(?Location $location): void
     {
         $this->location = $location;

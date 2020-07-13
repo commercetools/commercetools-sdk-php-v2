@@ -28,7 +28,13 @@ interface ProductRemovePriceAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

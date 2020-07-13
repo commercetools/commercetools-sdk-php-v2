@@ -34,9 +34,18 @@ interface MissingAttributesMeta extends JsonObject
      */
     public function getProductTypeIds();
 
+    /**
+     * @param ?MissingAttributesDetails $productLevel
+     */
     public function setProductLevel(?MissingAttributesDetails $productLevel): void;
 
+    /**
+     * @param ?MissingAttributesDetails $variantLevel
+     */
     public function setVariantLevel(?MissingAttributesDetails $variantLevel): void;
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void;
 }

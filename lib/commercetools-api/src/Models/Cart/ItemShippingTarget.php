@@ -32,7 +32,13 @@ interface ItemShippingTarget extends JsonObject
      */
     public function getQuantity();
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 }

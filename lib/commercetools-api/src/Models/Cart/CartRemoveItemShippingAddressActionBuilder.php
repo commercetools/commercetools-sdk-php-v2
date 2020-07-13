@@ -34,6 +34,7 @@ final class CartRemoveItemShippingAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressKey
      * @return $this
      */
     public function withAddressKey(?string $addressKey)

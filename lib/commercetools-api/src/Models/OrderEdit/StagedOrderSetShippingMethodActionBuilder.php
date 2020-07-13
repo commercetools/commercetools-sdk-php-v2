@@ -53,6 +53,7 @@ final class StagedOrderSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
@@ -63,6 +64,7 @@ final class StagedOrderSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)

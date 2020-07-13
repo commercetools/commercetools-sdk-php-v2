@@ -36,6 +36,7 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     }
 
     /**
+     * @param ?GeoJson $geoLocation
      * @return $this
      */
     public function withGeoLocation(?GeoJson $geoLocation)

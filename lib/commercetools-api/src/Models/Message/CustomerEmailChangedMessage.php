@@ -20,5 +20,8 @@ interface CustomerEmailChangedMessage extends Message
      */
     public function getEmail();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 }

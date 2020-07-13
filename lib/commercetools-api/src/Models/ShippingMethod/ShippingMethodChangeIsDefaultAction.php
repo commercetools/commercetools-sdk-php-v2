@@ -22,5 +22,8 @@ interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
      */
     public function getIsDefault();
 
+    /**
+     * @param ?bool $isDefault
+     */
     public function setIsDefault(?bool $isDefault): void;
 }

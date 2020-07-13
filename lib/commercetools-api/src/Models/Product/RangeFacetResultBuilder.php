@@ -34,6 +34,7 @@ final class RangeFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?FacetResultRangeCollection $ranges
      * @return $this
      */
     public function withRanges(?FacetResultRangeCollection $ranges)

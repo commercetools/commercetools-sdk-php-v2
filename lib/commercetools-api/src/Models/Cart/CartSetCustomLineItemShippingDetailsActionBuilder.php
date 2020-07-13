@@ -47,6 +47,7 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -57,6 +58,7 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

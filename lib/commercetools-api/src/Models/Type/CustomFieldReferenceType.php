@@ -20,5 +20,8 @@ interface CustomFieldReferenceType extends FieldType
      */
     public function getReferenceTypeId();
 
+    /**
+     * @param ?string $referenceTypeId
+     */
     public function setReferenceTypeId(?string $referenceTypeId): void;
 }

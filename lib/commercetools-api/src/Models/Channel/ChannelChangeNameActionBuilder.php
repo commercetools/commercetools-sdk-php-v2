@@ -36,6 +36,7 @@ final class ChannelChangeNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)

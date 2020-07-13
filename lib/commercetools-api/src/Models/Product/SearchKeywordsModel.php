@@ -19,6 +19,9 @@ use stdClass;
  */
 final class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

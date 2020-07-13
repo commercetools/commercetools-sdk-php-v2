@@ -79,6 +79,7 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
     public function withProductVariant(?ProductVariantKeyReference $productVariant)
@@ -89,6 +90,7 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @param ?ProductKeyReference $product
      * @return $this
      */
     public function withProduct(?ProductKeyReference $product)
@@ -99,6 +101,7 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @param ?Attributes $attributes
      * @return $this
      */
     public function withAttributes(?Attributes $attributes)

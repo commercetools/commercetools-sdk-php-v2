@@ -109,27 +109,63 @@ interface OrderEdit extends BaseResource
      */
     public function getComment();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?OrderReference $resource
+     */
     public function setResource(?OrderReference $resource): void;
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?OrderEditResult $result
+     */
     public function setResult(?OrderEditResult $result): void;
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void;
 }

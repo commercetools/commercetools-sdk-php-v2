@@ -34,6 +34,7 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionBuilder implem
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)

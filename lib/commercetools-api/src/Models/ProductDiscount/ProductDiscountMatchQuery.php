@@ -39,11 +39,23 @@ interface ProductDiscountMatchQuery extends JsonObject
      */
     public function getPrice();
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?QueryPrice $price
+     */
     public function setPrice(?QueryPrice $price): void;
 }

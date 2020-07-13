@@ -51,15 +51,33 @@ interface UserProvidedIdentifiers extends JsonObject
      */
     public function getSlug();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void;
 
+    /**
+     * @param ?string $customerNumber
+     */
     public function setCustomerNumber(?string $customerNumber): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 }

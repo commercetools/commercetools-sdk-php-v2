@@ -192,6 +192,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -202,6 +203,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -212,6 +214,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -222,6 +225,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?array $countries
      * @return $this
      */
     public function withCountries(?array $countries)
@@ -232,6 +236,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?array $currencies
      * @return $this
      */
     public function withCurrencies(?array $currencies)
@@ -242,6 +247,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?array $languages
      * @return $this
      */
     public function withLanguages(?array $languages)
@@ -252,6 +258,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -262,6 +269,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?string $trialUntil
      * @return $this
      */
     public function withTrialUntil(?string $trialUntil)
@@ -272,6 +280,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?MessageConfiguration $messages
      * @return $this
      */
     public function withMessages(?MessageConfiguration $messages)
@@ -282,6 +291,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateInputType $shippingRateInputType
      * @return $this
      */
     public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)
@@ -292,6 +302,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalOAuth $externalOAuth
      * @return $this
      */
     public function withExternalOAuth(?ExternalOAuth $externalOAuth)
@@ -302,6 +313,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?CartsConfiguration $carts
      * @return $this
      */
     public function withCarts(?CartsConfiguration $carts)

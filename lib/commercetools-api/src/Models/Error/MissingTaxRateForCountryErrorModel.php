@@ -46,11 +46,14 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $taxCategoryId = null,
-        string $country = null,
-        string $state = null
+        ?string $message = null,
+        ?string $taxCategoryId = null,
+        ?string $country = null,
+        ?string $state = null
     ) {
         $this->message = $message;
         $this->taxCategoryId = $taxCategoryId;
@@ -145,21 +148,33 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $taxCategoryId
+     */
     public function setTaxCategoryId(?string $taxCategoryId): void
     {
         $this->taxCategoryId = $taxCategoryId;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;

@@ -36,9 +36,12 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        DeliveryItemCollection $items = null
+        ?string $deliveryId = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->items = $items;
@@ -97,11 +100,17 @@ final class OrderSetDeliveryItemsActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

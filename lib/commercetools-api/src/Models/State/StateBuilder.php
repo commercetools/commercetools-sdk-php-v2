@@ -233,6 +233,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -243,6 +244,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -253,6 +255,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -263,6 +266,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -273,6 +277,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -283,6 +288,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -293,6 +299,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -303,6 +310,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
      * @return $this
      */
     public function withType(?string $type)
@@ -313,6 +321,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -323,6 +332,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -333,6 +343,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?bool $initial
      * @return $this
      */
     public function withInitial(?bool $initial)
@@ -343,6 +354,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?bool $builtIn
      * @return $this
      */
     public function withBuiltIn(?bool $builtIn)
@@ -353,6 +365,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?array $roles
      * @return $this
      */
     public function withRoles(?array $roles)
@@ -363,6 +376,7 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * @param ?StateReferenceCollection $transitions
      * @return $this
      */
     public function withTransitions(?StateReferenceCollection $transitions)

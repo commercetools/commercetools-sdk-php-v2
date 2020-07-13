@@ -93,19 +93,22 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     protected $oldOrderState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        int $sequenceNumber = null,
-        Reference $resource = null,
-        int $resourceVersion = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $orderState = null,
-        string $oldOrderState = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?int $sequenceNumber = null,
+        ?Reference $resource = null,
+        ?int $resourceVersion = null,
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $orderState = null,
+        ?string $oldOrderState = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -356,61 +359,97 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?int $sequenceNumber
+     */
     public function setSequenceNumber(?int $sequenceNumber): void
     {
         $this->sequenceNumber = $sequenceNumber;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
     }
 
+    /**
+     * @param ?string $oldOrderState
+     */
     public function setOldOrderState(?string $oldOrderState): void
     {
         $this->oldOrderState = $oldOrderState;

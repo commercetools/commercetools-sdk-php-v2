@@ -34,6 +34,7 @@ final class ProductTypeChangeDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)

@@ -21,5 +21,8 @@ interface ProductTypeReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?ProductType $obj
+     */
     public function setObj(?ProductType $obj): void;
 }

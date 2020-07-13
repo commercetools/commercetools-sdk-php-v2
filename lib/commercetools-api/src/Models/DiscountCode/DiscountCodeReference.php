@@ -21,5 +21,8 @@ interface DiscountCodeReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?DiscountCode $obj
+     */
     public function setObj(?DiscountCode $obj): void;
 }

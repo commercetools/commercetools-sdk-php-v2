@@ -77,6 +77,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMethodName
      * @return $this
      */
     public function withShippingMethodName(?string $shippingMethodName)
@@ -87,6 +88,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateDraft $shippingRate
      * @return $this
      */
     public function withShippingRate(?ShippingRateDraft $shippingRate)
@@ -97,6 +99,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
@@ -107,6 +110,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)

@@ -31,8 +31,11 @@ final class StoreSetLanguagesActionModel extends JsonObjectModel implements Stor
     protected $languages;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $languages = null
+        ?array $languages = null
     ) {
         $this->languages = $languages;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class StoreSetLanguagesActionModel extends JsonObjectModel implements Stor
     }
 
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;

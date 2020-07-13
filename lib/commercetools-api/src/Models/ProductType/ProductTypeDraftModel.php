@@ -40,11 +40,14 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $name = null,
-        string $description = null,
-        AttributeDefinitionDraftCollection $attributes = null
+        ?string $key = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?AttributeDefinitionDraftCollection $attributes = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -125,21 +128,33 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?AttributeDefinitionDraftCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionDraftCollection $attributes): void
     {
         $this->attributes = $attributes;

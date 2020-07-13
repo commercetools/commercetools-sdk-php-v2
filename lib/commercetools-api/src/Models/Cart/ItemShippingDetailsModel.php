@@ -30,9 +30,12 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     protected $valid;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ItemShippingTargetCollection $targets = null,
-        bool $valid = null
+        ?ItemShippingTargetCollection $targets = null,
+        ?bool $valid = null
     ) {
         $this->targets = $targets;
         $this->valid = $valid;
@@ -80,11 +83,17 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     }
 
 
+    /**
+     * @param ?ItemShippingTargetCollection $targets
+     */
     public function setTargets(?ItemShippingTargetCollection $targets): void
     {
         $this->targets = $targets;
     }
 
+    /**
+     * @param ?bool $valid
+     */
     public function setValid(?bool $valid): void
     {
         $this->valid = $valid;

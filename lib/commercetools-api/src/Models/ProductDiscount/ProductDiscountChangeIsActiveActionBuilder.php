@@ -34,6 +34,7 @@ final class ProductDiscountChangeIsActiveActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)

@@ -21,5 +21,8 @@ interface MyPaymentChangeAmountPlannedAction extends MyPaymentUpdateAction
      */
     public function getAmount();
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void;
 }

@@ -33,8 +33,11 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     protected $customer;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerResourceIdentifier $customer = null
+        ?CustomerResourceIdentifier $customer = null
     ) {
         $this->customer = $customer;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;

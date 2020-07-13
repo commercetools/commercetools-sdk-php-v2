@@ -32,9 +32,18 @@ interface GraphQLError extends JsonObject
      */
     public function getPath();
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void;
 
+    /**
+     * @param ?GraphQLErrorLocationCollection $locations
+     */
     public function setLocations(?GraphQLErrorLocationCollection $locations): void;
 
+    /**
+     * @param ?array $path
+     */
     public function setPath(?array $path): void;
 }

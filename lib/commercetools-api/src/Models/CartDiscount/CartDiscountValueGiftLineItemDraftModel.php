@@ -50,11 +50,14 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     protected $distributionChannel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        int $variantId = null,
-        ChannelReference $supplyChannel = null,
-        ChannelReference $distributionChannel = null
+        ?ProductReference $product = null,
+        ?int $variantId = null,
+        ?ChannelReference $supplyChannel = null,
+        ?ChannelReference $distributionChannel = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
@@ -152,21 +155,33 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
+    /**
+     * @param ?ChannelReference $distributionChannel
+     */
     public function setDistributionChannel(?ChannelReference $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;

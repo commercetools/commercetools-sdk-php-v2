@@ -75,6 +75,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $fractionDigits
      * @return $this
      */
     public function withFractionDigits(?int $fractionDigits)
@@ -85,6 +86,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $centAmount
      * @return $this
      */
     public function withCentAmount(?int $centAmount)
@@ -95,6 +97,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)
@@ -105,6 +108,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $preciseAmount
      * @return $this
      */
     public function withPreciseAmount(?int $preciseAmount)

@@ -26,7 +26,13 @@ interface CartSetLineItemShippingDetailsAction extends CartUpdateAction
      */
     public function getShippingDetails();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

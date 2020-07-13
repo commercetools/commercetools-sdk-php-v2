@@ -27,7 +27,13 @@ interface TypeChangeFieldDefinitionLabelAction extends TypeUpdateAction
      */
     public function getLabel();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 }

@@ -41,10 +41,13 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     protected $preciseAmount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $centAmount = null,
-        string $currencyCode = null,
-        int $preciseAmount = null
+        ?int $centAmount = null,
+        ?string $currencyCode = null,
+        ?int $preciseAmount = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
@@ -123,16 +126,25 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
 
+    /**
+     * @param ?int $centAmount
+     */
     public function setCentAmount(?int $centAmount): void
     {
         $this->centAmount = $centAmount;
     }
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
     }
 
+    /**
+     * @param ?int $preciseAmount
+     */
     public function setPreciseAmount(?int $preciseAmount): void
     {
         $this->preciseAmount = $preciseAmount;

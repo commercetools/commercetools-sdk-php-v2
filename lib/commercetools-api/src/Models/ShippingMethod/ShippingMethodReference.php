@@ -21,5 +21,8 @@ interface ShippingMethodReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?ShippingMethod $obj
+     */
     public function setObj(?ShippingMethod $obj): void;
 }

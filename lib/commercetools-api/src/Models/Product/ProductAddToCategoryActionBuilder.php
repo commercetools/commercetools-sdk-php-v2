@@ -62,6 +62,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryResourceIdentifier $category
      * @return $this
      */
     public function withCategory(?CategoryResourceIdentifier $category)
@@ -72,6 +73,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)
@@ -82,6 +84,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

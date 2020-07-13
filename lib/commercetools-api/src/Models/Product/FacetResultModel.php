@@ -35,6 +35,9 @@ final class FacetResultModel extends JsonObjectModel implements FacetResult
        'terms' => TermFacetResultModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

@@ -323,6 +323,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -333,6 +334,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -343,6 +345,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -353,6 +356,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -363,6 +367,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -373,6 +378,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -383,6 +389,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -393,6 +400,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -403,6 +411,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -413,6 +422,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountValue $value
      * @return $this
      */
     public function withValue(?CartDiscountValue $value)
@@ -423,6 +433,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartPredicate
      * @return $this
      */
     public function withCartPredicate(?string $cartPredicate)
@@ -433,6 +444,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountTarget $target
      * @return $this
      */
     public function withTarget(?CartDiscountTarget $target)
@@ -443,6 +455,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortOrder
      * @return $this
      */
     public function withSortOrder(?string $sortOrder)
@@ -453,6 +466,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -463,6 +477,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -473,6 +488,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -483,6 +499,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?bool $requiresDiscountCode
      * @return $this
      */
     public function withRequiresDiscountCode(?bool $requiresDiscountCode)
@@ -493,6 +510,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?ReferenceCollection $references
      * @return $this
      */
     public function withReferences(?ReferenceCollection $references)
@@ -503,6 +521,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $stackingMode
      * @return $this
      */
     public function withStackingMode(?string $stackingMode)
@@ -513,6 +532,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

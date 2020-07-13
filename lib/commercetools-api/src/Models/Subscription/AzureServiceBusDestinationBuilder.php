@@ -34,6 +34,7 @@ final class AzureServiceBusDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $connectionString
      * @return $this
      */
     public function withConnectionString(?string $connectionString)

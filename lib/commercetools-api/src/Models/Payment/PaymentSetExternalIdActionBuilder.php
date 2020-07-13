@@ -34,6 +34,7 @@ final class PaymentSetExternalIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)

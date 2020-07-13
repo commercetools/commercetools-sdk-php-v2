@@ -53,6 +53,7 @@ final class ItemShippingTargetBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressKey
      * @return $this
      */
     public function withAddressKey(?string $addressKey)
@@ -63,6 +64,7 @@ final class ItemShippingTargetBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)

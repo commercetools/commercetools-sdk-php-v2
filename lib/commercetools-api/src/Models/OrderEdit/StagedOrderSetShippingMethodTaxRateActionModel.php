@@ -35,8 +35,11 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     protected $externalTaxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
         $this->externalTaxRate = $externalTaxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     }
 
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;

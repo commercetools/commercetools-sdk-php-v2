@@ -26,11 +26,17 @@ interface DuplicateFieldError extends ErrorObject
     /**
      * <p>The offending duplicate value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue();
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void;
 
-    public function setDuplicateValue(?JsonObject $duplicateValue): void;
+    /**
+     * @param mixed $duplicateValue
+     */
+    public function setDuplicateValue($duplicateValue): void;
 }

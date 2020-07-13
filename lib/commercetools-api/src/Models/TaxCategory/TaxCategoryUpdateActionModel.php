@@ -38,6 +38,9 @@ final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxC
        'setKey' => TaxCategorySetKeyActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

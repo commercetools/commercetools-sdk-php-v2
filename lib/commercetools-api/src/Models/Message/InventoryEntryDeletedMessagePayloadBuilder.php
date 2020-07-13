@@ -49,6 +49,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -59,6 +60,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelReference $supplyChannel)

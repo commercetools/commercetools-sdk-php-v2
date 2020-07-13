@@ -20,5 +20,8 @@ interface InventoryEntrySetRestockableInDaysAction extends InventoryEntryUpdateA
      */
     public function getRestockableInDays();
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void;
 }

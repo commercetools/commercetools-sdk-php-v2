@@ -36,6 +36,7 @@ final class MyCartRemovePaymentActionBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentResourceIdentifier $payment
      * @return $this
      */
     public function withPayment(?PaymentResourceIdentifier $payment)

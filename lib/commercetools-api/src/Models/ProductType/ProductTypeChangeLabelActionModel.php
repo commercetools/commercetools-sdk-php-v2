@@ -38,9 +38,12 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
     protected $label;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        LocalizedString $label = null
+        ?string $attributeName = null,
+        ?LocalizedString $label = null
     ) {
         $this->attributeName = $attributeName;
         $this->label = $label;
@@ -100,11 +103,17 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;

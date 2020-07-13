@@ -32,8 +32,11 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
     protected $resources;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductDraftImportCollection $resources = null
+        ?ProductDraftImportCollection $resources = null
     ) {
         $this->resources = $resources;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?ProductDraftImportCollection $resources
+     */
     public function setResources(?ProductDraftImportCollection $resources): void
     {
         $this->resources = $resources;

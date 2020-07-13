@@ -21,5 +21,8 @@ interface MyCartAddPaymentAction extends MyCartUpdateAction
      */
     public function getPayment();
 
+    /**
+     * @param ?PaymentResourceIdentifier $payment
+     */
     public function setPayment(?PaymentResourceIdentifier $payment): void;
 }

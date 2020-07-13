@@ -61,14 +61,17 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $product;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $sku = null,
-        bool $isMasterVariant = null,
-        AttributeCollection $attributes = null,
-        ImageCollection $images = null,
-        AssetCollection $assets = null,
-        ProductKeyReference $product = null
+        ?string $key = null,
+        ?string $sku = null,
+        ?bool $isMasterVariant = null,
+        ?AttributeCollection $attributes = null,
+        ?ImageCollection $images = null,
+        ?AssetCollection $assets = null,
+        ?ProductKeyReference $product = null
     ) {
         $this->key = $key;
         $this->sku = $sku;
@@ -218,36 +221,57 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $isMasterVariant
+     */
     public function setIsMasterVariant(?bool $isMasterVariant): void
     {
         $this->isMasterVariant = $isMasterVariant;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
     }
 
+    /**
+     * @param ?ProductKeyReference $product
+     */
     public function setProduct(?ProductKeyReference $product): void
     {
         $this->product = $product;

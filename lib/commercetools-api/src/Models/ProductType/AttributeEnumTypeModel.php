@@ -31,8 +31,11 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AttributePlainEnumValueCollection $values = null
+        ?AttributePlainEnumValueCollection $values = null
     ) {
         $this->values = $values;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     }
 
 
+    /**
+     * @param ?AttributePlainEnumValueCollection $values
+     */
     public function setValues(?AttributePlainEnumValueCollection $values): void
     {
         $this->values = $values;

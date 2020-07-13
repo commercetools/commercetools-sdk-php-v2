@@ -32,8 +32,11 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     protected $patches;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductVariantPatchCollection $patches = null
+        ?ProductVariantPatchCollection $patches = null
     ) {
         $this->patches = $patches;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     }
 
 
+    /**
+     * @param ?ProductVariantPatchCollection $patches
+     */
     public function setPatches(?ProductVariantPatchCollection $patches): void
     {
         $this->patches = $patches;

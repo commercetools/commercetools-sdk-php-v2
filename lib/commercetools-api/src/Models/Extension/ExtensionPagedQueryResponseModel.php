@@ -45,12 +45,15 @@ final class ExtensionPagedQueryResponseModel extends JsonObjectModel implements 
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        ExtensionCollection $results = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?ExtensionCollection $results = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -145,26 +148,41 @@ final class ExtensionPagedQueryResponseModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?ExtensionCollection $results
+     */
     public function setResults(?ExtensionCollection $results): void
     {
         $this->results = $results;

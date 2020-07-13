@@ -19,6 +19,9 @@ use stdClass;
  */
 final class SuggestionResultModel extends JsonObjectModel implements SuggestionResult
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

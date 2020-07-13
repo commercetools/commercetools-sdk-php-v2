@@ -38,9 +38,12 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     protected $addedQuantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LineItem $lineItem = null,
-        int $addedQuantity = null
+        ?LineItem $lineItem = null,
+        ?int $addedQuantity = null
     ) {
         $this->lineItem = $lineItem;
         $this->addedQuantity = $addedQuantity;
@@ -100,11 +103,17 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?LineItem $lineItem
+     */
     public function setLineItem(?LineItem $lineItem): void
     {
         $this->lineItem = $lineItem;
     }
 
+    /**
+     * @param ?int $addedQuantity
+     */
     public function setAddedQuantity(?int $addedQuantity): void
     {
         $this->addedQuantity = $addedQuantity;

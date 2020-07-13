@@ -24,5 +24,8 @@ interface InventoryEntrySetSupplyChannelAction extends InventoryEntryUpdateActio
      */
     public function getSupplyChannel();
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 }

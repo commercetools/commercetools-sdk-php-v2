@@ -99,6 +99,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -109,6 +110,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?string $password
      * @return $this
      */
     public function withPassword(?string $password)
@@ -119,6 +121,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousCartId
      * @return $this
      */
     public function withAnonymousCartId(?string $anonymousCartId)
@@ -129,6 +132,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousCartSignInMode
      * @return $this
      */
     public function withAnonymousCartSignInMode(?string $anonymousCartSignInMode)
@@ -139,6 +143,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -149,6 +154,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?bool $updateProductData
      * @return $this
      */
     public function withUpdateProductData(?bool $updateProductData)

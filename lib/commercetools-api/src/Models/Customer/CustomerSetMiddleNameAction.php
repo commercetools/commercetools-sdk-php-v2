@@ -20,5 +20,8 @@ interface CustomerSetMiddleNameAction extends CustomerUpdateAction
      */
     public function getMiddleName();
 
+    /**
+     * @param ?string $middleName
+     */
     public function setMiddleName(?string $middleName): void;
 }

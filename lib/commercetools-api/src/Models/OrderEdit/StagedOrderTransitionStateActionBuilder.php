@@ -51,6 +51,7 @@ final class StagedOrderTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)
@@ -61,6 +62,7 @@ final class StagedOrderTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $force
      * @return $this
      */
     public function withForce(?bool $force)

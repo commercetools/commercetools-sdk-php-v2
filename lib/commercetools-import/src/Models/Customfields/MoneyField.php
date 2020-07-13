@@ -21,5 +21,8 @@ interface MoneyField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 }

@@ -32,8 +32,11 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     protected $resources;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        PriceImportCollection $resources = null
+        ?PriceImportCollection $resources = null
     ) {
         $this->resources = $resources;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     }
 
 
+    /**
+     * @param ?PriceImportCollection $resources
+     */
     public function setResources(?PriceImportCollection $resources): void
     {
         $this->resources = $resources;

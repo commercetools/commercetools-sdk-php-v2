@@ -31,8 +31,11 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     protected $authorName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $authorName = null
+        ?string $authorName = null
     ) {
         $this->authorName = $authorName;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     }
 
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void
     {
         $this->authorName = $authorName;

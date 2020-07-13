@@ -37,9 +37,12 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     protected $timestamp;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $transactionId = null,
-        DateTimeImmutable $timestamp = null
+        ?string $transactionId = null,
+        ?DateTimeImmutable $timestamp = null
     ) {
         $this->transactionId = $transactionId;
         $this->timestamp = $timestamp;
@@ -102,11 +105,17 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void
     {
         $this->transactionId = $transactionId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $timestamp
+     */
     public function setTimestamp(?DateTimeImmutable $timestamp): void
     {
         $this->timestamp = $timestamp;

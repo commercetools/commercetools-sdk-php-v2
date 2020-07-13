@@ -49,13 +49,28 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void;
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

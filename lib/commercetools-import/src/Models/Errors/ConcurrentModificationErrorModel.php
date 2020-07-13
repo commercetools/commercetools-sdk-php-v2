@@ -41,16 +41,19 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     protected $currentVersion;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $conflictedResource;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        int $specifiedVersion = null,
-        int $currentVersion = null,
-        JsonObject $conflictedResource = null
+        ?string $message = null,
+        ?int $specifiedVersion = null,
+        ?int $currentVersion = null,
+        $conflictedResource = null
     ) {
         $this->message = $message;
         $this->specifiedVersion = $specifiedVersion;
@@ -136,39 +139,51 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     /**
      * <p>The conflicted resource.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getConflictedResource()
     {
         if (is_null($this->conflictedResource)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_CONFLICTED_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->conflictedResource = JsonObjectModel::of($data);
+            $this->conflictedResource = $data;
         }
 
         return $this->conflictedResource;
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?int $specifiedVersion
+     */
     public function setSpecifiedVersion(?int $specifiedVersion): void
     {
         $this->specifiedVersion = $specifiedVersion;
     }
 
+    /**
+     * @param ?int $currentVersion
+     */
     public function setCurrentVersion(?int $currentVersion): void
     {
         $this->currentVersion = $currentVersion;
     }
 
-    public function setConflictedResource(?JsonObject $conflictedResource): void
+    /**
+     * @param mixed $conflictedResource
+     */
+    public function setConflictedResource($conflictedResource): void
     {
         $this->conflictedResource = $conflictedResource;
     }

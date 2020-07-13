@@ -40,11 +40,14 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        GeneralCategoryRecommendationCollection $results = null
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?GeneralCategoryRecommendationCollection $results = null
     ) {
         $this->count = $count;
         $this->total = $total;
@@ -121,21 +124,33 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?GeneralCategoryRecommendationCollection $results
+     */
     public function setResults(?GeneralCategoryRecommendationCollection $results): void
     {
         $this->results = $results;

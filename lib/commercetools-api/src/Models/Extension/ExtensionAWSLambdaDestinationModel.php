@@ -41,10 +41,13 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     protected $accessSecret;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $arn = null,
-        string $accessKey = null,
-        string $accessSecret = null
+        ?string $arn = null,
+        ?string $accessKey = null,
+        ?string $accessSecret = null
     ) {
         $this->arn = $arn;
         $this->accessKey = $accessKey;
@@ -121,16 +124,25 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $arn
+     */
     public function setArn(?string $arn): void
     {
         $this->arn = $arn;
     }
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;
     }
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void
     {
         $this->accessSecret = $accessSecret;

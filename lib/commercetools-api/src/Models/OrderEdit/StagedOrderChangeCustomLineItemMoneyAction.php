@@ -28,7 +28,13 @@ interface StagedOrderChangeCustomLineItemMoneyAction extends StagedOrderUpdateAc
      */
     public function getMoney();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?Money $money
+     */
     public function setMoney(?Money $money): void;
 }

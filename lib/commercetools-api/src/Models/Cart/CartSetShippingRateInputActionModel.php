@@ -31,8 +31,11 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     protected $shippingRateInput;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ShippingRateInputDraft $shippingRateInput = null
+        ?ShippingRateInputDraft $shippingRateInput = null
     ) {
         $this->shippingRateInput = $shippingRateInput;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -79,6 +82,9 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;

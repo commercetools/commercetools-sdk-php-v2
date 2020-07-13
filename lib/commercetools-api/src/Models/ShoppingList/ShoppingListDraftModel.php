@@ -76,17 +76,20 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     protected $anonymousId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomFieldsDraft $custom = null,
-        CustomerResourceIdentifier $customer = null,
-        int $deleteDaysAfterLastModification = null,
-        LocalizedString $description = null,
-        string $key = null,
-        ShoppingListLineItemDraftCollection $lineItems = null,
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        TextLineItemDraftCollection $textLineItems = null,
-        string $anonymousId = null
+        ?CustomFieldsDraft $custom = null,
+        ?CustomerResourceIdentifier $customer = null,
+        ?int $deleteDaysAfterLastModification = null,
+        ?LocalizedString $description = null,
+        ?string $key = null,
+        ?ShoppingListLineItemDraftCollection $lineItems = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?TextLineItemDraftCollection $textLineItems = null,
+        ?string $anonymousId = null
     ) {
         $this->custom = $custom;
         $this->customer = $customer;
@@ -288,51 +291,81 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     */
     public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     */
     public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
     {
         $this->textLineItems = $textLineItems;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;

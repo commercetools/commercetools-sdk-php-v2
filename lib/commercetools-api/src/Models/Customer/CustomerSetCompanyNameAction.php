@@ -22,5 +22,8 @@ interface CustomerSetCompanyNameAction extends CustomerUpdateAction
      */
     public function getCompanyName();
 
+    /**
+     * @param ?string $companyName
+     */
     public function setCompanyName(?string $companyName): void;
 }

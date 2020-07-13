@@ -68,6 +68,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -78,6 +79,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $freeAbove
      * @return $this
      */
     public function withFreeAbove(?Money $freeAbove)
@@ -88,6 +90,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRatePriceTierCollection $tiers
      * @return $this
      */
     public function withTiers(?ShippingRatePriceTierCollection $tiers)

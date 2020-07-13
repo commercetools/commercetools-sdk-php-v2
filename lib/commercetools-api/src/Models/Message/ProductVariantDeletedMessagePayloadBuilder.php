@@ -49,6 +49,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariant $variant
      * @return $this
      */
     public function withVariant(?ProductVariant $variant)
@@ -59,6 +60,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?array $removedImageUrls
      * @return $this
      */
     public function withRemovedImageUrls(?array $removedImageUrls)

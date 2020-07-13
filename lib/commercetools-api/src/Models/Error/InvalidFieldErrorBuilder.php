@@ -31,7 +31,7 @@ final class InvalidFieldErrorBuilder implements Builder
     private $field;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $invalidValue;
 
@@ -57,7 +57,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getInvalidValue()
     {
@@ -73,6 +73,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -83,6 +84,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $field
      * @return $this
      */
     public function withField(?string $field)
@@ -93,9 +95,10 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param mixed $invalidValue
      * @return $this
      */
-    public function withInvalidValue(?JsonObject $invalidValue)
+    public function withInvalidValue($invalidValue)
     {
         $this->invalidValue = $invalidValue;
 
@@ -103,6 +106,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?array $allowedValues
      * @return $this
      */
     public function withAllowedValues(?array $allowedValues)

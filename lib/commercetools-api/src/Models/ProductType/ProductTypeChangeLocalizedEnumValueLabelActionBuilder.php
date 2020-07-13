@@ -47,6 +47,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     }
 
     /**
+     * @param ?AttributeLocalizedEnumValue $newValue
      * @return $this
      */
     public function withNewValue(?AttributeLocalizedEnumValue $newValue)

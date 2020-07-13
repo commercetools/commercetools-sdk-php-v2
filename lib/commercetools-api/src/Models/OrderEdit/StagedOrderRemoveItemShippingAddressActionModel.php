@@ -33,8 +33,11 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
     protected $addressKey;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $addressKey = null
+        ?string $addressKey = null
     ) {
         $this->addressKey = $addressKey;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderRemoveItemShippingAddressActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void
     {
         $this->addressKey = $addressKey;

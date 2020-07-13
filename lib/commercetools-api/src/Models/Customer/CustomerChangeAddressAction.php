@@ -33,9 +33,18 @@ interface CustomerChangeAddressAction extends CustomerUpdateAction
      */
     public function getAddress();
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void;
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

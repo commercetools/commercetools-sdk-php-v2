@@ -51,6 +51,7 @@ final class StagedOrderChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $money
      * @return $this
      */
     public function withMoney(?Money $money)

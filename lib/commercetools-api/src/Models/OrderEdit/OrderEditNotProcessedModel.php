@@ -26,6 +26,9 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

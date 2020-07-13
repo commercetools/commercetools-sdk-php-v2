@@ -34,6 +34,7 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionDestination $destination
      * @return $this
      */
     public function withDestination(?ExtensionDestination $destination)

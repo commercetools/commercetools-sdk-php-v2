@@ -51,6 +51,7 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
     public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)

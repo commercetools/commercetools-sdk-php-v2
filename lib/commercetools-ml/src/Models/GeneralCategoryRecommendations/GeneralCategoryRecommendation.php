@@ -30,7 +30,13 @@ interface GeneralCategoryRecommendation extends JsonObject
      */
     public function getConfidence();
 
+    /**
+     * @param ?string $categoryName
+     */
     public function setCategoryName(?string $categoryName): void;
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void;
 }

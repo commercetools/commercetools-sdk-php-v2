@@ -31,8 +31,11 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     protected $message;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null
+        ?string $message = null
     ) {
         $this->message = $message;
         $this->code = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;

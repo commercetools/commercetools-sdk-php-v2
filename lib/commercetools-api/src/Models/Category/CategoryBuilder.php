@@ -301,6 +301,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -311,6 +312,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -321,6 +323,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -331,6 +334,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -341,6 +345,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -351,6 +356,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -361,6 +367,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -371,6 +378,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -381,6 +389,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -391,6 +400,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReferenceCollection $ancestors
      * @return $this
      */
     public function withAncestors(?CategoryReferenceCollection $ancestors)
@@ -401,6 +411,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReference $parent
      * @return $this
      */
     public function withParent(?CategoryReference $parent)
@@ -411,6 +422,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)
@@ -421,6 +433,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -431,6 +444,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -441,6 +455,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -451,6 +466,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -461,6 +477,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -471,6 +488,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?AssetCollection $assets
      * @return $this
      */
     public function withAssets(?AssetCollection $assets)
@@ -481,6 +499,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

@@ -26,7 +26,13 @@ interface ProductTypeRemoveEnumValuesAction extends ProductTypeUpdateAction
      */
     public function getKeys();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?array $keys
+     */
     public function setKeys(?array $keys): void;
 }

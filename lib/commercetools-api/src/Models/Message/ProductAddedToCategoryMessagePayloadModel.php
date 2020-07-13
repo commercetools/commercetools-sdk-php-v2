@@ -38,9 +38,12 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CategoryReference $category = null,
-        bool $staged = null
+        ?CategoryReference $category = null,
+        ?bool $staged = null
     ) {
         $this->category = $category;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?CategoryReference $category
+     */
     public function setCategory(?CategoryReference $category): void
     {
         $this->category = $category;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

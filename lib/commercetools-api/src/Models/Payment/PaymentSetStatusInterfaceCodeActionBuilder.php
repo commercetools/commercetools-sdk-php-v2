@@ -34,6 +34,7 @@ final class PaymentSetStatusInterfaceCodeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceCode
      * @return $this
      */
     public function withInterfaceCode(?string $interfaceCode)

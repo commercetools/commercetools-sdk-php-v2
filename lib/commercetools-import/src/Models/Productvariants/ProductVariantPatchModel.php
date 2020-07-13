@@ -39,10 +39,13 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductVariantKeyReference $productVariant = null,
-        ProductKeyReference $product = null,
-        Attributes $attributes = null
+        ?ProductVariantKeyReference $productVariant = null,
+        ?ProductKeyReference $product = null,
+        ?Attributes $attributes = null
     ) {
         $this->productVariant = $productVariant;
         $this->product = $product;
@@ -119,16 +122,25 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     }
 
 
+    /**
+     * @param ?ProductVariantKeyReference $productVariant
+     */
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
         $this->productVariant = $productVariant;
     }
 
+    /**
+     * @param ?ProductKeyReference $product
+     */
     public function setProduct(?ProductKeyReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?Attributes $attributes
+     */
     public function setAttributes(?Attributes $attributes): void
     {
         $this->attributes = $attributes;

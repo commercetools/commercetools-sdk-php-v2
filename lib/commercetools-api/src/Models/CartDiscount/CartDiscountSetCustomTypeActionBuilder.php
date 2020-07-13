@@ -54,6 +54,7 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -64,6 +65,7 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $fields
      * @return $this
      */
     public function withFields(?JsonObject $fields)

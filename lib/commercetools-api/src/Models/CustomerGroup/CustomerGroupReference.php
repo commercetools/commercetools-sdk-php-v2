@@ -21,5 +21,8 @@ interface CustomerGroupReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?CustomerGroup $obj
+     */
     public function setObj(?CustomerGroup $obj): void;
 }

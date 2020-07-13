@@ -33,8 +33,11 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     protected $amount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $amount = null
+        ?Money $amount = null
     ) {
         $this->amount = $amount;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void
     {
         $this->amount = $amount;

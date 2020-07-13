@@ -44,10 +44,13 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     protected $syncedAt;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChannelResourceIdentifier $channel = null,
-        string $externalId = null,
-        DateTimeImmutable $syncedAt = null
+        ?ChannelResourceIdentifier $channel = null,
+        ?string $externalId = null,
+        ?DateTimeImmutable $syncedAt = null
     ) {
         $this->channel = $channel;
         $this->externalId = $externalId;
@@ -129,16 +132,25 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     }
 
 
+    /**
+     * @param ?ChannelResourceIdentifier $channel
+     */
     public function setChannel(?ChannelResourceIdentifier $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $syncedAt
+     */
     public function setSyncedAt(?DateTimeImmutable $syncedAt): void
     {
         $this->syncedAt = $syncedAt;

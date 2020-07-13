@@ -68,16 +68,19 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     protected $validUntil;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        string $key = null,
-        LocalizedString $description = null,
-        ProductDiscountValueDraft $value = null,
-        string $predicate = null,
-        string $sortOrder = null,
-        bool $isActive = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null
+        ?LocalizedString $name = null,
+        ?string $key = null,
+        ?LocalizedString $description = null,
+        ?ProductDiscountValueDraft $value = null,
+        ?string $predicate = null,
+        ?string $sortOrder = null,
+        ?bool $isActive = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null
     ) {
         $this->name = $name;
         $this->key = $key;
@@ -272,46 +275,73 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?ProductDiscountValueDraft $value
+     */
     public function setValue(?ProductDiscountValueDraft $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;
     }
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
     }
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;

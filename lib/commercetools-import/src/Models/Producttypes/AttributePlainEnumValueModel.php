@@ -30,9 +30,12 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     protected $label;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $label = null
+        ?string $key = null,
+        ?string $label = null
     ) {
         $this->key = $key;
         $this->label = $label;
@@ -73,11 +76,17 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void
     {
         $this->label = $label;

@@ -49,6 +49,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?array $removedImageUrls
      * @return $this
      */
     public function withRemovedImageUrls(?array $removedImageUrls)
@@ -59,6 +60,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductProjection $currentProjection
      * @return $this
      */
     public function withCurrentProjection(?ProductProjection $currentProjection)

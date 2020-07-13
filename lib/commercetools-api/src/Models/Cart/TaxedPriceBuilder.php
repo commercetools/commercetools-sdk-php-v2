@@ -64,6 +64,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalNet
      * @return $this
      */
     public function withTotalNet(?TypedMoney $totalNet)
@@ -74,6 +75,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalGross
      * @return $this
      */
     public function withTotalGross(?TypedMoney $totalGross)
@@ -84,6 +86,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TaxPortionCollection $taxPortions
      * @return $this
      */
     public function withTaxPortions(?TaxPortionCollection $taxPortions)

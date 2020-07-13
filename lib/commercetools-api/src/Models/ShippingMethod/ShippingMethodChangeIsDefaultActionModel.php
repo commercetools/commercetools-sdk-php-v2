@@ -31,8 +31,11 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     protected $isDefault;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $isDefault = null
+        ?bool $isDefault = null
     ) {
         $this->isDefault = $isDefault;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?bool $isDefault
+     */
     public function setIsDefault(?bool $isDefault): void
     {
         $this->isDefault = $isDefault;

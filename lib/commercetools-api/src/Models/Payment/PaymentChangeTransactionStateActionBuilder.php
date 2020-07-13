@@ -47,6 +47,7 @@ final class PaymentChangeTransactionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $transactionId
      * @return $this
      */
     public function withTransactionId(?string $transactionId)
@@ -57,6 +58,7 @@ final class PaymentChangeTransactionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)

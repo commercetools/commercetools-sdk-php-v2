@@ -28,7 +28,13 @@ interface MissingImagesCount extends JsonObject
      */
     public function getTotal();
 
+    /**
+     * @param ?int $missingImages
+     */
     public function setMissingImages(?int $missingImages): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 }

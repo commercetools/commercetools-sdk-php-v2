@@ -36,6 +36,7 @@ final class InventoryEntryCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?InventoryEntry $inventoryEntry
      * @return $this
      */
     public function withInventoryEntry(?InventoryEntry $inventoryEntry)

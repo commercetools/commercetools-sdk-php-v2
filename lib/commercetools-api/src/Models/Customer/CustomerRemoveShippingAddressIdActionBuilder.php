@@ -47,6 +47,7 @@ final class CustomerRemoveShippingAddressIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
      * @return $this
      */
     public function withAddressId(?string $addressId)
@@ -57,6 +58,7 @@ final class CustomerRemoveShippingAddressIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressKey
      * @return $this
      */
     public function withAddressKey(?string $addressKey)

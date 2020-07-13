@@ -22,5 +22,8 @@ interface ProjectChangeCountriesAction extends ProjectUpdateAction
      */
     public function getCountries();
 
+    /**
+     * @param ?array $countries
+     */
     public function setCountries(?array $countries): void;
 }

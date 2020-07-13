@@ -36,6 +36,7 @@ final class ReviewSetTextActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $text
      * @return $this
      */
     public function withText(?string $text)

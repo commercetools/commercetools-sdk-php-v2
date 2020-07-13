@@ -28,7 +28,13 @@ interface PriceFunction extends JsonObject
      */
     public function getFunction();
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void;
 
+    /**
+     * @param ?string $function
+     */
     public function setFunction(?string $function): void;
 }

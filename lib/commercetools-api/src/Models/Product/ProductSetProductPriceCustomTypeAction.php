@@ -40,11 +40,23 @@ interface ProductSetProductPriceCustomTypeAction extends ProductUpdateAction
      */
     public function getFields();
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

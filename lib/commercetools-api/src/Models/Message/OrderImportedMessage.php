@@ -21,5 +21,8 @@ interface OrderImportedMessage extends Message
      */
     public function getOrder();
 
+    /**
+     * @param ?Order $order
+     */
     public function setOrder(?Order $order): void;
 }

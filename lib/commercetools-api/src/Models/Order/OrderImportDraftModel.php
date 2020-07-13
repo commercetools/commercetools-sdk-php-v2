@@ -145,29 +145,32 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $origin;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderNumber = null,
-        string $customerId = null,
-        string $customerEmail = null,
-        LineItemImportDraftCollection $lineItems = null,
-        CustomLineItemDraftCollection $customLineItems = null,
-        Money $totalPrice = null,
-        TaxedPriceDraft $taxedPrice = null,
-        Address $shippingAddress = null,
-        Address $billingAddress = null,
-        CustomerGroupResourceIdentifier $customerGroup = null,
-        string $country = null,
-        string $orderState = null,
-        string $shipmentState = null,
-        string $paymentState = null,
-        ShippingInfoImportDraft $shippingInfo = null,
-        DateTimeImmutable $completedAt = null,
-        CustomFieldsDraft $custom = null,
-        string $inventoryMode = null,
-        string $taxRoundingMode = null,
-        AddressCollection $itemShippingAddresses = null,
-        StoreResourceIdentifier $store = null,
-        string $origin = null
+        ?string $orderNumber = null,
+        ?string $customerId = null,
+        ?string $customerEmail = null,
+        ?LineItemImportDraftCollection $lineItems = null,
+        ?CustomLineItemDraftCollection $customLineItems = null,
+        ?Money $totalPrice = null,
+        ?TaxedPriceDraft $taxedPrice = null,
+        ?Address $shippingAddress = null,
+        ?Address $billingAddress = null,
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?string $country = null,
+        ?string $orderState = null,
+        ?string $shipmentState = null,
+        ?string $paymentState = null,
+        ?ShippingInfoImportDraft $shippingInfo = null,
+        ?DateTimeImmutable $completedAt = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $inventoryMode = null,
+        ?string $taxRoundingMode = null,
+        ?AddressCollection $itemShippingAddresses = null,
+        ?StoreResourceIdentifier $store = null,
+        ?string $origin = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->customerId = $customerId;
@@ -615,111 +618,177 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;
     }
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void
     {
         $this->customerEmail = $customerEmail;
     }
 
+    /**
+     * @param ?LineItemImportDraftCollection $lineItems
+     */
     public function setLineItems(?LineItemImportDraftCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void
     {
         $this->customLineItems = $customLineItems;
     }
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
     }
 
+    /**
+     * @param ?ShippingInfoImportDraft $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
     }
 
+    /**
+     * @param ?DateTimeImmutable $completedAt
+     */
     public function setCompletedAt(?DateTimeImmutable $completedAt): void
     {
         $this->completedAt = $completedAt;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void
     {
         $this->inventoryMode = $inventoryMode;
     }
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void
     {
         $this->taxRoundingMode = $taxRoundingMode;
     }
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
 
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
     public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
     }
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void
     {
         $this->origin = $origin;

@@ -43,10 +43,13 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     protected $measurements;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        string $parcelId = null,
-        ParcelMeasurements $measurements = null
+        ?string $deliveryId = null,
+        ?string $parcelId = null,
+        ?ParcelMeasurements $measurements = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->parcelId = $parcelId;
@@ -124,16 +127,25 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;

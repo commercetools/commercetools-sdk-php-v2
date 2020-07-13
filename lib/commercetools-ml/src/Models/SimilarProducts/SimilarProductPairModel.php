@@ -30,9 +30,12 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     protected $products;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $confidence = null,
-        SimilarProductCollection $products = null
+        ?float $confidence = null,
+        ?SimilarProductCollection $products = null
     ) {
         $this->confidence = $confidence;
         $this->products = $products;
@@ -75,11 +78,17 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     }
 
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;
     }
 
+    /**
+     * @param ?SimilarProductCollection $products
+     */
     public function setProducts(?SimilarProductCollection $products): void
     {
         $this->products = $products;

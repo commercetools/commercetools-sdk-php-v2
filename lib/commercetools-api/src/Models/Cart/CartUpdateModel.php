@@ -30,9 +30,12 @@ final class CartUpdateModel extends JsonObjectModel implements CartUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        CartUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?CartUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class CartUpdateModel extends JsonObjectModel implements CartUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?CartUpdateActionCollection $actions
+     */
     public function setActions(?CartUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

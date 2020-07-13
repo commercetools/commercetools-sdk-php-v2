@@ -41,10 +41,13 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     protected $itemId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $subject = null,
-        string $itemId = null
+        ?string $message = null,
+        ?string $subject = null,
+        ?string $itemId = null
     ) {
         $this->message = $message;
         $this->subject = $subject;
@@ -121,16 +124,25 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $subject
+     */
     public function setSubject(?string $subject): void
     {
         $this->subject = $subject;
     }
 
+    /**
+     * @param ?string $itemId
+     */
     public function setItemId(?string $itemId): void
     {
         $this->itemId = $itemId;

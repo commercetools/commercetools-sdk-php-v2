@@ -41,10 +41,13 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $categoryId = null,
-        string $orderHint = null,
-        bool $staged = null
+        ?string $categoryId = null,
+        ?string $orderHint = null,
+        ?bool $staged = null
     ) {
         $this->categoryId = $categoryId;
         $this->orderHint = $orderHint;
@@ -121,16 +124,25 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $categoryId
+     */
     public function setCategoryId(?string $categoryId): void
     {
         $this->categoryId = $categoryId;
     }
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

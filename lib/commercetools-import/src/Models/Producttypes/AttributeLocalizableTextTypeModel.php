@@ -26,6 +26,9 @@ final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

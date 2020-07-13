@@ -47,6 +47,7 @@ final class TypeUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class TypeUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?TypeUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?TypeUpdateActionCollection $actions)

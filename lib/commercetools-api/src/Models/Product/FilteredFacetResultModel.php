@@ -36,9 +36,12 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     protected $productCount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        int $productCount = null
+        ?int $count = null,
+        ?int $productCount = null
     ) {
         $this->count = $count;
         $this->productCount = $productCount;
@@ -97,11 +100,17 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void
     {
         $this->productCount = $productCount;

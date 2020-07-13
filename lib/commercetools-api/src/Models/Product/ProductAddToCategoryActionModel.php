@@ -43,10 +43,13 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CategoryResourceIdentifier $category = null,
-        string $orderHint = null,
-        bool $staged = null
+        ?CategoryResourceIdentifier $category = null,
+        ?string $orderHint = null,
+        ?bool $staged = null
     ) {
         $this->category = $category;
         $this->orderHint = $orderHint;
@@ -124,16 +127,25 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
 
+    /**
+     * @param ?CategoryResourceIdentifier $category
+     */
     public function setCategory(?CategoryResourceIdentifier $category): void
     {
         $this->category = $category;
     }
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

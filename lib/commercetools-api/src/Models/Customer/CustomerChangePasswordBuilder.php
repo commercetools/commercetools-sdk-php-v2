@@ -73,6 +73,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -83,6 +84,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -93,6 +95,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * @param ?string $currentPassword
      * @return $this
      */
     public function withCurrentPassword(?string $currentPassword)
@@ -103,6 +106,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * @param ?string $newPassword
      * @return $this
      */
     public function withNewPassword(?string $newPassword)

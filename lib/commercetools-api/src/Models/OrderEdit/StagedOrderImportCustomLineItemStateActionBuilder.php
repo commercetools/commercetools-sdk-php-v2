@@ -50,6 +50,7 @@ final class StagedOrderImportCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -60,6 +61,7 @@ final class StagedOrderImportCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
      * @return $this
      */
     public function withState(?ItemStateCollection $state)

@@ -47,6 +47,7 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $projectId
      * @return $this
      */
     public function withProjectId(?string $projectId)
@@ -57,6 +58,7 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $topic
      * @return $this
      */
     public function withTopic(?string $topic)

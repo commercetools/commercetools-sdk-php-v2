@@ -46,12 +46,15 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        DateTimeImmutable $createdAt = null,
-        ParcelMeasurements $measurements = null,
-        TrackingData $trackingData = null,
-        DeliveryItemCollection $items = null
+        ?string $id = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?ParcelMeasurements $measurements = null,
+        ?TrackingData $trackingData = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->id = $id;
         $this->createdAt = $createdAt;
@@ -154,26 +157,41 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
 
+    /**
+     * @param ?TrackingData $trackingData
+     */
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

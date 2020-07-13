@@ -37,6 +37,9 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
        'shipping' => CartDiscountShippingCostTargetModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

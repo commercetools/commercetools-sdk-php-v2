@@ -40,11 +40,14 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        float $offset = null,
-        int $total = null,
-        ResultItemCollection $results = null
+        ?int $count = null,
+        ?float $offset = null,
+        ?int $total = null,
+        ?ResultItemCollection $results = null
     ) {
         $this->count = $count;
         $this->offset = $offset;
@@ -129,21 +132,33 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?ResultItemCollection $results
+     */
     public function setResults(?ResultItemCollection $results): void
     {
         $this->results = $results;

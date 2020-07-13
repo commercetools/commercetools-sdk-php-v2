@@ -31,8 +31,11 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     protected $fieldDefinition;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        FieldDefinition $fieldDefinition = null
+        ?FieldDefinition $fieldDefinition = null
     ) {
         $this->fieldDefinition = $fieldDefinition;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?FieldDefinition $fieldDefinition
+     */
     public function setFieldDefinition(?FieldDefinition $fieldDefinition): void
     {
         $this->fieldDefinition = $fieldDefinition;

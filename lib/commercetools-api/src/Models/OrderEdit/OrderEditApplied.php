@@ -33,9 +33,18 @@ interface OrderEditApplied extends OrderEditResult
      */
     public function getExcerptAfterEdit();
 
+    /**
+     * @param ?DateTimeImmutable $appliedAt
+     */
     public function setAppliedAt(?DateTimeImmutable $appliedAt): void;
 
+    /**
+     * @param ?OrderExcerpt $excerptBeforeEdit
+     */
     public function setExcerptBeforeEdit(?OrderExcerpt $excerptBeforeEdit): void;
 
+    /**
+     * @param ?OrderExcerpt $excerptAfterEdit
+     */
     public function setExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit): void;
 }

@@ -33,8 +33,11 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null
+        ?LocalizedString $name = null
     ) {
         $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;

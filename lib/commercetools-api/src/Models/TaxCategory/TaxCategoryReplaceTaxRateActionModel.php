@@ -36,9 +36,12 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     protected $taxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $taxRateId = null,
-        TaxRateDraft $taxRate = null
+        ?string $taxRateId = null,
+        ?TaxRateDraft $taxRate = null
     ) {
         $this->taxRateId = $taxRateId;
         $this->taxRate = $taxRate;
@@ -98,11 +101,17 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $taxRateId
+     */
     public function setTaxRateId(?string $taxRateId): void
     {
         $this->taxRateId = $taxRateId;
     }
 
+    /**
+     * @param ?TaxRateDraft $taxRate
+     */
     public function setTaxRate(?TaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;

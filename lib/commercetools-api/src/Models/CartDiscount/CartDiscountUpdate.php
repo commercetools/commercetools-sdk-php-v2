@@ -26,7 +26,13 @@ interface CartDiscountUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?CartDiscountUpdateActionCollection $actions
+     */
     public function setActions(?CartDiscountUpdateActionCollection $actions): void;
 }

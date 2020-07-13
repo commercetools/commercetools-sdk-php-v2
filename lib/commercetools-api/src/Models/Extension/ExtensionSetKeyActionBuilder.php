@@ -36,6 +36,7 @@ final class ExtensionSetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

@@ -48,12 +48,15 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     protected $images;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $id = null,
-        string $sku = null,
-        PriceDraftCollection $prices = null,
-        AttributeCollection $attributes = null,
-        ImageCollection $images = null
+        ?int $id = null,
+        ?string $sku = null,
+        ?PriceDraftCollection $prices = null,
+        ?AttributeCollection $attributes = null,
+        ?ImageCollection $images = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
@@ -164,26 +167,41 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;

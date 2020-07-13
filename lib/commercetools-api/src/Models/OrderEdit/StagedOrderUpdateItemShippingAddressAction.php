@@ -22,5 +22,8 @@ interface StagedOrderUpdateItemShippingAddressAction extends StagedOrderUpdateAc
      */
     public function getAddress();
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

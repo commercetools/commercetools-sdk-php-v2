@@ -65,6 +65,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -75,6 +76,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expires
      * @return $this
      */
     public function withExpires(?DateTimeImmutable $expires)
@@ -85,6 +87,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?MissingAttributesPagedQueryResult $result
      * @return $this
      */
     public function withResult(?MissingAttributesPagedQueryResult $result)

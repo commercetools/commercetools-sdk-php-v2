@@ -101,21 +101,24 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $predicate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        string $name = null,
-        string $description = null,
-        LocalizedString $localizedDescription = null,
-        TaxCategoryReference $taxCategory = null,
-        ZoneRateCollection $zoneRates = null,
-        bool $isDefault = null,
-        string $predicate = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?LocalizedString $localizedDescription = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?ZoneRateCollection $zoneRates = null,
+        ?bool $isDefault = null,
+        ?string $predicate = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -394,71 +397,113 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocalizedString $localizedDescription
+     */
     public function setLocalizedDescription(?LocalizedString $localizedDescription): void
     {
         $this->localizedDescription = $localizedDescription;
     }
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ZoneRateCollection $zoneRates
+     */
     public function setZoneRates(?ZoneRateCollection $zoneRates): void
     {
         $this->zoneRates = $zoneRates;
     }
 
+    /**
+     * @param ?bool $isDefault
+     */
     public function setIsDefault(?bool $isDefault): void
     {
         $this->isDefault = $isDefault;
     }
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;

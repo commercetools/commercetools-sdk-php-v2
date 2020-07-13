@@ -45,12 +45,15 @@ final class AssetModel extends JsonObjectModel implements Asset
     protected $tags;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        AssetSourceCollection $sources = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        array $tags = null
+        ?string $key = null,
+        ?AssetSourceCollection $sources = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?array $tags = null
     ) {
         $this->key = $key;
         $this->sources = $sources;
@@ -150,26 +153,41 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?AssetSourceCollection $sources
+     */
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?array $tags
+     */
     public function setTags(?array $tags): void
     {
         $this->tags = $tags;

@@ -60,6 +60,9 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
        'setVatId' => CustomerSetVatIdActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

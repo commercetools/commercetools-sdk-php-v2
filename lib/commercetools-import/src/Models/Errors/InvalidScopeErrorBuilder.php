@@ -36,6 +36,7 @@ final class InvalidScopeErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)

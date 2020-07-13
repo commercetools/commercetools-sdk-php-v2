@@ -86,6 +86,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -96,6 +97,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -106,6 +108,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -116,6 +119,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @param ?MissingImagesCollection $results
      * @return $this
      */
     public function withResults(?MissingImagesCollection $results)
@@ -126,6 +130,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @param ?MissingImagesMeta $meta
      * @return $this
      */
     public function withMeta(?MissingImagesMeta $meta)

@@ -33,8 +33,11 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     protected $parcelId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $parcelId = null
+        ?string $parcelId = null
     ) {
         $this->parcelId = $parcelId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     }
 
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;

@@ -37,6 +37,7 @@ final class CartDiscountSetValidFromActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)

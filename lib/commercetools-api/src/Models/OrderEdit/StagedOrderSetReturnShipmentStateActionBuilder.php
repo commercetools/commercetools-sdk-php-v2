@@ -49,6 +49,7 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemId
      * @return $this
      */
     public function withReturnItemId(?string $returnItemId)
@@ -59,6 +60,7 @@ final class StagedOrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)

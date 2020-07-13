@@ -44,4 +44,18 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
         $data = array_replace($this->getRawDataArray(), $data);
         return $data;
     }
+
+    /**
+     * @return static|mixed
+     */
+    public function tap(callable $callback = null)
+    {
+        if (is_null($callback)) {
+            return $this;
+        }
+
+        $callback($this);
+
+        return $this;
+    }
 }

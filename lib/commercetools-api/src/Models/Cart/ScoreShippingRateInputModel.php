@@ -31,8 +31,11 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
     protected $score;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $score = null
+        ?float $score = null
     ) {
         $this->score = $score;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
     }
 
 
+    /**
+     * @param ?float $score
+     */
     public function setScore(?float $score): void
     {
         $this->score = $score;

@@ -55,13 +55,16 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        ChannelResourceIdentifier $supplyChannel = null,
-        int $quantityOnStock = null,
-        int $restockableInDays = null,
-        DateTimeImmutable $expectedDelivery = null,
-        CustomFieldsDraft $custom = null
+        ?string $sku = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?int $quantityOnStock = null,
+        ?int $restockableInDays = null,
+        ?DateTimeImmutable $expectedDelivery = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
@@ -182,31 +185,49 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
+    /**
+     * @param ?int $quantityOnStock
+     */
     public function setQuantityOnStock(?int $quantityOnStock): void
     {
         $this->quantityOnStock = $quantityOnStock;
     }
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void
     {
         $this->restockableInDays = $restockableInDays;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expectedDelivery
+     */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
     {
         $this->expectedDelivery = $expectedDelivery;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;

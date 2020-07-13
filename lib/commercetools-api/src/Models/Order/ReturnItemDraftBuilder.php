@@ -86,6 +86,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -96,6 +97,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -106,6 +108,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -116,6 +119,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $comment
      * @return $this
      */
     public function withComment(?string $comment)
@@ -126,6 +130,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)

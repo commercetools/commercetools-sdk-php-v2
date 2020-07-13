@@ -105,6 +105,7 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $id
      * @return $this
      */
     public function withId(?int $id)
@@ -115,6 +116,7 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -125,6 +127,7 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PriceDraftCollection $prices
      * @return $this
      */
     public function withPrices(?PriceDraftCollection $prices)
@@ -135,6 +138,7 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeCollection $attributes)
@@ -145,6 +149,7 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ImageCollection $images
      * @return $this
      */
     public function withImages(?ImageCollection $images)

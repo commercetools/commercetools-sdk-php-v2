@@ -49,6 +49,7 @@ final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $textLineItemId
      * @return $this
      */
     public function withTextLineItemId(?string $textLineItemId)
@@ -59,6 +60,7 @@ final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)

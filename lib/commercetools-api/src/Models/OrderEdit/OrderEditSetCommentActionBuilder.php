@@ -34,6 +34,7 @@ final class OrderEditSetCommentActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $comment
      * @return $this
      */
     public function withComment(?string $comment)

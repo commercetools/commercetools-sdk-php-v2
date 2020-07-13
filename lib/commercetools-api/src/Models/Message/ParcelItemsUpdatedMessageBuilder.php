@@ -211,6 +211,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -221,6 +222,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -231,6 +233,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -241,6 +244,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -251,6 +255,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -261,6 +266,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -271,6 +277,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -281,6 +288,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -291,6 +299,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -301,6 +310,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -311,6 +321,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -321,6 +332,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -331,6 +343,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -341,6 +354,7 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $oldItems
      * @return $this
      */
     public function withOldItems(?DeliveryItemCollection $oldItems)

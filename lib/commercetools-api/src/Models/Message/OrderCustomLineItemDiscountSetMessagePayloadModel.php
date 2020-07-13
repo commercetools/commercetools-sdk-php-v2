@@ -44,10 +44,13 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     protected $taxedPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        TaxedItemPrice $taxedPrice = null
+        ?string $customLineItemId = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        ?TaxedItemPrice $taxedPrice = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
@@ -125,16 +128,25 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;

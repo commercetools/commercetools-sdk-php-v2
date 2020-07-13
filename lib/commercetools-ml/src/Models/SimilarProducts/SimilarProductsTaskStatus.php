@@ -37,9 +37,18 @@ interface SimilarProductsTaskStatus extends JsonObject
      */
     public function getResult();
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void;
 
+    /**
+     * @param ?SimilarProductsPagedQueryResult $result
+     */
     public function setResult(?SimilarProductsPagedQueryResult $result): void;
 }

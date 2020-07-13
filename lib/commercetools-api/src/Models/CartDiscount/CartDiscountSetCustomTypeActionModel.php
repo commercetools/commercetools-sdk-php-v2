@@ -33,14 +33,17 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     protected $type;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypeResourceIdentifier $type = null,
-        JsonObject $fields = null
+        ?TypeResourceIdentifier $type = null,
+        ?JsonObject $fields = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
@@ -88,7 +91,7 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
      * Sets the custom fields to this value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getFields()
     {
@@ -105,11 +108,17 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?JsonObject $fields
+     */
     public function setFields(?JsonObject $fields): void
     {
         $this->fields = $fields;

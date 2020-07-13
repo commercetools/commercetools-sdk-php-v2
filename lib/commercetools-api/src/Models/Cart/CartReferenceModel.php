@@ -38,9 +38,12 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Cart $obj = null
+        ?string $id = null,
+        ?Cart $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Cart $obj
+     */
     public function setObj(?Cart $obj): void
     {
         $this->obj = $obj;

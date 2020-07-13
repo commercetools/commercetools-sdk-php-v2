@@ -64,17 +64,38 @@ interface ReturnItem extends JsonObject
      */
     public function getCreatedAt();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void;
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 }

@@ -47,6 +47,7 @@ final class CartUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class CartUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?CartUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?CartUpdateActionCollection $actions)

@@ -37,10 +37,13 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     protected $imageCount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        int $variantId = null,
-        int $imageCount = null
+        ?ProductReference $product = null,
+        ?int $variantId = null,
+        ?int $imageCount = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
@@ -104,16 +107,25 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?int $imageCount
+     */
     public function setImageCount(?int $imageCount): void
     {
         $this->imageCount = $imageCount;

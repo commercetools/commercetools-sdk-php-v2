@@ -61,6 +61,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -71,6 +72,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -81,6 +83,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     }
 
     /**
+     * @param ?AssetSourceCollection $sources
      * @return $this
      */
     public function withSources(?AssetSourceCollection $sources)

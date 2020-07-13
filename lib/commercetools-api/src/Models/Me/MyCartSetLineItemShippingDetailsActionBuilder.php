@@ -49,6 +49,7 @@ final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -59,6 +60,7 @@ final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

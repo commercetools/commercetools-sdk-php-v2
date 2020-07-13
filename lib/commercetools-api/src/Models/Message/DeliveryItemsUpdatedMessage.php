@@ -33,9 +33,18 @@ interface DeliveryItemsUpdatedMessage extends Message
      */
     public function getOldItems();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void;
 
+    /**
+     * @param ?DeliveryItemCollection $oldItems
+     */
     public function setOldItems(?DeliveryItemCollection $oldItems): void;
 }

@@ -34,6 +34,7 @@ final class CustomFieldReferenceTypeBuilder implements Builder
     }
 
     /**
+     * @param ?string $referenceTypeId
      * @return $this
      */
     public function withReferenceTypeId(?string $referenceTypeId)

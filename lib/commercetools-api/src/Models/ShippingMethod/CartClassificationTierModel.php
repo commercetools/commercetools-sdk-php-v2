@@ -43,10 +43,13 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     protected $isMatching;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $value = null,
-        Money $price = null,
-        bool $isMatching = null
+        ?string $value = null,
+        ?Money $price = null,
+        ?bool $isMatching = null
     ) {
         $this->value = $value;
         $this->price = $price;
@@ -124,16 +127,25 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;

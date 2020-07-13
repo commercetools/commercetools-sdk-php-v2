@@ -30,9 +30,12 @@ final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpd
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        MyPaymentUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?MyPaymentUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpd
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?MyPaymentUpdateActionCollection $actions
+     */
     public function setActions(?MyPaymentUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

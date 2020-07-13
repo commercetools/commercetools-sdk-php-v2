@@ -38,11 +38,23 @@ interface CustomerChangePassword extends JsonObject
      */
     public function getNewPassword();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $currentPassword
+     */
     public function setCurrentPassword(?string $currentPassword): void;
 
+    /**
+     * @param ?string $newPassword
+     */
     public function setNewPassword(?string $newPassword): void;
 }

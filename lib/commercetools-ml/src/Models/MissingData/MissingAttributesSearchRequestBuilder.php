@@ -201,6 +201,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -211,6 +212,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -221,6 +223,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -231,6 +234,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $productSetLimit
      * @return $this
      */
     public function withProductSetLimit(?int $productSetLimit)
@@ -241,6 +245,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includeVariants
      * @return $this
      */
     public function withIncludeVariants(?bool $includeVariants)
@@ -251,6 +256,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?float $coverageMin
      * @return $this
      */
     public function withCoverageMin(?float $coverageMin)
@@ -261,6 +267,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?float $coverageMax
      * @return $this
      */
     public function withCoverageMax(?float $coverageMax)
@@ -271,6 +278,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortBy
      * @return $this
      */
     public function withSortBy(?string $sortBy)
@@ -281,6 +289,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $showMissingAttributeNames
      * @return $this
      */
     public function withShowMissingAttributeNames(?bool $showMissingAttributeNames)
@@ -291,6 +300,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productIds
      * @return $this
      */
     public function withProductIds(?array $productIds)
@@ -301,6 +311,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productTypeIds
      * @return $this
      */
     public function withProductTypeIds(?array $productTypeIds)
@@ -311,6 +322,7 @@ final class MissingAttributesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)

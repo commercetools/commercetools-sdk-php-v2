@@ -26,7 +26,13 @@ interface AzureEventGridDestination extends Destination
      */
     public function getAccessKey();
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void;
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void;
 }

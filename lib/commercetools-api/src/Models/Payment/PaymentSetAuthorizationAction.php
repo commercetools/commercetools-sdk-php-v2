@@ -28,7 +28,13 @@ interface PaymentSetAuthorizationAction extends PaymentUpdateAction
      */
     public function getUntil();
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void;
 
+    /**
+     * @param ?DateTimeImmutable $until
+     */
     public function setUntil(?DateTimeImmutable $until): void;
 }

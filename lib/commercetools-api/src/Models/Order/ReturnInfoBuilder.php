@@ -63,6 +63,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+     * @param ?ReturnItemCollection $items
      * @return $this
      */
     public function withItems(?ReturnItemCollection $items)
@@ -73,6 +74,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnTrackingId
      * @return $this
      */
     public function withReturnTrackingId(?string $returnTrackingId)
@@ -83,6 +85,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $returnDate
      * @return $this
      */
     public function withReturnDate(?DateTimeImmutable $returnDate)

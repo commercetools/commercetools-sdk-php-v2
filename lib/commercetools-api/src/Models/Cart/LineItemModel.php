@@ -132,26 +132,29 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $productId = null,
-        LocalizedString $name = null,
-        LocalizedString $productSlug = null,
-        ProductTypeReference $productType = null,
-        ProductVariant $variant = null,
-        Price $price = null,
-        TaxedItemPrice $taxedPrice = null,
-        TypedMoney $totalPrice = null,
-        int $quantity = null,
-        ItemStateCollection $state = null,
-        TaxRate $taxRate = null,
-        ChannelReference $supplyChannel = null,
-        ChannelReference $distributionChannel = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        string $priceMode = null,
-        string $lineItemMode = null,
-        CustomFields $custom = null,
-        ItemShippingDetails $shippingDetails = null
+        ?string $id = null,
+        ?string $productId = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $productSlug = null,
+        ?ProductTypeReference $productType = null,
+        ?ProductVariant $variant = null,
+        ?Price $price = null,
+        ?TaxedItemPrice $taxedPrice = null,
+        ?TypedMoney $totalPrice = null,
+        ?int $quantity = null,
+        ?ItemStateCollection $state = null,
+        ?TaxRate $taxRate = null,
+        ?ChannelReference $supplyChannel = null,
+        ?ChannelReference $distributionChannel = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        ?string $priceMode = null,
+        ?string $lineItemMode = null,
+        ?CustomFields $custom = null,
+        ?ItemShippingDetails $shippingDetails = null
     ) {
         $this->id = $id;
         $this->productId = $productId;
@@ -547,96 +550,153 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $productSlug
+     */
     public function setProductSlug(?LocalizedString $productSlug): void
     {
         $this->productSlug = $productSlug;
     }
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void
     {
         $this->variant = $variant;
     }
 
+    /**
+     * @param ?Price $price
+     */
     public function setPrice(?Price $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
+    /**
+     * @param ?ChannelReference $distributionChannel
+     */
     public function setDistributionChannel(?ChannelReference $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
     }
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 
+    /**
+     * @param ?string $priceMode
+     */
     public function setPriceMode(?string $priceMode): void
     {
         $this->priceMode = $priceMode;
     }
 
+    /**
+     * @param ?string $lineItemMode
+     */
     public function setLineItemMode(?string $lineItemMode): void
     {
         $this->lineItemMode = $lineItemMode;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?ItemShippingDetails $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

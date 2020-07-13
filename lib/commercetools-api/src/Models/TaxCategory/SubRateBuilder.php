@@ -47,6 +47,7 @@ final class SubRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -57,6 +58,7 @@ final class SubRateBuilder implements Builder
     }
 
     /**
+     * @param ?float $amount
      * @return $this
      */
     public function withAmount(?float $amount)

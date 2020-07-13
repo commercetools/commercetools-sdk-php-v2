@@ -36,9 +36,12 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     protected $variantId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        int $variantId = null
+        ?string $sku = null,
+        ?int $variantId = null
     ) {
         $this->sku = $sku;
         $this->variantId = $variantId;
@@ -97,11 +100,17 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;

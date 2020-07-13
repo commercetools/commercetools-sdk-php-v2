@@ -32,9 +32,12 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     protected $variantId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        int $variantId = null
+        ?ProductReference $product = null,
+        ?int $variantId = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
@@ -78,11 +81,17 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;

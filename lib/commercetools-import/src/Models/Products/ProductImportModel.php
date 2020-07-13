@@ -91,19 +91,22 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        LocalizedString $name = null,
-        ProductTypeKeyReference $productType = null,
-        LocalizedString $slug = null,
-        LocalizedString $description = null,
-        CategoryKeyReferenceCollection $categories = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        TaxCategoryKeyReference $taxCategory = null,
-        SearchKeywords $searchKeywords = null,
-        StateKeyReference $state = null
+        ?string $key = null,
+        ?LocalizedString $name = null,
+        ?ProductTypeKeyReference $productType = null,
+        ?LocalizedString $slug = null,
+        ?LocalizedString $description = null,
+        ?CategoryKeyReferenceCollection $categories = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?TaxCategoryKeyReference $taxCategory = null,
+        ?SearchKeywords $searchKeywords = null,
+        ?StateKeyReference $state = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -361,61 +364,97 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?ProductTypeKeyReference $productType
+     */
     public function setProductType(?ProductTypeKeyReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CategoryKeyReferenceCollection $categories
+     */
     public function setCategories(?CategoryKeyReferenceCollection $categories): void
     {
         $this->categories = $categories;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?TaxCategoryKeyReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
 
+    /**
+     * @param ?StateKeyReference $state
+     */
     public function setState(?StateKeyReference $state): void
     {
         $this->state = $state;

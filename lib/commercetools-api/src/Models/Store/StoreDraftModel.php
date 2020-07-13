@@ -43,11 +43,14 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     protected $distributionChannels;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        LocalizedString $name = null,
-        array $languages = null,
-        ChannelResourceIdentifierCollection $distributionChannels = null
+        ?string $key = null,
+        ?LocalizedString $name = null,
+        ?array $languages = null,
+        ?ChannelResourceIdentifierCollection $distributionChannels = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -133,21 +136,33 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
+     */
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void
     {
         $this->distributionChannels = $distributionChannels;

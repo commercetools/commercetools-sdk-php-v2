@@ -56,12 +56,15 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        int $quantity = null,
-        DateTimeImmutable $addedAt = null,
-        CustomFieldsDraft $custom = null
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?int $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -181,26 +184,41 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;

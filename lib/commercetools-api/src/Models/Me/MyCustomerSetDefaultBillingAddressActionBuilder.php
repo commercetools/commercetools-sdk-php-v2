@@ -34,6 +34,7 @@ final class MyCustomerSetDefaultBillingAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
      * @return $this
      */
     public function withAddressId(?string $addressId)

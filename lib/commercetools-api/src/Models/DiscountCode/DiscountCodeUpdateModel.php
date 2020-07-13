@@ -30,9 +30,12 @@ final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountC
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        DiscountCodeUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?DiscountCodeUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountC
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DiscountCodeUpdateActionCollection $actions
+     */
     public function setActions(?DiscountCodeUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

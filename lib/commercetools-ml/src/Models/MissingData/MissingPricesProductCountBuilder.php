@@ -47,6 +47,7 @@ final class MissingPricesProductCountBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -57,6 +58,7 @@ final class MissingPricesProductCountBuilder implements Builder
     }
 
     /**
+     * @param ?int $missingPrices
      * @return $this
      */
     public function withMissingPrices(?int $missingPrices)

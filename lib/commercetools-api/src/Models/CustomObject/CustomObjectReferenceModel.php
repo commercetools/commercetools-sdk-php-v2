@@ -38,9 +38,12 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        CustomObject $obj = null
+        ?string $id = null,
+        ?CustomObject $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?CustomObject $obj
+     */
     public function setObj(?CustomObject $obj): void
     {
         $this->obj = $obj;

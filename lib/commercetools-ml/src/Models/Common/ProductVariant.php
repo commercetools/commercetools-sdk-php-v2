@@ -38,9 +38,18 @@ interface ProductVariant extends JsonObject
      */
     public function getVariantId();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 }

@@ -102,6 +102,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldType $type
      * @return $this
      */
     public function withType(?FieldType $type)
@@ -112,6 +113,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -122,6 +124,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $label
      * @return $this
      */
     public function withLabel(?LocalizedString $label)
@@ -132,6 +135,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $required
      * @return $this
      */
     public function withRequired(?bool $required)
@@ -142,6 +146,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $inputHint
      * @return $this
      */
     public function withInputHint(?string $inputHint)

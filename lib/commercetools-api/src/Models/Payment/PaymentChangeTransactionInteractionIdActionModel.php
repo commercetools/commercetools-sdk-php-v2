@@ -36,9 +36,12 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     protected $interactionId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $transactionId = null,
-        string $interactionId = null
+        ?string $transactionId = null,
+        ?string $interactionId = null
     ) {
         $this->transactionId = $transactionId;
         $this->interactionId = $interactionId;
@@ -97,11 +100,17 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void
     {
         $this->transactionId = $transactionId;
     }
 
+    /**
+     * @param ?string $interactionId
+     */
     public function setInteractionId(?string $interactionId): void
     {
         $this->interactionId = $interactionId;

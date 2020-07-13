@@ -62,6 +62,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCodeReference $discountCode
      * @return $this
      */
     public function withDiscountCode(?DiscountCodeReference $discountCode)
@@ -72,6 +73,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -82,6 +84,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $oldState
      * @return $this
      */
     public function withOldState(?string $oldState)

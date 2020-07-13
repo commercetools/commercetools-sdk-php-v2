@@ -32,8 +32,11 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     protected $money;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoneyCollection $money = null
+        ?TypedMoneyCollection $money = null
     ) {
         $this->money = $money;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?TypedMoneyCollection $money
+     */
     public function setMoney(?TypedMoneyCollection $money): void
     {
         $this->money = $money;

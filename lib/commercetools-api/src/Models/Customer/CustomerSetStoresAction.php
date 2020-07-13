@@ -21,5 +21,8 @@ interface CustomerSetStoresAction extends CustomerUpdateAction
      */
     public function getStores();
 
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
     public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

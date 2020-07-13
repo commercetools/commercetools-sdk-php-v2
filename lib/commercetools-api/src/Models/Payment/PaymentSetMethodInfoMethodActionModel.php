@@ -31,8 +31,11 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     protected $method;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $method = null
+        ?string $method = null
     ) {
         $this->method = $method;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $method
+     */
     public function setMethod(?string $method): void
     {
         $this->method = $method;

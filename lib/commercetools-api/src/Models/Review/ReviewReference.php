@@ -21,5 +21,8 @@ interface ReviewReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Review $obj
+     */
     public function setObj(?Review $obj): void;
 }

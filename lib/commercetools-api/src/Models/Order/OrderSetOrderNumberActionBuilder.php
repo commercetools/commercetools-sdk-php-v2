@@ -34,6 +34,7 @@ final class OrderSetOrderNumberActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)

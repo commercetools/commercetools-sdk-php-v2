@@ -37,6 +37,7 @@ final class ProductDraftImportRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ProductDraftImportCollection $resources
      * @return $this
      */
     public function withResources(?ProductDraftImportCollection $resources)

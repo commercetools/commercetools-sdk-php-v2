@@ -19,6 +19,9 @@ use stdClass;
  */
 final class FieldContainerModel extends JsonObjectModel implements FieldContainer
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

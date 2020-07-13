@@ -35,10 +35,13 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     protected $productTypeIds;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MissingAttributesDetails $productLevel = null,
-        MissingAttributesDetails $variantLevel = null,
-        array $productTypeIds = null
+        ?MissingAttributesDetails $productLevel = null,
+        ?MissingAttributesDetails $variantLevel = null,
+        ?array $productTypeIds = null
     ) {
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
@@ -101,16 +104,25 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     }
 
 
+    /**
+     * @param ?MissingAttributesDetails $productLevel
+     */
     public function setProductLevel(?MissingAttributesDetails $productLevel): void
     {
         $this->productLevel = $productLevel;
     }
 
+    /**
+     * @param ?MissingAttributesDetails $variantLevel
+     */
     public function setVariantLevel(?MissingAttributesDetails $variantLevel): void
     {
         $this->variantLevel = $variantLevel;
     }
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void
     {
         $this->productTypeIds = $productTypeIds;

@@ -207,6 +207,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -217,6 +218,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -227,6 +229,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -237,6 +240,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -247,6 +251,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -257,6 +262,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -267,6 +273,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -277,6 +284,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeReference $productType)
@@ -287,6 +295,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?ProductCatalogData $masterData
      * @return $this
      */
     public function withMasterData(?ProductCatalogData $masterData)
@@ -297,6 +306,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
@@ -307,6 +317,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)
@@ -317,6 +328,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
      * @return $this
      */
     public function withReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics)

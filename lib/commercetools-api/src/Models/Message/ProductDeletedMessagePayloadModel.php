@@ -38,9 +38,12 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     protected $currentProjection;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $removedImageUrls = null,
-        ProductProjection $currentProjection = null
+        ?array $removedImageUrls = null,
+        ?ProductProjection $currentProjection = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
         $this->currentProjection = $currentProjection;
@@ -100,11 +103,17 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
     }
 
+    /**
+     * @param ?ProductProjection $currentProjection
+     */
     public function setCurrentProjection(?ProductProjection $currentProjection): void
     {
         $this->currentProjection = $currentProjection;

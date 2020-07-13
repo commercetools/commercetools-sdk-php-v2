@@ -78,18 +78,21 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     protected $searchKeywords;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        CategoryReferenceCollection $categories = null,
-        CategoryOrderHints $categoryOrderHints = null,
-        LocalizedString $description = null,
-        LocalizedString $slug = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        ProductVariant $masterVariant = null,
-        ProductVariantCollection $variants = null,
-        SearchKeywords $searchKeywords = null
+        ?LocalizedString $name = null,
+        ?CategoryReferenceCollection $categories = null,
+        ?CategoryOrderHints $categoryOrderHints = null,
+        ?LocalizedString $description = null,
+        ?LocalizedString $slug = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?ProductVariant $masterVariant = null,
+        ?ProductVariantCollection $variants = null,
+        ?SearchKeywords $searchKeywords = null
     ) {
         $this->name = $name;
         $this->categories = $categories;
@@ -301,56 +304,89 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
     public function setCategories(?CategoryReferenceCollection $categories): void
     {
         $this->categories = $categories;
     }
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
     {
         $this->categoryOrderHints = $categoryOrderHints;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?ProductVariant $masterVariant
+     */
     public function setMasterVariant(?ProductVariant $masterVariant): void
     {
         $this->masterVariant = $masterVariant;
     }
 
+    /**
+     * @param ?ProductVariantCollection $variants
+     */
     public function setVariants(?ProductVariantCollection $variants): void
     {
         $this->variants = $variants;
     }
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;

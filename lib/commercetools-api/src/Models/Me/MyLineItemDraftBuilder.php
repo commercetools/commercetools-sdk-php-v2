@@ -142,6 +142,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -152,6 +153,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -162,6 +164,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -172,6 +175,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -182,6 +186,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
@@ -192,6 +197,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -202,6 +208,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
@@ -212,6 +219,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)

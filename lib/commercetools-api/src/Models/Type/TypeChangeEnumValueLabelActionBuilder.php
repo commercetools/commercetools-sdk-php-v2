@@ -47,6 +47,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $fieldName
      * @return $this
      */
     public function withFieldName(?string $fieldName)
@@ -57,6 +58,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldEnumValue $value
      * @return $this
      */
     public function withValue(?CustomFieldEnumValue $value)

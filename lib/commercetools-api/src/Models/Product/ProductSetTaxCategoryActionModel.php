@@ -33,8 +33,11 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
     protected $taxCategory;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TaxCategoryResourceIdentifier $taxCategory = null
+        ?TaxCategoryResourceIdentifier $taxCategory = null
     ) {
         $this->taxCategory = $taxCategory;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;

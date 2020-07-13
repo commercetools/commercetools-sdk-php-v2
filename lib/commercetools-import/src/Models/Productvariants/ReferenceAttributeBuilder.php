@@ -55,6 +55,7 @@ final class ReferenceAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -65,6 +66,7 @@ final class ReferenceAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReference $value
      * @return $this
      */
     public function withValue(?KeyReference $value)

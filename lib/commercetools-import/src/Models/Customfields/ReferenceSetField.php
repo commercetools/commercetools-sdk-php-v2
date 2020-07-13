@@ -21,5 +21,8 @@ interface ReferenceSetField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?KeyReferenceCollection $value
+     */
     public function setValue(?KeyReferenceCollection $value): void;
 }

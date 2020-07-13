@@ -34,6 +34,7 @@ final class ScoreShippingRateInputBuilder implements Builder
     }
 
     /**
+     * @param ?float $score
      * @return $this
      */
     public function withScore(?float $score)

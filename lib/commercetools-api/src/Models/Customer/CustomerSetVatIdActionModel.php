@@ -31,8 +31,11 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     protected $vatId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $vatId = null
+        ?string $vatId = null
     ) {
         $this->vatId = $vatId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     }
 
 
+    /**
+     * @param ?string $vatId
+     */
     public function setVatId(?string $vatId): void
     {
         $this->vatId = $vatId;

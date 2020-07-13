@@ -20,5 +20,8 @@ interface MyCustomerRemoveAddressAction extends MyCustomerUpdateAction
      */
     public function getAddressId();
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void;
 }

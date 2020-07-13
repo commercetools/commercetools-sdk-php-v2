@@ -31,8 +31,11 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
     protected $addressId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $addressId = null
+        ?string $addressId = null
     ) {
         $this->addressId = $addressId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void
     {
         $this->addressId = $addressId;

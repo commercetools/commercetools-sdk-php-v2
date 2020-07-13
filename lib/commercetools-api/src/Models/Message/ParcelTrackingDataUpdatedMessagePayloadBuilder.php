@@ -62,6 +62,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -72,6 +73,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -82,6 +84,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?TrackingData $trackingData
      * @return $this
      */
     public function withTrackingData(?TrackingData $trackingData)

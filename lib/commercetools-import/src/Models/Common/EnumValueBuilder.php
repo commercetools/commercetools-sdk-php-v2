@@ -47,6 +47,7 @@ final class EnumValueBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -57,6 +58,7 @@ final class EnumValueBuilder implements Builder
     }
 
     /**
+     * @param ?string $label
      * @return $this
      */
     public function withLabel(?string $label)

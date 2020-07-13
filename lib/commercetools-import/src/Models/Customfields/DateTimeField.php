@@ -21,5 +21,8 @@ interface DateTimeField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?DateTimeImmutable $value
+     */
     public function setValue(?DateTimeImmutable $value): void;
 }

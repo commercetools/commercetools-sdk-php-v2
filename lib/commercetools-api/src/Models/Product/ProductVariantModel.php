@@ -87,19 +87,22 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     protected $scopedPriceDiscounted;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $id = null,
-        string $sku = null,
-        string $key = null,
-        PriceCollection $prices = null,
-        AttributeCollection $attributes = null,
-        Price $price = null,
-        ImageCollection $images = null,
-        AssetCollection $assets = null,
-        ProductVariantAvailability $availability = null,
-        bool $isMatchingVariant = null,
-        ScopedPrice $scopedPrice = null,
-        bool $scopedPriceDiscounted = null
+        ?int $id = null,
+        ?string $sku = null,
+        ?string $key = null,
+        ?PriceCollection $prices = null,
+        ?AttributeCollection $attributes = null,
+        ?Price $price = null,
+        ?ImageCollection $images = null,
+        ?AssetCollection $assets = null,
+        ?ProductVariantAvailability $availability = null,
+        ?bool $isMatchingVariant = null,
+        ?ScopedPrice $scopedPrice = null,
+        ?bool $scopedPriceDiscounted = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
@@ -323,61 +326,97 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?PriceCollection $prices
+     */
     public function setPrices(?PriceCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?Price $price
+     */
     public function setPrice(?Price $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
     }
 
+    /**
+     * @param ?ProductVariantAvailability $availability
+     */
     public function setAvailability(?ProductVariantAvailability $availability): void
     {
         $this->availability = $availability;
     }
 
+    /**
+     * @param ?bool $isMatchingVariant
+     */
     public function setIsMatchingVariant(?bool $isMatchingVariant): void
     {
         $this->isMatchingVariant = $isMatchingVariant;
     }
 
+    /**
+     * @param ?ScopedPrice $scopedPrice
+     */
     public function setScopedPrice(?ScopedPrice $scopedPrice): void
     {
         $this->scopedPrice = $scopedPrice;
     }
 
+    /**
+     * @param ?bool $scopedPriceDiscounted
+     */
     public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void
     {
         $this->scopedPriceDiscounted = $scopedPriceDiscounted;

@@ -34,6 +34,7 @@ final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $restockableInDays
      * @return $this
      */
     public function withRestockableInDays(?int $restockableInDays)

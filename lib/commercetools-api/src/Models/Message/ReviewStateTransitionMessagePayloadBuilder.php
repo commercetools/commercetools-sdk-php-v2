@@ -103,6 +103,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $oldState
      * @return $this
      */
     public function withOldState(?StateReference $oldState)
@@ -113,6 +114,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $newState
      * @return $this
      */
     public function withNewState(?StateReference $newState)
@@ -123,6 +125,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $oldIncludedInStatistics
      * @return $this
      */
     public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
@@ -133,6 +136,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $newIncludedInStatistics
      * @return $this
      */
     public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
@@ -143,6 +147,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $target
      * @return $this
      */
     public function withTarget(?Reference $target)
@@ -153,6 +158,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $force
      * @return $this
      */
     public function withForce(?bool $force)

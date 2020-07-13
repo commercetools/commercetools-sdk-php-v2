@@ -36,6 +36,7 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $companyName
      * @return $this
      */
     public function withCompanyName(?string $companyName)

@@ -36,9 +36,12 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     protected $assetKey;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $assetId = null,
-        string $assetKey = null
+        ?string $assetId = null,
+        ?string $assetKey = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -97,11 +100,17 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     }
 
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;

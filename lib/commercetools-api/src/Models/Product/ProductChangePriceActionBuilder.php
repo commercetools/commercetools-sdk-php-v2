@@ -64,6 +64,7 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceId
      * @return $this
      */
     public function withPriceId(?string $priceId)
@@ -74,6 +75,7 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?PriceDraft $price
      * @return $this
      */
     public function withPrice(?PriceDraft $price)
@@ -84,6 +86,7 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

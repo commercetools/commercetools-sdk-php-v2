@@ -20,5 +20,8 @@ interface ExtensionChangeDestinationAction extends ExtensionUpdateAction
      */
     public function getDestination();
 
+    /**
+     * @param ?ExtensionDestination $destination
+     */
     public function setDestination(?ExtensionDestination $destination): void;
 }

@@ -36,9 +36,12 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     protected $inputHint;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null,
-        string $inputHint = null
+        ?string $fieldName = null,
+        ?string $inputHint = null
     ) {
         $this->fieldName = $fieldName;
         $this->inputHint = $inputHint;
@@ -97,11 +100,17 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
     }
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void
     {
         $this->inputHint = $inputHint;

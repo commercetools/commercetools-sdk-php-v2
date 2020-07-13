@@ -119,6 +119,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -129,6 +130,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -139,6 +141,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -149,6 +152,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -159,6 +163,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -169,6 +174,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -179,6 +185,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $fields
      * @return $this
      */
     public function withFields(?JsonObject $fields)

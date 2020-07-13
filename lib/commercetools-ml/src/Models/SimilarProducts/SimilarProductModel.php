@@ -37,10 +37,13 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     protected $meta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        int $variantId = null,
-        SimilarProductMeta $meta = null
+        ?ProductReference $product = null,
+        ?int $variantId = null,
+        ?SimilarProductMeta $meta = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
@@ -107,16 +110,25 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?SimilarProductMeta $meta
+     */
     public function setMeta(?SimilarProductMeta $meta): void
     {
         $this->meta = $meta;

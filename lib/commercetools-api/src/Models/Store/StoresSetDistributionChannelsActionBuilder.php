@@ -35,6 +35,7 @@ final class StoresSetDistributionChannelsActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
      * @return $this
      */
     public function withDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels)

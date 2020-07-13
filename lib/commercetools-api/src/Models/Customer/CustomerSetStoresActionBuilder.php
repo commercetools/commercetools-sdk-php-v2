@@ -35,6 +35,7 @@ final class CustomerSetStoresActionBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifierCollection $stores
      * @return $this
      */
     public function withStores(?StoreResourceIdentifierCollection $stores)

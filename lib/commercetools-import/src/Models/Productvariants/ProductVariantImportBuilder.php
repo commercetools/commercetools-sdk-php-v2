@@ -136,6 +136,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -146,6 +147,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -156,6 +158,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMasterVariant
      * @return $this
      */
     public function withIsMasterVariant(?bool $isMasterVariant)
@@ -166,6 +169,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeCollection $attributes)
@@ -176,6 +180,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?ImageCollection $images
      * @return $this
      */
     public function withImages(?ImageCollection $images)
@@ -186,6 +191,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?AssetCollection $assets
      * @return $this
      */
     public function withAssets(?AssetCollection $assets)
@@ -196,6 +202,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductKeyReference $product
      * @return $this
      */
     public function withProduct(?ProductKeyReference $product)

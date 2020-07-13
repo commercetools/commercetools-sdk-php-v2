@@ -26,7 +26,13 @@ interface MissingPricesMeta extends JsonObject
      */
     public function getVariantLevel();
 
+    /**
+     * @param ?MissingPricesProductLevel $productLevel
+     */
     public function setProductLevel(?MissingPricesProductLevel $productLevel): void;
 
+    /**
+     * @param ?MissingPricesVariantLevel $variantLevel
+     */
     public function setVariantLevel(?MissingPricesVariantLevel $variantLevel): void;
 }

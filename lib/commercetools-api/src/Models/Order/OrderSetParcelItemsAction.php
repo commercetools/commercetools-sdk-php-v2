@@ -26,7 +26,13 @@ interface OrderSetParcelItemsAction extends OrderUpdateAction
      */
     public function getItems();
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void;
 }

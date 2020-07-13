@@ -64,6 +64,7 @@ final class SubscriptionDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?string $projectKey
      * @return $this
      */
     public function withProjectKey(?string $projectKey)
@@ -74,6 +75,7 @@ final class SubscriptionDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -84,6 +86,7 @@ final class SubscriptionDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)

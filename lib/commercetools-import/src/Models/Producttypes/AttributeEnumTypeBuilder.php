@@ -34,6 +34,7 @@ final class AttributeEnumTypeBuilder implements Builder
     }
 
     /**
+     * @param ?AttributePlainEnumValueCollection $values
      * @return $this
      */
     public function withValues(?AttributePlainEnumValueCollection $values)

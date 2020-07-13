@@ -36,6 +36,7 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionBuilder implements B
     }
 
     /**
+     * @param ?bool $countryTaxRateFallbackEnabled
      * @return $this
      */
     public function withCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled)

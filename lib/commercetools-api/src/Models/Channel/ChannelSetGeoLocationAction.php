@@ -21,5 +21,8 @@ interface ChannelSetGeoLocationAction extends ChannelUpdateAction
      */
     public function getGeoLocation();
 
+    /**
+     * @param ?GeoJson $geoLocation
+     */
     public function setGeoLocation(?GeoJson $geoLocation): void;
 }

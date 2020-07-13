@@ -31,8 +31,11 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     protected $deleteDaysAfterLastModification;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $deleteDaysAfterLastModification = null
+        ?int $deleteDaysAfterLastModification = null
     ) {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     }
 
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;

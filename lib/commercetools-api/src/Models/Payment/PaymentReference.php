@@ -21,5 +21,8 @@ interface PaymentReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Payment $obj
+     */
     public function setObj(?Payment $obj): void;
 }

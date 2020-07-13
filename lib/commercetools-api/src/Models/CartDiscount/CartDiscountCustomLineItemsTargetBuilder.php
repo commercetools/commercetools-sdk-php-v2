@@ -34,6 +34,7 @@ final class CartDiscountCustomLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)

@@ -36,6 +36,7 @@ final class CategorySetMetaTitleActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)

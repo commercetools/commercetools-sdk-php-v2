@@ -43,10 +43,13 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     protected $scope;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $removedImageUrls = null,
-        ProductProjection $productProjection = null,
-        string $scope = null
+        ?array $removedImageUrls = null,
+        ?ProductProjection $productProjection = null,
+        ?string $scope = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
         $this->productProjection = $productProjection;
@@ -124,16 +127,25 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
     }
 
+    /**
+     * @param ?ProductProjection $productProjection
+     */
     public function setProductProjection(?ProductProjection $productProjection): void
     {
         $this->productProjection = $productProjection;
     }
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void
     {
         $this->scope = $scope;

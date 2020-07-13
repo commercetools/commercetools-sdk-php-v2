@@ -47,6 +47,7 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $transactionId
      * @return $this
      */
     public function withTransactionId(?string $transactionId)
@@ -57,6 +58,7 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $interactionId
      * @return $this
      */
     public function withInteractionId(?string $interactionId)

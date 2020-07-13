@@ -38,6 +38,7 @@ final class ProductSetTaxCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)

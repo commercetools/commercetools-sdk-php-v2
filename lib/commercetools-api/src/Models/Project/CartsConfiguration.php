@@ -22,5 +22,8 @@ interface CartsConfiguration extends JsonObject
      */
     public function getCountryTaxRateFallbackEnabled();
 
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     */
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void;
 }

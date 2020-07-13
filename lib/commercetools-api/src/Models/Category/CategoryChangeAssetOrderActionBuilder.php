@@ -34,6 +34,7 @@ final class CategoryChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $assetOrder
      * @return $this
      */
     public function withAssetOrder(?array $assetOrder)

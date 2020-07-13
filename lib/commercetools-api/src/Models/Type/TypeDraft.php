@@ -47,13 +47,28 @@ interface TypeDraft extends JsonObject
      */
     public function getFieldDefinitions();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?array $resourceTypeIds
+     */
     public function setResourceTypeIds(?array $resourceTypeIds): void;
 
+    /**
+     * @param ?FieldDefinitionCollection $fieldDefinitions
+     */
     public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void;
 }

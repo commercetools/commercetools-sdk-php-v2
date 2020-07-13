@@ -20,5 +20,8 @@ interface ProductRevertStagedVariantChangesAction extends ProductUpdateAction
      */
     public function getVariantId();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 }

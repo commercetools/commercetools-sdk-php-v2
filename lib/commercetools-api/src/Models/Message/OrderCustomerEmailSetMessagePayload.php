@@ -26,7 +26,13 @@ interface OrderCustomerEmailSetMessagePayload extends MessagePayload
      */
     public function getOldEmail();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 
+    /**
+     * @param ?string $oldEmail
+     */
     public function setOldEmail(?string $oldEmail): void;
 }

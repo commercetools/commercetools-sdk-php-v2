@@ -21,5 +21,8 @@ interface MyCartAddItemShippingAddressAction extends MyCartUpdateAction
      */
     public function getAddress();
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

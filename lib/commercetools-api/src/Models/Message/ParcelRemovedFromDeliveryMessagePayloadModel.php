@@ -38,9 +38,12 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     protected $parcel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        Parcel $parcel = null
+        ?string $deliveryId = null,
+        ?Parcel $parcel = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->parcel = $parcel;
@@ -100,11 +103,17 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?Parcel $parcel
+     */
     public function setParcel(?Parcel $parcel): void
     {
         $this->parcel = $parcel;

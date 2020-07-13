@@ -74,23 +74,53 @@ interface FacetResultRange extends JsonObject
      */
     public function getMean();
 
+    /**
+     * @param ?float $from
+     */
     public function setFrom(?float $from): void;
 
+    /**
+     * @param ?string $fromStr
+     */
     public function setFromStr(?string $fromStr): void;
 
+    /**
+     * @param ?float $to
+     */
     public function setTo(?float $to): void;
 
+    /**
+     * @param ?string $toStr
+     */
     public function setToStr(?string $toStr): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?float $min
+     */
     public function setMin(?float $min): void;
 
+    /**
+     * @param ?float $max
+     */
     public function setMax(?float $max): void;
 
+    /**
+     * @param ?float $mean
+     */
     public function setMean(?float $mean): void;
 }

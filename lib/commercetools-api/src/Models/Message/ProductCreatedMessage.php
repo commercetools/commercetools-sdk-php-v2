@@ -21,5 +21,8 @@ interface ProductCreatedMessage extends Message
      */
     public function getProductProjection();
 
+    /**
+     * @param ?ProductProjection $productProjection
+     */
     public function setProductProjection(?ProductProjection $productProjection): void;
 }

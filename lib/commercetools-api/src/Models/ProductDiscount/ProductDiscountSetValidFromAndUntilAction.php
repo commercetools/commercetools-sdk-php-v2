@@ -30,7 +30,13 @@ interface ProductDiscountSetValidFromAndUntilAction extends ProductDiscountUpdat
      */
     public function getValidUntil();
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

@@ -47,6 +47,7 @@ final class ExtensionTriggerBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceTypeId
      * @return $this
      */
     public function withResourceTypeId(?string $resourceTypeId)
@@ -57,6 +58,7 @@ final class ExtensionTriggerBuilder implements Builder
     }
 
     /**
+     * @param ?array $actions
      * @return $this
      */
     public function withActions(?array $actions)

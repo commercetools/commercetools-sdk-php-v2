@@ -31,8 +31,11 @@ final class TimeSetFieldModel extends JsonObjectModel implements TimeSetField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutableCollection $value = null
+        ?DateTimeImmutableCollection $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class TimeSetFieldModel extends JsonObjectModel implements TimeSetField
     }
 
 
+    /**
+     * @param ?DateTimeImmutableCollection $value
+     */
     public function setValue(?DateTimeImmutableCollection $value): void
     {
         $this->value = $value;

@@ -56,13 +56,16 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     protected $tags;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        bool $staged = null,
-        string $assetId = null,
-        string $assetKey = null,
-        array $tags = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?bool $staged = null,
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?array $tags = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -193,31 +196,49 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?array $tags
+     */
     public function setTags(?array $tags): void
     {
         $this->tags = $tags;

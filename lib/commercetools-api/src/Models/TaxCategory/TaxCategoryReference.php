@@ -21,5 +21,8 @@ interface TaxCategoryReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?TaxCategory $obj
+     */
     public function setObj(?TaxCategory $obj): void;
 }

@@ -77,6 +77,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceId
      * @return $this
      */
     public function withPriceId(?string $priceId)
@@ -87,6 +88,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -97,6 +99,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -107,6 +110,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

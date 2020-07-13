@@ -55,15 +55,33 @@ interface InventoryEntryDraft extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
+    /**
+     * @param ?int $quantityOnStock
+     */
     public function setQuantityOnStock(?int $quantityOnStock): void;
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void;
 
+    /**
+     * @param ?DateTimeImmutable $expectedDelivery
+     */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 }

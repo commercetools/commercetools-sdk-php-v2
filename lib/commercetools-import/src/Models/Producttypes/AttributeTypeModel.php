@@ -45,6 +45,9 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
        'time' => AttributeTimeTypeModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

@@ -19,6 +19,9 @@ use stdClass;
  */
 final class GraphQLVariablesMapModel extends JsonObjectModel implements GraphQLVariablesMap
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

@@ -100,27 +100,63 @@ interface Project extends JsonObject
      */
     public function getCarts();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?array $countries
+     */
     public function setCountries(?array $countries): void;
 
+    /**
+     * @param ?array $currencies
+     */
     public function setCurrencies(?array $currencies): void;
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?string $trialUntil
+     */
     public function setTrialUntil(?string $trialUntil): void;
 
+    /**
+     * @param ?MessageConfiguration $messages
+     */
     public function setMessages(?MessageConfiguration $messages): void;
 
+    /**
+     * @param ?ShippingRateInputType $shippingRateInputType
+     */
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void;
 
+    /**
+     * @param ?ExternalOAuth $externalOAuth
+     */
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void;
 
+    /**
+     * @param ?CartsConfiguration $carts
+     */
     public function setCarts(?CartsConfiguration $carts): void;
 }

@@ -40,9 +40,12 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     protected $parcel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Delivery $delivery = null,
-        Parcel $parcel = null
+        ?Delivery $delivery = null,
+        ?Parcel $parcel = null
     ) {
         $this->delivery = $delivery;
         $this->parcel = $parcel;
@@ -103,11 +106,17 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?Delivery $delivery
+     */
     public function setDelivery(?Delivery $delivery): void
     {
         $this->delivery = $delivery;
     }
 
+    /**
+     * @param ?Parcel $parcel
+     */
     public function setParcel(?Parcel $parcel): void
     {
         $this->parcel = $parcel;

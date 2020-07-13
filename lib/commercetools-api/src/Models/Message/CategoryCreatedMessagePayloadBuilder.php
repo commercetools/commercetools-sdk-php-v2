@@ -36,6 +36,7 @@ final class CategoryCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Category $category
      * @return $this
      */
     public function withCategory(?Category $category)

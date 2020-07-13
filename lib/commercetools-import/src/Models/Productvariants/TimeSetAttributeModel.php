@@ -36,9 +36,12 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        DateTimeImmutableCollection $value = null
+        ?string $name = null,
+        ?DateTimeImmutableCollection $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -101,11 +104,17 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?DateTimeImmutableCollection $value
+     */
     public function setValue(?DateTimeImmutableCollection $value): void
     {
         $this->value = $value;

@@ -36,6 +36,7 @@ final class OrderEditAddStagedActionActionBuilder implements Builder
     }
 
     /**
+     * @param ?StagedOrderUpdateAction $stagedAction
      * @return $this
      */
     public function withStagedAction(?StagedOrderUpdateAction $stagedAction)

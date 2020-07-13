@@ -34,6 +34,7 @@ final class ExtensionAuthorizationHeaderAuthenticationBuilder implements Builder
     }
 
     /**
+     * @param ?string $headerValue
      * @return $this
      */
     public function withHeaderValue(?string $headerValue)

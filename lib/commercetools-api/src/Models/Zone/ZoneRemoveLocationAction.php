@@ -20,5 +20,8 @@ interface ZoneRemoveLocationAction extends ZoneUpdateAction
      */
     public function getLocation();
 
+    /**
+     * @param ?Location $location
+     */
     public function setLocation(?Location $location): void;
 }

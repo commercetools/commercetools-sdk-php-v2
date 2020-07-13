@@ -33,9 +33,18 @@ interface DeliveryAddressSetMessagePayload extends MessagePayload
      */
     public function getOldAddress();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 
+    /**
+     * @param ?Address $oldAddress
+     */
     public function setOldAddress(?Address $oldAddress): void;
 }

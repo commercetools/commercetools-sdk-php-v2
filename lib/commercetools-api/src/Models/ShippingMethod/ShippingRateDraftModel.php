@@ -37,10 +37,13 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     protected $tiers;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $price = null,
-        Money $freeAbove = null,
-        ShippingRatePriceTierCollection $tiers = null
+        ?Money $price = null,
+        ?Money $freeAbove = null,
+        ?ShippingRatePriceTierCollection $tiers = null
     ) {
         $this->price = $price;
         $this->freeAbove = $freeAbove;
@@ -107,16 +110,25 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?Money $freeAbove
+     */
     public function setFreeAbove(?Money $freeAbove): void
     {
         $this->freeAbove = $freeAbove;
     }
 
+    /**
+     * @param ?ShippingRatePriceTierCollection $tiers
+     */
     public function setTiers(?ShippingRatePriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;

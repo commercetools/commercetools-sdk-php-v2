@@ -47,6 +47,7 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $newAttributeName
      * @return $this
      */
     public function withNewAttributeName(?string $newAttributeName)

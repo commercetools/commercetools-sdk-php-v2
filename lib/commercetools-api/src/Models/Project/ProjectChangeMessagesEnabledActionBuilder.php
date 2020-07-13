@@ -34,6 +34,7 @@ final class ProjectChangeMessagesEnabledActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $messagesEnabled
      * @return $this
      */
     public function withMessagesEnabled(?bool $messagesEnabled)

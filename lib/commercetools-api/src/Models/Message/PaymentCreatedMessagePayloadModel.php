@@ -33,8 +33,11 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     protected $payment;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Payment $payment = null
+        ?Payment $payment = null
     ) {
         $this->payment = $payment;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?Payment $payment
+     */
     public function setPayment(?Payment $payment): void
     {
         $this->payment = $payment;

@@ -26,6 +26,9 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

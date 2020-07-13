@@ -30,9 +30,12 @@ final class ProjectUpdateModel extends JsonObjectModel implements ProjectUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ProjectUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ProjectUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ProjectUpdateModel extends JsonObjectModel implements ProjectUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ProjectUpdateActionCollection $actions
+     */
     public function setActions(?ProjectUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

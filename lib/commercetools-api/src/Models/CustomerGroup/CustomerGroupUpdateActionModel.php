@@ -36,6 +36,9 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
        'setKey' => CustomerGroupSetKeyActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

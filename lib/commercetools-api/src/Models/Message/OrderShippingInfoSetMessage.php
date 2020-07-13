@@ -27,7 +27,13 @@ interface OrderShippingInfoSetMessage extends Message
      */
     public function getOldShippingInfo();
 
+    /**
+     * @param ?ShippingInfo $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void;
 
+    /**
+     * @param ?ShippingInfo $oldShippingInfo
+     */
     public function setOldShippingInfo(?ShippingInfo $oldShippingInfo): void;
 }

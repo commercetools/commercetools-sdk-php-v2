@@ -21,5 +21,8 @@ interface MyPaymentAddTransactionAction extends MyPaymentUpdateAction
      */
     public function getTransaction();
 
+    /**
+     * @param ?TransactionDraft $transaction
+     */
     public function setTransaction(?TransactionDraft $transaction): void;
 }

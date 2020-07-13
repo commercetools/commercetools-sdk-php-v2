@@ -41,16 +41,19 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     protected $name;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $assetId = null,
-        string $assetKey = null,
-        string $name = null,
-        JsonObject $value = null
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?string $name = null,
+        $value = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -128,39 +131,51 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = JsonObjectModel::of($data);
+            $this->value = $data;
         }
 
         return $this->value;
     }
 
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setValue(?JsonObject $value): void
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void
     {
         $this->value = $value;
     }

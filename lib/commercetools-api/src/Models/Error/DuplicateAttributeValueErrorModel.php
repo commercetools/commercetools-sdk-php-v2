@@ -38,9 +38,12 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     protected $attribute;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        Attribute $attribute = null
+        ?string $message = null,
+        ?Attribute $attribute = null
     ) {
         $this->message = $message;
         $this->attribute = $attribute;
@@ -100,11 +103,17 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?Attribute $attribute
+     */
     public function setAttribute(?Attribute $attribute): void
     {
         $this->attribute = $attribute;

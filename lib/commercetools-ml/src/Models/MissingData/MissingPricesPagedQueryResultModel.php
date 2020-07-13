@@ -45,12 +45,15 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     protected $meta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        MissingPricesCollection $results = null,
-        MissingPricesMeta $meta = null
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?MissingPricesCollection $results = null,
+        ?MissingPricesMeta $meta = null
     ) {
         $this->count = $count;
         $this->total = $total;
@@ -146,26 +149,41 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?MissingPricesCollection $results
+     */
     public function setResults(?MissingPricesCollection $results): void
     {
         $this->results = $results;
     }
 
+    /**
+     * @param ?MissingPricesMeta $meta
+     */
     public function setMeta(?MissingPricesMeta $meta): void
     {
         $this->meta = $meta;

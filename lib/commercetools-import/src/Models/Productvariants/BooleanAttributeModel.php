@@ -36,9 +36,12 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        bool $value = null
+        ?string $name = null,
+        ?bool $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -101,11 +104,17 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?bool $value
+     */
     public function setValue(?bool $value): void
     {
         $this->value = $value;

@@ -37,6 +37,7 @@ final class ProductImportRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ProductImportCollection $resources
      * @return $this
      */
     public function withResources(?ProductImportCollection $resources)

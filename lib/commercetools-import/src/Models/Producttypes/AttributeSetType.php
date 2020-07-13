@@ -20,5 +20,8 @@ interface AttributeSetType extends AttributeType
      */
     public function getElementType();
 
+    /**
+     * @param ?AttributeType $elementType
+     */
     public function setElementType(?AttributeType $elementType): void;
 }

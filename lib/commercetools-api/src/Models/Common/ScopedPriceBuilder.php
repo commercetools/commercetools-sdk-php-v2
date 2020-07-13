@@ -160,6 +160,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -170,6 +171,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $value
      * @return $this
      */
     public function withValue(?TypedMoney $value)
@@ -180,6 +182,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $currentValue
      * @return $this
      */
     public function withCurrentValue(?TypedMoney $currentValue)
@@ -190,6 +193,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -200,6 +204,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)
@@ -210,6 +215,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $channel
      * @return $this
      */
     public function withChannel(?ChannelReference $channel)
@@ -220,6 +226,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -230,6 +237,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -240,6 +248,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
     public function withDiscounted(?DiscountedPrice $discounted)
@@ -250,6 +259,7 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

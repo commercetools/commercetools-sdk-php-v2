@@ -20,5 +20,8 @@ interface ProductTypeChangeAttributeOrderByNameAction extends ProductTypeUpdateA
      */
     public function getAttributeNames();
 
+    /**
+     * @param ?array $attributeNames
+     */
     public function setAttributeNames(?array $attributeNames): void;
 }

@@ -64,15 +64,18 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     protected $predicate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $name = null,
-        string $description = null,
-        LocalizedString $localizedDescription = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        ZoneRateDraftCollection $zoneRates = null,
-        bool $isDefault = null,
-        string $predicate = null
+        ?string $key = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?LocalizedString $localizedDescription = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?ZoneRateDraftCollection $zoneRates = null,
+        ?bool $isDefault = null,
+        ?string $predicate = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -227,41 +230,65 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocalizedString $localizedDescription
+     */
     public function setLocalizedDescription(?LocalizedString $localizedDescription): void
     {
         $this->localizedDescription = $localizedDescription;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ZoneRateDraftCollection $zoneRates
+     */
     public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void
     {
         $this->zoneRates = $zoneRates;
     }
 
+    /**
+     * @param ?bool $isDefault
+     */
     public function setIsDefault(?bool $isDefault): void
     {
         $this->isDefault = $isDefault;
     }
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;

@@ -28,7 +28,13 @@ interface MyOrderFromCartDraft extends JsonObject
      */
     public function getVersion();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 }

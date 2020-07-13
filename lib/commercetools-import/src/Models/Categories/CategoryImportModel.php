@@ -89,19 +89,22 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        LocalizedString $description = null,
-        CategoryKeyReference $parent = null,
-        string $orderHint = null,
-        string $externalId = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        AssetCollection $assets = null,
-        Custom $custom = null
+        ?string $key = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?LocalizedString $description = null,
+        ?CategoryKeyReference $parent = null,
+        ?string $orderHint = null,
+        ?string $externalId = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?AssetCollection $assets = null,
+        ?Custom $custom = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -354,61 +357,97 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CategoryKeyReference $parent
+     */
     public function setParent(?CategoryKeyReference $parent): void
     {
         $this->parent = $parent;
     }
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
     }
 
+    /**
+     * @param ?Custom $custom
+     */
     public function setCustom(?Custom $custom): void
     {
         $this->custom = $custom;

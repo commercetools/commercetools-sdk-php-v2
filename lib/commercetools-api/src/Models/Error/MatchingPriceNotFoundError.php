@@ -52,15 +52,33 @@ interface MatchingPriceNotFoundError extends ErrorObject
      */
     public function getChannel();
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $currency
+     */
     public function setCurrency(?string $currency): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void;
 }

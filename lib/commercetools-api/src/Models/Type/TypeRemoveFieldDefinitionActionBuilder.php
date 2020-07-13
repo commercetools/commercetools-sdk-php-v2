@@ -34,6 +34,7 @@ final class TypeRemoveFieldDefinitionActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $fieldName
      * @return $this
      */
     public function withFieldName(?string $fieldName)

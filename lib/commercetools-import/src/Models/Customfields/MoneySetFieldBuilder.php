@@ -35,6 +35,7 @@ final class MoneySetFieldBuilder implements Builder
     }
 
     /**
+     * @param ?MoneyCollection $value
      * @return $this
      */
     public function withValue(?MoneyCollection $value)

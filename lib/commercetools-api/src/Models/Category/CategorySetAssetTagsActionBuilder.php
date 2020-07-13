@@ -60,6 +60,7 @@ final class CategorySetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -70,6 +71,7 @@ final class CategorySetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -80,6 +82,7 @@ final class CategorySetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $tags
      * @return $this
      */
     public function withTags(?array $tags)

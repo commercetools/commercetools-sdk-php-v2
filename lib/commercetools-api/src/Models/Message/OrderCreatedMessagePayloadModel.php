@@ -33,8 +33,11 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     protected $order;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Order $order = null
+        ?Order $order = null
     ) {
         $this->order = $order;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     }
 
 
+    /**
+     * @param ?Order $order
+     */
     public function setOrder(?Order $order): void
     {
         $this->order = $order;

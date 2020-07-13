@@ -32,8 +32,11 @@ final class StoresSetDistributionChannelsActionModel extends JsonObjectModel imp
     protected $distributionChannels;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChannelResourceIdentifierCollection $distributionChannels = null
+        ?ChannelResourceIdentifierCollection $distributionChannels = null
     ) {
         $this->distributionChannels = $distributionChannels;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class StoresSetDistributionChannelsActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
+     */
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void
     {
         $this->distributionChannels = $distributionChannels;

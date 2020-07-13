@@ -86,6 +86,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChangeSubscriptionCollection $changes
      * @return $this
      */
     public function withChanges(?ChangeSubscriptionCollection $changes)
@@ -96,6 +97,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Destination $destination
      * @return $this
      */
     public function withDestination(?Destination $destination)
@@ -106,6 +108,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -116,6 +119,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?MessageSubscriptionCollection $messages
      * @return $this
      */
     public function withMessages(?MessageSubscriptionCollection $messages)
@@ -126,6 +130,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryFormat $format
      * @return $this
      */
     public function withFormat(?DeliveryFormat $format)

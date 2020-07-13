@@ -36,9 +36,12 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $transactionId = null,
-        string $state = null
+        ?string $transactionId = null,
+        ?string $state = null
     ) {
         $this->transactionId = $transactionId;
         $this->state = $state;
@@ -97,11 +100,17 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     }
 
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void
     {
         $this->transactionId = $transactionId;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;

@@ -77,19 +77,43 @@ interface MyPayment extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?TypedMoney $amountPlanned
+     */
     public function setAmountPlanned(?TypedMoney $amountPlanned): void;
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
 
+    /**
+     * @param ?TransactionCollection $transactions
+     */
     public function setTransactions(?TransactionCollection $transactions): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

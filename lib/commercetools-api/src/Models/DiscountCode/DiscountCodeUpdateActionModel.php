@@ -45,6 +45,9 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
        'setValidUntil' => DiscountCodeSetValidUntilActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

@@ -91,27 +91,63 @@ interface ProductVariant extends JsonObject
      */
     public function getScopedPriceDiscounted();
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?PriceCollection $prices
+     */
     public function setPrices(?PriceCollection $prices): void;
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void;
 
+    /**
+     * @param ?Price $price
+     */
     public function setPrice(?Price $price): void;
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void;
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void;
 
+    /**
+     * @param ?ProductVariantAvailability $availability
+     */
     public function setAvailability(?ProductVariantAvailability $availability): void;
 
+    /**
+     * @param ?bool $isMatchingVariant
+     */
     public function setIsMatchingVariant(?bool $isMatchingVariant): void;
 
+    /**
+     * @param ?ScopedPrice $scopedPrice
+     */
     public function setScopedPrice(?ScopedPrice $scopedPrice): void;
 
+    /**
+     * @param ?bool $scopedPriceDiscounted
+     */
     public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void;
 }

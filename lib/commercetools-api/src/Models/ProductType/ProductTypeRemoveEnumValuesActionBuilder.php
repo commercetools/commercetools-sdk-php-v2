@@ -47,6 +47,7 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $keys
      * @return $this
      */
     public function withKeys(?array $keys)

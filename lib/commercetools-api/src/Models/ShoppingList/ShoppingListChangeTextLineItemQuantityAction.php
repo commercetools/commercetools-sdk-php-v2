@@ -26,7 +26,13 @@ interface ShoppingListChangeTextLineItemQuantityAction extends ShoppingListUpdat
      */
     public function getQuantity();
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 }

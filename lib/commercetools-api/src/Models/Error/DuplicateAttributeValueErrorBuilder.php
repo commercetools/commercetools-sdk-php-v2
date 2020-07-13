@@ -49,6 +49,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -59,6 +60,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+     * @param ?Attribute $attribute
      * @return $this
      */
     public function withAttribute(?Attribute $attribute)

@@ -31,8 +31,11 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     protected $predicate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $predicate = null
+        ?string $predicate = null
     ) {
         $this->predicate = $predicate;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;

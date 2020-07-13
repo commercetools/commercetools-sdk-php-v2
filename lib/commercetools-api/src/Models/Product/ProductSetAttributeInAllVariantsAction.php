@@ -25,7 +25,7 @@ interface ProductSetAttributeInAllVariantsAction extends ProductUpdateAction
     /**
      * <p>The same update behavior as for Set Attribute applies.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
@@ -34,9 +34,18 @@ interface ProductSetAttributeInAllVariantsAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

@@ -40,9 +40,12 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
     protected $externalTaxAmount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ExternalTaxAmountDraft $externalTaxAmount = null
+        ?string $lineItemId = null,
+        ?ExternalTaxAmountDraft $externalTaxAmount = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalTaxAmount = $externalTaxAmount;
@@ -102,11 +105,17 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
+     */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void
     {
         $this->externalTaxAmount = $externalTaxAmount;

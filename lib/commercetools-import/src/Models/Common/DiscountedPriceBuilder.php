@@ -49,6 +49,7 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
@@ -59,6 +60,7 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?ProductDiscountKeyReference $discount
      * @return $this
      */
     public function withDiscount(?ProductDiscountKeyReference $discount)

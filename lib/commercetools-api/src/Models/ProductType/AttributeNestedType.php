@@ -20,5 +20,8 @@ interface AttributeNestedType extends AttributeType
      */
     public function getTypeReference();
 
+    /**
+     * @param ?ProductTypeReference $typeReference
+     */
     public function setTypeReference(?ProductTypeReference $typeReference): void;
 }

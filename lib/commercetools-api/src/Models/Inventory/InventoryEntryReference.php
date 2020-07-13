@@ -21,5 +21,8 @@ interface InventoryEntryReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?InventoryEntry $obj
+     */
     public function setObj(?InventoryEntry $obj): void;
 }

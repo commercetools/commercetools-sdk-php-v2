@@ -147,6 +147,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
@@ -157,6 +158,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -167,6 +169,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
@@ -177,6 +180,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $channel
      * @return $this
      */
     public function withChannel(?ChannelResourceIdentifier $channel)
@@ -187,6 +191,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -197,6 +202,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -207,6 +213,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -217,6 +224,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PriceTierDraftCollection $tiers
      * @return $this
      */
     public function withTiers(?PriceTierDraftCollection $tiers)
@@ -227,6 +235,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
     public function withDiscounted(?DiscountedPrice $discounted)

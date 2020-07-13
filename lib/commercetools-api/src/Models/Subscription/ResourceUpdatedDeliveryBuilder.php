@@ -104,6 +104,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?string $projectKey
      * @return $this
      */
     public function withProjectKey(?string $projectKey)
@@ -114,6 +115,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -124,6 +126,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -134,6 +137,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -144,6 +148,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldVersion
      * @return $this
      */
     public function withOldVersion(?int $oldVersion)
@@ -154,6 +159,7 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $modifiedAt
      * @return $this
      */
     public function withModifiedAt(?DateTimeImmutable $modifiedAt)

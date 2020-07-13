@@ -26,7 +26,13 @@ interface OrderStateChangedMessagePayload extends MessagePayload
      */
     public function getOldOrderState();
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void;
 
+    /**
+     * @param ?string $oldOrderState
+     */
     public function setOldOrderState(?string $oldOrderState): void;
 }

@@ -36,6 +36,7 @@ final class CustomerAddStoreActionBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
      * @return $this
      */
     public function withStore(?StoreResourceIdentifier $store)

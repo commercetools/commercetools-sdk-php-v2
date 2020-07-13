@@ -31,8 +31,11 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     protected $target;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CartDiscountTarget $target = null
+        ?CartDiscountTarget $target = null
     ) {
         $this->target = $target;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?CartDiscountTarget $target
+     */
     public function setTarget(?CartDiscountTarget $target): void
     {
         $this->target = $target;

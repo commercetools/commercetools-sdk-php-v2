@@ -44,13 +44,28 @@ interface TermFacetResult extends FacetResult
      */
     public function getTerms();
 
+    /**
+     * @param ?string $dataType
+     */
     public function setDataType(?string $dataType): void;
 
+    /**
+     * @param ?int $missing
+     */
     public function setMissing(?int $missing): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $other
+     */
     public function setOther(?int $other): void;
 
+    /**
+     * @param ?FacetResultTermCollection $terms
+     */
     public function setTerms(?FacetResultTermCollection $terms): void;
 }

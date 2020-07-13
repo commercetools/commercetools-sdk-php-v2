@@ -55,13 +55,16 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $addedAt = null,
-        CustomFields $custom = null,
-        LocalizedString $description = null,
-        string $id = null,
-        LocalizedString $name = null,
-        float $quantity = null
+        ?DateTimeImmutable $addedAt = null,
+        ?CustomFields $custom = null,
+        ?LocalizedString $description = null,
+        ?string $id = null,
+        ?LocalizedString $name = null,
+        ?float $quantity = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -185,31 +188,49 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;

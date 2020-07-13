@@ -36,9 +36,12 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        AttributePlainEnumValueCollection $values = null
+        ?string $attributeName = null,
+        ?AttributePlainEnumValueCollection $values = null
     ) {
         $this->attributeName = $attributeName;
         $this->values = $values;
@@ -97,11 +100,17 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?AttributePlainEnumValueCollection $values
+     */
     public function setValues(?AttributePlainEnumValueCollection $values): void
     {
         $this->values = $values;

@@ -30,9 +30,12 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     protected $amount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        float $amount = null
+        ?string $name = null,
+        ?float $amount = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -73,11 +76,17 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $amount
+     */
     public function setAmount(?float $amount): void
     {
         $this->amount = $amount;

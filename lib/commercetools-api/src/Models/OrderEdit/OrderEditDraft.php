@@ -65,15 +65,33 @@ interface OrderEditDraft extends JsonObject
      */
     public function getDryRun();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?OrderReference $resource
+     */
     public function setResource(?OrderReference $resource): void;
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void;
 
+    /**
+     * @param ?bool $dryRun
+     */
     public function setDryRun(?bool $dryRun): void;
 }

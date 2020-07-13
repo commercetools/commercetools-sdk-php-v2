@@ -73,6 +73,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @param ?bool $published
      * @return $this
      */
     public function withPublished(?bool $published)
@@ -83,6 +84,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @param ?ProductData $current
      * @return $this
      */
     public function withCurrent(?ProductData $current)
@@ -93,6 +95,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @param ?ProductData $staged
      * @return $this
      */
     public function withStaged(?ProductData $staged)
@@ -103,6 +106,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @param ?bool $hasStagedChanges
      * @return $this
      */
     public function withHasStagedChanges(?bool $hasStagedChanges)

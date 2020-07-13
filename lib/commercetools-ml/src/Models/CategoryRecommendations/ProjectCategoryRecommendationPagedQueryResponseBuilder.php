@@ -86,6 +86,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -96,6 +97,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -106,6 +108,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -116,6 +119,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?ProjectCategoryRecommendationCollection $results
      * @return $this
      */
     public function withResults(?ProjectCategoryRecommendationCollection $results)
@@ -126,6 +130,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?ProjectCategoryRecommendationMeta $meta
      * @return $this
      */
     public function withMeta(?ProjectCategoryRecommendationMeta $meta)

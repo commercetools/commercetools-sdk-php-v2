@@ -22,5 +22,8 @@ interface ProjectChangeCountryTaxRateFallbackEnabledAction extends ProjectUpdate
      */
     public function getCountryTaxRateFallbackEnabled();
 
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     */
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void;
 }

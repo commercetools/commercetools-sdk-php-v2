@@ -38,6 +38,7 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
     }
 
     /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
     public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)

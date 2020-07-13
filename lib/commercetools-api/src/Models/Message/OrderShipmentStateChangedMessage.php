@@ -26,7 +26,13 @@ interface OrderShipmentStateChangedMessage extends Message
      */
     public function getOldShipmentState();
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 
+    /**
+     * @param ?string $oldShipmentState
+     */
     public function setOldShipmentState(?string $oldShipmentState): void;
 }

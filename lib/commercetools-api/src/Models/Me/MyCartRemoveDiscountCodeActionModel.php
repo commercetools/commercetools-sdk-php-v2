@@ -33,8 +33,11 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
     protected $discountCode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DiscountCodeReference $discountCode = null
+        ?DiscountCodeReference $discountCode = null
     ) {
         $this->discountCode = $discountCode;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?DiscountCodeReference $discountCode
+     */
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {
         $this->discountCode = $discountCode;

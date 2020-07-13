@@ -31,8 +31,11 @@ final class ReviewSetTitleActionModel extends JsonObjectModel implements ReviewS
     protected $title;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $title = null
+        ?string $title = null
     ) {
         $this->title = $title;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ReviewSetTitleActionModel extends JsonObjectModel implements ReviewS
     }
 
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;

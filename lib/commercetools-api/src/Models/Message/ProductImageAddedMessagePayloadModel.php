@@ -43,10 +43,13 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        Image $image = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?Image $image = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->image = $image;
@@ -124,16 +127,25 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?Image $image
+     */
     public function setImage(?Image $image): void
     {
         $this->image = $image;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

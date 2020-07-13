@@ -60,6 +60,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -70,6 +71,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+     * @param ?GraphQLErrorLocationCollection $locations
      * @return $this
      */
     public function withLocations(?GraphQLErrorLocationCollection $locations)
@@ -80,6 +82,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+     * @param ?array $path
      * @return $this
      */
     public function withPath(?array $path)

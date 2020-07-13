@@ -61,6 +61,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $appliedAt
      * @return $this
      */
     public function withAppliedAt(?DateTimeImmutable $appliedAt)
@@ -71,6 +72,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * @param ?OrderExcerpt $excerptBeforeEdit
      * @return $this
      */
     public function withExcerptBeforeEdit(?OrderExcerpt $excerptBeforeEdit)
@@ -81,6 +83,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * @param ?OrderExcerpt $excerptAfterEdit
      * @return $this
      */
     public function withExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit)

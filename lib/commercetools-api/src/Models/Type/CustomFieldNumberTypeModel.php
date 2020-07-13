@@ -26,6 +26,9 @@ final class CustomFieldNumberTypeModel extends JsonObjectModel implements Custom
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

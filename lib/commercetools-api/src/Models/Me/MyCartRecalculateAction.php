@@ -20,5 +20,8 @@ interface MyCartRecalculateAction extends MyCartUpdateAction
      */
     public function getUpdateProductData();
 
+    /**
+     * @param ?bool $updateProductData
+     */
     public function setUpdateProductData(?bool $updateProductData): void;
 }

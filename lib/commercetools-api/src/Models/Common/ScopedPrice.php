@@ -80,23 +80,53 @@ interface ScopedPrice extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?TypedMoney $value
+     */
     public function setValue(?TypedMoney $value): void;
 
+    /**
+     * @param ?TypedMoney $currentValue
+     */
     public function setCurrentValue(?TypedMoney $currentValue): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

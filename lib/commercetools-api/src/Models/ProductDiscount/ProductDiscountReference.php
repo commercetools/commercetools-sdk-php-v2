@@ -21,5 +21,8 @@ interface ProductDiscountReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?ProductDiscount $obj
+     */
     public function setObj(?ProductDiscount $obj): void;
 }

@@ -26,7 +26,13 @@ interface ExtensionUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ExtensionUpdateActionCollection $actions
+     */
     public function setActions(?ExtensionUpdateActionCollection $actions): void;
 }

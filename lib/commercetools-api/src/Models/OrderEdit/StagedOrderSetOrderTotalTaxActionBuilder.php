@@ -52,6 +52,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalTotalGross
      * @return $this
      */
     public function withExternalTotalGross(?Money $externalTotalGross)
@@ -62,6 +63,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxPortionDraftCollection $externalTaxPortions
      * @return $this
      */
     public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)

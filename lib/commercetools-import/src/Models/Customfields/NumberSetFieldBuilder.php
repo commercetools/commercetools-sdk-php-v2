@@ -34,6 +34,7 @@ final class NumberSetFieldBuilder implements Builder
     }
 
     /**
+     * @param ?array $value
      * @return $this
      */
     public function withValue(?array $value)

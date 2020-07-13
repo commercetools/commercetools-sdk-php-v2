@@ -38,9 +38,12 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaDescription = null,
-        bool $staged = null
+        ?LocalizedString $metaDescription = null,
+        ?bool $staged = null
     ) {
         $this->metaDescription = $metaDescription;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

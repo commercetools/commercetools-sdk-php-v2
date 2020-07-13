@@ -62,6 +62,7 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $centAmount
      * @return $this
      */
     public function withCentAmount(?int $centAmount)
@@ -72,6 +73,7 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)
@@ -82,6 +84,7 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $preciseAmount
      * @return $this
      */
     public function withPreciseAmount(?int $preciseAmount)

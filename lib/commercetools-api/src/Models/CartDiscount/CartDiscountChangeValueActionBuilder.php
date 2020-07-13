@@ -34,6 +34,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountValueDraft $value
      * @return $this
      */
     public function withValue(?CartDiscountValueDraft $value)

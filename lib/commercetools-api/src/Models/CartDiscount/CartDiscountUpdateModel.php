@@ -30,9 +30,12 @@ final class CartDiscountUpdateModel extends JsonObjectModel implements CartDisco
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        CartDiscountUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?CartDiscountUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class CartDiscountUpdateModel extends JsonObjectModel implements CartDisco
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?CartDiscountUpdateActionCollection $actions
+     */
     public function setActions(?CartDiscountUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

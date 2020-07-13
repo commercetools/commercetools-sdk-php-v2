@@ -21,5 +21,8 @@ interface CartReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Cart $obj
+     */
     public function setObj(?Cart $obj): void;
 }

@@ -87,6 +87,7 @@ final class MyTransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $timestamp
      * @return $this
      */
     public function withTimestamp(?DateTimeImmutable $timestamp)
@@ -97,6 +98,7 @@ final class MyTransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
      * @return $this
      */
     public function withType(?string $type)
@@ -107,6 +109,7 @@ final class MyTransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amount
      * @return $this
      */
     public function withAmount(?Money $amount)
@@ -117,6 +120,7 @@ final class MyTransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $interactionId
      * @return $this
      */
     public function withInteractionId(?string $interactionId)

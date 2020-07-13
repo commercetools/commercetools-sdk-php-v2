@@ -31,8 +31,11 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     protected $assetOrder;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $assetOrder = null
+        ?array $assetOrder = null
     ) {
         $this->assetOrder = $assetOrder;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?array $assetOrder
+     */
     public function setAssetOrder(?array $assetOrder): void
     {
         $this->assetOrder = $assetOrder;

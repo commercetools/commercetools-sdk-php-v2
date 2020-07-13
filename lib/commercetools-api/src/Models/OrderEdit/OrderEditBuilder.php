@@ -209,6 +209,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -219,6 +220,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -229,6 +231,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -239,6 +242,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -249,6 +253,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -259,6 +264,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -269,6 +275,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -279,6 +286,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?OrderReference $resource
      * @return $this
      */
     public function withResource(?OrderReference $resource)
@@ -289,6 +297,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
      * @return $this
      */
     public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
@@ -299,6 +308,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -309,6 +319,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?OrderEditResult $result
      * @return $this
      */
     public function withResult(?OrderEditResult $result)
@@ -319,6 +330,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @param ?string $comment
      * @return $this
      */
     public function withComment(?string $comment)

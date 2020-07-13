@@ -20,5 +20,8 @@ interface OrderChangeShipmentStateAction extends OrderUpdateAction
      */
     public function getShipmentState();
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 }

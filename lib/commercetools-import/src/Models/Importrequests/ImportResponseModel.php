@@ -26,8 +26,11 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     protected $operationStatus;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ImportOperationStatusCollection $operationStatus = null
+        ?ImportOperationStatusCollection $operationStatus = null
     ) {
         $this->operationStatus = $operationStatus;
     }
@@ -50,6 +53,9 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     }
 
 
+    /**
+     * @param ?ImportOperationStatusCollection $operationStatus
+     */
     public function setOperationStatus(?ImportOperationStatusCollection $operationStatus): void
     {
         $this->operationStatus = $operationStatus;

@@ -44,13 +44,28 @@ interface SubscriptionDraft extends JsonObject
      */
     public function getFormat();
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void;
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
 
+    /**
+     * @param ?DeliveryFormat $format
+     */
     public function setFormat(?DeliveryFormat $format): void;
 }

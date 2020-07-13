@@ -21,5 +21,8 @@ interface TimeAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?DateTimeImmutable $value
+     */
     public function setValue(?DateTimeImmutable $value): void;
 }

@@ -37,10 +37,13 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $interfaceCode = null,
-        string $interfaceText = null,
-        StateReference $state = null
+        ?string $interfaceCode = null,
+        ?string $interfaceText = null,
+        ?StateReference $state = null
     ) {
         $this->interfaceCode = $interfaceCode;
         $this->interfaceText = $interfaceText;
@@ -104,16 +107,25 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     }
 
 
+    /**
+     * @param ?string $interfaceCode
+     */
     public function setInterfaceCode(?string $interfaceCode): void
     {
         $this->interfaceCode = $interfaceCode;
     }
 
+    /**
+     * @param ?string $interfaceText
+     */
     public function setInterfaceText(?string $interfaceText): void
     {
         $this->interfaceText = $interfaceText;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;

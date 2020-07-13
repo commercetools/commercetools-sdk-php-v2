@@ -21,5 +21,8 @@ interface CustomerReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Customer $obj
+     */
     public function setObj(?Customer $obj): void;
 }

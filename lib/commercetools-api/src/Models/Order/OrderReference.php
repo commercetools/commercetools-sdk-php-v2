@@ -21,5 +21,8 @@ interface OrderReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Order $obj
+     */
     public function setObj(?Order $obj): void;
 }

@@ -19,6 +19,9 @@ use stdClass;
  */
 final class FacetResultsModel extends JsonObjectModel implements FacetResults
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

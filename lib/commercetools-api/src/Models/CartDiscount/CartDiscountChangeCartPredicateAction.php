@@ -22,5 +22,8 @@ interface CartDiscountChangeCartPredicateAction extends CartDiscountUpdateAction
      */
     public function getCartPredicate();
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void;
 }

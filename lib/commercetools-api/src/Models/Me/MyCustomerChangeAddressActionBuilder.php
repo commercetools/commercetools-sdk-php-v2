@@ -49,6 +49,7 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $addressId
      * @return $this
      */
     public function withAddressId(?string $addressId)
@@ -59,6 +60,7 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)

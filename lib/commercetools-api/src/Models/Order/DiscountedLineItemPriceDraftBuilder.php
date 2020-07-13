@@ -50,6 +50,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
@@ -60,6 +61,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
      * @return $this
      */
     public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)

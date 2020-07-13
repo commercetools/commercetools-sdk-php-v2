@@ -20,5 +20,8 @@ interface StateChangeInitialAction extends StateUpdateAction
      */
     public function getInitial();
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void;
 }

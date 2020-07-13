@@ -33,8 +33,11 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     protected $inventoryEntry;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        InventoryEntry $inventoryEntry = null
+        ?InventoryEntry $inventoryEntry = null
     ) {
         $this->inventoryEntry = $inventoryEntry;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?InventoryEntry $inventoryEntry
+     */
     public function setInventoryEntry(?InventoryEntry $inventoryEntry): void
     {
         $this->inventoryEntry = $inventoryEntry;

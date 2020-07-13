@@ -47,6 +47,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -57,6 +58,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)

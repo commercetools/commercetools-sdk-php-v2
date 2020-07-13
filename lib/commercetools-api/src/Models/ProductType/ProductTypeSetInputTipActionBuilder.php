@@ -49,6 +49,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -59,6 +60,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $inputTip
      * @return $this
      */
     public function withInputTip(?LocalizedString $inputTip)

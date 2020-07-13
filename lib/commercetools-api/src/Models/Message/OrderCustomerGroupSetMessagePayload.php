@@ -27,7 +27,13 @@ interface OrderCustomerGroupSetMessagePayload extends MessagePayload
      */
     public function getOldCustomerGroup();
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
+    /**
+     * @param ?CustomerGroupReference $oldCustomerGroup
+     */
     public function setOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup): void;
 }

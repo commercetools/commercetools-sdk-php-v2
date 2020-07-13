@@ -85,19 +85,22 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        LocalizedString $description = null,
-        CategoryResourceIdentifier $parent = null,
-        string $orderHint = null,
-        string $externalId = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        CustomFieldsDraft $custom = null,
-        AssetDraftCollection $assets = null,
-        string $key = null
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?LocalizedString $description = null,
+        ?CategoryResourceIdentifier $parent = null,
+        ?string $orderHint = null,
+        ?string $externalId = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?CustomFieldsDraft $custom = null,
+        ?AssetDraftCollection $assets = null,
+        ?string $key = null
     ) {
         $this->name = $name;
         $this->slug = $slug;
@@ -342,61 +345,97 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CategoryResourceIdentifier $parent
+     */
     public function setParent(?CategoryResourceIdentifier $parent): void
     {
         $this->parent = $parent;
     }
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?AssetDraftCollection $assets
+     */
     public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

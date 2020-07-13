@@ -33,8 +33,11 @@ final class StateSetNameActionModel extends JsonObjectModel implements StateSetN
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null
+        ?LocalizedString $name = null
     ) {
         $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class StateSetNameActionModel extends JsonObjectModel implements StateSetN
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;

@@ -47,6 +47,7 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -57,6 +58,7 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $field
      * @return $this
      */
     public function withField(?string $field)

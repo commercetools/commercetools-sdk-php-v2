@@ -52,13 +52,16 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $variantKey = null,
-        string $sku = null,
-        string $priceId = null,
-        DiscountedPrice $discounted = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?string $variantKey = null,
+        ?string $sku = null,
+        ?string $priceId = null,
+        ?DiscountedPrice $discounted = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->variantKey = $variantKey;
@@ -172,31 +175,49 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $variantKey
+     */
     public function setVariantKey(?string $variantKey): void
     {
         $this->variantKey = $variantKey;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

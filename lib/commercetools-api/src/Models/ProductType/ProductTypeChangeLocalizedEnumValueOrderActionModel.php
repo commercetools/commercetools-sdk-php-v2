@@ -36,9 +36,12 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        AttributeLocalizedEnumValueCollection $values = null
+        ?string $attributeName = null,
+        ?AttributeLocalizedEnumValueCollection $values = null
     ) {
         $this->attributeName = $attributeName;
         $this->values = $values;
@@ -97,11 +100,17 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?AttributeLocalizedEnumValueCollection $values
+     */
     public function setValues(?AttributeLocalizedEnumValueCollection $values): void
     {
         $this->values = $values;

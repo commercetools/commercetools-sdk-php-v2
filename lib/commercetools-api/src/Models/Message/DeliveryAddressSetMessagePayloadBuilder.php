@@ -62,6 +62,7 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -72,6 +73,7 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -82,6 +84,7 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Address $oldAddress
      * @return $this
      */
     public function withOldAddress(?Address $oldAddress)

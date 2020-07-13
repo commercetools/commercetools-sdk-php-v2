@@ -42,10 +42,13 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     protected $oldItems;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        DeliveryItemCollection $items = null,
-        DeliveryItemCollection $oldItems = null
+        ?string $deliveryId = null,
+        ?DeliveryItemCollection $items = null,
+        ?DeliveryItemCollection $oldItems = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->items = $items;
@@ -122,16 +125,25 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $oldItems
+     */
     public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
         $this->oldItems = $oldItems;

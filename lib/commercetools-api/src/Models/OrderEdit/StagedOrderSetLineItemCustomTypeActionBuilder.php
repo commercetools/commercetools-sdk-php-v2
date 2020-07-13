@@ -66,6 +66,7 @@ final class StagedOrderSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -76,6 +77,7 @@ final class StagedOrderSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -86,6 +88,7 @@ final class StagedOrderSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

@@ -47,6 +47,7 @@ final class InventoryEntryUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class InventoryEntryUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?InventoryEntryUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?InventoryEntryUpdateActionCollection $actions)

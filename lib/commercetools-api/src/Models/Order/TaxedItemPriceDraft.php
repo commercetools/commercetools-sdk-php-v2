@@ -27,7 +27,13 @@ interface TaxedItemPriceDraft extends JsonObject
      */
     public function getTotalGross();
 
+    /**
+     * @param ?Money $totalNet
+     */
     public function setTotalNet(?Money $totalNet): void;
 
+    /**
+     * @param ?Money $totalGross
+     */
     public function setTotalGross(?Money $totalGross): void;
 }

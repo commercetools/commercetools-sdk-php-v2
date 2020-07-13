@@ -40,6 +40,9 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
        'setSupplyChannel' => InventoryEntrySetSupplyChannelActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

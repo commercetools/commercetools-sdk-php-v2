@@ -34,6 +34,7 @@ final class ProductTypeChangeNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)

@@ -53,6 +53,7 @@ final class ProductChangeSlugActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -63,6 +64,7 @@ final class ProductChangeSlugActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

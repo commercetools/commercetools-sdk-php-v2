@@ -41,10 +41,13 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     protected $skus;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        array $lineItems = null,
-        array $skus = null
+        ?string $message = null,
+        ?array $lineItems = null,
+        ?array $skus = null
     ) {
         $this->message = $message;
         $this->lineItems = $lineItems;
@@ -121,16 +124,25 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?array $lineItems
+     */
     public function setLineItems(?array $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?array $skus
+     */
     public function setSkus(?array $skus): void
     {
         $this->skus = $skus;

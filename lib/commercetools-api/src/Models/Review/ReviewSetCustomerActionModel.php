@@ -33,8 +33,11 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
     protected $customer;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerResourceIdentifier $customer = null
+        ?CustomerResourceIdentifier $customer = null
     ) {
         $this->customer = $customer;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -79,6 +82,9 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
     }
 
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;

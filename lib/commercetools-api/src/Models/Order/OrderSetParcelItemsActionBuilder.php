@@ -47,6 +47,7 @@ final class OrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -57,6 +58,7 @@ final class OrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)

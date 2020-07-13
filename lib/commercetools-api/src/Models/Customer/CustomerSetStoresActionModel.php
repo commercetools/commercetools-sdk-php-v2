@@ -32,8 +32,11 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     protected $stores;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StoreResourceIdentifierCollection $stores = null
+        ?StoreResourceIdentifierCollection $stores = null
     ) {
         $this->stores = $stores;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     }
 
 
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
     public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;

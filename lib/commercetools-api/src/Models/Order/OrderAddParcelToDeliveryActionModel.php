@@ -46,11 +46,14 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        ParcelMeasurements $measurements = null,
-        TrackingData $trackingData = null,
-        DeliveryItemCollection $items = null
+        ?string $deliveryId = null,
+        ?ParcelMeasurements $measurements = null,
+        ?TrackingData $trackingData = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->measurements = $measurements;
@@ -147,21 +150,33 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
 
+    /**
+     * @param ?TrackingData $trackingData
+     */
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

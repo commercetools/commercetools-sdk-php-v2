@@ -52,6 +52,7 @@ final class DateAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -62,6 +63,7 @@ final class DateAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $value
      * @return $this
      */
     public function withValue(?DateTimeImmutable $value)

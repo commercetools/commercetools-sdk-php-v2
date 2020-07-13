@@ -20,5 +20,8 @@ interface OrderChangeOrderStateAction extends OrderUpdateAction
      */
     public function getOrderState();
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void;
 }

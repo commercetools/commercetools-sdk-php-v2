@@ -27,7 +27,13 @@ interface ResourceCreatedDelivery extends SubscriptionDelivery
      */
     public function getModifiedAt();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $modifiedAt
+     */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void;
 }

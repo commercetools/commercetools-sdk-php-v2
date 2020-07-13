@@ -34,6 +34,7 @@ final class MyCartRecalculateActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $updateProductData
      * @return $this
      */
     public function withUpdateProductData(?bool $updateProductData)

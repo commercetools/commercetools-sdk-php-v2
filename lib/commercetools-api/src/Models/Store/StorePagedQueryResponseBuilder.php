@@ -86,6 +86,7 @@ final class StorePagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -96,6 +97,7 @@ final class StorePagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -106,6 +108,7 @@ final class StorePagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -116,6 +119,7 @@ final class StorePagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -126,6 +130,7 @@ final class StorePagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?StoreCollection $results
      * @return $this
      */
     public function withResults(?StoreCollection $results)

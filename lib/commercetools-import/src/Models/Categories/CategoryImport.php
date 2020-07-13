@@ -109,25 +109,58 @@ interface CategoryImport extends ImportResource
      */
     public function getCustom();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?CategoryKeyReference $parent
+     */
     public function setParent(?CategoryKeyReference $parent): void;
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void;
 
+    /**
+     * @param ?Custom $custom
+     */
     public function setCustom(?Custom $custom): void;
 }

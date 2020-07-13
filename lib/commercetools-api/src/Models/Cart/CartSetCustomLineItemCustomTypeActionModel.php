@@ -45,10 +45,13 @@ final class CartSetCustomLineItemCustomTypeActionModel extends JsonObjectModel i
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        TypeResourceIdentifier $type = null,
-        FieldContainer $fields = null
+        ?string $customLineItemId = null,
+        ?TypeResourceIdentifier $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->type = $type;
@@ -127,16 +130,25 @@ final class CartSetCustomLineItemCustomTypeActionModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;

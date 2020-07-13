@@ -34,6 +34,7 @@ final class ShippingMethodSetLocalizedDescriptionActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $localizedDescription
      * @return $this
      */
     public function withLocalizedDescription(?string $localizedDescription)

@@ -21,5 +21,8 @@ interface CustomerCreatedMessage extends Message
      */
     public function getCustomer();
 
+    /**
+     * @param ?Customer $customer
+     */
     public function setCustomer(?Customer $customer): void;
 }

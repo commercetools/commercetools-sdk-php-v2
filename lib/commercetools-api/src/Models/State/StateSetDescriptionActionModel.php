@@ -33,8 +33,11 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
     protected $description;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $description = null
+        ?LocalizedString $description = null
     ) {
         $this->description = $description;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
     }
 
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;

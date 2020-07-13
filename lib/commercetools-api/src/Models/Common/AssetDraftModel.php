@@ -52,13 +52,16 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AssetSourceCollection $sources = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        array $tags = null,
-        CustomFieldsDraft $custom = null,
-        string $key = null
+        ?AssetSourceCollection $sources = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?array $tags = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $key = null
     ) {
         $this->sources = $sources;
         $this->name = $name;
@@ -174,31 +177,49 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
 
+    /**
+     * @param ?AssetSourceCollection $sources
+     */
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?array $tags
+     */
     public function setTags(?array $tags): void
     {
         $this->tags = $tags;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

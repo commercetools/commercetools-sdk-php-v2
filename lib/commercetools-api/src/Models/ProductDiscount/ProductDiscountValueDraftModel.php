@@ -35,6 +35,9 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
        'relative' => ProductDiscountValueRelativeDraftModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

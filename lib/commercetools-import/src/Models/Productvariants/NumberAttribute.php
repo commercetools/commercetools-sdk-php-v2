@@ -20,5 +20,8 @@ interface NumberAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?float $value
+     */
     public function setValue(?float $value): void;
 }

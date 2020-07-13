@@ -38,9 +38,12 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $removedImageUrls;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductVariant $variant = null,
-        array $removedImageUrls = null
+        ?ProductVariant $variant = null,
+        ?array $removedImageUrls = null
     ) {
         $this->variant = $variant;
         $this->removedImageUrls = $removedImageUrls;
@@ -100,11 +103,17 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void
     {
         $this->variant = $variant;
     }
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;

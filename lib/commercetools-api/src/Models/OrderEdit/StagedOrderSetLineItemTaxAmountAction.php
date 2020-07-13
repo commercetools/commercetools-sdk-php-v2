@@ -28,7 +28,13 @@ interface StagedOrderSetLineItemTaxAmountAction extends StagedOrderUpdateAction
      */
     public function getExternalTaxAmount();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
+     */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void;
 }

@@ -42,10 +42,13 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     protected $returnDate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $returnTrackingId = null,
-        ReturnItemDraftCollection $items = null,
-        DateTimeImmutable $returnDate = null
+        ?string $returnTrackingId = null,
+        ?ReturnItemDraftCollection $items = null,
+        ?DateTimeImmutable $returnDate = null
     ) {
         $this->returnTrackingId = $returnTrackingId;
         $this->items = $items;
@@ -126,16 +129,25 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
 
+    /**
+     * @param ?string $returnTrackingId
+     */
     public function setReturnTrackingId(?string $returnTrackingId): void
     {
         $this->returnTrackingId = $returnTrackingId;
     }
 
+    /**
+     * @param ?ReturnItemDraftCollection $items
+     */
     public function setItems(?ReturnItemDraftCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?DateTimeImmutable $returnDate
+     */
     public function setReturnDate(?DateTimeImmutable $returnDate): void
     {
         $this->returnDate = $returnDate;

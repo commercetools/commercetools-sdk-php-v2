@@ -34,6 +34,7 @@ final class AttributeLocalizedEnumTypeBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeLocalizedEnumValueCollection $values
      * @return $this
      */
     public function withValues(?AttributeLocalizedEnumValueCollection $values)

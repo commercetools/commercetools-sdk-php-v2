@@ -37,9 +37,12 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        KeyReferenceCollection $value = null
+        ?string $name = null,
+        ?KeyReferenceCollection $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -102,11 +105,17 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?KeyReferenceCollection $value
+     */
     public function setValue(?KeyReferenceCollection $value): void
     {
         $this->value = $value;

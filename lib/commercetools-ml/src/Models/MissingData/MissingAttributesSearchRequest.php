@@ -110,27 +110,63 @@ interface MissingAttributesSearchRequest extends JsonObject
      */
     public function getAttributeName();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void;
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void;
 
+    /**
+     * @param ?float $coverageMin
+     */
     public function setCoverageMin(?float $coverageMin): void;
 
+    /**
+     * @param ?float $coverageMax
+     */
     public function setCoverageMax(?float $coverageMax): void;
 
+    /**
+     * @param ?string $sortBy
+     */
     public function setSortBy(?string $sortBy): void;
 
+    /**
+     * @param ?bool $showMissingAttributeNames
+     */
     public function setShowMissingAttributeNames(?bool $showMissingAttributeNames): void;
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void;
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void;
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 }

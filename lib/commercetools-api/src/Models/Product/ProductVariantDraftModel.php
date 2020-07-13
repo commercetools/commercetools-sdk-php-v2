@@ -53,13 +53,16 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     protected $assets;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        string $key = null,
-        PriceDraftCollection $prices = null,
-        AttributeCollection $attributes = null,
-        ImageCollection $images = null,
-        AssetDraftCollection $assets = null
+        ?string $sku = null,
+        ?string $key = null,
+        ?PriceDraftCollection $prices = null,
+        ?AttributeCollection $attributes = null,
+        ?ImageCollection $images = null,
+        ?AssetDraftCollection $assets = null
     ) {
         $this->sku = $sku;
         $this->key = $key;
@@ -172,31 +175,49 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
 
+    /**
+     * @param ?AssetDraftCollection $assets
+     */
     public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;

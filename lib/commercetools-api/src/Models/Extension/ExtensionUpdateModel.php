@@ -30,9 +30,12 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ExtensionUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ExtensionUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ExtensionUpdateActionCollection $actions
+     */
     public function setActions(?ExtensionUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

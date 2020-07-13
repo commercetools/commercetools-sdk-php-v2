@@ -219,6 +219,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -229,6 +230,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -239,6 +241,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -249,6 +252,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -259,6 +263,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -269,6 +274,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -279,6 +285,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -289,6 +296,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -299,6 +307,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantityOnStock
      * @return $this
      */
     public function withQuantityOnStock(?int $quantityOnStock)
@@ -309,6 +318,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?int $availableQuantity
      * @return $this
      */
     public function withAvailableQuantity(?int $availableQuantity)
@@ -319,6 +329,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?int $restockableInDays
      * @return $this
      */
     public function withRestockableInDays(?int $restockableInDays)
@@ -329,6 +340,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expectedDelivery
      * @return $this
      */
     public function withExpectedDelivery(?DateTimeImmutable $expectedDelivery)
@@ -339,6 +351,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

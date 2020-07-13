@@ -51,11 +51,14 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     protected $taxedPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        Money $totalPrice = null,
-        TaxedItemPrice $taxedPrice = null
+        ?string $lineItemId = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        ?Money $totalPrice = null,
+        ?TaxedItemPrice $taxedPrice = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
@@ -152,21 +155,33 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;

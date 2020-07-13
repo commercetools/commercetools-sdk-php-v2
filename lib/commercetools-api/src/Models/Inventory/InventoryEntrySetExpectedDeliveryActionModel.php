@@ -32,8 +32,11 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     protected $expectedDelivery;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $expectedDelivery = null
+        ?DateTimeImmutable $expectedDelivery = null
     ) {
         $this->expectedDelivery = $expectedDelivery;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $expectedDelivery
+     */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
     {
         $this->expectedDelivery = $expectedDelivery;

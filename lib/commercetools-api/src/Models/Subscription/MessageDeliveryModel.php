@@ -81,17 +81,20 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     protected $payloadNotIncluded;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $projectKey = null,
-        Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        int $sequenceNumber = null,
-        int $resourceVersion = null,
-        PayloadNotIncluded $payloadNotIncluded = null
+        ?string $projectKey = null,
+        ?Reference $resource = null,
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?int $sequenceNumber = null,
+        ?int $resourceVersion = null,
+        ?PayloadNotIncluded $payloadNotIncluded = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
@@ -305,51 +308,81 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     }
 
 
+    /**
+     * @param ?string $projectKey
+     */
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?int $sequenceNumber
+     */
     public function setSequenceNumber(?int $sequenceNumber): void
     {
         $this->sequenceNumber = $sequenceNumber;
     }
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
+    /**
+     * @param ?PayloadNotIncluded $payloadNotIncluded
+     */
     public function setPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded): void
     {
         $this->payloadNotIncluded = $payloadNotIncluded;

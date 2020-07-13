@@ -43,6 +43,9 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
        'setPredicate' => ShippingMethodSetPredicateActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

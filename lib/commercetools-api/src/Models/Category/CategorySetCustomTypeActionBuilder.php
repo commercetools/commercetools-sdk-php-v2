@@ -55,6 +55,7 @@ final class CategorySetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -65,6 +66,7 @@ final class CategorySetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

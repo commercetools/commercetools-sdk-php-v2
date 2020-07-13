@@ -62,6 +62,7 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -72,6 +73,7 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?float $rate
      * @return $this
      */
     public function withRate(?float $rate)
@@ -82,6 +84,7 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amount
      * @return $this
      */
     public function withAmount(?Money $amount)

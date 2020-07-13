@@ -38,9 +38,12 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        LocalizedString $value = null
+        ?string $name = null,
+        ?LocalizedString $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -104,11 +107,17 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $value
+     */
     public function setValue(?LocalizedString $value): void
     {
         $this->value = $value;

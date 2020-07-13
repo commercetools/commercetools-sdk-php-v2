@@ -31,8 +31,11 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     protected $message;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null
+        ?string $message = null
     ) {
         $this->message = $message;
         $this->code = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;

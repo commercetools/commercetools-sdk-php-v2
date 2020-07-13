@@ -51,12 +51,15 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        int $variantId = null,
-        string $imageUrl = null,
-        string $label = null,
-        bool $staged = null
+        ?string $sku = null,
+        ?int $variantId = null,
+        ?string $imageUrl = null,
+        ?string $label = null,
+        ?bool $staged = null
     ) {
         $this->sku = $sku;
         $this->variantId = $variantId;
@@ -174,26 +177,41 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
     }
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void
     {
         $this->label = $label;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

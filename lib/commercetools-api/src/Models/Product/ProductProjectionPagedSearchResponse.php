@@ -44,13 +44,28 @@ interface ProductProjectionPagedSearchResponse extends JsonObject
      */
     public function getFacets();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?ProductProjectionCollection $results
+     */
     public function setResults(?ProductProjectionCollection $results): void;
 
+    /**
+     * @param ?FacetResults $facets
+     */
     public function setFacets(?FacetResults $facets): void;
 }

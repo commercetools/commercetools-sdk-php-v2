@@ -47,6 +47,7 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isSearchable
      * @return $this
      */
     public function withIsSearchable(?bool $isSearchable)

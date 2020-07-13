@@ -20,5 +20,8 @@ interface PaymentSetMethodInfoInterfaceAction extends PaymentUpdateAction
      */
     public function getInterface();
 
+    /**
+     * @param ?string $interface
+     */
     public function setInterface(?string $interface): void;
 }

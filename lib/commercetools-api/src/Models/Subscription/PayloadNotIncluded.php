@@ -26,7 +26,13 @@ interface PayloadNotIncluded extends JsonObject
      */
     public function getPayloadType();
 
+    /**
+     * @param ?string $reason
+     */
     public function setReason(?string $reason): void;
 
+    /**
+     * @param ?string $payloadType
+     */
     public function setPayloadType(?string $payloadType): void;
 }

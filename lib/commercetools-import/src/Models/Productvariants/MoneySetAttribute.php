@@ -21,5 +21,8 @@ interface MoneySetAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?MoneyCollection $value
+     */
     public function setValue(?MoneyCollection $value): void;
 }

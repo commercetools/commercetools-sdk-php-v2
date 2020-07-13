@@ -38,9 +38,18 @@ interface MissingAttributesDetails extends JsonObject
      */
     public function getMissingAttributeValues();
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $missingAttributeNames
+     */
     public function setMissingAttributeNames(?int $missingAttributeNames): void;
 
+    /**
+     * @param ?int $missingAttributeValues
+     */
     public function setMissingAttributeValues(?int $missingAttributeValues): void;
 }

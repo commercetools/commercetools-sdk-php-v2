@@ -21,5 +21,8 @@ interface PaymentInteractionAddedMessage extends Message
      */
     public function getInteraction();
 
+    /**
+     * @param ?CustomFields $interaction
+     */
     public function setInteraction(?CustomFields $interaction): void;
 }

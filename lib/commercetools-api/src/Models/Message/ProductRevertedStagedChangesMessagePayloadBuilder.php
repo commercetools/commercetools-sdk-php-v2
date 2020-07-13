@@ -34,6 +34,7 @@ final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?array $removedImageUrls
      * @return $this
      */
     public function withRemovedImageUrls(?array $removedImageUrls)

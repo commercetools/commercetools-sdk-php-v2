@@ -20,5 +20,8 @@ interface RangeFacetResult extends FacetResult
      */
     public function getRanges();
 
+    /**
+     * @param ?FacetResultRangeCollection $ranges
+     */
     public function setRanges(?FacetResultRangeCollection $ranges): void;
 }

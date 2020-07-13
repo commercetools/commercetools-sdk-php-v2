@@ -36,9 +36,12 @@ final class CartSetCustomLineItemShippingDetailsActionModel extends JsonObjectMo
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?string $customLineItemId = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->shippingDetails = $shippingDetails;
@@ -98,11 +101,17 @@ final class CartSetCustomLineItemShippingDetailsActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

@@ -31,8 +31,11 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     protected $destination;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Destination $destination = null
+        ?Destination $destination = null
     ) {
         $this->destination = $destination;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void
     {
         $this->destination = $destination;

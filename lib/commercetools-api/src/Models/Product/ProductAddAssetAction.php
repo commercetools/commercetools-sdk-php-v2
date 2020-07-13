@@ -47,13 +47,28 @@ interface ProductAddAssetAction extends ProductUpdateAction
      */
     public function getPosition();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?AssetDraft $asset
+     */
     public function setAsset(?AssetDraft $asset): void;
 
+    /**
+     * @param ?int $position
+     */
     public function setPosition(?int $position): void;
 }

@@ -31,8 +31,11 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     protected $email;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $email = null
+        ?string $email = null
     ) {
         $this->email = $email;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;

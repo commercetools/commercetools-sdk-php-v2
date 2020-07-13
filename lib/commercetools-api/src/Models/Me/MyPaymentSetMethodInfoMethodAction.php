@@ -20,5 +20,8 @@ interface MyPaymentSetMethodInfoMethodAction extends MyPaymentUpdateAction
      */
     public function getMethod();
 
+    /**
+     * @param ?string $method
+     */
     public function setMethod(?string $method): void;
 }

@@ -47,6 +47,7 @@ final class ExternalOAuthBuilder implements Builder
     }
 
     /**
+     * @param ?string $url
      * @return $this
      */
     public function withUrl(?string $url)
@@ -57,6 +58,7 @@ final class ExternalOAuthBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorizationHeader
      * @return $this
      */
     public function withAuthorizationHeader(?string $authorizationHeader)

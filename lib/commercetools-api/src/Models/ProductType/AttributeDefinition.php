@@ -89,19 +89,43 @@ interface AttributeDefinition extends JsonObject
      */
     public function getIsSearchable();
 
+    /**
+     * @param ?AttributeType $type
+     */
     public function setType(?AttributeType $type): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 
+    /**
+     * @param ?bool $isRequired
+     */
     public function setIsRequired(?bool $isRequired): void;
 
+    /**
+     * @param ?string $attributeConstraint
+     */
     public function setAttributeConstraint(?string $attributeConstraint): void;
 
+    /**
+     * @param ?LocalizedString $inputTip
+     */
     public function setInputTip(?LocalizedString $inputTip): void;
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void;
 
+    /**
+     * @param ?bool $isSearchable
+     */
     public function setIsSearchable(?bool $isSearchable): void;
 }

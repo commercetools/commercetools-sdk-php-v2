@@ -89,23 +89,53 @@ interface ShoppingListDraft extends JsonObject
      */
     public function getAnonymousId();
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     */
     public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     */
     public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 }

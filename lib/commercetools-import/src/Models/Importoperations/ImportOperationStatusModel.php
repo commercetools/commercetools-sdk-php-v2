@@ -36,10 +36,13 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     protected $errors;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $operationId = null,
-        string $state = null,
-        ErrorObjectCollection $errors = null
+        ?string $operationId = null,
+        ?string $state = null,
+        ?ErrorObjectCollection $errors = null
     ) {
         $this->operationId = $operationId;
         $this->state = $state;
@@ -104,16 +107,25 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     }
 
 
+    /**
+     * @param ?string $operationId
+     */
     public function setOperationId(?string $operationId): void
     {
         $this->operationId = $operationId;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void
     {
         $this->errors = $errors;

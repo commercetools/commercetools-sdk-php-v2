@@ -21,5 +21,8 @@ interface ShoppingListSetSlugAction extends ShoppingListUpdateAction
      */
     public function getSlug();
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 }

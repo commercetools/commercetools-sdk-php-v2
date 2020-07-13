@@ -53,21 +53,42 @@ interface PagedQueryResponse extends JsonObject
     public function getFacets();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getMeta();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?BaseResourceCollection $results
+     */
     public function setResults(?BaseResourceCollection $results): void;
 
+    /**
+     * @param ?FacetResults $facets
+     */
     public function setFacets(?FacetResults $facets): void;
 
+    /**
+     * @param ?JsonObject $meta
+     */
     public function setMeta(?JsonObject $meta): void;
 }

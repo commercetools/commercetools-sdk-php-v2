@@ -36,9 +36,12 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     protected $oldEmail;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $email = null,
-        string $oldEmail = null
+        ?string $email = null,
+        ?string $oldEmail = null
     ) {
         $this->email = $email;
         $this->oldEmail = $oldEmail;
@@ -97,11 +100,17 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @param ?string $oldEmail
+     */
     public function setOldEmail(?string $oldEmail): void
     {
         $this->oldEmail = $oldEmail;

@@ -20,5 +20,8 @@ interface ProductDiscountValueRelative extends ProductDiscountValue
      */
     public function getPermyriad();
 
+    /**
+     * @param ?int $permyriad
+     */
     public function setPermyriad(?int $permyriad): void;
 }

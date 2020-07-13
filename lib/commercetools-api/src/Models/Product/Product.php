@@ -105,27 +105,63 @@ interface Product extends BaseResource
      */
     public function getReviewRatingStatistics();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void;
 
+    /**
+     * @param ?ProductCatalogData $masterData
+     */
     public function setMasterData(?ProductCatalogData $masterData): void;
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 
+    /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
+     */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void;
 }

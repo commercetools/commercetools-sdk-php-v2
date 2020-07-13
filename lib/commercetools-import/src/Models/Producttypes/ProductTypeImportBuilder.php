@@ -81,6 +81,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -91,6 +92,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -101,6 +103,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -111,6 +114,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeDefinitionCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeDefinitionCollection $attributes)

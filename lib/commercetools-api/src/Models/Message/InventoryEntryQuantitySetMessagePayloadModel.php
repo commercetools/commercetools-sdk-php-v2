@@ -46,11 +46,14 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     protected $newAvailableQuantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $oldQuantityOnStock = null,
-        int $newQuantityOnStock = null,
-        int $oldAvailableQuantity = null,
-        int $newAvailableQuantity = null
+        ?int $oldQuantityOnStock = null,
+        ?int $newQuantityOnStock = null,
+        ?int $oldAvailableQuantity = null,
+        ?int $newAvailableQuantity = null
     ) {
         $this->oldQuantityOnStock = $oldQuantityOnStock;
         $this->newQuantityOnStock = $newQuantityOnStock;
@@ -145,21 +148,33 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?int $oldQuantityOnStock
+     */
     public function setOldQuantityOnStock(?int $oldQuantityOnStock): void
     {
         $this->oldQuantityOnStock = $oldQuantityOnStock;
     }
 
+    /**
+     * @param ?int $newQuantityOnStock
+     */
     public function setNewQuantityOnStock(?int $newQuantityOnStock): void
     {
         $this->newQuantityOnStock = $newQuantityOnStock;
     }
 
+    /**
+     * @param ?int $oldAvailableQuantity
+     */
     public function setOldAvailableQuantity(?int $oldAvailableQuantity): void
     {
         $this->oldAvailableQuantity = $oldAvailableQuantity;
     }
 
+    /**
+     * @param ?int $newAvailableQuantity
+     */
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void
     {
         $this->newAvailableQuantity = $newAvailableQuantity;

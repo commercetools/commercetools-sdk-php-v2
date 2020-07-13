@@ -49,6 +49,7 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?LineItem $lineItem
      * @return $this
      */
     public function withLineItem(?LineItem $lineItem)
@@ -59,6 +60,7 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $addedQuantity
      * @return $this
      */
     public function withAddedQuantity(?int $addedQuantity)

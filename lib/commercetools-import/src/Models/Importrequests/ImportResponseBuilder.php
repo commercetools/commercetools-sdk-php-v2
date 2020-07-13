@@ -35,6 +35,7 @@ final class ImportResponseBuilder implements Builder
     }
 
     /**
+     * @param ?ImportOperationStatusCollection $operationStatus
      * @return $this
      */
     public function withOperationStatus(?ImportOperationStatusCollection $operationStatus)

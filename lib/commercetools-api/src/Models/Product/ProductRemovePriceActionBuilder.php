@@ -49,6 +49,7 @@ final class ProductRemovePriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceId
      * @return $this
      */
     public function withPriceId(?string $priceId)
@@ -59,6 +60,7 @@ final class ProductRemovePriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

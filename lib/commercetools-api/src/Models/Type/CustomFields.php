@@ -28,7 +28,13 @@ interface CustomFields extends JsonObject
      */
     public function getFields();
 
+    /**
+     * @param ?TypeReference $type
+     */
     public function setType(?TypeReference $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

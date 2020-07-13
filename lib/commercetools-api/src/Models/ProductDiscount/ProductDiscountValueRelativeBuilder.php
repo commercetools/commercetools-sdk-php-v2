@@ -34,6 +34,7 @@ final class ProductDiscountValueRelativeBuilder implements Builder
     }
 
     /**
+     * @param ?int $permyriad
      * @return $this
      */
     public function withPermyriad(?int $permyriad)

@@ -45,12 +45,15 @@ final class ShippingMethodPagedQueryResponseModel extends JsonObjectModel implem
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        ShippingMethodCollection $results = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?ShippingMethodCollection $results = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -145,26 +148,41 @@ final class ShippingMethodPagedQueryResponseModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?ShippingMethodCollection $results
+     */
     public function setResults(?ShippingMethodCollection $results): void
     {
         $this->results = $results;

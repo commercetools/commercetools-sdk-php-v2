@@ -102,6 +102,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -112,6 +113,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -122,6 +124,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -132,6 +135,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -142,6 +146,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
@@ -152,6 +157,7 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)

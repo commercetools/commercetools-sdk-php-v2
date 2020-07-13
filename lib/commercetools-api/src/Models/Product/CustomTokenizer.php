@@ -20,5 +20,8 @@ interface CustomTokenizer extends SuggestTokenizer
      */
     public function getInputs();
 
+    /**
+     * @param ?array $inputs
+     */
     public function setInputs(?array $inputs): void;
 }

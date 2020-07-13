@@ -60,6 +60,7 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -70,6 +71,7 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -80,6 +82,7 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

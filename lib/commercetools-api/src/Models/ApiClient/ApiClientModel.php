@@ -56,14 +56,17 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     protected $secret;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $name = null,
-        string $scope = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastUsedAt = null,
-        DateTimeImmutable $deleteAt = null,
-        string $secret = null
+        ?string $id = null,
+        ?string $name = null,
+        ?string $scope = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastUsedAt = null,
+        ?DateTimeImmutable $deleteAt = null,
+        ?string $secret = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -219,36 +222,57 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void
     {
         $this->scope = $scope;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastUsedAt
+     */
     public function setLastUsedAt(?DateTimeImmutable $lastUsedAt): void
     {
         $this->lastUsedAt = $lastUsedAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $deleteAt
+     */
     public function setDeleteAt(?DateTimeImmutable $deleteAt): void
     {
         $this->deleteAt = $deleteAt;
     }
 
+    /**
+     * @param ?string $secret
+     */
     public function setSecret(?string $secret): void
     {
         $this->secret = $secret;

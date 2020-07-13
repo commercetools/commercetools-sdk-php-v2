@@ -47,6 +47,7 @@ final class OrderEditApplyBuilder implements Builder
     }
 
     /**
+     * @param ?int $editVersion
      * @return $this
      */
     public function withEditVersion(?int $editVersion)
@@ -57,6 +58,7 @@ final class OrderEditApplyBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)

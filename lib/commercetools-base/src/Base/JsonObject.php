@@ -35,4 +35,9 @@ interface JsonObject extends \JsonSerializable
      * @psalm-return static
      */
     public static function fromStdClass(stdClass $data = null);
+    
+    /**
+     * @return mixed
+     */
+    public function tap(callable $callable = null);
 }

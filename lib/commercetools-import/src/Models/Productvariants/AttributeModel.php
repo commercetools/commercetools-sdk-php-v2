@@ -59,8 +59,11 @@ final class AttributeModel extends JsonObjectModel implements Attribute
        'time-set' => TimeSetAttributeModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null
+        ?string $name = null
     ) {
         $this->name = $name;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -105,6 +108,9 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;

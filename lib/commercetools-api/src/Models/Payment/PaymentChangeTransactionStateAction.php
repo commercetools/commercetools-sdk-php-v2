@@ -26,7 +26,13 @@ interface PaymentChangeTransactionStateAction extends PaymentUpdateAction
      */
     public function getState();
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 }

@@ -31,9 +31,12 @@ final class ImageSearchConfigResponseModel extends JsonObjectModel implements Im
     protected $lastModifiedAt;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $status = null,
-        DateTimeImmutable $lastModifiedAt = null
+        ?string $status = null,
+        ?DateTimeImmutable $lastModifiedAt = null
     ) {
         $this->status = $status;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -80,11 +83,17 @@ final class ImageSearchConfigResponseModel extends JsonObjectModel implements Im
     }
 
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void
     {
         $this->status = $status;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;

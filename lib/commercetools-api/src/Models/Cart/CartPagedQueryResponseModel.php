@@ -45,12 +45,15 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        CartCollection $results = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?CartCollection $results = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -145,26 +148,41 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?CartCollection $results
+     */
     public function setResults(?CartCollection $results): void
     {
         $this->results = $results;

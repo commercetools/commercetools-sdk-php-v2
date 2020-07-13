@@ -38,6 +38,7 @@ final class PaymentSetCustomerActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerResourceIdentifier $customer
      * @return $this
      */
     public function withCustomer(?CustomerResourceIdentifier $customer)

@@ -47,6 +47,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -57,6 +58,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     }
 
     /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
      * @return $this
      */
     public function withTargetsDelta(?ItemShippingTargetCollection $targetsDelta)

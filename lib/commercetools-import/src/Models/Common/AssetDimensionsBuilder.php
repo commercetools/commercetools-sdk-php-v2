@@ -47,6 +47,7 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
+     * @param ?float $w
      * @return $this
      */
     public function withW(?float $w)
@@ -57,6 +58,7 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
+     * @param ?float $h
      * @return $this
      */
     public function withH(?float $h)

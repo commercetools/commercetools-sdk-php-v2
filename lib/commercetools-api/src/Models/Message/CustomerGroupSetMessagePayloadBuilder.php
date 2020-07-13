@@ -36,6 +36,7 @@ final class CustomerGroupSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)

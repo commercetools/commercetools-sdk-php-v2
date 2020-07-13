@@ -20,5 +20,8 @@ interface PaymentSetStatusInterfaceTextAction extends PaymentUpdateAction
      */
     public function getInterfaceText();
 
+    /**
+     * @param ?string $interfaceText
+     */
     public function setInterfaceText(?string $interfaceText): void;
 }

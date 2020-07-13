@@ -49,6 +49,7 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -59,6 +60,7 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $money
      * @return $this
      */
     public function withMoney(?Money $money)

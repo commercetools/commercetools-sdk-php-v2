@@ -36,6 +36,7 @@ final class OrderImportedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Order $order
      * @return $this
      */
     public function withOrder(?Order $order)

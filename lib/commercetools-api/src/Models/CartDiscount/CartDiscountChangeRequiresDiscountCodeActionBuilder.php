@@ -34,6 +34,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionBuilder implements Build
     }
 
     /**
+     * @param ?bool $requiresDiscountCode
      * @return $this
      */
     public function withRequiresDiscountCode(?bool $requiresDiscountCode)

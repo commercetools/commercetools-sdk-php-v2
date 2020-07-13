@@ -38,7 +38,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $field;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $duplicateValue;
 
@@ -48,11 +48,14 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $conflictingResource;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $field = null,
-        JsonObject $duplicateValue = null,
-        Reference $conflictingResource = null
+        ?string $message = null,
+        ?string $field = null,
+        $duplicateValue = null,
+        ?Reference $conflictingResource = null
     ) {
         $this->message = $message;
         $this->field = $field;
@@ -113,17 +116,17 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue()
     {
         if (is_null($this->duplicateValue)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_DUPLICATE_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->duplicateValue = JsonObjectModel::of($data);
+            $this->duplicateValue = $data;
         }
 
         return $this->duplicateValue;
@@ -148,21 +151,33 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void
     {
         $this->field = $field;
     }
 
-    public function setDuplicateValue(?JsonObject $duplicateValue): void
+    /**
+     * @param mixed $duplicateValue
+     */
+    public function setDuplicateValue($duplicateValue): void
     {
         $this->duplicateValue = $duplicateValue;
     }
 
+    /**
+     * @param ?Reference $conflictingResource
+     */
     public function setConflictingResource(?Reference $conflictingResource): void
     {
         $this->conflictingResource = $conflictingResource;

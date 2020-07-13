@@ -31,8 +31,11 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
     protected $interface;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $interface = null
+        ?string $interface = null
     ) {
         $this->interface = $interface;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?string $interface
+     */
     public function setInterface(?string $interface): void
     {
         $this->interface = $interface;

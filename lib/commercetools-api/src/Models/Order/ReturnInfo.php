@@ -35,9 +35,18 @@ interface ReturnInfo extends JsonObject
      */
     public function getReturnDate();
 
+    /**
+     * @param ?ReturnItemCollection $items
+     */
     public function setItems(?ReturnItemCollection $items): void;
 
+    /**
+     * @param ?string $returnTrackingId
+     */
     public function setReturnTrackingId(?string $returnTrackingId): void;
 
+    /**
+     * @param ?DateTimeImmutable $returnDate
+     */
     public function setReturnDate(?DateTimeImmutable $returnDate): void;
 }

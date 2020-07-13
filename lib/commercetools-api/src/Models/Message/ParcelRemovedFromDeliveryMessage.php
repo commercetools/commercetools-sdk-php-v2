@@ -27,7 +27,13 @@ interface ParcelRemovedFromDeliveryMessage extends Message
      */
     public function getParcel();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?Parcel $parcel
+     */
     public function setParcel(?Parcel $parcel): void;
 }

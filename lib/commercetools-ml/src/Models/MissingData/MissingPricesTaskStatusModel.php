@@ -36,10 +36,13 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
     protected $result;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $state = null,
-        DateTimeImmutable $expires = null,
-        MissingPricesPagedQueryResult $result = null
+        ?string $state = null,
+        ?DateTimeImmutable $expires = null,
+        ?MissingPricesPagedQueryResult $result = null
     ) {
         $this->state = $state;
         $this->expires = $expires;
@@ -107,16 +110,25 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
     }
 
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void
     {
         $this->expires = $expires;
     }
 
+    /**
+     * @param ?MissingPricesPagedQueryResult $result
+     */
     public function setResult(?MissingPricesPagedQueryResult $result): void
     {
         $this->result = $result;

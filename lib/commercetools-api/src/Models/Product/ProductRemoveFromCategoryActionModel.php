@@ -38,9 +38,12 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CategoryResourceIdentifier $category = null,
-        bool $staged = null
+        ?CategoryResourceIdentifier $category = null,
+        ?bool $staged = null
     ) {
         $this->category = $category;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?CategoryResourceIdentifier $category
+     */
     public function setCategory(?CategoryResourceIdentifier $category): void
     {
         $this->category = $category;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

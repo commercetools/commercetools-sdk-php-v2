@@ -57,6 +57,9 @@ final class MyCartUpdateActionModel extends JsonObjectModel implements MyCartUpd
        'updateItemShippingAddress' => MyCartUpdateItemShippingAddressActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

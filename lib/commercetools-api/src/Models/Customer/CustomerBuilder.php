@@ -445,6 +445,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -455,6 +456,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -465,6 +467,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -475,6 +478,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -485,6 +489,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -495,6 +500,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -505,6 +511,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerNumber
      * @return $this
      */
     public function withCustomerNumber(?string $customerNumber)
@@ -515,6 +522,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -525,6 +533,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $password
      * @return $this
      */
     public function withPassword(?string $password)
@@ -535,6 +544,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $firstName
      * @return $this
      */
     public function withFirstName(?string $firstName)
@@ -545,6 +555,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $lastName
      * @return $this
      */
     public function withLastName(?string $lastName)
@@ -555,6 +566,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $middleName
      * @return $this
      */
     public function withMiddleName(?string $middleName)
@@ -565,6 +577,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)
@@ -575,6 +588,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $dateOfBirth
      * @return $this
      */
     public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
@@ -585,6 +599,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $companyName
      * @return $this
      */
     public function withCompanyName(?string $companyName)
@@ -595,6 +610,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $vatId
      * @return $this
      */
     public function withVatId(?string $vatId)
@@ -605,6 +621,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?AddressCollection $addresses
      * @return $this
      */
     public function withAddresses(?AddressCollection $addresses)
@@ -615,6 +632,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $defaultShippingAddressId
      * @return $this
      */
     public function withDefaultShippingAddressId(?string $defaultShippingAddressId)
@@ -625,6 +643,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?array $shippingAddressIds
      * @return $this
      */
     public function withShippingAddressIds(?array $shippingAddressIds)
@@ -635,6 +654,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $defaultBillingAddressId
      * @return $this
      */
     public function withDefaultBillingAddressId(?string $defaultBillingAddressId)
@@ -645,6 +665,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?array $billingAddressIds
      * @return $this
      */
     public function withBillingAddressIds(?array $billingAddressIds)
@@ -655,6 +676,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isEmailVerified
      * @return $this
      */
     public function withIsEmailVerified(?bool $isEmailVerified)
@@ -665,6 +687,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -675,6 +698,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)
@@ -685,6 +709,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -695,6 +720,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -705,6 +731,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $salutation
      * @return $this
      */
     public function withSalutation(?string $salutation)
@@ -715,6 +742,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -725,6 +753,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReferenceCollection $stores
      * @return $this
      */
     public function withStores(?StoreKeyReferenceCollection $stores)

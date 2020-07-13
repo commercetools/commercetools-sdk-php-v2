@@ -36,9 +36,12 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        string $value = null
+        ?string $name = null,
+        ?string $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -101,11 +104,17 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;

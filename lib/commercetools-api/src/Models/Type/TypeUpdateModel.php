@@ -30,9 +30,12 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        TypeUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?TypeUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?TypeUpdateActionCollection $actions
+     */
     public function setActions(?TypeUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

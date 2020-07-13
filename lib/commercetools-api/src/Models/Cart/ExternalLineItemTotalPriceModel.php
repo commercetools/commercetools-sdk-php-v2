@@ -32,9 +32,12 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     protected $totalPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $price = null,
-        Money $totalPrice = null
+        ?Money $price = null,
+        ?Money $totalPrice = null
     ) {
         $this->price = $price;
         $this->totalPrice = $totalPrice;
@@ -77,11 +80,17 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     }
 
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void
     {
         $this->totalPrice = $totalPrice;

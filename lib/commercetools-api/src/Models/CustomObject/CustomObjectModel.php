@@ -67,21 +67,24 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     protected $key;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $container = null,
-        string $key = null,
-        JsonObject $value = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $container = null,
+        ?string $key = null,
+        $value = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -243,64 +246,91 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = JsonObjectModel::of($data);
+            $this->value = $data;
         }
 
         return $this->value;
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $container
+     */
     public function setContainer(?string $container): void
     {
         $this->container = $container;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
-    public function setValue(?JsonObject $value): void
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void
     {
         $this->value = $value;
     }

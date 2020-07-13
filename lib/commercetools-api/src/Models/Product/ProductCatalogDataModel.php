@@ -40,11 +40,14 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     protected $hasStagedChanges;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $published = null,
-        ProductData $current = null,
-        ProductData $staged = null,
-        bool $hasStagedChanges = null
+        ?bool $published = null,
+        ?ProductData $current = null,
+        ?ProductData $staged = null,
+        ?bool $hasStagedChanges = null
     ) {
         $this->published = $published;
         $this->current = $current;
@@ -123,21 +126,33 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     }
 
 
+    /**
+     * @param ?bool $published
+     */
     public function setPublished(?bool $published): void
     {
         $this->published = $published;
     }
 
+    /**
+     * @param ?ProductData $current
+     */
     public function setCurrent(?ProductData $current): void
     {
         $this->current = $current;
     }
 
+    /**
+     * @param ?ProductData $staged
+     */
     public function setStaged(?ProductData $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?bool $hasStagedChanges
+     */
     public function setHasStagedChanges(?bool $hasStagedChanges): void
     {
         $this->hasStagedChanges = $hasStagedChanges;

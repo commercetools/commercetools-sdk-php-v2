@@ -77,6 +77,7 @@ final class ProductTypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -87,6 +88,7 @@ final class ProductTypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -97,6 +99,7 @@ final class ProductTypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -107,6 +110,7 @@ final class ProductTypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeDefinitionDraftCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeDefinitionDraftCollection $attributes)

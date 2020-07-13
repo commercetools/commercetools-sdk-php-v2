@@ -26,7 +26,13 @@ interface TypeUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?TypeUpdateActionCollection $actions
+     */
     public function setActions(?TypeUpdateActionCollection $actions): void;
 }

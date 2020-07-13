@@ -30,9 +30,12 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $resourceTypeId = null,
-        array $actions = null
+        ?string $resourceTypeId = null,
+        ?array $actions = null
     ) {
         $this->resourceTypeId = $resourceTypeId;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     }
 
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void
     {
         $this->resourceTypeId = $resourceTypeId;
     }
 
+    /**
+     * @param ?array $actions
+     */
     public function setActions(?array $actions): void
     {
         $this->actions = $actions;

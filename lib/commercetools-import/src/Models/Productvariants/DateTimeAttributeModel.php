@@ -37,9 +37,12 @@ final class DateTimeAttributeModel extends JsonObjectModel implements DateTimeAt
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        DateTimeImmutable $value = null
+        ?string $name = null,
+        ?DateTimeImmutable $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -106,11 +109,17 @@ final class DateTimeAttributeModel extends JsonObjectModel implements DateTimeAt
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?DateTimeImmutable $value
+     */
     public function setValue(?DateTimeImmutable $value): void
     {
         $this->value = $value;

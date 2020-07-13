@@ -118,33 +118,78 @@ interface MyCustomerDraft extends JsonObject
      */
     public function getStores();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 
+    /**
+     * @param ?string $password
+     */
     public function setPassword(?string $password): void;
 
+    /**
+     * @param ?string $firstName
+     */
     public function setFirstName(?string $firstName): void;
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void;
 
+    /**
+     * @param ?string $middleName
+     */
     public function setMiddleName(?string $middleName): void;
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void;
 
+    /**
+     * @param ?DateTimeImmutable $dateOfBirth
+     */
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void;
 
+    /**
+     * @param ?string $companyName
+     */
     public function setCompanyName(?string $companyName): void;
 
+    /**
+     * @param ?string $vatId
+     */
     public function setVatId(?string $vatId): void;
 
+    /**
+     * @param ?AddressCollection $addresses
+     */
     public function setAddresses(?AddressCollection $addresses): void;
 
+    /**
+     * @param ?int $defaultShippingAddress
+     */
     public function setDefaultShippingAddress(?int $defaultShippingAddress): void;
 
+    /**
+     * @param ?int $defaultBillingAddress
+     */
     public function setDefaultBillingAddress(?int $defaultBillingAddress): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
     public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

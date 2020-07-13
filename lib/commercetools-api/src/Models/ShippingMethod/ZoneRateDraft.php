@@ -29,7 +29,13 @@ interface ZoneRateDraft extends JsonObject
      */
     public function getShippingRates();
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void;
 
+    /**
+     * @param ?ShippingRateDraftCollection $shippingRates
+     */
     public function setShippingRates(?ShippingRateDraftCollection $shippingRates): void;
 }

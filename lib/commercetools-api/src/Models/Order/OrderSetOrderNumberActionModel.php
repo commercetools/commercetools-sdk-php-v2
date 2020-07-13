@@ -31,8 +31,11 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     protected $orderNumber;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderNumber = null
+        ?string $orderNumber = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     }
 
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;

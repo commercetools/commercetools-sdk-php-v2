@@ -34,6 +34,7 @@ final class PaymentAddTransactionActionBuilder implements Builder
     }
 
     /**
+     * @param ?TransactionDraft $transaction
      * @return $this
      */
     public function withTransaction(?TransactionDraft $transaction)

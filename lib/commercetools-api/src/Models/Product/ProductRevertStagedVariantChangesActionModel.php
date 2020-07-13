@@ -31,8 +31,11 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     protected $variantId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null
+        ?int $variantId = null
     ) {
         $this->variantId = $variantId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;

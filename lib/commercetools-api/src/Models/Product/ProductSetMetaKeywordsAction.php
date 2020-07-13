@@ -27,7 +27,13 @@ interface ProductSetMetaKeywordsAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

@@ -169,45 +169,108 @@ interface Payment extends BaseResource
      */
     public function getKey();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 
+    /**
+     * @param ?string $interfaceId
+     */
     public function setInterfaceId(?string $interfaceId): void;
 
+    /**
+     * @param ?TypedMoney $amountPlanned
+     */
     public function setAmountPlanned(?TypedMoney $amountPlanned): void;
 
+    /**
+     * @param ?TypedMoney $amountAuthorized
+     */
     public function setAmountAuthorized(?TypedMoney $amountAuthorized): void;
 
+    /**
+     * @param ?string $authorizedUntil
+     */
     public function setAuthorizedUntil(?string $authorizedUntil): void;
 
+    /**
+     * @param ?TypedMoney $amountPaid
+     */
     public function setAmountPaid(?TypedMoney $amountPaid): void;
 
+    /**
+     * @param ?TypedMoney $amountRefunded
+     */
     public function setAmountRefunded(?TypedMoney $amountRefunded): void;
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
 
+    /**
+     * @param ?PaymentStatus $paymentStatus
+     */
     public function setPaymentStatus(?PaymentStatus $paymentStatus): void;
 
+    /**
+     * @param ?TransactionCollection $transactions
+     */
     public function setTransactions(?TransactionCollection $transactions): void;
 
+    /**
+     * @param ?CustomFieldsCollection $interfaceInteractions
+     */
     public function setInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

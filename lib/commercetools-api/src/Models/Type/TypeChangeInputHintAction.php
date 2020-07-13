@@ -26,7 +26,13 @@ interface TypeChangeInputHintAction extends TypeUpdateAction
      */
     public function getInputHint();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void;
 }

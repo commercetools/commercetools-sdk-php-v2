@@ -38,9 +38,12 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Type $obj = null
+        ?string $id = null,
+        ?Type $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Type $obj
+     */
     public function setObj(?Type $obj): void
     {
         $this->obj = $obj;

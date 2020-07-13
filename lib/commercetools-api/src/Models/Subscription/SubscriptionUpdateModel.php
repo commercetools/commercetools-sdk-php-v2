@@ -30,9 +30,12 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        SubscriptionUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?SubscriptionUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?SubscriptionUpdateActionCollection $actions
+     */
     public function setActions(?SubscriptionUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

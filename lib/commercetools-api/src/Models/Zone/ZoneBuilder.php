@@ -166,6 +166,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -176,6 +177,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -186,6 +188,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -196,6 +199,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -206,6 +210,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -216,6 +221,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -226,6 +232,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -236,6 +243,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -246,6 +254,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -256,6 +265,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * @param ?LocationCollection $locations
      * @return $this
      */
     public function withLocations(?LocationCollection $locations)

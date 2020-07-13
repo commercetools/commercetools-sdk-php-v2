@@ -45,12 +45,15 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     protected $price;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $name = null,
-        int $description = null,
-        int $attribute = null,
-        int $variantCount = null,
-        int $price = null
+        ?int $name = null,
+        ?int $description = null,
+        ?int $attribute = null,
+        ?int $variantCount = null,
+        ?int $price = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -155,26 +158,41 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     }
 
 
+    /**
+     * @param ?int $name
+     */
     public function setName(?int $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?int $description
+     */
     public function setDescription(?int $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?int $attribute
+     */
     public function setAttribute(?int $attribute): void
     {
         $this->attribute = $attribute;
     }
 
+    /**
+     * @param ?int $variantCount
+     */
     public function setVariantCount(?int $variantCount): void
     {
         $this->variantCount = $variantCount;
     }
 
+    /**
+     * @param ?int $price
+     */
     public function setPrice(?int $price): void
     {
         $this->price = $price;

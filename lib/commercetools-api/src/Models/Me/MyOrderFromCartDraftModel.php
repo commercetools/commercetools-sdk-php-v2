@@ -30,9 +30,12 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     protected $version;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null
+        ?string $id = null,
+        ?int $version = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -75,11 +78,17 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;

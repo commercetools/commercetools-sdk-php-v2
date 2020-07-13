@@ -60,6 +60,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $query
      * @return $this
      */
     public function withQuery(?string $query)
@@ -70,6 +71,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $operationName
      * @return $this
      */
     public function withOperationName(?string $operationName)
@@ -80,6 +82,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+     * @param ?GraphQLVariablesMap $variables
      * @return $this
      */
     public function withVariables(?GraphQLVariablesMap $variables)

@@ -44,9 +44,18 @@ interface PaymentMethodInfo extends JsonObject
      */
     public function getName();
 
+    /**
+     * @param ?string $paymentInterface
+     */
     public function setPaymentInterface(?string $paymentInterface): void;
 
+    /**
+     * @param ?string $method
+     */
     public function setMethod(?string $method): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

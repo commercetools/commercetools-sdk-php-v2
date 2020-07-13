@@ -38,6 +38,7 @@ final class StagedOrderRemoveDiscountCodeActionBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCodeReference $discountCode
      * @return $this
      */
     public function withDiscountCode(?DiscountCodeReference $discountCode)

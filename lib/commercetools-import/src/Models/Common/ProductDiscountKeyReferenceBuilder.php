@@ -34,6 +34,7 @@ final class ProductDiscountKeyReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

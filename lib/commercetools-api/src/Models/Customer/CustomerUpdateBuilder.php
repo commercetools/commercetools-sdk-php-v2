@@ -47,6 +47,7 @@ final class CustomerUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class CustomerUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?CustomerUpdateActionCollection $actions)

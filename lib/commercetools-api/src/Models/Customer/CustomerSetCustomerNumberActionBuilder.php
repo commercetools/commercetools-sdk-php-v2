@@ -37,6 +37,7 @@ final class CustomerSetCustomerNumberActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerNumber
      * @return $this
      */
     public function withCustomerNumber(?string $customerNumber)

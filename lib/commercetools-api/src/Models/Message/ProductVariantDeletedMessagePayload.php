@@ -27,7 +27,13 @@ interface ProductVariantDeletedMessagePayload extends MessagePayload
      */
     public function getRemovedImageUrls();
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void;
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

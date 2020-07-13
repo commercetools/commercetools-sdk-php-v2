@@ -101,6 +101,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -111,6 +112,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -121,6 +123,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
@@ -131,6 +134,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerNumber
      * @return $this
      */
     public function withCustomerNumber(?string $customerNumber)
@@ -141,6 +145,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -151,6 +156,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)

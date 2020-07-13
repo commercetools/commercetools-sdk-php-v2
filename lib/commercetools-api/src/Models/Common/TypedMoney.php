@@ -41,9 +41,18 @@ interface TypedMoney extends JsonObject
      */
     public function getCurrencyCode();
 
+    /**
+     * @param ?int $fractionDigits
+     */
     public function setFractionDigits(?int $fractionDigits): void;
 
+    /**
+     * @param ?int $centAmount
+     */
     public function setCentAmount(?int $centAmount): void;
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void;
 }

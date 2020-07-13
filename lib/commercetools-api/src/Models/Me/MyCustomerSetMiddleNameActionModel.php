@@ -31,8 +31,11 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
     protected $middleName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $middleName = null
+        ?string $middleName = null
     ) {
         $this->middleName = $middleName;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $middleName
+     */
     public function setMiddleName(?string $middleName): void
     {
         $this->middleName = $middleName;

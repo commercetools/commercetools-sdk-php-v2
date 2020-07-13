@@ -26,7 +26,13 @@ interface MessageSubscription extends JsonObject
      */
     public function getTypes();
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void;
 
+    /**
+     * @param ?array $types
+     */
     public function setTypes(?array $types): void;
 }

@@ -36,6 +36,7 @@ final class PaymentSetAmountPaidActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amount
      * @return $this
      */
     public function withAmount(?Money $amount)

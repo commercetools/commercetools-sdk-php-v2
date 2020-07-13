@@ -26,7 +26,13 @@ interface PaymentStatusInterfaceCodeSetMessage extends Message
      */
     public function getInterfaceCode();
 
+    /**
+     * @param ?string $paymentId
+     */
     public function setPaymentId(?string $paymentId): void;
 
+    /**
+     * @param ?string $interfaceCode
+     */
     public function setInterfaceCode(?string $interfaceCode): void;
 }

@@ -30,9 +30,12 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     protected $h;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $w = null,
-        float $h = null
+        ?float $w = null,
+        ?float $h = null
     ) {
         $this->w = $w;
         $this->h = $h;
@@ -73,11 +76,17 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     }
 
 
+    /**
+     * @param ?float $w
+     */
     public function setW(?float $w): void
     {
         $this->w = $w;
     }
 
+    /**
+     * @param ?float $h
+     */
     public function setH(?float $h): void
     {
         $this->h = $h;

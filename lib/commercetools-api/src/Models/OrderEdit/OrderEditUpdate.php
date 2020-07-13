@@ -32,9 +32,18 @@ interface OrderEditUpdate extends JsonObject
      */
     public function getDryRun();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?OrderEditUpdateActionCollection $actions
+     */
     public function setActions(?OrderEditUpdateActionCollection $actions): void;
 
+    /**
+     * @param ?bool $dryRun
+     */
     public function setDryRun(?bool $dryRun): void;
 }

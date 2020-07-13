@@ -36,9 +36,12 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     protected $oldShipmentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $shipmentState = null,
-        string $oldShipmentState = null
+        ?string $shipmentState = null,
+        ?string $oldShipmentState = null
     ) {
         $this->shipmentState = $shipmentState;
         $this->oldShipmentState = $oldShipmentState;
@@ -97,11 +100,17 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
 
+    /**
+     * @param ?string $oldShipmentState
+     */
     public function setOldShipmentState(?string $oldShipmentState): void
     {
         $this->oldShipmentState = $oldShipmentState;

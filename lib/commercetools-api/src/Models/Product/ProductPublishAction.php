@@ -20,5 +20,8 @@ interface ProductPublishAction extends ProductUpdateAction
      */
     public function getScope();
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void;
 }

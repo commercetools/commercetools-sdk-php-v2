@@ -31,8 +31,11 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
     protected $updateProductData;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $updateProductData = null
+        ?bool $updateProductData = null
     ) {
         $this->updateProductData = $updateProductData;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
     }
 
 
+    /**
+     * @param ?bool $updateProductData
+     */
     public function setUpdateProductData(?bool $updateProductData): void
     {
         $this->updateProductData = $updateProductData;

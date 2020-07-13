@@ -26,7 +26,7 @@ final class CartDiscountSetCustomFieldActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -44,7 +44,7 @@ final class CartDiscountSetCustomFieldActionBuilder implements Builder
      * If <code>value</code> is provided, set the <code>value</code> of the field defined by the <code>name</code>.
      * The FieldDefinition determines the format for the <code>value</code> to be provided.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -52,6 +52,7 @@ final class CartDiscountSetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -62,9 +63,10 @@ final class CartDiscountSetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

@@ -38,9 +38,12 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
     protected $label;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null,
-        LocalizedString $label = null
+        ?string $fieldName = null,
+        ?LocalizedString $label = null
     ) {
         $this->fieldName = $fieldName;
         $this->label = $label;
@@ -100,11 +103,17 @@ final class TypeChangeFieldDefinitionLabelActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
     }
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;

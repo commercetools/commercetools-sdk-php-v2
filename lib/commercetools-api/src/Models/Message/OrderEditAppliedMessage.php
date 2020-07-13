@@ -28,7 +28,13 @@ interface OrderEditAppliedMessage extends Message
      */
     public function getResult();
 
+    /**
+     * @param ?OrderEditReference $edit
+     */
     public function setEdit(?OrderEditReference $edit): void;
 
+    /**
+     * @param ?OrderEditApplied $result
+     */
     public function setResult(?OrderEditApplied $result): void;
 }

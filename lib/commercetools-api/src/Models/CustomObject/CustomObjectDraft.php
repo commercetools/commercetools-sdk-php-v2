@@ -33,7 +33,7 @@ interface CustomObjectDraft extends JsonObject
     public function getKey();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
@@ -42,11 +42,23 @@ interface CustomObjectDraft extends JsonObject
      */
     public function getVersion();
 
+    /**
+     * @param ?string $container
+     */
     public function setContainer(?string $container): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 }

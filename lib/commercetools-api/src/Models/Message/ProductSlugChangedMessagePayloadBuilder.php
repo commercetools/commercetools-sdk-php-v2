@@ -36,6 +36,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)

@@ -34,6 +34,7 @@ final class AttributeNestedTypeBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $typeReference
      * @return $this
      */
     public function withTypeReference(?ProductTypeReference $typeReference)

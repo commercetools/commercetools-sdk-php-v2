@@ -31,8 +31,11 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
     protected $roles;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $roles = null
+        ?array $roles = null
     ) {
         $this->roles = $roles;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
     }
 
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void
     {
         $this->roles = $roles;

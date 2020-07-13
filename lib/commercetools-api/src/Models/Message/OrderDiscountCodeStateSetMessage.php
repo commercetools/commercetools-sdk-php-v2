@@ -33,9 +33,18 @@ interface OrderDiscountCodeStateSetMessage extends Message
      */
     public function getOldState();
 
+    /**
+     * @param ?DiscountCodeReference $discountCode
+     */
     public function setDiscountCode(?DiscountCodeReference $discountCode): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?string $oldState
+     */
     public function setOldState(?string $oldState): void;
 }

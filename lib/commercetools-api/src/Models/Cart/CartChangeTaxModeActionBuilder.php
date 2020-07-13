@@ -34,6 +34,7 @@ final class CartChangeTaxModeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxMode
      * @return $this
      */
     public function withTaxMode(?string $taxMode)

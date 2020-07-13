@@ -227,6 +227,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -237,6 +238,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -247,6 +249,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $money
      * @return $this
      */
     public function withMoney(?TypedMoney $money)
@@ -257,6 +260,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedItemPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
@@ -267,6 +271,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalPrice
      * @return $this
      */
     public function withTotalPrice(?TypedMoney $totalPrice)
@@ -277,6 +282,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $slug
      * @return $this
      */
     public function withSlug(?string $slug)
@@ -287,6 +293,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -297,6 +304,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
      * @return $this
      */
     public function withState(?ItemStateCollection $state)
@@ -307,6 +315,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
@@ -317,6 +326,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRate $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRate $taxRate)
@@ -327,6 +337,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
      * @return $this
      */
     public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
@@ -337,6 +348,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -347,6 +359,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetails $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetails $shippingDetails)

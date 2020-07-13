@@ -34,6 +34,7 @@ final class TypeAddFieldDefinitionActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldDefinition $fieldDefinition
      * @return $this
      */
     public function withFieldDefinition(?FieldDefinition $fieldDefinition)

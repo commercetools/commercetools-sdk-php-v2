@@ -54,12 +54,15 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     protected $toState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        DateTimeImmutable $transitionDate = null,
-        int $quantity = null,
-        StateReference $fromState = null,
-        StateReference $toState = null
+        ?string $customLineItemId = null,
+        ?DateTimeImmutable $transitionDate = null,
+        ?int $quantity = null,
+        ?StateReference $fromState = null,
+        ?StateReference $toState = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->transitionDate = $transitionDate;
@@ -178,26 +181,41 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $transitionDate
+     */
     public function setTransitionDate(?DateTimeImmutable $transitionDate): void
     {
         $this->transitionDate = $transitionDate;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?StateReference $fromState
+     */
     public function setFromState(?StateReference $fromState): void
     {
         $this->fromState = $fromState;
     }
 
+    /**
+     * @param ?StateReference $toState
+     */
     public function setToState(?StateReference $toState): void
     {
         $this->toState = $toState;

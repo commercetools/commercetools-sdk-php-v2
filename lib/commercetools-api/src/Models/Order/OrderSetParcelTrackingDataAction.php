@@ -26,7 +26,13 @@ interface OrderSetParcelTrackingDataAction extends OrderUpdateAction
      */
     public function getTrackingData();
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 
+    /**
+     * @param ?TrackingData $trackingData
+     */
     public function setTrackingData(?TrackingData $trackingData): void;
 }

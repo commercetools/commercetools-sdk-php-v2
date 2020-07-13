@@ -66,6 +66,7 @@ final class ProjectCategoryRecommendationMetaBuilder implements Builder
     }
 
     /**
+     * @param ?string $productName
      * @return $this
      */
     public function withProductName(?string $productName)
@@ -76,6 +77,7 @@ final class ProjectCategoryRecommendationMetaBuilder implements Builder
     }
 
     /**
+     * @param ?string $productImageUrl
      * @return $this
      */
     public function withProductImageUrl(?string $productImageUrl)
@@ -86,6 +88,7 @@ final class ProjectCategoryRecommendationMetaBuilder implements Builder
     }
 
     /**
+     * @param ?array $generalCategoryNames
      * @return $this
      */
     public function withGeneralCategoryNames(?array $generalCategoryNames)

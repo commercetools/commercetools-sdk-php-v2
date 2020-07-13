@@ -21,5 +21,8 @@ interface ProductSlugChangedMessagePayload extends MessagePayload
      */
     public function getSlug();
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 }

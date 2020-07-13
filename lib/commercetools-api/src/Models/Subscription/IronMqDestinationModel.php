@@ -31,8 +31,11 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     protected $uri;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $uri = null
+        ?string $uri = null
     ) {
         $this->uri = $uri;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     }
 
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void
     {
         $this->uri = $uri;

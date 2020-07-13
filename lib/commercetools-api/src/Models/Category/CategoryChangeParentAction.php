@@ -20,5 +20,8 @@ interface CategoryChangeParentAction extends CategoryUpdateAction
      */
     public function getParent();
 
+    /**
+     * @param ?CategoryResourceIdentifier $parent
+     */
     public function setParent(?CategoryResourceIdentifier $parent): void;
 }

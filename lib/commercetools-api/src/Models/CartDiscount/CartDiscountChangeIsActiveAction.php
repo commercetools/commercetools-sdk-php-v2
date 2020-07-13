@@ -20,5 +20,8 @@ interface CartDiscountChangeIsActiveAction extends CartDiscountUpdateAction
      */
     public function getIsActive();
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void;
 }

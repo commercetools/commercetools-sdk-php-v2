@@ -37,10 +37,13 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $paymentInterface = null,
-        string $method = null,
-        LocalizedString $name = null
+        ?string $paymentInterface = null,
+        ?string $method = null,
+        ?LocalizedString $name = null
     ) {
         $this->paymentInterface = $paymentInterface;
         $this->method = $method;
@@ -111,16 +114,25 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     }
 
 
+    /**
+     * @param ?string $paymentInterface
+     */
     public function setPaymentInterface(?string $paymentInterface): void
     {
         $this->paymentInterface = $paymentInterface;
     }
 
+    /**
+     * @param ?string $method
+     */
     public function setMethod(?string $method): void
     {
         $this->method = $method;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;

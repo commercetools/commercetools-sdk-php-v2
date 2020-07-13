@@ -33,8 +33,11 @@ final class MyCartRemovePaymentActionModel extends JsonObjectModel implements My
     protected $payment;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        PaymentResourceIdentifier $payment = null
+        ?PaymentResourceIdentifier $payment = null
     ) {
         $this->payment = $payment;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class MyCartRemovePaymentActionModel extends JsonObjectModel implements My
     }
 
 
+    /**
+     * @param ?PaymentResourceIdentifier $payment
+     */
     public function setPayment(?PaymentResourceIdentifier $payment): void
     {
         $this->payment = $payment;

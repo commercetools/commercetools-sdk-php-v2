@@ -33,8 +33,11 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     protected $metaDescription;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaDescription = null
+        ?LocalizedString $metaDescription = null
     ) {
         $this->metaDescription = $metaDescription;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;

@@ -21,5 +21,8 @@ interface ReviewCreatedMessagePayload extends MessagePayload
      */
     public function getReview();
 
+    /**
+     * @param ?Review $review
+     */
     public function setReview(?Review $review): void;
 }

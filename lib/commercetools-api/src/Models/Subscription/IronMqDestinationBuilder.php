@@ -34,6 +34,7 @@ final class IronMqDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $uri
      * @return $this
      */
     public function withUri(?string $uri)

@@ -39,9 +39,12 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ItemStateCollection $state = null
+        ?string $lineItemId = null,
+        ?ItemStateCollection $state = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->state = $state;
@@ -100,11 +103,17 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;

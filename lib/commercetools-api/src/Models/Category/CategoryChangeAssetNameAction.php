@@ -33,9 +33,18 @@ interface CategoryChangeAssetNameAction extends CategoryUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

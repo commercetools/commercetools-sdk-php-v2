@@ -37,8 +37,11 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
     }
@@ -61,6 +64,9 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

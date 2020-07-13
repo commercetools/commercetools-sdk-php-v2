@@ -38,7 +38,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     protected $localizedMessage;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $extensionExtraInfo;
 
@@ -48,11 +48,14 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     protected $errorByExtension;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        LocalizedString $localizedMessage = null,
-        JsonObject $extensionExtraInfo = null,
-        ErrorByExtension $errorByExtension = null
+        ?string $message = null,
+        ?LocalizedString $localizedMessage = null,
+        ?JsonObject $extensionExtraInfo = null,
+        ?ErrorByExtension $errorByExtension = null
     ) {
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
@@ -114,7 +117,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getExtensionExtraInfo()
     {
@@ -149,21 +152,33 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?LocalizedString $localizedMessage
+     */
     public function setLocalizedMessage(?LocalizedString $localizedMessage): void
     {
         $this->localizedMessage = $localizedMessage;
     }
 
+    /**
+     * @param ?JsonObject $extensionExtraInfo
+     */
     public function setExtensionExtraInfo(?JsonObject $extensionExtraInfo): void
     {
         $this->extensionExtraInfo = $extensionExtraInfo;
     }
 
+    /**
+     * @param ?ErrorByExtension $errorByExtension
+     */
     public function setErrorByExtension(?ErrorByExtension $errorByExtension): void
     {
         $this->errorByExtension = $errorByExtension;

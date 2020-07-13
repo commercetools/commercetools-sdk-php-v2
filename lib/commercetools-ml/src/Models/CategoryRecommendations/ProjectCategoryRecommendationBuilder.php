@@ -68,6 +68,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReference $category
      * @return $this
      */
     public function withCategory(?CategoryReference $category)
@@ -78,6 +79,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @param ?float $confidence
      * @return $this
      */
     public function withConfidence(?float $confidence)
@@ -88,6 +90,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @param ?string $path
      * @return $this
      */
     public function withPath(?string $path)

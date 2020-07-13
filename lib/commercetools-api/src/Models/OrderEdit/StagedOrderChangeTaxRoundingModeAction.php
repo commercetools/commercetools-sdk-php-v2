@@ -21,5 +21,8 @@ interface StagedOrderChangeTaxRoundingModeAction extends StagedOrderUpdateAction
      */
     public function getTaxRoundingMode();
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 }

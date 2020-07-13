@@ -44,13 +44,28 @@ interface ProjectCategoryRecommendationPagedQueryResponse extends JsonObject
      */
     public function getMeta();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?ProjectCategoryRecommendationCollection $results
+     */
     public function setResults(?ProjectCategoryRecommendationCollection $results): void;
 
+    /**
+     * @param ?ProjectCategoryRecommendationMeta $meta
+     */
     public function setMeta(?ProjectCategoryRecommendationMeta $meta): void;
 }

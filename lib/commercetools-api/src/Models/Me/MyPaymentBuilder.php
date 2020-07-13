@@ -144,6 +144,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -154,6 +155,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -164,6 +166,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -174,6 +177,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -184,6 +188,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amountPlanned
      * @return $this
      */
     public function withAmountPlanned(?TypedMoney $amountPlanned)
@@ -194,6 +199,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
      * @return $this
      */
     public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
@@ -204,6 +210,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TransactionCollection $transactions
      * @return $this
      */
     public function withTransactions(?TransactionCollection $transactions)
@@ -214,6 +221,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

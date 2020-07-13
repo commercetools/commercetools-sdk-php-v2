@@ -27,7 +27,13 @@ interface ProductAddedToCategoryMessage extends Message
      */
     public function getStaged();
 
+    /**
+     * @param ?CategoryReference $category
+     */
     public function setCategory(?CategoryReference $category): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

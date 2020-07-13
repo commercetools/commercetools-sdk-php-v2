@@ -62,6 +62,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?MissingAttributesDetails $productLevel
      * @return $this
      */
     public function withProductLevel(?MissingAttributesDetails $productLevel)
@@ -72,6 +73,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?MissingAttributesDetails $variantLevel
      * @return $this
      */
     public function withVariantLevel(?MissingAttributesDetails $variantLevel)
@@ -82,6 +84,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?array $productTypeIds
      * @return $this
      */
     public function withProductTypeIds(?array $productTypeIds)

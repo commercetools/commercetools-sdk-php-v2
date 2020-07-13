@@ -21,5 +21,8 @@ interface TypeSetDescriptionAction extends TypeUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

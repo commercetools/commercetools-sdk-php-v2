@@ -57,13 +57,16 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     protected $sources;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        bool $staged = null,
-        string $assetId = null,
-        string $assetKey = null,
-        AssetSourceCollection $sources = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?bool $staged = null,
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?AssetSourceCollection $sources = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -194,31 +197,49 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?AssetSourceCollection $sources
+     */
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;

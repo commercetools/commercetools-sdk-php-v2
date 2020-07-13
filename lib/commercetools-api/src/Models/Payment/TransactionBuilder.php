@@ -113,6 +113,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -123,6 +124,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $timestamp
      * @return $this
      */
     public function withTimestamp(?DateTimeImmutable $timestamp)
@@ -133,6 +135,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
      * @return $this
      */
     public function withType(?string $type)
@@ -143,6 +146,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amount
      * @return $this
      */
     public function withAmount(?TypedMoney $amount)
@@ -153,6 +157,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?string $interactionId
      * @return $this
      */
     public function withInteractionId(?string $interactionId)
@@ -163,6 +168,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)

@@ -31,8 +31,11 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     protected $timeoutInMs;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $timeoutInMs = null
+        ?int $timeoutInMs = null
     ) {
         $this->timeoutInMs = $timeoutInMs;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?int $timeoutInMs
+     */
     public function setTimeoutInMs(?int $timeoutInMs): void
     {
         $this->timeoutInMs = $timeoutInMs;

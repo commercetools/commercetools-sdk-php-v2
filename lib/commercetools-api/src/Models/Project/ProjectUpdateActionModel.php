@@ -41,6 +41,9 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

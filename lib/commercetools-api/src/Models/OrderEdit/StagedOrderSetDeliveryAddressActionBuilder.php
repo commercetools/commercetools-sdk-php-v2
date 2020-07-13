@@ -51,6 +51,7 @@ final class StagedOrderSetDeliveryAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -61,6 +62,7 @@ final class StagedOrderSetDeliveryAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)

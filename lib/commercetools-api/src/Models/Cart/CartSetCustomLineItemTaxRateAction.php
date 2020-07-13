@@ -26,7 +26,13 @@ interface CartSetCustomLineItemTaxRateAction extends CartUpdateAction
      */
     public function getExternalTaxRate();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 }

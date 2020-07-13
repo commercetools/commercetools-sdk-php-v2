@@ -38,11 +38,23 @@ interface AssetSource extends JsonObject
      */
     public function getContentType();
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?AssetDimensions $dimensions
+     */
     public function setDimensions(?AssetDimensions $dimensions): void;
 
+    /**
+     * @param ?string $contentType
+     */
     public function setContentType(?string $contentType): void;
 }

@@ -42,10 +42,13 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     protected $sources;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $assetId = null,
-        string $assetKey = null,
-        AssetSourceCollection $sources = null
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?AssetSourceCollection $sources = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -122,16 +125,25 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?AssetSourceCollection $sources
+     */
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;

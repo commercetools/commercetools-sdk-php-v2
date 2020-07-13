@@ -21,5 +21,8 @@ interface LocalizableTextAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?LocalizedString $value
+     */
     public function setValue(?LocalizedString $value): void;
 }

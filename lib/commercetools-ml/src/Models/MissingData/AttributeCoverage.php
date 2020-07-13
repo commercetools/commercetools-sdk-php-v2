@@ -30,7 +30,13 @@ interface AttributeCoverage extends JsonObject
      */
     public function getValues();
 
+    /**
+     * @param ?float $names
+     */
     public function setNames(?float $names): void;
 
+    /**
+     * @param ?float $values
+     */
     public function setValues(?float $values): void;
 }

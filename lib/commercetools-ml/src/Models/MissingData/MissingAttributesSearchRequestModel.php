@@ -80,19 +80,22 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     protected $attributeName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $offset = null,
-        bool $staged = null,
-        int $productSetLimit = null,
-        bool $includeVariants = null,
-        float $coverageMin = null,
-        float $coverageMax = null,
-        string $sortBy = null,
-        bool $showMissingAttributeNames = null,
-        array $productIds = null,
-        array $productTypeIds = null,
-        string $attributeName = null
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $staged = null,
+        ?int $productSetLimit = null,
+        ?bool $includeVariants = null,
+        ?float $coverageMin = null,
+        ?float $coverageMax = null,
+        ?string $sortBy = null,
+        ?bool $showMissingAttributeNames = null,
+        ?array $productIds = null,
+        ?array $productTypeIds = null,
+        ?string $attributeName = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -337,61 +340,97 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void
     {
         $this->productSetLimit = $productSetLimit;
     }
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void
     {
         $this->includeVariants = $includeVariants;
     }
 
+    /**
+     * @param ?float $coverageMin
+     */
     public function setCoverageMin(?float $coverageMin): void
     {
         $this->coverageMin = $coverageMin;
     }
 
+    /**
+     * @param ?float $coverageMax
+     */
     public function setCoverageMax(?float $coverageMax): void
     {
         $this->coverageMax = $coverageMax;
     }
 
+    /**
+     * @param ?string $sortBy
+     */
     public function setSortBy(?string $sortBy): void
     {
         $this->sortBy = $sortBy;
     }
 
+    /**
+     * @param ?bool $showMissingAttributeNames
+     */
     public function setShowMissingAttributeNames(?bool $showMissingAttributeNames): void
     {
         $this->showMissingAttributeNames = $showMissingAttributeNames;
     }
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void
     {
         $this->productIds = $productIds;
     }
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void
     {
         $this->productTypeIds = $productTypeIds;
     }
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;

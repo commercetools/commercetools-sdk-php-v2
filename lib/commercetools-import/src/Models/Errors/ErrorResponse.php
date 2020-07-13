@@ -57,13 +57,28 @@ interface ErrorResponse extends JsonObject
      */
     public function getErrors();
 
+    /**
+     * @param ?int $statusCode
+     */
     public function setStatusCode(?int $statusCode): void;
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void;
 
+    /**
+     * @param ?string $error
+     */
     public function setError(?string $error): void;
 
+    /**
+     * @param ?string $error_description
+     */
     public function setError_description(?string $error_description): void;
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void;
 }

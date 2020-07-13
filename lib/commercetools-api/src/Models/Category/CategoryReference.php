@@ -21,5 +21,8 @@ interface CategoryReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Category $obj
+     */
     public function setObj(?Category $obj): void;
 }

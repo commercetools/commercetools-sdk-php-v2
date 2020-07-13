@@ -31,8 +31,11 @@ final class CustomerGroupChangeNameActionModel extends JsonObjectModel implement
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null
+        ?string $name = null
     ) {
         $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomerGroupChangeNameActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;

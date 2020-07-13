@@ -51,6 +51,7 @@ final class PaymentAddInterfaceInteractionActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -61,6 +62,7 @@ final class PaymentAddInterfaceInteractionActionBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

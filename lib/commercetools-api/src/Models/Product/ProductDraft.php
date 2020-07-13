@@ -134,35 +134,83 @@ interface ProductDraft extends JsonObject
      */
     public function getPublish();
 
+    /**
+     * @param ?ProductTypeResourceIdentifier $productType
+     */
     public function setProductType(?ProductTypeResourceIdentifier $productType): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?CategoryResourceIdentifierCollection $categories
+     */
     public function setCategories(?CategoryResourceIdentifierCollection $categories): void;
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?ProductVariantDraft $masterVariant
+     */
     public function setMasterVariant(?ProductVariantDraft $masterVariant): void;
 
+    /**
+     * @param ?ProductVariantDraftCollection $variants
+     */
     public function setVariants(?ProductVariantDraftCollection $variants): void;
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void;
 
+    /**
+     * @param ?bool $publish
+     */
     public function setPublish(?bool $publish): void;
 }

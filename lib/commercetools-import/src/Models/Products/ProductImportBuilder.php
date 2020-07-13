@@ -215,6 +215,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -225,6 +226,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -235,6 +237,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeKeyReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeKeyReference $productType)
@@ -245,6 +248,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -255,6 +259,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -265,6 +270,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryKeyReferenceCollection $categories
      * @return $this
      */
     public function withCategories(?CategoryKeyReferenceCollection $categories)
@@ -275,6 +281,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -285,6 +292,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -295,6 +303,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -305,6 +314,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryKeyReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryKeyReference $taxCategory)
@@ -315,6 +325,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)
@@ -325,6 +336,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?StateKeyReference $state
      * @return $this
      */
     public function withState(?StateKeyReference $state)

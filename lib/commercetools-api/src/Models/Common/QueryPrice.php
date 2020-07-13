@@ -80,23 +80,53 @@ interface QueryPrice extends JsonObject
      */
     public function getTiers();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?PriceTierDraftCollection $tiers
+     */
     public function setTiers(?PriceTierDraftCollection $tiers): void;
 }

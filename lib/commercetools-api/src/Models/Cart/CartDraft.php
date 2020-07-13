@@ -205,49 +205,118 @@ interface CartDraft extends JsonObject
      */
     public function getItemShippingAddresses();
 
+    /**
+     * @param ?string $currency
+     */
     public function setCurrency(?string $currency): void;
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void;
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
     public function setStore(?StoreResourceIdentifier $store): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void;
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void;
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
 
+    /**
+     * @param ?LineItemDraftCollection $lineItems
+     */
     public function setLineItems(?LineItemDraftCollection $lineItems): void;
 
+    /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void;
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void;
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRateForShippingMethod
+     */
     public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void;
 
+    /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

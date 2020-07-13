@@ -74,21 +74,48 @@ interface PriceDraft extends JsonObject
      */
     public function getDiscounted();
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $channel
+     */
     public function setChannel(?ChannelResourceIdentifier $channel): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?PriceTierDraftCollection $tiers
+     */
     public function setTiers(?PriceTierDraftCollection $tiers): void;
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void;
 }

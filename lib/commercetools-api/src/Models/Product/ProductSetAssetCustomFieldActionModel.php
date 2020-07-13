@@ -56,19 +56,22 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     protected $name;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        bool $staged = null,
-        string $assetId = null,
-        string $assetKey = null,
-        string $name = null,
-        JsonObject $value = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?bool $staged = null,
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?string $name = null,
+        $value = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -200,54 +203,75 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = JsonObjectModel::of($data);
+            $this->value = $data;
         }
 
         return $this->value;
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setValue(?JsonObject $value): void
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void
     {
         $this->value = $value;
     }

@@ -26,7 +26,13 @@ interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
      */
     public function getTaxRate();
 
+    /**
+     * @param ?string $taxRateId
+     */
     public function setTaxRateId(?string $taxRateId): void;
 
+    /**
+     * @param ?TaxRateDraft $taxRate
+     */
     public function setTaxRate(?TaxRateDraft $taxRate): void;
 }

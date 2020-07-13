@@ -158,6 +158,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -168,6 +169,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -178,6 +180,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -188,6 +191,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductDiscountValueDraft $value
      * @return $this
      */
     public function withValue(?ProductDiscountValueDraft $value)
@@ -198,6 +202,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)
@@ -208,6 +213,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortOrder
      * @return $this
      */
     public function withSortOrder(?string $sortOrder)
@@ -218,6 +224,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -228,6 +235,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -238,6 +246,7 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

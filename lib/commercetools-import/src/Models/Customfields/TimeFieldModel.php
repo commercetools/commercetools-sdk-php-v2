@@ -32,8 +32,11 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $value = null
+        ?DateTimeImmutable $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -80,6 +83,9 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $value
+     */
     public function setValue(?DateTimeImmutable $value): void
     {
         $this->value = $value;

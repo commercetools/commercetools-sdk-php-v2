@@ -25,5 +25,8 @@ interface CartSetShippingRateInputAction extends CartUpdateAction
      */
     public function getShippingRateInput();
 
+    /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
 }

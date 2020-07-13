@@ -20,5 +20,8 @@ interface MyCustomerChangeEmailAction extends MyCustomerUpdateAction
      */
     public function getEmail();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 }

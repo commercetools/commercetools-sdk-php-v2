@@ -53,6 +53,9 @@ final class ProductTypeUpdateActionModel extends JsonObjectModel implements Prod
        'setKey' => ProductTypeSetKeyActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

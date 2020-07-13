@@ -49,6 +49,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategory $obj
      * @return $this
      */
     public function withObj(?TaxCategory $obj)

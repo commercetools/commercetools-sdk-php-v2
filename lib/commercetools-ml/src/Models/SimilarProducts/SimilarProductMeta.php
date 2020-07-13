@@ -48,11 +48,23 @@ interface SimilarProductMeta extends JsonObject
      */
     public function getVariantCount();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?int $variantCount
+     */
     public function setVariantCount(?int $variantCount): void;
 }

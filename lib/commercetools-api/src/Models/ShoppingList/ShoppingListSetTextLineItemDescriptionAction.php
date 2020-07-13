@@ -27,7 +27,13 @@ interface ShoppingListSetTextLineItemDescriptionAction extends ShoppingListUpdat
      */
     public function getDescription();
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

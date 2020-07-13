@@ -38,11 +38,23 @@ interface TaxCategoryDraft extends JsonObject
      */
     public function getKey();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 
+    /**
+     * @param ?TaxRateDraftCollection $rates
+     */
     public function setRates(?TaxRateDraftCollection $rates): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

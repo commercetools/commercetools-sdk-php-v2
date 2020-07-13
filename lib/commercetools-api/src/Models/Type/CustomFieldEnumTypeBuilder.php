@@ -34,6 +34,7 @@ final class CustomFieldEnumTypeBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldEnumValueCollection $values
      * @return $this
      */
     public function withValues(?CustomFieldEnumValueCollection $values)

@@ -21,5 +21,8 @@ interface MoneySetField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?MoneyCollection $value
+     */
     public function setValue(?MoneyCollection $value): void;
 }

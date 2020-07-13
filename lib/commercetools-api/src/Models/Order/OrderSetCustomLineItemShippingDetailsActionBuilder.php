@@ -49,6 +49,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -59,6 +60,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

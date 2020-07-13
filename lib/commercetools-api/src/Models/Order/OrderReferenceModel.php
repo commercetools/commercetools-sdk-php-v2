@@ -38,9 +38,12 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Order $obj = null
+        ?string $id = null,
+        ?Order $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Order $obj
+     */
     public function setObj(?Order $obj): void
     {
         $this->obj = $obj;

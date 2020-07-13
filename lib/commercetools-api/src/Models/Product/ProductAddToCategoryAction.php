@@ -33,9 +33,18 @@ interface ProductAddToCategoryAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?CategoryResourceIdentifier $category
+     */
     public function setCategory(?CategoryResourceIdentifier $category): void;
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

@@ -34,6 +34,7 @@ final class ZoneChangeNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)

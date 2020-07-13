@@ -38,9 +38,12 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        ShippingMethod $obj = null
+        ?string $id = null,
+        ?ShippingMethod $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?ShippingMethod $obj
+     */
     public function setObj(?ShippingMethod $obj): void
     {
         $this->obj = $obj;

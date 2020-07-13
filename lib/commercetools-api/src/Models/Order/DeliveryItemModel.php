@@ -30,9 +30,12 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        float $quantity = null
+        ?string $id = null,
+        ?float $quantity = null
     ) {
         $this->id = $id;
         $this->quantity = $quantity;
@@ -73,11 +76,17 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;

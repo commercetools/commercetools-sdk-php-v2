@@ -32,8 +32,11 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     protected $stagedActions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StagedOrderUpdateActionCollection $stagedActions = null
+        ?StagedOrderUpdateActionCollection $stagedActions = null
     ) {
         $this->stagedActions = $stagedActions;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
     {
         $this->stagedActions = $stagedActions;

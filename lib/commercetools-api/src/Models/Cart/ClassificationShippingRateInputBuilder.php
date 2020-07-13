@@ -49,6 +49,7 @@ final class ClassificationShippingRateInputBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -59,6 +60,7 @@ final class ClassificationShippingRateInputBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $label
      * @return $this
      */
     public function withLabel(?LocalizedString $label)

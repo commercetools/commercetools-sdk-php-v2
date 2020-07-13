@@ -37,6 +37,7 @@ final class PriceImportRequestBuilder implements Builder
     }
 
     /**
+     * @param ?PriceImportCollection $resources
      * @return $this
      */
     public function withResources(?PriceImportCollection $resources)

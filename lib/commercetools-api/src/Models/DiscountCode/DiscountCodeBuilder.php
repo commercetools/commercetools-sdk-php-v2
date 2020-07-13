@@ -310,6 +310,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -320,6 +321,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -330,6 +332,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -340,6 +343,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -350,6 +354,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -360,6 +365,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -370,6 +376,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -380,6 +387,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -390,6 +398,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?string $code
      * @return $this
      */
     public function withCode(?string $code)
@@ -400,6 +409,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountReferenceCollection $cartDiscounts
      * @return $this
      */
     public function withCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts)
@@ -410,6 +420,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartPredicate
      * @return $this
      */
     public function withCartPredicate(?string $cartPredicate)
@@ -420,6 +431,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -430,6 +442,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?ReferenceCollection $references
      * @return $this
      */
     public function withReferences(?ReferenceCollection $references)
@@ -440,6 +453,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxApplications
      * @return $this
      */
     public function withMaxApplications(?int $maxApplications)
@@ -450,6 +464,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxApplicationsPerCustomer
      * @return $this
      */
     public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
@@ -460,6 +475,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -470,6 +486,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?array $groups
      * @return $this
      */
     public function withGroups(?array $groups)
@@ -480,6 +497,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -490,6 +508,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

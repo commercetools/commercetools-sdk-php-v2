@@ -62,6 +62,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?MissingImagesProductLevel $productLevel
      * @return $this
      */
     public function withProductLevel(?MissingImagesProductLevel $productLevel)
@@ -72,6 +73,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?MissingImagesVariantLevel $variantLevel
      * @return $this
      */
     public function withVariantLevel(?MissingImagesVariantLevel $variantLevel)
@@ -82,6 +84,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @param ?int $threshold
      * @return $this
      */
     public function withThreshold(?int $threshold)

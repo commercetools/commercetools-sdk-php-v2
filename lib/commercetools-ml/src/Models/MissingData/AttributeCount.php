@@ -38,9 +38,18 @@ interface AttributeCount extends JsonObject
      */
     public function getMissingAttributeValues();
 
+    /**
+     * @param ?int $productTypeAttributes
+     */
     public function setProductTypeAttributes(?int $productTypeAttributes): void;
 
+    /**
+     * @param ?int $variantAttributes
+     */
     public function setVariantAttributes(?int $variantAttributes): void;
 
+    /**
+     * @param ?int $missingAttributeValues
+     */
     public function setMissingAttributeValues(?int $missingAttributeValues): void;
 }

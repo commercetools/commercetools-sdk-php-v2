@@ -25,8 +25,11 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
     protected $action;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $action = null
+        ?string $action = null
     ) {
         $this->action = $action;
     }
@@ -49,6 +52,9 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
     }
 
 
+    /**
+     * @param ?string $action
+     */
     public function setAction(?string $action): void
     {
         $this->action = $action;

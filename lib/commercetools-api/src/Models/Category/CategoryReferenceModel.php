@@ -38,9 +38,12 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Category $obj = null
+        ?string $id = null,
+        ?Category $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Category $obj
+     */
     public function setObj(?Category $obj): void
     {
         $this->obj = $obj;

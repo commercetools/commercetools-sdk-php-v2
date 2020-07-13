@@ -30,9 +30,12 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        TaxCategoryUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?TaxCategoryUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?TaxCategoryUpdateActionCollection $actions
+     */
     public function setActions(?TaxCategoryUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

@@ -21,5 +21,8 @@ interface CartDiscountReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?CartDiscount $obj
+     */
     public function setObj(?CartDiscount $obj): void;
 }

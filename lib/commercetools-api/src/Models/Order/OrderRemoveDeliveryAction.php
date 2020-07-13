@@ -20,5 +20,8 @@ interface OrderRemoveDeliveryAction extends OrderUpdateAction
      */
     public function getDeliveryId();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 }

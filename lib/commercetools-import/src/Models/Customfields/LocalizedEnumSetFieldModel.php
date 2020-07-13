@@ -31,8 +31,11 @@ final class LocalizedEnumSetFieldModel extends JsonObjectModel implements Locali
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $value = null
+        ?array $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class LocalizedEnumSetFieldModel extends JsonObjectModel implements Locali
     }
 
 
+    /**
+     * @param ?array $value
+     */
     public function setValue(?array $value): void
     {
         $this->value = $value;

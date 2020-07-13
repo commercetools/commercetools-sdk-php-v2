@@ -126,6 +126,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -136,6 +137,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -146,6 +148,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?string $scope
      * @return $this
      */
     public function withScope(?string $scope)
@@ -156,6 +159,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -166,6 +170,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastUsedAt
      * @return $this
      */
     public function withLastUsedAt(?DateTimeImmutable $lastUsedAt)
@@ -176,6 +181,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $deleteAt
      * @return $this
      */
     public function withDeleteAt(?DateTimeImmutable $deleteAt)
@@ -186,6 +192,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * @param ?string $secret
      * @return $this
      */
     public function withSecret(?string $secret)

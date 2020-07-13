@@ -22,5 +22,8 @@ interface TaxCategorySetKeyAction extends TaxCategoryUpdateAction
      */
     public function getKey();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

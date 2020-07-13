@@ -65,6 +65,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -75,6 +76,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expires
      * @return $this
      */
     public function withExpires(?DateTimeImmutable $expires)
@@ -85,6 +87,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     }
 
     /**
+     * @param ?MissingImagesPagedQueryResult $result
      * @return $this
      */
     public function withResult(?MissingImagesPagedQueryResult $result)

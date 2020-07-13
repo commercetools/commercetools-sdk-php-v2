@@ -35,9 +35,18 @@ interface TaxedPrice extends JsonObject
      */
     public function getTaxPortions();
 
+    /**
+     * @param ?TypedMoney $totalNet
+     */
     public function setTotalNet(?TypedMoney $totalNet): void;
 
+    /**
+     * @param ?TypedMoney $totalGross
+     */
     public function setTotalGross(?TypedMoney $totalGross): void;
 
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     */
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void;
 }

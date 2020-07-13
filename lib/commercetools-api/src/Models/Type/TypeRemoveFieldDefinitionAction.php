@@ -20,5 +20,8 @@ interface TypeRemoveFieldDefinitionAction extends TypeUpdateAction
      */
     public function getFieldName();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 }

@@ -36,6 +36,7 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $method
      * @return $this
      */
     public function withMethod(?string $method)

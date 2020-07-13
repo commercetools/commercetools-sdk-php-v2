@@ -49,6 +49,7 @@ final class PaymentTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)
@@ -59,6 +60,7 @@ final class PaymentTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $force
      * @return $this
      */
     public function withForce(?bool $force)

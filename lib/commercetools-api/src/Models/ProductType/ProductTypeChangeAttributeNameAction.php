@@ -26,7 +26,13 @@ interface ProductTypeChangeAttributeNameAction extends ProductTypeUpdateAction
      */
     public function getNewAttributeName();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?string $newAttributeName
+     */
     public function setNewAttributeName(?string $newAttributeName): void;
 }

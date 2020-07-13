@@ -167,43 +167,103 @@ interface CartDiscount extends BaseResource
      */
     public function getCustom();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?CartDiscountValue $value
+     */
     public function setValue(?CartDiscountValue $value): void;
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void;
 
+    /**
+     * @param ?CartDiscountTarget $target
+     */
     public function setTarget(?CartDiscountTarget $target): void;
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void;
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?bool $requiresDiscountCode
+     */
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void;
 
+    /**
+     * @param ?ReferenceCollection $references
+     */
     public function setReferences(?ReferenceCollection $references): void;
 
+    /**
+     * @param ?string $stackingMode
+     */
     public function setStackingMode(?string $stackingMode): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 }

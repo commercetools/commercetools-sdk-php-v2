@@ -26,7 +26,13 @@ interface ProductUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ProductUpdateActionCollection $actions
+     */
     public function setActions(?ProductUpdateActionCollection $actions): void;
 }

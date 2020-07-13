@@ -34,6 +34,7 @@ final class SubscriptionSetMessagesActionBuilder implements Builder
     }
 
     /**
+     * @param ?MessageSubscriptionCollection $messages
      * @return $this
      */
     public function withMessages(?MessageSubscriptionCollection $messages)

@@ -35,10 +35,13 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     protected $availableQuantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $isOnStock = null,
-        int $restockableInDays = null,
-        int $availableQuantity = null
+        ?bool $isOnStock = null,
+        ?int $restockableInDays = null,
+        ?int $availableQuantity = null
     ) {
         $this->isOnStock = $isOnStock;
         $this->restockableInDays = $restockableInDays;
@@ -97,16 +100,25 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?bool $isOnStock
+     */
     public function setIsOnStock(?bool $isOnStock): void
     {
         $this->isOnStock = $isOnStock;
     }
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void
     {
         $this->restockableInDays = $restockableInDays;
     }
 
+    /**
+     * @param ?int $availableQuantity
+     */
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;

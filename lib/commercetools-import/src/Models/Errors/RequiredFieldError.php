@@ -22,5 +22,8 @@ interface RequiredFieldError extends ErrorObject
      */
     public function getField();
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void;
 }

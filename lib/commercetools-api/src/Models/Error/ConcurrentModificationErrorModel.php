@@ -36,9 +36,12 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     protected $currentVersion;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        int $currentVersion = null
+        ?string $message = null,
+        ?int $currentVersion = null
     ) {
         $this->message = $message;
         $this->currentVersion = $currentVersion;
@@ -97,11 +100,17 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?int $currentVersion
+     */
     public function setCurrentVersion(?int $currentVersion): void
     {
         $this->currentVersion = $currentVersion;

@@ -80,6 +80,7 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -90,6 +91,7 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -100,6 +102,7 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -110,6 +113,7 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $fields
      * @return $this
      */
     public function withFields(?JsonObject $fields)

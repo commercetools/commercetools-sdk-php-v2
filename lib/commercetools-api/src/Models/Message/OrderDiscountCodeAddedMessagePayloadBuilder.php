@@ -36,6 +36,7 @@ final class OrderDiscountCodeAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCodeReference $discountCode
      * @return $this
      */
     public function withDiscountCode(?DiscountCodeReference $discountCode)

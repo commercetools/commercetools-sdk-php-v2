@@ -26,7 +26,13 @@ interface FilteredFacetResult extends FacetResult
      */
     public function getProductCount();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void;
 }

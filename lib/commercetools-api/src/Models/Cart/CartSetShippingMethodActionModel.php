@@ -38,9 +38,12 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     protected $externalTaxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ShippingMethodResourceIdentifier $shippingMethod = null,
-        ExternalTaxRateDraft $externalTaxRate = null
+        ?ShippingMethodResourceIdentifier $shippingMethod = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
         $this->shippingMethod = $shippingMethod;
         $this->externalTaxRate = $externalTaxRate;
@@ -101,11 +104,17 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;

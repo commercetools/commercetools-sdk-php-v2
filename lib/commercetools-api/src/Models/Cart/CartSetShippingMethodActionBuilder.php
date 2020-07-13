@@ -49,6 +49,7 @@ final class CartSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
@@ -59,6 +60,7 @@ final class CartSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)

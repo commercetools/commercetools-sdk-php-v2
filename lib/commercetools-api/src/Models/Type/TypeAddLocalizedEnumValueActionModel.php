@@ -36,9 +36,12 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null,
-        CustomFieldLocalizedEnumValue $value = null
+        ?string $fieldName = null,
+        ?CustomFieldLocalizedEnumValue $value = null
     ) {
         $this->fieldName = $fieldName;
         $this->value = $value;
@@ -98,11 +101,17 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;
     }
 
+    /**
+     * @param ?CustomFieldLocalizedEnumValue $value
+     */
     public function setValue(?CustomFieldLocalizedEnumValue $value): void
     {
         $this->value = $value;

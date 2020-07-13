@@ -27,7 +27,13 @@ interface InventoryEntryDeletedMessage extends Message
      */
     public function getSupplyChannel();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 }

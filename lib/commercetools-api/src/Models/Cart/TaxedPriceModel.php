@@ -37,10 +37,13 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     protected $taxPortions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoney $totalNet = null,
-        TypedMoney $totalGross = null,
-        TaxPortionCollection $taxPortions = null
+        ?TypedMoney $totalNet = null,
+        ?TypedMoney $totalGross = null,
+        ?TaxPortionCollection $taxPortions = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
@@ -103,16 +106,25 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
 
+    /**
+     * @param ?TypedMoney $totalNet
+     */
     public function setTotalNet(?TypedMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
+    /**
+     * @param ?TypedMoney $totalGross
+     */
     public function setTotalGross(?TypedMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
 
+    /**
+     * @param ?TaxPortionCollection $taxPortions
+     */
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void
     {
         $this->taxPortions = $taxPortions;

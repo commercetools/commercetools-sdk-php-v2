@@ -224,6 +224,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -234,6 +235,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -244,6 +246,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -254,6 +257,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -264,6 +268,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -274,6 +279,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -284,6 +290,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -294,6 +301,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -304,6 +312,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -314,6 +323,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $localizedDescription
      * @return $this
      */
     public function withLocalizedDescription(?LocalizedString $localizedDescription)
@@ -324,6 +334,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
@@ -334,6 +345,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneRateCollection $zoneRates
      * @return $this
      */
     public function withZoneRates(?ZoneRateCollection $zoneRates)
@@ -344,6 +356,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isDefault
      * @return $this
      */
     public function withIsDefault(?bool $isDefault)
@@ -354,6 +367,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)

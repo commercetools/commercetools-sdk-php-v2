@@ -26,7 +26,7 @@ final class AttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -41,7 +41,7 @@ final class AttributeBuilder implements Builder
     /**
      * <p>A valid JSON value, based on an AttributeDefinition.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -49,6 +49,7 @@ final class AttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -59,9 +60,10 @@ final class AttributeBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

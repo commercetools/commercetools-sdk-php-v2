@@ -50,6 +50,7 @@ final class ImageSearchConfigResponseBuilder implements Builder
     }
 
     /**
+     * @param ?string $status
      * @return $this
      */
     public function withStatus(?string $status)
@@ -60,6 +61,7 @@ final class ImageSearchConfigResponseBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)

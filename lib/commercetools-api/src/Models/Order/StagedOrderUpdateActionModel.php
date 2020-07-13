@@ -239,6 +239,9 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'updateSyncInfo' => StagedOrderUpdateSyncInfoActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

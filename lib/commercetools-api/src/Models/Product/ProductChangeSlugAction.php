@@ -31,7 +31,13 @@ interface ProductChangeSlugAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

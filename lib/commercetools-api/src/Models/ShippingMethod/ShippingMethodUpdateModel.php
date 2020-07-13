@@ -30,9 +30,12 @@ final class ShippingMethodUpdateModel extends JsonObjectModel implements Shippin
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ShippingMethodUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ShippingMethodUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ShippingMethodUpdateModel extends JsonObjectModel implements Shippin
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ShippingMethodUpdateActionCollection $actions
+     */
     public function setActions(?ShippingMethodUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

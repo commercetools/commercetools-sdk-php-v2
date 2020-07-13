@@ -30,9 +30,12 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     protected $variantLevel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MissingPricesProductLevel $productLevel = null,
-        MissingPricesVariantLevel $variantLevel = null
+        ?MissingPricesProductLevel $productLevel = null,
+        ?MissingPricesVariantLevel $variantLevel = null
     ) {
         $this->productLevel = $productLevel;
         $this->variantLevel = $variantLevel;
@@ -75,11 +78,17 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     }
 
 
+    /**
+     * @param ?MissingPricesProductLevel $productLevel
+     */
     public function setProductLevel(?MissingPricesProductLevel $productLevel): void
     {
         $this->productLevel = $productLevel;
     }
 
+    /**
+     * @param ?MissingPricesVariantLevel $variantLevel
+     */
     public function setVariantLevel(?MissingPricesVariantLevel $variantLevel): void
     {
         $this->variantLevel = $variantLevel;

@@ -52,15 +52,33 @@ interface ShoppingListLineItemDraft extends JsonObject
      */
     public function getVariantId();
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 }

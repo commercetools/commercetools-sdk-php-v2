@@ -38,9 +38,12 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Zone $obj = null
+        ?string $id = null,
+        ?Zone $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Zone $obj
+     */
     public function setObj(?Zone $obj): void
     {
         $this->obj = $obj;

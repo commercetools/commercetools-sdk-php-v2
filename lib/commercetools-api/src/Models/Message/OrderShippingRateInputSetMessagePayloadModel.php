@@ -38,9 +38,12 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     protected $oldShippingRateInput;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ShippingRateInput $shippingRateInput = null,
-        ShippingRateInput $oldShippingRateInput = null
+        ?ShippingRateInput $shippingRateInput = null,
+        ?ShippingRateInput $oldShippingRateInput = null
     ) {
         $this->shippingRateInput = $shippingRateInput;
         $this->oldShippingRateInput = $oldShippingRateInput;
@@ -101,11 +104,17 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
     }
 
+    /**
+     * @param ?ShippingRateInput $oldShippingRateInput
+     */
     public function setOldShippingRateInput(?ShippingRateInput $oldShippingRateInput): void
     {
         $this->oldShippingRateInput = $oldShippingRateInput;

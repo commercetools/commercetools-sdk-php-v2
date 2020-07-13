@@ -48,6 +48,7 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     }
 
     /**
+     * @param ?StagedOrder $preview
      * @return $this
      */
     public function withPreview(?StagedOrder $preview)
@@ -58,6 +59,7 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     }
 
     /**
+     * @param ?MessagePayloadCollection $messagePayloads
      * @return $this
      */
     public function withMessagePayloads(?MessagePayloadCollection $messagePayloads)

@@ -47,6 +47,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -57,6 +58,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
+     * @param ?int $ttlMinutes
      * @return $this
      */
     public function withTtlMinutes(?int $ttlMinutes)

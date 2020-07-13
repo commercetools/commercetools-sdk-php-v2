@@ -260,6 +260,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -270,6 +271,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -280,6 +282,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -290,6 +293,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -300,6 +304,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -310,6 +315,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -320,6 +326,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -330,6 +337,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -340,6 +348,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
@@ -350,6 +359,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -360,6 +370,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -370,6 +381,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListLineItemCollection $lineItems
      * @return $this
      */
     public function withLineItems(?ShoppingListLineItemCollection $lineItems)
@@ -380,6 +392,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -390,6 +403,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -400,6 +414,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?TextLineItemCollection $textLineItems
      * @return $this
      */
     public function withTextLineItems(?TextLineItemCollection $textLineItems)
@@ -410,6 +425,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

@@ -51,7 +51,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -104,7 +104,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -112,6 +112,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -122,6 +123,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -132,6 +134,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -142,6 +145,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -152,6 +156,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -162,6 +167,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -172,9 +178,10 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

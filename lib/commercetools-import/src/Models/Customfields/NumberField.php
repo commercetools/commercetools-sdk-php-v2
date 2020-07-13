@@ -20,5 +20,8 @@ interface NumberField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?float $value
+     */
     public function setValue(?float $value): void;
 }

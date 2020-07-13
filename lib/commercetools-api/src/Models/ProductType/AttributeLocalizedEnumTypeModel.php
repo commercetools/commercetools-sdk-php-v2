@@ -31,8 +31,11 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AttributeLocalizedEnumValueCollection $values = null
+        ?AttributeLocalizedEnumValueCollection $values = null
     ) {
         $this->values = $values;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
     }
 
 
+    /**
+     * @param ?AttributeLocalizedEnumValueCollection $values
+     */
     public function setValues(?AttributeLocalizedEnumValueCollection $values): void
     {
         $this->values = $values;

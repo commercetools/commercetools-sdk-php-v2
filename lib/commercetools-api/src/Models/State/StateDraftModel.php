@@ -57,14 +57,17 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     protected $transitions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $type = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        bool $initial = null,
-        array $roles = null,
-        StateResourceIdentifierCollection $transitions = null
+        ?string $key = null,
+        ?string $type = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?bool $initial = null,
+        ?array $roles = null,
+        ?StateResourceIdentifierCollection $transitions = null
     ) {
         $this->key = $key;
         $this->type = $type;
@@ -197,36 +200,57 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void
     {
         $this->initial = $initial;
     }
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void
     {
         $this->roles = $roles;
     }
 
+    /**
+     * @param ?StateResourceIdentifierCollection $transitions
+     */
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void
     {
         $this->transitions = $transitions;

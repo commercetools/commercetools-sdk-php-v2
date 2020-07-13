@@ -85,6 +85,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amountPlanned
      * @return $this
      */
     public function withAmountPlanned(?Money $amountPlanned)
@@ -95,6 +96,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
      * @return $this
      */
     public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
@@ -105,6 +107,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -115,6 +118,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?MyTransactionDraft $transaction
      * @return $this
      */
     public function withTransaction(?MyTransactionDraft $transaction)

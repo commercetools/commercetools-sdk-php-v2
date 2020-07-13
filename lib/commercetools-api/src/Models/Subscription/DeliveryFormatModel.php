@@ -34,6 +34,9 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
        'Platform' => DeliveryPlatformFormatModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

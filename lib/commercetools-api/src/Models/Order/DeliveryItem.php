@@ -26,7 +26,13 @@ interface DeliveryItem extends JsonObject
      */
     public function getQuantity();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 }

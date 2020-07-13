@@ -174,41 +174,98 @@ interface LineItem extends JsonObject
      */
     public function getShippingDetails();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $productSlug
+     */
     public function setProductSlug(?LocalizedString $productSlug): void;
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void;
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void;
 
+    /**
+     * @param ?Price $price
+     */
     public function setPrice(?Price $price): void;
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void;
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void;
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 
+    /**
+     * @param ?ChannelReference $distributionChannel
+     */
     public function setDistributionChannel(?ChannelReference $distributionChannel): void;
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void;
 
+    /**
+     * @param ?string $priceMode
+     */
     public function setPriceMode(?string $priceMode): void;
 
+    /**
+     * @param ?string $lineItemMode
+     */
     public function setLineItemMode(?string $lineItemMode): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?ItemShippingDetails $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
 }

@@ -25,8 +25,11 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     protected $countryTaxRateFallbackEnabled;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $countryTaxRateFallbackEnabled = null
+        ?bool $countryTaxRateFallbackEnabled = null
     ) {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
     }
@@ -51,6 +54,9 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     }
 
 
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     */
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
     {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;

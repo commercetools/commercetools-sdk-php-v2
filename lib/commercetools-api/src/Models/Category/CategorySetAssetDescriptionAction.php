@@ -33,9 +33,18 @@ interface CategorySetAssetDescriptionAction extends CategoryUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

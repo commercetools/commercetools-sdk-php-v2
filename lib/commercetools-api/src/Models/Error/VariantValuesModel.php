@@ -37,10 +37,13 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        PriceDraftCollection $prices = null,
-        AttributeCollection $attributes = null
+        ?string $sku = null,
+        ?PriceDraftCollection $prices = null,
+        ?AttributeCollection $attributes = null
     ) {
         $this->sku = $sku;
         $this->prices = $prices;
@@ -99,16 +102,25 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;

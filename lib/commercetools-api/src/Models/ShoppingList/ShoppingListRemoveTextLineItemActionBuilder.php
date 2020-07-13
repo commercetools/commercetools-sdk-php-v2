@@ -47,6 +47,7 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $textLineItemId
      * @return $this
      */
     public function withTextLineItemId(?string $textLineItemId)
@@ -57,6 +58,7 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)

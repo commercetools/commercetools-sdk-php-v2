@@ -34,6 +34,7 @@ final class CartAddDiscountCodeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $code
      * @return $this
      */
     public function withCode(?string $code)

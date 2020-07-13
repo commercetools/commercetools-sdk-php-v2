@@ -66,6 +66,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
@@ -76,6 +77,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -86,6 +88,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)

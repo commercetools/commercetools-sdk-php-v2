@@ -73,6 +73,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -83,6 +84,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -93,6 +95,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -103,6 +106,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @param ?GeneralCategoryRecommendationCollection $results
      * @return $this
      */
     public function withResults(?GeneralCategoryRecommendationCollection $results)

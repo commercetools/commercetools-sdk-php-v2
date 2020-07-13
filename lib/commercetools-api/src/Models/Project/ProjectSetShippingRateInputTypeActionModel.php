@@ -31,8 +31,11 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     protected $shippingRateInputType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ShippingRateInputType $shippingRateInputType = null
+        ?ShippingRateInputType $shippingRateInputType = null
     ) {
         $this->shippingRateInputType = $shippingRateInputType;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?ShippingRateInputType $shippingRateInputType
+     */
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void
     {
         $this->shippingRateInputType = $shippingRateInputType;

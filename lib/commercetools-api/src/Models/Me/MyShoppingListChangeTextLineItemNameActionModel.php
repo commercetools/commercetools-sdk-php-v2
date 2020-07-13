@@ -38,9 +38,12 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $textLineItemId = null,
-        LocalizedString $name = null
+        ?string $textLineItemId = null,
+        ?LocalizedString $name = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->name = $name;
@@ -100,11 +103,17 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;

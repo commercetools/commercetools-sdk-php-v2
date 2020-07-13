@@ -23,5 +23,8 @@ interface StoreSetNameAction extends StoreUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

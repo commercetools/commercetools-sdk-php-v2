@@ -31,8 +31,11 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AttributeDefinitionCollection $attributes = null
+        ?AttributeDefinitionCollection $attributes = null
     ) {
         $this->attributes = $attributes;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?AttributeDefinitionCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionCollection $attributes): void
     {
         $this->attributes = $attributes;

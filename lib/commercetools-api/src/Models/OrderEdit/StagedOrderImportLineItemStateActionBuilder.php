@@ -50,6 +50,7 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -60,6 +61,7 @@ final class StagedOrderImportLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
      * @return $this
      */
     public function withState(?ItemStateCollection $state)

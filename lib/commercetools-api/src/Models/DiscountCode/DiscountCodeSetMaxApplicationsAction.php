@@ -22,5 +22,8 @@ interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction
      */
     public function getMaxApplications();
 
+    /**
+     * @param ?int $maxApplications
+     */
     public function setMaxApplications(?int $maxApplications): void;
 }

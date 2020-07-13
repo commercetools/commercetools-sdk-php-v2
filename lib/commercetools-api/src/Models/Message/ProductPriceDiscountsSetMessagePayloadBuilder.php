@@ -34,6 +34,7 @@ final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices
      * @return $this
      */
     public function withUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices)

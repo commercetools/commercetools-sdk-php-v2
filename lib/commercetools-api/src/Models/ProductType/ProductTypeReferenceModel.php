@@ -38,9 +38,12 @@ final class ProductTypeReferenceModel extends JsonObjectModel implements Product
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        ProductType $obj = null
+        ?string $id = null,
+        ?ProductType $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ProductTypeReferenceModel extends JsonObjectModel implements Product
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?ProductType $obj
+     */
     public function setObj(?ProductType $obj): void
     {
         $this->obj = $obj;

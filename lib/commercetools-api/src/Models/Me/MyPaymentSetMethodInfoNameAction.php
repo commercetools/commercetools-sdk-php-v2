@@ -21,5 +21,8 @@ interface MyPaymentSetMethodInfoNameAction extends MyPaymentUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

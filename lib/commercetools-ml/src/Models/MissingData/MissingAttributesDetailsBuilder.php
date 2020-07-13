@@ -66,6 +66,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -76,6 +77,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     }
 
     /**
+     * @param ?int $missingAttributeNames
      * @return $this
      */
     public function withMissingAttributeNames(?int $missingAttributeNames)
@@ -86,6 +88,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     }
 
     /**
+     * @param ?int $missingAttributeValues
      * @return $this
      */
     public function withMissingAttributeValues(?int $missingAttributeValues)

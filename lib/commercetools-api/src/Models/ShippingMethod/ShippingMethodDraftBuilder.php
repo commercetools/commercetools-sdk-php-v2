@@ -133,6 +133,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -143,6 +144,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -153,6 +155,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -163,6 +166,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $localizedDescription
      * @return $this
      */
     public function withLocalizedDescription(?LocalizedString $localizedDescription)
@@ -173,6 +177,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
@@ -183,6 +188,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneRateDraftCollection $zoneRates
      * @return $this
      */
     public function withZoneRates(?ZoneRateDraftCollection $zoneRates)
@@ -193,6 +199,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isDefault
      * @return $this
      */
     public function withIsDefault(?bool $isDefault)
@@ -203,6 +210,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)

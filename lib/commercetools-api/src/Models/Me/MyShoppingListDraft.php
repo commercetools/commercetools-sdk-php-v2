@@ -58,15 +58,33 @@ interface MyShoppingListDraft extends JsonObject
      */
     public function getDeleteDaysAfterLastModification();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     */
     public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void;
 
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     */
     public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 }

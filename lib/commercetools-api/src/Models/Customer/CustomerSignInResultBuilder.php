@@ -50,6 +50,7 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
+     * @param ?Customer $customer
      * @return $this
      */
     public function withCustomer(?Customer $customer)
@@ -60,6 +61,7 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $cart
      * @return $this
      */
     public function withCart(?JsonObject $cart)

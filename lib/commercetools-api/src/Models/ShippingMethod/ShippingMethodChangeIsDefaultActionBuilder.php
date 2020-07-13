@@ -36,6 +36,7 @@ final class ShippingMethodChangeIsDefaultActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isDefault
      * @return $this
      */
     public function withIsDefault(?bool $isDefault)

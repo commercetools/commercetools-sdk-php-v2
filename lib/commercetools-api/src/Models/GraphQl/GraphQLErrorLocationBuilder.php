@@ -47,6 +47,7 @@ final class GraphQLErrorLocationBuilder implements Builder
     }
 
     /**
+     * @param ?int $line
      * @return $this
      */
     public function withLine(?int $line)
@@ -57,6 +58,7 @@ final class GraphQLErrorLocationBuilder implements Builder
     }
 
     /**
+     * @param ?int $column
      * @return $this
      */
     public function withColumn(?int $column)

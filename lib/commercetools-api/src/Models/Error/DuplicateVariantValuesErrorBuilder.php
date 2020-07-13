@@ -47,6 +47,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -57,6 +58,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * @param ?VariantValues $variantValues
      * @return $this
      */
     public function withVariantValues(?VariantValues $variantValues)

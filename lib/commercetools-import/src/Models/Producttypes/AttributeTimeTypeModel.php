@@ -26,6 +26,9 @@ final class AttributeTimeTypeModel extends JsonObjectModel implements AttributeT
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

@@ -20,5 +20,8 @@ interface StoreSetLanguagesAction extends StoreUpdateAction
      */
     public function getLanguages();
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void;
 }

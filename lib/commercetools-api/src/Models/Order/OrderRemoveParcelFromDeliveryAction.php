@@ -20,5 +20,8 @@ interface OrderRemoveParcelFromDeliveryAction extends OrderUpdateAction
      */
     public function getParcelId();
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 }

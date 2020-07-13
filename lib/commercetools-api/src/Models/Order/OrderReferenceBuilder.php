@@ -49,6 +49,7 @@ final class OrderReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class OrderReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?Order $obj
      * @return $this
      */
     public function withObj(?Order $obj)

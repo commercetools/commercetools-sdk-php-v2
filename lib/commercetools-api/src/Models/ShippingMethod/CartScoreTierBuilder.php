@@ -75,6 +75,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @param ?float $score
      * @return $this
      */
     public function withScore(?float $score)
@@ -85,6 +86,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -95,6 +97,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @param ?PriceFunction $priceFunction
      * @return $this
      */
     public function withPriceFunction(?PriceFunction $priceFunction)
@@ -105,6 +108,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMatching
      * @return $this
      */
     public function withIsMatching(?bool $isMatching)

@@ -34,6 +34,7 @@ final class StringFieldBuilder implements Builder
     }
 
     /**
+     * @param ?string $value
      * @return $this
      */
     public function withValue(?string $value)

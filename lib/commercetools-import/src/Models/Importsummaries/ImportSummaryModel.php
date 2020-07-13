@@ -30,9 +30,12 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     protected $total;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        OperationStates $states = null,
-        float $total = null
+        ?OperationStates $states = null,
+        ?float $total = null
     ) {
         $this->states = $states;
         $this->total = $total;
@@ -78,11 +81,17 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     }
 
 
+    /**
+     * @param ?OperationStates $states
+     */
     public function setStates(?OperationStates $states): void
     {
         $this->states = $states;
     }
 
+    /**
+     * @param ?float $total
+     */
     public function setTotal(?float $total): void
     {
         $this->total = $total;

@@ -171,6 +171,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Accepted
      * @return $this
      */
     public function withAccepted(?float $Accepted)
@@ -181,6 +182,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $ValidationFailed
      * @return $this
      */
     public function withValidationFailed(?float $ValidationFailed)
@@ -191,6 +193,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Unresolved
      * @return $this
      */
     public function withUnresolved(?float $Unresolved)
@@ -201,6 +204,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Resolved
      * @return $this
      */
     public function withResolved(?float $Resolved)
@@ -211,6 +215,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $WaitForMasterVariant
      * @return $this
      */
     public function withWaitForMasterVariant(?float $WaitForMasterVariant)
@@ -221,6 +226,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Imported
      * @return $this
      */
     public function withImported(?float $Imported)
@@ -231,6 +237,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Deleted
      * @return $this
      */
     public function withDeleted(?float $Deleted)
@@ -241,6 +248,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Rejected
      * @return $this
      */
     public function withRejected(?float $Rejected)
@@ -251,6 +259,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Skipped
      * @return $this
      */
     public function withSkipped(?float $Skipped)
@@ -261,6 +270,7 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?float $Expired
      * @return $this
      */
     public function withExpired(?float $Expired)

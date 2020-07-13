@@ -21,7 +21,7 @@ use stdClass;
 final class GraphQLResponseBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $data;
 
@@ -31,7 +31,7 @@ final class GraphQLResponseBuilder implements Builder
     private $errors;
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getData()
     {
@@ -47,9 +47,10 @@ final class GraphQLResponseBuilder implements Builder
     }
 
     /**
+     * @param mixed $data
      * @return $this
      */
-    public function withData(?JsonObject $data)
+    public function withData($data)
     {
         $this->data = $data;
 
@@ -57,6 +58,7 @@ final class GraphQLResponseBuilder implements Builder
     }
 
     /**
+     * @param ?GraphQLErrorCollection $errors
      * @return $this
      */
     public function withErrors(?GraphQLErrorCollection $errors)

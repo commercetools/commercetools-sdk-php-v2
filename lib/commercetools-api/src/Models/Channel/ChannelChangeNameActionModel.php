@@ -33,8 +33,11 @@ final class ChannelChangeNameActionModel extends JsonObjectModel implements Chan
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null
+        ?LocalizedString $name = null
     ) {
         $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ChannelChangeNameActionModel extends JsonObjectModel implements Chan
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;

@@ -49,6 +49,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -59,6 +60,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $label
      * @return $this
      */
     public function withLabel(?LocalizedString $label)

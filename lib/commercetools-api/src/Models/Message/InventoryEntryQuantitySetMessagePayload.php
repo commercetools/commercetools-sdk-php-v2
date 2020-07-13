@@ -38,11 +38,23 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
      */
     public function getNewAvailableQuantity();
 
+    /**
+     * @param ?int $oldQuantityOnStock
+     */
     public function setOldQuantityOnStock(?int $oldQuantityOnStock): void;
 
+    /**
+     * @param ?int $newQuantityOnStock
+     */
     public function setNewQuantityOnStock(?int $newQuantityOnStock): void;
 
+    /**
+     * @param ?int $oldAvailableQuantity
+     */
     public function setOldAvailableQuantity(?int $oldAvailableQuantity): void;
 
+    /**
+     * @param ?int $newAvailableQuantity
+     */
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void;
 }

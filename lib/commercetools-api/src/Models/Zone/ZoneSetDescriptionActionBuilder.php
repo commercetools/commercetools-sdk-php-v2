@@ -34,6 +34,7 @@ final class ZoneSetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)

@@ -26,7 +26,13 @@ interface TaxCategoryUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?TaxCategoryUpdateActionCollection $actions
+     */
     public function setActions(?TaxCategoryUpdateActionCollection $actions): void;
 }

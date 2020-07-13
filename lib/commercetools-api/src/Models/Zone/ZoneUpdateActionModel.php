@@ -37,6 +37,9 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
        'setKey' => ZoneSetKeyActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

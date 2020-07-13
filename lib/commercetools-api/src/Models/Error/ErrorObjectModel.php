@@ -70,8 +70,11 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'invalid_token' => InvalidTokenErrorModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null
+        ?string $message = null
     ) {
         $this->message = $message;
         $this->code = static::DISCRIMINATOR_VALUE;
@@ -112,6 +115,9 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;

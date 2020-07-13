@@ -36,6 +36,7 @@ final class StagedOrderRemoveParcelFromDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)

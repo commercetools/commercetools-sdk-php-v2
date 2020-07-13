@@ -35,9 +35,18 @@ interface ProductChangePriceAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?PriceDraft $price
+     */
     public function setPrice(?PriceDraft $price): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

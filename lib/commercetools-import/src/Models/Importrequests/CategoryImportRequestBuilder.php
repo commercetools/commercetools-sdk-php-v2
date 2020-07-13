@@ -37,6 +37,7 @@ final class CategoryImportRequestBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryImportCollection $resources
      * @return $this
      */
     public function withResources(?CategoryImportCollection $resources)

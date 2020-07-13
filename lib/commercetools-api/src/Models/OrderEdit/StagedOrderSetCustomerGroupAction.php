@@ -22,5 +22,8 @@ interface StagedOrderSetCustomerGroupAction extends StagedOrderUpdateAction
      */
     public function getCustomerGroup();
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 }

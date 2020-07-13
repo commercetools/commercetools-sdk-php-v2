@@ -59,14 +59,17 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     protected $attributeCoverage;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        ProductTypeReference $productType = null,
-        int $variantId = null,
-        array $missingAttributeValues = null,
-        array $missingAttributeNames = null,
-        AttributeCount $attributeCount = null,
-        AttributeCoverage $attributeCoverage = null
+        ?ProductReference $product = null,
+        ?ProductTypeReference $productType = null,
+        ?int $variantId = null,
+        ?array $missingAttributeValues = null,
+        ?array $missingAttributeNames = null,
+        ?AttributeCount $attributeCount = null,
+        ?AttributeCoverage $attributeCoverage = null
     ) {
         $this->product = $product;
         $this->productType = $productType;
@@ -207,36 +210,57 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?array $missingAttributeValues
+     */
     public function setMissingAttributeValues(?array $missingAttributeValues): void
     {
         $this->missingAttributeValues = $missingAttributeValues;
     }
 
+    /**
+     * @param ?array $missingAttributeNames
+     */
     public function setMissingAttributeNames(?array $missingAttributeNames): void
     {
         $this->missingAttributeNames = $missingAttributeNames;
     }
 
+    /**
+     * @param ?AttributeCount $attributeCount
+     */
     public function setAttributeCount(?AttributeCount $attributeCount): void
     {
         $this->attributeCount = $attributeCount;
     }
 
+    /**
+     * @param ?AttributeCoverage $attributeCoverage
+     */
     public function setAttributeCoverage(?AttributeCoverage $attributeCoverage): void
     {
         $this->attributeCoverage = $attributeCoverage;

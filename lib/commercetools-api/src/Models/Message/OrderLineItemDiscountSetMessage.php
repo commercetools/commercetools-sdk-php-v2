@@ -41,11 +41,23 @@ interface OrderLineItemDiscountSetMessage extends Message
      */
     public function getTaxedPrice();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void;
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void;
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 }

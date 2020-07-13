@@ -78,6 +78,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -88,6 +89,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
      * @return $this
      */
     public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
@@ -98,6 +100,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalPrice
      * @return $this
      */
     public function withTotalPrice(?Money $totalPrice)
@@ -108,6 +111,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedItemPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)

@@ -27,7 +27,13 @@ interface ItemState extends JsonObject
      */
     public function getState();
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 }

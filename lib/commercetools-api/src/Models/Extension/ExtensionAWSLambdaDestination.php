@@ -32,9 +32,18 @@ interface ExtensionAWSLambdaDestination extends ExtensionDestination
      */
     public function getAccessSecret();
 
+    /**
+     * @param ?string $arn
+     */
     public function setArn(?string $arn): void;
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void;
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void;
 }

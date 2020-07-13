@@ -43,16 +43,19 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     protected $type;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $assetId = null,
-        string $assetKey = null,
-        TypeResourceIdentifier $type = null,
-        JsonObject $fields = null
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?TypeResourceIdentifier $type = null,
+        ?JsonObject $fields = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -136,7 +139,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     /**
      * <p>If set, the custom fields are set to this new value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getFields()
     {
@@ -153,21 +156,33 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?JsonObject $fields
+     */
     public function setFields(?JsonObject $fields): void
     {
         $this->fields = $fields;

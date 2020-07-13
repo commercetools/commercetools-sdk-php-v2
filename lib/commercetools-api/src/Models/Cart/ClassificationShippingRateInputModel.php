@@ -38,9 +38,12 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     protected $label;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        LocalizedString $label = null
+        ?string $key = null,
+        ?LocalizedString $label = null
     ) {
         $this->key = $key;
         $this->label = $label;
@@ -100,11 +103,17 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;

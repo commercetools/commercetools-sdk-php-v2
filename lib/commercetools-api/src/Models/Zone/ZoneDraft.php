@@ -42,11 +42,23 @@ interface ZoneDraft extends JsonObject
      */
     public function getLocations();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 
+    /**
+     * @param ?LocationCollection $locations
+     */
     public function setLocations(?LocationCollection $locations): void;
 }

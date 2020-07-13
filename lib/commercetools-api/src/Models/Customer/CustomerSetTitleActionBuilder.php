@@ -34,6 +34,7 @@ final class CustomerSetTitleActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)

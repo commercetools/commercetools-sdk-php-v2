@@ -60,15 +60,18 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     protected $confidenceMax;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $offset = null,
-        string $language = null,
-        string $currencyCode = null,
-        SimilarityMeasures $similarityMeasures = null,
-        ProductSetSelectorCollection $productSetSelectors = null,
-        float $confidenceMin = null,
-        float $confidenceMax = null
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $language = null,
+        ?string $currencyCode = null,
+        ?SimilarityMeasures $similarityMeasures = null,
+        ?ProductSetSelectorCollection $productSetSelectors = null,
+        ?float $confidenceMin = null,
+        ?float $confidenceMax = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -226,41 +229,65 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?string $language
+     */
     public function setLanguage(?string $language): void
     {
         $this->language = $language;
     }
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
     }
 
+    /**
+     * @param ?SimilarityMeasures $similarityMeasures
+     */
     public function setSimilarityMeasures(?SimilarityMeasures $similarityMeasures): void
     {
         $this->similarityMeasures = $similarityMeasures;
     }
 
+    /**
+     * @param ?ProductSetSelectorCollection $productSetSelectors
+     */
     public function setProductSetSelectors(?ProductSetSelectorCollection $productSetSelectors): void
     {
         $this->productSetSelectors = $productSetSelectors;
     }
 
+    /**
+     * @param ?float $confidenceMin
+     */
     public function setConfidenceMin(?float $confidenceMin): void
     {
         $this->confidenceMin = $confidenceMin;
     }
 
+    /**
+     * @param ?float $confidenceMax
+     */
     public function setConfidenceMax(?float $confidenceMax): void
     {
         $this->confidenceMax = $confidenceMax;

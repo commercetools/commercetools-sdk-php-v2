@@ -54,6 +54,9 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
        'setMetaTitle' => CategorySetMetaTitleActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

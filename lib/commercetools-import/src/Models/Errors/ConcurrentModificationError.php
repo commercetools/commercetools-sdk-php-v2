@@ -34,13 +34,22 @@ interface ConcurrentModificationError extends ErrorObject
     /**
      * <p>The conflicted resource.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getConflictedResource();
 
+    /**
+     * @param ?int $specifiedVersion
+     */
     public function setSpecifiedVersion(?int $specifiedVersion): void;
 
+    /**
+     * @param ?int $currentVersion
+     */
     public function setCurrentVersion(?int $currentVersion): void;
 
-    public function setConflictedResource(?JsonObject $conflictedResource): void;
+    /**
+     * @param mixed $conflictedResource
+     */
+    public function setConflictedResource($conflictedResource): void;
 }

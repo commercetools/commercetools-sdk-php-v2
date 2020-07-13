@@ -34,6 +34,7 @@ final class CustomTokenizerBuilder implements Builder
     }
 
     /**
+     * @param ?array $inputs
      * @return $this
      */
     public function withInputs(?array $inputs)

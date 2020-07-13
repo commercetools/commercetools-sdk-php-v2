@@ -51,12 +51,15 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        string $imageUrl = null,
-        int $position = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?string $imageUrl = null,
+        ?int $position = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -171,26 +174,41 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
     }
 
+    /**
+     * @param ?int $position
+     */
     public function setPosition(?int $position): void
     {
         $this->position = $position;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

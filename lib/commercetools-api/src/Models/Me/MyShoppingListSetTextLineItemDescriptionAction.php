@@ -27,7 +27,13 @@ interface MyShoppingListSetTextLineItemDescriptionAction extends MyShoppingListU
      */
     public function getDescription();
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

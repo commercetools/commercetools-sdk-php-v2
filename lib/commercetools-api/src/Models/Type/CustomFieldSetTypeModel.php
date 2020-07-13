@@ -31,8 +31,11 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     protected $elementType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        FieldType $elementType = null
+        ?FieldType $elementType = null
     ) {
         $this->elementType = $elementType;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     }
 
 
+    /**
+     * @param ?FieldType $elementType
+     */
     public function setElementType(?FieldType $elementType): void
     {
         $this->elementType = $elementType;

@@ -49,9 +49,18 @@ interface ProductVariantPatch extends JsonObject
      */
     public function getAttributes();
 
+    /**
+     * @param ?ProductVariantKeyReference $productVariant
+     */
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void;
 
+    /**
+     * @param ?ProductKeyReference $product
+     */
     public function setProduct(?ProductKeyReference $product): void;
 
+    /**
+     * @param ?Attributes $attributes
+     */
     public function setAttributes(?Attributes $attributes): void;
 }

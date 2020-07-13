@@ -45,12 +45,15 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     protected $facets;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        ProductProjectionCollection $results = null,
-        FacetResults $facets = null
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?ProductProjectionCollection $results = null,
+        ?FacetResults $facets = null
     ) {
         $this->count = $count;
         $this->total = $total;
@@ -146,26 +149,41 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?ProductProjectionCollection $results
+     */
     public function setResults(?ProductProjectionCollection $results): void
     {
         $this->results = $results;
     }
 
+    /**
+     * @param ?FacetResults $facets
+     */
     public function setFacets(?FacetResults $facets): void
     {
         $this->facets = $facets;

@@ -53,6 +53,7 @@ final class LocalizableTextAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -63,6 +64,7 @@ final class LocalizableTextAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $value
      * @return $this
      */
     public function withValue(?LocalizedString $value)

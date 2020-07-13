@@ -47,6 +47,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -57,6 +58,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * @param ?int $currentVersion
      * @return $this
      */
     public function withCurrentVersion(?int $currentVersion)

@@ -20,5 +20,8 @@ interface SubscriptionSetChangesAction extends SubscriptionUpdateAction
      */
     public function getChanges();
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void;
 }

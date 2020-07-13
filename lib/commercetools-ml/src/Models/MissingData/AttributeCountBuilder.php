@@ -66,6 +66,7 @@ final class AttributeCountBuilder implements Builder
     }
 
     /**
+     * @param ?int $productTypeAttributes
      * @return $this
      */
     public function withProductTypeAttributes(?int $productTypeAttributes)
@@ -76,6 +77,7 @@ final class AttributeCountBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantAttributes
      * @return $this
      */
     public function withVariantAttributes(?int $variantAttributes)
@@ -86,6 +88,7 @@ final class AttributeCountBuilder implements Builder
     }
 
     /**
+     * @param ?int $missingAttributeValues
      * @return $this
      */
     public function withMissingAttributeValues(?int $missingAttributeValues)

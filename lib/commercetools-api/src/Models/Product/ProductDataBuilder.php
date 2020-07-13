@@ -167,6 +167,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -177,6 +178,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReferenceCollection $categories
      * @return $this
      */
     public function withCategories(?CategoryReferenceCollection $categories)
@@ -187,6 +189,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryOrderHints $categoryOrderHints
      * @return $this
      */
     public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
@@ -197,6 +200,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -207,6 +211,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -217,6 +222,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -227,6 +233,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -237,6 +244,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -247,6 +255,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariant $masterVariant
      * @return $this
      */
     public function withMasterVariant(?ProductVariant $masterVariant)
@@ -257,6 +266,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantCollection $variants
      * @return $this
      */
     public function withVariants(?ProductVariantCollection $variants)
@@ -267,6 +277,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)

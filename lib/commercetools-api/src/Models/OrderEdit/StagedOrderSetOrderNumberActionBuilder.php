@@ -36,6 +36,7 @@ final class StagedOrderSetOrderNumberActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)

@@ -76,18 +76,21 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     protected $productTypeIds;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $offset = null,
-        bool $staged = null,
-        int $productSetLimit = null,
-        bool $includeVariants = null,
-        string $currencyCode = null,
-        bool $checkDate = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        array $productIds = null,
-        array $productTypeIds = null
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $staged = null,
+        ?int $productSetLimit = null,
+        ?bool $includeVariants = null,
+        ?string $currencyCode = null,
+        ?bool $checkDate = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?array $productIds = null,
+        ?array $productTypeIds = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -316,56 +319,89 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void
     {
         $this->productSetLimit = $productSetLimit;
     }
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void
     {
         $this->includeVariants = $includeVariants;
     }
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
     }
 
+    /**
+     * @param ?bool $checkDate
+     */
     public function setCheckDate(?bool $checkDate): void
     {
         $this->checkDate = $checkDate;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void
     {
         $this->productIds = $productIds;
     }
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void
     {
         $this->productTypeIds = $productTypeIds;

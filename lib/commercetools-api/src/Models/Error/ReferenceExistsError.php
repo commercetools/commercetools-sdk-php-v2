@@ -20,5 +20,8 @@ interface ReferenceExistsError extends ErrorObject
      */
     public function getReferencedBy();
 
+    /**
+     * @param ?string $referencedBy
+     */
     public function setReferencedBy(?string $referencedBy): void;
 }

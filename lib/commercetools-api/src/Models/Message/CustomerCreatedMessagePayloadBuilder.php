@@ -36,6 +36,7 @@ final class CustomerCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Customer $customer
      * @return $this
      */
     public function withCustomer(?Customer $customer)

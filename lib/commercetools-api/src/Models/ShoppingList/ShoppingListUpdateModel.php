@@ -30,9 +30,12 @@ final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingL
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ShoppingListUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ShoppingListUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -73,11 +76,17 @@ final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingL
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ShoppingListUpdateActionCollection $actions
+     */
     public function setActions(?ShoppingListUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

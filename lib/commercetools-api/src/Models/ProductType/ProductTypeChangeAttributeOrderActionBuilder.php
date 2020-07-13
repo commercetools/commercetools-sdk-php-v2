@@ -34,6 +34,7 @@ final class ProductTypeChangeAttributeOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeDefinitionCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeDefinitionCollection $attributes)

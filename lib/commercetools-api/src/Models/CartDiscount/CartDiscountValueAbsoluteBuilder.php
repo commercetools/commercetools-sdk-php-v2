@@ -35,6 +35,7 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoneyCollection $money
      * @return $this
      */
     public function withMoney(?TypedMoneyCollection $money)

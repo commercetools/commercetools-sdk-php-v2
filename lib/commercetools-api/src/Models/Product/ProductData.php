@@ -82,25 +82,58 @@ interface ProductData extends JsonObject
      */
     public function getSearchKeywords();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
     public function setCategories(?CategoryReferenceCollection $categories): void;
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?ProductVariant $masterVariant
+     */
     public function setMasterVariant(?ProductVariant $masterVariant): void;
 
+    /**
+     * @param ?ProductVariantCollection $variants
+     */
     public function setVariants(?ProductVariantCollection $variants): void;
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 }

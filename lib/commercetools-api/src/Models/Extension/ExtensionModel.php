@@ -77,17 +77,20 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     protected $timeoutInMs;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        ExtensionDestination $destination = null,
-        ExtensionTriggerCollection $triggers = null,
-        int $timeoutInMs = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?ExtensionDestination $destination = null,
+        ?ExtensionTriggerCollection $triggers = null,
+        ?int $timeoutInMs = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -290,51 +293,81 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ExtensionDestination $destination
+     */
     public function setDestination(?ExtensionDestination $destination): void
     {
         $this->destination = $destination;
     }
 
+    /**
+     * @param ?ExtensionTriggerCollection $triggers
+     */
     public function setTriggers(?ExtensionTriggerCollection $triggers): void
     {
         $this->triggers = $triggers;
     }
 
+    /**
+     * @param ?int $timeoutInMs
+     */
     public function setTimeoutInMs(?int $timeoutInMs): void
     {
         $this->timeoutInMs = $timeoutInMs;

@@ -124,6 +124,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -134,6 +135,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $roles
      * @return $this
      */
     public function withRoles(?array $roles)
@@ -144,6 +146,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -154,6 +157,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -164,6 +168,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -174,6 +179,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -184,6 +190,7 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?GeoJson $geoLocation
      * @return $this
      */
     public function withGeoLocation(?GeoJson $geoLocation)

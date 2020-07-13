@@ -42,11 +42,14 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $name = null,
-        string $description = null,
-        AttributeDefinitionCollection $attributes = null
+        ?string $key = null,
+        ?string $name = null,
+        ?string $description = null,
+        ?AttributeDefinitionCollection $attributes = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -129,21 +132,33 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?AttributeDefinitionCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionCollection $attributes): void
     {
         $this->attributes = $attributes;

@@ -23,5 +23,8 @@ interface ProductDraftImportRequest extends ImportRequest
      */
     public function getResources();
 
+    /**
+     * @param ?ProductDraftImportCollection $resources
+     */
     public function setResources(?ProductDraftImportCollection $resources): void;
 }

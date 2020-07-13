@@ -39,10 +39,13 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     protected $version;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoney $totalPrice = null,
-        TaxedPrice $taxedPrice = null,
-        int $version = null
+        ?TypedMoney $totalPrice = null,
+        ?TaxedPrice $taxedPrice = null,
+        ?int $version = null
     ) {
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
@@ -103,16 +106,25 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?TaxedPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;

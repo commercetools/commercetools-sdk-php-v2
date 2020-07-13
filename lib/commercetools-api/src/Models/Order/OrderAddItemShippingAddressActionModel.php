@@ -33,8 +33,11 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
     protected $address;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Address $address = null
+        ?Address $address = null
     ) {
         $this->address = $address;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;

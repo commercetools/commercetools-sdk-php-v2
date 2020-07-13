@@ -20,5 +20,8 @@ interface ShippingMethodSetLocalizedDescriptionAction extends ShippingMethodUpda
      */
     public function getLocalizedDescription();
 
+    /**
+     * @param ?string $localizedDescription
+     */
     public function setLocalizedDescription(?string $localizedDescription): void;
 }

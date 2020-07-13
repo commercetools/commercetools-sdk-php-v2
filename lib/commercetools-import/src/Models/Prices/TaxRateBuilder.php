@@ -114,6 +114,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -124,6 +125,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -134,6 +136,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?float $amount
      * @return $this
      */
     public function withAmount(?float $amount)
@@ -144,6 +147,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includedInPrice
      * @return $this
      */
     public function withIncludedInPrice(?bool $includedInPrice)
@@ -154,6 +158,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -164,6 +169,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -174,6 +180,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @param ?SubRateCollection $subRates
      * @return $this
      */
     public function withSubRates(?SubRateCollection $subRates)
