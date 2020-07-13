@@ -85,7 +85,6 @@ class CategoryUpdateTest extends ApiTestCase
             function (Category $category) use ($builder) {
                 $randomName = 'new name-' . CategoryFixture::uniqueCategoryString();
                 $newName = LocalizedStringBuilder::of()->put('en', $randomName)->build();
-                $newName->current();
                 $updateAction = new CategoryChangeNameActionModel();
                 $updateAction->setName($newName);
                 $updateActionCollection = new CategoryUpdateActionCollection();
