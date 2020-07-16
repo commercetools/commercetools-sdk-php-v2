@@ -31,8 +31,11 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
     protected $lastName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lastName = null
+        ?string $lastName = null
     ) {
         $this->lastName = $lastName;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
     }
 
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;

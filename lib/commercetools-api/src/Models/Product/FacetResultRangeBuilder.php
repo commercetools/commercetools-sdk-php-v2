@@ -151,6 +151,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?float $from
      * @return $this
      */
     public function withFrom(?float $from)
@@ -161,6 +162,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $fromStr
      * @return $this
      */
     public function withFromStr(?string $fromStr)
@@ -171,6 +173,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?float $to
      * @return $this
      */
     public function withTo(?float $to)
@@ -181,6 +184,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $toStr
      * @return $this
      */
     public function withToStr(?string $toStr)
@@ -191,6 +195,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -201,6 +206,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?int $productCount
      * @return $this
      */
     public function withProductCount(?int $productCount)
@@ -211,6 +217,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -221,6 +228,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?float $min
      * @return $this
      */
     public function withMin(?float $min)
@@ -231,6 +239,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?float $max
      * @return $this
      */
     public function withMax(?float $max)
@@ -241,6 +250,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
+     * @param ?float $mean
      * @return $this
      */
     public function withMean(?float $mean)

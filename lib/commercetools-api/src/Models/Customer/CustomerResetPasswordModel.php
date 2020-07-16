@@ -35,10 +35,13 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     protected $version;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $tokenValue = null,
-        string $newPassword = null,
-        int $version = null
+        ?string $tokenValue = null,
+        ?string $newPassword = null,
+        ?int $version = null
     ) {
         $this->tokenValue = $tokenValue;
         $this->newPassword = $newPassword;
@@ -97,16 +100,25 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
 
+    /**
+     * @param ?string $tokenValue
+     */
     public function setTokenValue(?string $tokenValue): void
     {
         $this->tokenValue = $tokenValue;
     }
 
+    /**
+     * @param ?string $newPassword
+     */
     public function setNewPassword(?string $newPassword): void
     {
         $this->newPassword = $newPassword;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;

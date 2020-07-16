@@ -25,5 +25,8 @@ interface ExtensionSetTimeoutInMsAction extends ExtensionUpdateAction
      */
     public function getTimeoutInMs();
 
+    /**
+     * @param ?int $timeoutInMs
+     */
     public function setTimeoutInMs(?int $timeoutInMs): void;
 }

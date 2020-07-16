@@ -31,7 +31,7 @@ final class CustomObjectDraftBuilder implements Builder
     private $key;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -61,7 +61,7 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -77,6 +77,7 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $container
      * @return $this
      */
     public function withContainer(?string $container)
@@ -87,6 +88,7 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -97,9 +99,10 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 
@@ -107,6 +110,7 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)

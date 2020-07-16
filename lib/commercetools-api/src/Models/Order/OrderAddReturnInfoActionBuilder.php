@@ -61,6 +61,7 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnTrackingId
      * @return $this
      */
     public function withReturnTrackingId(?string $returnTrackingId)
@@ -71,6 +72,7 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?ReturnItemDraftCollection $items
      * @return $this
      */
     public function withItems(?ReturnItemDraftCollection $items)
@@ -81,6 +83,7 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $returnDate
      * @return $this
      */
     public function withReturnDate(?DateTimeImmutable $returnDate)

@@ -20,5 +20,8 @@ interface OrderRemoveItemShippingAddressAction extends OrderUpdateAction
      */
     public function getAddressKey();
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 }

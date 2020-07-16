@@ -32,9 +32,18 @@ interface CustomerResetPassword extends JsonObject
      */
     public function getVersion();
 
+    /**
+     * @param ?string $tokenValue
+     */
     public function setTokenValue(?string $tokenValue): void;
 
+    /**
+     * @param ?string $newPassword
+     */
     public function setNewPassword(?string $newPassword): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 }

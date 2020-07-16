@@ -21,5 +21,8 @@ interface MyCustomerSetDateOfBirthAction extends MyCustomerUpdateAction
      */
     public function getDateOfBirth();
 
+    /**
+     * @param ?DateTimeImmutable $dateOfBirth
+     */
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void;
 }

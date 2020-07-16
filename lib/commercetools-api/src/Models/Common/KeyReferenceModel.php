@@ -40,8 +40,11 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
        'store' => StoreKeyReferenceModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->typeId = static::DISCRIMINATOR_VALUE;
@@ -82,6 +85,9 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

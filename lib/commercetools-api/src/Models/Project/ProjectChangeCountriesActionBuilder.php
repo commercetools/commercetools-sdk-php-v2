@@ -36,6 +36,7 @@ final class ProjectChangeCountriesActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $countries
      * @return $this
      */
     public function withCountries(?array $countries)

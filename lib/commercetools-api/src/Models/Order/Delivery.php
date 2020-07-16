@@ -49,13 +49,28 @@ interface Delivery extends JsonObject
      */
     public function getAddress();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void;
 
+    /**
+     * @param ?ParcelCollection $parcels
+     */
     public function setParcels(?ParcelCollection $parcels): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

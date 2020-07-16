@@ -21,5 +21,8 @@ interface ShippingMethodAddZoneAction extends ShippingMethodUpdateAction
      */
     public function getZone();
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void;
 }

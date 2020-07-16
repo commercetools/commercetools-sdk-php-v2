@@ -33,8 +33,11 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     protected $deliveryId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null
+        ?string $deliveryId = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;

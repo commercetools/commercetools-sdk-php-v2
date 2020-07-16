@@ -34,6 +34,7 @@ final class OrderChangeShipmentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)

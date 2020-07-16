@@ -20,5 +20,8 @@ interface ExtensionChangeTriggersAction extends ExtensionUpdateAction
      */
     public function getTriggers();
 
+    /**
+     * @param ?ExtensionTriggerCollection $triggers
+     */
     public function setTriggers(?ExtensionTriggerCollection $triggers): void;
 }

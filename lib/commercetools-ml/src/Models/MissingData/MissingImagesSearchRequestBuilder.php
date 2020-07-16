@@ -152,6 +152,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -162,6 +163,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -172,6 +174,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -182,6 +185,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $productSetLimit
      * @return $this
      */
     public function withProductSetLimit(?int $productSetLimit)
@@ -192,6 +196,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includeVariants
      * @return $this
      */
     public function withIncludeVariants(?bool $includeVariants)
@@ -202,6 +207,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $autoThreshold
      * @return $this
      */
     public function withAutoThreshold(?bool $autoThreshold)
@@ -212,6 +218,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $threshold
      * @return $this
      */
     public function withThreshold(?int $threshold)
@@ -222,6 +229,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productIds
      * @return $this
      */
     public function withProductIds(?array $productIds)
@@ -232,6 +240,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productTypeIds
      * @return $this
      */
     public function withProductTypeIds(?array $productTypeIds)

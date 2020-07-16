@@ -169,6 +169,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -179,6 +180,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerResourceIdentifier $customer
      * @return $this
      */
     public function withCustomer(?CustomerResourceIdentifier $customer)
@@ -189,6 +191,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
@@ -199,6 +202,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -209,6 +213,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -219,6 +224,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
      * @return $this
      */
     public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
@@ -229,6 +235,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -239,6 +246,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -249,6 +257,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TextLineItemDraftCollection $textLineItems
      * @return $this
      */
     public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
@@ -259,6 +268,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

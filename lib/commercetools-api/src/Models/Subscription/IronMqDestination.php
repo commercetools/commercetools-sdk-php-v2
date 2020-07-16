@@ -20,5 +20,8 @@ interface IronMqDestination extends Destination
      */
     public function getUri();
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void;
 }

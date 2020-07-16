@@ -22,5 +22,8 @@ interface CustomerGroupSetKeyAction extends CustomerGroupUpdateAction
      */
     public function getKey();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

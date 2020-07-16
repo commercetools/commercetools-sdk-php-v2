@@ -40,11 +40,14 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     protected $channels;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $isOnStock = null,
-        int $restockableInDays = null,
-        int $availableQuantity = null,
-        ProductVariantChannelAvailabilityMap $channels = null
+        ?bool $isOnStock = null,
+        ?int $restockableInDays = null,
+        ?int $availableQuantity = null,
+        ?ProductVariantChannelAvailabilityMap $channels = null
     ) {
         $this->isOnStock = $isOnStock;
         $this->restockableInDays = $restockableInDays;
@@ -122,21 +125,33 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     }
 
 
+    /**
+     * @param ?bool $isOnStock
+     */
     public function setIsOnStock(?bool $isOnStock): void
     {
         $this->isOnStock = $isOnStock;
     }
 
+    /**
+     * @param ?int $restockableInDays
+     */
     public function setRestockableInDays(?int $restockableInDays): void
     {
         $this->restockableInDays = $restockableInDays;
     }
 
+    /**
+     * @param ?int $availableQuantity
+     */
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;
     }
 
+    /**
+     * @param ?ProductVariantChannelAvailabilityMap $channels
+     */
     public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void
     {
         $this->channels = $channels;

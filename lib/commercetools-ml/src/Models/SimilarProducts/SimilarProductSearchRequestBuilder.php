@@ -133,6 +133,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -143,6 +144,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -153,6 +155,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $language
      * @return $this
      */
     public function withLanguage(?string $language)
@@ -163,6 +166,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)
@@ -173,6 +177,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?SimilarityMeasures $similarityMeasures
      * @return $this
      */
     public function withSimilarityMeasures(?SimilarityMeasures $similarityMeasures)
@@ -183,6 +188,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSetSelectorCollection $productSetSelectors
      * @return $this
      */
     public function withProductSetSelectors(?ProductSetSelectorCollection $productSetSelectors)
@@ -193,6 +199,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?float $confidenceMin
      * @return $this
      */
     public function withConfidenceMin(?float $confidenceMin)
@@ -203,6 +210,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?float $confidenceMax
      * @return $this
      */
     public function withConfidenceMax(?float $confidenceMax)

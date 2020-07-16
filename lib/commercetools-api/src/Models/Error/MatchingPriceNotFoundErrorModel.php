@@ -65,14 +65,17 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     protected $channel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $productId = null,
-        int $variantId = null,
-        string $currency = null,
-        string $country = null,
-        CustomerGroupReference $customerGroup = null,
-        ChannelReference $channel = null
+        ?string $message = null,
+        ?string $productId = null,
+        ?int $variantId = null,
+        ?string $currency = null,
+        ?string $country = null,
+        ?CustomerGroupReference $customerGroup = null,
+        ?ChannelReference $channel = null
     ) {
         $this->message = $message;
         $this->productId = $productId;
@@ -223,36 +226,57 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $currency
+     */
     public function setCurrency(?string $currency): void
     {
         $this->currency = $currency;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;

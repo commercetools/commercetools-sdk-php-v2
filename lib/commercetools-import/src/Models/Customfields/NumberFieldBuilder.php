@@ -34,6 +34,7 @@ final class NumberFieldBuilder implements Builder
     }
 
     /**
+     * @param ?float $value
      * @return $this
      */
     public function withValue(?float $value)

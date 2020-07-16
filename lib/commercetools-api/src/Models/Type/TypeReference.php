@@ -21,5 +21,8 @@ interface TypeReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Type $obj
+     */
     public function setObj(?Type $obj): void;
 }

@@ -23,5 +23,8 @@ interface ProductVariantImportRequest extends ImportRequest
      */
     public function getResources();
 
+    /**
+     * @param ?ProductVariantImportCollection $resources
+     */
     public function setResources(?ProductVariantImportCollection $resources): void;
 }

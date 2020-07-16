@@ -34,9 +34,12 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     protected $discountedAmount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CartDiscountReference $discount = null,
-        TypedMoney $discountedAmount = null
+        ?CartDiscountReference $discount = null,
+        ?TypedMoney $discountedAmount = null
     ) {
         $this->discount = $discount;
         $this->discountedAmount = $discountedAmount;
@@ -79,11 +82,17 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
 
+    /**
+     * @param ?CartDiscountReference $discount
+     */
     public function setDiscount(?CartDiscountReference $discount): void
     {
         $this->discount = $discount;
     }
 
+    /**
+     * @param ?TypedMoney $discountedAmount
+     */
     public function setDiscountedAmount(?TypedMoney $discountedAmount): void
     {
         $this->discountedAmount = $discountedAmount;

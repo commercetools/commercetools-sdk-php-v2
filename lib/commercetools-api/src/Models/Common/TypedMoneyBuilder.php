@@ -62,6 +62,7 @@ final class TypedMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $fractionDigits
      * @return $this
      */
     public function withFractionDigits(?int $fractionDigits)
@@ -72,6 +73,7 @@ final class TypedMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $centAmount
      * @return $this
      */
     public function withCentAmount(?int $centAmount)
@@ -82,6 +84,7 @@ final class TypedMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)

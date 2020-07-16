@@ -267,6 +267,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -277,6 +278,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -287,6 +289,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -297,6 +300,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -307,6 +311,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -317,6 +322,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -327,6 +333,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -337,6 +344,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -347,6 +355,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -357,6 +366,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?ProductDiscountValue $value
      * @return $this
      */
     public function withValue(?ProductDiscountValue $value)
@@ -367,6 +377,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)
@@ -377,6 +388,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortOrder
      * @return $this
      */
     public function withSortOrder(?string $sortOrder)
@@ -387,6 +399,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -397,6 +410,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?ReferenceCollection $references
      * @return $this
      */
     public function withReferences(?ReferenceCollection $references)
@@ -407,6 +421,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -417,6 +432,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

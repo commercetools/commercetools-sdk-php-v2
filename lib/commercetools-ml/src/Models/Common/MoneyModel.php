@@ -30,9 +30,12 @@ final class MoneyModel extends JsonObjectModel implements Money
     protected $currencyCode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $centAmount = null,
-        string $currencyCode = null
+        ?int $centAmount = null,
+        ?string $currencyCode = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
@@ -75,11 +78,17 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
 
+    /**
+     * @param ?int $centAmount
+     */
     public function setCentAmount(?int $centAmount): void
     {
         $this->centAmount = $centAmount;
     }
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;

@@ -26,7 +26,13 @@ interface TypeChangeEnumValueLabelAction extends TypeUpdateAction
      */
     public function getValue();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 
+    /**
+     * @param ?CustomFieldEnumValue $value
+     */
     public function setValue(?CustomFieldEnumValue $value): void;
 }

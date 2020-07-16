@@ -96,6 +96,7 @@ final class SimilarityMeasuresBuilder implements Builder
     }
 
     /**
+     * @param ?int $name
      * @return $this
      */
     public function withName(?int $name)
@@ -106,6 +107,7 @@ final class SimilarityMeasuresBuilder implements Builder
     }
 
     /**
+     * @param ?int $description
      * @return $this
      */
     public function withDescription(?int $description)
@@ -116,6 +118,7 @@ final class SimilarityMeasuresBuilder implements Builder
     }
 
     /**
+     * @param ?int $attribute
      * @return $this
      */
     public function withAttribute(?int $attribute)
@@ -126,6 +129,7 @@ final class SimilarityMeasuresBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantCount
      * @return $this
      */
     public function withVariantCount(?int $variantCount)
@@ -136,6 +140,7 @@ final class SimilarityMeasuresBuilder implements Builder
     }
 
     /**
+     * @param ?int $price
      * @return $this
      */
     public function withPrice(?int $price)

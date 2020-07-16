@@ -38,9 +38,12 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaTitle = null,
-        bool $staged = null
+        ?LocalizedString $metaTitle = null,
+        ?bool $staged = null
     ) {
         $this->metaTitle = $metaTitle;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

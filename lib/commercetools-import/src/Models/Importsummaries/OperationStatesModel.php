@@ -70,17 +70,20 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     protected $Expired;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $Accepted = null,
-        float $ValidationFailed = null,
-        float $Unresolved = null,
-        float $Resolved = null,
-        float $WaitForMasterVariant = null,
-        float $Imported = null,
-        float $Deleted = null,
-        float $Rejected = null,
-        float $Skipped = null,
-        float $Expired = null
+        ?float $Accepted = null,
+        ?float $ValidationFailed = null,
+        ?float $Unresolved = null,
+        ?float $Resolved = null,
+        ?float $WaitForMasterVariant = null,
+        ?float $Imported = null,
+        ?float $Deleted = null,
+        ?float $Rejected = null,
+        ?float $Skipped = null,
+        ?float $Expired = null
     ) {
         $this->Accepted = $Accepted;
         $this->ValidationFailed = $ValidationFailed;
@@ -285,51 +288,81 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
 
+    /**
+     * @param ?float $Accepted
+     */
     public function setAccepted(?float $Accepted): void
     {
         $this->Accepted = $Accepted;
     }
 
+    /**
+     * @param ?float $ValidationFailed
+     */
     public function setValidationFailed(?float $ValidationFailed): void
     {
         $this->ValidationFailed = $ValidationFailed;
     }
 
+    /**
+     * @param ?float $Unresolved
+     */
     public function setUnresolved(?float $Unresolved): void
     {
         $this->Unresolved = $Unresolved;
     }
 
+    /**
+     * @param ?float $Resolved
+     */
     public function setResolved(?float $Resolved): void
     {
         $this->Resolved = $Resolved;
     }
 
+    /**
+     * @param ?float $WaitForMasterVariant
+     */
     public function setWaitForMasterVariant(?float $WaitForMasterVariant): void
     {
         $this->WaitForMasterVariant = $WaitForMasterVariant;
     }
 
+    /**
+     * @param ?float $Imported
+     */
     public function setImported(?float $Imported): void
     {
         $this->Imported = $Imported;
     }
 
+    /**
+     * @param ?float $Deleted
+     */
     public function setDeleted(?float $Deleted): void
     {
         $this->Deleted = $Deleted;
     }
 
+    /**
+     * @param ?float $Rejected
+     */
     public function setRejected(?float $Rejected): void
     {
         $this->Rejected = $Rejected;
     }
 
+    /**
+     * @param ?float $Skipped
+     */
     public function setSkipped(?float $Skipped): void
     {
         $this->Skipped = $Skipped;
     }
 
+    /**
+     * @param ?float $Expired
+     */
     public function setExpired(?float $Expired): void
     {
         $this->Expired = $Expired;

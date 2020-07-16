@@ -59,13 +59,28 @@ interface FieldDefinition extends JsonObject
      */
     public function getInputHint();
 
+    /**
+     * @param ?FieldType $type
+     */
     public function setType(?FieldType $type): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 
+    /**
+     * @param ?bool $required
+     */
     public function setRequired(?bool $required): void;
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void;
 }

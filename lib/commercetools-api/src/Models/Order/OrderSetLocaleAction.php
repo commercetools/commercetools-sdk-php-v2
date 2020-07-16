@@ -20,5 +20,8 @@ interface OrderSetLocaleAction extends OrderUpdateAction
      */
     public function getLocale();
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 }

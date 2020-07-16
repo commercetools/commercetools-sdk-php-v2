@@ -34,9 +34,18 @@ interface ShoppingListSetTextLineItemCustomTypeAction extends ShoppingListUpdate
      */
     public function getFields();
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void;
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

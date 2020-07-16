@@ -22,5 +22,8 @@ interface ReviewSetAuthorNameAction extends ReviewUpdateAction
      */
     public function getAuthorName();
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void;
 }

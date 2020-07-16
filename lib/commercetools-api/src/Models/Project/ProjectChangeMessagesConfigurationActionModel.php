@@ -33,8 +33,11 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     protected $messagesConfiguration;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MessageConfigurationDraft $messagesConfiguration = null
+        ?MessageConfigurationDraft $messagesConfiguration = null
     ) {
         $this->messagesConfiguration = $messagesConfiguration;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     }
 
 
+    /**
+     * @param ?MessageConfigurationDraft $messagesConfiguration
+     */
     public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void
     {
         $this->messagesConfiguration = $messagesConfiguration;

@@ -28,7 +28,13 @@ interface DiscountedLineItemPriceDraft extends JsonObject
      */
     public function getIncludedDiscounts();
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 
+    /**
+     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
+     */
     public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void;
 }

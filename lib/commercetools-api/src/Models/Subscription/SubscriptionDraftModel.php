@@ -45,12 +45,15 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     protected $format;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChangeSubscriptionCollection $changes = null,
-        Destination $destination = null,
-        string $key = null,
-        MessageSubscriptionCollection $messages = null,
-        DeliveryFormat $format = null
+        ?ChangeSubscriptionCollection $changes = null,
+        ?Destination $destination = null,
+        ?string $key = null,
+        ?MessageSubscriptionCollection $messages = null,
+        ?DeliveryFormat $format = null
     ) {
         $this->changes = $changes;
         $this->destination = $destination;
@@ -65,7 +68,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     public function getChanges()
     {
         if (is_null($this->changes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
@@ -117,7 +120,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     public function getMessages()
     {
         if (is_null($this->messages)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;
@@ -147,26 +150,41 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void
     {
         $this->changes = $changes;
     }
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void
     {
         $this->destination = $destination;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;
     }
 
+    /**
+     * @param ?DeliveryFormat $format
+     */
     public function setFormat(?DeliveryFormat $format): void
     {
         $this->format = $format;

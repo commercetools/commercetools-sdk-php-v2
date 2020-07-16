@@ -20,5 +20,8 @@ interface LineItemReturnItem extends ReturnItem
      */
     public function getLineItemId();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 }

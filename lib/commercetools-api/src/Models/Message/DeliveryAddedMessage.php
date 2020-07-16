@@ -21,5 +21,8 @@ interface DeliveryAddedMessage extends Message
      */
     public function getDelivery();
 
+    /**
+     * @param ?Delivery $delivery
+     */
     public function setDelivery(?Delivery $delivery): void;
 }

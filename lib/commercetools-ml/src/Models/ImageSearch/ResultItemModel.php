@@ -31,9 +31,12 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     protected $productVariants;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $imageUrl = null,
-        ProductVariantCollection $productVariants = null
+        ?string $imageUrl = null,
+        ?ProductVariantCollection $productVariants = null
     ) {
         $this->imageUrl = $imageUrl;
         $this->productVariants = $productVariants;
@@ -66,7 +69,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     public function getProductVariants()
     {
         if (is_null($this->productVariants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRODUCT_VARIANTS);
             if (is_null($data)) {
                 return null;
@@ -78,11 +81,17 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     }
 
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
     }
 
+    /**
+     * @param ?ProductVariantCollection $productVariants
+     */
     public function setProductVariants(?ProductVariantCollection $productVariants): void
     {
         $this->productVariants = $productVariants;

@@ -38,9 +38,12 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        Money $value = null
+        ?string $name = null,
+        ?Money $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -104,11 +107,17 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;

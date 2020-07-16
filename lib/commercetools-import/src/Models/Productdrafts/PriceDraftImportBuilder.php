@@ -146,6 +146,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
@@ -156,6 +157,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -166,6 +168,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupKeyReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupKeyReference $customerGroup)
@@ -176,6 +179,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelKeyReference $channel
      * @return $this
      */
     public function withChannel(?ChannelKeyReference $channel)
@@ -186,6 +190,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -196,6 +201,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -206,6 +212,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
      * @return $this
      */
     public function withCustom(?Custom $custom)
@@ -216,6 +223,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
     public function withDiscounted(?DiscountedPrice $discounted)

@@ -51,6 +51,7 @@ final class MissingImagesProductLevelBuilder implements Builder
     }
 
     /**
+     * @param ?int $missingImages
      * @return $this
      */
     public function withMissingImages(?int $missingImages)
@@ -61,6 +62,7 @@ final class MissingImagesProductLevelBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)

@@ -73,6 +73,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldQuantityOnStock
      * @return $this
      */
     public function withOldQuantityOnStock(?int $oldQuantityOnStock)
@@ -83,6 +84,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $newQuantityOnStock
      * @return $this
      */
     public function withNewQuantityOnStock(?int $newQuantityOnStock)
@@ -93,6 +95,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldAvailableQuantity
      * @return $this
      */
     public function withOldAvailableQuantity(?int $oldAvailableQuantity)
@@ -103,6 +106,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $newAvailableQuantity
      * @return $this
      */
     public function withNewAvailableQuantity(?int $newAvailableQuantity)

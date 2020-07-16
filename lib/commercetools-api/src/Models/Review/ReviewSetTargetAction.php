@@ -26,5 +26,8 @@ interface ReviewSetTargetAction extends ReviewUpdateAction
      */
     public function getTarget();
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void;
 }

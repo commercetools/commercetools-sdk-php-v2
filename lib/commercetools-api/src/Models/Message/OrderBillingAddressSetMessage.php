@@ -27,7 +27,13 @@ interface OrderBillingAddressSetMessage extends Message
      */
     public function getOldAddress();
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 
+    /**
+     * @param ?Address $oldAddress
+     */
     public function setOldAddress(?Address $oldAddress): void;
 }

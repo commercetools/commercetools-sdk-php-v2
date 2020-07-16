@@ -62,15 +62,18 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     protected $isSearchable;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AttributeType $type = null,
-        string $name = null,
-        LocalizedString $label = null,
-        bool $isRequired = null,
-        string $attributeConstraint = null,
-        LocalizedString $inputTip = null,
-        string $inputHint = null,
-        bool $isSearchable = null
+        ?AttributeType $type = null,
+        ?string $name = null,
+        ?LocalizedString $label = null,
+        ?bool $isRequired = null,
+        ?string $attributeConstraint = null,
+        ?LocalizedString $inputTip = null,
+        ?string $inputHint = null,
+        ?bool $isSearchable = null
     ) {
         $this->type = $type;
         $this->name = $name;
@@ -248,41 +251,65 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
 
+    /**
+     * @param ?AttributeType $type
+     */
     public function setType(?AttributeType $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
     }
 
+    /**
+     * @param ?bool $isRequired
+     */
     public function setIsRequired(?bool $isRequired): void
     {
         $this->isRequired = $isRequired;
     }
 
+    /**
+     * @param ?string $attributeConstraint
+     */
     public function setAttributeConstraint(?string $attributeConstraint): void
     {
         $this->attributeConstraint = $attributeConstraint;
     }
 
+    /**
+     * @param ?LocalizedString $inputTip
+     */
     public function setInputTip(?LocalizedString $inputTip): void
     {
         $this->inputTip = $inputTip;
     }
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void
     {
         $this->inputHint = $inputHint;
     }
 
+    /**
+     * @param ?bool $isSearchable
+     */
     public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;

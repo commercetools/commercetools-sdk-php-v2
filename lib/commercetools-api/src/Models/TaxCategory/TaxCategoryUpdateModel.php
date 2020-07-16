@@ -30,9 +30,12 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        TaxCategoryUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?TaxCategoryUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -61,7 +64,7 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -73,11 +76,17 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?TaxCategoryUpdateActionCollection $actions
+     */
     public function setActions(?TaxCategoryUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

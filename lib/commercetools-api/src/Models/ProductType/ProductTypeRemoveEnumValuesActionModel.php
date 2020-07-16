@@ -36,9 +36,12 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     protected $keys;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        array $keys = null
+        ?string $attributeName = null,
+        ?array $keys = null
     ) {
         $this->attributeName = $attributeName;
         $this->keys = $keys;
@@ -85,7 +88,7 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     public function getKeys()
     {
         if (is_null($this->keys)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_KEYS);
             if (is_null($data)) {
                 return null;
@@ -97,11 +100,17 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?array $keys
+     */
     public function setKeys(?array $keys): void
     {
         $this->keys = $keys;

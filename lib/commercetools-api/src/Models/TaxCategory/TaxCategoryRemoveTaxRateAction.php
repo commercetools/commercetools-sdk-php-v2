@@ -20,5 +20,8 @@ interface TaxCategoryRemoveTaxRateAction extends TaxCategoryUpdateAction
      */
     public function getTaxRateId();
 
+    /**
+     * @param ?string $taxRateId
+     */
     public function setTaxRateId(?string $taxRateId): void;
 }

@@ -31,8 +31,11 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
     protected $externalId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $externalId = null
+        ?string $externalId = null
     ) {
         $this->externalId = $externalId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class CustomerSetExternalIdActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;

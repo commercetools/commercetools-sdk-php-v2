@@ -20,5 +20,8 @@ interface PaymentSetStatusInterfaceCodeAction extends PaymentUpdateAction
      */
     public function getInterfaceCode();
 
+    /**
+     * @param ?string $interfaceCode
+     */
     public function setInterfaceCode(?string $interfaceCode): void;
 }

@@ -34,6 +34,7 @@ final class CategoryChangeOrderHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)

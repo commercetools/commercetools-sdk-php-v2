@@ -47,12 +47,15 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     protected $inputHint;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        FieldType $type = null,
-        string $name = null,
-        LocalizedString $label = null,
-        bool $required = null,
-        string $inputHint = null
+        ?FieldType $type = null,
+        ?string $name = null,
+        ?LocalizedString $label = null,
+        ?bool $required = null,
+        ?string $inputHint = null
     ) {
         $this->type = $type;
         $this->name = $name;
@@ -163,26 +166,41 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
 
+    /**
+     * @param ?FieldType $type
+     */
     public function setType(?FieldType $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
     }
 
+    /**
+     * @param ?bool $required
+     */
     public function setRequired(?bool $required): void
     {
         $this->required = $required;
     }
 
+    /**
+     * @param ?string $inputHint
+     */
     public function setInputHint(?string $inputHint): void
     {
         $this->inputHint = $inputHint;

@@ -49,6 +49,7 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $textLineItemId
      * @return $this
      */
     public function withTextLineItemId(?string $textLineItemId)
@@ -59,6 +60,7 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)

@@ -48,11 +48,23 @@ interface StoreDraft extends JsonObject
      */
     public function getDistributionChannels();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void;
 
+    /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
+     */
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void;
 }

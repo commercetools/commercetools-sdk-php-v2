@@ -51,15 +51,33 @@ interface CustomerToken extends JsonObject
      */
     public function getValue();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void;
 }

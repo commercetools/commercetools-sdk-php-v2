@@ -55,6 +55,9 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
        'setTextLineItemDescription' => ShoppingListSetTextLineItemDescriptionActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

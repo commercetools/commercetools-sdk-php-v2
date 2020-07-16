@@ -41,6 +41,9 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
        'setTransitions' => StateSetTransitionsActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

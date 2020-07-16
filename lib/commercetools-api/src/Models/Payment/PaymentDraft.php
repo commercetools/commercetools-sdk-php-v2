@@ -129,33 +129,78 @@ interface PaymentDraft extends JsonObject
      */
     public function getKey();
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 
+    /**
+     * @param ?string $interfaceId
+     */
     public function setInterfaceId(?string $interfaceId): void;
 
+    /**
+     * @param ?Money $amountPlanned
+     */
     public function setAmountPlanned(?Money $amountPlanned): void;
 
+    /**
+     * @param ?Money $amountAuthorized
+     */
     public function setAmountAuthorized(?Money $amountAuthorized): void;
 
+    /**
+     * @param ?string $authorizedUntil
+     */
     public function setAuthorizedUntil(?string $authorizedUntil): void;
 
+    /**
+     * @param ?Money $amountPaid
+     */
     public function setAmountPaid(?Money $amountPaid): void;
 
+    /**
+     * @param ?Money $amountRefunded
+     */
     public function setAmountRefunded(?Money $amountRefunded): void;
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
 
+    /**
+     * @param ?PaymentStatusDraft $paymentStatus
+     */
     public function setPaymentStatus(?PaymentStatusDraft $paymentStatus): void;
 
+    /**
+     * @param ?TransactionDraftCollection $transactions
+     */
     public function setTransactions(?TransactionDraftCollection $transactions): void;
 
+    /**
+     * @param ?CustomFieldsDraftCollection $interfaceInteractions
+     */
     public function setInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

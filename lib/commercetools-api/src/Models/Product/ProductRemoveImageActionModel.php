@@ -46,11 +46,14 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        string $imageUrl = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?string $imageUrl = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -147,21 +150,33 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

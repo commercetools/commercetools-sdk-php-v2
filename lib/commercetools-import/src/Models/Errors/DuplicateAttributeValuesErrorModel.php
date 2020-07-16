@@ -37,9 +37,12 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     protected $attributes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        AttributeCollection $attributes = null
+        ?string $message = null,
+        ?AttributeCollection $attributes = null
     ) {
         $this->message = $message;
         $this->attributes = $attributes;
@@ -88,7 +91,7 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
@@ -100,11 +103,17 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;

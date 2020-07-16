@@ -22,5 +22,8 @@ interface ProjectSetShippingRateInputTypeAction extends ProjectUpdateAction
      */
     public function getShippingRateInputType();
 
+    /**
+     * @param ?ShippingRateInputType $shippingRateInputType
+     */
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void;
 }

@@ -38,6 +38,7 @@ final class CategorySetKeyActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

@@ -60,6 +60,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * @param ?string $url
      * @return $this
      */
     public function withUrl(?string $url)
@@ -70,6 +71,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * @param ?AssetDimensions $dimensions
      * @return $this
      */
     public function withDimensions(?AssetDimensions $dimensions)
@@ -80,6 +82,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * @param ?string $label
      * @return $this
      */
     public function withLabel(?string $label)

@@ -51,6 +51,7 @@ final class TextAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -61,6 +62,7 @@ final class TextAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $value
      * @return $this
      */
     public function withValue(?string $value)

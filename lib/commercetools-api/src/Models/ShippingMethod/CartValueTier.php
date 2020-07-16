@@ -33,9 +33,18 @@ interface CartValueTier extends ShippingRatePriceTier
      */
     public function getIsMatching();
 
+    /**
+     * @param ?int $minimumCentAmount
+     */
     public function setMinimumCentAmount(?int $minimumCentAmount): void;
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void;
 }

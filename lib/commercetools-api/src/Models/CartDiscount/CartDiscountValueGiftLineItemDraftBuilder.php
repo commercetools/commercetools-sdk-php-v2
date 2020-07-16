@@ -77,6 +77,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
@@ -87,6 +88,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -97,6 +99,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelReference $supplyChannel)
@@ -107,6 +110,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelReference $distributionChannel)

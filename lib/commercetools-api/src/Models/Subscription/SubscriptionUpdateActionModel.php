@@ -36,6 +36,9 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
        'setMessages' => SubscriptionSetMessagesActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

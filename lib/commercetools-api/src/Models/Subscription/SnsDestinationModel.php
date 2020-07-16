@@ -41,10 +41,13 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     protected $topicArn;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $accessKey = null,
-        string $accessSecret = null,
-        string $topicArn = null
+        ?string $accessKey = null,
+        ?string $accessSecret = null,
+        ?string $topicArn = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
@@ -121,16 +124,25 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;
     }
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void
     {
         $this->accessSecret = $accessSecret;
     }
 
+    /**
+     * @param ?string $topicArn
+     */
     public function setTopicArn(?string $topicArn): void
     {
         $this->topicArn = $topicArn;

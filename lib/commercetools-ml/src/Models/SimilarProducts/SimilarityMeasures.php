@@ -54,13 +54,28 @@ interface SimilarityMeasures extends JsonObject
      */
     public function getPrice();
 
+    /**
+     * @param ?int $name
+     */
     public function setName(?int $name): void;
 
+    /**
+     * @param ?int $description
+     */
     public function setDescription(?int $description): void;
 
+    /**
+     * @param ?int $attribute
+     */
     public function setAttribute(?int $attribute): void;
 
+    /**
+     * @param ?int $variantCount
+     */
     public function setVariantCount(?int $variantCount): void;
 
+    /**
+     * @param ?int $price
+     */
     public function setPrice(?int $price): void;
 }

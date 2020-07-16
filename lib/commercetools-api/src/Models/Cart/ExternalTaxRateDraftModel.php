@@ -51,13 +51,16 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     protected $includedInPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        float $amount = null,
-        string $country = null,
-        string $state = null,
-        SubRateCollection $subRates = null,
-        bool $includedInPrice = null
+        ?string $name = null,
+        ?float $amount = null,
+        ?string $country = null,
+        ?string $state = null,
+        ?SubRateCollection $subRates = null,
+        ?bool $includedInPrice = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -154,7 +157,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function getSubRates()
     {
         if (is_null($this->subRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;
@@ -185,31 +188,49 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $amount
+     */
     public function setAmount(?float $amount): void
     {
         $this->amount = $amount;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?SubRateCollection $subRates
+     */
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
     }
 
+    /**
+     * @param ?bool $includedInPrice
+     */
     public function setIncludedInPrice(?bool $includedInPrice): void
     {
         $this->includedInPrice = $includedInPrice;

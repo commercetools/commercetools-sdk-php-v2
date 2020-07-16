@@ -149,43 +149,103 @@ interface ProductProjection extends BaseResource
      */
     public function getReviewRatingStatistics();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
     public function setCategories(?CategoryReferenceCollection $categories): void;
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
+    /**
+     * @param ?bool $hasStagedChanges
+     */
     public function setHasStagedChanges(?bool $hasStagedChanges): void;
 
+    /**
+     * @param ?bool $published
+     */
     public function setPublished(?bool $published): void;
 
+    /**
+     * @param ?ProductVariant $masterVariant
+     */
     public function setMasterVariant(?ProductVariant $masterVariant): void;
 
+    /**
+     * @param ?ProductVariantCollection $variants
+     */
     public function setVariants(?ProductVariantCollection $variants): void;
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 
+    /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
+     */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void;
 }

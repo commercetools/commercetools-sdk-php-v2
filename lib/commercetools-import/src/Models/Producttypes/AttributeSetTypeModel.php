@@ -31,8 +31,11 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     protected $elementType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AttributeType $elementType = null
+        ?AttributeType $elementType = null
     ) {
         $this->elementType = $elementType;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     }
 
 
+    /**
+     * @param ?AttributeType $elementType
+     */
     public function setElementType(?AttributeType $elementType): void
     {
         $this->elementType = $elementType;

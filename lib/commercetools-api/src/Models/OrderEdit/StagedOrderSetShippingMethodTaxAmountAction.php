@@ -22,5 +22,8 @@ interface StagedOrderSetShippingMethodTaxAmountAction extends StagedOrderUpdateA
      */
     public function getExternalTaxAmount();
 
+    /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
+     */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void;
 }

@@ -41,11 +41,23 @@ interface MyCartSetCustomShippingMethodAction extends MyCartUpdateAction
      */
     public function getExternalTaxRate();
 
+    /**
+     * @param ?string $shippingMethodName
+     */
     public function setShippingMethodName(?string $shippingMethodName): void;
 
+    /**
+     * @param ?ShippingRateDraft $shippingRate
+     */
     public function setShippingRate(?ShippingRateDraft $shippingRate): void;
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 }

@@ -30,9 +30,12 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
     protected $deleteDaysAfterCreation;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $enabled = null,
-        int $deleteDaysAfterCreation = null
+        ?bool $enabled = null,
+        ?int $deleteDaysAfterCreation = null
     ) {
         $this->enabled = $enabled;
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
@@ -73,11 +76,17 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
     }
 
 
+    /**
+     * @param ?bool $enabled
+     */
     public function setEnabled(?bool $enabled): void
     {
         $this->enabled = $enabled;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterCreation
+     */
     public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
     {
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;

@@ -156,6 +156,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?string $projectKey
      * @return $this
      */
     public function withProjectKey(?string $projectKey)
@@ -166,6 +167,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -176,6 +178,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -186,6 +189,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -196,6 +200,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -206,6 +211,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -216,6 +222,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -226,6 +233,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -236,6 +244,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -246,6 +255,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?PayloadNotIncluded $payloadNotIncluded
      * @return $this
      */
     public function withPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded)

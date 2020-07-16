@@ -35,10 +35,13 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     protected $generalCategoryNames;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $productName = null,
-        string $productImageUrl = null,
-        array $generalCategoryNames = null
+        ?string $productName = null,
+        ?string $productImageUrl = null,
+        ?array $generalCategoryNames = null
     ) {
         $this->productName = $productName;
         $this->productImageUrl = $productImageUrl;
@@ -91,7 +94,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     public function getGeneralCategoryNames()
     {
         if (is_null($this->generalCategoryNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GENERAL_CATEGORY_NAMES);
             if (is_null($data)) {
                 return null;
@@ -103,16 +106,25 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $productName
+     */
     public function setProductName(?string $productName): void
     {
         $this->productName = $productName;
     }
 
+    /**
+     * @param ?string $productImageUrl
+     */
     public function setProductImageUrl(?string $productImageUrl): void
     {
         $this->productImageUrl = $productImageUrl;
     }
 
+    /**
+     * @param ?array $generalCategoryNames
+     */
     public function setGeneralCategoryNames(?array $generalCategoryNames): void
     {
         $this->generalCategoryNames = $generalCategoryNames;

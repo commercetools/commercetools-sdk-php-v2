@@ -27,7 +27,13 @@ interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction
      */
     public function getInputTip();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?LocalizedString $inputTip
+     */
     public function setInputTip(?LocalizedString $inputTip): void;
 }

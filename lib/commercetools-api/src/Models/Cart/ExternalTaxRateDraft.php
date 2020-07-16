@@ -66,15 +66,33 @@ interface ExternalTaxRateDraft extends JsonObject
      */
     public function getIncludedInPrice();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?float $amount
+     */
     public function setAmount(?float $amount): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?SubRateCollection $subRates
+     */
     public function setSubRates(?SubRateCollection $subRates): void;
 
+    /**
+     * @param ?bool $includedInPrice
+     */
     public function setIncludedInPrice(?bool $includedInPrice): void;
 }

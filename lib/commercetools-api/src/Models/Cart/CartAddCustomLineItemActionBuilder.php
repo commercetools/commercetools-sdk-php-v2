@@ -120,6 +120,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $money
      * @return $this
      */
     public function withMoney(?Money $money)
@@ -130,6 +131,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -140,6 +142,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -150,6 +153,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $slug
      * @return $this
      */
     public function withSlug(?string $slug)
@@ -160,6 +164,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
@@ -170,6 +175,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -180,6 +186,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)

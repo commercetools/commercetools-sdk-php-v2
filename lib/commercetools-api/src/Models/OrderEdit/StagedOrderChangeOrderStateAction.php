@@ -21,5 +21,8 @@ interface StagedOrderChangeOrderStateAction extends StagedOrderUpdateAction
      */
     public function getOrderState();
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void;
 }

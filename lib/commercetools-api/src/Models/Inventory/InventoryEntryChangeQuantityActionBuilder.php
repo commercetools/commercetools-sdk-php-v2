@@ -34,6 +34,7 @@ final class InventoryEntryChangeQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)

@@ -36,9 +36,12 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     protected $field;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $field = null
+        ?string $message = null,
+        ?string $field = null
     ) {
         $this->message = $message;
         $this->field = $field;
@@ -101,11 +104,17 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void
     {
         $this->field = $field;

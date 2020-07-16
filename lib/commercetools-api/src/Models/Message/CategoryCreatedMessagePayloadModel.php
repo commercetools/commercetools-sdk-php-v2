@@ -33,8 +33,11 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     protected $category;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Category $category = null
+        ?Category $category = null
     ) {
         $this->category = $category;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?Category $category
+     */
     public function setCategory(?Category $category): void
     {
         $this->category = $category;

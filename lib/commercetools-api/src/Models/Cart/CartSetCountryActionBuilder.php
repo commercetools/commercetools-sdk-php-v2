@@ -36,6 +36,7 @@ final class CartSetCountryActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)

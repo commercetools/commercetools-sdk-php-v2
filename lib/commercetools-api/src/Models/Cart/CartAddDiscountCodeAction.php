@@ -20,5 +20,8 @@ interface CartAddDiscountCodeAction extends CartUpdateAction
      */
     public function getCode();
 
+    /**
+     * @param ?string $code
+     */
     public function setCode(?string $code): void;
 }

@@ -26,7 +26,13 @@ interface PriceTierDraft extends JsonObject
      */
     public function getValue();
 
+    /**
+     * @param ?int $minimumQuantity
+     */
     public function setMinimumQuantity(?int $minimumQuantity): void;
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 }

@@ -21,5 +21,8 @@ interface StagedOrderChangeTaxCalculationModeAction extends StagedOrderUpdateAct
      */
     public function getTaxCalculationMode();
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
 }

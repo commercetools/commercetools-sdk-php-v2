@@ -30,9 +30,12 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     protected $column;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $line = null,
-        int $column = null
+        ?int $line = null,
+        ?int $column = null
     ) {
         $this->line = $line;
         $this->column = $column;
@@ -73,11 +76,17 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     }
 
 
+    /**
+     * @param ?int $line
+     */
     public function setLine(?int $line): void
     {
         $this->line = $line;
     }
 
+    /**
+     * @param ?int $column
+     */
     public function setColumn(?int $column): void
     {
         $this->column = $column;

@@ -35,6 +35,7 @@ final class InventoryEntrySetExpectedDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expectedDelivery
      * @return $this
      */
     public function withExpectedDelivery(?DateTimeImmutable $expectedDelivery)

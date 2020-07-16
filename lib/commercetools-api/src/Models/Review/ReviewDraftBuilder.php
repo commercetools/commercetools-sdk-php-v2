@@ -185,6 +185,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -195,6 +196,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $uniquenessValue
      * @return $this
      */
     public function withUniquenessValue(?string $uniquenessValue)
@@ -205,6 +207,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -215,6 +218,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorName
      * @return $this
      */
     public function withAuthorName(?string $authorName)
@@ -225,6 +229,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)
@@ -235,6 +240,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $text
      * @return $this
      */
     public function withText(?string $text)
@@ -245,6 +251,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $target
      * @return $this
      */
     public function withTarget(?JsonObject $target)
@@ -255,6 +262,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)
@@ -265,6 +273,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $rating
      * @return $this
      */
     public function withRating(?int $rating)
@@ -275,6 +284,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerResourceIdentifier $customer
      * @return $this
      */
     public function withCustomer(?CustomerResourceIdentifier $customer)
@@ -285,6 +295,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)

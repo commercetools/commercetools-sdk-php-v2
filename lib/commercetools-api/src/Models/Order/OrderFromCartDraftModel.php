@@ -57,14 +57,17 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        string $orderNumber = null,
-        string $paymentState = null,
-        string $shipmentState = null,
-        string $orderState = null,
-        StateResourceIdentifier $state = null
+        ?string $id = null,
+        ?int $version = null,
+        ?string $orderNumber = null,
+        ?string $paymentState = null,
+        ?string $shipmentState = null,
+        ?string $orderState = null,
+        ?StateResourceIdentifier $state = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -206,36 +209,57 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
     }
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;

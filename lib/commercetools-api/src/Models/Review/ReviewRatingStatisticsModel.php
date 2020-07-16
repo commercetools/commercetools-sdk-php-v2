@@ -40,17 +40,20 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     protected $count;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $ratingsDistribution;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $averageRating = null,
-        float $highestRating = null,
-        float $lowestRating = null,
-        int $count = null,
-        JsonObject $ratingsDistribution = null
+        ?float $averageRating = null,
+        ?float $highestRating = null,
+        ?float $lowestRating = null,
+        ?int $count = null,
+        ?JsonObject $ratingsDistribution = null
     ) {
         $this->averageRating = $averageRating;
         $this->highestRating = $highestRating;
@@ -141,7 +144,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
      * The keys are the different ratings and the values are the count of reviews having this rating.
      * Only the used ratings appear in this object.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getRatingsDistribution()
     {
@@ -158,26 +161,41 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     }
 
 
+    /**
+     * @param ?float $averageRating
+     */
     public function setAverageRating(?float $averageRating): void
     {
         $this->averageRating = $averageRating;
     }
 
+    /**
+     * @param ?float $highestRating
+     */
     public function setHighestRating(?float $highestRating): void
     {
         $this->highestRating = $highestRating;
     }
 
+    /**
+     * @param ?float $lowestRating
+     */
     public function setLowestRating(?float $lowestRating): void
     {
         $this->lowestRating = $lowestRating;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?JsonObject $ratingsDistribution
+     */
     public function setRatingsDistribution(?JsonObject $ratingsDistribution): void
     {
         $this->ratingsDistribution = $ratingsDistribution;

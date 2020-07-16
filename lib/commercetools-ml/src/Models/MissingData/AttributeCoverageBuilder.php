@@ -51,6 +51,7 @@ final class AttributeCoverageBuilder implements Builder
     }
 
     /**
+     * @param ?float $names
      * @return $this
      */
     public function withNames(?float $names)
@@ -61,6 +62,7 @@ final class AttributeCoverageBuilder implements Builder
     }
 
     /**
+     * @param ?float $values
      * @return $this
      */
     public function withValues(?float $values)

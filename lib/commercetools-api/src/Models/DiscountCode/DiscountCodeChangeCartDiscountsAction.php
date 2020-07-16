@@ -21,5 +21,8 @@ interface DiscountCodeChangeCartDiscountsAction extends DiscountCodeUpdateAction
      */
     public function getCartDiscounts();
 
+    /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
+     */
     public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void;
 }

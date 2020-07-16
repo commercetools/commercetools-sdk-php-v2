@@ -70,17 +70,38 @@ interface ApiClient extends JsonObject
      */
     public function getSecret();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastUsedAt
+     */
     public function setLastUsedAt(?DateTimeImmutable $lastUsedAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $deleteAt
+     */
     public function setDeleteAt(?DateTimeImmutable $deleteAt): void;
 
+    /**
+     * @param ?string $secret
+     */
     public function setSecret(?string $secret): void;
 }

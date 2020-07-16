@@ -26,7 +26,13 @@ interface OrderSetParcelMeasurementsAction extends OrderUpdateAction
      */
     public function getMeasurements();
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void;
 }

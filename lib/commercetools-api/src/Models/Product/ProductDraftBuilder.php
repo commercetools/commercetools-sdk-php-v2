@@ -257,6 +257,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeResourceIdentifier $productType
      * @return $this
      */
     public function withProductType(?ProductTypeResourceIdentifier $productType)
@@ -267,6 +268,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -277,6 +279,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -287,6 +290,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -297,6 +301,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -307,6 +312,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryResourceIdentifierCollection $categories
      * @return $this
      */
     public function withCategories(?CategoryResourceIdentifierCollection $categories)
@@ -317,6 +323,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryOrderHints $categoryOrderHints
      * @return $this
      */
     public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
@@ -327,6 +334,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -337,6 +345,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -347,6 +356,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -357,6 +367,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantDraft $masterVariant
      * @return $this
      */
     public function withMasterVariant(?ProductVariantDraft $masterVariant)
@@ -367,6 +378,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantDraftCollection $variants
      * @return $this
      */
     public function withVariants(?ProductVariantDraftCollection $variants)
@@ -377,6 +389,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
@@ -387,6 +400,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)
@@ -397,6 +411,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)
@@ -407,6 +422,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $publish
      * @return $this
      */
     public function withPublish(?bool $publish)

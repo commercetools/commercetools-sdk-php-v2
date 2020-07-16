@@ -22,5 +22,8 @@ interface StagedOrderRemovePaymentAction extends StagedOrderUpdateAction
      */
     public function getPayment();
 
+    /**
+     * @param ?PaymentResourceIdentifier $payment
+     */
     public function setPayment(?PaymentResourceIdentifier $payment): void;
 }

@@ -47,6 +47,7 @@ final class PayloadNotIncludedBuilder implements Builder
     }
 
     /**
+     * @param ?string $reason
      * @return $this
      */
     public function withReason(?string $reason)
@@ -57,6 +58,7 @@ final class PayloadNotIncludedBuilder implements Builder
     }
 
     /**
+     * @param ?string $payloadType
      * @return $this
      */
     public function withPayloadType(?string $payloadType)

@@ -20,5 +20,8 @@ interface CartDiscountChangeRequiresDiscountCodeAction extends CartDiscountUpdat
      */
     public function getRequiresDiscountCode();
 
+    /**
+     * @param ?bool $requiresDiscountCode
+     */
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void;
 }

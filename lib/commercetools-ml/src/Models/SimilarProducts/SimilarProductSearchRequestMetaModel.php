@@ -25,8 +25,11 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
     protected $similarityMeasures;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        SimilarityMeasures $similarityMeasures = null
+        ?SimilarityMeasures $similarityMeasures = null
     ) {
         $this->similarityMeasures = $similarityMeasures;
     }
@@ -52,6 +55,9 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?SimilarityMeasures $similarityMeasures
+     */
     public function setSimilarityMeasures(?SimilarityMeasures $similarityMeasures): void
     {
         $this->similarityMeasures = $similarityMeasures;

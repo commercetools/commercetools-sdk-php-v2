@@ -36,6 +36,7 @@ final class PaymentTransactionAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Transaction $transaction
      * @return $this
      */
     public function withTransaction(?Transaction $transaction)

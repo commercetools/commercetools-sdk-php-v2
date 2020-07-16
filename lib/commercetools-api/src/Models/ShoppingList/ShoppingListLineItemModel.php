@@ -84,18 +84,21 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     protected $variantId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $addedAt = null,
-        CustomFields $custom = null,
-        DateTimeImmutable $deactivatedAt = null,
-        string $id = null,
-        LocalizedString $name = null,
-        string $productId = null,
-        LocalizedString $productSlug = null,
-        ProductTypeReference $productType = null,
-        float $quantity = null,
-        ProductVariant $variant = null,
-        int $variantId = null
+        ?DateTimeImmutable $addedAt = null,
+        ?CustomFields $custom = null,
+        ?DateTimeImmutable $deactivatedAt = null,
+        ?string $id = null,
+        ?LocalizedString $name = null,
+        ?string $productId = null,
+        ?LocalizedString $productSlug = null,
+        ?ProductTypeReference $productType = null,
+        ?float $quantity = null,
+        ?ProductVariant $variant = null,
+        ?int $variantId = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -311,56 +314,89 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $deactivatedAt
+     */
     public function setDeactivatedAt(?DateTimeImmutable $deactivatedAt): void
     {
         $this->deactivatedAt = $deactivatedAt;
     }
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?LocalizedString $productSlug
+     */
     public function setProductSlug(?LocalizedString $productSlug): void
     {
         $this->productSlug = $productSlug;
     }
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?ProductVariant $variant
+     */
     public function setVariant(?ProductVariant $variant): void
     {
         $this->variant = $variant;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;

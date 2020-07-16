@@ -21,5 +21,8 @@ interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction
      */
     public function getCustomer();
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
 }

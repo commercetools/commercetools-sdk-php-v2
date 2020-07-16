@@ -27,7 +27,13 @@ interface StagedOrderSetReturnShipmentStateAction extends StagedOrderUpdateActio
      */
     public function getShipmentState();
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void;
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 }

@@ -43,10 +43,13 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     protected $discounted;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $priceId = null,
-        bool $staged = null,
-        DiscountedPrice $discounted = null
+        ?string $priceId = null,
+        ?bool $staged = null,
+        ?DiscountedPrice $discounted = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
@@ -124,16 +127,25 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;

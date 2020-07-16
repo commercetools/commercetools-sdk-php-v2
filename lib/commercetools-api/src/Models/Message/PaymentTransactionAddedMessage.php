@@ -21,5 +21,8 @@ interface PaymentTransactionAddedMessage extends Message
      */
     public function getTransaction();
 
+    /**
+     * @param ?Transaction $transaction
+     */
     public function setTransaction(?Transaction $transaction): void;
 }

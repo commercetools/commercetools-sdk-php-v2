@@ -146,30 +146,33 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     protected $itemShippingAddresses;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $currency = null,
-        string $customerId = null,
-        string $customerEmail = null,
-        CustomerGroupResourceIdentifier $customerGroup = null,
-        string $anonymousId = null,
-        StoreResourceIdentifier $store = null,
-        string $country = null,
-        string $inventoryMode = null,
-        string $taxMode = null,
-        string $taxRoundingMode = null,
-        string $taxCalculationMode = null,
-        LineItemDraftCollection $lineItems = null,
-        CustomLineItemDraftCollection $customLineItems = null,
-        Address $shippingAddress = null,
-        Address $billingAddress = null,
-        ShippingMethodResourceIdentifier $shippingMethod = null,
-        ExternalTaxRateDraft $externalTaxRateForShippingMethod = null,
-        CustomFieldsDraft $custom = null,
-        string $locale = null,
-        int $deleteDaysAfterLastModification = null,
-        string $origin = null,
-        ShippingRateInputDraft $shippingRateInput = null,
-        AddressCollection $itemShippingAddresses = null
+        ?string $currency = null,
+        ?string $customerId = null,
+        ?string $customerEmail = null,
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?string $anonymousId = null,
+        ?StoreResourceIdentifier $store = null,
+        ?string $country = null,
+        ?string $inventoryMode = null,
+        ?string $taxMode = null,
+        ?string $taxRoundingMode = null,
+        ?string $taxCalculationMode = null,
+        ?LineItemDraftCollection $lineItems = null,
+        ?CustomLineItemDraftCollection $customLineItems = null,
+        ?Address $shippingAddress = null,
+        ?Address $billingAddress = null,
+        ?ShippingMethodResourceIdentifier $shippingMethod = null,
+        ?ExternalTaxRateDraft $externalTaxRateForShippingMethod = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $locale = null,
+        ?int $deleteDaysAfterLastModification = null,
+        ?string $origin = null,
+        ?ShippingRateInputDraft $shippingRateInput = null,
+        ?AddressCollection $itemShippingAddresses = null
     ) {
         $this->currency = $currency;
         $this->customerId = $customerId;
@@ -413,7 +416,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -430,7 +433,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function getCustomLineItems()
     {
         if (is_null($this->customLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -631,7 +634,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function getItemShippingAddresses()
     {
         if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -643,116 +646,185 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
 
+    /**
+     * @param ?string $currency
+     */
     public function setCurrency(?string $currency): void
     {
         $this->currency = $currency;
     }
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;
     }
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void
     {
         $this->customerEmail = $customerEmail;
     }
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
     public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void
     {
         $this->inventoryMode = $inventoryMode;
     }
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
     }
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void
     {
         $this->taxRoundingMode = $taxRoundingMode;
     }
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void
     {
         $this->taxCalculationMode = $taxCalculationMode;
     }
 
+    /**
+     * @param ?LineItemDraftCollection $lineItems
+     */
     public function setLineItems(?LineItemDraftCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void
     {
         $this->customLineItems = $customLineItems;
     }
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRateForShippingMethod
+     */
     public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void
     {
         $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void
     {
         $this->origin = $origin;
     }
 
+    /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
     }
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;

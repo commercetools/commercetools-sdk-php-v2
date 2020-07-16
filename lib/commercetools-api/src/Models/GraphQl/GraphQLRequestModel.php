@@ -35,10 +35,13 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     protected $variables;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $query = null,
-        string $operationName = null,
-        GraphQLVariablesMap $variables = null
+        ?string $query = null,
+        ?string $operationName = null,
+        ?GraphQLVariablesMap $variables = null
     ) {
         $this->query = $query;
         $this->operationName = $operationName;
@@ -98,16 +101,25 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
 
+    /**
+     * @param ?string $query
+     */
     public function setQuery(?string $query): void
     {
         $this->query = $query;
     }
 
+    /**
+     * @param ?string $operationName
+     */
     public function setOperationName(?string $operationName): void
     {
         $this->operationName = $operationName;
     }
 
+    /**
+     * @param ?GraphQLVariablesMap $variables
+     */
     public function setVariables(?GraphQLVariablesMap $variables): void
     {
         $this->variables = $variables;

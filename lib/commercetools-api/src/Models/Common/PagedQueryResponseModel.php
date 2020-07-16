@@ -52,19 +52,22 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     protected $facets;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $meta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        BaseResourceCollection $results = null,
-        FacetResults $facets = null,
-        JsonObject $meta = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?BaseResourceCollection $results = null,
+        ?FacetResults $facets = null,
+        ?JsonObject $meta = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -149,7 +152,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     public function getResults()
     {
         if (is_null($this->results)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
@@ -179,7 +182,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getMeta()
     {
@@ -196,36 +199,57 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?BaseResourceCollection $results
+     */
     public function setResults(?BaseResourceCollection $results): void
     {
         $this->results = $results;
     }
 
+    /**
+     * @param ?FacetResults $facets
+     */
     public function setFacets(?FacetResults $facets): void
     {
         $this->facets = $facets;
     }
 
+    /**
+     * @param ?JsonObject $meta
+     */
     public function setMeta(?JsonObject $meta): void
     {
         $this->meta = $meta;

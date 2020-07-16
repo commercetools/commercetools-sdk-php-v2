@@ -36,9 +36,12 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
     protected $paymentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $returnItemId = null,
-        string $paymentState = null
+        ?string $returnItemId = null,
+        ?string $paymentState = null
     ) {
         $this->returnItemId = $returnItemId;
         $this->paymentState = $paymentState;
@@ -97,11 +100,17 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;

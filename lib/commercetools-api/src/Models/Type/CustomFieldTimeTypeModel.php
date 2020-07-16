@@ -26,6 +26,9 @@ final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFi
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

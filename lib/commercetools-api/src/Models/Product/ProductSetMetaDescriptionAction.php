@@ -27,7 +27,13 @@ interface ProductSetMetaDescriptionAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

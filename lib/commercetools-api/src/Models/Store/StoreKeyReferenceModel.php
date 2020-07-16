@@ -33,8 +33,11 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->typeId = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

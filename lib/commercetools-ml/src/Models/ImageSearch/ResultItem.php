@@ -31,7 +31,13 @@ interface ResultItem extends JsonObject
      */
     public function getProductVariants();
 
+    /**
+     * @param ?string $imageUrl
+     */
     public function setImageUrl(?string $imageUrl): void;
 
+    /**
+     * @param ?ProductVariantCollection $productVariants
+     */
     public function setProductVariants(?ProductVariantCollection $productVariants): void;
 }

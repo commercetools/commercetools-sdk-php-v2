@@ -26,7 +26,13 @@ interface Update extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?UpdateActionCollection $actions
+     */
     public function setActions(?UpdateActionCollection $actions): void;
 }

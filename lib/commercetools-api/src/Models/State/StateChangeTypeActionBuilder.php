@@ -34,6 +34,7 @@ final class StateChangeTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
      * @return $this
      */
     public function withType(?string $type)

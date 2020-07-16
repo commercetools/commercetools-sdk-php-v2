@@ -33,9 +33,18 @@ interface CartClassificationTier extends ShippingRatePriceTier
      */
     public function getIsMatching();
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void;
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void;
 }

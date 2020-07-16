@@ -333,6 +333,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -343,6 +344,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -353,6 +355,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -363,6 +366,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -373,6 +377,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -383,6 +388,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -393,6 +399,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -403,6 +410,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -413,6 +421,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -423,6 +432,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceId
      * @return $this
      */
     public function withInterfaceId(?string $interfaceId)
@@ -433,6 +443,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amountPlanned
      * @return $this
      */
     public function withAmountPlanned(?TypedMoney $amountPlanned)
@@ -443,6 +454,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amountAuthorized
      * @return $this
      */
     public function withAmountAuthorized(?TypedMoney $amountAuthorized)
@@ -453,6 +465,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorizedUntil
      * @return $this
      */
     public function withAuthorizedUntil(?string $authorizedUntil)
@@ -463,6 +476,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amountPaid
      * @return $this
      */
     public function withAmountPaid(?TypedMoney $amountPaid)
@@ -473,6 +487,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $amountRefunded
      * @return $this
      */
     public function withAmountRefunded(?TypedMoney $amountRefunded)
@@ -483,6 +498,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
      * @return $this
      */
     public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
@@ -493,6 +509,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentStatus $paymentStatus
      * @return $this
      */
     public function withPaymentStatus(?PaymentStatus $paymentStatus)
@@ -503,6 +520,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?TransactionCollection $transactions
      * @return $this
      */
     public function withTransactions(?TransactionCollection $transactions)
@@ -513,6 +531,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsCollection $interfaceInteractions
      * @return $this
      */
     public function withInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions)
@@ -523,6 +542,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -533,6 +553,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

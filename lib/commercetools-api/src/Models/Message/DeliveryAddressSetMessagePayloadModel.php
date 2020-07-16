@@ -43,10 +43,13 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     protected $oldAddress;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        Address $address = null,
-        Address $oldAddress = null
+        ?string $deliveryId = null,
+        ?Address $address = null,
+        ?Address $oldAddress = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->address = $address;
@@ -125,16 +128,25 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?Address $oldAddress
+     */
     public function setOldAddress(?Address $oldAddress): void
     {
         $this->oldAddress = $oldAddress;

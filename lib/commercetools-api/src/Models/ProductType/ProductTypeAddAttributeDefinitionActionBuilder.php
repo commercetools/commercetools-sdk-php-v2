@@ -34,6 +34,7 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeDefinitionDraft $attribute
      * @return $this
      */
     public function withAttribute(?AttributeDefinitionDraft $attribute)

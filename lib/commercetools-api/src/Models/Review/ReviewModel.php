@@ -127,25 +127,28 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        string $uniquenessValue = null,
-        string $locale = null,
-        string $authorName = null,
-        string $title = null,
-        string $text = null,
-        JsonObject $target = null,
-        bool $includedInStatistics = null,
-        int $rating = null,
-        StateReference $state = null,
-        CustomerReference $customer = null,
-        CustomFields $custom = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?string $uniquenessValue = null,
+        ?string $locale = null,
+        ?string $authorName = null,
+        ?string $title = null,
+        ?string $text = null,
+        ?JsonObject $target = null,
+        ?bool $includedInStatistics = null,
+        ?int $rating = null,
+        ?StateReference $state = null,
+        ?CustomerReference $customer = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -541,91 +544,145 @@ final class ReviewModel extends JsonObjectModel implements Review
         return ChannelReferenceModel::of($data);
     }
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $uniquenessValue
+     */
     public function setUniquenessValue(?string $uniquenessValue): void
     {
         $this->uniquenessValue = $uniquenessValue;
     }
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void
     {
         $this->authorName = $authorName;
     }
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void
     {
         $this->text = $text;
     }
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void
     {
         $this->target = $target;
     }
 
+    /**
+     * @param ?bool $includedInStatistics
+     */
     public function setIncludedInStatistics(?bool $includedInStatistics): void
     {
         $this->includedInStatistics = $includedInStatistics;
     }
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void
     {
         $this->rating = $rating;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;

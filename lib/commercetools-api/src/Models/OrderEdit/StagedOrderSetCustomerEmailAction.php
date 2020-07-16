@@ -21,5 +21,8 @@ interface StagedOrderSetCustomerEmailAction extends StagedOrderUpdateAction
      */
     public function getEmail();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 }

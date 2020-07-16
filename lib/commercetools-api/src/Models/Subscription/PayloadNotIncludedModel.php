@@ -30,9 +30,12 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     protected $payloadType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $reason = null,
-        string $payloadType = null
+        ?string $reason = null,
+        ?string $payloadType = null
     ) {
         $this->reason = $reason;
         $this->payloadType = $payloadType;
@@ -73,11 +76,17 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     }
 
 
+    /**
+     * @param ?string $reason
+     */
     public function setReason(?string $reason): void
     {
         $this->reason = $reason;
     }
 
+    /**
+     * @param ?string $payloadType
+     */
     public function setPayloadType(?string $payloadType): void
     {
         $this->payloadType = $payloadType;

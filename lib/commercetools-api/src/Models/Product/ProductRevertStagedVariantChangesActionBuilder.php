@@ -34,6 +34,7 @@ final class ProductRevertStagedVariantChangesActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)

@@ -35,8 +35,11 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     protected $customerGroup;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerGroupResourceIdentifier $customerGroup = null
+        ?CustomerGroupResourceIdentifier $customerGroup = null
     ) {
         $this->customerGroup = $customerGroup;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;

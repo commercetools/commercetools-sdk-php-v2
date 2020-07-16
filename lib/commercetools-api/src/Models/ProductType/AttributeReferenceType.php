@@ -20,5 +20,8 @@ interface AttributeReferenceType extends AttributeType
      */
     public function getReferenceTypeId();
 
+    /**
+     * @param ?string $referenceTypeId
+     */
     public function setReferenceTypeId(?string $referenceTypeId): void;
 }

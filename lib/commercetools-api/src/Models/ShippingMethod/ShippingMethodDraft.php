@@ -68,19 +68,43 @@ interface ShippingMethodDraft extends JsonObject
      */
     public function getPredicate();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 
+    /**
+     * @param ?LocalizedString $localizedDescription
+     */
     public function setLocalizedDescription(?LocalizedString $localizedDescription): void;
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 
+    /**
+     * @param ?ZoneRateDraftCollection $zoneRates
+     */
     public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void;
 
+    /**
+     * @param ?bool $isDefault
+     */
     public function setIsDefault(?bool $isDefault): void;
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void;
 }

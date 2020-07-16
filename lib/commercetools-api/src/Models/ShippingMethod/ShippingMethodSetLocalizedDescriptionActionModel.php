@@ -31,8 +31,11 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     protected $localizedDescription;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $localizedDescription = null
+        ?string $localizedDescription = null
     ) {
         $this->localizedDescription = $localizedDescription;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     }
 
 
+    /**
+     * @param ?string $localizedDescription
+     */
     public function setLocalizedDescription(?string $localizedDescription): void
     {
         $this->localizedDescription = $localizedDescription;

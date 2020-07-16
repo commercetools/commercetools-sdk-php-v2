@@ -26,7 +26,13 @@ interface OrderReturnShipmentStateChangedMessage extends Message
      */
     public function getReturnShipmentState();
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void;
 
+    /**
+     * @param ?string $returnShipmentState
+     */
     public function setReturnShipmentState(?string $returnShipmentState): void;
 }

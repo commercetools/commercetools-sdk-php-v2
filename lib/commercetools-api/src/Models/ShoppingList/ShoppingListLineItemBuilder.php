@@ -173,6 +173,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
@@ -183,6 +184,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -193,6 +195,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $deactivatedAt
      * @return $this
      */
     public function withDeactivatedAt(?DateTimeImmutable $deactivatedAt)
@@ -203,6 +206,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -213,6 +217,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -223,6 +228,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -233,6 +239,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $productSlug
      * @return $this
      */
     public function withProductSlug(?LocalizedString $productSlug)
@@ -243,6 +250,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeReference $productType)
@@ -253,6 +261,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -263,6 +272,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariant $variant
      * @return $this
      */
     public function withVariant(?ProductVariant $variant)
@@ -273,6 +283,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)

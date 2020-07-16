@@ -38,9 +38,12 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     protected $force;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StateReference $state = null,
-        bool $force = null
+        ?StateReference $state = null,
+        ?bool $force = null
     ) {
         $this->state = $state;
         $this->force = $force;
@@ -100,11 +103,17 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void
     {
         $this->force = $force;

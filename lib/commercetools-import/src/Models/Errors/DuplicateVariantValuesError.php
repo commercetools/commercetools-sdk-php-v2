@@ -22,5 +22,8 @@ interface DuplicateVariantValuesError extends ErrorObject
      */
     public function getVariantValues();
 
+    /**
+     * @param ?VariantValues $variantValues
+     */
     public function setVariantValues(?VariantValues $variantValues): void;
 }

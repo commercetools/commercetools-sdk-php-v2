@@ -33,8 +33,11 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     protected $productProjection;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductProjection $productProjection = null
+        ?ProductProjection $productProjection = null
     ) {
         $this->productProjection = $productProjection;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?ProductProjection $productProjection
+     */
     public function setProductProjection(?ProductProjection $productProjection): void
     {
         $this->productProjection = $productProjection;

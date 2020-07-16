@@ -114,6 +114,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -124,6 +125,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?AssetSourceCollection $sources
      * @return $this
      */
     public function withSources(?AssetSourceCollection $sources)
@@ -134,6 +136,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -144,6 +147,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -154,6 +158,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?array $tags
      * @return $this
      */
     public function withTags(?array $tags)
@@ -164,6 +169,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -174,6 +180,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

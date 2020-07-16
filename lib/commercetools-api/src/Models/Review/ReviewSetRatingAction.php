@@ -23,5 +23,8 @@ interface ReviewSetRatingAction extends ReviewUpdateAction
      */
     public function getRating();
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void;
 }

@@ -62,6 +62,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -72,6 +73,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -82,6 +84,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelDraftCollection $parcels
      * @return $this
      */
     public function withParcels(?ParcelDraftCollection $parcels)

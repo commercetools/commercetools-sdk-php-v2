@@ -92,19 +92,22 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     protected $comment;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        OrderReference $resource = null,
-        StagedOrderUpdateActionCollection $stagedActions = null,
-        CustomFields $custom = null,
-        OrderEditResult $result = null,
-        string $comment = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?OrderReference $resource = null,
+        ?StagedOrderUpdateActionCollection $stagedActions = null,
+        ?CustomFields $custom = null,
+        ?OrderEditResult $result = null,
+        ?string $comment = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -288,7 +291,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     public function getStagedActions()
     {
         if (is_null($this->stagedActions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -358,61 +361,97 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?OrderReference $resource
+     */
     public function setResource(?OrderReference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
     {
         $this->stagedActions = $stagedActions;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?OrderEditResult $result
+     */
     public function setResult(?OrderEditResult $result): void
     {
         $this->result = $result;
     }
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;

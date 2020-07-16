@@ -38,9 +38,12 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     protected $position;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        AssetDraft $asset = null,
-        int $position = null
+        ?AssetDraft $asset = null,
+        ?int $position = null
     ) {
         $this->asset = $asset;
         $this->position = $position;
@@ -102,11 +105,17 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     }
 
 
+    /**
+     * @param ?AssetDraft $asset
+     */
     public function setAsset(?AssetDraft $asset): void
     {
         $this->asset = $asset;
     }
 
+    /**
+     * @param ?int $position
+     */
     public function setPosition(?int $position): void
     {
         $this->position = $position;

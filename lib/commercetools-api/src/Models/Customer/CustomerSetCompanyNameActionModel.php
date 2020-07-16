@@ -31,8 +31,11 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     protected $companyName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $companyName = null
+        ?string $companyName = null
     ) {
         $this->companyName = $companyName;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?string $companyName
+     */
     public function setCompanyName(?string $companyName): void
     {
         $this->companyName = $companyName;

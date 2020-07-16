@@ -32,8 +32,11 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
     protected $money;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MoneyCollection $money = null
+        ?MoneyCollection $money = null
     ) {
         $this->money = $money;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -62,7 +65,7 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
     public function getMoney()
     {
         if (is_null($this->money)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;
@@ -74,6 +77,9 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?MoneyCollection $money
+     */
     public function setMoney(?MoneyCollection $money): void
     {
         $this->money = $money;

@@ -48,6 +48,7 @@ final class PaymentChangeTransactionTimestampActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $transactionId
      * @return $this
      */
     public function withTransactionId(?string $transactionId)
@@ -58,6 +59,7 @@ final class PaymentChangeTransactionTimestampActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $timestamp
      * @return $this
      */
     public function withTimestamp(?DateTimeImmutable $timestamp)

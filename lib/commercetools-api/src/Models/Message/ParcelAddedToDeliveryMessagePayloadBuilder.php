@@ -51,6 +51,7 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Delivery $delivery
      * @return $this
      */
     public function withDelivery(?Delivery $delivery)
@@ -61,6 +62,7 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Parcel $parcel
      * @return $this
      */
     public function withParcel(?Parcel $parcel)

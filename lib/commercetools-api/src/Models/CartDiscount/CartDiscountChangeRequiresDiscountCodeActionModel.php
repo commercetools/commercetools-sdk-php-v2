@@ -31,8 +31,11 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     protected $requiresDiscountCode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $requiresDiscountCode = null
+        ?bool $requiresDiscountCode = null
     ) {
         $this->requiresDiscountCode = $requiresDiscountCode;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     }
 
 
+    /**
+     * @param ?bool $requiresDiscountCode
+     */
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
     {
         $this->requiresDiscountCode = $requiresDiscountCode;

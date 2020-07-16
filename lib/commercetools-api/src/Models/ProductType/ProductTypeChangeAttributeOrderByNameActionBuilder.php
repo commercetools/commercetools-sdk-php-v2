@@ -34,6 +34,7 @@ final class ProductTypeChangeAttributeOrderByNameActionBuilder implements Builde
     }
 
     /**
+     * @param ?array $attributeNames
      * @return $this
      */
     public function withAttributeNames(?array $attributeNames)

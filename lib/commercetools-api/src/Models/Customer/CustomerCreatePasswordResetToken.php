@@ -26,7 +26,13 @@ interface CustomerCreatePasswordResetToken extends JsonObject
      */
     public function getTtlMinutes();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 
+    /**
+     * @param ?int $ttlMinutes
+     */
     public function setTtlMinutes(?int $ttlMinutes): void;
 }

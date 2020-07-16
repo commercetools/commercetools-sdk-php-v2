@@ -89,6 +89,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -99,6 +100,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -109,6 +111,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelMeasurements $measurements
      * @return $this
      */
     public function withMeasurements(?ParcelMeasurements $measurements)
@@ -119,6 +122,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?TrackingData $trackingData
      * @return $this
      */
     public function withTrackingData(?TrackingData $trackingData)
@@ -129,6 +133,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)

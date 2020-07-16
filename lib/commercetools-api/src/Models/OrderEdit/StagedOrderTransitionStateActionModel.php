@@ -40,9 +40,12 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     protected $force;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StateResourceIdentifier $state = null,
-        bool $force = null
+        ?StateResourceIdentifier $state = null,
+        ?bool $force = null
     ) {
         $this->state = $state;
         $this->force = $force;
@@ -102,11 +105,17 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void
     {
         $this->force = $force;

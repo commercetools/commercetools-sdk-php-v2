@@ -20,5 +20,8 @@ interface CartChangeTaxRoundingModeAction extends CartUpdateAction
      */
     public function getTaxRoundingMode();
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 }

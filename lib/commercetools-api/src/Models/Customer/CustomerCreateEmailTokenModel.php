@@ -35,10 +35,13 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     protected $ttlMinutes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        int $ttlMinutes = null
+        ?string $id = null,
+        ?int $version = null,
+        ?int $ttlMinutes = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -97,16 +100,25 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?int $ttlMinutes
+     */
     public function setTtlMinutes(?int $ttlMinutes): void
     {
         $this->ttlMinutes = $ttlMinutes;

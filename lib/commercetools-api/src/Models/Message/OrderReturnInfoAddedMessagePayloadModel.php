@@ -33,8 +33,11 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     protected $returnInfo;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ReturnInfo $returnInfo = null
+        ?ReturnInfo $returnInfo = null
     ) {
         $this->returnInfo = $returnInfo;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?ReturnInfo $returnInfo
+     */
     public function setReturnInfo(?ReturnInfo $returnInfo): void
     {
         $this->returnInfo = $returnInfo;

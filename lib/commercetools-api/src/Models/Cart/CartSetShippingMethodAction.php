@@ -27,7 +27,13 @@ interface CartSetShippingMethodAction extends CartUpdateAction
      */
     public function getExternalTaxRate();
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 }

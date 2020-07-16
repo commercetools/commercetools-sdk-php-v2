@@ -31,8 +31,11 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     protected $rating;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $rating = null
+        ?int $rating = null
     ) {
         $this->rating = $rating;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     }
 
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void
     {
         $this->rating = $rating;

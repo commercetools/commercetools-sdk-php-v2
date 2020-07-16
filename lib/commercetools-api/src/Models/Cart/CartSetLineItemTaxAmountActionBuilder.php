@@ -47,6 +47,7 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -57,6 +58,7 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
     public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)

@@ -26,6 +26,9 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

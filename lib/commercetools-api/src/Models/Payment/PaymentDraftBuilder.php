@@ -244,6 +244,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerResourceIdentifier $customer
      * @return $this
      */
     public function withCustomer(?CustomerResourceIdentifier $customer)
@@ -254,6 +255,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -264,6 +266,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -274,6 +277,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceId
      * @return $this
      */
     public function withInterfaceId(?string $interfaceId)
@@ -284,6 +288,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amountPlanned
      * @return $this
      */
     public function withAmountPlanned(?Money $amountPlanned)
@@ -294,6 +299,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amountAuthorized
      * @return $this
      */
     public function withAmountAuthorized(?Money $amountAuthorized)
@@ -304,6 +310,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorizedUntil
      * @return $this
      */
     public function withAuthorizedUntil(?string $authorizedUntil)
@@ -314,6 +321,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amountPaid
      * @return $this
      */
     public function withAmountPaid(?Money $amountPaid)
@@ -324,6 +332,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $amountRefunded
      * @return $this
      */
     public function withAmountRefunded(?Money $amountRefunded)
@@ -334,6 +343,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
      * @return $this
      */
     public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
@@ -344,6 +354,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentStatusDraft $paymentStatus
      * @return $this
      */
     public function withPaymentStatus(?PaymentStatusDraft $paymentStatus)
@@ -354,6 +365,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TransactionDraftCollection $transactions
      * @return $this
      */
     public function withTransactions(?TransactionDraftCollection $transactions)
@@ -364,6 +376,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraftCollection $interfaceInteractions
      * @return $this
      */
     public function withInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions)
@@ -374,6 +387,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -384,6 +398,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

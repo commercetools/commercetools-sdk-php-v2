@@ -31,8 +31,11 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     protected $anonymousId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $anonymousId = null
+        ?string $anonymousId = null
     ) {
         $this->anonymousId = $anonymousId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;

@@ -30,9 +30,12 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        CategoryUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?CategoryUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -61,7 +64,7 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -73,11 +76,17 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?CategoryUpdateActionCollection $actions
+     */
     public function setActions(?CategoryUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

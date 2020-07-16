@@ -39,7 +39,7 @@ interface ProductSetAttributeAction extends ProductUpdateAction
      * If the attribute exists and a value is provided, the new value is applied.
      * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
@@ -48,13 +48,28 @@ interface ProductSetAttributeAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

@@ -22,5 +22,8 @@ interface StagedOrderSetShippingMethodTaxRateAction extends StagedOrderUpdateAct
      */
     public function getExternalTaxRate();
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 }

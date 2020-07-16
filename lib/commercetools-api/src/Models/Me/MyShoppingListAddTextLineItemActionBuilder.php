@@ -91,6 +91,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -101,6 +102,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -111,6 +113,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -121,6 +124,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
@@ -131,6 +135,7 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)

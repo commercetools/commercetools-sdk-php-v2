@@ -35,6 +35,7 @@ final class OrderEditPreviewFailureBuilder implements Builder
     }
 
     /**
+     * @param ?ErrorObjectCollection $errors
      * @return $this
      */
     public function withErrors(?ErrorObjectCollection $errors)

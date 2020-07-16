@@ -322,6 +322,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -332,6 +333,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -342,6 +344,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -352,6 +355,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $productSlug
      * @return $this
      */
     public function withProductSlug(?LocalizedString $productSlug)
@@ -362,6 +366,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeReference $productType)
@@ -372,6 +377,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariant $variant
      * @return $this
      */
     public function withVariant(?ProductVariant $variant)
@@ -382,6 +388,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?Price $price
      * @return $this
      */
     public function withPrice(?Price $price)
@@ -392,6 +399,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedItemPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
@@ -402,6 +410,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalPrice
      * @return $this
      */
     public function withTotalPrice(?TypedMoney $totalPrice)
@@ -412,6 +421,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -422,6 +432,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
      * @return $this
      */
     public function withState(?ItemStateCollection $state)
@@ -432,6 +443,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRate $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRate $taxRate)
@@ -442,6 +454,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelReference $supplyChannel)
@@ -452,6 +465,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelReference $distributionChannel)
@@ -462,6 +476,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
      * @return $this
      */
     public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
@@ -472,6 +487,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
      * @return $this
      */
     public function withPriceMode(?string $priceMode)
@@ -482,6 +498,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemMode
      * @return $this
      */
     public function withLineItemMode(?string $lineItemMode)
@@ -492,6 +509,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -502,6 +520,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetails $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetails $shippingDetails)

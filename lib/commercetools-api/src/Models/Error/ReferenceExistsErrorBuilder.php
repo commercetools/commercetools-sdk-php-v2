@@ -47,6 +47,7 @@ final class ReferenceExistsErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -57,6 +58,7 @@ final class ReferenceExistsErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $referencedBy
      * @return $this
      */
     public function withReferencedBy(?string $referencedBy)

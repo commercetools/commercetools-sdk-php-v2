@@ -34,6 +34,7 @@ final class MyPaymentSetMethodInfoInterfaceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $interface
      * @return $this
      */
     public function withInterface(?string $interface)

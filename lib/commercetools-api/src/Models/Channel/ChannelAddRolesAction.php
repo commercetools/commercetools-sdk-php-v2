@@ -20,5 +20,8 @@ interface ChannelAddRolesAction extends ChannelUpdateAction
      */
     public function getRoles();
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void;
 }

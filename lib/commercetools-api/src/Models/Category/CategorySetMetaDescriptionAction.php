@@ -21,5 +21,8 @@ interface CategorySetMetaDescriptionAction extends CategoryUpdateAction
      */
     public function getMetaDescription();
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 }

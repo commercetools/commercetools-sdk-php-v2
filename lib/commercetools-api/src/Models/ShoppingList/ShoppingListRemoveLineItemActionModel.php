@@ -36,9 +36,12 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        int $quantity = null
+        ?string $lineItemId = null,
+        ?int $quantity = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
@@ -97,11 +100,17 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;

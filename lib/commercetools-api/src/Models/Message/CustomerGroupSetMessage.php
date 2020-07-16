@@ -21,5 +21,8 @@ interface CustomerGroupSetMessage extends Message
      */
     public function getCustomerGroup();
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 }

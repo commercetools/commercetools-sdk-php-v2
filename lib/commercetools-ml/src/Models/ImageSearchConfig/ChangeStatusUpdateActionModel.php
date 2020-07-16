@@ -31,8 +31,11 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
     protected $status;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $status = null
+        ?string $status = null
     ) {
         $this->status = $status;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
     }
 
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void
     {
         $this->status = $status;

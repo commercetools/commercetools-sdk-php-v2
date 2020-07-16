@@ -82,23 +82,53 @@ interface Message extends BaseResource
      */
     public function getResourceUserProvidedIdentifiers();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?int $sequenceNumber
+     */
     public function setSequenceNumber(?int $sequenceNumber): void;
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void;
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void;
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void;
 }

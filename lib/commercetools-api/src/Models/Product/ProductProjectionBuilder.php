@@ -331,6 +331,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -341,6 +342,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -351,6 +353,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -361,6 +364,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -371,6 +375,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -381,6 +386,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeReference $productType)
@@ -391,6 +397,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -401,6 +408,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -411,6 +419,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -421,6 +430,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReferenceCollection $categories
      * @return $this
      */
     public function withCategories(?CategoryReferenceCollection $categories)
@@ -431,6 +441,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryOrderHints $categoryOrderHints
      * @return $this
      */
     public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
@@ -441,6 +452,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -451,6 +463,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -461,6 +474,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -471,6 +485,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)
@@ -481,6 +496,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $hasStagedChanges
      * @return $this
      */
     public function withHasStagedChanges(?bool $hasStagedChanges)
@@ -491,6 +507,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $published
      * @return $this
      */
     public function withPublished(?bool $published)
@@ -501,6 +518,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariant $masterVariant
      * @return $this
      */
     public function withMasterVariant(?ProductVariant $masterVariant)
@@ -511,6 +529,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantCollection $variants
      * @return $this
      */
     public function withVariants(?ProductVariantCollection $variants)
@@ -521,6 +540,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
@@ -531,6 +551,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)
@@ -541,6 +562,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
      * @return $this
      */
     public function withReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics)

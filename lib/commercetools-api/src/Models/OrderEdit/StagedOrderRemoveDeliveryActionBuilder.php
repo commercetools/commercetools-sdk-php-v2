@@ -36,6 +36,7 @@ final class StagedOrderRemoveDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)

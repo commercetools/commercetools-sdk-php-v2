@@ -21,5 +21,8 @@ interface PaymentCreatedMessagePayload extends MessagePayload
      */
     public function getPayment();
 
+    /**
+     * @param ?Payment $payment
+     */
     public function setPayment(?Payment $payment): void;
 }

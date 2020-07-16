@@ -77,19 +77,43 @@ interface CustomLineItemDraft extends JsonObject
      */
     public function getShippingDetails();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?Money $money
+     */
     public function setMoney(?Money $money): void;
 
+    /**
+     * @param ?string $slug
+     */
     public function setSlug(?string $slug): void;
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

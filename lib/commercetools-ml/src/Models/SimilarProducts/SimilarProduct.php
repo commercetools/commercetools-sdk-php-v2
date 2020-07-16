@@ -39,9 +39,18 @@ interface SimilarProduct extends JsonObject
      */
     public function getMeta();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?SimilarProductMeta $meta
+     */
     public function setMeta(?SimilarProductMeta $meta): void;
 }

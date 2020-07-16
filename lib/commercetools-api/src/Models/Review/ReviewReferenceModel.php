@@ -38,9 +38,12 @@ final class ReviewReferenceModel extends JsonObjectModel implements ReviewRefere
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Review $obj = null
+        ?string $id = null,
+        ?Review $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ReviewReferenceModel extends JsonObjectModel implements ReviewRefere
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Review $obj
+     */
     public function setObj(?Review $obj): void
     {
         $this->obj = $obj;

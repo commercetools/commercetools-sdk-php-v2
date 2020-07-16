@@ -33,8 +33,11 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
     protected $orderNumber;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderNumber = null
+        ?string $orderNumber = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;

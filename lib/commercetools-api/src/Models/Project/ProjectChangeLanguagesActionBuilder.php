@@ -36,6 +36,7 @@ final class ProjectChangeLanguagesActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $languages
      * @return $this
      */
     public function withLanguages(?array $languages)

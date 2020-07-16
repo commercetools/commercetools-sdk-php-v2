@@ -33,8 +33,11 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
     protected $code;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $code = null
+        ?string $code = null
     ) {
         $this->code = $code;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $code
+     */
     public function setCode(?string $code): void
     {
         $this->code = $code;

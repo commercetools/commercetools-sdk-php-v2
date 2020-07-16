@@ -30,9 +30,12 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $addressKey = null,
-        float $quantity = null
+        ?string $addressKey = null,
+        ?float $quantity = null
     ) {
         $this->addressKey = $addressKey;
         $this->quantity = $quantity;
@@ -79,11 +82,17 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     }
 
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void
     {
         $this->addressKey = $addressKey;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;

@@ -34,15 +34,27 @@ interface ProductSetProductPriceCustomFieldAction extends ProductUpdateAction
     public function getName();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 }

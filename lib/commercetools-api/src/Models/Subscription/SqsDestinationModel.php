@@ -46,11 +46,14 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     protected $region;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $accessKey = null,
-        string $accessSecret = null,
-        string $queueUrl = null,
-        string $region = null
+        ?string $accessKey = null,
+        ?string $accessSecret = null,
+        ?string $queueUrl = null,
+        ?string $region = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
@@ -145,21 +148,33 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;
     }
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void
     {
         $this->accessSecret = $accessSecret;
     }
 
+    /**
+     * @param ?string $queueUrl
+     */
     public function setQueueUrl(?string $queueUrl): void
     {
         $this->queueUrl = $queueUrl;
     }
 
+    /**
+     * @param ?string $region
+     */
     public function setRegion(?string $region): void
     {
         $this->region = $region;

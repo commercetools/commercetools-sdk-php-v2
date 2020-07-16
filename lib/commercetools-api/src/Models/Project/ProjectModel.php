@@ -83,19 +83,22 @@ final class ProjectModel extends JsonObjectModel implements Project
     protected $carts;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        string $key = null,
-        string $name = null,
-        array $countries = null,
-        array $currencies = null,
-        array $languages = null,
-        DateTimeImmutable $createdAt = null,
-        string $trialUntil = null,
-        MessageConfiguration $messages = null,
-        ShippingRateInputType $shippingRateInputType = null,
-        ExternalOAuth $externalOAuth = null,
-        CartsConfiguration $carts = null
+        ?int $version = null,
+        ?string $key = null,
+        ?string $name = null,
+        ?array $countries = null,
+        ?array $currencies = null,
+        ?array $languages = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?string $trialUntil = null,
+        ?MessageConfiguration $messages = null,
+        ?ShippingRateInputType $shippingRateInputType = null,
+        ?ExternalOAuth $externalOAuth = null,
+        ?CartsConfiguration $carts = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -176,7 +179,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function getCountries()
     {
         if (is_null($this->countries)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_COUNTRIES);
             if (is_null($data)) {
                 return null;
@@ -195,7 +198,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function getCurrencies()
     {
         if (is_null($this->currencies)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_CURRENCIES);
             if (is_null($data)) {
                 return null;
@@ -212,7 +215,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function getLanguages()
     {
         if (is_null($this->languages)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
@@ -336,61 +339,97 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?array $countries
+     */
     public function setCountries(?array $countries): void
     {
         $this->countries = $countries;
     }
 
+    /**
+     * @param ?array $currencies
+     */
     public function setCurrencies(?array $currencies): void
     {
         $this->currencies = $currencies;
     }
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?string $trialUntil
+     */
     public function setTrialUntil(?string $trialUntil): void
     {
         $this->trialUntil = $trialUntil;
     }
 
+    /**
+     * @param ?MessageConfiguration $messages
+     */
     public function setMessages(?MessageConfiguration $messages): void
     {
         $this->messages = $messages;
     }
 
+    /**
+     * @param ?ShippingRateInputType $shippingRateInputType
+     */
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void
     {
         $this->shippingRateInputType = $shippingRateInputType;
     }
 
+    /**
+     * @param ?ExternalOAuth $externalOAuth
+     */
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void
     {
         $this->externalOAuth = $externalOAuth;
     }
 
+    /**
+     * @param ?CartsConfiguration $carts
+     */
     public function setCarts(?CartsConfiguration $carts): void
     {
         $this->carts = $carts;

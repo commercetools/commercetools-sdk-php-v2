@@ -60,6 +60,7 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -70,6 +71,7 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?OrderEditUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?OrderEditUpdateActionCollection $actions)
@@ -80,6 +82,7 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?bool $dryRun
      * @return $this
      */
     public function withDryRun(?bool $dryRun)

@@ -40,9 +40,12 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
     protected $externalTotalPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null
+        ?string $lineItemId = null,
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalTotalPrice = $externalTotalPrice;
@@ -102,11 +105,17 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
+     */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;

@@ -40,9 +40,12 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
     protected $trackingData;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $parcelId = null,
-        TrackingData $trackingData = null
+        ?string $parcelId = null,
+        ?TrackingData $trackingData = null
     ) {
         $this->parcelId = $parcelId;
         $this->trackingData = $trackingData;
@@ -102,11 +105,17 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
 
+    /**
+     * @param ?TrackingData $trackingData
+     */
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;

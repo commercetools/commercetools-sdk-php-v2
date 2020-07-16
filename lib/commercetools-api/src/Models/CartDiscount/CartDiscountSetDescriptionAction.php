@@ -23,5 +23,8 @@ interface CartDiscountSetDescriptionAction extends CartDiscountUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

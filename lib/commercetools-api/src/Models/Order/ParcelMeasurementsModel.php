@@ -40,11 +40,14 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     protected $weightInGram;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $heightInMillimeter = null,
-        float $lengthInMillimeter = null,
-        float $widthInMillimeter = null,
-        float $weightInGram = null
+        ?float $heightInMillimeter = null,
+        ?float $lengthInMillimeter = null,
+        ?float $widthInMillimeter = null,
+        ?float $weightInGram = null
     ) {
         $this->heightInMillimeter = $heightInMillimeter;
         $this->lengthInMillimeter = $lengthInMillimeter;
@@ -121,21 +124,33 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
 
+    /**
+     * @param ?float $heightInMillimeter
+     */
     public function setHeightInMillimeter(?float $heightInMillimeter): void
     {
         $this->heightInMillimeter = $heightInMillimeter;
     }
 
+    /**
+     * @param ?float $lengthInMillimeter
+     */
     public function setLengthInMillimeter(?float $lengthInMillimeter): void
     {
         $this->lengthInMillimeter = $lengthInMillimeter;
     }
 
+    /**
+     * @param ?float $widthInMillimeter
+     */
     public function setWidthInMillimeter(?float $widthInMillimeter): void
     {
         $this->widthInMillimeter = $widthInMillimeter;
     }
 
+    /**
+     * @param ?float $weightInGram
+     */
     public function setWeightInGram(?float $weightInGram): void
     {
         $this->weightInGram = $weightInGram;

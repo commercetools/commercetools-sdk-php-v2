@@ -99,6 +99,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * @param ?float $averageRating
      * @return $this
      */
     public function withAverageRating(?float $averageRating)
@@ -109,6 +110,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * @param ?float $highestRating
      * @return $this
      */
     public function withHighestRating(?float $highestRating)
@@ -119,6 +121,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * @param ?float $lowestRating
      * @return $this
      */
     public function withLowestRating(?float $lowestRating)
@@ -129,6 +132,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -139,6 +143,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $ratingsDistribution
      * @return $this
      */
     public function withRatingsDistribution(?JsonObject $ratingsDistribution)

@@ -35,9 +35,18 @@ interface StagedOrderSetLineItemCustomTypeAction extends StagedOrderUpdateAction
      */
     public function getFields();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

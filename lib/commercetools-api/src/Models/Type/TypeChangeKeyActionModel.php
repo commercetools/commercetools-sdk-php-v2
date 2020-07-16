@@ -31,8 +31,11 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

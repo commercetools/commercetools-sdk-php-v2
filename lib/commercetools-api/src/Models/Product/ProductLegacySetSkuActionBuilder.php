@@ -47,6 +47,7 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -57,6 +58,7 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)

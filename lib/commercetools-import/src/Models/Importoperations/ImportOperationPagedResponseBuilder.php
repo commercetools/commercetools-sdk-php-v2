@@ -81,6 +81,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     }
 
     /**
+     * @param ?float $limit
      * @return $this
      */
     public function withLimit(?float $limit)
@@ -91,6 +92,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     }
 
     /**
+     * @param ?float $offset
      * @return $this
      */
     public function withOffset(?float $offset)
@@ -101,6 +103,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     }
 
     /**
+     * @param ?float $count
      * @return $this
      */
     public function withCount(?float $count)
@@ -111,6 +114,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     }
 
     /**
+     * @param ?ImportOperationCollection $results
      * @return $this
      */
     public function withResults(?ImportOperationCollection $results)

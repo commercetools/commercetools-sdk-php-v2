@@ -46,11 +46,23 @@ interface ImageSearchResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?ResultItemCollection $results
+     */
     public function setResults(?ResultItemCollection $results): void;
 }

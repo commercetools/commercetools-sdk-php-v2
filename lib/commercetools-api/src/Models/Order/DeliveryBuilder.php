@@ -92,6 +92,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -102,6 +103,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -112,6 +114,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -122,6 +125,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelCollection $parcels
      * @return $this
      */
     public function withParcels(?ParcelCollection $parcels)
@@ -132,6 +136,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)

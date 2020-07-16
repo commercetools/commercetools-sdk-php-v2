@@ -21,5 +21,8 @@ interface CategoryChangeNameAction extends CategoryUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

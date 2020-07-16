@@ -27,7 +27,13 @@ interface ProductDeletedMessage extends Message
      */
     public function getCurrentProjection();
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 
+    /**
+     * @param ?ProductProjection $currentProjection
+     */
     public function setCurrentProjection(?ProductProjection $currentProjection): void;
 }

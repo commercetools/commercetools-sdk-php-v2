@@ -47,6 +47,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     }
 
     /**
+     * @param ?string $returnItemId
      * @return $this
      */
     public function withReturnItemId(?string $returnItemId)
@@ -57,6 +58,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     }
 
     /**
+     * @param ?string $returnShipmentState
      * @return $this
      */
     public function withReturnShipmentState(?string $returnShipmentState)

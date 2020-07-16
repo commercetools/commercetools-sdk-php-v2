@@ -38,9 +38,12 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
     protected $description;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $textLineItemId = null,
-        LocalizedString $description = null
+        ?string $textLineItemId = null,
+        ?LocalizedString $description = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->description = $description;
@@ -100,11 +103,17 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
     }
 
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;

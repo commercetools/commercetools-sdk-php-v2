@@ -49,6 +49,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCode $obj
      * @return $this
      */
     public function withObj(?DiscountCode $obj)

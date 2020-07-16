@@ -38,9 +38,12 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     protected $shippingRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ZoneResourceIdentifier $zone = null,
-        ShippingRateDraft $shippingRate = null
+        ?ZoneResourceIdentifier $zone = null,
+        ?ShippingRateDraft $shippingRate = null
     ) {
         $this->zone = $zone;
         $this->shippingRate = $shippingRate;
@@ -101,11 +104,17 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void
     {
         $this->zone = $zone;
     }
 
+    /**
+     * @param ?ShippingRateDraft $shippingRate
+     */
     public function setShippingRate(?ShippingRateDraft $shippingRate): void
     {
         $this->shippingRate = $shippingRate;

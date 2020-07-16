@@ -33,9 +33,18 @@ interface ProductPublishedMessagePayload extends MessagePayload
      */
     public function getScope();
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 
+    /**
+     * @param ?ProductProjection $productProjection
+     */
     public function setProductProjection(?ProductProjection $productProjection): void;
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void;
 }

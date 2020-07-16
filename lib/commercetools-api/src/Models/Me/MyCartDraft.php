@@ -112,29 +112,68 @@ interface MyCartDraft extends JsonObject
      */
     public function getItemShippingAddresses();
 
+    /**
+     * @param ?string $currency
+     */
     public function setCurrency(?string $currency): void;
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void;
 
+    /**
+     * @param ?MyLineItemDraftCollection $lineItems
+     */
     public function setLineItems(?MyLineItemDraftCollection $lineItems): void;
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void;
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void;
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void;
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

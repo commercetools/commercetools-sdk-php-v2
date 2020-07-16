@@ -74,6 +74,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -84,6 +85,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -94,6 +96,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * @param ?PriceDraftCollection $prices
      * @return $this
      */
     public function withPrices(?PriceDraftCollection $prices)
@@ -104,6 +107,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

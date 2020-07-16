@@ -42,11 +42,14 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     protected $tiers;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoney $price = null,
-        TypedMoney $freeAbove = null,
-        bool $isMatching = null,
-        ShippingRatePriceTierCollection $tiers = null
+        ?TypedMoney $price = null,
+        ?TypedMoney $freeAbove = null,
+        ?bool $isMatching = null,
+        ?ShippingRatePriceTierCollection $tiers = null
     ) {
         $this->price = $price;
         $this->freeAbove = $freeAbove;
@@ -121,7 +124,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     public function getTiers()
     {
         if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;
@@ -133,21 +136,33 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
 
+    /**
+     * @param ?TypedMoney $price
+     */
     public function setPrice(?TypedMoney $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?TypedMoney $freeAbove
+     */
     public function setFreeAbove(?TypedMoney $freeAbove): void
     {
         $this->freeAbove = $freeAbove;
     }
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;
     }
 
+    /**
+     * @param ?ShippingRatePriceTierCollection $tiers
+     */
     public function setTiers(?ShippingRatePriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;

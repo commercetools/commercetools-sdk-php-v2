@@ -49,11 +49,23 @@ interface ExtensionDraft extends JsonObject
      */
     public function getTimeoutInMs();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?ExtensionDestination $destination
+     */
     public function setDestination(?ExtensionDestination $destination): void;
 
+    /**
+     * @param ?ExtensionTriggerCollection $triggers
+     */
     public function setTriggers(?ExtensionTriggerCollection $triggers): void;
 
+    /**
+     * @param ?int $timeoutInMs
+     */
     public function setTimeoutInMs(?int $timeoutInMs): void;
 }

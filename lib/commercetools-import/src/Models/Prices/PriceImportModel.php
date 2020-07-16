@@ -85,17 +85,20 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $product;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        Money $value = null,
-        string $country = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        CustomerGroupKeyReference $customerGroup = null,
-        ChannelKeyReference $channel = null,
-        DiscountedPrice $discounted = null,
-        ProductVariantKeyReference $productVariant = null,
-        ProductKeyReference $product = null
+        ?string $key = null,
+        ?Money $value = null,
+        ?string $country = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?CustomerGroupKeyReference $customerGroup = null,
+        ?ChannelKeyReference $channel = null,
+        ?DiscountedPrice $discounted = null,
+        ?ProductVariantKeyReference $productVariant = null,
+        ?ProductKeyReference $product = null
     ) {
         $this->key = $key;
         $this->value = $value;
@@ -325,51 +328,81 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?CustomerGroupKeyReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupKeyReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?ChannelKeyReference $channel
+     */
     public function setChannel(?ChannelKeyReference $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
     }
 
+    /**
+     * @param ?ProductVariantKeyReference $productVariant
+     */
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
         $this->productVariant = $productVariant;
     }
 
+    /**
+     * @param ?ProductKeyReference $product
+     */
     public function setProduct(?ProductKeyReference $product): void
     {
         $this->product = $product;

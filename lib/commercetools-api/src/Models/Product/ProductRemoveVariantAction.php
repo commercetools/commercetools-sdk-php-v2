@@ -32,9 +32,18 @@ interface ProductRemoveVariantAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

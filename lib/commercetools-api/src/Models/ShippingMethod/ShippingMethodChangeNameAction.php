@@ -20,5 +20,8 @@ interface ShippingMethodChangeNameAction extends ShippingMethodUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 }

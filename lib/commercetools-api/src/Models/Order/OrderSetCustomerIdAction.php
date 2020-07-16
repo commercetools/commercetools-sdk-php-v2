@@ -20,5 +20,8 @@ interface OrderSetCustomerIdAction extends OrderUpdateAction
      */
     public function getCustomerId();
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 }

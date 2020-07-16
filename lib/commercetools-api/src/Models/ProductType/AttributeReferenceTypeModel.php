@@ -31,8 +31,11 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     protected $referenceTypeId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $referenceTypeId = null
+        ?string $referenceTypeId = null
     ) {
         $this->referenceTypeId = $referenceTypeId;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     }
 
 
+    /**
+     * @param ?string $referenceTypeId
+     */
     public function setReferenceTypeId(?string $referenceTypeId): void
     {
         $this->referenceTypeId = $referenceTypeId;

@@ -36,9 +36,12 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     protected $returnShipmentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $returnItemId = null,
-        string $returnShipmentState = null
+        ?string $returnItemId = null,
+        ?string $returnShipmentState = null
     ) {
         $this->returnItemId = $returnItemId;
         $this->returnShipmentState = $returnShipmentState;
@@ -97,11 +100,17 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
     }
 
+    /**
+     * @param ?string $returnShipmentState
+     */
     public function setReturnShipmentState(?string $returnShipmentState): void
     {
         $this->returnShipmentState = $returnShipmentState;

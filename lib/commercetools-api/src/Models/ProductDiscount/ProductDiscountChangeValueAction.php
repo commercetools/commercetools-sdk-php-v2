@@ -20,5 +20,8 @@ interface ProductDiscountChangeValueAction extends ProductDiscountUpdateAction
      */
     public function getValue();
 
+    /**
+     * @param ?ProductDiscountValueDraft $value
+     */
     public function setValue(?ProductDiscountValueDraft $value): void;
 }

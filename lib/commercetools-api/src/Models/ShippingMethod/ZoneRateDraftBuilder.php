@@ -51,6 +51,7 @@ final class ZoneRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneResourceIdentifier $zone
      * @return $this
      */
     public function withZone(?ZoneResourceIdentifier $zone)
@@ -61,6 +62,7 @@ final class ZoneRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateDraftCollection $shippingRates
      * @return $this
      */
     public function withShippingRates(?ShippingRateDraftCollection $shippingRates)

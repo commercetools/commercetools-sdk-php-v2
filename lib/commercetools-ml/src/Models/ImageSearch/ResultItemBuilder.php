@@ -52,6 +52,7 @@ final class ResultItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $imageUrl
      * @return $this
      */
     public function withImageUrl(?string $imageUrl)
@@ -62,6 +63,7 @@ final class ResultItemBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantCollection $productVariants
      * @return $this
      */
     public function withProductVariants(?ProductVariantCollection $productVariants)

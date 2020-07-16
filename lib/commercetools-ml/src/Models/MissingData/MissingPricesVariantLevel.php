@@ -27,7 +27,13 @@ interface MissingPricesVariantLevel extends MissingPricesProductCount
      */
     public function getMissingPrices();
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $missingPrices
+     */
     public function setMissingPrices(?int $missingPrices): void;
 }

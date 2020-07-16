@@ -27,7 +27,13 @@ interface ProductRemoveFromCategoryAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?CategoryResourceIdentifier $category
+     */
     public function setCategory(?CategoryResourceIdentifier $category): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

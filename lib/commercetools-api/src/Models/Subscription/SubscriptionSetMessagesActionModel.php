@@ -31,8 +31,11 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     protected $messages;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MessageSubscriptionCollection $messages = null
+        ?MessageSubscriptionCollection $messages = null
     ) {
         $this->messages = $messages;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     public function getMessages()
     {
         if (is_null($this->messages)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void
     {
         $this->messages = $messages;

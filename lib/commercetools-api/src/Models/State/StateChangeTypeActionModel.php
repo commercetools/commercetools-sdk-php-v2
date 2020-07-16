@@ -31,8 +31,11 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $type = null
+        ?string $type = null
     ) {
         $this->type = $type;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     }
 
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void
     {
         $this->type = $type;

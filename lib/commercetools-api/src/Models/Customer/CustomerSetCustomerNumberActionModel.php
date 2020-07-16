@@ -31,8 +31,11 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     protected $customerNumber;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customerNumber = null
+        ?string $customerNumber = null
     ) {
         $this->customerNumber = $customerNumber;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $customerNumber
+     */
     public function setCustomerNumber(?string $customerNumber): void
     {
         $this->customerNumber = $customerNumber;

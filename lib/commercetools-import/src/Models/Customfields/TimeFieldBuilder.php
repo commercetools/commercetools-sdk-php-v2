@@ -35,6 +35,7 @@ final class TimeFieldBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $value
      * @return $this
      */
     public function withValue(?DateTimeImmutable $value)

@@ -38,9 +38,12 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $slug = null,
-        bool $staged = null
+        ?LocalizedString $slug = null,
+        ?bool $staged = null
     ) {
         $this->slug = $slug;
         $this->staged = $staged;
@@ -104,11 +107,17 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     }
 
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

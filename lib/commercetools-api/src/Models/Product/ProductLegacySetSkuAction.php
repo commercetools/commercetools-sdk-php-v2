@@ -26,7 +26,13 @@ interface ProductLegacySetSkuAction extends ProductUpdateAction
      */
     public function getVariantId();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 }

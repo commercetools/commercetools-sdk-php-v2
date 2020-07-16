@@ -47,6 +47,9 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
        'setDescription' => TypeSetDescriptionActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

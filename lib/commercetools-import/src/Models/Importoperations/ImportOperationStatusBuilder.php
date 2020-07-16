@@ -67,6 +67,7 @@ final class ImportOperationStatusBuilder implements Builder
     }
 
     /**
+     * @param ?string $operationId
      * @return $this
      */
     public function withOperationId(?string $operationId)
@@ -77,6 +78,7 @@ final class ImportOperationStatusBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -87,6 +89,7 @@ final class ImportOperationStatusBuilder implements Builder
     }
 
     /**
+     * @param ?ErrorObjectCollection $errors
      * @return $this
      */
     public function withErrors(?ErrorObjectCollection $errors)

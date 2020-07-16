@@ -81,17 +81,20 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     protected $shippingMethodState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $shippingMethodName = null,
-        TypedMoney $price = null,
-        ShippingRate $shippingRate = null,
-        TaxedItemPrice $taxedPrice = null,
-        TaxRate $taxRate = null,
-        TaxCategoryReference $taxCategory = null,
-        ShippingMethodReference $shippingMethod = null,
-        DeliveryCollection $deliveries = null,
-        DiscountedLineItemPrice $discountedPrice = null,
-        string $shippingMethodState = null
+        ?string $shippingMethodName = null,
+        ?TypedMoney $price = null,
+        ?ShippingRate $shippingRate = null,
+        ?TaxedItemPrice $taxedPrice = null,
+        ?TaxRate $taxRate = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?ShippingMethodReference $shippingMethod = null,
+        ?DeliveryCollection $deliveries = null,
+        ?DiscountedLineItemPrice $discountedPrice = null,
+        ?string $shippingMethodState = null
     ) {
         $this->shippingMethodName = $shippingMethodName;
         $this->price = $price;
@@ -249,7 +252,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     public function getDeliveries()
     {
         if (is_null($this->deliveries)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DELIVERIES);
             if (is_null($data)) {
                 return null;
@@ -298,51 +301,81 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     }
 
 
+    /**
+     * @param ?string $shippingMethodName
+     */
     public function setShippingMethodName(?string $shippingMethodName): void
     {
         $this->shippingMethodName = $shippingMethodName;
     }
 
+    /**
+     * @param ?TypedMoney $price
+     */
     public function setPrice(?TypedMoney $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?ShippingRate $shippingRate
+     */
     public function setShippingRate(?ShippingRate $shippingRate): void
     {
         $this->shippingRate = $shippingRate;
     }
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ShippingMethodReference $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodReference $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
 
+    /**
+     * @param ?DeliveryCollection $deliveries
+     */
     public function setDeliveries(?DeliveryCollection $deliveries): void
     {
         $this->deliveries = $deliveries;
     }
 
+    /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
+     */
     public function setDiscountedPrice(?DiscountedLineItemPrice $discountedPrice): void
     {
         $this->discountedPrice = $discountedPrice;
     }
 
+    /**
+     * @param ?string $shippingMethodState
+     */
     public function setShippingMethodState(?string $shippingMethodState): void
     {
         $this->shippingMethodState = $shippingMethodState;

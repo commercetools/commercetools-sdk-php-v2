@@ -170,6 +170,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -180,6 +181,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
@@ -190,6 +192,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
@@ -200,6 +203,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -210,6 +214,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -220,6 +225,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -230,6 +236,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -240,6 +247,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -250,6 +258,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalPrice
      * @return $this
      */
     public function withExternalPrice(?Money $externalPrice)
@@ -260,6 +269,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
@@ -270,6 +280,7 @@ final class CartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

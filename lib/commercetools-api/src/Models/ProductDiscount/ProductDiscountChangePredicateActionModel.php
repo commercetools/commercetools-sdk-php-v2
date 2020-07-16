@@ -31,8 +31,11 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     protected $predicate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $predicate = null
+        ?string $predicate = null
     ) {
         $this->predicate = $predicate;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;

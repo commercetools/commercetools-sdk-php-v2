@@ -30,9 +30,12 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     protected $confidence;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $categoryName = null,
-        float $confidence = null
+        ?string $categoryName = null,
+        ?float $confidence = null
     ) {
         $this->categoryName = $categoryName;
         $this->confidence = $confidence;
@@ -77,11 +80,17 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $categoryName
+     */
     public function setCategoryName(?string $categoryName): void
     {
         $this->categoryName = $categoryName;
     }
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;

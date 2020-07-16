@@ -20,5 +20,8 @@ interface AzureServiceBusDestination extends Destination
      */
     public function getConnectionString();
 
+    /**
+     * @param ?string $connectionString
+     */
     public function setConnectionString(?string $connectionString): void;
 }

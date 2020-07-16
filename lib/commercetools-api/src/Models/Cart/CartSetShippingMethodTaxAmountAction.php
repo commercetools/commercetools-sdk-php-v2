@@ -20,5 +20,8 @@ interface CartSetShippingMethodTaxAmountAction extends CartUpdateAction
      */
     public function getExternalTaxAmount();
 
+    /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
+     */
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void;
 }

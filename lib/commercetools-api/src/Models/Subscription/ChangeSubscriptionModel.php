@@ -25,8 +25,11 @@ final class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSub
     protected $resourceTypeId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $resourceTypeId = null
+        ?string $resourceTypeId = null
     ) {
         $this->resourceTypeId = $resourceTypeId;
     }
@@ -49,6 +52,9 @@ final class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSub
     }
 
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void
     {
         $this->resourceTypeId = $resourceTypeId;

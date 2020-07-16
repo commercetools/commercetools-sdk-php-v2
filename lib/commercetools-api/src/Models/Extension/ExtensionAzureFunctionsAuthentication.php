@@ -20,5 +20,8 @@ interface ExtensionAzureFunctionsAuthentication extends ExtensionHttpDestination
      */
     public function getKey();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

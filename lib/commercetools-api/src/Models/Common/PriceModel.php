@@ -77,17 +77,20 @@ final class PriceModel extends JsonObjectModel implements Price
     protected $tiers;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        TypedMoney $value = null,
-        string $country = null,
-        CustomerGroupReference $customerGroup = null,
-        ChannelReference $channel = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        DiscountedPrice $discounted = null,
-        CustomFields $custom = null,
-        PriceTierCollection $tiers = null
+        ?string $id = null,
+        ?TypedMoney $value = null,
+        ?string $country = null,
+        ?CustomerGroupReference $customerGroup = null,
+        ?ChannelReference $channel = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?DiscountedPrice $discounted = null,
+        ?CustomFields $custom = null,
+        ?PriceTierCollection $tiers = null
     ) {
         $this->id = $id;
         $this->value = $value;
@@ -275,7 +278,7 @@ final class PriceModel extends JsonObjectModel implements Price
     public function getTiers()
     {
         if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;
@@ -287,51 +290,81 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?TypedMoney $value
+     */
     public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?PriceTierCollection $tiers
+     */
     public function setTiers(?PriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;

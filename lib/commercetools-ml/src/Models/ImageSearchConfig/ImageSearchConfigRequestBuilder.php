@@ -36,6 +36,7 @@ final class ImageSearchConfigRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ImageSearchConfigUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?ImageSearchConfigUpdateActionCollection $actions)

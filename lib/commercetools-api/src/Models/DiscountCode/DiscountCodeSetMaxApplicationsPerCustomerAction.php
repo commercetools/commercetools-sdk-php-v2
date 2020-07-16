@@ -22,5 +22,8 @@ interface DiscountCodeSetMaxApplicationsPerCustomerAction extends DiscountCodeUp
      */
     public function getMaxApplicationsPerCustomer();
 
+    /**
+     * @param ?int $maxApplicationsPerCustomer
+     */
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void;
 }

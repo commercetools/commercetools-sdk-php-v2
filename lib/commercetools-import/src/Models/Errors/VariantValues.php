@@ -34,9 +34,18 @@ interface VariantValues extends JsonObject
      */
     public function getAttributes();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?PriceImportCollection $prices
+     */
     public function setPrices(?PriceImportCollection $prices): void;
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void;
 }

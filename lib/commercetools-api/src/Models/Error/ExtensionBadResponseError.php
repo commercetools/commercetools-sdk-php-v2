@@ -24,7 +24,7 @@ interface ExtensionBadResponseError extends ErrorObject
     public function getLocalizedMessage();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getExtensionExtraInfo();
 
@@ -33,9 +33,18 @@ interface ExtensionBadResponseError extends ErrorObject
      */
     public function getErrorByExtension();
 
+    /**
+     * @param ?LocalizedString $localizedMessage
+     */
     public function setLocalizedMessage(?LocalizedString $localizedMessage): void;
 
+    /**
+     * @param ?JsonObject $extensionExtraInfo
+     */
     public function setExtensionExtraInfo(?JsonObject $extensionExtraInfo): void;
 
+    /**
+     * @param ?ErrorByExtension $errorByExtension
+     */
     public function setErrorByExtension(?ErrorByExtension $errorByExtension): void;
 }

@@ -16,9 +16,12 @@ interface ResourceDeletionError extends ErrorObject
     public const FIELD_RESOURCE = 'resource';
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getResource();
 
-    public function setResource(?JsonObject $resource): void;
+    /**
+     * @param mixed $resource
+     */
+    public function setResource($resource): void;
 }

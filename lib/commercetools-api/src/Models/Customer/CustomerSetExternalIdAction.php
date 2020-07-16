@@ -22,5 +22,8 @@ interface CustomerSetExternalIdAction extends CustomerUpdateAction
      */
     public function getExternalId();
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 }

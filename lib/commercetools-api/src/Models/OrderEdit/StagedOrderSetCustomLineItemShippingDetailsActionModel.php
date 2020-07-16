@@ -40,9 +40,12 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?string $customLineItemId = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->shippingDetails = $shippingDetails;
@@ -102,11 +105,17 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

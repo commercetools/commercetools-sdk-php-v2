@@ -52,11 +52,14 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     protected $externalTotalPrice;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        float $quantity = null,
-        Money $externalPrice = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null
+        ?string $lineItemId = null,
+        ?float $quantity = null,
+        ?Money $externalPrice = null,
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
@@ -153,21 +156,33 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;
     }
 
+    /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
+     */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;

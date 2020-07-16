@@ -38,9 +38,12 @@ final class StoreReferenceModel extends JsonObjectModel implements StoreReferenc
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Store $obj = null
+        ?string $id = null,
+        ?Store $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class StoreReferenceModel extends JsonObjectModel implements StoreReferenc
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Store $obj
+     */
     public function setObj(?Store $obj): void
     {
         $this->obj = $obj;

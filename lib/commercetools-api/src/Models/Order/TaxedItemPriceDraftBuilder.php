@@ -49,6 +49,7 @@ final class TaxedItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalNet
      * @return $this
      */
     public function withTotalNet(?Money $totalNet)
@@ -59,6 +60,7 @@ final class TaxedItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalGross
      * @return $this
      */
     public function withTotalGross(?Money $totalGross)

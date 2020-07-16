@@ -33,9 +33,18 @@ interface ResourceUpdatedDelivery extends SubscriptionDelivery
      */
     public function getModifiedAt();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?int $oldVersion
+     */
     public function setOldVersion(?int $oldVersion): void;
 
+    /**
+     * @param ?DateTimeImmutable $modifiedAt
+     */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void;
 }

@@ -40,8 +40,11 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'product-type' => ProductTypeReferenceModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null
+        ?string $id = null
     ) {
         $this->id = $id;
         $this->typeId = static::DISCRIMINATOR_VALUE;
@@ -82,6 +85,9 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;

@@ -49,6 +49,7 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -59,6 +60,7 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Address $oldAddress
      * @return $this
      */
     public function withOldAddress(?Address $oldAddress)

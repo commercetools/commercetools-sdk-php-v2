@@ -38,9 +38,12 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        DiscountCode $obj = null
+        ?string $id = null,
+        ?DiscountCode $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?DiscountCode $obj
+     */
     public function setObj(?DiscountCode $obj): void
     {
         $this->obj = $obj;

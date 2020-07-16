@@ -197,6 +197,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -207,6 +208,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
@@ -217,6 +219,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -227,6 +230,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -237,6 +241,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -247,6 +252,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupKeyReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupKeyReference $customerGroup)
@@ -257,6 +263,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelKeyReference $channel
      * @return $this
      */
     public function withChannel(?ChannelKeyReference $channel)
@@ -267,6 +274,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
     public function withDiscounted(?DiscountedPrice $discounted)
@@ -277,6 +285,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
     public function withProductVariant(?ProductVariantKeyReference $productVariant)
@@ -287,6 +296,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductKeyReference $product
      * @return $this
      */
     public function withProduct(?ProductKeyReference $product)

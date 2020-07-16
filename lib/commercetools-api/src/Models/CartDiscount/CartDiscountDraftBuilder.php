@@ -216,6 +216,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -226,6 +227,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -236,6 +238,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -246,6 +249,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountValueDraft $value
      * @return $this
      */
     public function withValue(?CartDiscountValueDraft $value)
@@ -256,6 +260,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartPredicate
      * @return $this
      */
     public function withCartPredicate(?string $cartPredicate)
@@ -266,6 +271,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountTarget $target
      * @return $this
      */
     public function withTarget(?CartDiscountTarget $target)
@@ -276,6 +282,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $sortOrder
      * @return $this
      */
     public function withSortOrder(?string $sortOrder)
@@ -286,6 +293,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -296,6 +304,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -306,6 +315,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -316,6 +326,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $requiresDiscountCode
      * @return $this
      */
     public function withRequiresDiscountCode(?bool $requiresDiscountCode)
@@ -326,6 +337,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $stackingMode
      * @return $this
      */
     public function withStackingMode(?string $stackingMode)
@@ -336,6 +348,7 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

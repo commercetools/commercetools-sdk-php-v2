@@ -34,6 +34,7 @@ final class CustomerCompanyNameSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $companyName
      * @return $this
      */
     public function withCompanyName(?string $companyName)

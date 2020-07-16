@@ -27,7 +27,13 @@ interface ExternalLineItemTotalPrice extends JsonObject
      */
     public function getTotalPrice();
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void;
 }

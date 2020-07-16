@@ -99,21 +99,24 @@ final class StateModel extends JsonObjectModel implements State
     protected $transitions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        string $type = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        bool $initial = null,
-        bool $builtIn = null,
-        array $roles = null,
-        StateReferenceCollection $transitions = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?string $type = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?bool $initial = null,
+        ?bool $builtIn = null,
+        ?array $roles = null,
+        ?StateReferenceCollection $transitions = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -368,7 +371,7 @@ final class StateModel extends JsonObjectModel implements State
     public function getRoles()
     {
         if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
@@ -391,7 +394,7 @@ final class StateModel extends JsonObjectModel implements State
     public function getTransitions()
     {
         if (is_null($this->transitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;
@@ -403,71 +406,113 @@ final class StateModel extends JsonObjectModel implements State
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void
     {
         $this->initial = $initial;
     }
 
+    /**
+     * @param ?bool $builtIn
+     */
     public function setBuiltIn(?bool $builtIn): void
     {
         $this->builtIn = $builtIn;
     }
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void
     {
         $this->roles = $roles;
     }
 
+    /**
+     * @param ?StateReferenceCollection $transitions
+     */
     public function setTransitions(?StateReferenceCollection $transitions): void
     {
         $this->transitions = $transitions;

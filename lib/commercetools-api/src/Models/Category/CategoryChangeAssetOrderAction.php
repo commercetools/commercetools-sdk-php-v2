@@ -20,5 +20,8 @@ interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
      */
     public function getAssetOrder();
 
+    /**
+     * @param ?array $assetOrder
+     */
     public function setAssetOrder(?array $assetOrder): void;
 }

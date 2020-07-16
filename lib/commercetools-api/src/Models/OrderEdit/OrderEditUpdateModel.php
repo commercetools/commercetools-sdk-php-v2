@@ -35,10 +35,13 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     protected $dryRun;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        OrderEditUpdateActionCollection $actions = null,
-        bool $dryRun = null
+        ?int $version = null,
+        ?OrderEditUpdateActionCollection $actions = null,
+        ?bool $dryRun = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -68,7 +71,7 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -97,16 +100,25 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?OrderEditUpdateActionCollection $actions
+     */
     public function setActions(?OrderEditUpdateActionCollection $actions): void
     {
         $this->actions = $actions;
     }
 
+    /**
+     * @param ?bool $dryRun
+     */
     public function setDryRun(?bool $dryRun): void
     {
         $this->dryRun = $dryRun;

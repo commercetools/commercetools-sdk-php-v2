@@ -21,5 +21,8 @@ interface ReferenceSetAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?KeyReferenceCollection $value
+     */
     public function setValue(?KeyReferenceCollection $value): void;
 }

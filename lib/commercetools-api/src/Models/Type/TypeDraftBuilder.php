@@ -90,6 +90,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -100,6 +101,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -110,6 +112,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -120,6 +123,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $resourceTypeIds
      * @return $this
      */
     public function withResourceTypeIds(?array $resourceTypeIds)
@@ -130,6 +134,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?FieldDefinitionCollection $fieldDefinitions
      * @return $this
      */
     public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)

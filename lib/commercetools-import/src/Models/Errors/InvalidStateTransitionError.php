@@ -30,7 +30,13 @@ interface InvalidStateTransitionError extends ErrorObject
      */
     public function getNewState();
 
+    /**
+     * @param ?string $currentState
+     */
     public function setCurrentState(?string $currentState): void;
 
+    /**
+     * @param ?string $newState
+     */
     public function setNewState(?string $newState): void;
 }

@@ -30,9 +30,12 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        PaymentUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?PaymentUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -61,7 +64,7 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -73,11 +76,17 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?PaymentUpdateActionCollection $actions
+     */
     public function setActions(?PaymentUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

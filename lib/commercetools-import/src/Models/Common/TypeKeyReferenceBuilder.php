@@ -34,6 +34,7 @@ final class TypeKeyReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

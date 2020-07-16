@@ -20,5 +20,8 @@ interface CustomLineItemReturnItem extends ReturnItem
      */
     public function getCustomLineItemId();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 }

@@ -24,7 +24,7 @@ interface DuplicateFieldError extends ErrorObject
     public function getField();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue();
 
@@ -33,9 +33,18 @@ interface DuplicateFieldError extends ErrorObject
      */
     public function getConflictingResource();
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void;
 
-    public function setDuplicateValue(?JsonObject $duplicateValue): void;
+    /**
+     * @param mixed $duplicateValue
+     */
+    public function setDuplicateValue($duplicateValue): void;
 
+    /**
+     * @param ?Reference $conflictingResource
+     */
     public function setConflictingResource(?Reference $conflictingResource): void;
 }

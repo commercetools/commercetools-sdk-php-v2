@@ -75,6 +75,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -85,6 +86,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -95,6 +97,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * @param ?Image $image
      * @return $this
      */
     public function withImage(?Image $image)
@@ -105,6 +108,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

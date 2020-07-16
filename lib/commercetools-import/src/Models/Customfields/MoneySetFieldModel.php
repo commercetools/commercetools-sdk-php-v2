@@ -32,8 +32,11 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        MoneyCollection $value = null
+        ?MoneyCollection $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -64,7 +67,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -76,6 +79,9 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     }
 
 
+    /**
+     * @param ?MoneyCollection $value
+     */
     public function setValue(?MoneyCollection $value): void
     {
         $this->value = $value;

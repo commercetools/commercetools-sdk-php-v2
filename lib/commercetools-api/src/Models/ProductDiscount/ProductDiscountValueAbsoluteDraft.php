@@ -21,5 +21,8 @@ interface ProductDiscountValueAbsoluteDraft extends ProductDiscountValueDraft
      */
     public function getMoney();
 
+    /**
+     * @param ?MoneyCollection $money
+     */
     public function setMoney(?MoneyCollection $money): void;
 }

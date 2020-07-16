@@ -25,8 +25,11 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     protected $targets;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ItemShippingTargetCollection $targets = null
+        ?ItemShippingTargetCollection $targets = null
     ) {
         $this->targets = $targets;
     }
@@ -42,7 +45,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     public function getTargets()
     {
         if (is_null($this->targets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TARGETS);
             if (is_null($data)) {
                 return null;
@@ -54,6 +57,9 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     }
 
 
+    /**
+     * @param ?ItemShippingTargetCollection $targets
+     */
     public function setTargets(?ItemShippingTargetCollection $targets): void
     {
         $this->targets = $targets;

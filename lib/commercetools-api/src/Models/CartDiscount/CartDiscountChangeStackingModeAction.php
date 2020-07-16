@@ -20,5 +20,8 @@ interface CartDiscountChangeStackingModeAction extends CartDiscountUpdateAction
      */
     public function getStackingMode();
 
+    /**
+     * @param ?string $stackingMode
+     */
     public function setStackingMode(?string $stackingMode): void;
 }

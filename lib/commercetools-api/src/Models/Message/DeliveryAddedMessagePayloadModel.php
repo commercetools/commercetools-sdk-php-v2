@@ -33,8 +33,11 @@ final class DeliveryAddedMessagePayloadModel extends JsonObjectModel implements 
     protected $delivery;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Delivery $delivery = null
+        ?Delivery $delivery = null
     ) {
         $this->delivery = $delivery;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class DeliveryAddedMessagePayloadModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?Delivery $delivery
+     */
     public function setDelivery(?Delivery $delivery): void
     {
         $this->delivery = $delivery;

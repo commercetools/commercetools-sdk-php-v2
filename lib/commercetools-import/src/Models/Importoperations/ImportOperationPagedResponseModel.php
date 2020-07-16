@@ -40,11 +40,14 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $limit = null,
-        float $offset = null,
-        float $count = null,
-        ImportOperationCollection $results = null
+        ?float $limit = null,
+        ?float $offset = null,
+        ?float $count = null,
+        ?ImportOperationCollection $results = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -117,7 +120,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     public function getResults()
     {
         if (is_null($this->results)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
@@ -129,21 +132,33 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?float $limit
+     */
     public function setLimit(?float $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?float $count
+     */
     public function setCount(?float $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?ImportOperationCollection $results
+     */
     public function setResults(?ImportOperationCollection $results): void
     {
         $this->results = $results;

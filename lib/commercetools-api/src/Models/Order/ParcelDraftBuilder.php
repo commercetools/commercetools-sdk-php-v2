@@ -62,6 +62,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelMeasurements $measurements
      * @return $this
      */
     public function withMeasurements(?ParcelMeasurements $measurements)
@@ -72,6 +73,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TrackingData $trackingData
      * @return $this
      */
     public function withTrackingData(?TrackingData $trackingData)
@@ -82,6 +84,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)

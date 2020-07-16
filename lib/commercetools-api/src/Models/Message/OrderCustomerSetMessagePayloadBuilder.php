@@ -77,6 +77,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -87,6 +88,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)
@@ -97,6 +99,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $oldCustomer
      * @return $this
      */
     public function withOldCustomer(?CustomerReference $oldCustomer)
@@ -107,6 +110,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $oldCustomerGroup
      * @return $this
      */
     public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)

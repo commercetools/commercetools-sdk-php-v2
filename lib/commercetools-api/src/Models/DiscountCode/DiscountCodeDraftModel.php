@@ -86,19 +86,22 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     protected $validUntil;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        string $code = null,
-        CartDiscountResourceIdentifierCollection $cartDiscounts = null,
-        string $cartPredicate = null,
-        bool $isActive = null,
-        int $maxApplications = null,
-        int $maxApplicationsPerCustomer = null,
-        CustomFieldsDraft $custom = null,
-        array $groups = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?string $code = null,
+        ?CartDiscountResourceIdentifierCollection $cartDiscounts = null,
+        ?string $cartPredicate = null,
+        ?bool $isActive = null,
+        ?int $maxApplications = null,
+        ?int $maxApplicationsPerCustomer = null,
+        ?CustomFieldsDraft $custom = null,
+        ?array $groups = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -180,7 +183,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -287,7 +290,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     public function getGroups()
     {
         if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;
@@ -347,61 +350,97 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?string $code
+     */
     public function setCode(?string $code): void
     {
         $this->code = $code;
     }
 
+    /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
+     */
     public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void
     {
         $this->cartDiscounts = $cartDiscounts;
     }
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
     }
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
 
+    /**
+     * @param ?int $maxApplications
+     */
     public function setMaxApplications(?int $maxApplications): void
     {
         $this->maxApplications = $maxApplications;
     }
 
+    /**
+     * @param ?int $maxApplicationsPerCustomer
+     */
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
     {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?array $groups
+     */
     public function setGroups(?array $groups): void
     {
         $this->groups = $groups;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;

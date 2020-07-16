@@ -46,11 +46,14 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     protected $transaction;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $amountPlanned = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        CustomFieldsDraft $custom = null,
-        MyTransactionDraft $transaction = null
+        ?Money $amountPlanned = null,
+        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?CustomFieldsDraft $custom = null,
+        ?MyTransactionDraft $transaction = null
     ) {
         $this->amountPlanned = $amountPlanned;
         $this->paymentMethodInfo = $paymentMethodInfo;
@@ -137,21 +140,33 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     }
 
 
+    /**
+     * @param ?Money $amountPlanned
+     */
     public function setAmountPlanned(?Money $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
     }
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?MyTransactionDraft $transaction
+     */
     public function setTransaction(?MyTransactionDraft $transaction): void
     {
         $this->transaction = $transaction;

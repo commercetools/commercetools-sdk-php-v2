@@ -246,6 +246,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -256,6 +257,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductTypeKeyReference $productType
      * @return $this
      */
     public function withProductType(?ProductTypeKeyReference $productType)
@@ -266,6 +268,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -276,6 +279,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -286,6 +290,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -296,6 +301,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryKeyReferenceCollection $categories
      * @return $this
      */
     public function withCategories(?CategoryKeyReferenceCollection $categories)
@@ -306,6 +312,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -316,6 +323,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -326,6 +334,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -336,6 +345,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantDraftImport $masterVariant
      * @return $this
      */
     public function withMasterVariant(?ProductVariantDraftImport $masterVariant)
@@ -346,6 +356,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantDraftImportCollection $variants
      * @return $this
      */
     public function withVariants(?ProductVariantDraftImportCollection $variants)
@@ -356,6 +367,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryKeyReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryKeyReference $taxCategory)
@@ -366,6 +378,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?SearchKeywords $searchKeywords
      * @return $this
      */
     public function withSearchKeywords(?SearchKeywords $searchKeywords)
@@ -376,6 +389,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?StateKeyReference $state
      * @return $this
      */
     public function withState(?StateKeyReference $state)

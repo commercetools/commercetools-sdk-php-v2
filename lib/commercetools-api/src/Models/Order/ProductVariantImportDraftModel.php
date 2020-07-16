@@ -48,12 +48,15 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     protected $images;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $id = null,
-        string $sku = null,
-        PriceDraftCollection $prices = null,
-        AttributeCollection $attributes = null,
-        ImageCollection $images = null
+        ?int $id = null,
+        ?string $sku = null,
+        ?PriceDraftCollection $prices = null,
+        ?AttributeCollection $attributes = null,
+        ?ImageCollection $images = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
@@ -112,7 +115,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getPrices()
     {
         if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
@@ -132,7 +135,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
@@ -152,7 +155,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getImages()
     {
         if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
@@ -164,26 +167,41 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;

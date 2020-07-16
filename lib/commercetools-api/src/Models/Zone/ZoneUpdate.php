@@ -26,7 +26,13 @@ interface ZoneUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ZoneUpdateActionCollection $actions
+     */
     public function setActions(?ZoneUpdateActionCollection $actions): void;
 }

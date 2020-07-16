@@ -50,6 +50,7 @@ final class DuplicateAttributeValuesErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -60,6 +61,7 @@ final class DuplicateAttributeValuesErrorBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeCollection $attributes)

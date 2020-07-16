@@ -39,6 +39,7 @@ final class CartSetShippingRateInputActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
      * @return $this
      */
     public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)

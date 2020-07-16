@@ -86,25 +86,58 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
      */
     public function getShippingDetails();
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void;
 
+    /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
+     */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void;
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

@@ -30,9 +30,12 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     protected $function;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $currencyCode = null,
-        string $function = null
+        ?string $currencyCode = null,
+        ?string $function = null
     ) {
         $this->currencyCode = $currencyCode;
         $this->function = $function;
@@ -75,11 +78,17 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     }
 
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
     }
 
+    /**
+     * @param ?string $function
+     */
     public function setFunction(?string $function): void
     {
         $this->function = $function;

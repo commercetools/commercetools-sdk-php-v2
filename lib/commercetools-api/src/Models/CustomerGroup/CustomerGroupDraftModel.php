@@ -37,10 +37,13 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        string $groupName = null,
-        CustomFields $custom = null
+        ?string $key = null,
+        ?string $groupName = null,
+        ?CustomFields $custom = null
     ) {
         $this->key = $key;
         $this->groupName = $groupName;
@@ -102,16 +105,25 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $groupName
+     */
     public function setGroupName(?string $groupName): void
     {
         $this->groupName = $groupName;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;

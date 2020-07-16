@@ -47,6 +47,7 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -57,6 +58,7 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)

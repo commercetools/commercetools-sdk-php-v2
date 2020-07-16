@@ -21,5 +21,8 @@ interface StateSetDescriptionAction extends StateUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

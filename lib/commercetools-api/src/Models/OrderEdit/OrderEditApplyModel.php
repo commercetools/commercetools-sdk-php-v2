@@ -30,9 +30,12 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     protected $resourceVersion;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $editVersion = null,
-        int $resourceVersion = null
+        ?int $editVersion = null,
+        ?int $resourceVersion = null
     ) {
         $this->editVersion = $editVersion;
         $this->resourceVersion = $resourceVersion;
@@ -73,11 +76,17 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     }
 
 
+    /**
+     * @param ?int $editVersion
+     */
     public function setEditVersion(?int $editVersion): void
     {
         $this->editVersion = $editVersion;
     }
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;

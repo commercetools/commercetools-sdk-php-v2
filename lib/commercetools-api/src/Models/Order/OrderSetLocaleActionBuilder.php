@@ -34,6 +34,7 @@ final class OrderSetLocaleActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)

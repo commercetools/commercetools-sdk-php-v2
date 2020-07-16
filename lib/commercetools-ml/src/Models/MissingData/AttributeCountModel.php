@@ -35,10 +35,13 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     protected $missingAttributeValues;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $productTypeAttributes = null,
-        int $variantAttributes = null,
-        int $missingAttributeValues = null
+        ?int $productTypeAttributes = null,
+        ?int $variantAttributes = null,
+        ?int $missingAttributeValues = null
     ) {
         $this->productTypeAttributes = $productTypeAttributes;
         $this->variantAttributes = $variantAttributes;
@@ -103,16 +106,25 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     }
 
 
+    /**
+     * @param ?int $productTypeAttributes
+     */
     public function setProductTypeAttributes(?int $productTypeAttributes): void
     {
         $this->productTypeAttributes = $productTypeAttributes;
     }
 
+    /**
+     * @param ?int $variantAttributes
+     */
     public function setVariantAttributes(?int $variantAttributes): void
     {
         $this->variantAttributes = $variantAttributes;
     }
 
+    /**
+     * @param ?int $missingAttributeValues
+     */
     public function setMissingAttributeValues(?int $missingAttributeValues): void
     {
         $this->missingAttributeValues = $missingAttributeValues;

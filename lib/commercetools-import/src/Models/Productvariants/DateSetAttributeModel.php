@@ -36,9 +36,12 @@ final class DateSetAttributeModel extends JsonObjectModel implements DateSetAttr
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        DateTimeImmutableCollection $value = null
+        ?string $name = null,
+        ?DateTimeImmutableCollection $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -89,7 +92,7 @@ final class DateSetAttributeModel extends JsonObjectModel implements DateSetAttr
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, string> $data */
+            /** @psalm-var ?list<string> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -101,11 +104,17 @@ final class DateSetAttributeModel extends JsonObjectModel implements DateSetAttr
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?DateTimeImmutableCollection $value
+     */
     public function setValue(?DateTimeImmutableCollection $value): void
     {
         $this->value = $value;

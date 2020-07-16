@@ -47,6 +47,9 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
        'setValidUntil' => CartDiscountSetValidUntilActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

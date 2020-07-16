@@ -26,7 +26,13 @@ interface PaymentUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?PaymentUpdateActionCollection $actions
+     */
     public function setActions(?PaymentUpdateActionCollection $actions): void;
 }

@@ -34,6 +34,7 @@ final class OrderChangePaymentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)

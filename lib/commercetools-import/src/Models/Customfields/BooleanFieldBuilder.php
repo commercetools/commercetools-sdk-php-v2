@@ -34,6 +34,7 @@ final class BooleanFieldBuilder implements Builder
     }
 
     /**
+     * @param ?bool $value
      * @return $this
      */
     public function withValue(?bool $value)

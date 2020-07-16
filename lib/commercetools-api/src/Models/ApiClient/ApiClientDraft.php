@@ -34,9 +34,18 @@ interface ApiClientDraft extends JsonObject
      */
     public function getDeleteDaysAfterCreation();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void;
 
+    /**
+     * @param ?int $deleteDaysAfterCreation
+     */
     public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void;
 }

@@ -64,14 +64,17 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     protected $assets;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        string $key = null,
-        PriceDraftCollection $prices = null,
-        ImageCollection $images = null,
-        AttributeCollection $attributes = null,
-        bool $staged = null,
-        AssetCollection $assets = null
+        ?string $sku = null,
+        ?string $key = null,
+        ?PriceDraftCollection $prices = null,
+        ?ImageCollection $images = null,
+        ?AttributeCollection $attributes = null,
+        ?bool $staged = null,
+        ?AssetCollection $assets = null
     ) {
         $this->sku = $sku;
         $this->key = $key;
@@ -140,7 +143,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     public function getPrices()
     {
         if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
@@ -157,7 +160,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     public function getImages()
     {
         if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
@@ -174,7 +177,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
@@ -208,7 +211,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     public function getAssets()
     {
         if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
@@ -220,36 +223,57 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;

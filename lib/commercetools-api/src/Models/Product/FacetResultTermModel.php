@@ -20,7 +20,7 @@ use stdClass;
 final class FacetResultTermModel extends JsonObjectModel implements FacetResultTerm
 {
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $term;
 
@@ -35,10 +35,13 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     protected $productCount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        JsonObject $term = null,
-        int $count = null,
-        int $productCount = null
+        $term = null,
+        ?int $count = null,
+        ?int $productCount = null
     ) {
         $this->term = $term;
         $this->count = $count;
@@ -46,17 +49,17 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTerm()
     {
         if (is_null($this->term)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_TERM);
             if (is_null($data)) {
                 return null;
             }
-            $this->term = JsonObjectModel::of($data);
+            $this->term = $data;
         }
 
         return $this->term;
@@ -97,16 +100,25 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     }
 
 
-    public function setTerm(?JsonObject $term): void
+    /**
+     * @param mixed $term
+     */
+    public function setTerm($term): void
     {
         $this->term = $term;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void
     {
         $this->productCount = $productCount;

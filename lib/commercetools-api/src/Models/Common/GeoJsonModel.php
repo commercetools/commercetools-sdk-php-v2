@@ -33,6 +33,9 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
        'Point' => GeoJsonPointModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

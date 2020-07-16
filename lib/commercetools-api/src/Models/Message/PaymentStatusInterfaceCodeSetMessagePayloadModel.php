@@ -36,9 +36,12 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     protected $interfaceCode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $paymentId = null,
-        string $interfaceCode = null
+        ?string $paymentId = null,
+        ?string $interfaceCode = null
     ) {
         $this->paymentId = $paymentId;
         $this->interfaceCode = $interfaceCode;
@@ -97,11 +100,17 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
 
+    /**
+     * @param ?string $paymentId
+     */
     public function setPaymentId(?string $paymentId): void
     {
         $this->paymentId = $paymentId;
     }
 
+    /**
+     * @param ?string $interfaceCode
+     */
     public function setInterfaceCode(?string $interfaceCode): void
     {
         $this->interfaceCode = $interfaceCode;

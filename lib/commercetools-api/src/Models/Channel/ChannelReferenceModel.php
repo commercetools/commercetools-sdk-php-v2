@@ -38,9 +38,12 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Channel $obj = null
+        ?string $id = null,
+        ?Channel $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Channel $obj
+     */
     public function setObj(?Channel $obj): void
     {
         $this->obj = $obj;

@@ -55,10 +55,13 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
        'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $projectKey = null,
-        Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
+        ?string $projectKey = null,
+        ?Reference $resource = null,
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
@@ -137,16 +140,25 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     }
 
 
+    /**
+     * @param ?string $projectKey
+     */
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;

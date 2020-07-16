@@ -34,6 +34,7 @@ final class InvalidJsonInputErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)

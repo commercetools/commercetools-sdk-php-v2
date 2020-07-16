@@ -101,6 +101,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AssetSourceCollection $sources
      * @return $this
      */
     public function withSources(?AssetSourceCollection $sources)
@@ -111,6 +112,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -121,6 +123,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -131,6 +134,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $tags
      * @return $this
      */
     public function withTags(?array $tags)
@@ -141,6 +145,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -151,6 +156,7 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

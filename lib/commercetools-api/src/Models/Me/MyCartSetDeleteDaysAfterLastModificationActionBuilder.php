@@ -34,6 +34,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionBuilder implements Bui
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)

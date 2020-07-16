@@ -75,6 +75,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -85,6 +86,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -95,6 +97,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -105,6 +108,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
+     * @param ?QueryPrice $price
      * @return $this
      */
     public function withPrice(?QueryPrice $price)

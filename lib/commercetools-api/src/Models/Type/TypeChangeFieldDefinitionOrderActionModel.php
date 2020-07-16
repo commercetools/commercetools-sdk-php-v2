@@ -31,8 +31,11 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     protected $fieldNames;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $fieldNames = null
+        ?array $fieldNames = null
     ) {
         $this->fieldNames = $fieldNames;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     public function getFieldNames()
     {
         if (is_null($this->fieldNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_FIELD_NAMES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?array $fieldNames
+     */
     public function setFieldNames(?array $fieldNames): void
     {
         $this->fieldNames = $fieldNames;

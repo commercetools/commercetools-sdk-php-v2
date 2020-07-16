@@ -73,6 +73,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -83,6 +84,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelMeasurements $measurements
      * @return $this
      */
     public function withMeasurements(?ParcelMeasurements $measurements)
@@ -93,6 +95,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?TrackingData $trackingData
      * @return $this
      */
     public function withTrackingData(?TrackingData $trackingData)
@@ -103,6 +106,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)

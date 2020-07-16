@@ -32,8 +32,11 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
     protected $validFrom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $validFrom = null
+        ?DateTimeImmutable $validFrom = null
     ) {
         $this->validFrom = $validFrom;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -80,6 +83,9 @@ final class CartDiscountSetValidFromActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;

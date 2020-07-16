@@ -28,7 +28,13 @@ interface DiscountedLineItemPortion extends JsonObject
      */
     public function getDiscountedAmount();
 
+    /**
+     * @param ?CartDiscountReference $discount
+     */
     public function setDiscount(?CartDiscountReference $discount): void;
 
+    /**
+     * @param ?TypedMoney $discountedAmount
+     */
     public function setDiscountedAmount(?TypedMoney $discountedAmount): void;
 }

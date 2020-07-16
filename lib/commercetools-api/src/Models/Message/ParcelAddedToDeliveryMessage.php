@@ -28,7 +28,13 @@ interface ParcelAddedToDeliveryMessage extends Message
      */
     public function getParcel();
 
+    /**
+     * @param ?Delivery $delivery
+     */
     public function setDelivery(?Delivery $delivery): void;
 
+    /**
+     * @param ?Parcel $parcel
+     */
     public function setParcel(?Parcel $parcel): void;
 }

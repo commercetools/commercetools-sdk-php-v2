@@ -31,8 +31,11 @@ final class CartDiscountSetKeyActionModel extends JsonObjectModel implements Car
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class CartDiscountSetKeyActionModel extends JsonObjectModel implements Car
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

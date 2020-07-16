@@ -56,13 +56,28 @@ interface TransactionDraft extends JsonObject
      */
     public function getState();
 
+    /**
+     * @param ?DateTimeImmutable $timestamp
+     */
     public function setTimestamp(?DateTimeImmutable $timestamp): void;
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void;
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void;
 
+    /**
+     * @param ?string $interactionId
+     */
     public function setInteractionId(?string $interactionId): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 }

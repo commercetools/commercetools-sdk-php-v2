@@ -36,6 +36,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     }
 
     /**
+     * @param ?MessageConfigurationDraft $messagesConfiguration
      * @return $this
      */
     public function withMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration)

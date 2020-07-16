@@ -36,6 +36,7 @@ final class CartsConfigurationBuilder implements Builder
     }
 
     /**
+     * @param ?bool $countryTaxRateFallbackEnabled
      * @return $this
      */
     public function withCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled)

@@ -144,29 +144,32 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     protected $reviewRatingStatistics;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        string $key = null,
-        ProductTypeReference $productType = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        LocalizedString $slug = null,
-        CategoryReferenceCollection $categories = null,
-        CategoryOrderHints $categoryOrderHints = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        SearchKeywords $searchKeywords = null,
-        bool $hasStagedChanges = null,
-        bool $published = null,
-        ProductVariant $masterVariant = null,
-        ProductVariantCollection $variants = null,
-        TaxCategoryReference $taxCategory = null,
-        StateReference $state = null,
-        ReviewRatingStatistics $reviewRatingStatistics = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?string $key = null,
+        ?ProductTypeReference $productType = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?LocalizedString $slug = null,
+        ?CategoryReferenceCollection $categories = null,
+        ?CategoryOrderHints $categoryOrderHints = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?SearchKeywords $searchKeywords = null,
+        ?bool $hasStagedChanges = null,
+        ?bool $published = null,
+        ?ProductVariant $masterVariant = null,
+        ?ProductVariantCollection $variants = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?StateReference $state = null,
+        ?ReviewRatingStatistics $reviewRatingStatistics = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -371,7 +374,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     public function getCategories()
     {
         if (is_null($this->categories)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
@@ -530,7 +533,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     public function getVariants()
     {
         if (is_null($this->variants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
@@ -598,111 +601,177 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?CategoryReferenceCollection $categories
+     */
     public function setCategories(?CategoryReferenceCollection $categories): void
     {
         $this->categories = $categories;
     }
 
+    /**
+     * @param ?CategoryOrderHints $categoryOrderHints
+     */
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
     {
         $this->categoryOrderHints = $categoryOrderHints;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
 
+    /**
+     * @param ?bool $hasStagedChanges
+     */
     public function setHasStagedChanges(?bool $hasStagedChanges): void
     {
         $this->hasStagedChanges = $hasStagedChanges;
     }
 
+    /**
+     * @param ?bool $published
+     */
     public function setPublished(?bool $published): void
     {
         $this->published = $published;
     }
 
+    /**
+     * @param ?ProductVariant $masterVariant
+     */
     public function setMasterVariant(?ProductVariant $masterVariant): void
     {
         $this->masterVariant = $masterVariant;
     }
 
+    /**
+     * @param ?ProductVariantCollection $variants
+     */
     public function setVariants(?ProductVariantCollection $variants): void
     {
         $this->variants = $variants;
     }
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
+     */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;

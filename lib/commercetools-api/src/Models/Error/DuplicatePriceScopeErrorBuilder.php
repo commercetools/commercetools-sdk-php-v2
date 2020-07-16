@@ -48,6 +48,7 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -58,6 +59,7 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
+     * @param ?PriceCollection $conflictingPrices
      * @return $this
      */
     public function withConflictingPrices(?PriceCollection $conflictingPrices)

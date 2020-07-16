@@ -51,6 +51,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     }
 
     /**
+     * @param ?ExternalTaxAmountDraft $externalTaxAmount
      * @return $this
      */
     public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)

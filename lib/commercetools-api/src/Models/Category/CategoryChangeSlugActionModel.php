@@ -33,8 +33,11 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
     protected $slug;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $slug = null
+        ?LocalizedString $slug = null
     ) {
         $this->slug = $slug;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -79,6 +82,9 @@ final class CategoryChangeSlugActionModel extends JsonObjectModel implements Cat
     }
 
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;

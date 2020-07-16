@@ -53,17 +53,32 @@ interface ReviewRatingStatistics extends JsonObject
      * The keys are the different ratings and the values are the count of reviews having this rating.
      * Only the used ratings appear in this object.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getRatingsDistribution();
 
+    /**
+     * @param ?float $averageRating
+     */
     public function setAverageRating(?float $averageRating): void;
 
+    /**
+     * @param ?float $highestRating
+     */
     public function setHighestRating(?float $highestRating): void;
 
+    /**
+     * @param ?float $lowestRating
+     */
     public function setLowestRating(?float $lowestRating): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?JsonObject $ratingsDistribution
+     */
     public function setRatingsDistribution(?JsonObject $ratingsDistribution): void;
 }

@@ -28,7 +28,13 @@ interface StagedOrderSetDeliveryAddressAction extends StagedOrderUpdateAction
      */
     public function getAddress();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

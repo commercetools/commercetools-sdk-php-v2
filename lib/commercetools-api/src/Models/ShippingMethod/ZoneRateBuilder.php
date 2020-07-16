@@ -51,6 +51,7 @@ final class ZoneRateBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneReference $zone
      * @return $this
      */
     public function withZone(?ZoneReference $zone)
@@ -61,6 +62,7 @@ final class ZoneRateBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateCollection $shippingRates
      * @return $this
      */
     public function withShippingRates(?ShippingRateCollection $shippingRates)

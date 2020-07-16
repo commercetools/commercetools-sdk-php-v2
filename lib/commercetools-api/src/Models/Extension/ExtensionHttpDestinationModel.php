@@ -36,9 +36,12 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     protected $authentication;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $url = null,
-        ExtensionHttpDestinationAuthentication $authentication = null
+        ?string $url = null,
+        ?ExtensionHttpDestinationAuthentication $authentication = null
     ) {
         $this->url = $url;
         $this->authentication = $authentication;
@@ -98,11 +101,17 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     }
 
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
 
+    /**
+     * @param ?ExtensionHttpDestinationAuthentication $authentication
+     */
     public function setAuthentication(?ExtensionHttpDestinationAuthentication $authentication): void
     {
         $this->authentication = $authentication;

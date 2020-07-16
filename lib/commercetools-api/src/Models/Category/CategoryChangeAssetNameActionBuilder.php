@@ -62,6 +62,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -72,6 +73,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -82,6 +84,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)

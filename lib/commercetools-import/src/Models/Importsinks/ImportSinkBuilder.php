@@ -98,6 +98,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -108,6 +109,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceType
      * @return $this
      */
     public function withResourceType(?string $resourceType)
@@ -118,6 +120,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -128,6 +131,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -138,6 +142,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)

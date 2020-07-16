@@ -210,6 +210,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -220,6 +221,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -230,6 +232,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -240,6 +243,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -250,6 +254,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryKeyReference $parent
      * @return $this
      */
     public function withParent(?CategoryKeyReference $parent)
@@ -260,6 +265,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)
@@ -270,6 +276,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -280,6 +287,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -290,6 +298,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -300,6 +309,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -310,6 +320,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?AssetCollection $assets
      * @return $this
      */
     public function withAssets(?AssetCollection $assets)
@@ -320,6 +331,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
      * @return $this
      */
     public function withCustom(?Custom $custom)

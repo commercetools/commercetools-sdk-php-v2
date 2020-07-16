@@ -30,9 +30,12 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $minimumQuantity = null,
-        TypedMoney $value = null
+        ?int $minimumQuantity = null,
+        ?TypedMoney $value = null
     ) {
         $this->minimumQuantity = $minimumQuantity;
         $this->value = $value;
@@ -74,11 +77,17 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     }
 
 
+    /**
+     * @param ?int $minimumQuantity
+     */
     public function setMinimumQuantity(?int $minimumQuantity): void
     {
         $this->minimumQuantity = $minimumQuantity;
     }
 
+    /**
+     * @param ?TypedMoney $value
+     */
     public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;

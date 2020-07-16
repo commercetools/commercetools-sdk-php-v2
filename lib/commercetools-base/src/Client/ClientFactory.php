@@ -57,7 +57,7 @@ class ClientFactory
 
     /**
      * @throws InvalidArgumentException
-     * @psalm-param array<int|string, callable> $middlewares
+     * @psalm-param list<callable>|array<string, callable> $middlewares
      */
     private function createGuzzleClientWithOptions(array $options, array $middlewares = []): ClientInterface
     {

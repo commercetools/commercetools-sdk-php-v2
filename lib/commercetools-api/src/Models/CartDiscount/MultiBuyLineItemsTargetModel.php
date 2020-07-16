@@ -51,12 +51,15 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     protected $selectionMode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $predicate = null,
-        int $triggerQuantity = null,
-        int $discountedQuantity = null,
-        int $maxOccurrence = null,
-        string $selectionMode = null
+        ?string $predicate = null,
+        ?int $triggerQuantity = null,
+        ?int $discountedQuantity = null,
+        ?int $maxOccurrence = null,
+        ?string $selectionMode = null
     ) {
         $this->predicate = $predicate;
         $this->triggerQuantity = $triggerQuantity;
@@ -177,26 +180,41 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;
     }
 
+    /**
+     * @param ?int $triggerQuantity
+     */
     public function setTriggerQuantity(?int $triggerQuantity): void
     {
         $this->triggerQuantity = $triggerQuantity;
     }
 
+    /**
+     * @param ?int $discountedQuantity
+     */
     public function setDiscountedQuantity(?int $discountedQuantity): void
     {
         $this->discountedQuantity = $discountedQuantity;
     }
 
+    /**
+     * @param ?int $maxOccurrence
+     */
     public function setMaxOccurrence(?int $maxOccurrence): void
     {
         $this->maxOccurrence = $maxOccurrence;
     }
 
+    /**
+     * @param ?string $selectionMode
+     */
     public function setSelectionMode(?string $selectionMode): void
     {
         $this->selectionMode = $selectionMode;

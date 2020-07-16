@@ -26,7 +26,13 @@ interface LocalizedEnumValue extends JsonObject
      */
     public function getLabel();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 }

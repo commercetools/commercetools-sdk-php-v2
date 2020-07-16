@@ -33,8 +33,11 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     protected $review;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Review $review = null
+        ?Review $review = null
     ) {
         $this->review = $review;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?Review $review
+     */
     public function setReview(?Review $review): void
     {
         $this->review = $review;

@@ -60,6 +60,7 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $arn
      * @return $this
      */
     public function withArn(?string $arn)
@@ -70,6 +71,7 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $accessKey
      * @return $this
      */
     public function withAccessKey(?string $accessKey)
@@ -80,6 +82,7 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $accessSecret
      * @return $this
      */
     public function withAccessSecret(?string $accessSecret)

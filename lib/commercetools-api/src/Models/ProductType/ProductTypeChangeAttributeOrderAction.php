@@ -20,5 +20,8 @@ interface ProductTypeChangeAttributeOrderAction extends ProductTypeUpdateAction
      */
     public function getAttributes();
 
+    /**
+     * @param ?AttributeDefinitionCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionCollection $attributes): void;
 }

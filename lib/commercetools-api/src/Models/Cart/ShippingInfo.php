@@ -95,23 +95,53 @@ interface ShippingInfo extends JsonObject
      */
     public function getShippingMethodState();
 
+    /**
+     * @param ?string $shippingMethodName
+     */
     public function setShippingMethodName(?string $shippingMethodName): void;
 
+    /**
+     * @param ?TypedMoney $price
+     */
     public function setPrice(?TypedMoney $price): void;
 
+    /**
+     * @param ?ShippingRate $shippingRate
+     */
     public function setShippingRate(?ShippingRate $shippingRate): void;
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void;
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void;
 
+    /**
+     * @param ?ShippingMethodReference $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodReference $shippingMethod): void;
 
+    /**
+     * @param ?DeliveryCollection $deliveries
+     */
     public function setDeliveries(?DeliveryCollection $deliveries): void;
 
+    /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
+     */
     public function setDiscountedPrice(?DiscountedLineItemPrice $discountedPrice): void;
 
+    /**
+     * @param ?string $shippingMethodState
+     */
     public function setShippingMethodState(?string $shippingMethodState): void;
 }

@@ -58,21 +58,42 @@ interface ProductSetAssetCustomTypeAction extends ProductUpdateAction
     /**
      * <p>If set, the custom fields are set to this new value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getFields();
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void;
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void;
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?JsonObject $fields
+     */
     public function setFields(?JsonObject $fields): void;
 }

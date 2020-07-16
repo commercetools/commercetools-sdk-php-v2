@@ -32,9 +32,12 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DiscountCodeReference $discountCode = null,
-        string $state = null
+        ?DiscountCodeReference $discountCode = null,
+        ?string $state = null
     ) {
         $this->discountCode = $discountCode;
         $this->state = $state;
@@ -76,11 +79,17 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     }
 
 
+    /**
+     * @param ?DiscountCodeReference $discountCode
+     */
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {
         $this->discountCode = $discountCode;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;

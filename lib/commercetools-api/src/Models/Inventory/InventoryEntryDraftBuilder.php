@@ -106,6 +106,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -116,6 +117,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -126,6 +128,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantityOnStock
      * @return $this
      */
     public function withQuantityOnStock(?int $quantityOnStock)
@@ -136,6 +139,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $restockableInDays
      * @return $this
      */
     public function withRestockableInDays(?int $restockableInDays)
@@ -146,6 +150,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $expectedDelivery
      * @return $this
      */
     public function withExpectedDelivery(?DateTimeImmutable $expectedDelivery)
@@ -156,6 +161,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)

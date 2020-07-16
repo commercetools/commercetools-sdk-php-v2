@@ -50,15 +50,33 @@ interface CustomerSignin extends JsonObject
      */
     public function getUpdateProductData();
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void;
 
+    /**
+     * @param ?string $password
+     */
     public function setPassword(?string $password): void;
 
+    /**
+     * @param ?string $anonymousCartId
+     */
     public function setAnonymousCartId(?string $anonymousCartId): void;
 
+    /**
+     * @param ?string $anonymousCartSignInMode
+     */
     public function setAnonymousCartSignInMode(?string $anonymousCartSignInMode): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?bool $updateProductData
+     */
     public function setUpdateProductData(?bool $updateProductData): void;
 }

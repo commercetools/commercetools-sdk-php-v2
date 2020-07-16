@@ -20,5 +20,8 @@ interface CartSetDeleteDaysAfterLastModificationAction extends CartUpdateAction
      */
     public function getDeleteDaysAfterLastModification();
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 }

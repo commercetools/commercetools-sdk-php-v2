@@ -45,12 +45,15 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     protected $isReturn;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $trackingId = null,
-        string $carrier = null,
-        string $provider = null,
-        string $providerTransaction = null,
-        bool $isReturn = null
+        ?string $trackingId = null,
+        ?string $carrier = null,
+        ?string $provider = null,
+        ?string $providerTransaction = null,
+        ?bool $isReturn = null
     ) {
         $this->trackingId = $trackingId;
         $this->carrier = $carrier;
@@ -151,26 +154,41 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
 
+    /**
+     * @param ?string $trackingId
+     */
     public function setTrackingId(?string $trackingId): void
     {
         $this->trackingId = $trackingId;
     }
 
+    /**
+     * @param ?string $carrier
+     */
     public function setCarrier(?string $carrier): void
     {
         $this->carrier = $carrier;
     }
 
+    /**
+     * @param ?string $provider
+     */
     public function setProvider(?string $provider): void
     {
         $this->provider = $provider;
     }
 
+    /**
+     * @param ?string $providerTransaction
+     */
     public function setProviderTransaction(?string $providerTransaction): void
     {
         $this->providerTransaction = $providerTransaction;
     }
 
+    /**
+     * @param ?bool $isReturn
+     */
     public function setIsReturn(?bool $isReturn): void
     {
         $this->isReturn = $isReturn;

@@ -48,12 +48,15 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $timestamp = null,
-        string $type = null,
-        Money $amount = null,
-        string $interactionId = null,
-        string $state = null
+        ?DateTimeImmutable $timestamp = null,
+        ?string $type = null,
+        ?Money $amount = null,
+        ?string $interactionId = null,
+        ?string $state = null
     ) {
         $this->timestamp = $timestamp;
         $this->type = $type;
@@ -163,26 +166,41 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $timestamp
+     */
     public function setTimestamp(?DateTimeImmutable $timestamp): void
     {
         $this->timestamp = $timestamp;
     }
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void
     {
         $this->amount = $amount;
     }
 
+    /**
+     * @param ?string $interactionId
+     */
     public function setInteractionId(?string $interactionId): void
     {
         $this->interactionId = $interactionId;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;

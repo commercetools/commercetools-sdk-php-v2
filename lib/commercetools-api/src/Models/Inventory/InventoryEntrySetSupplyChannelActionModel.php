@@ -33,8 +33,11 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     protected $supplyChannel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChannelResourceIdentifier $supplyChannel = null
+        ?ChannelResourceIdentifier $supplyChannel = null
     ) {
         $this->supplyChannel = $supplyChannel;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -79,6 +82,9 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;

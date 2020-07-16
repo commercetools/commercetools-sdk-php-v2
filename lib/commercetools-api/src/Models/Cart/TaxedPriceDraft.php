@@ -33,9 +33,18 @@ interface TaxedPriceDraft extends JsonObject
      */
     public function getTaxPortions();
 
+    /**
+     * @param ?TypedMoneyDraft $totalNet
+     */
     public function setTotalNet(?TypedMoneyDraft $totalNet): void;
 
+    /**
+     * @param ?TypedMoneyDraft $totalGross
+     */
     public function setTotalGross(?TypedMoneyDraft $totalGross): void;
 
+    /**
+     * @param ?TaxPortionDraftCollection $taxPortions
+     */
     public function setTaxPortions(?TaxPortionDraftCollection $taxPortions): void;
 }

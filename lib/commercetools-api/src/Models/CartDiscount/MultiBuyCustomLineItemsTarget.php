@@ -53,13 +53,28 @@ interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
      */
     public function getSelectionMode();
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void;
 
+    /**
+     * @param ?int $triggerQuantity
+     */
     public function setTriggerQuantity(?int $triggerQuantity): void;
 
+    /**
+     * @param ?int $discountedQuantity
+     */
     public function setDiscountedQuantity(?int $discountedQuantity): void;
 
+    /**
+     * @param ?int $maxOccurrence
+     */
     public function setMaxOccurrence(?int $maxOccurrence): void;
 
+    /**
+     * @param ?string $selectionMode
+     */
     public function setSelectionMode(?string $selectionMode): void;
 }

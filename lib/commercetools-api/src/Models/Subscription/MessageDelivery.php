@@ -57,17 +57,38 @@ interface MessageDelivery extends SubscriptionDelivery
      */
     public function getPayloadNotIncluded();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?int $sequenceNumber
+     */
     public function setSequenceNumber(?int $sequenceNumber): void;
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void;
 
+    /**
+     * @param ?PayloadNotIncluded $payloadNotIncluded
+     */
     public function setPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded): void;
 }

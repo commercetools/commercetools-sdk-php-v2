@@ -26,7 +26,13 @@ interface CustomerEmailVerify extends JsonObject
      */
     public function getTokenValue();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $tokenValue
+     */
     public function setTokenValue(?string $tokenValue): void;
 }

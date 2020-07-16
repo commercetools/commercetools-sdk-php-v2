@@ -73,6 +73,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -83,6 +84,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxCategoryId
      * @return $this
      */
     public function withTaxCategoryId(?string $taxCategoryId)
@@ -93,6 +95,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -103,6 +106,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)

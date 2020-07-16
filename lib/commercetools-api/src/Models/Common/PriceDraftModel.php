@@ -72,16 +72,19 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     protected $discounted;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $value = null,
-        string $country = null,
-        CustomerGroupResourceIdentifier $customerGroup = null,
-        ChannelResourceIdentifier $channel = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        CustomFieldsDraft $custom = null,
-        PriceTierDraftCollection $tiers = null,
-        DiscountedPrice $discounted = null
+        ?Money $value = null,
+        ?string $country = null,
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?ChannelResourceIdentifier $channel = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?CustomFieldsDraft $custom = null,
+        ?PriceTierDraftCollection $tiers = null,
+        ?DiscountedPrice $discounted = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -233,7 +236,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     public function getTiers()
     {
         if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;
@@ -263,46 +266,73 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $channel
+     */
     public function setChannel(?ChannelResourceIdentifier $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?PriceTierDraftCollection $tiers
+     */
     public function setTiers(?PriceTierDraftCollection $tiers): void
     {
         $this->tiers = $tiers;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;

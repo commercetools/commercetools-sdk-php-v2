@@ -36,6 +36,7 @@ final class CategorySetExternalIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)

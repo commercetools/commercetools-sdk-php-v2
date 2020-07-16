@@ -76,19 +76,43 @@ interface MyLineItemDraft extends JsonObject
      */
     public function getSku();
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 }

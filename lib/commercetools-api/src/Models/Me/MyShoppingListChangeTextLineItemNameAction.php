@@ -27,7 +27,13 @@ interface MyShoppingListChangeTextLineItemNameAction extends MyShoppingListUpdat
      */
     public function getName();
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

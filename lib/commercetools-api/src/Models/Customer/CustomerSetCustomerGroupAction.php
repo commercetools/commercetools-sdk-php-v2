@@ -23,5 +23,8 @@ interface CustomerSetCustomerGroupAction extends CustomerUpdateAction
      */
     public function getCustomerGroup();
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 }

@@ -62,6 +62,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -72,6 +73,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Image $image
      * @return $this
      */
     public function withImage(?Image $image)
@@ -82,6 +84,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

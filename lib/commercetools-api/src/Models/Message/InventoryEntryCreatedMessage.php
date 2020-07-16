@@ -21,5 +21,8 @@ interface InventoryEntryCreatedMessage extends Message
      */
     public function getInventoryEntry();
 
+    /**
+     * @param ?InventoryEntry $inventoryEntry
+     */
     public function setInventoryEntry(?InventoryEntry $inventoryEntry): void;
 }

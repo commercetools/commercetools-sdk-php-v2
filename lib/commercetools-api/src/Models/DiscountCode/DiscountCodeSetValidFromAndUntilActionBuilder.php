@@ -52,6 +52,7 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -62,6 +63,7 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

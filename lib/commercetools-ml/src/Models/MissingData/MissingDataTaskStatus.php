@@ -37,9 +37,18 @@ interface MissingDataTaskStatus extends JsonObject
      */
     public function getResult();
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void;
 
+    /**
+     * @param ?MissingAttributesPagedQueryResult $result
+     */
     public function setResult(?MissingAttributesPagedQueryResult $result): void;
 }

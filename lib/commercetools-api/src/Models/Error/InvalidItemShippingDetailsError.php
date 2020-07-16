@@ -26,7 +26,13 @@ interface InvalidItemShippingDetailsError extends ErrorObject
      */
     public function getItemId();
 
+    /**
+     * @param ?string $subject
+     */
     public function setSubject(?string $subject): void;
 
+    /**
+     * @param ?string $itemId
+     */
     public function setItemId(?string $itemId): void;
 }

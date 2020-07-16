@@ -54,6 +54,7 @@ final class ItemShippingDetailsBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingTargetCollection $targets
      * @return $this
      */
     public function withTargets(?ItemShippingTargetCollection $targets)
@@ -64,6 +65,7 @@ final class ItemShippingDetailsBuilder implements Builder
     }
 
     /**
+     * @param ?bool $valid
      * @return $this
      */
     public function withValid(?bool $valid)

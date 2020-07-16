@@ -66,6 +66,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -76,6 +77,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $currentState
      * @return $this
      */
     public function withCurrentState(?string $currentState)
@@ -86,6 +88,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $newState
      * @return $this
      */
     public function withNewState(?string $newState)

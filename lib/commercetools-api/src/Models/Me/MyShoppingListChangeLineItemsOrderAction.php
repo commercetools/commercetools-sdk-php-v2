@@ -20,5 +20,8 @@ interface MyShoppingListChangeLineItemsOrderAction extends MyShoppingListUpdateA
      */
     public function getLineItemOrder();
 
+    /**
+     * @param ?array $lineItemOrder
+     */
     public function setLineItemOrder(?array $lineItemOrder): void;
 }

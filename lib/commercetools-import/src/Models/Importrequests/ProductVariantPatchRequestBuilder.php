@@ -37,6 +37,7 @@ final class ProductVariantPatchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantPatchCollection $patches
      * @return $this
      */
     public function withPatches(?ProductVariantPatchCollection $patches)

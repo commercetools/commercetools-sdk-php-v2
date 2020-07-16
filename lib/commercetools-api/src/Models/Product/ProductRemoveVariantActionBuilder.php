@@ -60,6 +60,7 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $id
      * @return $this
      */
     public function withId(?int $id)
@@ -70,6 +71,7 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -80,6 +82,7 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

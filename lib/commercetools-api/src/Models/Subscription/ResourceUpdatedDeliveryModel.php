@@ -61,13 +61,16 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     protected $modifiedAt;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $projectKey = null,
-        Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        int $version = null,
-        int $oldVersion = null,
-        DateTimeImmutable $modifiedAt = null
+        ?string $projectKey = null,
+        ?Reference $resource = null,
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?int $version = null,
+        ?int $oldVersion = null,
+        ?DateTimeImmutable $modifiedAt = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
@@ -204,31 +207,49 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     }
 
 
+    /**
+     * @param ?string $projectKey
+     */
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?int $oldVersion
+     */
     public function setOldVersion(?int $oldVersion): void
     {
         $this->oldVersion = $oldVersion;
     }
 
+    /**
+     * @param ?DateTimeImmutable $modifiedAt
+     */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
     {
         $this->modifiedAt = $modifiedAt;

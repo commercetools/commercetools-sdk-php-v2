@@ -20,5 +20,8 @@ interface StateRemoveRolesAction extends StateUpdateAction
      */
     public function getRoles();
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void;
 }

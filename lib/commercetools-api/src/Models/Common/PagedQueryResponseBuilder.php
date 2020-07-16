@@ -114,6 +114,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -124,6 +125,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -134,6 +136,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
      * @return $this
      */
     public function withTotal(?int $total)
@@ -144,6 +147,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -154,6 +158,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?BaseResourceCollection $results
      * @return $this
      */
     public function withResults(?BaseResourceCollection $results)
@@ -164,6 +169,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?FacetResults $facets
      * @return $this
      */
     public function withFacets(?FacetResults $facets)
@@ -174,6 +180,7 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $meta
      * @return $this
      */
     public function withMeta(?JsonObject $meta)

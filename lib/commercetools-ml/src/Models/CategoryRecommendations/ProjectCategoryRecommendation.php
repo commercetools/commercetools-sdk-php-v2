@@ -39,9 +39,18 @@ interface ProjectCategoryRecommendation extends JsonObject
      */
     public function getPath();
 
+    /**
+     * @param ?CategoryReference $category
+     */
     public function setCategory(?CategoryReference $category): void;
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void;
 
+    /**
+     * @param ?string $path
+     */
     public function setPath(?string $path): void;
 }

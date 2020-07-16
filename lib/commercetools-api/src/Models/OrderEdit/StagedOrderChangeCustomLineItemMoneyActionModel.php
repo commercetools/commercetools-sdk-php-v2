@@ -40,9 +40,12 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
     protected $money;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        Money $money = null
+        ?string $customLineItemId = null,
+        ?Money $money = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->money = $money;
@@ -102,11 +105,17 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?Money $money
+     */
     public function setMoney(?Money $money): void
     {
         $this->money = $money;

@@ -20,5 +20,8 @@ interface GeoJsonPoint extends GeoJson
      */
     public function getCoordinates();
 
+    /**
+     * @param ?array $coordinates
+     */
     public function setCoordinates(?array $coordinates): void;
 }

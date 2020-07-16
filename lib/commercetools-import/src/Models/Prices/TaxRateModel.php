@@ -55,14 +55,17 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     protected $subRates;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $name = null,
-        float $amount = null,
-        bool $includedInPrice = null,
-        string $country = null,
-        string $state = null,
-        SubRateCollection $subRates = null
+        ?string $id = null,
+        ?string $name = null,
+        ?float $amount = null,
+        ?bool $includedInPrice = null,
+        ?string $country = null,
+        ?string $state = null,
+        ?SubRateCollection $subRates = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -183,7 +186,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     public function getSubRates()
     {
         if (is_null($this->subRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;
@@ -195,36 +198,57 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $amount
+     */
     public function setAmount(?float $amount): void
     {
         $this->amount = $amount;
     }
 
+    /**
+     * @param ?bool $includedInPrice
+     */
     public function setIncludedInPrice(?bool $includedInPrice): void
     {
         $this->includedInPrice = $includedInPrice;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?SubRateCollection $subRates
+     */
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;

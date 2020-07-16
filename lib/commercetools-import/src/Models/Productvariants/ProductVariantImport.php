@@ -72,15 +72,33 @@ interface ProductVariantImport extends ImportResource
      */
     public function getProduct();
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?bool $isMasterVariant
+     */
     public function setIsMasterVariant(?bool $isMasterVariant): void;
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void;
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void;
 
+    /**
+     * @param ?AssetCollection $assets
+     */
     public function setAssets(?AssetCollection $assets): void;
 
+    /**
+     * @param ?ProductKeyReference $product
+     */
     public function setProduct(?ProductKeyReference $product): void;
 }

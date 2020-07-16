@@ -20,5 +20,8 @@ interface StateSetTransitionsAction extends StateUpdateAction
      */
     public function getTransitions();
 
+    /**
+     * @param ?StateResourceIdentifierCollection $transitions
+     */
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void;
 }

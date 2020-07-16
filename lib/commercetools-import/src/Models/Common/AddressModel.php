@@ -145,32 +145,35 @@ final class AddressModel extends JsonObjectModel implements Address
     protected $externalId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        string $key = null,
-        string $title = null,
-        string $salutation = null,
-        string $firstName = null,
-        string $lastName = null,
-        string $streetName = null,
-        string $streetNumber = null,
-        string $additionalStreetInfo = null,
-        string $postalCode = null,
-        string $city = null,
-        string $region = null,
-        string $state = null,
-        string $country = null,
-        string $company = null,
-        string $department = null,
-        string $building = null,
-        string $apartment = null,
-        string $pOBox = null,
-        string $phone = null,
-        string $mobile = null,
-        string $email = null,
-        string $fax = null,
-        string $additionalAddressInfo = null,
-        string $externalId = null
+        ?string $id = null,
+        ?string $key = null,
+        ?string $title = null,
+        ?string $salutation = null,
+        ?string $firstName = null,
+        ?string $lastName = null,
+        ?string $streetName = null,
+        ?string $streetNumber = null,
+        ?string $additionalStreetInfo = null,
+        ?string $postalCode = null,
+        ?string $city = null,
+        ?string $region = null,
+        ?string $state = null,
+        ?string $country = null,
+        ?string $company = null,
+        ?string $department = null,
+        ?string $building = null,
+        ?string $apartment = null,
+        ?string $pOBox = null,
+        ?string $phone = null,
+        ?string $mobile = null,
+        ?string $email = null,
+        ?string $fax = null,
+        ?string $additionalAddressInfo = null,
+        ?string $externalId = null
     ) {
         $this->id = $id;
         $this->key = $key;
@@ -627,126 +630,201 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
+    /**
+     * @param ?string $salutation
+     */
     public function setSalutation(?string $salutation): void
     {
         $this->salutation = $salutation;
     }
 
+    /**
+     * @param ?string $firstName
+     */
     public function setFirstName(?string $firstName): void
     {
         $this->firstName = $firstName;
     }
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;
     }
 
+    /**
+     * @param ?string $streetName
+     */
     public function setStreetName(?string $streetName): void
     {
         $this->streetName = $streetName;
     }
 
+    /**
+     * @param ?string $streetNumber
+     */
     public function setStreetNumber(?string $streetNumber): void
     {
         $this->streetNumber = $streetNumber;
     }
 
+    /**
+     * @param ?string $additionalStreetInfo
+     */
     public function setAdditionalStreetInfo(?string $additionalStreetInfo): void
     {
         $this->additionalStreetInfo = $additionalStreetInfo;
     }
 
+    /**
+     * @param ?string $postalCode
+     */
     public function setPostalCode(?string $postalCode): void
     {
         $this->postalCode = $postalCode;
     }
 
+    /**
+     * @param ?string $city
+     */
     public function setCity(?string $city): void
     {
         $this->city = $city;
     }
 
+    /**
+     * @param ?string $region
+     */
     public function setRegion(?string $region): void
     {
         $this->region = $region;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $company
+     */
     public function setCompany(?string $company): void
     {
         $this->company = $company;
     }
 
+    /**
+     * @param ?string $department
+     */
     public function setDepartment(?string $department): void
     {
         $this->department = $department;
     }
 
+    /**
+     * @param ?string $building
+     */
     public function setBuilding(?string $building): void
     {
         $this->building = $building;
     }
 
+    /**
+     * @param ?string $apartment
+     */
     public function setApartment(?string $apartment): void
     {
         $this->apartment = $apartment;
     }
 
+    /**
+     * @param ?string $pOBox
+     */
     public function setPOBox(?string $pOBox): void
     {
         $this->pOBox = $pOBox;
     }
 
+    /**
+     * @param ?string $phone
+     */
     public function setPhone(?string $phone): void
     {
         $this->phone = $phone;
     }
 
+    /**
+     * @param ?string $mobile
+     */
     public function setMobile(?string $mobile): void
     {
         $this->mobile = $mobile;
     }
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @param ?string $fax
+     */
     public function setFax(?string $fax): void
     {
         $this->fax = $fax;
     }
 
+    /**
+     * @param ?string $additionalAddressInfo
+     */
     public function setAdditionalAddressInfo(?string $additionalAddressInfo): void
     {
         $this->additionalAddressInfo = $additionalAddressInfo;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;

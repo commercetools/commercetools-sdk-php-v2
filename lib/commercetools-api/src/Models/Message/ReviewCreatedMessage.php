@@ -21,5 +21,8 @@ interface ReviewCreatedMessage extends Message
      */
     public function getReview();
 
+    /**
+     * @param ?Review $review
+     */
     public function setReview(?Review $review): void;
 }

@@ -46,13 +46,28 @@ interface LineItemStateTransitionMessage extends Message
      */
     public function getToState();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?DateTimeImmutable $transitionDate
+     */
     public function setTransitionDate(?DateTimeImmutable $transitionDate): void;
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 
+    /**
+     * @param ?StateReference $fromState
+     */
     public function setFromState(?StateReference $fromState): void;
 
+    /**
+     * @param ?StateReference $toState
+     */
     public function setToState(?StateReference $toState): void;
 }

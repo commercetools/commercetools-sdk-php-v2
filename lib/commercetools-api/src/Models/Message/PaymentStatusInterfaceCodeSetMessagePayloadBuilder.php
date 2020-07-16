@@ -47,6 +47,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?string $paymentId
      * @return $this
      */
     public function withPaymentId(?string $paymentId)
@@ -57,6 +58,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?string $interfaceCode
      * @return $this
      */
     public function withInterfaceCode(?string $interfaceCode)

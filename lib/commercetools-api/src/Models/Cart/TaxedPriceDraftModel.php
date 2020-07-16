@@ -37,10 +37,13 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     protected $taxPortions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoneyDraft $totalNet = null,
-        TypedMoneyDraft $totalGross = null,
-        TaxPortionDraftCollection $taxPortions = null
+        ?TypedMoneyDraft $totalNet = null,
+        ?TypedMoneyDraft $totalGross = null,
+        ?TaxPortionDraftCollection $taxPortions = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
@@ -89,7 +92,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     public function getTaxPortions()
     {
         if (is_null($this->taxPortions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;
@@ -101,16 +104,25 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     }
 
 
+    /**
+     * @param ?TypedMoneyDraft $totalNet
+     */
     public function setTotalNet(?TypedMoneyDraft $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
+    /**
+     * @param ?TypedMoneyDraft $totalGross
+     */
     public function setTotalGross(?TypedMoneyDraft $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
 
+    /**
+     * @param ?TaxPortionDraftCollection $taxPortions
+     */
     public function setTaxPortions(?TaxPortionDraftCollection $taxPortions): void
     {
         $this->taxPortions = $taxPortions;

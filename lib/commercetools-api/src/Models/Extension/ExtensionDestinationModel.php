@@ -34,6 +34,9 @@ final class ExtensionDestinationModel extends JsonObjectModel implements Extensi
        'HTTP' => ExtensionHttpDestinationModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

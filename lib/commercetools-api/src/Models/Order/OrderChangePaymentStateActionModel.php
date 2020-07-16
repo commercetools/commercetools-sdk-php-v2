@@ -31,8 +31,11 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     protected $paymentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $paymentState = null
+        ?string $paymentState = null
     ) {
         $this->paymentState = $paymentState;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;

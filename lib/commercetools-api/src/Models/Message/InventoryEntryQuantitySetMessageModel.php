@@ -103,21 +103,24 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
     protected $newAvailableQuantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        int $sequenceNumber = null,
-        Reference $resource = null,
-        int $resourceVersion = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        int $oldQuantityOnStock = null,
-        int $newQuantityOnStock = null,
-        int $oldAvailableQuantity = null,
-        int $newAvailableQuantity = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?int $sequenceNumber = null,
+        ?Reference $resource = null,
+        ?int $resourceVersion = null,
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?int $oldQuantityOnStock = null,
+        ?int $newQuantityOnStock = null,
+        ?int $oldAvailableQuantity = null,
+        ?int $newAvailableQuantity = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -404,71 +407,113 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?int $sequenceNumber
+     */
     public function setSequenceNumber(?int $sequenceNumber): void
     {
         $this->sequenceNumber = $sequenceNumber;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
+    /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
+     */
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
+    /**
+     * @param ?int $oldQuantityOnStock
+     */
     public function setOldQuantityOnStock(?int $oldQuantityOnStock): void
     {
         $this->oldQuantityOnStock = $oldQuantityOnStock;
     }
 
+    /**
+     * @param ?int $newQuantityOnStock
+     */
     public function setNewQuantityOnStock(?int $newQuantityOnStock): void
     {
         $this->newQuantityOnStock = $newQuantityOnStock;
     }
 
+    /**
+     * @param ?int $oldAvailableQuantity
+     */
     public function setOldAvailableQuantity(?int $oldAvailableQuantity): void
     {
         $this->oldAvailableQuantity = $oldAvailableQuantity;
     }
 
+    /**
+     * @param ?int $newAvailableQuantity
+     */
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void
     {
         $this->newAvailableQuantity = $newAvailableQuantity;

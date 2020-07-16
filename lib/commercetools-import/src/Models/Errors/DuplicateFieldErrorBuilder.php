@@ -31,7 +31,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $field;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $duplicateValue;
 
@@ -58,7 +58,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * <p>The offending duplicate value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue()
     {
@@ -66,6 +66,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -76,6 +77,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $field
      * @return $this
      */
     public function withField(?string $field)
@@ -86,9 +88,10 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * @param mixed $duplicateValue
      * @return $this
      */
-    public function withDuplicateValue(?JsonObject $duplicateValue)
+    public function withDuplicateValue($duplicateValue)
     {
         $this->duplicateValue = $duplicateValue;
 

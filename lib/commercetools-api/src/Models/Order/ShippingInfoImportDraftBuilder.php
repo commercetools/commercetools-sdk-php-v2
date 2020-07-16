@@ -156,6 +156,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMethodName
      * @return $this
      */
     public function withShippingMethodName(?string $shippingMethodName)
@@ -166,6 +167,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -176,6 +178,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateDraft $shippingRate
      * @return $this
      */
     public function withShippingRate(?ShippingRateDraft $shippingRate)
@@ -186,6 +189,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRate $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRate $taxRate)
@@ -196,6 +200,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
@@ -206,6 +211,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
@@ -216,6 +222,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryCollection $deliveries
      * @return $this
      */
     public function withDeliveries(?DeliveryCollection $deliveries)
@@ -226,6 +233,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPriceDraft $discountedPrice
      * @return $this
      */
     public function withDiscountedPrice(?DiscountedLineItemPriceDraft $discountedPrice)
@@ -236,6 +244,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMethodState
      * @return $this
      */
     public function withShippingMethodState(?string $shippingMethodState)

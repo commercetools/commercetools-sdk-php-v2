@@ -35,10 +35,13 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     protected $variantId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductReference $product = null,
-        bool $staged = null,
-        int $variantId = null
+        ?ProductReference $product = null,
+        ?bool $staged = null,
+        ?int $variantId = null
     ) {
         $this->product = $product;
         $this->staged = $staged;
@@ -104,16 +107,25 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;

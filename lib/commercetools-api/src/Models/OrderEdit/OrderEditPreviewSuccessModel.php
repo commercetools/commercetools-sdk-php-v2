@@ -37,9 +37,12 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     protected $messagePayloads;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StagedOrder $preview = null,
-        MessagePayloadCollection $messagePayloads = null
+        ?StagedOrder $preview = null,
+        ?MessagePayloadCollection $messagePayloads = null
     ) {
         $this->preview = $preview;
         $this->messagePayloads = $messagePayloads;
@@ -87,7 +90,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     public function getMessagePayloads()
     {
         if (is_null($this->messagePayloads)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGE_PAYLOADS);
             if (is_null($data)) {
                 return null;
@@ -99,11 +102,17 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     }
 
 
+    /**
+     * @param ?StagedOrder $preview
+     */
     public function setPreview(?StagedOrder $preview): void
     {
         $this->preview = $preview;
     }
 
+    /**
+     * @param ?MessagePayloadCollection $messagePayloads
+     */
     public function setMessagePayloads(?MessagePayloadCollection $messagePayloads): void
     {
         $this->messagePayloads = $messagePayloads;

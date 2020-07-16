@@ -62,14 +62,17 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     protected $validityCheckTime;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $discountCode = null,
-        string $reason = null,
-        string $dicountCodeId = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        DateTimeImmutable $validityCheckTime = null
+        ?string $message = null,
+        ?string $discountCode = null,
+        ?string $reason = null,
+        ?string $dicountCodeId = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?DateTimeImmutable $validityCheckTime = null
     ) {
         $this->message = $message;
         $this->discountCode = $discountCode;
@@ -230,36 +233,57 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $discountCode
+     */
     public function setDiscountCode(?string $discountCode): void
     {
         $this->discountCode = $discountCode;
     }
 
+    /**
+     * @param ?string $reason
+     */
     public function setReason(?string $reason): void
     {
         $this->reason = $reason;
     }
 
+    /**
+     * @param ?string $dicountCodeId
+     */
     public function setDicountCodeId(?string $dicountCodeId): void
     {
         $this->dicountCodeId = $dicountCodeId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validityCheckTime
+     */
     public function setValidityCheckTime(?DateTimeImmutable $validityCheckTime): void
     {
         $this->validityCheckTime = $validityCheckTime;

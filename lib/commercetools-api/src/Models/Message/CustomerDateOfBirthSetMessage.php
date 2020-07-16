@@ -21,5 +21,8 @@ interface CustomerDateOfBirthSetMessage extends Message
      */
     public function getDateOfBirth();
 
+    /**
+     * @param ?DateTimeImmutable $dateOfBirth
+     */
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void;
 }

@@ -28,11 +28,17 @@ interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
     /**
      * <p>If set, the custom fields are set to this new value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getFields();
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?JsonObject $fields
+     */
     public function setFields(?JsonObject $fields): void;
 }

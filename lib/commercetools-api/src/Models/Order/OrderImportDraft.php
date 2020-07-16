@@ -190,47 +190,113 @@ interface OrderImportDraft extends JsonObject
      */
     public function getOrigin();
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void;
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void;
 
+    /**
+     * @param ?LineItemImportDraftCollection $lineItems
+     */
     public function setLineItems(?LineItemImportDraftCollection $lineItems): void;
 
+    /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
 
+    /**
+     * @param ?Money $totalPrice
+     */
     public function setTotalPrice(?Money $totalPrice): void;
 
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void;
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void;
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void;
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 
+    /**
+     * @param ?ShippingInfoImportDraft $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void;
 
+    /**
+     * @param ?DateTimeImmutable $completedAt
+     */
     public function setCompletedAt(?DateTimeImmutable $completedAt): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void;
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
     public function setStore(?StoreResourceIdentifier $store): void;
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void;
 }

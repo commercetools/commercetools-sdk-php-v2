@@ -39,9 +39,18 @@ interface ProductTypeImport extends ImportResource
      */
     public function getAttributes();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 
+    /**
+     * @param ?AttributeDefinitionCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionCollection $attributes): void;
 }

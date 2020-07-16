@@ -26,7 +26,13 @@ interface OrderImportLineItemStateAction extends OrderUpdateAction
      */
     public function getState();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void;
 }

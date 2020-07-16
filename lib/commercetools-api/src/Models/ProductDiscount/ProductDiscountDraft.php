@@ -87,21 +87,48 @@ interface ProductDiscountDraft extends JsonObject
      */
     public function getValidUntil();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?ProductDiscountValueDraft $value
+     */
     public function setValue(?ProductDiscountValueDraft $value): void;
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void;
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void;
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

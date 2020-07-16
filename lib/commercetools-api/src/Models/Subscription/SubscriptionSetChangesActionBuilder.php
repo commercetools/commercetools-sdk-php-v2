@@ -34,6 +34,7 @@ final class SubscriptionSetChangesActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChangeSubscriptionCollection $changes
      * @return $this
      */
     public function withChanges(?ChangeSubscriptionCollection $changes)

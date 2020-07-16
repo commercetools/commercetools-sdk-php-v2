@@ -44,13 +44,28 @@ interface MissingPricesPagedQueryResult extends JsonObject
      */
     public function getMeta();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?MissingPricesCollection $results
+     */
     public function setResults(?MissingPricesCollection $results): void;
 
+    /**
+     * @param ?MissingPricesMeta $meta
+     */
     public function setMeta(?MissingPricesMeta $meta): void;
 }

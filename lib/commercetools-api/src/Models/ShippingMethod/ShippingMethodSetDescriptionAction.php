@@ -20,5 +20,8 @@ interface ShippingMethodSetDescriptionAction extends ShippingMethodUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 }

@@ -37,6 +37,7 @@ final class CartDiscountSetValidUntilActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

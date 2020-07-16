@@ -32,9 +32,12 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     protected $discount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $value = null,
-        ProductDiscountReference $discount = null
+        ?Money $value = null,
+        ?ProductDiscountReference $discount = null
     ) {
         $this->value = $value;
         $this->discount = $discount;
@@ -77,11 +80,17 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?ProductDiscountReference $discount
+     */
     public function setDiscount(?ProductDiscountReference $discount): void
     {
         $this->discount = $discount;

@@ -28,7 +28,13 @@ interface StagedOrderSetCustomLineItemShippingDetailsAction extends StagedOrderU
      */
     public function getShippingDetails();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

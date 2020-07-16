@@ -73,14 +73,17 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     protected $externalTaxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $money = null,
-        LocalizedString $name = null,
-        float $quantity = null,
-        string $slug = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        CustomFieldsDraft $custom = null,
-        ExternalTaxRateDraft $externalTaxRate = null
+        ?Money $money = null,
+        ?LocalizedString $name = null,
+        ?float $quantity = null,
+        ?string $slug = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?CustomFieldsDraft $custom = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
         $this->money = $money;
         $this->name = $name;
@@ -234,36 +237,57 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?Money $money
+     */
     public function setMoney(?Money $money): void
     {
         $this->money = $money;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?string $slug
+     */
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;

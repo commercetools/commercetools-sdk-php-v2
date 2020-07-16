@@ -41,10 +41,13 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     protected $shipping;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        array $lineItems = null,
-        bool $shipping = null
+        ?string $message = null,
+        ?array $lineItems = null,
+        ?bool $shipping = null
     ) {
         $this->message = $message;
         $this->lineItems = $lineItems;
@@ -92,7 +95,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -121,16 +124,25 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?array $lineItems
+     */
     public function setLineItems(?array $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?bool $shipping
+     */
     public function setShipping(?bool $shipping): void
     {
         $this->shipping = $shipping;

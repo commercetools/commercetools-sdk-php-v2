@@ -124,6 +124,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -134,6 +135,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -144,6 +146,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
@@ -154,6 +157,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)
@@ -164,6 +168,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)
@@ -174,6 +179,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderState
      * @return $this
      */
     public function withOrderState(?string $orderState)
@@ -184,6 +190,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)

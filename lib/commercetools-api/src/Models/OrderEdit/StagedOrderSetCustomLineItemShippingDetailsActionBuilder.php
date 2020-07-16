@@ -51,6 +51,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionBuilder implements 
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionBuilder implements 
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

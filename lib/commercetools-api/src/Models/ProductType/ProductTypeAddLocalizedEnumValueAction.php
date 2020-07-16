@@ -26,7 +26,13 @@ interface ProductTypeAddLocalizedEnumValueAction extends ProductTypeUpdateAction
      */
     public function getValue();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?AttributeLocalizedEnumValue $value
+     */
     public function setValue(?AttributeLocalizedEnumValue $value): void;
 }

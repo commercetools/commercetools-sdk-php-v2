@@ -36,6 +36,7 @@ final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxCalculationMode
      * @return $this
      */
     public function withTaxCalculationMode(?string $taxCalculationMode)

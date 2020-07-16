@@ -38,9 +38,12 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        InventoryEntry $obj = null
+        ?string $id = null,
+        ?InventoryEntry $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?InventoryEntry $obj
+     */
     public function setObj(?InventoryEntry $obj): void
     {
         $this->obj = $obj;

@@ -20,5 +20,8 @@ interface CustomFieldLocalizedEnumType extends FieldType
      */
     public function getValues();
 
+    /**
+     * @param ?CustomFieldLocalizedEnumValueCollection $values
+     */
     public function setValues(?CustomFieldLocalizedEnumValueCollection $values): void;
 }

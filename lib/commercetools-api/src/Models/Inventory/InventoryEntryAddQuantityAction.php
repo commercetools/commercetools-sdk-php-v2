@@ -20,5 +20,8 @@ interface InventoryEntryAddQuantityAction extends InventoryEntryUpdateAction
      */
     public function getQuantity();
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void;
 }

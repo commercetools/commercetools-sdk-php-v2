@@ -26,6 +26,9 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
     protected $name;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->name = static::DISCRIMINATOR_VALUE;

@@ -22,5 +22,8 @@ interface ReviewSetTextAction extends ReviewUpdateAction
      */
     public function getText();
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void;
 }

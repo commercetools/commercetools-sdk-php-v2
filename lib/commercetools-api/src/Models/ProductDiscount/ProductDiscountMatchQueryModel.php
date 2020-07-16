@@ -42,11 +42,14 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     protected $price;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $productId = null,
-        int $variantId = null,
-        bool $staged = null,
-        QueryPrice $price = null
+        ?string $productId = null,
+        ?int $variantId = null,
+        ?bool $staged = null,
+        ?QueryPrice $price = null
     ) {
         $this->productId = $productId;
         $this->variantId = $variantId;
@@ -124,21 +127,33 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     }
 
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?QueryPrice $price
+     */
     public function setPrice(?QueryPrice $price): void
     {
         $this->price = $price;

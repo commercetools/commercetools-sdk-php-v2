@@ -21,5 +21,8 @@ interface ShoppingListReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?ShoppingList $obj
+     */
     public function setObj(?ShoppingList $obj): void;
 }

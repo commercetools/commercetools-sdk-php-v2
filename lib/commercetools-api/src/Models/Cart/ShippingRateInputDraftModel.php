@@ -34,6 +34,9 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
        'Score' => ScoreShippingRateInputDraftModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

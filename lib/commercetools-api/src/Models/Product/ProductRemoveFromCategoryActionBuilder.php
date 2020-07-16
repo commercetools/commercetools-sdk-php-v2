@@ -49,6 +49,7 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryResourceIdentifier $category
      * @return $this
      */
     public function withCategory(?CategoryResourceIdentifier $category)
@@ -59,6 +60,7 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

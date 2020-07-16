@@ -38,9 +38,12 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     protected $oldCustomerGroup;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerGroupReference $customerGroup = null,
-        CustomerGroupReference $oldCustomerGroup = null
+        ?CustomerGroupReference $customerGroup = null,
+        ?CustomerGroupReference $oldCustomerGroup = null
     ) {
         $this->customerGroup = $customerGroup;
         $this->oldCustomerGroup = $oldCustomerGroup;
@@ -101,11 +104,17 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?CustomerGroupReference $oldCustomerGroup
+     */
     public function setOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup): void
     {
         $this->oldCustomerGroup = $oldCustomerGroup;

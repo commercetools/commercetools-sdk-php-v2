@@ -66,6 +66,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -76,6 +77,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -86,6 +88,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceType
      * @return $this
      */
     public function withResourceType(?string $resourceType)

@@ -26,7 +26,13 @@ interface TypeChangeLocalizedEnumValueOrderAction extends TypeUpdateAction
      */
     public function getKeys();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 
+    /**
+     * @param ?array $keys
+     */
     public function setKeys(?array $keys): void;
 }

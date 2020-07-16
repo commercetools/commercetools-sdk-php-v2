@@ -35,9 +35,18 @@ interface StagedOrderAddShoppingListAction extends StagedOrderUpdateAction
      */
     public function getDistributionChannel();
 
+    /**
+     * @param ?ShoppingListResourceIdentifier $shoppingList
+     */
     public function setShoppingList(?ShoppingListResourceIdentifier $shoppingList): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 }

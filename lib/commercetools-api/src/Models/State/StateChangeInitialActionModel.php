@@ -31,8 +31,11 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     protected $initial;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $initial = null
+        ?bool $initial = null
     ) {
         $this->initial = $initial;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     }
 
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void
     {
         $this->initial = $initial;

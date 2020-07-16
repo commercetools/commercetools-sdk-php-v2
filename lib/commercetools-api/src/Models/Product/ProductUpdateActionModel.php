@@ -78,6 +78,9 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
        'unpublish' => ProductUnpublishActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

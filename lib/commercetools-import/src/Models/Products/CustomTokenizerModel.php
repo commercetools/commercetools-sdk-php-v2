@@ -31,8 +31,11 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     protected $inputs;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $inputs = null
+        ?array $inputs = null
     ) {
         $this->inputs = $inputs;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     public function getInputs()
     {
         if (is_null($this->inputs)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_INPUTS);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     }
 
 
+    /**
+     * @param ?array $inputs
+     */
     public function setInputs(?array $inputs): void
     {
         $this->inputs = $inputs;

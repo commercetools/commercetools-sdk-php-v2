@@ -152,32 +152,35 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     protected $stores;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customerNumber = null,
-        string $email = null,
-        string $password = null,
-        string $firstName = null,
-        string $lastName = null,
-        string $middleName = null,
-        string $title = null,
-        string $anonymousCartId = null,
-        string $anonymousId = null,
-        DateTimeImmutable $dateOfBirth = null,
-        string $companyName = null,
-        string $vatId = null,
-        AddressCollection $addresses = null,
-        int $defaultShippingAddress = null,
-        array $shippingAddresses = null,
-        int $defaultBillingAddress = null,
-        array $billingAddresses = null,
-        bool $isEmailVerified = null,
-        string $externalId = null,
-        CustomerGroupResourceIdentifier $customerGroup = null,
-        CustomFieldsDraft $custom = null,
-        string $locale = null,
-        string $salutation = null,
-        string $key = null,
-        StoreResourceIdentifierCollection $stores = null
+        ?string $customerNumber = null,
+        ?string $email = null,
+        ?string $password = null,
+        ?string $firstName = null,
+        ?string $lastName = null,
+        ?string $middleName = null,
+        ?string $title = null,
+        ?string $anonymousCartId = null,
+        ?string $anonymousId = null,
+        ?DateTimeImmutable $dateOfBirth = null,
+        ?string $companyName = null,
+        ?string $vatId = null,
+        ?AddressCollection $addresses = null,
+        ?int $defaultShippingAddress = null,
+        ?array $shippingAddresses = null,
+        ?int $defaultBillingAddress = null,
+        ?array $billingAddresses = null,
+        ?bool $isEmailVerified = null,
+        ?string $externalId = null,
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $locale = null,
+        ?string $salutation = null,
+        ?string $key = null,
+        ?StoreResourceIdentifierCollection $stores = null
     ) {
         $this->customerNumber = $customerNumber;
         $this->email = $email;
@@ -435,7 +438,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function getAddresses()
     {
         if (is_null($this->addresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -475,7 +478,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function getShippingAddresses()
     {
         if (is_null($this->shippingAddresses)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -515,7 +518,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function getBillingAddresses()
     {
         if (is_null($this->billingAddresses)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_BILLING_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -665,7 +668,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function getStores()
     {
         if (is_null($this->stores)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STORES);
             if (is_null($data)) {
                 return null;
@@ -677,126 +680,201 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
 
+    /**
+     * @param ?string $customerNumber
+     */
     public function setCustomerNumber(?string $customerNumber): void
     {
         $this->customerNumber = $customerNumber;
     }
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @param ?string $password
+     */
     public function setPassword(?string $password): void
     {
         $this->password = $password;
     }
 
+    /**
+     * @param ?string $firstName
+     */
     public function setFirstName(?string $firstName): void
     {
         $this->firstName = $firstName;
     }
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;
     }
 
+    /**
+     * @param ?string $middleName
+     */
     public function setMiddleName(?string $middleName): void
     {
         $this->middleName = $middleName;
     }
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
+    /**
+     * @param ?string $anonymousCartId
+     */
     public function setAnonymousCartId(?string $anonymousCartId): void
     {
         $this->anonymousCartId = $anonymousCartId;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $dateOfBirth
+     */
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
     {
         $this->dateOfBirth = $dateOfBirth;
     }
 
+    /**
+     * @param ?string $companyName
+     */
     public function setCompanyName(?string $companyName): void
     {
         $this->companyName = $companyName;
     }
 
+    /**
+     * @param ?string $vatId
+     */
     public function setVatId(?string $vatId): void
     {
         $this->vatId = $vatId;
     }
 
+    /**
+     * @param ?AddressCollection $addresses
+     */
     public function setAddresses(?AddressCollection $addresses): void
     {
         $this->addresses = $addresses;
     }
 
+    /**
+     * @param ?int $defaultShippingAddress
+     */
     public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
+    /**
+     * @param ?array $shippingAddresses
+     */
     public function setShippingAddresses(?array $shippingAddresses): void
     {
         $this->shippingAddresses = $shippingAddresses;
     }
 
+    /**
+     * @param ?int $defaultBillingAddress
+     */
     public function setDefaultBillingAddress(?int $defaultBillingAddress): void
     {
         $this->defaultBillingAddress = $defaultBillingAddress;
     }
 
+    /**
+     * @param ?array $billingAddresses
+     */
     public function setBillingAddresses(?array $billingAddresses): void
     {
         $this->billingAddresses = $billingAddresses;
     }
 
+    /**
+     * @param ?bool $isEmailVerified
+     */
     public function setIsEmailVerified(?bool $isEmailVerified): void
     {
         $this->isEmailVerified = $isEmailVerified;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
 
+    /**
+     * @param ?string $salutation
+     */
     public function setSalutation(?string $salutation): void
     {
         $this->salutation = $salutation;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
     public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;

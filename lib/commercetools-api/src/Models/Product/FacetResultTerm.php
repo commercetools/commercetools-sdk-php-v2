@@ -18,7 +18,7 @@ interface FacetResultTerm extends JsonObject
     public const FIELD_PRODUCT_COUNT = 'productCount';
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTerm();
 
@@ -32,9 +32,18 @@ interface FacetResultTerm extends JsonObject
      */
     public function getProductCount();
 
-    public function setTerm(?JsonObject $term): void;
+    /**
+     * @param mixed $term
+     */
+    public function setTerm($term): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void;
 }

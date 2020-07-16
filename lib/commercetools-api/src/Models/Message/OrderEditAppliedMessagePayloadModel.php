@@ -40,9 +40,12 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     protected $result;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        OrderEditReference $edit = null,
-        OrderEditApplied $result = null
+        ?OrderEditReference $edit = null,
+        ?OrderEditApplied $result = null
     ) {
         $this->edit = $edit;
         $this->result = $result;
@@ -103,11 +106,17 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?OrderEditReference $edit
+     */
     public function setEdit(?OrderEditReference $edit): void
     {
         $this->edit = $edit;
     }
 
+    /**
+     * @param ?OrderEditApplied $result
+     */
     public function setResult(?OrderEditApplied $result): void
     {
         $this->result = $result;

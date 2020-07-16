@@ -116,6 +116,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -126,6 +127,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?OrderReference $resource
      * @return $this
      */
     public function withResource(?OrderReference $resource)
@@ -136,6 +138,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
      * @return $this
      */
     public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
@@ -146,6 +149,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -156,6 +160,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $comment
      * @return $this
      */
     public function withComment(?string $comment)
@@ -166,6 +171,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $dryRun
      * @return $this
      */
     public function withDryRun(?bool $dryRun)

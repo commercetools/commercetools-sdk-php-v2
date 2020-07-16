@@ -31,8 +31,11 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     protected $title;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $title = null
+        ?string $title = null
     ) {
         $this->title = $title;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     }
 
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;

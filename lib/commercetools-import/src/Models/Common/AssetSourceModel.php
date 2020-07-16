@@ -40,11 +40,14 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     protected $contentType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $uri = null,
-        string $key = null,
-        AssetDimensions $dimensions = null,
-        string $contentType = null
+        ?string $uri = null,
+        ?string $key = null,
+        ?AssetDimensions $dimensions = null,
+        ?string $contentType = null
     ) {
         $this->uri = $uri;
         $this->key = $key;
@@ -122,21 +125,33 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void
     {
         $this->uri = $uri;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?AssetDimensions $dimensions
+     */
     public function setDimensions(?AssetDimensions $dimensions): void
     {
         $this->dimensions = $dimensions;
     }
 
+    /**
+     * @param ?string $contentType
+     */
     public function setContentType(?string $contentType): void
     {
         $this->contentType = $contentType;

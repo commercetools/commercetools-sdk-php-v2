@@ -32,8 +32,11 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     protected $money;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoneyCollection $money = null
+        ?TypedMoneyCollection $money = null
     ) {
         $this->money = $money;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -62,7 +65,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     public function getMoney()
     {
         if (is_null($this->money)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;
@@ -74,6 +77,9 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     }
 
 
+    /**
+     * @param ?TypedMoneyCollection $money
+     */
     public function setMoney(?TypedMoneyCollection $money): void
     {
         $this->money = $money;

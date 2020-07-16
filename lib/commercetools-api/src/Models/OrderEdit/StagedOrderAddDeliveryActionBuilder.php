@@ -66,6 +66,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -76,6 +77,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -86,6 +88,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelDraftCollection $parcels
      * @return $this
      */
     public function withParcels(?ParcelDraftCollection $parcels)

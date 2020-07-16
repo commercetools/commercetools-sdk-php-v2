@@ -51,13 +51,16 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        string $customerId = null,
-        DateTimeImmutable $expiresAt = null,
-        string $value = null
+        ?string $id = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?string $customerId = null,
+        ?DateTimeImmutable $expiresAt = null,
+        ?string $value = null
     ) {
         $this->id = $id;
         $this->createdAt = $createdAt;
@@ -182,31 +185,49 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
         $this->expiresAt = $expiresAt;
     }
 
+    /**
+     * @param ?string $value
+     */
     public function setValue(?string $value): void
     {
         $this->value = $value;

@@ -26,6 +26,9 @@ final class ProductUnpublishedMessagePayloadModel extends JsonObjectModel implem
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

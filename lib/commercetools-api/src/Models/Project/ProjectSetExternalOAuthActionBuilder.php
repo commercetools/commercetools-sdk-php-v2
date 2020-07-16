@@ -37,6 +37,7 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalOAuth $externalOAuth
      * @return $this
      */
     public function withExternalOAuth(?ExternalOAuth $externalOAuth)

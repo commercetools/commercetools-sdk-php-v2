@@ -34,6 +34,7 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRateId
      * @return $this
      */
     public function withTaxRateId(?string $taxRateId)

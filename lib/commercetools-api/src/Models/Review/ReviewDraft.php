@@ -100,25 +100,58 @@ interface ReviewDraft extends JsonObject
      */
     public function getCustom();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $uniquenessValue
+     */
     public function setUniquenessValue(?string $uniquenessValue): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?string $authorName
+     */
     public function setAuthorName(?string $authorName): void;
 
+    /**
+     * @param ?string $title
+     */
     public function setTitle(?string $title): void;
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void;
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void;
 
+    /**
+     * @param ?StateResourceIdentifier $state
+     */
     public function setState(?StateResourceIdentifier $state): void;
 
+    /**
+     * @param ?int $rating
+     */
     public function setRating(?int $rating): void;
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 }

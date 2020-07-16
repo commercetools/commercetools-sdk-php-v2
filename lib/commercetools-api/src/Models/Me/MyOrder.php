@@ -278,85 +278,208 @@ interface MyOrder extends BaseResource
      */
     public function getRefusedGifts();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?DateTimeImmutable $completedAt
+     */
     public function setCompletedAt(?DateTimeImmutable $completedAt): void;
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void;
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 
+    /**
+     * @param ?StoreKeyReference $store
+     */
     public function setStore(?StoreKeyReference $store): void;
 
+    /**
+     * @param ?LineItemCollection $lineItems
+     */
     public function setLineItems(?LineItemCollection $lineItems): void;
 
+    /**
+     * @param ?CustomLineItemCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void;
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void;
 
+    /**
+     * @param ?TaxedPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void;
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void;
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void;
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void;
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void;
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 
+    /**
+     * @param ?ShippingInfo $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void;
 
+    /**
+     * @param ?SyncInfoCollection $syncInfo
+     */
     public function setSyncInfo(?SyncInfoCollection $syncInfo): void;
 
+    /**
+     * @param ?ReturnInfoCollection $returnInfo
+     */
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void;
 
+    /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
+     */
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
 
+    /**
+     * @param ?int $lastMessageSequenceNumber
+     */
     public function setLastMessageSequenceNumber(?int $lastMessageSequenceNumber): void;
 
+    /**
+     * @param ?CartReference $cart
+     */
     public function setCart(?CartReference $cart): void;
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void;
 
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
     public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void;
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void;
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
 
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 
+    /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
+     */
     public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
 }

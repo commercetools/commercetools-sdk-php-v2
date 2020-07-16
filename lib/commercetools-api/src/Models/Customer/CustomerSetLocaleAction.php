@@ -20,5 +20,8 @@ interface CustomerSetLocaleAction extends CustomerUpdateAction
      */
     public function getLocale();
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 }

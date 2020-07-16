@@ -44,11 +44,14 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     protected $variantCount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        Money $price = null,
-        int $variantCount = null
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?Money $price = null,
+        ?int $variantCount = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -136,21 +139,33 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?int $variantCount
+     */
     public function setVariantCount(?int $variantCount): void
     {
         $this->variantCount = $variantCount;

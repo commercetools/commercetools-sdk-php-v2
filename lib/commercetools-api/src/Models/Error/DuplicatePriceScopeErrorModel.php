@@ -37,9 +37,12 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     protected $conflictingPrices;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        PriceCollection $conflictingPrices = null
+        ?string $message = null,
+        ?PriceCollection $conflictingPrices = null
     ) {
         $this->message = $message;
         $this->conflictingPrices = $conflictingPrices;
@@ -86,7 +89,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     public function getConflictingPrices()
     {
         if (is_null($this->conflictingPrices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CONFLICTING_PRICES);
             if (is_null($data)) {
                 return null;
@@ -98,11 +101,17 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?PriceCollection $conflictingPrices
+     */
     public function setConflictingPrices(?PriceCollection $conflictingPrices): void
     {
         $this->conflictingPrices = $conflictingPrices;

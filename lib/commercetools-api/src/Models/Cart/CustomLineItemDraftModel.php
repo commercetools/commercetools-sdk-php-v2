@@ -68,15 +68,18 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        float $quantity = null,
-        Money $money = null,
-        string $slug = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        ExternalTaxRateDraft $externalTaxRate = null,
-        CustomFields $custom = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?LocalizedString $name = null,
+        ?float $quantity = null,
+        ?Money $money = null,
+        ?string $slug = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?CustomFields $custom = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->name = $name;
         $this->quantity = $quantity;
@@ -242,41 +245,65 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?Money $money
+     */
     public function setMoney(?Money $money): void
     {
         $this->money = $money;
     }
 
+    /**
+     * @param ?string $slug
+     */
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

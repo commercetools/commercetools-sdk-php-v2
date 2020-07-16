@@ -39,11 +39,23 @@ interface ClientLogging extends JsonObject
      */
     public function getAnonymousId();
 
+    /**
+     * @param ?string $clientId
+     */
     public function setClientId(?string $clientId): void;
 
+    /**
+     * @param ?string $externalUserId
+     */
     public function setExternalUserId(?string $externalUserId): void;
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void;
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void;
 }

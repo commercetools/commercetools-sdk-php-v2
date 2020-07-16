@@ -21,5 +21,8 @@ interface ChannelChangeDescriptionAction extends ChannelUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

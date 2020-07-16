@@ -51,6 +51,7 @@ final class ImportSummaryBuilder implements Builder
     }
 
     /**
+     * @param ?OperationStates $states
      * @return $this
      */
     public function withStates(?OperationStates $states)
@@ -61,6 +62,7 @@ final class ImportSummaryBuilder implements Builder
     }
 
     /**
+     * @param ?float $total
      * @return $this
      */
     public function withTotal(?float $total)

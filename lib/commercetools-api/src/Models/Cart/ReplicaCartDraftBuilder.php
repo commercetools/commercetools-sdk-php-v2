@@ -34,6 +34,7 @@ final class ReplicaCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $reference
      * @return $this
      */
     public function withReference(?JsonObject $reference)

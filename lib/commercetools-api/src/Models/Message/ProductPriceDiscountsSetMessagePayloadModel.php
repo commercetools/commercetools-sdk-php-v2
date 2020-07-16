@@ -31,8 +31,11 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     protected $updatedPrices;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null
+        ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null
     ) {
         $this->updatedPrices = $updatedPrices;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     public function getUpdatedPrices()
     {
         if (is_null($this->updatedPrices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_UPDATED_PRICES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices
+     */
     public function setUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices): void
     {
         $this->updatedPrices = $updatedPrices;

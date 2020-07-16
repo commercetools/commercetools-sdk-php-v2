@@ -242,6 +242,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -252,6 +253,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -262,6 +264,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -272,6 +275,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -282,6 +286,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -292,6 +297,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -302,6 +308,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -312,6 +319,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?array $roles
      * @return $this
      */
     public function withRoles(?array $roles)
@@ -322,6 +330,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -332,6 +341,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -342,6 +352,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -352,6 +363,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
      * @return $this
      */
     public function withReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics)
@@ -362,6 +374,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -372,6 +385,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * @param ?GeoJson $geoLocation
      * @return $this
      */
     public function withGeoLocation(?GeoJson $geoLocation)

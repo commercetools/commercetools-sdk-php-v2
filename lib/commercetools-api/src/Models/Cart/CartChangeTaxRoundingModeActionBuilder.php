@@ -34,6 +34,7 @@ final class CartChangeTaxRoundingModeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRoundingMode
      * @return $this
      */
     public function withTaxRoundingMode(?string $taxRoundingMode)

@@ -20,5 +20,8 @@ interface ExtensionAuthorizationHeaderAuthentication extends ExtensionHttpDestin
      */
     public function getHeaderValue();
 
+    /**
+     * @param ?string $headerValue
+     */
     public function setHeaderValue(?string $headerValue): void;
 }

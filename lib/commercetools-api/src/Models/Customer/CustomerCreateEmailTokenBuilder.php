@@ -60,6 +60,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -70,6 +71,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -80,6 +82,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+     * @param ?int $ttlMinutes
      * @return $this
      */
     public function withTtlMinutes(?int $ttlMinutes)

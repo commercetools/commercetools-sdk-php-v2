@@ -64,6 +64,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListResourceIdentifier $shoppingList
      * @return $this
      */
     public function withShoppingList(?ShoppingListResourceIdentifier $shoppingList)
@@ -74,6 +75,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -84,6 +86,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)

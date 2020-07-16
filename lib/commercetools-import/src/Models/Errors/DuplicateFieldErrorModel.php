@@ -36,15 +36,18 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $field;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $duplicateValue;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $field = null,
-        JsonObject $duplicateValue = null
+        ?string $message = null,
+        ?string $field = null,
+        $duplicateValue = null
     ) {
         $this->message = $message;
         $this->field = $field;
@@ -110,34 +113,43 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     /**
      * <p>The offending duplicate value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue()
     {
         if (is_null($this->duplicateValue)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_DUPLICATE_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->duplicateValue = JsonObjectModel::of($data);
+            $this->duplicateValue = $data;
         }
 
         return $this->duplicateValue;
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void
     {
         $this->field = $field;
     }
 
-    public function setDuplicateValue(?JsonObject $duplicateValue): void
+    /**
+     * @param mixed $duplicateValue
+     */
+    public function setDuplicateValue($duplicateValue): void
     {
         $this->duplicateValue = $duplicateValue;
     }

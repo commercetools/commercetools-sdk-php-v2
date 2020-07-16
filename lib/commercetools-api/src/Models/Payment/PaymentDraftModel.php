@@ -102,22 +102,25 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerResourceIdentifier $customer = null,
-        string $anonymousId = null,
-        string $externalId = null,
-        string $interfaceId = null,
-        Money $amountPlanned = null,
-        Money $amountAuthorized = null,
-        string $authorizedUntil = null,
-        Money $amountPaid = null,
-        Money $amountRefunded = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        PaymentStatusDraft $paymentStatus = null,
-        TransactionDraftCollection $transactions = null,
-        CustomFieldsDraftCollection $interfaceInteractions = null,
-        CustomFieldsDraft $custom = null,
-        string $key = null
+        ?CustomerResourceIdentifier $customer = null,
+        ?string $anonymousId = null,
+        ?string $externalId = null,
+        ?string $interfaceId = null,
+        ?Money $amountPlanned = null,
+        ?Money $amountAuthorized = null,
+        ?string $authorizedUntil = null,
+        ?Money $amountPaid = null,
+        ?Money $amountRefunded = null,
+        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?PaymentStatusDraft $paymentStatus = null,
+        ?TransactionDraftCollection $transactions = null,
+        ?CustomFieldsDraftCollection $interfaceInteractions = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $key = null
     ) {
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
@@ -349,7 +352,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     public function getTransactions()
     {
         if (is_null($this->transactions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;
@@ -371,7 +374,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     public function getInterfaceInteractions()
     {
         if (is_null($this->interfaceInteractions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_INTERFACE_INTERACTIONS);
             if (is_null($data)) {
                 return null;
@@ -421,76 +424,121 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
 
+    /**
+     * @param ?CustomerResourceIdentifier $customer
+     */
     public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?string $interfaceId
+     */
     public function setInterfaceId(?string $interfaceId): void
     {
         $this->interfaceId = $interfaceId;
     }
 
+    /**
+     * @param ?Money $amountPlanned
+     */
     public function setAmountPlanned(?Money $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
     }
 
+    /**
+     * @param ?Money $amountAuthorized
+     */
     public function setAmountAuthorized(?Money $amountAuthorized): void
     {
         $this->amountAuthorized = $amountAuthorized;
     }
 
+    /**
+     * @param ?string $authorizedUntil
+     */
     public function setAuthorizedUntil(?string $authorizedUntil): void
     {
         $this->authorizedUntil = $authorizedUntil;
     }
 
+    /**
+     * @param ?Money $amountPaid
+     */
     public function setAmountPaid(?Money $amountPaid): void
     {
         $this->amountPaid = $amountPaid;
     }
 
+    /**
+     * @param ?Money $amountRefunded
+     */
     public function setAmountRefunded(?Money $amountRefunded): void
     {
         $this->amountRefunded = $amountRefunded;
     }
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }
 
+    /**
+     * @param ?PaymentStatusDraft $paymentStatus
+     */
     public function setPaymentStatus(?PaymentStatusDraft $paymentStatus): void
     {
         $this->paymentStatus = $paymentStatus;
     }
 
+    /**
+     * @param ?TransactionDraftCollection $transactions
+     */
     public function setTransactions(?TransactionDraftCollection $transactions): void
     {
         $this->transactions = $transactions;
     }
 
+    /**
+     * @param ?CustomFieldsDraftCollection $interfaceInteractions
+     */
     public function setInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions): void
     {
         $this->interfaceInteractions = $interfaceInteractions;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

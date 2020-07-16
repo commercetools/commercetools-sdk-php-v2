@@ -25,11 +25,17 @@ interface CustomerSignInResult extends JsonObject
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getCart();
 
+    /**
+     * @param ?Customer $customer
+     */
     public function setCustomer(?Customer $customer): void;
 
+    /**
+     * @param ?JsonObject $cart
+     */
     public function setCart(?JsonObject $cart): void;
 }

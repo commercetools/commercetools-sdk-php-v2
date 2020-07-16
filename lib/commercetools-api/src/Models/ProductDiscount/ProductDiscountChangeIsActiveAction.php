@@ -20,5 +20,8 @@ interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateActio
      */
     public function getIsActive();
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void;
 }

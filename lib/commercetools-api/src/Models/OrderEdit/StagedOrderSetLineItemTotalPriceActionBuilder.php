@@ -51,6 +51,7 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -61,6 +62,7 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)

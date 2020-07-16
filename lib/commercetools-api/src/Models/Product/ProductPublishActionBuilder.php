@@ -34,6 +34,7 @@ final class ProductPublishActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $scope
      * @return $this
      */
     public function withScope(?string $scope)

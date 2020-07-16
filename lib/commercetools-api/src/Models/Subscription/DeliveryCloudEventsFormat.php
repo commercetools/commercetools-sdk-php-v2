@@ -20,5 +20,8 @@ interface DeliveryCloudEventsFormat extends DeliveryFormat
      */
     public function getCloudEventsVersion();
 
+    /**
+     * @param ?string $cloudEventsVersion
+     */
     public function setCloudEventsVersion(?string $cloudEventsVersion): void;
 }

@@ -30,9 +30,12 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        CustomerGroupUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?CustomerGroupUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -61,7 +64,7 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -73,11 +76,17 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?CustomerGroupUpdateActionCollection $actions
+     */
     public function setActions(?CustomerGroupUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

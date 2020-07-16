@@ -23,5 +23,8 @@ interface DiscountCodeSetValidUntilAction extends DiscountCodeUpdateAction
      */
     public function getValidUntil();
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

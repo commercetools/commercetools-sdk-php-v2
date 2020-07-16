@@ -38,9 +38,12 @@ final class OrderShippingAddressSetMessagePayloadModel extends JsonObjectModel i
     protected $oldAddress;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Address $address = null,
-        Address $oldAddress = null
+        ?Address $address = null,
+        ?Address $oldAddress = null
     ) {
         $this->address = $address;
         $this->oldAddress = $oldAddress;
@@ -101,11 +104,17 @@ final class OrderShippingAddressSetMessagePayloadModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?Address $oldAddress
+     */
     public function setOldAddress(?Address $oldAddress): void
     {
         $this->oldAddress = $oldAddress;

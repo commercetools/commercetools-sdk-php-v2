@@ -32,9 +32,12 @@ final class CustomModel extends JsonObjectModel implements Custom
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypeKeyReference $type = null,
-        FieldContainer $fields = null
+        ?TypeKeyReference $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
@@ -81,11 +84,17 @@ final class CustomModel extends JsonObjectModel implements Custom
     }
 
 
+    /**
+     * @param ?TypeKeyReference $type
+     */
     public function setType(?TypeKeyReference $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;

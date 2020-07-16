@@ -26,7 +26,13 @@ interface EnumValue extends JsonObject
      */
     public function getLabel();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void;
 }

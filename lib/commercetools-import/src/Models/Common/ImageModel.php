@@ -35,10 +35,13 @@ final class ImageModel extends JsonObjectModel implements Image
     protected $label;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $url = null,
-        AssetDimensions $dimensions = null,
-        string $label = null
+        ?string $url = null,
+        ?AssetDimensions $dimensions = null,
+        ?string $label = null
     ) {
         $this->url = $url;
         $this->dimensions = $dimensions;
@@ -98,16 +101,25 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
 
+    /**
+     * @param ?AssetDimensions $dimensions
+     */
     public function setDimensions(?AssetDimensions $dimensions): void
     {
         $this->dimensions = $dimensions;
     }
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void
     {
         $this->label = $label;

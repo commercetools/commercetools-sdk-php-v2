@@ -31,8 +31,11 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     protected $fieldName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $fieldName = null
+        ?string $fieldName = null
     ) {
         $this->fieldName = $fieldName;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void
     {
         $this->fieldName = $fieldName;

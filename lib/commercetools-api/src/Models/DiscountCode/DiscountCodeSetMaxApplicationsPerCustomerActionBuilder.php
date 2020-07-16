@@ -36,6 +36,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Bu
     }
 
     /**
+     * @param ?int $maxApplicationsPerCustomer
      * @return $this
      */
     public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)

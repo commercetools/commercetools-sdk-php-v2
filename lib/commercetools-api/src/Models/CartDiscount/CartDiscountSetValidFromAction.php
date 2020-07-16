@@ -23,5 +23,8 @@ interface CartDiscountSetValidFromAction extends CartDiscountUpdateAction
      */
     public function getValidFrom();
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 }

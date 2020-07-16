@@ -27,5 +27,8 @@ interface Reference extends JsonObject
      */
     public function getId();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 }

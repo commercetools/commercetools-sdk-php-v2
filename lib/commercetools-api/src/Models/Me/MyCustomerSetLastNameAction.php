@@ -20,5 +20,8 @@ interface MyCustomerSetLastNameAction extends MyCustomerUpdateAction
      */
     public function getLastName();
 
+    /**
+     * @param ?string $lastName
+     */
     public function setLastName(?string $lastName): void;
 }

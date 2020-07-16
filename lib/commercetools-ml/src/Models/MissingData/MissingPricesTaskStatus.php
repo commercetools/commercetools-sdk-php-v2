@@ -37,9 +37,18 @@ interface MissingPricesTaskStatus extends JsonObject
      */
     public function getResult();
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void;
 
+    /**
+     * @param ?MissingPricesPagedQueryResult $result
+     */
     public function setResult(?MissingPricesPagedQueryResult $result): void;
 }

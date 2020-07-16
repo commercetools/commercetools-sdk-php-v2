@@ -32,9 +32,12 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     protected $shippingRates;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ZoneResourceIdentifier $zone = null,
-        ShippingRateDraftCollection $shippingRates = null
+        ?ZoneResourceIdentifier $zone = null,
+        ?ShippingRateDraftCollection $shippingRates = null
     ) {
         $this->zone = $zone;
         $this->shippingRates = $shippingRates;
@@ -66,7 +69,7 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     public function getShippingRates()
     {
         if (is_null($this->shippingRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SHIPPING_RATES);
             if (is_null($data)) {
                 return null;
@@ -78,11 +81,17 @@ final class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
     }
 
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void
     {
         $this->zone = $zone;
     }
 
+    /**
+     * @param ?ShippingRateDraftCollection $shippingRates
+     */
     public function setShippingRates(?ShippingRateDraftCollection $shippingRates): void
     {
         $this->shippingRates = $shippingRates;

@@ -90,6 +90,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -100,6 +101,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -110,6 +112,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -120,6 +123,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?AssetDraft $asset
      * @return $this
      */
     public function withAsset(?AssetDraft $asset)
@@ -130,6 +134,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $position
      * @return $this
      */
     public function withPosition(?int $position)

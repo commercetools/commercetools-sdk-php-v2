@@ -20,5 +20,8 @@ interface ScoreShippingRateInputDraft extends ShippingRateInputDraft
      */
     public function getScore();
 
+    /**
+     * @param ?float $score
+     */
     public function setScore(?float $score): void;
 }

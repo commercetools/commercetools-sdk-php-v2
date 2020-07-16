@@ -52,6 +52,7 @@ final class ReferenceSetAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -62,6 +63,7 @@ final class ReferenceSetAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReferenceCollection $value
      * @return $this
      */
     public function withValue(?KeyReferenceCollection $value)

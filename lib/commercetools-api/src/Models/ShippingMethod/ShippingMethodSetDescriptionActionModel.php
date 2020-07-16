@@ -31,8 +31,11 @@ final class ShippingMethodSetDescriptionActionModel extends JsonObjectModel impl
     protected $description;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $description = null
+        ?string $description = null
     ) {
         $this->description = $description;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ShippingMethodSetDescriptionActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;

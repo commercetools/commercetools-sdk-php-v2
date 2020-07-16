@@ -73,6 +73,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $accessKey
      * @return $this
      */
     public function withAccessKey(?string $accessKey)
@@ -83,6 +84,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $accessSecret
      * @return $this
      */
     public function withAccessSecret(?string $accessSecret)
@@ -93,6 +95,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $queueUrl
      * @return $this
      */
     public function withQueueUrl(?string $queueUrl)
@@ -103,6 +106,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $region
      * @return $this
      */
     public function withRegion(?string $region)

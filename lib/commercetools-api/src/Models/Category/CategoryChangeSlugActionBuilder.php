@@ -39,6 +39,7 @@ final class CategoryChangeSlugActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)

@@ -36,7 +36,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     protected $field;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $invalidValue;
 
@@ -46,11 +46,14 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     protected $allowedValues;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $field = null,
-        JsonObject $invalidValue = null,
-        array $allowedValues = null
+        ?string $message = null,
+        ?string $field = null,
+        $invalidValue = null,
+        ?array $allowedValues = null
     ) {
         $this->message = $message;
         $this->field = $field;
@@ -111,17 +114,17 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getInvalidValue()
     {
         if (is_null($this->invalidValue)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_INVALID_VALUE);
             if (is_null($data)) {
                 return null;
             }
-            $this->invalidValue = JsonObjectModel::of($data);
+            $this->invalidValue = $data;
         }
 
         return $this->invalidValue;
@@ -133,7 +136,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     public function getAllowedValues()
     {
         if (is_null($this->allowedValues)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ALLOWED_VALUES);
             if (is_null($data)) {
                 return null;
@@ -145,21 +148,33 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void
     {
         $this->field = $field;
     }
 
-    public function setInvalidValue(?JsonObject $invalidValue): void
+    /**
+     * @param mixed $invalidValue
+     */
+    public function setInvalidValue($invalidValue): void
     {
         $this->invalidValue = $invalidValue;
     }
 
+    /**
+     * @param ?array $allowedValues
+     */
     public function setAllowedValues(?array $allowedValues): void
     {
         $this->allowedValues = $allowedValues;

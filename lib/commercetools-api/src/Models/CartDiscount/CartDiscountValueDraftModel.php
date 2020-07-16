@@ -35,6 +35,9 @@ final class CartDiscountValueDraftModel extends JsonObjectModel implements CartD
        'relative' => CartDiscountValueRelativeDraftModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

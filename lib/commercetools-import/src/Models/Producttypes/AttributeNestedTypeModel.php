@@ -33,8 +33,11 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     protected $typeReference;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ProductTypeKeyReference $typeReference = null
+        ?ProductTypeKeyReference $typeReference = null
     ) {
         $this->typeReference = $typeReference;
         $this->name = static::DISCRIMINATOR_VALUE;
@@ -78,6 +81,9 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     }
 
 
+    /**
+     * @param ?ProductTypeKeyReference $typeReference
+     */
     public function setTypeReference(?ProductTypeKeyReference $typeReference): void
     {
         $this->typeReference = $typeReference;

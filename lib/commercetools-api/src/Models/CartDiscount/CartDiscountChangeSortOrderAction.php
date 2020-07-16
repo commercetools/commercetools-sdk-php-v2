@@ -23,5 +23,8 @@ interface CartDiscountChangeSortOrderAction extends CartDiscountUpdateAction
      */
     public function getSortOrder();
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void;
 }

@@ -36,9 +36,12 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     protected $variantValues;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        VariantValues $variantValues = null
+        ?string $message = null,
+        ?VariantValues $variantValues = null
     ) {
         $this->message = $message;
         $this->variantValues = $variantValues;
@@ -102,11 +105,17 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?VariantValues $variantValues
+     */
     public function setVariantValues(?VariantValues $variantValues): void
     {
         $this->variantValues = $variantValues;

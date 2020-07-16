@@ -20,5 +20,8 @@ interface ConcurrentModificationError extends ErrorObject
      */
     public function getCurrentVersion();
 
+    /**
+     * @param ?int $currentVersion
+     */
     public function setCurrentVersion(?int $currentVersion): void;
 }

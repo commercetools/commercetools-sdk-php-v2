@@ -60,6 +60,7 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -70,6 +71,7 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+     * @param ?array $lineItems
      * @return $this
      */
     public function withLineItems(?array $lineItems)
@@ -80,6 +82,7 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+     * @param ?array $skus
      * @return $this
      */
     public function withSkus(?array $skus)

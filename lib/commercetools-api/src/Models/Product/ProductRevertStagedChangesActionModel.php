@@ -26,6 +26,9 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
     protected $action;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

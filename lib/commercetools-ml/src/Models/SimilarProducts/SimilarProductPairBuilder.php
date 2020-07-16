@@ -49,6 +49,7 @@ final class SimilarProductPairBuilder implements Builder
     }
 
     /**
+     * @param ?float $confidence
      * @return $this
      */
     public function withConfidence(?float $confidence)
@@ -59,6 +60,7 @@ final class SimilarProductPairBuilder implements Builder
     }
 
     /**
+     * @param ?SimilarProductCollection $products
      * @return $this
      */
     public function withProducts(?SimilarProductCollection $products)

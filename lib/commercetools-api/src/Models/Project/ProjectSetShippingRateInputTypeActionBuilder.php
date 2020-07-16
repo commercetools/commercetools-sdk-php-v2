@@ -36,6 +36,7 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateInputType $shippingRateInputType
      * @return $this
      */
     public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)

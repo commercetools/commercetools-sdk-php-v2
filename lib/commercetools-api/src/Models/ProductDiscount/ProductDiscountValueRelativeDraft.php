@@ -20,5 +20,8 @@ interface ProductDiscountValueRelativeDraft extends ProductDiscountValueDraft
      */
     public function getPermyriad();
 
+    /**
+     * @param ?int $permyriad
+     */
     public function setPermyriad(?int $permyriad): void;
 }

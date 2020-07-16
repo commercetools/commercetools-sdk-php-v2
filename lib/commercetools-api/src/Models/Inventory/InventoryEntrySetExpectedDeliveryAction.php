@@ -21,5 +21,8 @@ interface InventoryEntrySetExpectedDeliveryAction extends InventoryEntryUpdateAc
      */
     public function getExpectedDelivery();
 
+    /**
+     * @param ?DateTimeImmutable $expectedDelivery
+     */
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void;
 }

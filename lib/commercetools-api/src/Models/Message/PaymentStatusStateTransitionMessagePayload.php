@@ -27,7 +27,13 @@ interface PaymentStatusStateTransitionMessagePayload extends MessagePayload
      */
     public function getForce();
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void;
 }

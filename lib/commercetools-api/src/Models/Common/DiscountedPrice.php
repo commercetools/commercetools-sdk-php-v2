@@ -27,7 +27,13 @@ interface DiscountedPrice extends JsonObject
      */
     public function getDiscount();
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void;
 
+    /**
+     * @param ?ProductDiscountReference $discount
+     */
     public function setDiscount(?ProductDiscountReference $discount): void;
 }

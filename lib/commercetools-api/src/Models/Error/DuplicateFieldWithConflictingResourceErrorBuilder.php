@@ -33,7 +33,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     private $field;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $duplicateValue;
 
@@ -59,7 +59,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getDuplicateValue()
     {
@@ -75,6 +75,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -85,6 +86,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $field
      * @return $this
      */
     public function withField(?string $field)
@@ -95,9 +97,10 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * @param mixed $duplicateValue
      * @return $this
      */
-    public function withDuplicateValue(?JsonObject $duplicateValue)
+    public function withDuplicateValue($duplicateValue)
     {
         $this->duplicateValue = $duplicateValue;
 
@@ -105,6 +108,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $conflictingResource
      * @return $this
      */
     public function withConflictingResource(?Reference $conflictingResource)

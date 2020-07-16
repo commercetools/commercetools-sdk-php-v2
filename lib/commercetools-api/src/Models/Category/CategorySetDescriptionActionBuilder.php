@@ -36,6 +36,7 @@ final class CategorySetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)

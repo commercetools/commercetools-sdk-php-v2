@@ -27,7 +27,13 @@ interface OrderEditPreviewSuccess extends OrderEditResult
      */
     public function getMessagePayloads();
 
+    /**
+     * @param ?StagedOrder $preview
+     */
     public function setPreview(?StagedOrder $preview): void;
 
+    /**
+     * @param ?MessagePayloadCollection $messagePayloads
+     */
     public function setMessagePayloads(?MessagePayloadCollection $messagePayloads): void;
 }

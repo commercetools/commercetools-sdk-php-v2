@@ -42,10 +42,13 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     protected $excerptAfterEdit;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $appliedAt = null,
-        OrderExcerpt $excerptBeforeEdit = null,
-        OrderExcerpt $excerptAfterEdit = null
+        ?DateTimeImmutable $appliedAt = null,
+        ?OrderExcerpt $excerptBeforeEdit = null,
+        ?OrderExcerpt $excerptAfterEdit = null
     ) {
         $this->appliedAt = $appliedAt;
         $this->excerptBeforeEdit = $excerptBeforeEdit;
@@ -128,16 +131,25 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $appliedAt
+     */
     public function setAppliedAt(?DateTimeImmutable $appliedAt): void
     {
         $this->appliedAt = $appliedAt;
     }
 
+    /**
+     * @param ?OrderExcerpt $excerptBeforeEdit
+     */
     public function setExcerptBeforeEdit(?OrderExcerpt $excerptBeforeEdit): void
     {
         $this->excerptBeforeEdit = $excerptBeforeEdit;
     }
 
+    /**
+     * @param ?OrderExcerpt $excerptAfterEdit
+     */
     public function setExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit): void
     {
         $this->excerptAfterEdit = $excerptAfterEdit;

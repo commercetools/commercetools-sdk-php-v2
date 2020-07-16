@@ -26,7 +26,13 @@ interface CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction extends Car
      */
     public function getTargetsDelta();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
+     */
     public function setTargetsDelta(?ItemShippingTargetCollection $targetsDelta): void;
 }

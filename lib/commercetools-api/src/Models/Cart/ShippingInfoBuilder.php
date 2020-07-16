@@ -177,6 +177,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMethodName
      * @return $this
      */
     public function withShippingMethodName(?string $shippingMethodName)
@@ -187,6 +188,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $price
      * @return $this
      */
     public function withPrice(?TypedMoney $price)
@@ -197,6 +199,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRate $shippingRate
      * @return $this
      */
     public function withShippingRate(?ShippingRate $shippingRate)
@@ -207,6 +210,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedItemPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
@@ -217,6 +221,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRate $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRate $taxRate)
@@ -227,6 +232,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?TaxCategoryReference $taxCategory
      * @return $this
      */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
@@ -237,6 +243,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingMethodReference $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodReference $shippingMethod)
@@ -247,6 +254,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryCollection $deliveries
      * @return $this
      */
     public function withDeliveries(?DeliveryCollection $deliveries)
@@ -257,6 +265,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
      * @return $this
      */
     public function withDiscountedPrice(?DiscountedLineItemPrice $discountedPrice)
@@ -267,6 +276,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMethodState
      * @return $this
      */
     public function withShippingMethodState(?string $shippingMethodState)

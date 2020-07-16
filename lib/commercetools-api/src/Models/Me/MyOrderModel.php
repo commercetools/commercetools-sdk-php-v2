@@ -261,48 +261,51 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     protected $refusedGifts;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        DateTimeImmutable $completedAt = null,
-        string $orderNumber = null,
-        string $customerId = null,
-        string $customerEmail = null,
-        string $anonymousId = null,
-        StoreKeyReference $store = null,
-        LineItemCollection $lineItems = null,
-        CustomLineItemCollection $customLineItems = null,
-        TypedMoney $totalPrice = null,
-        TaxedPrice $taxedPrice = null,
-        Address $shippingAddress = null,
-        Address $billingAddress = null,
-        string $taxMode = null,
-        string $taxRoundingMode = null,
-        CustomerGroupReference $customerGroup = null,
-        string $country = null,
-        string $orderState = null,
-        StateReference $state = null,
-        string $shipmentState = null,
-        string $paymentState = null,
-        ShippingInfo $shippingInfo = null,
-        SyncInfoCollection $syncInfo = null,
-        ReturnInfoCollection $returnInfo = null,
-        DiscountCodeInfoCollection $discountCodes = null,
-        int $lastMessageSequenceNumber = null,
-        CartReference $cart = null,
-        CustomFields $custom = null,
-        PaymentInfo $paymentInfo = null,
-        string $locale = null,
-        string $inventoryMode = null,
-        string $origin = null,
-        string $taxCalculationMode = null,
-        ShippingRateInput $shippingRateInput = null,
-        AddressCollection $itemShippingAddresses = null,
-        CartDiscountReferenceCollection $refusedGifts = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?DateTimeImmutable $completedAt = null,
+        ?string $orderNumber = null,
+        ?string $customerId = null,
+        ?string $customerEmail = null,
+        ?string $anonymousId = null,
+        ?StoreKeyReference $store = null,
+        ?LineItemCollection $lineItems = null,
+        ?CustomLineItemCollection $customLineItems = null,
+        ?TypedMoney $totalPrice = null,
+        ?TaxedPrice $taxedPrice = null,
+        ?Address $shippingAddress = null,
+        ?Address $billingAddress = null,
+        ?string $taxMode = null,
+        ?string $taxRoundingMode = null,
+        ?CustomerGroupReference $customerGroup = null,
+        ?string $country = null,
+        ?string $orderState = null,
+        ?StateReference $state = null,
+        ?string $shipmentState = null,
+        ?string $paymentState = null,
+        ?ShippingInfo $shippingInfo = null,
+        ?SyncInfoCollection $syncInfo = null,
+        ?ReturnInfoCollection $returnInfo = null,
+        ?DiscountCodeInfoCollection $discountCodes = null,
+        ?int $lastMessageSequenceNumber = null,
+        ?CartReference $cart = null,
+        ?CustomFields $custom = null,
+        ?PaymentInfo $paymentInfo = null,
+        ?string $locale = null,
+        ?string $inventoryMode = null,
+        ?string $origin = null,
+        ?string $taxCalculationMode = null,
+        ?ShippingRateInput $shippingRateInput = null,
+        ?AddressCollection $itemShippingAddresses = null,
+        ?CartDiscountReferenceCollection $refusedGifts = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -572,7 +575,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -589,7 +592,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getCustomLineItems()
     {
         if (is_null($this->customLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -834,7 +837,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getSyncInfo()
     {
         if (is_null($this->syncInfo)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SYNC_INFO);
             if (is_null($data)) {
                 return null;
@@ -851,7 +854,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getReturnInfo()
     {
         if (is_null($this->returnInfo)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RETURN_INFO);
             if (is_null($data)) {
                 return null;
@@ -868,7 +871,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getDiscountCodes()
     {
         if (is_null($this->discountCodes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DISCOUNT_CODES);
             if (is_null($data)) {
                 return null;
@@ -1042,7 +1045,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getItemShippingAddresses()
     {
         if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -1059,7 +1062,7 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     public function getRefusedGifts()
     {
         if (is_null($this->refusedGifts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFUSED_GIFTS);
             if (is_null($data)) {
                 return null;
@@ -1071,206 +1074,329 @@ final class MyOrderModel extends JsonObjectModel implements MyOrder
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?DateTimeImmutable $completedAt
+     */
     public function setCompletedAt(?DateTimeImmutable $completedAt): void
     {
         $this->completedAt = $completedAt;
     }
 
+    /**
+     * @param ?string $orderNumber
+     */
     public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;
     }
 
+    /**
+     * @param ?string $customerEmail
+     */
     public function setCustomerEmail(?string $customerEmail): void
     {
         $this->customerEmail = $customerEmail;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?StoreKeyReference $store
+     */
     public function setStore(?StoreKeyReference $store): void
     {
         $this->store = $store;
     }
 
+    /**
+     * @param ?LineItemCollection $lineItems
+     */
     public function setLineItems(?LineItemCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?CustomLineItemCollection $customLineItems
+     */
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void
     {
         $this->customLineItems = $customLineItems;
     }
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?TaxedPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?Address $shippingAddress
+     */
     public function setShippingAddress(?Address $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
 
+    /**
+     * @param ?Address $billingAddress
+     */
     public function setBillingAddress(?Address $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
     }
 
+    /**
+     * @param ?string $taxRoundingMode
+     */
     public function setTaxRoundingMode(?string $taxRoundingMode): void
     {
         $this->taxRoundingMode = $taxRoundingMode;
     }
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
     }
 
+    /**
+     * @param ?ShippingInfo $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
     }
 
+    /**
+     * @param ?SyncInfoCollection $syncInfo
+     */
     public function setSyncInfo(?SyncInfoCollection $syncInfo): void
     {
         $this->syncInfo = $syncInfo;
     }
 
+    /**
+     * @param ?ReturnInfoCollection $returnInfo
+     */
     public function setReturnInfo(?ReturnInfoCollection $returnInfo): void
     {
         $this->returnInfo = $returnInfo;
     }
 
+    /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
+     */
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void
     {
         $this->discountCodes = $discountCodes;
     }
 
+    /**
+     * @param ?int $lastMessageSequenceNumber
+     */
     public function setLastMessageSequenceNumber(?int $lastMessageSequenceNumber): void
     {
         $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
     }
 
+    /**
+     * @param ?CartReference $cart
+     */
     public function setCart(?CartReference $cart): void
     {
         $this->cart = $cart;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
     public function setPaymentInfo(?PaymentInfo $paymentInfo): void
     {
         $this->paymentInfo = $paymentInfo;
     }
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
 
+    /**
+     * @param ?string $inventoryMode
+     */
     public function setInventoryMode(?string $inventoryMode): void
     {
         $this->inventoryMode = $inventoryMode;
     }
 
+    /**
+     * @param ?string $origin
+     */
     public function setOrigin(?string $origin): void
     {
         $this->origin = $origin;
     }
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void
     {
         $this->taxCalculationMode = $taxCalculationMode;
     }
 
+    /**
+     * @param ?ShippingRateInput $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
     }
 
+    /**
+     * @param ?AddressCollection $itemShippingAddresses
+     */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
 
+    /**
+     * @param ?CartDiscountReferenceCollection $refusedGifts
+     */
     public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void
     {
         $this->refusedGifts = $refusedGifts;

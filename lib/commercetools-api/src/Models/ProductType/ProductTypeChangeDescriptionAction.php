@@ -20,5 +20,8 @@ interface ProductTypeChangeDescriptionAction extends ProductTypeUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 }

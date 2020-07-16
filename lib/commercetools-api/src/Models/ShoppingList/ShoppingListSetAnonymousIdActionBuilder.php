@@ -37,6 +37,7 @@ final class ShoppingListSetAnonymousIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

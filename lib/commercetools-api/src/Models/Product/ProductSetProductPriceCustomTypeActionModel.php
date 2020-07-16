@@ -50,11 +50,14 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $priceId = null,
-        bool $staged = null,
-        TypeResourceIdentifier $type = null,
-        FieldContainer $fields = null
+        ?string $priceId = null,
+        ?bool $staged = null,
+        ?TypeResourceIdentifier $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
@@ -151,21 +154,33 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;

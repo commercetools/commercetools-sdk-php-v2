@@ -22,5 +22,8 @@ interface ImageSearchConfigRequest extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?ImageSearchConfigUpdateActionCollection $actions
+     */
     public function setActions(?ImageSearchConfigUpdateActionCollection $actions): void;
 }

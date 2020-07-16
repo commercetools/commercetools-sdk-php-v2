@@ -36,9 +36,12 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     protected $referencedBy;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $referencedBy = null
+        ?string $message = null,
+        ?string $referencedBy = null
     ) {
         $this->message = $message;
         $this->referencedBy = $referencedBy;
@@ -97,11 +100,17 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $referencedBy
+     */
     public function setReferencedBy(?string $referencedBy): void
     {
         $this->referencedBy = $referencedBy;

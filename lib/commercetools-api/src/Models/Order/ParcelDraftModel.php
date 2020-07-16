@@ -35,10 +35,13 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ParcelMeasurements $measurements = null,
-        TrackingData $trackingData = null,
-        DeliveryItemCollection $items = null
+        ?ParcelMeasurements $measurements = null,
+        ?TrackingData $trackingData = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
@@ -89,7 +92,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -101,16 +104,25 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
 
+    /**
+     * @param ?TrackingData $trackingData
+     */
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

@@ -36,6 +36,7 @@ final class ReviewSetAuthorNameActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorName
      * @return $this
      */
     public function withAuthorName(?string $authorName)

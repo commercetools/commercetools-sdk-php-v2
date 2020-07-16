@@ -79,6 +79,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -89,6 +90,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -99,6 +101,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalPrice
      * @return $this
      */
     public function withExternalPrice(?Money $externalPrice)
@@ -109,6 +112,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)

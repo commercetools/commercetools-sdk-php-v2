@@ -10,9 +10,12 @@ use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
+use Commercetools\Api\Models\Product\AttributeAccessor;
+use Commercetools\Api\Models\Product\AttributeModel;
 use Commercetools\Api\Models\Product\ProductDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\Product\ProductVariantDraftModel;
+use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
@@ -90,6 +93,13 @@ class MiscTest extends TestCase
         $this->assertNotSame($c1->getCustom(), $c2->getCustom());
         $this->assertJsonStringEqualsJsonString('{"custom":{"fields":{"foo":"bar"}}}', json_encode($c1));
         $this->assertJsonStringEqualsJsonString('{"custom":{"fields":{"foo":"baz"}}}', json_encode($c2));
+
+        $a = AttributeModel::of();
+        $a->setValue('foo');
+
+        $t = ProductVariantModel::of();
+        var_dump($a->tap(AttributeAccessor::of())->getValue());
+        var_dump($t->tap());
     }
 
     public function testParams()
@@ -101,5 +111,40 @@ class MiscTest extends TestCase
 
         $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", ["test"]);
         $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
+    }
+
+    public function testAttributes()
+    {
+        $variant = ProductVariantModel::of([
+            'attributes' => [
+                AttributeModel::fromArray([
+                    'name' => 'enum',
+                    'value' => [
+                        'key' => 'foo',
+                        'label' => 'foo'
+                    ]
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'lenum',
+                    'value' => [
+                        'key' => 'foo',
+                        'label' => [
+                            'en' => 'foo'
+                        ]
+                    ]
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'text',
+                    'value' => 'foo'
+                ])
+            ]
+        ]);
+        $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getValueAsEnum();
+        $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getValueAsLocalizedEnum();
+        $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getValueAsString();
+
+        var_dump($enum->getLabel());
+        var_dump($lenum->getLabel());
+        var_dump($text);
     }
 }

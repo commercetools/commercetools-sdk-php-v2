@@ -36,9 +36,12 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     protected $newValue;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        AttributeLocalizedEnumValue $newValue = null
+        ?string $attributeName = null,
+        ?AttributeLocalizedEnumValue $newValue = null
     ) {
         $this->attributeName = $attributeName;
         $this->newValue = $newValue;
@@ -98,11 +101,17 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?AttributeLocalizedEnumValue $newValue
+     */
     public function setNewValue(?AttributeLocalizedEnumValue $newValue): void
     {
         $this->newValue = $newValue;

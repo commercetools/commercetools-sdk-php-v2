@@ -65,16 +65,19 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     protected $productTypeIds;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $offset = null,
-        bool $staged = null,
-        int $productSetLimit = null,
-        bool $includeVariants = null,
-        bool $autoThreshold = null,
-        int $threshold = null,
-        array $productIds = null,
-        array $productTypeIds = null
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $staged = null,
+        ?int $productSetLimit = null,
+        ?bool $includeVariants = null,
+        ?bool $autoThreshold = null,
+        ?int $threshold = null,
+        ?array $productIds = null,
+        ?array $productTypeIds = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
@@ -224,7 +227,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     public function getProductIds()
     {
         if (is_null($this->productIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
@@ -243,7 +246,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     public function getProductTypeIds()
     {
         if (is_null($this->productTypeIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
@@ -255,46 +258,73 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void
     {
         $this->productSetLimit = $productSetLimit;
     }
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void
     {
         $this->includeVariants = $includeVariants;
     }
 
+    /**
+     * @param ?bool $autoThreshold
+     */
     public function setAutoThreshold(?bool $autoThreshold): void
     {
         $this->autoThreshold = $autoThreshold;
     }
 
+    /**
+     * @param ?int $threshold
+     */
     public function setThreshold(?int $threshold): void
     {
         $this->threshold = $threshold;
     }
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void
     {
         $this->productIds = $productIds;
     }
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void
     {
         $this->productTypeIds = $productTypeIds;

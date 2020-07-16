@@ -62,6 +62,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+     * @param ?string $value
      * @return $this
      */
     public function withValue(?string $value)
@@ -72,6 +73,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -82,6 +84,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMatching
      * @return $this
      */
     public function withIsMatching(?bool $isMatching)

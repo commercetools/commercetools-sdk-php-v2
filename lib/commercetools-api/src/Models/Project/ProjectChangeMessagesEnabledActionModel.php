@@ -31,8 +31,11 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     protected $messagesEnabled;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $messagesEnabled = null
+        ?bool $messagesEnabled = null
     ) {
         $this->messagesEnabled = $messagesEnabled;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?bool $messagesEnabled
+     */
     public function setMessagesEnabled(?bool $messagesEnabled): void
     {
         $this->messagesEnabled = $messagesEnabled;

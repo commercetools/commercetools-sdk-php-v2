@@ -96,20 +96,23 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        LocalizedString $name = null,
-        TypedMoney $money = null,
-        TaxedItemPrice $taxedPrice = null,
-        TypedMoney $totalPrice = null,
-        string $slug = null,
-        float $quantity = null,
-        ItemStateCollection $state = null,
-        TaxCategoryReference $taxCategory = null,
-        TaxRate $taxRate = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        CustomFields $custom = null,
-        ItemShippingDetails $shippingDetails = null
+        ?string $id = null,
+        ?LocalizedString $name = null,
+        ?TypedMoney $money = null,
+        ?TaxedItemPrice $taxedPrice = null,
+        ?TypedMoney $totalPrice = null,
+        ?string $slug = null,
+        ?float $quantity = null,
+        ?ItemStateCollection $state = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?TaxRate $taxRate = null,
+        ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        ?CustomFields $custom = null,
+        ?ItemShippingDetails $shippingDetails = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -274,7 +277,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function getState()
     {
         if (is_null($this->state)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
@@ -330,7 +333,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function getDiscountedPricePerQuantity()
     {
         if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;
@@ -382,66 +385,105 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?TypedMoney $money
+     */
     public function setMoney(?TypedMoney $money): void
     {
         $this->money = $money;
     }
 
+    /**
+     * @param ?TaxedItemPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
 
+    /**
+     * @param ?string $slug
+     */
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @param ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity
+     */
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?ItemShippingDetails $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

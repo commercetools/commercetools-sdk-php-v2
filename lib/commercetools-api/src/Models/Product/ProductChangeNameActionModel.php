@@ -38,9 +38,12 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        bool $staged = null
+        ?LocalizedString $name = null,
+        ?bool $staged = null
     ) {
         $this->name = $name;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

@@ -91,6 +91,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -101,6 +102,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -111,6 +113,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * @param ?StateResourceIdentifier $fromState
      * @return $this
      */
     public function withFromState(?StateResourceIdentifier $fromState)
@@ -121,6 +124,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * @param ?StateResourceIdentifier $toState
      * @return $this
      */
     public function withToState(?StateResourceIdentifier $toState)
@@ -131,6 +135,7 @@ final class StagedOrderTransitionCustomLineItemStateActionBuilder implements Bui
     }
 
     /**
+     * @param ?DateTimeImmutable $actualTransitionDate
      * @return $this
      */
     public function withActualTransitionDate(?DateTimeImmutable $actualTransitionDate)

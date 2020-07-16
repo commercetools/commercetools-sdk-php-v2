@@ -22,5 +22,8 @@ interface StagedOrderSetShippingRateInputAction extends StagedOrderUpdateAction
      */
     public function getShippingRateInput();
 
+    /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
+     */
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
 }

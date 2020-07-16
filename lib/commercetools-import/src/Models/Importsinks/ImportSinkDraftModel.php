@@ -35,10 +35,13 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     protected $resourceType;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        string $key = null,
-        string $resourceType = null
+        ?int $version = null,
+        ?string $key = null,
+        ?string $resourceType = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -103,16 +106,25 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $resourceType
+     */
     public function setResourceType(?string $resourceType): void
     {
         $this->resourceType = $resourceType;

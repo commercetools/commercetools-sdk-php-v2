@@ -34,6 +34,7 @@ final class CustomerSetSalutationActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $salutation
      * @return $this
      */
     public function withSalutation(?string $salutation)

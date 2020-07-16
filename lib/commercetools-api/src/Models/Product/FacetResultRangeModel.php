@@ -70,17 +70,20 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     protected $mean;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $from = null,
-        string $fromStr = null,
-        float $to = null,
-        string $toStr = null,
-        int $count = null,
-        int $productCount = null,
-        int $total = null,
-        float $min = null,
-        float $max = null,
-        float $mean = null
+        ?float $from = null,
+        ?string $fromStr = null,
+        ?float $to = null,
+        ?string $toStr = null,
+        ?int $count = null,
+        ?int $productCount = null,
+        ?int $total = null,
+        ?float $min = null,
+        ?float $max = null,
+        ?float $mean = null
     ) {
         $this->from = $from;
         $this->fromStr = $fromStr;
@@ -265,51 +268,81 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
 
+    /**
+     * @param ?float $from
+     */
     public function setFrom(?float $from): void
     {
         $this->from = $from;
     }
 
+    /**
+     * @param ?string $fromStr
+     */
     public function setFromStr(?string $fromStr): void
     {
         $this->fromStr = $fromStr;
     }
 
+    /**
+     * @param ?float $to
+     */
     public function setTo(?float $to): void
     {
         $this->to = $to;
     }
 
+    /**
+     * @param ?string $toStr
+     */
     public function setToStr(?string $toStr): void
     {
         $this->toStr = $toStr;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $productCount
+     */
     public function setProductCount(?int $productCount): void
     {
         $this->productCount = $productCount;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?float $min
+     */
     public function setMin(?float $min): void
     {
         $this->min = $min;
     }
 
+    /**
+     * @param ?float $max
+     */
     public function setMax(?float $max): void
     {
         $this->max = $max;
     }
 
+    /**
+     * @param ?float $mean
+     */
     public function setMean(?float $mean): void
     {
         $this->mean = $mean;

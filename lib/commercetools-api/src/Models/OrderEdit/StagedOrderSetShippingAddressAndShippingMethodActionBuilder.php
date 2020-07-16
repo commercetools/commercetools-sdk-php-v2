@@ -68,6 +68,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)
@@ -78,6 +79,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     }
 
     /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
@@ -88,6 +90,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
      * @return $this
      */
     public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)

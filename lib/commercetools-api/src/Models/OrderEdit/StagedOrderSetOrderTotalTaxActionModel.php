@@ -41,9 +41,12 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     protected $externalTaxPortions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $externalTotalGross = null,
-        TaxPortionDraftCollection $externalTaxPortions = null
+        ?Money $externalTotalGross = null,
+        ?TaxPortionDraftCollection $externalTaxPortions = null
     ) {
         $this->externalTotalGross = $externalTotalGross;
         $this->externalTaxPortions = $externalTaxPortions;
@@ -91,7 +94,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     public function getExternalTaxPortions()
     {
         if (is_null($this->externalTaxPortions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_EXTERNAL_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;
@@ -103,11 +106,17 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?Money $externalTotalGross
+     */
     public function setExternalTotalGross(?Money $externalTotalGross): void
     {
         $this->externalTotalGross = $externalTotalGross;
     }
 
+    /**
+     * @param ?TaxPortionDraftCollection $externalTaxPortions
+     */
     public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
     {
         $this->externalTaxPortions = $externalTaxPortions;

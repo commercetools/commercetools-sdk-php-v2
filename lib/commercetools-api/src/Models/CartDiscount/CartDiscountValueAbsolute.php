@@ -21,5 +21,8 @@ interface CartDiscountValueAbsolute extends CartDiscountValue
      */
     public function getMoney();
 
+    /**
+     * @param ?TypedMoneyCollection $money
+     */
     public function setMoney(?TypedMoneyCollection $money): void;
 }

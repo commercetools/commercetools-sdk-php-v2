@@ -38,9 +38,12 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $supplyChannel;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sku = null,
-        ChannelReference $supplyChannel = null
+        ?string $sku = null,
+        ?ChannelReference $supplyChannel = null
     ) {
         $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
@@ -100,11 +103,17 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;

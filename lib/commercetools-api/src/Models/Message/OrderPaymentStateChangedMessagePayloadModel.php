@@ -36,9 +36,12 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     protected $oldPaymentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $paymentState = null,
-        string $oldPaymentState = null
+        ?string $paymentState = null,
+        ?string $oldPaymentState = null
     ) {
         $this->paymentState = $paymentState;
         $this->oldPaymentState = $oldPaymentState;
@@ -97,11 +100,17 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
     }
 
+    /**
+     * @param ?string $oldPaymentState
+     */
     public function setOldPaymentState(?string $oldPaymentState): void
     {
         $this->oldPaymentState = $oldPaymentState;

@@ -36,9 +36,12 @@ final class MyShoppingListChangeTextLineItemQuantityActionModel extends JsonObje
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $textLineItemId = null,
-        int $quantity = null
+        ?string $textLineItemId = null,
+        ?int $quantity = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->quantity = $quantity;
@@ -97,11 +100,17 @@ final class MyShoppingListChangeTextLineItemQuantityActionModel extends JsonObje
     }
 
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;

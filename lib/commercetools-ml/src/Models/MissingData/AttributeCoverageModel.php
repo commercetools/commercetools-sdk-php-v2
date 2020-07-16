@@ -30,9 +30,12 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $names = null,
-        float $values = null
+        ?float $names = null,
+        ?float $values = null
     ) {
         $this->names = $names;
         $this->values = $values;
@@ -77,11 +80,17 @@ final class AttributeCoverageModel extends JsonObjectModel implements AttributeC
     }
 
 
+    /**
+     * @param ?float $names
+     */
     public function setNames(?float $names): void
     {
         $this->names = $names;
     }
 
+    /**
+     * @param ?float $values
+     */
     public function setValues(?float $values): void
     {
         $this->values = $values;

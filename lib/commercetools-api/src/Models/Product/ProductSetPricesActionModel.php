@@ -47,11 +47,14 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        PriceDraftCollection $prices = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?PriceDraftCollection $prices = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -117,7 +120,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     public function getPrices()
     {
         if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
@@ -146,21 +149,33 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

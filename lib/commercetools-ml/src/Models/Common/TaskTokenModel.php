@@ -30,9 +30,12 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     protected $uriPath;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $taskId = null,
-        string $uriPath = null
+        ?string $taskId = null,
+        ?string $uriPath = null
     ) {
         $this->taskId = $taskId;
         $this->uriPath = $uriPath;
@@ -77,11 +80,17 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     }
 
 
+    /**
+     * @param ?string $taskId
+     */
     public function setTaskId(?string $taskId): void
     {
         $this->taskId = $taskId;
     }
 
+    /**
+     * @param ?string $uriPath
+     */
     public function setUriPath(?string $uriPath): void
     {
         $this->uriPath = $uriPath;

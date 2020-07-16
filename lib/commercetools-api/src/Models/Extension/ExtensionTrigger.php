@@ -26,7 +26,13 @@ interface ExtensionTrigger extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void;
 
+    /**
+     * @param ?array $actions
+     */
     public function setActions(?array $actions): void;
 }

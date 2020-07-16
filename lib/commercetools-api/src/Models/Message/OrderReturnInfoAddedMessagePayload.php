@@ -21,5 +21,8 @@ interface OrderReturnInfoAddedMessagePayload extends MessagePayload
      */
     public function getReturnInfo();
 
+    /**
+     * @param ?ReturnInfo $returnInfo
+     */
     public function setReturnInfo(?ReturnInfo $returnInfo): void;
 }

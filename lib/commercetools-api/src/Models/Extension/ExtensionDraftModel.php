@@ -40,11 +40,14 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     protected $timeoutInMs;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        ExtensionDestination $destination = null,
-        ExtensionTriggerCollection $triggers = null,
-        int $timeoutInMs = null
+        ?string $key = null,
+        ?ExtensionDestination $destination = null,
+        ?ExtensionTriggerCollection $triggers = null,
+        ?int $timeoutInMs = null
     ) {
         $this->key = $key;
         $this->destination = $destination;
@@ -99,7 +102,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     public function getTriggers()
     {
         if (is_null($this->triggers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;
@@ -133,21 +136,33 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ExtensionDestination $destination
+     */
     public function setDestination(?ExtensionDestination $destination): void
     {
         $this->destination = $destination;
     }
 
+    /**
+     * @param ?ExtensionTriggerCollection $triggers
+     */
     public function setTriggers(?ExtensionTriggerCollection $triggers): void
     {
         $this->triggers = $triggers;
     }
 
+    /**
+     * @param ?int $timeoutInMs
+     */
     public function setTimeoutInMs(?int $timeoutInMs): void
     {
         $this->timeoutInMs = $timeoutInMs;

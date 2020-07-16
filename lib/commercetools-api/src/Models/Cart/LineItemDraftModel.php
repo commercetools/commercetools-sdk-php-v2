@@ -81,18 +81,21 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $productId = null,
-        int $variantId = null,
-        string $sku = null,
-        int $quantity = null,
-        ChannelResourceIdentifier $supplyChannel = null,
-        ChannelResourceIdentifier $distributionChannel = null,
-        ExternalTaxRateDraft $externalTaxRate = null,
-        CustomFieldsDraft $custom = null,
-        Money $externalPrice = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?string $productId = null,
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?int $quantity = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?CustomFieldsDraft $custom = null,
+        ?Money $externalPrice = null,
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->productId = $productId;
         $this->variantId = $variantId;
@@ -323,56 +326,89 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $externalTaxRate
+     */
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;
     }
 
+    /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
+     */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

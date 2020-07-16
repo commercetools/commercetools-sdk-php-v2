@@ -31,8 +31,11 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
     protected $countryTaxRateFallbackEnabled;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $countryTaxRateFallbackEnabled = null
+        ?bool $countryTaxRateFallbackEnabled = null
     ) {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
     }
 
 
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     */
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
     {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;

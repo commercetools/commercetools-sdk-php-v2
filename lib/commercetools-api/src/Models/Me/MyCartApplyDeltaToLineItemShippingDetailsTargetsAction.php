@@ -27,7 +27,13 @@ interface MyCartApplyDeltaToLineItemShippingDetailsTargetsAction extends MyCartU
      */
     public function getTargetsDelta();
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void;
 
+    /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
+     */
     public function setTargetsDelta(?ItemShippingTargetCollection $targetsDelta): void;
 }

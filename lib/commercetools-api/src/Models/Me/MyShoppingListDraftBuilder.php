@@ -109,6 +109,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -119,6 +120,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -129,6 +131,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
      * @return $this
      */
     public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
@@ -139,6 +142,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TextLineItemDraftCollection $textLineItems
      * @return $this
      */
     public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
@@ -149,6 +153,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -159,6 +164,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)

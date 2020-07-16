@@ -31,8 +31,11 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $quantity = null
+        ?int $quantity = null
     ) {
         $this->quantity = $quantity;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;

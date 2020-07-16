@@ -20,5 +20,8 @@ interface ZoneChangeNameAction extends ZoneUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 }

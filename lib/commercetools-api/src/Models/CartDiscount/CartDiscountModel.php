@@ -132,27 +132,30 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        LocalizedString $name = null,
-        string $key = null,
-        LocalizedString $description = null,
-        CartDiscountValue $value = null,
-        string $cartPredicate = null,
-        CartDiscountTarget $target = null,
-        string $sortOrder = null,
-        bool $isActive = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        bool $requiresDiscountCode = null,
-        ReferenceCollection $references = null,
-        string $stackingMode = null,
-        CustomFields $custom = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?LocalizedString $name = null,
+        ?string $key = null,
+        ?LocalizedString $description = null,
+        ?CartDiscountValue $value = null,
+        ?string $cartPredicate = null,
+        ?CartDiscountTarget $target = null,
+        ?string $sortOrder = null,
+        ?bool $isActive = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?bool $requiresDiscountCode = null,
+        ?ReferenceCollection $references = null,
+        ?string $stackingMode = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -520,7 +523,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     public function getReferences()
     {
         if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFERENCES);
             if (is_null($data)) {
                 return null;
@@ -570,101 +573,161 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CartDiscountValue $value
+     */
     public function setValue(?CartDiscountValue $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
     }
 
+    /**
+     * @param ?CartDiscountTarget $target
+     */
     public function setTarget(?CartDiscountTarget $target): void
     {
         $this->target = $target;
     }
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;
     }
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?bool $requiresDiscountCode
+     */
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
     {
         $this->requiresDiscountCode = $requiresDiscountCode;
     }
 
+    /**
+     * @param ?ReferenceCollection $references
+     */
     public function setReferences(?ReferenceCollection $references): void
     {
         $this->references = $references;
     }
 
+    /**
+     * @param ?string $stackingMode
+     */
     public function setStackingMode(?string $stackingMode): void
     {
         $this->stackingMode = $stackingMode;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;

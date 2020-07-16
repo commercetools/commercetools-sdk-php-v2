@@ -26,7 +26,13 @@ interface ExtensionHttpDestination extends ExtensionDestination
      */
     public function getAuthentication();
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void;
 
+    /**
+     * @param ?ExtensionHttpDestinationAuthentication $authentication
+     */
     public function setAuthentication(?ExtensionHttpDestinationAuthentication $authentication): void;
 }

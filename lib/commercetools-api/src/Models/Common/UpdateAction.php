@@ -20,5 +20,8 @@ interface UpdateAction extends JsonObject
      */
     public function getAction();
 
+    /**
+     * @param ?string $action
+     */
     public function setAction(?string $action): void;
 }

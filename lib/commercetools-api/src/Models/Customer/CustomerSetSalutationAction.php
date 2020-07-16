@@ -20,5 +20,8 @@ interface CustomerSetSalutationAction extends CustomerUpdateAction
      */
     public function getSalutation();
 
+    /**
+     * @param ?string $salutation
+     */
     public function setSalutation(?string $salutation): void;
 }

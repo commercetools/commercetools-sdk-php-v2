@@ -47,6 +47,7 @@ final class CustomerEmailVerifyBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class CustomerEmailVerifyBuilder implements Builder
     }
 
     /**
+     * @param ?string $tokenValue
      * @return $this
      */
     public function withTokenValue(?string $tokenValue)

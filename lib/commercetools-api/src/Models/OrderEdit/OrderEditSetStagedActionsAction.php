@@ -23,5 +23,8 @@ interface OrderEditSetStagedActionsAction extends OrderEditUpdateAction
      */
     public function getStagedActions();
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
 }

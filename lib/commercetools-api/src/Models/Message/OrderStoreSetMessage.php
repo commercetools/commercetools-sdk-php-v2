@@ -21,5 +21,8 @@ interface OrderStoreSetMessage extends Message
      */
     public function getStore();
 
+    /**
+     * @param ?StoreKeyReference $store
+     */
     public function setStore(?StoreKeyReference $store): void;
 }

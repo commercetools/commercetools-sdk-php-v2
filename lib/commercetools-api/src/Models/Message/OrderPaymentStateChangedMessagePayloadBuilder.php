@@ -47,6 +47,7 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)
@@ -57,6 +58,7 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $oldPaymentState
      * @return $this
      */
     public function withOldPaymentState(?string $oldPaymentState)

@@ -21,5 +21,8 @@ interface ZoneReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?Zone $obj
+     */
     public function setObj(?Zone $obj): void;
 }

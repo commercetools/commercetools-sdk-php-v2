@@ -45,12 +45,15 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     protected $errors;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $statusCode = null,
-        string $message = null,
-        string $error = null,
-        string $error_description = null,
-        ErrorObjectCollection $errors = null
+        ?int $statusCode = null,
+        ?string $message = null,
+        ?string $error = null,
+        ?string $error_description = null,
+        ?ErrorObjectCollection $errors = null
     ) {
         $this->statusCode = $statusCode;
         $this->message = $message;
@@ -133,7 +136,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     public function getErrors()
     {
         if (is_null($this->errors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
@@ -145,26 +148,41 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
 
+    /**
+     * @param ?int $statusCode
+     */
     public function setStatusCode(?int $statusCode): void
     {
         $this->statusCode = $statusCode;
     }
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $error
+     */
     public function setError(?string $error): void
     {
         $this->error = $error;
     }
 
+    /**
+     * @param ?string $error_description
+     */
     public function setError_description(?string $error_description): void
     {
         $this->error_description = $error_description;
     }
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void
     {
         $this->errors = $errors;

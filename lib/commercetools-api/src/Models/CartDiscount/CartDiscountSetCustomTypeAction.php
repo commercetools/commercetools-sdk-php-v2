@@ -28,11 +28,17 @@ interface CartDiscountSetCustomTypeAction extends CartDiscountUpdateAction
      * <p>A valid JSON object, based on the FieldDefinitions of the Type.
      * Sets the custom fields to this value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getFields();
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?JsonObject $fields
+     */
     public function setFields(?JsonObject $fields): void;
 }

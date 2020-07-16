@@ -183,6 +183,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
@@ -193,6 +194,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
      * @return $this
      */
     public function withOffset(?int $offset)
@@ -203,6 +205,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)
@@ -213,6 +216,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?int $productSetLimit
      * @return $this
      */
     public function withProductSetLimit(?int $productSetLimit)
@@ -223,6 +227,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includeVariants
      * @return $this
      */
     public function withIncludeVariants(?bool $includeVariants)
@@ -233,6 +238,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?string $currencyCode
      * @return $this
      */
     public function withCurrencyCode(?string $currencyCode)
@@ -243,6 +249,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $checkDate
      * @return $this
      */
     public function withCheckDate(?bool $checkDate)
@@ -253,6 +260,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -263,6 +271,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -273,6 +282,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productIds
      * @return $this
      */
     public function withProductIds(?array $productIds)
@@ -283,6 +293,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     }
 
     /**
+     * @param ?array $productTypeIds
      * @return $this
      */
     public function withProductTypeIds(?array $productTypeIds)

@@ -36,6 +36,7 @@ final class LocalizedStringFieldBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $value
      * @return $this
      */
     public function withValue(?LocalizedString $value)

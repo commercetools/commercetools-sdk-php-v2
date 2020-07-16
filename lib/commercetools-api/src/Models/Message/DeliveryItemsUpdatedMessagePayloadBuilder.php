@@ -61,6 +61,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $deliveryId
      * @return $this
      */
     public function withDeliveryId(?string $deliveryId)
@@ -71,6 +72,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $items
      * @return $this
      */
     public function withItems(?DeliveryItemCollection $items)
@@ -81,6 +83,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryItemCollection $oldItems
      * @return $this
      */
     public function withOldItems(?DeliveryItemCollection $oldItems)

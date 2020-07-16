@@ -49,6 +49,7 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryReference $category
      * @return $this
      */
     public function withCategory(?CategoryReference $category)
@@ -59,6 +60,7 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

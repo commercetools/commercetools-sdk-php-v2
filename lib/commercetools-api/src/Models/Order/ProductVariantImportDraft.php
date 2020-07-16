@@ -63,13 +63,28 @@ interface ProductVariantImportDraft extends JsonObject
      */
     public function getImages();
 
+    /**
+     * @param ?int $id
+     */
     public function setId(?int $id): void;
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void;
 
+    /**
+     * @param ?PriceDraftCollection $prices
+     */
     public function setPrices(?PriceDraftCollection $prices): void;
 
+    /**
+     * @param ?AttributeCollection $attributes
+     */
     public function setAttributes(?AttributeCollection $attributes): void;
 
+    /**
+     * @param ?ImageCollection $images
+     */
     public function setImages(?ImageCollection $images): void;
 }

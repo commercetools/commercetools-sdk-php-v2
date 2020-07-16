@@ -129,29 +129,68 @@ interface ProductDraftImport extends ImportResource
      */
     public function getState();
 
+    /**
+     * @param ?ProductTypeKeyReference $productType
+     */
     public function setProductType(?ProductTypeKeyReference $productType): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?CategoryKeyReferenceCollection $categories
+     */
     public function setCategories(?CategoryKeyReferenceCollection $categories): void;
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void;
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
+    /**
+     * @param ?ProductVariantDraftImport $masterVariant
+     */
     public function setMasterVariant(?ProductVariantDraftImport $masterVariant): void;
 
+    /**
+     * @param ?ProductVariantDraftImportCollection $variants
+     */
     public function setVariants(?ProductVariantDraftImportCollection $variants): void;
 
+    /**
+     * @param ?TaxCategoryKeyReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void;
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
+    /**
+     * @param ?StateKeyReference $state
+     */
     public function setState(?StateKeyReference $state): void;
 }

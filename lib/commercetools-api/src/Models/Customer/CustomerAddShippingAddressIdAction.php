@@ -26,7 +26,13 @@ interface CustomerAddShippingAddressIdAction extends CustomerUpdateAction
      */
     public function getAddressKey();
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void;
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 }

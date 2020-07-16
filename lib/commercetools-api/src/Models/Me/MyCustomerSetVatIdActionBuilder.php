@@ -34,6 +34,7 @@ final class MyCustomerSetVatIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $vatId
      * @return $this
      */
     public function withVatId(?string $vatId)

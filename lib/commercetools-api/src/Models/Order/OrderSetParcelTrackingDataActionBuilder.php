@@ -47,6 +47,7 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -57,6 +58,7 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     }
 
     /**
+     * @param ?TrackingData $trackingData
      * @return $this
      */
     public function withTrackingData(?TrackingData $trackingData)

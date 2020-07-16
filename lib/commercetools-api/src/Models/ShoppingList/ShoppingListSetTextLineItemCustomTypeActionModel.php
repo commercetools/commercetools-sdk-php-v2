@@ -45,10 +45,13 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     protected $fields;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $textLineItemId = null,
-        TypeResourceIdentifier $type = null,
-        FieldContainer $fields = null
+        ?string $textLineItemId = null,
+        ?TypeResourceIdentifier $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->type = $type;
@@ -127,16 +130,25 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     }
 
 
+    /**
+     * @param ?string $textLineItemId
+     */
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
     }
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;

@@ -23,5 +23,8 @@ interface CartDiscountSetValidUntilAction extends CartDiscountUpdateAction
      */
     public function getValidUntil();
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

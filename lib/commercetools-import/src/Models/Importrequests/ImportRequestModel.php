@@ -39,6 +39,9 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
        'product-variant-patch' => ProductVariantPatchRequestModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

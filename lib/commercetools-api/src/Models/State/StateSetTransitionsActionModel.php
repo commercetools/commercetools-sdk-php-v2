@@ -31,8 +31,11 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     protected $transitions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StateResourceIdentifierCollection $transitions = null
+        ?StateResourceIdentifierCollection $transitions = null
     ) {
         $this->transitions = $transitions;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     public function getTransitions()
     {
         if (is_null($this->transitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     }
 
 
+    /**
+     * @param ?StateResourceIdentifierCollection $transitions
+     */
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void
     {
         $this->transitions = $transitions;

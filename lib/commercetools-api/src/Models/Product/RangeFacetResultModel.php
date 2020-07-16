@@ -31,8 +31,11 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     protected $ranges;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        FacetResultRangeCollection $ranges = null
+        ?FacetResultRangeCollection $ranges = null
     ) {
         $this->ranges = $ranges;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     public function getRanges()
     {
         if (is_null($this->ranges)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RANGES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
 
+    /**
+     * @param ?FacetResultRangeCollection $ranges
+     */
     public function setRanges(?FacetResultRangeCollection $ranges): void
     {
         $this->ranges = $ranges;

@@ -37,6 +37,7 @@ final class DiscountCodeSetValidUntilActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

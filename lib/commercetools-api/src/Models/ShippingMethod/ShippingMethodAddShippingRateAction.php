@@ -27,7 +27,13 @@ interface ShippingMethodAddShippingRateAction extends ShippingMethodUpdateAction
      */
     public function getShippingRate();
 
+    /**
+     * @param ?ZoneResourceIdentifier $zone
+     */
     public function setZone(?ZoneResourceIdentifier $zone): void;
 
+    /**
+     * @param ?ShippingRateDraft $shippingRate
+     */
     public function setShippingRate(?ShippingRateDraft $shippingRate): void;
 }

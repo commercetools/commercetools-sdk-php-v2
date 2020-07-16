@@ -47,6 +47,7 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
+     * @param ?string $text
      * @return $this
      */
     public function withText(?string $text)
@@ -57,6 +58,7 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
+     * @param ?SuggestTokenizer $suggestTokenizer
      * @return $this
      */
     public function withSuggestTokenizer(?SuggestTokenizer $suggestTokenizer)

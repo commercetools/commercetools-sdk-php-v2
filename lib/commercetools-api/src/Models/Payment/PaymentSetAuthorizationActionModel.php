@@ -39,9 +39,12 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     protected $until;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $amount = null,
-        DateTimeImmutable $until = null
+        ?Money $amount = null,
+        ?DateTimeImmutable $until = null
     ) {
         $this->amount = $amount;
         $this->until = $until;
@@ -105,11 +108,17 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void
     {
         $this->amount = $amount;
     }
 
+    /**
+     * @param ?DateTimeImmutable $until
+     */
     public function setUntil(?DateTimeImmutable $until): void
     {
         $this->until = $until;

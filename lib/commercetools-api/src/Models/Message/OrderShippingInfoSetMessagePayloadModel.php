@@ -38,9 +38,12 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     protected $oldShippingInfo;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ShippingInfo $shippingInfo = null,
-        ShippingInfo $oldShippingInfo = null
+        ?ShippingInfo $shippingInfo = null,
+        ?ShippingInfo $oldShippingInfo = null
     ) {
         $this->shippingInfo = $shippingInfo;
         $this->oldShippingInfo = $oldShippingInfo;
@@ -101,11 +104,17 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?ShippingInfo $shippingInfo
+     */
     public function setShippingInfo(?ShippingInfo $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
     }
 
+    /**
+     * @param ?ShippingInfo $oldShippingInfo
+     */
     public function setOldShippingInfo(?ShippingInfo $oldShippingInfo): void
     {
         $this->oldShippingInfo = $oldShippingInfo;

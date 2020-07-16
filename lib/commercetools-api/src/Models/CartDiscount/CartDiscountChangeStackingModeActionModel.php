@@ -31,8 +31,11 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     protected $stackingMode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $stackingMode = null
+        ?string $stackingMode = null
     ) {
         $this->stackingMode = $stackingMode;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $stackingMode
+     */
     public function setStackingMode(?string $stackingMode): void
     {
         $this->stackingMode = $stackingMode;

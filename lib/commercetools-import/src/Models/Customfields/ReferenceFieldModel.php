@@ -33,8 +33,11 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        KeyReference $value = null
+        ?KeyReference $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -80,6 +83,9 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     }
 
 
+    /**
+     * @param ?KeyReference $value
+     */
     public function setValue(?KeyReference $value): void
     {
         $this->value = $value;

@@ -63,6 +63,7 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $channel
      * @return $this
      */
     public function withChannel(?ChannelResourceIdentifier $channel)
@@ -73,6 +74,7 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -83,6 +85,7 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $syncedAt
      * @return $this
      */
     public function withSyncedAt(?DateTimeImmutable $syncedAt)

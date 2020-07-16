@@ -22,5 +22,8 @@ interface CartSetCustomerIdAction extends CartUpdateAction
      */
     public function getCustomerId();
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void;
 }

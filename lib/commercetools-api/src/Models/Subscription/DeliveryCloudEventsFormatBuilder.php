@@ -34,6 +34,7 @@ final class DeliveryCloudEventsFormatBuilder implements Builder
     }
 
     /**
+     * @param ?string $cloudEventsVersion
      * @return $this
      */
     public function withCloudEventsVersion(?string $cloudEventsVersion)

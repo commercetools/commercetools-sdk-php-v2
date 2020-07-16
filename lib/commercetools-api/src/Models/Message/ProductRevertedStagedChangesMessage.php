@@ -20,5 +20,8 @@ interface ProductRevertedStagedChangesMessage extends Message
      */
     public function getRemovedImageUrls();
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

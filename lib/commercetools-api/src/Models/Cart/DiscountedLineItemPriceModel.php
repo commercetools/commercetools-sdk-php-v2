@@ -32,9 +32,12 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     protected $includedDiscounts;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TypedMoney $value = null,
-        DiscountedLineItemPortionCollection $includedDiscounts = null
+        ?TypedMoney $value = null,
+        ?DiscountedLineItemPortionCollection $includedDiscounts = null
     ) {
         $this->value = $value;
         $this->includedDiscounts = $includedDiscounts;
@@ -64,7 +67,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     public function getIncludedDiscounts()
     {
         if (is_null($this->includedDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_INCLUDED_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -76,11 +79,17 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
 
+    /**
+     * @param ?TypedMoney $value
+     */
     public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?DiscountedLineItemPortionCollection $includedDiscounts
+     */
     public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void
     {
         $this->includedDiscounts = $includedDiscounts;

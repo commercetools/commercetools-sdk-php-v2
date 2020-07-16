@@ -24,5 +24,8 @@ interface CategoryChangeSlugAction extends CategoryUpdateAction
      */
     public function getSlug();
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void;
 }

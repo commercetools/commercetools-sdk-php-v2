@@ -68,6 +68,7 @@ final class SimilarProductBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
@@ -78,6 +79,7 @@ final class SimilarProductBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -88,6 +90,7 @@ final class SimilarProductBuilder implements Builder
     }
 
     /**
+     * @param ?SimilarProductMeta $meta
      * @return $this
      */
     public function withMeta(?SimilarProductMeta $meta)

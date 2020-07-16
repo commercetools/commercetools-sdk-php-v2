@@ -37,9 +37,18 @@ interface PaymentStatus extends JsonObject
      */
     public function getState();
 
+    /**
+     * @param ?string $interfaceCode
+     */
     public function setInterfaceCode(?string $interfaceCode): void;
 
+    /**
+     * @param ?string $interfaceText
+     */
     public function setInterfaceText(?string $interfaceText): void;
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void;
 }

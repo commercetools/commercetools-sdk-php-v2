@@ -20,5 +20,8 @@ interface TypeAddFieldDefinitionAction extends TypeUpdateAction
      */
     public function getFieldDefinition();
 
+    /**
+     * @param ?FieldDefinition $fieldDefinition
+     */
     public function setFieldDefinition(?FieldDefinition $fieldDefinition): void;
 }

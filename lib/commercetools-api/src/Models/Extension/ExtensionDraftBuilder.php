@@ -84,6 +84,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -94,6 +95,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionDestination $destination
      * @return $this
      */
     public function withDestination(?ExtensionDestination $destination)
@@ -104,6 +106,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionTriggerCollection $triggers
      * @return $this
      */
     public function withTriggers(?ExtensionTriggerCollection $triggers)
@@ -114,6 +117,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $timeoutInMs
      * @return $this
      */
     public function withTimeoutInMs(?int $timeoutInMs)

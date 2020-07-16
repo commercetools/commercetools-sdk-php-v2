@@ -28,7 +28,13 @@ interface StagedOrderSetDeliveryItemsAction extends StagedOrderUpdateAction
      */
     public function getItems();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void;
 }

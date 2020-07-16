@@ -31,8 +31,11 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $value = null
+        ?float $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class NumberFieldModel extends JsonObjectModel implements NumberField
     }
 
 
+    /**
+     * @param ?float $value
+     */
     public function setValue(?float $value): void
     {
         $this->value = $value;

@@ -36,6 +36,7 @@ final class ProjectChangeCurrenciesActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $currencies
      * @return $this
      */
     public function withCurrencies(?array $currencies)

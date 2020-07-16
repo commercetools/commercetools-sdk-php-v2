@@ -31,7 +31,13 @@ interface Custom extends JsonObject
      */
     public function getFields();
 
+    /**
+     * @param ?TypeKeyReference $type
+     */
     public function setType(?TypeKeyReference $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

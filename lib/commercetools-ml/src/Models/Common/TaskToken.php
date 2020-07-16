@@ -30,7 +30,13 @@ interface TaskToken extends JsonObject
      */
     public function getUriPath();
 
+    /**
+     * @param ?string $taskId
+     */
     public function setTaskId(?string $taskId): void;
 
+    /**
+     * @param ?string $uriPath
+     */
     public function setUriPath(?string $uriPath): void;
 }

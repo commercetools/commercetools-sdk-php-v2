@@ -32,9 +32,12 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     protected $taxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $totalGross = null,
-        ExternalTaxRateDraft $taxRate = null
+        ?Money $totalGross = null,
+        ?ExternalTaxRateDraft $taxRate = null
     ) {
         $this->totalGross = $totalGross;
         $this->taxRate = $taxRate;
@@ -79,11 +82,17 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     }
 
 
+    /**
+     * @param ?Money $totalGross
+     */
     public function setTotalGross(?Money $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
 
+    /**
+     * @param ?ExternalTaxRateDraft $taxRate
+     */
     public function setTaxRate(?ExternalTaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;

@@ -26,7 +26,13 @@ interface MyShoppingListUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?MyShoppingListUpdateActionCollection $actions
+     */
     public function setActions(?MyShoppingListUpdateActionCollection $actions): void;
 }

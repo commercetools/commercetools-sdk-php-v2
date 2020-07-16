@@ -35,10 +35,13 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     protected $deleteDaysAfterCreation;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        string $scope = null,
-        int $deleteDaysAfterCreation = null
+        ?string $name = null,
+        ?string $scope = null,
+        ?int $deleteDaysAfterCreation = null
     ) {
         $this->name = $name;
         $this->scope = $scope;
@@ -99,16 +102,25 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?string $scope
+     */
     public function setScope(?string $scope): void
     {
         $this->scope = $scope;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterCreation
+     */
     public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
     {
         $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;

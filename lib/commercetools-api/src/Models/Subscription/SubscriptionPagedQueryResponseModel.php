@@ -45,12 +45,15 @@ final class SubscriptionPagedQueryResponseModel extends JsonObjectModel implemen
     protected $results;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $limit = null,
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        SubscriptionCollection $results = null
+        ?int $limit = null,
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?SubscriptionCollection $results = null
     ) {
         $this->limit = $limit;
         $this->count = $count;
@@ -133,7 +136,7 @@ final class SubscriptionPagedQueryResponseModel extends JsonObjectModel implemen
     public function getResults()
     {
         if (is_null($this->results)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
@@ -145,26 +148,41 @@ final class SubscriptionPagedQueryResponseModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?SubscriptionCollection $results
+     */
     public function setResults(?SubscriptionCollection $results): void
     {
         $this->results = $results;

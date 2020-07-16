@@ -62,6 +62,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceCode
      * @return $this
      */
     public function withInterfaceCode(?string $interfaceCode)
@@ -72,6 +73,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceText
      * @return $this
      */
     public function withInterfaceText(?string $interfaceText)
@@ -82,6 +84,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifier $state
      * @return $this
      */
     public function withState(?StateResourceIdentifier $state)

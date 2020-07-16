@@ -36,6 +36,7 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $interaction
      * @return $this
      */
     public function withInteraction(?CustomFields $interaction)

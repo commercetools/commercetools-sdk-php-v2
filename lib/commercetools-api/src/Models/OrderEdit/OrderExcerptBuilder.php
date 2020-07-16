@@ -64,6 +64,7 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalPrice
      * @return $this
      */
     public function withTotalPrice(?TypedMoney $totalPrice)
@@ -74,6 +75,7 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPrice $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedPrice $taxedPrice)
@@ -84,6 +86,7 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)

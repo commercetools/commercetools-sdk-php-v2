@@ -128,26 +128,29 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $validUntil;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        string $code = null,
-        CartDiscountReferenceCollection $cartDiscounts = null,
-        string $cartPredicate = null,
-        bool $isActive = null,
-        ReferenceCollection $references = null,
-        int $maxApplications = null,
-        int $maxApplicationsPerCustomer = null,
-        CustomFields $custom = null,
-        array $groups = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?string $code = null,
+        ?CartDiscountReferenceCollection $cartDiscounts = null,
+        ?string $cartPredicate = null,
+        ?bool $isActive = null,
+        ?ReferenceCollection $references = null,
+        ?int $maxApplications = null,
+        ?int $maxApplicationsPerCustomer = null,
+        ?CustomFields $custom = null,
+        ?array $groups = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -353,7 +356,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -409,7 +412,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getReferences()
     {
         if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFERENCES);
             if (is_null($data)) {
                 return null;
@@ -484,7 +487,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getGroups()
     {
         if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;
@@ -544,96 +547,153 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?string $code
+     */
     public function setCode(?string $code): void
     {
         $this->code = $code;
     }
 
+    /**
+     * @param ?CartDiscountReferenceCollection $cartDiscounts
+     */
     public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void
     {
         $this->cartDiscounts = $cartDiscounts;
     }
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
     }
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
 
+    /**
+     * @param ?ReferenceCollection $references
+     */
     public function setReferences(?ReferenceCollection $references): void
     {
         $this->references = $references;
     }
 
+    /**
+     * @param ?int $maxApplications
+     */
     public function setMaxApplications(?int $maxApplications): void
     {
         $this->maxApplications = $maxApplications;
     }
 
+    /**
+     * @param ?int $maxApplicationsPerCustomer
+     */
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
     {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?array $groups
+     */
     public function setGroups(?array $groups): void
     {
         $this->groups = $groups;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;

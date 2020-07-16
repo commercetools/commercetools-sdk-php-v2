@@ -83,6 +83,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $price
      * @return $this
      */
     public function withPrice(?TypedMoney $price)
@@ -93,6 +94,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $freeAbove
      * @return $this
      */
     public function withFreeAbove(?TypedMoney $freeAbove)
@@ -103,6 +105,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMatching
      * @return $this
      */
     public function withIsMatching(?bool $isMatching)
@@ -113,6 +116,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRatePriceTierCollection $tiers
      * @return $this
      */
     public function withTiers(?ShippingRatePriceTierCollection $tiers)

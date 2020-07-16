@@ -46,11 +46,23 @@ interface ImportOperationPagedResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?float $limit
+     */
     public function setLimit(?float $limit): void;
 
+    /**
+     * @param ?float $offset
+     */
     public function setOffset(?float $offset): void;
 
+    /**
+     * @param ?float $count
+     */
     public function setCount(?float $count): void;
 
+    /**
+     * @param ?ImportOperationCollection $results
+     */
     public function setResults(?ImportOperationCollection $results): void;
 }

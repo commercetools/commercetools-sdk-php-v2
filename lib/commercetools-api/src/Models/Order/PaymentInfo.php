@@ -21,5 +21,8 @@ interface PaymentInfo extends JsonObject
      */
     public function getPayments();
 
+    /**
+     * @param ?PaymentReferenceCollection $payments
+     */
     public function setPayments(?PaymentReferenceCollection $payments): void;
 }

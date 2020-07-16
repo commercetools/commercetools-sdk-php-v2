@@ -198,6 +198,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -208,6 +209,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -218,6 +220,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -228,6 +231,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryResourceIdentifier $parent
      * @return $this
      */
     public function withParent(?CategoryResourceIdentifier $parent)
@@ -238,6 +242,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)
@@ -248,6 +253,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -258,6 +264,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaTitle
      * @return $this
      */
     public function withMetaTitle(?LocalizedString $metaTitle)
@@ -268,6 +275,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaDescription
      * @return $this
      */
     public function withMetaDescription(?LocalizedString $metaDescription)
@@ -278,6 +286,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -288,6 +297,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -298,6 +308,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AssetDraftCollection $assets
      * @return $this
      */
     public function withAssets(?AssetDraftCollection $assets)
@@ -308,6 +319,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

@@ -37,6 +37,7 @@ final class ProductVariantImportRequestBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantImportCollection $resources
      * @return $this
      */
     public function withResources(?ProductVariantImportCollection $resources)

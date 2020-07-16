@@ -22,5 +22,8 @@ interface Suggestion extends JsonObject
      */
     public function getText();
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void;
 }

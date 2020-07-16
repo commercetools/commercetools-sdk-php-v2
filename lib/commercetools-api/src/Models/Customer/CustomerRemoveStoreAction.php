@@ -21,5 +21,8 @@ interface CustomerRemoveStoreAction extends CustomerUpdateAction
      */
     public function getStore();
 
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
     public function setStore(?StoreResourceIdentifier $store): void;
 }

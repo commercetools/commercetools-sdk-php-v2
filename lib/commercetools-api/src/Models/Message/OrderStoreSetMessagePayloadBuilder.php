@@ -36,6 +36,7 @@ final class OrderStoreSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReference $store
      * @return $this
      */
     public function withStore(?StoreKeyReference $store)

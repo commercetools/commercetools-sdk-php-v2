@@ -242,6 +242,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -252,6 +253,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -262,6 +264,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -272,6 +275,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -282,6 +286,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -292,6 +297,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -302,6 +308,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -312,6 +319,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -322,6 +330,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
@@ -332,6 +341,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -342,6 +352,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -352,6 +363,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListLineItemCollection $lineItems
      * @return $this
      */
     public function withLineItems(?ShoppingListLineItemCollection $lineItems)
@@ -362,6 +374,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -372,6 +385,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $slug
      * @return $this
      */
     public function withSlug(?LocalizedString $slug)
@@ -382,6 +396,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?TextLineItemCollection $textLineItems
      * @return $this
      */
     public function withTextLineItems(?TextLineItemCollection $textLineItems)
@@ -392,6 +407,7 @@ final class MyShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

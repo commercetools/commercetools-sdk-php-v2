@@ -36,10 +36,13 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
     protected $result;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $state = null,
-        DateTimeImmutable $expires = null,
-        MissingAttributesPagedQueryResult $result = null
+        ?string $state = null,
+        ?DateTimeImmutable $expires = null,
+        ?MissingAttributesPagedQueryResult $result = null
     ) {
         $this->state = $state;
         $this->expires = $expires;
@@ -107,16 +110,25 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
     }
 
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void
     {
         $this->expires = $expires;
     }
 
+    /**
+     * @param ?MissingAttributesPagedQueryResult $result
+     */
     public function setResult(?MissingAttributesPagedQueryResult $result): void
     {
         $this->result = $result;

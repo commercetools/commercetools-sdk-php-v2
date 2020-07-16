@@ -56,13 +56,16 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     protected $deleteDaysAfterLastModification;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        ShoppingListLineItemDraftCollection $lineItems = null,
-        TextLineItemDraftCollection $textLineItems = null,
-        CustomFieldsDraft $custom = null,
-        int $deleteDaysAfterLastModification = null
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?ShoppingListLineItemDraftCollection $lineItems = null,
+        ?TextLineItemDraftCollection $textLineItems = null,
+        ?CustomFieldsDraft $custom = null,
+        ?int $deleteDaysAfterLastModification = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -114,7 +117,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -131,7 +134,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     public function getTextLineItems()
     {
         if (is_null($this->textLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -182,31 +185,49 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     */
     public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
 
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     */
     public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
     {
         $this->textLineItems = $textLineItems;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;

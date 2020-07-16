@@ -20,5 +20,8 @@ interface HighPrecisionMoney extends TypedMoney
      */
     public function getPreciseAmount();
 
+    /**
+     * @param ?int $preciseAmount
+     */
     public function setPreciseAmount(?int $preciseAmount): void;
 }

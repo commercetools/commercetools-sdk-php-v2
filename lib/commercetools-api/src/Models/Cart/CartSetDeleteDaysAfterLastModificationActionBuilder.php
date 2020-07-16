@@ -34,6 +34,7 @@ final class CartSetDeleteDaysAfterLastModificationActionBuilder implements Build
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)

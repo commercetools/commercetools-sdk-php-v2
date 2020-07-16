@@ -20,5 +20,8 @@ interface ProductRevertedStagedChangesMessagePayload extends MessagePayload
      */
     public function getRemovedImageUrls();
 
+    /**
+     * @param ?array $removedImageUrls
+     */
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

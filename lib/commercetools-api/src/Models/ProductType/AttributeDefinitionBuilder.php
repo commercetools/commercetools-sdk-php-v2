@@ -153,6 +153,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeType $type
      * @return $this
      */
     public function withType(?AttributeType $type)
@@ -163,6 +164,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -173,6 +175,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $label
      * @return $this
      */
     public function withLabel(?LocalizedString $label)
@@ -183,6 +186,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isRequired
      * @return $this
      */
     public function withIsRequired(?bool $isRequired)
@@ -193,6 +197,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeConstraint
      * @return $this
      */
     public function withAttributeConstraint(?string $attributeConstraint)
@@ -203,6 +208,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $inputTip
      * @return $this
      */
     public function withInputTip(?LocalizedString $inputTip)
@@ -213,6 +219,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?string $inputHint
      * @return $this
      */
     public function withInputHint(?string $inputHint)
@@ -223,6 +230,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isSearchable
      * @return $this
      */
     public function withIsSearchable(?bool $isSearchable)

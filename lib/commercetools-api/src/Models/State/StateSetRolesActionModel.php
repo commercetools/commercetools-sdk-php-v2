@@ -31,8 +31,11 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     protected $roles;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $roles = null
+        ?array $roles = null
     ) {
         $this->roles = $roles;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     public function getRoles()
     {
         if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     }
 
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void
     {
         $this->roles = $roles;

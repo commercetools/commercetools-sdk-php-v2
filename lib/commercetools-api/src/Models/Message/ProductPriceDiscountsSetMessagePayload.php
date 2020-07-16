@@ -20,5 +20,8 @@ interface ProductPriceDiscountsSetMessagePayload extends MessagePayload
      */
     public function getUpdatedPrices();
 
+    /**
+     * @param ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices
+     */
     public function setUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices): void;
 }

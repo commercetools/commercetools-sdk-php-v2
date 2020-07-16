@@ -42,10 +42,13 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     protected $oldItems;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $deliveryId = null,
-        DeliveryItemCollection $items = null,
-        DeliveryItemCollection $oldItems = null
+        ?string $deliveryId = null,
+        ?DeliveryItemCollection $items = null,
+        ?DeliveryItemCollection $oldItems = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->items = $items;
@@ -93,7 +96,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -110,7 +113,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     public function getOldItems()
     {
         if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -122,16 +125,25 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $oldItems
+     */
     public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
         $this->oldItems = $oldItems;

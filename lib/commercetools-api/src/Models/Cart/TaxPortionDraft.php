@@ -33,9 +33,18 @@ interface TaxPortionDraft extends JsonObject
      */
     public function getAmount();
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?float $rate
+     */
     public function setRate(?float $rate): void;
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void;
 }

@@ -38,9 +38,18 @@ interface ImportSinkDraft extends JsonObject
      */
     public function getResourceType();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $resourceType
+     */
     public function setResourceType(?string $resourceType): void;
 }

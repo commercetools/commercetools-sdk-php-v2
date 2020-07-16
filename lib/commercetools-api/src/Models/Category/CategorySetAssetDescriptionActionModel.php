@@ -43,10 +43,13 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     protected $description;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $assetId = null,
-        string $assetKey = null,
-        LocalizedString $description = null
+        ?string $assetId = null,
+        ?string $assetKey = null,
+        ?LocalizedString $description = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -124,16 +127,25 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $assetId
+     */
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
+    /**
+     * @param ?string $assetKey
+     */
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;

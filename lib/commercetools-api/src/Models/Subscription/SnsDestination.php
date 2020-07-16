@@ -32,9 +32,18 @@ interface SnsDestination extends Destination
      */
     public function getTopicArn();
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void;
 
+    /**
+     * @param ?string $accessSecret
+     */
     public function setAccessSecret(?string $accessSecret): void;
 
+    /**
+     * @param ?string $topicArn
+     */
     public function setTopicArn(?string $topicArn): void;
 }

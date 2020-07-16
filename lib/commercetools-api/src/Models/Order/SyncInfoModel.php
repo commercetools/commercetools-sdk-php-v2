@@ -38,10 +38,13 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     protected $syncedAt;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChannelReference $channel = null,
-        string $externalId = null,
-        DateTimeImmutable $syncedAt = null
+        ?ChannelReference $channel = null,
+        ?string $externalId = null,
+        ?DateTimeImmutable $syncedAt = null
     ) {
         $this->channel = $channel;
         $this->externalId = $externalId;
@@ -109,16 +112,25 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $syncedAt
+     */
     public function setSyncedAt(?DateTimeImmutable $syncedAt): void
     {
         $this->syncedAt = $syncedAt;

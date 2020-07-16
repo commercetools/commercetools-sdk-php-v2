@@ -36,6 +36,7 @@ final class ShippingMethodAddZoneActionBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneResourceIdentifier $zone
      * @return $this
      */
     public function withZone(?ZoneResourceIdentifier $zone)

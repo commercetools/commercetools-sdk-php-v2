@@ -49,6 +49,7 @@ final class DiscountCodeInfoBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountCodeReference $discountCode
      * @return $this
      */
     public function withDiscountCode(?DiscountCodeReference $discountCode)
@@ -59,6 +60,7 @@ final class DiscountCodeInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)

@@ -20,5 +20,8 @@ interface CartRemoveCustomLineItemAction extends CartUpdateAction
      */
     public function getCustomLineItemId();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 }

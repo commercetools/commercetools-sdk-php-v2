@@ -31,8 +31,11 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     protected $maxApplicationsPerCustomer;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $maxApplicationsPerCustomer = null
+        ?int $maxApplicationsPerCustomer = null
     ) {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     }
 
 
+    /**
+     * @param ?int $maxApplicationsPerCustomer
+     */
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
     {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;

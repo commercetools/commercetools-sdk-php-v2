@@ -26,7 +26,13 @@ interface OrderPaymentStateChangedMessage extends Message
      */
     public function getOldPaymentState();
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 
+    /**
+     * @param ?string $oldPaymentState
+     */
     public function setOldPaymentState(?string $oldPaymentState): void;
 }

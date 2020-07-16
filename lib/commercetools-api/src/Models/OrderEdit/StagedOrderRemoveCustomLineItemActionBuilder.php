@@ -36,6 +36,7 @@ final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)

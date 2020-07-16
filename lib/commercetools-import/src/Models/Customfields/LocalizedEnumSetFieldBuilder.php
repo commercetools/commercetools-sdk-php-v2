@@ -34,6 +34,7 @@ final class LocalizedEnumSetFieldBuilder implements Builder
     }
 
     /**
+     * @param ?array $value
      * @return $this
      */
     public function withValue(?array $value)

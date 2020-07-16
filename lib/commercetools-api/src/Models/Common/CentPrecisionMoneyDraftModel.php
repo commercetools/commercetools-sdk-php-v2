@@ -36,9 +36,12 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $centAmount = null,
-        string $currencyCode = null
+        ?int $centAmount = null,
+        ?string $currencyCode = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
@@ -99,11 +102,17 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     }
 
 
+    /**
+     * @param ?int $centAmount
+     */
     public function setCentAmount(?int $centAmount): void
     {
         $this->centAmount = $centAmount;
     }
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;

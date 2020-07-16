@@ -33,7 +33,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionBuilder implements Buil
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -54,7 +54,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionBuilder implements Buil
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -62,6 +62,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionBuilder implements Buil
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -72,6 +73,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionBuilder implements Buil
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -82,9 +84,10 @@ final class StagedOrderSetCustomLineItemCustomFieldActionBuilder implements Buil
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

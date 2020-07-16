@@ -48,12 +48,15 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     protected $address;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        DateTimeImmutable $createdAt = null,
-        DeliveryItemCollection $items = null,
-        ParcelCollection $parcels = null,
-        Address $address = null
+        ?string $id = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DeliveryItemCollection $items = null,
+        ?ParcelCollection $parcels = null,
+        ?Address $address = null
     ) {
         $this->id = $id;
         $this->createdAt = $createdAt;
@@ -109,7 +112,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -126,7 +129,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     public function getParcels()
     {
         if (is_null($this->parcels)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;
@@ -156,26 +159,41 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?ParcelCollection $parcels
+     */
     public function setParcels(?ParcelCollection $parcels): void
     {
         $this->parcels = $parcels;
     }
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;

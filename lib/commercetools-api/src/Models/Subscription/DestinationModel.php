@@ -38,6 +38,9 @@ final class DestinationModel extends JsonObjectModel implements Destination
        'SQS' => SqsDestinationModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

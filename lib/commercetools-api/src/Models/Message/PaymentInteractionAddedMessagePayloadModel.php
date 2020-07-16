@@ -33,8 +33,11 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     protected $interaction;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomFields $interaction = null
+        ?CustomFields $interaction = null
     ) {
         $this->interaction = $interaction;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?CustomFields $interaction
+     */
     public function setInteraction(?CustomFields $interaction): void
     {
         $this->interaction = $interaction;

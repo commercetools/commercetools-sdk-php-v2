@@ -42,6 +42,9 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
        'setRoles' => ChannelSetRolesActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

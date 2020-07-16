@@ -31,14 +31,17 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     protected $message;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $resource;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        JsonObject $resource = null
+        ?string $message = null,
+        $resource = null
     ) {
         $this->message = $message;
         $this->resource = $resource;
@@ -82,29 +85,35 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getResource()
     {
         if (is_null($this->resource)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->resource = JsonObjectModel::of($data);
+            $this->resource = $data;
         }
 
         return $this->resource;
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
-    public function setResource(?JsonObject $resource): void
+    /**
+     * @param mixed $resource
+     */
+    public function setResource($resource): void
     {
         $this->resource = $resource;
     }

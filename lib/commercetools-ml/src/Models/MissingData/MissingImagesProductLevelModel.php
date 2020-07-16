@@ -30,9 +30,12 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     protected $total;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $missingImages = null,
-        int $total = null
+        ?int $missingImages = null,
+        ?int $total = null
     ) {
         $this->missingImages = $missingImages;
         $this->total = $total;
@@ -77,11 +80,17 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     }
 
 
+    /**
+     * @param ?int $missingImages
+     */
     public function setMissingImages(?int $missingImages): void
     {
         $this->missingImages = $missingImages;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;

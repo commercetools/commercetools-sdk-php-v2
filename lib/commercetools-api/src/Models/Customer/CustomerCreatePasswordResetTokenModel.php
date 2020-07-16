@@ -30,9 +30,12 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     protected $ttlMinutes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $email = null,
-        int $ttlMinutes = null
+        ?string $email = null,
+        ?int $ttlMinutes = null
     ) {
         $this->email = $email;
         $this->ttlMinutes = $ttlMinutes;
@@ -73,11 +76,17 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $email
+     */
     public function setEmail(?string $email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @param ?int $ttlMinutes
+     */
     public function setTtlMinutes(?int $ttlMinutes): void
     {
         $this->ttlMinutes = $ttlMinutes;

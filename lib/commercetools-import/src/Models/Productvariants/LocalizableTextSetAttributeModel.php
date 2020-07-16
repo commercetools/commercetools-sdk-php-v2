@@ -37,9 +37,12 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        LocalizedStringCollection $value = null
+        ?string $name = null,
+        ?LocalizedStringCollection $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -90,7 +93,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -102,11 +105,17 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedStringCollection $value
+     */
     public function setValue(?LocalizedStringCollection $value): void
     {
         $this->value = $value;

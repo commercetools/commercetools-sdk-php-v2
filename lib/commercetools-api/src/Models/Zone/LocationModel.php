@@ -30,9 +30,12 @@ final class LocationModel extends JsonObjectModel implements Location
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $country = null,
-        string $state = null
+        ?string $country = null,
+        ?string $state = null
     ) {
         $this->country = $country;
         $this->state = $state;
@@ -75,11 +78,17 @@ final class LocationModel extends JsonObjectModel implements Location
     }
 
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;

@@ -34,6 +34,7 @@ final class GeoJsonPointBuilder implements Builder
     }
 
     /**
+     * @param ?array $coordinates
      * @return $this
      */
     public function withCoordinates(?array $coordinates)

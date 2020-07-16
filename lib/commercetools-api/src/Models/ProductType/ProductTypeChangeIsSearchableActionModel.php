@@ -36,9 +36,12 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     protected $isSearchable;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        bool $isSearchable = null
+        ?string $attributeName = null,
+        ?bool $isSearchable = null
     ) {
         $this->attributeName = $attributeName;
         $this->isSearchable = $isSearchable;
@@ -97,11 +100,17 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?bool $isSearchable
+     */
     public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;

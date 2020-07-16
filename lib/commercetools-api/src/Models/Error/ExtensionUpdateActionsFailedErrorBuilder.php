@@ -75,6 +75,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -85,6 +86,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $localizedMessage
      * @return $this
      */
     public function withLocalizedMessage(?LocalizedString $localizedMessage)
@@ -95,6 +97,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $extensionExtraInfo
      * @return $this
      */
     public function withExtensionExtraInfo(?JsonObject $extensionExtraInfo)
@@ -105,6 +108,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @param ?ErrorByExtension $errorByExtension
      * @return $this
      */
     public function withErrorByExtension(?ErrorByExtension $errorByExtension)

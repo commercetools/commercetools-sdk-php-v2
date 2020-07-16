@@ -47,6 +47,7 @@ final class TypeChangeInputHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $fieldName
      * @return $this
      */
     public function withFieldName(?string $fieldName)
@@ -57,6 +58,7 @@ final class TypeChangeInputHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $inputHint
      * @return $this
      */
     public function withInputHint(?string $inputHint)

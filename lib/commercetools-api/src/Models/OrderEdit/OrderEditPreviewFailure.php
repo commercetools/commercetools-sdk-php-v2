@@ -21,5 +21,8 @@ interface OrderEditPreviewFailure extends OrderEditResult
      */
     public function getErrors();
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void;
 }

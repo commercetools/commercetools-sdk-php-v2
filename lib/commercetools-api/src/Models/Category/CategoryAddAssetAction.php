@@ -29,7 +29,13 @@ interface CategoryAddAssetAction extends CategoryUpdateAction
      */
     public function getPosition();
 
+    /**
+     * @param ?AssetDraft $asset
+     */
     public function setAsset(?AssetDraft $asset): void;
 
+    /**
+     * @param ?int $position
+     */
     public function setPosition(?int $position): void;
 }

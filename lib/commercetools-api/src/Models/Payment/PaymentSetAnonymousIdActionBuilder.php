@@ -37,6 +37,7 @@ final class PaymentSetAnonymousIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)

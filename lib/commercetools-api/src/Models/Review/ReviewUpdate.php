@@ -26,7 +26,13 @@ interface ReviewUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ReviewUpdateActionCollection $actions
+     */
     public function setActions(?ReviewUpdateActionCollection $actions): void;
 }

@@ -38,6 +38,9 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
        'setMethodInfoName' => MyPaymentSetMethodInfoNameActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

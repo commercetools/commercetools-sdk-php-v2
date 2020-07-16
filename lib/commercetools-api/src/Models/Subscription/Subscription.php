@@ -90,27 +90,63 @@ interface Subscription extends BaseResource
      */
     public function getStatus();
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void;
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void;
 
+    /**
+     * @param ?Destination $destination
+     */
     public function setDestination(?Destination $destination): void;
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
 
+    /**
+     * @param ?DeliveryFormat $format
+     */
     public function setFormat(?DeliveryFormat $format): void;
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void;
 }

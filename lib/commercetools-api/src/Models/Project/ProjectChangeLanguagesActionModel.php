@@ -31,8 +31,11 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     protected $languages;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $languages = null
+        ?array $languages = null
     ) {
         $this->languages = $languages;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -63,7 +66,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     public function getLanguages()
     {
         if (is_null($this->languages)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
@@ -75,6 +78,9 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?array $languages
+     */
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;

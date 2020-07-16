@@ -23,5 +23,8 @@ interface ShippingMethodSetPredicateAction extends ShippingMethodUpdateAction
      */
     public function getPredicate();
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void;
 }

@@ -36,6 +36,9 @@ final class ExtensionUpdateActionModel extends JsonObjectModel implements Extens
        'setTimeoutInMs' => ExtensionSetTimeoutInMsActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

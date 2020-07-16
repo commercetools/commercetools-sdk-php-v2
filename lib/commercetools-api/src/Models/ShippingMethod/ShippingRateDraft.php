@@ -39,9 +39,18 @@ interface ShippingRateDraft extends JsonObject
      */
     public function getTiers();
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?Money $freeAbove
+     */
     public function setFreeAbove(?Money $freeAbove): void;
 
+    /**
+     * @param ?ShippingRatePriceTierCollection $tiers
+     */
     public function setTiers(?ShippingRatePriceTierCollection $tiers): void;
 }

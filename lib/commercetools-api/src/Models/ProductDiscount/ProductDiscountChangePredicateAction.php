@@ -22,5 +22,8 @@ interface ProductDiscountChangePredicateAction extends ProductDiscountUpdateActi
      */
     public function getPredicate();
 
+    /**
+     * @param ?string $predicate
+     */
     public function setPredicate(?string $predicate): void;
 }

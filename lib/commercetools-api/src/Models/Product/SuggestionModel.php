@@ -25,8 +25,11 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     protected $text;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $text = null
+        ?string $text = null
     ) {
         $this->text = $text;
     }
@@ -51,6 +54,9 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     }
 
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void
     {
         $this->text = $text;

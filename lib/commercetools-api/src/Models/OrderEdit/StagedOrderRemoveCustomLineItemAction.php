@@ -21,5 +21,8 @@ interface StagedOrderRemoveCustomLineItemAction extends StagedOrderUpdateAction
      */
     public function getCustomLineItemId();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 }

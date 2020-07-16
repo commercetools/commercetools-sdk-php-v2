@@ -47,6 +47,7 @@ final class AzureEventGridDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $uri
      * @return $this
      */
     public function withUri(?string $uri)
@@ -57,6 +58,7 @@ final class AzureEventGridDestinationBuilder implements Builder
     }
 
     /**
+     * @param ?string $accessKey
      * @return $this
      */
     public function withAccessKey(?string $accessKey)

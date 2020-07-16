@@ -26,7 +26,13 @@ interface ChannelUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ChannelUpdateActionCollection $actions
+     */
     public function setActions(?ChannelUpdateActionCollection $actions): void;
 }

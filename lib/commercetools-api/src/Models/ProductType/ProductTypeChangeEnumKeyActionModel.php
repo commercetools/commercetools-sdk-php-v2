@@ -41,10 +41,13 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     protected $newKey;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        string $key = null,
-        string $newKey = null
+        ?string $attributeName = null,
+        ?string $key = null,
+        ?string $newKey = null
     ) {
         $this->attributeName = $attributeName;
         $this->key = $key;
@@ -121,16 +124,25 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?string $newKey
+     */
     public function setNewKey(?string $newKey): void
     {
         $this->newKey = $newKey;

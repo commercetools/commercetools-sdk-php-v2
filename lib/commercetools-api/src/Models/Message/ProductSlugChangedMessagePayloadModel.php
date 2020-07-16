@@ -33,8 +33,11 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
     protected $slug;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $slug = null
+        ?LocalizedString $slug = null
     ) {
         $this->slug = $slug;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;

@@ -36,6 +36,7 @@ final class DeliveryAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Delivery $delivery
      * @return $this
      */
     public function withDelivery(?Delivery $delivery)

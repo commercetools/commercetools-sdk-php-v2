@@ -53,6 +53,7 @@ final class CustomBuilder implements Builder
     }
 
     /**
+     * @param ?TypeKeyReference $type
      * @return $this
      */
     public function withType(?TypeKeyReference $type)
@@ -63,6 +64,7 @@ final class CustomBuilder implements Builder
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

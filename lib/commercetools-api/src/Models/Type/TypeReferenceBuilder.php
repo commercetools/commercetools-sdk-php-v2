@@ -49,6 +49,7 @@ final class TypeReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class TypeReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?Type $obj
      * @return $this
      */
     public function withObj(?Type $obj)

@@ -50,13 +50,28 @@ interface TrackingData extends JsonObject
      */
     public function getIsReturn();
 
+    /**
+     * @param ?string $trackingId
+     */
     public function setTrackingId(?string $trackingId): void;
 
+    /**
+     * @param ?string $carrier
+     */
     public function setCarrier(?string $carrier): void;
 
+    /**
+     * @param ?string $provider
+     */
     public function setProvider(?string $provider): void;
 
+    /**
+     * @param ?string $providerTransaction
+     */
     public function setProviderTransaction(?string $providerTransaction): void;
 
+    /**
+     * @param ?bool $isReturn
+     */
     public function setIsReturn(?bool $isReturn): void;
 }

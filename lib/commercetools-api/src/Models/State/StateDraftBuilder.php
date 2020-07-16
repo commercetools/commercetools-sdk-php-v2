@@ -114,6 +114,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -124,6 +125,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $type
      * @return $this
      */
     public function withType(?string $type)
@@ -134,6 +136,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -144,6 +147,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -154,6 +158,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $initial
      * @return $this
      */
     public function withInitial(?bool $initial)
@@ -164,6 +169,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $roles
      * @return $this
      */
     public function withRoles(?array $roles)
@@ -174,6 +180,7 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifierCollection $transitions
      * @return $this
      */
     public function withTransitions(?StateResourceIdentifierCollection $transitions)

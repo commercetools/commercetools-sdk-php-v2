@@ -32,9 +32,18 @@ interface GraphQLRequest extends JsonObject
      */
     public function getVariables();
 
+    /**
+     * @param ?string $query
+     */
     public function setQuery(?string $query): void;
 
+    /**
+     * @param ?string $operationName
+     */
     public function setOperationName(?string $operationName): void;
 
+    /**
+     * @param ?GraphQLVariablesMap $variables
+     */
     public function setVariables(?GraphQLVariablesMap $variables): void;
 }

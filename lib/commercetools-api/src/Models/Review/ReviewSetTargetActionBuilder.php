@@ -38,6 +38,7 @@ final class ReviewSetTargetActionBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $target
      * @return $this
      */
     public function withTarget(?JsonObject $target)

@@ -34,6 +34,9 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
        'whitespace' => WhitespaceTokenizerModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

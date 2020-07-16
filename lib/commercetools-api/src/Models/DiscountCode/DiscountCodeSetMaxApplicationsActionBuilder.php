@@ -36,6 +36,7 @@ final class DiscountCodeSetMaxApplicationsActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxApplications
      * @return $this
      */
     public function withMaxApplications(?int $maxApplications)

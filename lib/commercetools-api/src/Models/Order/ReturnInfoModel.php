@@ -36,10 +36,13 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     protected $returnDate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ReturnItemCollection $items = null,
-        string $returnTrackingId = null,
-        DateTimeImmutable $returnDate = null
+        ?ReturnItemCollection $items = null,
+        ?string $returnTrackingId = null,
+        ?DateTimeImmutable $returnDate = null
     ) {
         $this->items = $items;
         $this->returnTrackingId = $returnTrackingId;
@@ -52,7 +55,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -104,16 +107,25 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
 
+    /**
+     * @param ?ReturnItemCollection $items
+     */
     public function setItems(?ReturnItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?string $returnTrackingId
+     */
     public function setReturnTrackingId(?string $returnTrackingId): void
     {
         $this->returnTrackingId = $returnTrackingId;
     }
 
+    /**
+     * @param ?DateTimeImmutable $returnDate
+     */
     public function setReturnDate(?DateTimeImmutable $returnDate): void
     {
         $this->returnDate = $returnDate;

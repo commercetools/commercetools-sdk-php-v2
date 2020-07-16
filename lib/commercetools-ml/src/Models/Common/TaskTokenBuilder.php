@@ -51,6 +51,7 @@ final class TaskTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $taskId
      * @return $this
      */
     public function withTaskId(?string $taskId)
@@ -61,6 +62,7 @@ final class TaskTokenBuilder implements Builder
     }
 
     /**
+     * @param ?string $uriPath
      * @return $this
      */
     public function withUriPath(?string $uriPath)

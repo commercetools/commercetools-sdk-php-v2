@@ -62,6 +62,7 @@ final class CartValueTierBuilder implements Builder
     }
 
     /**
+     * @param ?int $minimumCentAmount
      * @return $this
      */
     public function withMinimumCentAmount(?int $minimumCentAmount)
@@ -72,6 +73,7 @@ final class CartValueTierBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -82,6 +84,7 @@ final class CartValueTierBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isMatching
      * @return $this
      */
     public function withIsMatching(?bool $isMatching)

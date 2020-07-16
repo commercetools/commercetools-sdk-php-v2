@@ -34,6 +34,7 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $stackingMode
      * @return $this
      */
     public function withStackingMode(?string $stackingMode)

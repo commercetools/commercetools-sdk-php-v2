@@ -20,5 +20,8 @@ interface TaxCategoryAddTaxRateAction extends TaxCategoryUpdateAction
      */
     public function getTaxRate();
 
+    /**
+     * @param ?TaxRateDraft $taxRate
+     */
     public function setTaxRate(?TaxRateDraft $taxRate): void;
 }

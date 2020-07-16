@@ -21,5 +21,8 @@ interface ProductDiscountChangeNameAction extends ProductDiscountUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

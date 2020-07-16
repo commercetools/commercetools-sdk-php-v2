@@ -89,6 +89,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?string $customLineItemId
      * @return $this
      */
     public function withCustomLineItemId(?string $customLineItemId)
@@ -99,6 +100,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?DateTimeImmutable $transitionDate
      * @return $this
      */
     public function withTransitionDate(?DateTimeImmutable $transitionDate)
@@ -109,6 +111,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -119,6 +122,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?StateReference $fromState
      * @return $this
      */
     public function withFromState(?StateReference $fromState)
@@ -129,6 +133,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * @param ?StateReference $toState
      * @return $this
      */
     public function withToState(?StateReference $toState)

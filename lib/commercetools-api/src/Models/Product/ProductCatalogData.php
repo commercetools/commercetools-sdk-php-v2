@@ -38,11 +38,23 @@ interface ProductCatalogData extends JsonObject
      */
     public function getHasStagedChanges();
 
+    /**
+     * @param ?bool $published
+     */
     public function setPublished(?bool $published): void;
 
+    /**
+     * @param ?ProductData $current
+     */
     public function setCurrent(?ProductData $current): void;
 
+    /**
+     * @param ?ProductData $staged
+     */
     public function setStaged(?ProductData $staged): void;
 
+    /**
+     * @param ?bool $hasStagedChanges
+     */
     public function setHasStagedChanges(?bool $hasStagedChanges): void;
 }

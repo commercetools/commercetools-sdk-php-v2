@@ -192,6 +192,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -202,6 +203,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -212,6 +214,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantImportDraft $variant
      * @return $this
      */
     public function withVariant(?ProductVariantImportDraft $variant)
@@ -222,6 +225,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?PriceDraft $price
      * @return $this
      */
     public function withPrice(?PriceDraft $price)
@@ -232,6 +236,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -242,6 +247,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ItemStateCollection $state
      * @return $this
      */
     public function withState(?ItemStateCollection $state)
@@ -252,6 +258,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
     public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
@@ -262,6 +269,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
     public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
@@ -272,6 +280,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRate $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRate $taxRate)
@@ -282,6 +291,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -292,6 +302,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
     public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)

@@ -60,13 +60,16 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     protected $force;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StateReference $oldState = null,
-        StateReference $newState = null,
-        bool $oldIncludedInStatistics = null,
-        bool $newIncludedInStatistics = null,
-        Reference $target = null,
-        bool $force = null
+        ?StateReference $oldState = null,
+        ?StateReference $newState = null,
+        ?bool $oldIncludedInStatistics = null,
+        ?bool $newIncludedInStatistics = null,
+        ?Reference $target = null,
+        ?bool $force = null
     ) {
         $this->oldState = $oldState;
         $this->newState = $newState;
@@ -200,31 +203,49 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
 
+    /**
+     * @param ?StateReference $oldState
+     */
     public function setOldState(?StateReference $oldState): void
     {
         $this->oldState = $oldState;
     }
 
+    /**
+     * @param ?StateReference $newState
+     */
     public function setNewState(?StateReference $newState): void
     {
         $this->newState = $newState;
     }
 
+    /**
+     * @param ?bool $oldIncludedInStatistics
+     */
     public function setOldIncludedInStatistics(?bool $oldIncludedInStatistics): void
     {
         $this->oldIncludedInStatistics = $oldIncludedInStatistics;
     }
 
+    /**
+     * @param ?bool $newIncludedInStatistics
+     */
     public function setNewIncludedInStatistics(?bool $newIncludedInStatistics): void
     {
         $this->newIncludedInStatistics = $newIncludedInStatistics;
     }
 
+    /**
+     * @param ?Reference $target
+     */
     public function setTarget(?Reference $target): void
     {
         $this->target = $target;
     }
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void
     {
         $this->force = $force;

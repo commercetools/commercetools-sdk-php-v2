@@ -23,5 +23,8 @@ interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction
      */
     public function getGroups();
 
+    /**
+     * @param ?array $groups
+     */
     public function setGroups(?array $groups): void;
 }

@@ -47,11 +47,23 @@ interface MyPaymentDraft extends JsonObject
      */
     public function getTransaction();
 
+    /**
+     * @param ?Money $amountPlanned
+     */
     public function setAmountPlanned(?Money $amountPlanned): void;
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?MyTransactionDraft $transaction
+     */
     public function setTransaction(?MyTransactionDraft $transaction): void;
 }

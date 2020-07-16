@@ -38,9 +38,12 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaKeywords = null,
-        bool $staged = null
+        ?LocalizedString $metaKeywords = null,
+        ?bool $staged = null
     ) {
         $this->metaKeywords = $metaKeywords;
         $this->staged = $staged;
@@ -100,11 +103,17 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

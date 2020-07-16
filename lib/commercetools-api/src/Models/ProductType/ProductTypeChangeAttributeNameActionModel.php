@@ -36,9 +36,12 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     protected $newAttributeName;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        string $newAttributeName = null
+        ?string $attributeName = null,
+        ?string $newAttributeName = null
     ) {
         $this->attributeName = $attributeName;
         $this->newAttributeName = $newAttributeName;
@@ -97,11 +100,17 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?string $newAttributeName
+     */
     public function setNewAttributeName(?string $newAttributeName): void
     {
         $this->newAttributeName = $newAttributeName;

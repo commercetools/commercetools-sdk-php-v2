@@ -21,5 +21,8 @@ interface CustomObjectReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?CustomObject $obj
+     */
     public function setObj(?CustomObject $obj): void;
 }

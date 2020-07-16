@@ -28,7 +28,13 @@ interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction
      */
     public function getFields();
 
+    /**
+     * @param ?TypeResourceIdentifier $type
+     */
     public function setType(?TypeResourceIdentifier $type): void;
 
+    /**
+     * @param ?FieldContainer $fields
+     */
     public function setFields(?FieldContainer $fields): void;
 }

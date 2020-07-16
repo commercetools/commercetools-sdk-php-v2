@@ -99,25 +99,58 @@ interface MissingPricesSearchRequest extends JsonObject
      */
     public function getProductTypeIds();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void;
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void;
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void;
 
+    /**
+     * @param ?bool $checkDate
+     */
     public function setCheckDate(?bool $checkDate): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void;
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void;
 }

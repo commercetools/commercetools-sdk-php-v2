@@ -26,7 +26,13 @@ interface PriceChangedError extends ErrorObject
      */
     public function getShipping();
 
+    /**
+     * @param ?array $lineItems
+     */
     public function setLineItems(?array $lineItems): void;
 
+    /**
+     * @param ?bool $shipping
+     */
     public function setShipping(?bool $shipping): void;
 }

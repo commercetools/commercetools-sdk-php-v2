@@ -42,11 +42,23 @@ interface ProductTypeDraft extends JsonObject
      */
     public function getAttributes();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
+    /**
+     * @param ?string $description
+     */
     public function setDescription(?string $description): void;
 
+    /**
+     * @param ?AttributeDefinitionDraftCollection $attributes
+     */
     public function setAttributes(?AttributeDefinitionDraftCollection $attributes): void;
 }

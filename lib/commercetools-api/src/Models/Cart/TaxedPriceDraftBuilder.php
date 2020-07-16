@@ -62,6 +62,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoneyDraft $totalNet
      * @return $this
      */
     public function withTotalNet(?TypedMoneyDraft $totalNet)
@@ -72,6 +73,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoneyDraft $totalGross
      * @return $this
      */
     public function withTotalGross(?TypedMoneyDraft $totalGross)
@@ -82,6 +84,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxPortionDraftCollection $taxPortions
      * @return $this
      */
     public function withTaxPortions(?TaxPortionDraftCollection $taxPortions)

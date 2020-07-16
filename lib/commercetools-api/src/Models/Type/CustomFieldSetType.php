@@ -20,5 +20,8 @@ interface CustomFieldSetType extends FieldType
      */
     public function getElementType();
 
+    /**
+     * @param ?FieldType $elementType
+     */
     public function setElementType(?FieldType $elementType): void;
 }

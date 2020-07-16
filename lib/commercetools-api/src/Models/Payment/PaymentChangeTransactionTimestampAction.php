@@ -27,7 +27,13 @@ interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction
      */
     public function getTimestamp();
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void;
 
+    /**
+     * @param ?DateTimeImmutable $timestamp
+     */
     public function setTimestamp(?DateTimeImmutable $timestamp): void;
 }

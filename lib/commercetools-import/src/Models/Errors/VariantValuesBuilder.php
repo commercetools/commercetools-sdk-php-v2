@@ -62,6 +62,7 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+     * @param ?string $sku
      * @return $this
      */
     public function withSku(?string $sku)
@@ -72,6 +73,7 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+     * @param ?PriceImportCollection $prices
      * @return $this
      */
     public function withPrices(?PriceImportCollection $prices)
@@ -82,6 +84,7 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeCollection $attributes
      * @return $this
      */
     public function withAttributes(?AttributeCollection $attributes)

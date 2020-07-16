@@ -21,5 +21,8 @@ interface OrderEditReference extends Reference
      */
     public function getObj();
 
+    /**
+     * @param ?OrderEdit $obj
+     */
     public function setObj(?OrderEdit $obj): void;
 }

@@ -21,5 +21,8 @@ interface LocalizedStringField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?LocalizedString $value
+     */
     public function setValue(?LocalizedString $value): void;
 }

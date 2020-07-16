@@ -105,25 +105,58 @@ interface ImportOperation extends JsonObject
      */
     public function getExpiresAt();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?string $importSinkKey
+     */
     public function setImportSinkKey(?string $importSinkKey): void;
 
+    /**
+     * @param ?string $resourceKey
+     */
     public function setResourceKey(?string $resourceKey): void;
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void;
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void;
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void;
 
+    /**
+     * @param ?float $retryCount
+     */
     public function setRetryCount(?float $retryCount): void;
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void;
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
+    /**
+     * @param ?DateTimeImmutable $expiresAt
+     */
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 }

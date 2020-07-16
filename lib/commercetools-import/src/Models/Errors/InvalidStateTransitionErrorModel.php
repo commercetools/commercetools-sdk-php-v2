@@ -41,10 +41,13 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     protected $newState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $message = null,
-        string $currentState = null,
-        string $newState = null
+        ?string $message = null,
+        ?string $currentState = null,
+        ?string $newState = null
     ) {
         $this->message = $message;
         $this->currentState = $currentState;
@@ -127,16 +130,25 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $message
+     */
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
+    /**
+     * @param ?string $currentState
+     */
     public function setCurrentState(?string $currentState): void
     {
         $this->currentState = $currentState;
     }
 
+    /**
+     * @param ?string $newState
+     */
     public function setNewState(?string $newState): void
     {
         $this->newState = $newState;

@@ -32,8 +32,11 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     protected $cartDiscounts;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CartDiscountResourceIdentifierCollection $cartDiscounts = null
+        ?CartDiscountResourceIdentifierCollection $cartDiscounts = null
     ) {
         $this->cartDiscounts = $cartDiscounts;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -62,7 +65,7 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -74,6 +77,9 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     }
 
 
+    /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
+     */
     public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void
     {
         $this->cartDiscounts = $cartDiscounts;

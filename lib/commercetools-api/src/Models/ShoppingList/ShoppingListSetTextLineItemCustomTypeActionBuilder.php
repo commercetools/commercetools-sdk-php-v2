@@ -64,6 +64,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     }
 
     /**
+     * @param ?string $textLineItemId
      * @return $this
      */
     public function withTextLineItemId(?string $textLineItemId)
@@ -74,6 +75,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     }
 
     /**
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
     public function withType(?TypeResourceIdentifier $type)
@@ -84,6 +86,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     }
 
     /**
+     * @param ?FieldContainer $fields
      * @return $this
      */
     public function withFields(?FieldContainer $fields)

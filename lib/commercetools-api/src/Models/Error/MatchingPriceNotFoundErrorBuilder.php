@@ -116,6 +116,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -126,6 +127,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $productId
      * @return $this
      */
     public function withProductId(?string $productId)
@@ -136,6 +138,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
      * @return $this
      */
     public function withVariantId(?int $variantId)
@@ -146,6 +149,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $currency
      * @return $this
      */
     public function withCurrency(?string $currency)
@@ -156,6 +160,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -166,6 +171,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupReference $customerGroup)
@@ -176,6 +182,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $channel
      * @return $this
      */
     public function withChannel(?ChannelReference $channel)

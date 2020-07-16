@@ -115,6 +115,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -125,6 +126,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?float $amount
      * @return $this
      */
     public function withAmount(?float $amount)
@@ -135,6 +137,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -145,6 +148,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $state
      * @return $this
      */
     public function withState(?string $state)
@@ -155,6 +159,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?SubRateCollection $subRates
      * @return $this
      */
     public function withSubRates(?SubRateCollection $subRates)
@@ -165,6 +170,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includedInPrice
      * @return $this
      */
     public function withIncludedInPrice(?bool $includedInPrice)

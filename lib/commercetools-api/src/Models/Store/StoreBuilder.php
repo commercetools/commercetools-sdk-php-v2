@@ -169,6 +169,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -179,6 +180,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -189,6 +191,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -199,6 +202,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -209,6 +213,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -219,6 +224,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -229,6 +235,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -239,6 +246,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -249,6 +257,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?array $languages
      * @return $this
      */
     public function withLanguages(?array $languages)
@@ -259,6 +268,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReferenceCollection $distributionChannels
      * @return $this
      */
     public function withDistributionChannels(?ChannelReferenceCollection $distributionChannels)

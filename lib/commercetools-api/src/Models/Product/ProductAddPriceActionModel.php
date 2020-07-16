@@ -48,11 +48,14 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $variantId = null,
-        string $sku = null,
-        PriceDraft $price = null,
-        bool $staged = null
+        ?int $variantId = null,
+        ?string $sku = null,
+        ?PriceDraft $price = null,
+        ?bool $staged = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -148,21 +151,33 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
 
+    /**
+     * @param ?string $sku
+     */
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
 
+    /**
+     * @param ?PriceDraft $price
+     */
     public function setPrice(?PriceDraft $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

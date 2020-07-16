@@ -34,6 +34,7 @@ final class CartSetCustomerEmailActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)

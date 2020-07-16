@@ -38,9 +38,18 @@ interface ProjectCategoryRecommendationMeta extends JsonObject
      */
     public function getGeneralCategoryNames();
 
+    /**
+     * @param ?string $productName
+     */
     public function setProductName(?string $productName): void;
 
+    /**
+     * @param ?string $productImageUrl
+     */
     public function setProductImageUrl(?string $productImageUrl): void;
 
+    /**
+     * @param ?array $generalCategoryNames
+     */
     public function setGeneralCategoryNames(?array $generalCategoryNames): void;
 }

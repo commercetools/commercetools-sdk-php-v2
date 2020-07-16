@@ -36,9 +36,12 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     protected $oldOrderState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderState = null,
-        string $oldOrderState = null
+        ?string $orderState = null,
+        ?string $oldOrderState = null
     ) {
         $this->orderState = $orderState;
         $this->oldOrderState = $oldOrderState;
@@ -97,11 +100,17 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
     }
 
+    /**
+     * @param ?string $oldOrderState
+     */
     public function setOldOrderState(?string $oldOrderState): void
     {
         $this->oldOrderState = $oldOrderState;

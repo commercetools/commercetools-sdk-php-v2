@@ -70,19 +70,43 @@ interface SimilarProductSearchRequest extends JsonObject
      */
     public function getConfidenceMax();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?string $language
+     */
     public function setLanguage(?string $language): void;
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void;
 
+    /**
+     * @param ?SimilarityMeasures $similarityMeasures
+     */
     public function setSimilarityMeasures(?SimilarityMeasures $similarityMeasures): void;
 
+    /**
+     * @param ?ProductSetSelectorCollection $productSetSelectors
+     */
     public function setProductSetSelectors(?ProductSetSelectorCollection $productSetSelectors): void;
 
+    /**
+     * @param ?float $confidenceMin
+     */
     public function setConfidenceMin(?float $confidenceMin): void;
 
+    /**
+     * @param ?float $confidenceMax
+     */
     public function setConfidenceMax(?float $confidenceMax): void;
 }

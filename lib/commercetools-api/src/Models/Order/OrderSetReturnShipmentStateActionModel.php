@@ -36,9 +36,12 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     protected $shipmentState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $returnItemId = null,
-        string $shipmentState = null
+        ?string $returnItemId = null,
+        ?string $shipmentState = null
     ) {
         $this->returnItemId = $returnItemId;
         $this->shipmentState = $shipmentState;
@@ -97,11 +100,17 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     }
 
 
+    /**
+     * @param ?string $returnItemId
+     */
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
     }
 
+    /**
+     * @param ?string $shipmentState
+     */
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;

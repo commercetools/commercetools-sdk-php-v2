@@ -32,9 +32,12 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     protected $resource;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $action = null,
-        Reference $resource = null
+        ?string $action = null,
+        ?Reference $resource = null
     ) {
         $this->action = $action;
         $this->resource = $resource;
@@ -76,11 +79,17 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     }
 
 
+    /**
+     * @param ?string $action
+     */
     public function setAction(?string $action): void
     {
         $this->action = $action;
     }
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;

@@ -20,5 +20,8 @@ interface CategoryChangeOrderHintAction extends CategoryUpdateAction
      */
     public function getOrderHint();
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void;
 }

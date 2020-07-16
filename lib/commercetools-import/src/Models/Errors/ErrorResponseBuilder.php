@@ -99,6 +99,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $statusCode
      * @return $this
      */
     public function withStatusCode(?int $statusCode)
@@ -109,6 +110,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -119,6 +121,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * @param ?string $error
      * @return $this
      */
     public function withError(?string $error)
@@ -129,6 +132,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * @param ?string $error_description
      * @return $this
      */
     public function withError_description(?string $error_description)
@@ -139,6 +143,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+     * @param ?ErrorObjectCollection $errors
      * @return $this
      */
     public function withErrors(?ErrorObjectCollection $errors)

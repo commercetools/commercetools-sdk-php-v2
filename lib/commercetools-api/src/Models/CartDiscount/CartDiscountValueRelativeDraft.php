@@ -20,5 +20,8 @@ interface CartDiscountValueRelativeDraft extends CartDiscountValueDraft
      */
     public function getPermyriad();
 
+    /**
+     * @param ?int $permyriad
+     */
     public function setPermyriad(?int $permyriad): void;
 }

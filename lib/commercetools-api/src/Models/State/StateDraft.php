@@ -57,17 +57,38 @@ interface StateDraft extends JsonObject
      */
     public function getTransitions();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?string $type
+     */
     public function setType(?string $type): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?bool $initial
+     */
     public function setInitial(?bool $initial): void;
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void;
 
+    /**
+     * @param ?StateResourceIdentifierCollection $transitions
+     */
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void;
 }

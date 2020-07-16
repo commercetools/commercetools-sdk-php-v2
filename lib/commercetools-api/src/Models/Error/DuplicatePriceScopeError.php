@@ -21,5 +21,8 @@ interface DuplicatePriceScopeError extends ErrorObject
      */
     public function getConflictingPrices();
 
+    /**
+     * @param ?PriceCollection $conflictingPrices
+     */
     public function setConflictingPrices(?PriceCollection $conflictingPrices): void;
 }

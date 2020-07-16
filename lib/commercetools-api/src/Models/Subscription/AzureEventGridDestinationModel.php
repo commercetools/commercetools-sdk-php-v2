@@ -36,9 +36,12 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     protected $accessKey;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $uri = null,
-        string $accessKey = null
+        ?string $uri = null,
+        ?string $accessKey = null
     ) {
         $this->uri = $uri;
         $this->accessKey = $accessKey;
@@ -97,11 +100,17 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
 
+    /**
+     * @param ?string $uri
+     */
     public function setUri(?string $uri): void
     {
         $this->uri = $uri;
     }
 
+    /**
+     * @param ?string $accessKey
+     */
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;

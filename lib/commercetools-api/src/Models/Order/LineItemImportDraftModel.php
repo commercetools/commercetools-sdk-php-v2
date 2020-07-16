@@ -87,18 +87,21 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     protected $shippingDetails;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $productId = null,
-        LocalizedString $name = null,
-        ProductVariantImportDraft $variant = null,
-        PriceDraft $price = null,
-        float $quantity = null,
-        ItemStateCollection $state = null,
-        ChannelResourceIdentifier $supplyChannel = null,
-        ChannelResourceIdentifier $distributionChannel = null,
-        TaxRate $taxRate = null,
-        CustomFieldsDraft $custom = null,
-        ItemShippingDetailsDraft $shippingDetails = null
+        ?string $productId = null,
+        ?LocalizedString $name = null,
+        ?ProductVariantImportDraft $variant = null,
+        ?PriceDraft $price = null,
+        ?float $quantity = null,
+        ?ItemStateCollection $state = null,
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?TaxRate $taxRate = null,
+        ?CustomFieldsDraft $custom = null,
+        ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->productId = $productId;
         $this->name = $name;
@@ -212,7 +215,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function getState()
     {
         if (is_null($this->state)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
@@ -325,56 +328,89 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
 
+    /**
+     * @param ?string $productId
+     */
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?ProductVariantImportDraft $variant
+     */
     public function setVariant(?ProductVariantImportDraft $variant): void
     {
         $this->variant = $variant;
     }
 
+    /**
+     * @param ?PriceDraft $price
+     */
     public function setPrice(?PriceDraft $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?ItemStateCollection $state
+     */
     public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $supplyChannel
+     */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
+    /**
+     * @param ?ChannelResourceIdentifier $distributionChannel
+     */
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
     }
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetails
+     */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;

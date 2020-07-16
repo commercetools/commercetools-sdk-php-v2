@@ -35,6 +35,7 @@ final class CartClassificationTypeBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldLocalizedEnumValueCollection $values
      * @return $this
      */
     public function withValues(?CustomFieldLocalizedEnumValueCollection $values)

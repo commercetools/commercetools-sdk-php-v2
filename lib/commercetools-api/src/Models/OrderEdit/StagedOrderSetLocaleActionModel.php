@@ -33,8 +33,11 @@ final class StagedOrderSetLocaleActionModel extends JsonObjectModel implements S
     protected $locale;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $locale = null
+        ?string $locale = null
     ) {
         $this->locale = $locale;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderSetLocaleActionModel extends JsonObjectModel implements S
     }
 
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;

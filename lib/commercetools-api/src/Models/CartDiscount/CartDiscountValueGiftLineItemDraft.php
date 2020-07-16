@@ -40,11 +40,23 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
      */
     public function getDistributionChannel();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
     public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 
+    /**
+     * @param ?ChannelReference $distributionChannel
+     */
     public function setDistributionChannel(?ChannelReference $distributionChannel): void;
 }

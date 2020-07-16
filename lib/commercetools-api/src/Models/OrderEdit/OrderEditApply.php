@@ -26,7 +26,13 @@ interface OrderEditApply extends JsonObject
      */
     public function getResourceVersion();
 
+    /**
+     * @param ?int $editVersion
+     */
     public function setEditVersion(?int $editVersion): void;
 
+    /**
+     * @param ?int $resourceVersion
+     */
     public function setResourceVersion(?int $resourceVersion): void;
 }

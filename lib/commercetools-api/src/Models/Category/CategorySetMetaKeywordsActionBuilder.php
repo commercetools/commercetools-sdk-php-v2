@@ -36,6 +36,7 @@ final class CategorySetMetaKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)

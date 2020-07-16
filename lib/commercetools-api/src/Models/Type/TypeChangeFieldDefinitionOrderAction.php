@@ -20,5 +20,8 @@ interface TypeChangeFieldDefinitionOrderAction extends TypeUpdateAction
      */
     public function getFieldNames();
 
+    /**
+     * @param ?array $fieldNames
+     */
     public function setFieldNames(?array $fieldNames): void;
 }

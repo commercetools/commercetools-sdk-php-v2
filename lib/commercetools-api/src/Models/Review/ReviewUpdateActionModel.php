@@ -43,6 +43,9 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
        'transitionState' => ReviewTransitionStateActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

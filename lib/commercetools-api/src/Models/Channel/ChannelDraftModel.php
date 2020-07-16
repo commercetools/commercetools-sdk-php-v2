@@ -63,14 +63,17 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     protected $geoLocation;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        array $roles = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null,
-        Address $address = null,
-        CustomFieldsDraft $custom = null,
-        GeoJson $geoLocation = null
+        ?string $key = null,
+        ?array $roles = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $description = null,
+        ?Address $address = null,
+        ?CustomFieldsDraft $custom = null,
+        ?GeoJson $geoLocation = null
     ) {
         $this->key = $key;
         $this->roles = $roles;
@@ -106,7 +109,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     public function getRoles()
     {
         if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
@@ -210,36 +213,57 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void
     {
         $this->roles = $roles;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?GeoJson $geoLocation
+     */
     public function setGeoLocation(?GeoJson $geoLocation): void
     {
         $this->geoLocation = $geoLocation;

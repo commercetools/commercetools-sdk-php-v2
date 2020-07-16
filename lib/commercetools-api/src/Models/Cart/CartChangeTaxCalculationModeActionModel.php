@@ -31,8 +31,11 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     protected $taxCalculationMode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $taxCalculationMode = null
+        ?string $taxCalculationMode = null
     ) {
         $this->taxCalculationMode = $taxCalculationMode;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     }
 
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void
     {
         $this->taxCalculationMode = $taxCalculationMode;

@@ -31,8 +31,11 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     protected $headerValue;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $headerValue = null
+        ?string $headerValue = null
     ) {
         $this->headerValue = $headerValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?string $headerValue
+     */
     public function setHeaderValue(?string $headerValue): void
     {
         $this->headerValue = $headerValue;

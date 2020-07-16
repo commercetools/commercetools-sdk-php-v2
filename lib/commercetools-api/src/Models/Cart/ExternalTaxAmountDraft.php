@@ -29,7 +29,13 @@ interface ExternalTaxAmountDraft extends JsonObject
      */
     public function getTaxRate();
 
+    /**
+     * @param ?Money $totalGross
+     */
     public function setTotalGross(?Money $totalGross): void;
 
+    /**
+     * @param ?ExternalTaxRateDraft $taxRate
+     */
     public function setTaxRate(?ExternalTaxRateDraft $taxRate): void;
 }

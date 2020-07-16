@@ -34,6 +34,7 @@ final class StateSetTransitionsActionBuilder implements Builder
     }
 
     /**
+     * @param ?StateResourceIdentifierCollection $transitions
      * @return $this
      */
     public function withTransitions(?StateResourceIdentifierCollection $transitions)

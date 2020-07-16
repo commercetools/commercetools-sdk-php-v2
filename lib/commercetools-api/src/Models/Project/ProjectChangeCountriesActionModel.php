@@ -31,8 +31,11 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     protected $countries;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $countries = null
+        ?array $countries = null
     ) {
         $this->countries = $countries;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -63,7 +66,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     public function getCountries()
     {
         if (is_null($this->countries)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_COUNTRIES);
             if (is_null($data)) {
                 return null;
@@ -75,6 +78,9 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?array $countries
+     */
     public function setCountries(?array $countries): void
     {
         $this->countries = $countries;

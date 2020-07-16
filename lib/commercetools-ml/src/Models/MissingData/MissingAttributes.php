@@ -64,17 +64,38 @@ interface MissingAttributes extends JsonObject
      */
     public function getAttributeCoverage();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?array $missingAttributeValues
+     */
     public function setMissingAttributeValues(?array $missingAttributeValues): void;
 
+    /**
+     * @param ?array $missingAttributeNames
+     */
     public function setMissingAttributeNames(?array $missingAttributeNames): void;
 
+    /**
+     * @param ?AttributeCount $attributeCount
+     */
     public function setAttributeCount(?AttributeCount $attributeCount): void;
 
+    /**
+     * @param ?AttributeCoverage $attributeCoverage
+     */
     public function setAttributeCoverage(?AttributeCoverage $attributeCoverage): void;
 }

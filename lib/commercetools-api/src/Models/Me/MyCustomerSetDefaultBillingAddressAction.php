@@ -20,5 +20,8 @@ interface MyCustomerSetDefaultBillingAddressAction extends MyCustomerUpdateActio
      */
     public function getAddressId();
 
+    /**
+     * @param ?string $addressId
+     */
     public function setAddressId(?string $addressId): void;
 }

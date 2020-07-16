@@ -39,11 +39,23 @@ interface ReviewRatingSetMessage extends Message
      */
     public function getTarget();
 
+    /**
+     * @param ?float $oldRating
+     */
     public function setOldRating(?float $oldRating): void;
 
+    /**
+     * @param ?float $newRating
+     */
     public function setNewRating(?float $newRating): void;
 
+    /**
+     * @param ?bool $includedInStatistics
+     */
     public function setIncludedInStatistics(?bool $includedInStatistics): void;
 
+    /**
+     * @param ?Reference $target
+     */
     public function setTarget(?Reference $target): void;
 }

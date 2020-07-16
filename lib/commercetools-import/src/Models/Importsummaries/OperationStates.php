@@ -94,23 +94,53 @@ interface OperationStates extends JsonObject
      */
     public function getExpired();
 
+    /**
+     * @param ?float $Accepted
+     */
     public function setAccepted(?float $Accepted): void;
 
+    /**
+     * @param ?float $ValidationFailed
+     */
     public function setValidationFailed(?float $ValidationFailed): void;
 
+    /**
+     * @param ?float $Unresolved
+     */
     public function setUnresolved(?float $Unresolved): void;
 
+    /**
+     * @param ?float $Resolved
+     */
     public function setResolved(?float $Resolved): void;
 
+    /**
+     * @param ?float $WaitForMasterVariant
+     */
     public function setWaitForMasterVariant(?float $WaitForMasterVariant): void;
 
+    /**
+     * @param ?float $Imported
+     */
     public function setImported(?float $Imported): void;
 
+    /**
+     * @param ?float $Deleted
+     */
     public function setDeleted(?float $Deleted): void;
 
+    /**
+     * @param ?float $Rejected
+     */
     public function setRejected(?float $Rejected): void;
 
+    /**
+     * @param ?float $Skipped
+     */
     public function setSkipped(?float $Skipped): void;
 
+    /**
+     * @param ?float $Expired
+     */
     public function setExpired(?float $Expired): void;
 }

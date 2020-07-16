@@ -30,9 +30,12 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     protected $authorizationHeader;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $url = null,
-        string $authorizationHeader = null
+        ?string $url = null,
+        ?string $authorizationHeader = null
     ) {
         $this->url = $url;
         $this->authorizationHeader = $authorizationHeader;
@@ -73,11 +76,17 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     }
 
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
 
+    /**
+     * @param ?string $authorizationHeader
+     */
     public function setAuthorizationHeader(?string $authorizationHeader): void
     {
         $this->authorizationHeader = $authorizationHeader;

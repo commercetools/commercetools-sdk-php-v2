@@ -44,13 +44,28 @@ interface MissingImagesPagedQueryResult extends JsonObject
      */
     public function getMeta();
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?MissingImagesCollection $results
+     */
     public function setResults(?MissingImagesCollection $results): void;
 
+    /**
+     * @param ?MissingImagesMeta $meta
+     */
     public function setMeta(?MissingImagesMeta $meta): void;
 }

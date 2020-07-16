@@ -94,6 +94,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?string $predicate
      * @return $this
      */
     public function withPredicate(?string $predicate)
@@ -104,6 +105,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?int $triggerQuantity
      * @return $this
      */
     public function withTriggerQuantity(?int $triggerQuantity)
@@ -114,6 +116,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?int $discountedQuantity
      * @return $this
      */
     public function withDiscountedQuantity(?int $discountedQuantity)
@@ -124,6 +127,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxOccurrence
      * @return $this
      */
     public function withMaxOccurrence(?int $maxOccurrence)
@@ -134,6 +138,7 @@ final class MultiBuyLineItemsTargetBuilder implements Builder
     }
 
     /**
+     * @param ?string $selectionMode
      * @return $this
      */
     public function withSelectionMode(?string $selectionMode)

@@ -71,15 +71,18 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     protected $discounted;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Money $value = null,
-        string $country = null,
-        CustomerGroupKeyReference $customerGroup = null,
-        ChannelKeyReference $channel = null,
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null,
-        Custom $custom = null,
-        DiscountedPrice $discounted = null
+        ?Money $value = null,
+        ?string $country = null,
+        ?CustomerGroupKeyReference $customerGroup = null,
+        ?ChannelKeyReference $channel = null,
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null,
+        ?Custom $custom = null,
+        ?DiscountedPrice $discounted = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -251,41 +254,65 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
 
+    /**
+     * @param ?string $country
+     */
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
+    /**
+     * @param ?CustomerGroupKeyReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupKeyReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
 
+    /**
+     * @param ?ChannelKeyReference $channel
+     */
     public function setChannel(?ChannelKeyReference $channel): void
     {
         $this->channel = $channel;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
 
+    /**
+     * @param ?Custom $custom
+     */
     public function setCustom(?Custom $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?DiscountedPrice $discounted
+     */
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;

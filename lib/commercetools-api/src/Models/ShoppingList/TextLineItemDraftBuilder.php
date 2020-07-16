@@ -97,6 +97,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
@@ -107,6 +108,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -117,6 +119,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -127,6 +130,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -137,6 +141,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)

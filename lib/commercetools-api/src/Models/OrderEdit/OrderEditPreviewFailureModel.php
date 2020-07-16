@@ -32,8 +32,11 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     protected $errors;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ErrorObjectCollection $errors = null
+        ?ErrorObjectCollection $errors = null
     ) {
         $this->errors = $errors;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -62,7 +65,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     public function getErrors()
     {
         if (is_null($this->errors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;
@@ -74,6 +77,9 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     }
 
 
+    /**
+     * @param ?ErrorObjectCollection $errors
+     */
     public function setErrors(?ErrorObjectCollection $errors): void
     {
         $this->errors = $errors;

@@ -21,7 +21,7 @@ use stdClass;
 final class FacetResultTermBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $term;
 
@@ -36,7 +36,7 @@ final class FacetResultTermBuilder implements Builder
     private $productCount;
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getTerm()
     {
@@ -60,9 +60,10 @@ final class FacetResultTermBuilder implements Builder
     }
 
     /**
+     * @param mixed $term
      * @return $this
      */
-    public function withTerm(?JsonObject $term)
+    public function withTerm($term)
     {
         $this->term = $term;
 
@@ -70,6 +71,7 @@ final class FacetResultTermBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -80,6 +82,7 @@ final class FacetResultTermBuilder implements Builder
     }
 
     /**
+     * @param ?int $productCount
      * @return $this
      */
     public function withProductCount(?int $productCount)

@@ -27,7 +27,13 @@ interface ExtensionInput extends JsonObject
      */
     public function getResource();
 
+    /**
+     * @param ?string $action
+     */
     public function setAction(?string $action): void;
 
+    /**
+     * @param ?Reference $resource
+     */
     public function setResource(?Reference $resource): void;
 }

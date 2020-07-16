@@ -32,9 +32,18 @@ interface Image extends JsonObject
      */
     public function getLabel();
 
+    /**
+     * @param ?string $url
+     */
     public function setUrl(?string $url): void;
 
+    /**
+     * @param ?AssetDimensions $dimensions
+     */
     public function setDimensions(?AssetDimensions $dimensions): void;
 
+    /**
+     * @param ?string $label
+     */
     public function setLabel(?string $label): void;
 }

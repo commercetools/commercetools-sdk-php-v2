@@ -26,7 +26,13 @@ interface DiscountedLineItemPriceForQuantity extends JsonObject
      */
     public function getDiscountedPrice();
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 
+    /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
+     */
     public function setDiscountedPrice(?DiscountedLineItemPrice $discountedPrice): void;
 }

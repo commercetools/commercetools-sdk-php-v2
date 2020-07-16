@@ -33,8 +33,11 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     protected $customerGroup;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomerGroupReference $customerGroup = null
+        ?CustomerGroupReference $customerGroup = null
     ) {
         $this->customerGroup = $customerGroup;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?CustomerGroupReference $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;

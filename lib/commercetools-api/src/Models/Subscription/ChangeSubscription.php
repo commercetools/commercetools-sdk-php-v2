@@ -20,5 +20,8 @@ interface ChangeSubscription extends JsonObject
      */
     public function getResourceTypeId();
 
+    /**
+     * @param ?string $resourceTypeId
+     */
     public function setResourceTypeId(?string $resourceTypeId): void;
 }

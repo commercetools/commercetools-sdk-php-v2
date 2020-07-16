@@ -32,8 +32,11 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     protected $values;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CustomFieldLocalizedEnumValueCollection $values = null
+        ?CustomFieldLocalizedEnumValueCollection $values = null
     ) {
         $this->values = $values;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -62,7 +65,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     public function getValues()
     {
         if (is_null($this->values)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUES);
             if (is_null($data)) {
                 return null;
@@ -74,6 +77,9 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     }
 
 
+    /**
+     * @param ?CustomFieldLocalizedEnumValueCollection $values
+     */
     public function setValues(?CustomFieldLocalizedEnumValueCollection $values): void
     {
         $this->values = $values;

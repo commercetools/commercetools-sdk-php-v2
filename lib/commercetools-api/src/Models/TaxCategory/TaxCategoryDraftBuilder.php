@@ -73,6 +73,7 @@ final class TaxCategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -83,6 +84,7 @@ final class TaxCategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $description
      * @return $this
      */
     public function withDescription(?string $description)
@@ -93,6 +95,7 @@ final class TaxCategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRateDraftCollection $rates
      * @return $this
      */
     public function withRates(?TaxRateDraftCollection $rates)
@@ -103,6 +106,7 @@ final class TaxCategoryDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)

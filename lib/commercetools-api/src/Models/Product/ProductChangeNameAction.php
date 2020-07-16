@@ -27,7 +27,13 @@ interface ProductChangeNameAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

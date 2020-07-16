@@ -20,5 +20,8 @@ interface CartChangeTaxCalculationModeAction extends CartUpdateAction
      */
     public function getTaxCalculationMode();
 
+    /**
+     * @param ?string $taxCalculationMode
+     */
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
 }

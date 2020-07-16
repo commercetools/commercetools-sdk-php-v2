@@ -75,6 +75,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?float $oldRating
      * @return $this
      */
     public function withOldRating(?float $oldRating)
@@ -85,6 +86,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?float $newRating
      * @return $this
      */
     public function withNewRating(?float $newRating)
@@ -95,6 +97,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includedInStatistics
      * @return $this
      */
     public function withIncludedInStatistics(?bool $includedInStatistics)
@@ -105,6 +108,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $target
      * @return $this
      */
     public function withTarget(?Reference $target)

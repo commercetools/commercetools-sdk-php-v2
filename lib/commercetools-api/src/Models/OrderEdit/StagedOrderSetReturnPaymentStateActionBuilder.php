@@ -49,6 +49,7 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $returnItemId
      * @return $this
      */
     public function withReturnItemId(?string $returnItemId)
@@ -59,6 +60,7 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)

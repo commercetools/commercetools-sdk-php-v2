@@ -26,7 +26,13 @@ interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAc
      */
     public function getNewValue();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?string $newValue
+     */
     public function setNewValue(?string $newValue): void;
 }

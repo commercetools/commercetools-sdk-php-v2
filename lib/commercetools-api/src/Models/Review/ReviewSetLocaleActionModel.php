@@ -31,8 +31,11 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     protected $locale;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $locale = null
+        ?string $locale = null
     ) {
         $this->locale = $locale;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class ReviewSetLocaleActionModel extends JsonObjectModel implements Review
     }
 
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;

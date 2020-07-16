@@ -33,8 +33,11 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     protected $taxMode;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $taxMode = null
+        ?string $taxMode = null
     ) {
         $this->taxMode = $taxMode;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     }
 
 
+    /**
+     * @param ?string $taxMode
+     */
     public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;

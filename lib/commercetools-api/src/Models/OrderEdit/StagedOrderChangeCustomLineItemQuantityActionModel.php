@@ -38,9 +38,12 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        float $quantity = null
+        ?string $customLineItemId = null,
+        ?float $quantity = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
@@ -99,11 +102,17 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;

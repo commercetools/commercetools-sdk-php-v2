@@ -31,8 +31,11 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -77,6 +80,9 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

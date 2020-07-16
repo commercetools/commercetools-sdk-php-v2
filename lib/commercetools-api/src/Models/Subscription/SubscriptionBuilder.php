@@ -188,6 +188,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -198,6 +199,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -208,6 +210,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -218,6 +221,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -228,6 +232,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -238,6 +243,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -248,6 +254,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?ChangeSubscriptionCollection $changes
      * @return $this
      */
     public function withChanges(?ChangeSubscriptionCollection $changes)
@@ -258,6 +265,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?Destination $destination
      * @return $this
      */
     public function withDestination(?Destination $destination)
@@ -268,6 +276,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -278,6 +287,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?MessageSubscriptionCollection $messages
      * @return $this
      */
     public function withMessages(?MessageSubscriptionCollection $messages)
@@ -288,6 +298,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?DeliveryFormat $format
      * @return $this
      */
     public function withFormat(?DeliveryFormat $format)
@@ -298,6 +309,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?string $status
      * @return $this
      */
     public function withStatus(?string $status)

@@ -36,6 +36,9 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
        'PreviewSuccess' => OrderEditPreviewSuccessModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

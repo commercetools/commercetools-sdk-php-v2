@@ -21,5 +21,8 @@ interface StagedOrderSetLocaleAction extends StagedOrderUpdateAction
      */
     public function getLocale();
 
+    /**
+     * @param ?string $locale
+     */
     public function setLocale(?string $locale): void;
 }

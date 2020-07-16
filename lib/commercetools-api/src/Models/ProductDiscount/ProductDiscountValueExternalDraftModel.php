@@ -26,6 +26,9 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

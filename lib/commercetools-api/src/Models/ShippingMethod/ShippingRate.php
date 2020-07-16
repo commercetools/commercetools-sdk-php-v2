@@ -47,11 +47,23 @@ interface ShippingRate extends JsonObject
      */
     public function getTiers();
 
+    /**
+     * @param ?TypedMoney $price
+     */
     public function setPrice(?TypedMoney $price): void;
 
+    /**
+     * @param ?TypedMoney $freeAbove
+     */
     public function setFreeAbove(?TypedMoney $freeAbove): void;
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void;
 
+    /**
+     * @param ?ShippingRatePriceTierCollection $tiers
+     */
     public function setTiers(?ShippingRatePriceTierCollection $tiers): void;
 }

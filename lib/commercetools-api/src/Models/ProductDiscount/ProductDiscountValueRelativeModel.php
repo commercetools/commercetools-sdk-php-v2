@@ -31,8 +31,11 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
     protected $permyriad;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $permyriad = null
+        ?int $permyriad = null
     ) {
         $this->permyriad = $permyriad;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?int $permyriad
+     */
     public function setPermyriad(?int $permyriad): void
     {
         $this->permyriad = $permyriad;

@@ -225,6 +225,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -235,6 +236,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -245,6 +247,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -255,6 +258,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -265,6 +269,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -275,6 +280,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -285,6 +291,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -295,6 +302,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -305,6 +313,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -315,6 +324,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -325,6 +335,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -335,6 +346,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $transitionDate
      * @return $this
      */
     public function withTransitionDate(?DateTimeImmutable $transitionDate)
@@ -345,6 +357,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -355,6 +368,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $fromState
      * @return $this
      */
     public function withFromState(?StateReference $fromState)
@@ -365,6 +379,7 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $toState
      * @return $this
      */
     public function withToState(?StateReference $toState)

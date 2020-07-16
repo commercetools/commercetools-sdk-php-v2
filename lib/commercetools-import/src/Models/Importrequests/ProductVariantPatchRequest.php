@@ -23,5 +23,8 @@ interface ProductVariantPatchRequest extends ImportRequest
      */
     public function getPatches();
 
+    /**
+     * @param ?ProductVariantPatchCollection $patches
+     */
     public function setPatches(?ProductVariantPatchCollection $patches): void;
 }

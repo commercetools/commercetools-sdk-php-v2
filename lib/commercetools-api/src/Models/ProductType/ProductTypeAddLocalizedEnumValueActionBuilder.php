@@ -47,6 +47,7 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     }
 
     /**
+     * @param ?AttributeLocalizedEnumValue $value
      * @return $this
      */
     public function withValue(?AttributeLocalizedEnumValue $value)

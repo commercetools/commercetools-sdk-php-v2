@@ -35,6 +35,7 @@ final class PaymentInfoBuilder implements Builder
     }
 
     /**
+     * @param ?PaymentReferenceCollection $payments
      * @return $this
      */
     public function withPayments(?PaymentReferenceCollection $payments)

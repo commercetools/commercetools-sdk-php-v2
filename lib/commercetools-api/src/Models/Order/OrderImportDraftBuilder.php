@@ -357,6 +357,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderNumber
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
@@ -367,6 +368,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerId
      * @return $this
      */
     public function withCustomerId(?string $customerId)
@@ -377,6 +379,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerEmail
      * @return $this
      */
     public function withCustomerEmail(?string $customerEmail)
@@ -387,6 +390,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LineItemImportDraftCollection $lineItems
      * @return $this
      */
     public function withLineItems(?LineItemImportDraftCollection $lineItems)
@@ -397,6 +401,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
      * @return $this
      */
     public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
@@ -407,6 +412,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalPrice
      * @return $this
      */
     public function withTotalPrice(?Money $totalPrice)
@@ -417,6 +423,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPriceDraft $taxedPrice
      * @return $this
      */
     public function withTaxedPrice(?TaxedPriceDraft $taxedPrice)
@@ -427,6 +434,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Address $shippingAddress
      * @return $this
      */
     public function withShippingAddress(?Address $shippingAddress)
@@ -437,6 +445,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Address $billingAddress
      * @return $this
      */
     public function withBillingAddress(?Address $billingAddress)
@@ -447,6 +456,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
@@ -457,6 +467,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -467,6 +478,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderState
      * @return $this
      */
     public function withOrderState(?string $orderState)
@@ -477,6 +489,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)
@@ -487,6 +500,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)
@@ -497,6 +511,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingInfoImportDraft $shippingInfo
      * @return $this
      */
     public function withShippingInfo(?ShippingInfoImportDraft $shippingInfo)
@@ -507,6 +522,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $completedAt
      * @return $this
      */
     public function withCompletedAt(?DateTimeImmutable $completedAt)
@@ -517,6 +533,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -527,6 +544,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
      * @return $this
      */
     public function withInventoryMode(?string $inventoryMode)
@@ -537,6 +555,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRoundingMode
      * @return $this
      */
     public function withTaxRoundingMode(?string $taxRoundingMode)
@@ -547,6 +566,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AddressCollection $itemShippingAddresses
      * @return $this
      */
     public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
@@ -557,6 +577,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
      * @return $this
      */
     public function withStore(?StoreResourceIdentifier $store)
@@ -567,6 +588,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $origin
      * @return $this
      */
     public function withOrigin(?string $origin)

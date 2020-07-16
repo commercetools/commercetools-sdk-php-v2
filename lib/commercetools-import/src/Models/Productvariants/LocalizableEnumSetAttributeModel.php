@@ -36,9 +36,12 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        array $value = null
+        ?string $name = null,
+        ?array $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -89,7 +92,7 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -101,11 +104,17 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?array $value
+     */
     public function setValue(?array $value): void
     {
         $this->value = $value;

@@ -21,5 +21,8 @@ interface ProjectChangeMessagesConfigurationAction extends ProjectUpdateAction
      */
     public function getMessagesConfiguration();
 
+    /**
+     * @param ?MessageConfigurationDraft $messagesConfiguration
+     */
     public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void;
 }

@@ -29,7 +29,13 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
      */
     public function getExternalTaxPortions();
 
+    /**
+     * @param ?Money $externalTotalGross
+     */
     public function setExternalTotalGross(?Money $externalTotalGross): void;
 
+    /**
+     * @param ?TaxPortionDraftCollection $externalTaxPortions
+     */
     public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void;
 }

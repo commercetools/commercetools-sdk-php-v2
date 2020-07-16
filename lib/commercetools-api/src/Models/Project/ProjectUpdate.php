@@ -26,7 +26,13 @@ interface ProjectUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ProjectUpdateActionCollection $actions
+     */
     public function setActions(?ProjectUpdateActionCollection $actions): void;
 }

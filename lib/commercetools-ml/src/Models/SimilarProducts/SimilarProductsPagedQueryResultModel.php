@@ -45,12 +45,15 @@ final class SimilarProductsPagedQueryResultModel extends JsonObjectModel impleme
     protected $meta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $count = null,
-        int $total = null,
-        int $offset = null,
-        SimilarProductPairCollection $results = null,
-        SimilarProductSearchRequestMeta $meta = null
+        ?int $count = null,
+        ?int $total = null,
+        ?int $offset = null,
+        ?SimilarProductPairCollection $results = null,
+        ?SimilarProductSearchRequestMeta $meta = null
     ) {
         $this->count = $count;
         $this->total = $total;
@@ -116,7 +119,7 @@ final class SimilarProductsPagedQueryResultModel extends JsonObjectModel impleme
     public function getResults()
     {
         if (is_null($this->results)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;
@@ -146,26 +149,41 @@ final class SimilarProductsPagedQueryResultModel extends JsonObjectModel impleme
     }
 
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
+    /**
+     * @param ?SimilarProductPairCollection $results
+     */
     public function setResults(?SimilarProductPairCollection $results): void
     {
         $this->results = $results;
     }
 
+    /**
+     * @param ?SimilarProductSearchRequestMeta $meta
+     */
     public function setMeta(?SimilarProductSearchRequestMeta $meta): void
     {
         $this->meta = $meta;

@@ -47,6 +47,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -57,6 +58,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     }
 
     /**
+     * @param ?DiscountedLineItemPrice $discountedPrice
      * @return $this
      */
     public function withDiscountedPrice(?DiscountedLineItemPrice $discountedPrice)

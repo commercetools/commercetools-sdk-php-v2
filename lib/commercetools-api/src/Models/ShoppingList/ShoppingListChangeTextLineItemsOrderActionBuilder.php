@@ -34,6 +34,7 @@ final class ShoppingListChangeTextLineItemsOrderActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $textLineItemOrder
      * @return $this
      */
     public function withTextLineItemOrder(?array $textLineItemOrder)

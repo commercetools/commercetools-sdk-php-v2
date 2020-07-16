@@ -289,6 +289,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -299,6 +300,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -309,6 +311,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -319,6 +322,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -329,6 +333,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -339,6 +344,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -349,6 +355,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -359,6 +366,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $uniquenessValue
      * @return $this
      */
     public function withUniquenessValue(?string $uniquenessValue)
@@ -369,6 +377,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -379,6 +388,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $authorName
      * @return $this
      */
     public function withAuthorName(?string $authorName)
@@ -389,6 +399,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)
@@ -399,6 +410,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?string $text
      * @return $this
      */
     public function withText(?string $text)
@@ -409,6 +421,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?JsonObject $target
      * @return $this
      */
     public function withTarget(?JsonObject $target)
@@ -419,6 +432,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?bool $includedInStatistics
      * @return $this
      */
     public function withIncludedInStatistics(?bool $includedInStatistics)
@@ -429,6 +443,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?int $rating
      * @return $this
      */
     public function withRating(?int $rating)
@@ -439,6 +454,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)
@@ -449,6 +465,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerReference $customer
      * @return $this
      */
     public function withCustomer(?CustomerReference $customer)
@@ -459,6 +476,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)

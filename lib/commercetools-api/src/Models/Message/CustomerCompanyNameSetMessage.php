@@ -20,5 +20,8 @@ interface CustomerCompanyNameSetMessage extends Message
      */
     public function getCompanyName();
 
+    /**
+     * @param ?string $companyName
+     */
     public function setCompanyName(?string $companyName): void;
 }

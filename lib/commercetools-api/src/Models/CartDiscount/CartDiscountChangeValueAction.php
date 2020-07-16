@@ -20,5 +20,8 @@ interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
      */
     public function getValue();
 
+    /**
+     * @param ?CartDiscountValueDraft $value
+     */
     public function setValue(?CartDiscountValueDraft $value): void;
 }

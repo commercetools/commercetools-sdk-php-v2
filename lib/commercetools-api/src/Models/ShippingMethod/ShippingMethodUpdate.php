@@ -26,7 +26,13 @@ interface ShippingMethodUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?ShippingMethodUpdateActionCollection $actions
+     */
     public function setActions(?ShippingMethodUpdateActionCollection $actions): void;
 }

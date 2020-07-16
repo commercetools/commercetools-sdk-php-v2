@@ -31,8 +31,11 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     protected $currencies;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $currencies = null
+        ?array $currencies = null
     ) {
         $this->currencies = $currencies;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -63,7 +66,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     public function getCurrencies()
     {
         if (is_null($this->currencies)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_CURRENCIES);
             if (is_null($data)) {
                 return null;
@@ -75,6 +78,9 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?array $currencies
+     */
     public function setCurrencies(?array $currencies): void
     {
         $this->currencies = $currencies;

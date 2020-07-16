@@ -23,5 +23,8 @@ interface CustomerSetCustomerNumberAction extends CustomerUpdateAction
      */
     public function getCustomerNumber();
 
+    /**
+     * @param ?string $customerNumber
+     */
     public function setCustomerNumber(?string $customerNumber): void;
 }

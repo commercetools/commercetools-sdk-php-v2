@@ -56,12 +56,15 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     protected $actualTransitionDate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customLineItemId = null,
-        int $quantity = null,
-        StateResourceIdentifier $fromState = null,
-        StateResourceIdentifier $toState = null,
-        DateTimeImmutable $actualTransitionDate = null
+        ?string $customLineItemId = null,
+        ?int $quantity = null,
+        ?StateResourceIdentifier $fromState = null,
+        ?StateResourceIdentifier $toState = null,
+        ?DateTimeImmutable $actualTransitionDate = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
@@ -180,26 +183,41 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
+    /**
+     * @param ?int $quantity
+     */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?StateResourceIdentifier $fromState
+     */
     public function setFromState(?StateResourceIdentifier $fromState): void
     {
         $this->fromState = $fromState;
     }
 
+    /**
+     * @param ?StateResourceIdentifier $toState
+     */
     public function setToState(?StateResourceIdentifier $toState): void
     {
         $this->toState = $toState;
     }
 
+    /**
+     * @param ?DateTimeImmutable $actualTransitionDate
+     */
     public function setActualTransitionDate(?DateTimeImmutable $actualTransitionDate): void
     {
         $this->actualTransitionDate = $actualTransitionDate;

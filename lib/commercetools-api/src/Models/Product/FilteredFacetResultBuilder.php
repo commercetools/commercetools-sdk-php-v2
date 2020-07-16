@@ -47,6 +47,7 @@ final class FilteredFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $count
      * @return $this
      */
     public function withCount(?int $count)
@@ -57,6 +58,7 @@ final class FilteredFacetResultBuilder implements Builder
     }
 
     /**
+     * @param ?int $productCount
      * @return $this
      */
     public function withProductCount(?int $productCount)

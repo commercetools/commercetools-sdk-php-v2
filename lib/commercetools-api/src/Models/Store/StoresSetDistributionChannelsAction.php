@@ -21,5 +21,8 @@ interface StoresSetDistributionChannelsAction extends StoreUpdateAction
      */
     public function getDistributionChannels();
 
+    /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
+     */
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void;
 }

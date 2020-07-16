@@ -21,5 +21,8 @@ interface ProductCreatedMessagePayload extends MessagePayload
      */
     public function getProductProjection();
 
+    /**
+     * @param ?ProductProjection $productProjection
+     */
     public function setProductProjection(?ProductProjection $productProjection): void;
 }

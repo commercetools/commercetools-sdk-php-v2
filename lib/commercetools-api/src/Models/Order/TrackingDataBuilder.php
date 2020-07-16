@@ -92,6 +92,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * @param ?string $trackingId
      * @return $this
      */
     public function withTrackingId(?string $trackingId)
@@ -102,6 +103,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * @param ?string $carrier
      * @return $this
      */
     public function withCarrier(?string $carrier)
@@ -112,6 +114,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * @param ?string $provider
      * @return $this
      */
     public function withProvider(?string $provider)
@@ -122,6 +125,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * @param ?string $providerTransaction
      * @return $this
      */
     public function withProviderTransaction(?string $providerTransaction)
@@ -132,6 +136,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isReturn
      * @return $this
      */
     public function withIsReturn(?bool $isReturn)

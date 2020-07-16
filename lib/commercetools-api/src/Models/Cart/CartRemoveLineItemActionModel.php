@@ -53,12 +53,15 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     protected $shippingDetailsToRemove;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        float $quantity = null,
-        Money $externalPrice = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null,
-        ItemShippingDetailsDraft $shippingDetailsToRemove = null
+        ?string $lineItemId = null,
+        ?float $quantity = null,
+        ?Money $externalPrice = null,
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?ItemShippingDetailsDraft $shippingDetailsToRemove = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
@@ -174,26 +177,41 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;
     }
 
+    /**
+     * @param ?Money $externalPrice
+     */
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;
     }
 
+    /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
+     */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;
     }
 
+    /**
+     * @param ?ItemShippingDetailsDraft $shippingDetailsToRemove
+     */
     public function setShippingDetailsToRemove(?ItemShippingDetailsDraft $shippingDetailsToRemove): void
     {
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;

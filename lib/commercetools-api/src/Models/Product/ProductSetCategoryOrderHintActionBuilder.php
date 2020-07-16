@@ -60,6 +60,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $categoryId
      * @return $this
      */
     public function withCategoryId(?string $categoryId)
@@ -70,6 +71,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderHint
      * @return $this
      */
     public function withOrderHint(?string $orderHint)
@@ -80,6 +82,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

@@ -20,5 +20,8 @@ interface OrderEditSetCommentAction extends OrderEditUpdateAction
      */
     public function getComment();
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void;
 }

@@ -31,8 +31,11 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        bool $value = null
+        ?bool $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
     }
 
 
+    /**
+     * @param ?bool $value
+     */
     public function setValue(?bool $value): void
     {
         $this->value = $value;

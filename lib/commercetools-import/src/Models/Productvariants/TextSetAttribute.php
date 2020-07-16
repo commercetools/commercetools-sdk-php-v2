@@ -20,5 +20,8 @@ interface TextSetAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?array $value
+     */
     public function setValue(?array $value): void;
 }

@@ -48,11 +48,14 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     protected $target;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        float $oldRating = null,
-        float $newRating = null,
-        bool $includedInStatistics = null,
-        Reference $target = null
+        ?float $oldRating = null,
+        ?float $newRating = null,
+        ?bool $includedInStatistics = null,
+        ?Reference $target = null
     ) {
         $this->oldRating = $oldRating;
         $this->newRating = $newRating;
@@ -148,21 +151,33 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?float $oldRating
+     */
     public function setOldRating(?float $oldRating): void
     {
         $this->oldRating = $oldRating;
     }
 
+    /**
+     * @param ?float $newRating
+     */
     public function setNewRating(?float $newRating): void
     {
         $this->newRating = $newRating;
     }
 
+    /**
+     * @param ?bool $includedInStatistics
+     */
     public function setIncludedInStatistics(?bool $includedInStatistics): void
     {
         $this->includedInStatistics = $includedInStatistics;
     }
 
+    /**
+     * @param ?Reference $target
+     */
     public function setTarget(?Reference $target): void
     {
         $this->target = $target;

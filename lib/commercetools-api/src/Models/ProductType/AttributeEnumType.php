@@ -20,5 +20,8 @@ interface AttributeEnumType extends AttributeType
      */
     public function getValues();
 
+    /**
+     * @param ?AttributePlainEnumValueCollection $values
+     */
     public function setValues(?AttributePlainEnumValueCollection $values): void;
 }

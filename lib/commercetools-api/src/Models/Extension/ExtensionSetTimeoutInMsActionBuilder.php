@@ -39,6 +39,7 @@ final class ExtensionSetTimeoutInMsActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $timeoutInMs
      * @return $this
      */
     public function withTimeoutInMs(?int $timeoutInMs)

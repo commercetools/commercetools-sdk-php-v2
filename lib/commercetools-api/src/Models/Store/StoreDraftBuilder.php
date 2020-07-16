@@ -84,6 +84,7 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -94,6 +95,7 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -104,6 +106,7 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $languages
      * @return $this
      */
     public function withLanguages(?array $languages)
@@ -114,6 +117,7 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
      * @return $this
      */
     public function withDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels)

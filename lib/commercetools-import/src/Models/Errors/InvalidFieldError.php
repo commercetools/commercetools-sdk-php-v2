@@ -27,7 +27,7 @@ interface InvalidFieldError extends ErrorObject
     /**
      * <p>The invalid value.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getInvalidValue();
 
@@ -38,9 +38,18 @@ interface InvalidFieldError extends ErrorObject
      */
     public function getAllowedValues();
 
+    /**
+     * @param ?string $field
+     */
     public function setField(?string $field): void;
 
-    public function setInvalidValue(?JsonObject $invalidValue): void;
+    /**
+     * @param mixed $invalidValue
+     */
+    public function setInvalidValue($invalidValue): void;
 
+    /**
+     * @param ?array $allowedValues
+     */
     public function setAllowedValues(?array $allowedValues): void;
 }

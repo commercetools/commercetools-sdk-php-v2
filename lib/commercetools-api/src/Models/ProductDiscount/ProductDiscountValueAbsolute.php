@@ -21,5 +21,8 @@ interface ProductDiscountValueAbsolute extends ProductDiscountValue
      */
     public function getMoney();
 
+    /**
+     * @param ?TypedMoneyCollection $money
+     */
     public function setMoney(?TypedMoneyCollection $money): void;
 }

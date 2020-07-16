@@ -44,13 +44,28 @@ interface StatePagedQueryResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?StateCollection $results
+     */
     public function setResults(?StateCollection $results): void;
 }

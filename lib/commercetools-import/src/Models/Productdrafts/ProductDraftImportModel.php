@@ -103,21 +103,24 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     protected $state;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        ProductTypeKeyReference $productType = null,
-        LocalizedString $name = null,
-        LocalizedString $slug = null,
-        LocalizedString $description = null,
-        CategoryKeyReferenceCollection $categories = null,
-        LocalizedString $metaTitle = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $metaKeywords = null,
-        ProductVariantDraftImport $masterVariant = null,
-        ProductVariantDraftImportCollection $variants = null,
-        TaxCategoryKeyReference $taxCategory = null,
-        SearchKeywords $searchKeywords = null,
-        StateKeyReference $state = null
+        ?string $key = null,
+        ?ProductTypeKeyReference $productType = null,
+        ?LocalizedString $name = null,
+        ?LocalizedString $slug = null,
+        ?LocalizedString $description = null,
+        ?CategoryKeyReferenceCollection $categories = null,
+        ?LocalizedString $metaTitle = null,
+        ?LocalizedString $metaDescription = null,
+        ?LocalizedString $metaKeywords = null,
+        ?ProductVariantDraftImport $masterVariant = null,
+        ?ProductVariantDraftImportCollection $variants = null,
+        ?TaxCategoryKeyReference $taxCategory = null,
+        ?SearchKeywords $searchKeywords = null,
+        ?StateKeyReference $state = null
     ) {
         $this->key = $key;
         $this->productType = $productType;
@@ -245,7 +248,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function getCategories()
     {
         if (is_null($this->categories)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
@@ -339,7 +342,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function getVariants()
     {
         if (is_null($this->variants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
@@ -415,71 +418,113 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ProductTypeKeyReference $productType
+     */
     public function setProductType(?ProductTypeKeyReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?LocalizedString $slug
+     */
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?CategoryKeyReferenceCollection $categories
+     */
     public function setCategories(?CategoryKeyReferenceCollection $categories): void
     {
         $this->categories = $categories;
     }
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
+    /**
+     * @param ?LocalizedString $metaDescription
+     */
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @param ?LocalizedString $metaKeywords
+     */
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
 
+    /**
+     * @param ?ProductVariantDraftImport $masterVariant
+     */
     public function setMasterVariant(?ProductVariantDraftImport $masterVariant): void
     {
         $this->masterVariant = $masterVariant;
     }
 
+    /**
+     * @param ?ProductVariantDraftImportCollection $variants
+     */
     public function setVariants(?ProductVariantDraftImportCollection $variants): void
     {
         $this->variants = $variants;
     }
 
+    /**
+     * @param ?TaxCategoryKeyReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?SearchKeywords $searchKeywords
+     */
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
 
+    /**
+     * @param ?StateKeyReference $state
+     */
     public function setState(?StateKeyReference $state): void
     {
         $this->state = $state;

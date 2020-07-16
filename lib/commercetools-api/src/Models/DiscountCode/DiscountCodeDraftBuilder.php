@@ -200,6 +200,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)
@@ -210,6 +211,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -220,6 +222,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $code
      * @return $this
      */
     public function withCode(?string $code)
@@ -230,6 +233,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
      * @return $this
      */
     public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)
@@ -240,6 +244,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $cartPredicate
      * @return $this
      */
     public function withCartPredicate(?string $cartPredicate)
@@ -250,6 +255,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isActive
      * @return $this
      */
     public function withIsActive(?bool $isActive)
@@ -260,6 +266,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxApplications
      * @return $this
      */
     public function withMaxApplications(?int $maxApplications)
@@ -270,6 +277,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $maxApplicationsPerCustomer
      * @return $this
      */
     public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
@@ -280,6 +288,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -290,6 +299,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $groups
      * @return $this
      */
     public function withGroups(?array $groups)
@@ -300,6 +310,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -310,6 +321,7 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)

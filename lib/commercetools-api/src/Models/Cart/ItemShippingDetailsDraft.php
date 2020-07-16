@@ -25,5 +25,8 @@ interface ItemShippingDetailsDraft extends JsonObject
      */
     public function getTargets();
 
+    /**
+     * @param ?ItemShippingTargetCollection $targets
+     */
     public function setTargets(?ItemShippingTargetCollection $targets): void;
 }

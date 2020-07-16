@@ -36,9 +36,12 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends Js
     protected $targetsDelta;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $lineItemId = null,
-        ItemShippingTargetCollection $targetsDelta = null
+        ?string $lineItemId = null,
+        ?ItemShippingTargetCollection $targetsDelta = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->targetsDelta = $targetsDelta;
@@ -85,7 +88,7 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends Js
     public function getTargetsDelta()
     {
         if (is_null($this->targetsDelta)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TARGETS_DELTA);
             if (is_null($data)) {
                 return null;
@@ -97,11 +100,17 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends Js
     }
 
 
+    /**
+     * @param ?string $lineItemId
+     */
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
+    /**
+     * @param ?ItemShippingTargetCollection $targetsDelta
+     */
     public function setTargetsDelta(?ItemShippingTargetCollection $targetsDelta): void
     {
         $this->targetsDelta = $targetsDelta;

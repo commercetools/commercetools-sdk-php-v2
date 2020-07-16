@@ -38,9 +38,18 @@ interface SyncInfo extends JsonObject
      */
     public function getSyncedAt();
 
+    /**
+     * @param ?ChannelReference $channel
+     */
     public function setChannel(?ChannelReference $channel): void;
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 
+    /**
+     * @param ?DateTimeImmutable $syncedAt
+     */
     public function setSyncedAt(?DateTimeImmutable $syncedAt): void;
 }

@@ -36,9 +36,12 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        float $value = null
+        ?string $name = null,
+        ?float $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -101,11 +104,17 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $value
+     */
     public function setValue(?float $value): void
     {
         $this->value = $value;

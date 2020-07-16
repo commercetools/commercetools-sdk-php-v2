@@ -21,5 +21,8 @@ interface OrderAddPaymentAction extends OrderUpdateAction
      */
     public function getPayment();
 
+    /**
+     * @param ?PaymentResourceIdentifier $payment
+     */
     public function setPayment(?PaymentResourceIdentifier $payment): void;
 }

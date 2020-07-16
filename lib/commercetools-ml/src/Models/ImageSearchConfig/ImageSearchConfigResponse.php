@@ -29,7 +29,13 @@ interface ImageSearchConfigResponse extends JsonObject
      */
     public function getLastModifiedAt();
 
+    /**
+     * @param ?string $status
+     */
     public function setStatus(?string $status): void;
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 }

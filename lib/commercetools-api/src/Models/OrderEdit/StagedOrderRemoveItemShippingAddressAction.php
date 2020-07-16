@@ -21,5 +21,8 @@ interface StagedOrderRemoveItemShippingAddressAction extends StagedOrderUpdateAc
      */
     public function getAddressKey();
 
+    /**
+     * @param ?string $addressKey
+     */
     public function setAddressKey(?string $addressKey): void;
 }

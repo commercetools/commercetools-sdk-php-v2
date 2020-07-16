@@ -21,5 +21,8 @@ interface ReplicaCartDraft extends JsonObject
      */
     public function getReference();
 
+    /**
+     * @param ?JsonObject $reference
+     */
     public function setReference(?JsonObject $reference): void;
 }

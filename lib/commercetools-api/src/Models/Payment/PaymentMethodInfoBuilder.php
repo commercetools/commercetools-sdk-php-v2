@@ -73,6 +73,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentInterface
      * @return $this
      */
     public function withPaymentInterface(?string $paymentInterface)
@@ -83,6 +84,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $method
      * @return $this
      */
     public function withMethod(?string $method)
@@ -93,6 +95,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $name
      * @return $this
      */
     public function withName(?LocalizedString $name)

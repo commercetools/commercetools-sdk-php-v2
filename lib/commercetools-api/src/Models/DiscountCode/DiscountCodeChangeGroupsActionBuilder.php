@@ -37,6 +37,7 @@ final class DiscountCodeChangeGroupsActionBuilder implements Builder
     }
 
     /**
+     * @param ?array $groups
      * @return $this
      */
     public function withGroups(?array $groups)

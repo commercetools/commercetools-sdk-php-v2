@@ -20,5 +20,8 @@ interface PaymentSetExternalIdAction extends PaymentUpdateAction
      */
     public function getExternalId();
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 }

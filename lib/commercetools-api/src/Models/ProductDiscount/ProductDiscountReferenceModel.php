@@ -38,9 +38,12 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        ProductDiscount $obj = null
+        ?string $id = null,
+        ?ProductDiscount $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?ProductDiscount $obj
+     */
     public function setObj(?ProductDiscount $obj): void
     {
         $this->obj = $obj;

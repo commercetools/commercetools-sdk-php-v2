@@ -34,6 +34,7 @@ final class ExtensionChangeTriggersActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExtensionTriggerCollection $triggers
      * @return $this
      */
     public function withTriggers(?ExtensionTriggerCollection $triggers)

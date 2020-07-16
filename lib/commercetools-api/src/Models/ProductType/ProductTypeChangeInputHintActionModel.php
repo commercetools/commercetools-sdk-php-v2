@@ -36,9 +36,12 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     protected $newValue;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $attributeName = null,
-        string $newValue = null
+        ?string $attributeName = null,
+        ?string $newValue = null
     ) {
         $this->attributeName = $attributeName;
         $this->newValue = $newValue;
@@ -97,11 +100,17 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
 
+    /**
+     * @param ?string $newValue
+     */
     public function setNewValue(?string $newValue): void
     {
         $this->newValue = $newValue;

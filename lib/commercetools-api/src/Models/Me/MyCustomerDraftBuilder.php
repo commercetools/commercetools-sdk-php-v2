@@ -231,6 +231,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $email
      * @return $this
      */
     public function withEmail(?string $email)
@@ -241,6 +242,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $password
      * @return $this
      */
     public function withPassword(?string $password)
@@ -251,6 +253,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $firstName
      * @return $this
      */
     public function withFirstName(?string $firstName)
@@ -261,6 +264,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $lastName
      * @return $this
      */
     public function withLastName(?string $lastName)
@@ -271,6 +275,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $middleName
      * @return $this
      */
     public function withMiddleName(?string $middleName)
@@ -281,6 +286,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $title
      * @return $this
      */
     public function withTitle(?string $title)
@@ -291,6 +297,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $dateOfBirth
      * @return $this
      */
     public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
@@ -301,6 +308,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $companyName
      * @return $this
      */
     public function withCompanyName(?string $companyName)
@@ -311,6 +319,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $vatId
      * @return $this
      */
     public function withVatId(?string $vatId)
@@ -321,6 +330,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AddressCollection $addresses
      * @return $this
      */
     public function withAddresses(?AddressCollection $addresses)
@@ -331,6 +341,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $defaultShippingAddress
      * @return $this
      */
     public function withDefaultShippingAddress(?int $defaultShippingAddress)
@@ -341,6 +352,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $defaultBillingAddress
      * @return $this
      */
     public function withDefaultBillingAddress(?int $defaultBillingAddress)
@@ -351,6 +363,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
      * @return $this
      */
     public function withCustom(?CustomFields $custom)
@@ -361,6 +374,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -371,6 +385,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifierCollection $stores
      * @return $this
      */
     public function withStores(?StoreResourceIdentifierCollection $stores)

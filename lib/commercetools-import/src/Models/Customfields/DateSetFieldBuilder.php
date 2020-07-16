@@ -34,6 +34,7 @@ final class DateSetFieldBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutableCollection $value
      * @return $this
      */
     public function withValue(?DateTimeImmutableCollection $value)

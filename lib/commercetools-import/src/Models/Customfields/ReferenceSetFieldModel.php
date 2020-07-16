@@ -32,8 +32,11 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        KeyReferenceCollection $value = null
+        ?KeyReferenceCollection $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -64,7 +67,7 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -76,6 +79,9 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     }
 
 
+    /**
+     * @param ?KeyReferenceCollection $value
+     */
     public function setValue(?KeyReferenceCollection $value): void
     {
         $this->value = $value;

@@ -31,8 +31,11 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     protected $triggers;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ExtensionTriggerCollection $triggers = null
+        ?ExtensionTriggerCollection $triggers = null
     ) {
         $this->triggers = $triggers;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     public function getTriggers()
     {
         if (is_null($this->triggers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?ExtensionTriggerCollection $triggers
+     */
     public function setTriggers(?ExtensionTriggerCollection $triggers): void
     {
         $this->triggers = $triggers;

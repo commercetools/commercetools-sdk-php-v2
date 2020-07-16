@@ -36,9 +36,12 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     protected $staged;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $priceId = null,
-        bool $staged = null
+        ?string $priceId = null,
+        ?bool $staged = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
@@ -99,11 +102,17 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
 
+    /**
+     * @param ?string $priceId
+     */
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;

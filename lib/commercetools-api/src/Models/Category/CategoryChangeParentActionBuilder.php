@@ -34,6 +34,7 @@ final class CategoryChangeParentActionBuilder implements Builder
     }
 
     /**
+     * @param ?CategoryResourceIdentifier $parent
      * @return $this
      */
     public function withParent(?CategoryResourceIdentifier $parent)

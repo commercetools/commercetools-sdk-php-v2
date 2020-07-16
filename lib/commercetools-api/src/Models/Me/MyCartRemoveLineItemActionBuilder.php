@@ -92,6 +92,7 @@ final class MyCartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -102,6 +103,7 @@ final class MyCartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -112,6 +114,7 @@ final class MyCartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalPrice
      * @return $this
      */
     public function withExternalPrice(?Money $externalPrice)
@@ -122,6 +125,7 @@ final class MyCartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      * @return $this
      */
     public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
@@ -132,6 +136,7 @@ final class MyCartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?ItemShippingDetailsDraft $shippingDetailsToRemove
      * @return $this
      */
     public function withShippingDetailsToRemove(?ItemShippingDetailsDraft $shippingDetailsToRemove)

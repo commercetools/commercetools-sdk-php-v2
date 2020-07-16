@@ -26,7 +26,13 @@ interface OutOfStockError extends ErrorObject
      */
     public function getSkus();
 
+    /**
+     * @param ?array $lineItems
+     */
     public function setLineItems(?array $lineItems): void;
 
+    /**
+     * @param ?array $skus
+     */
     public function setSkus(?array $skus): void;
 }

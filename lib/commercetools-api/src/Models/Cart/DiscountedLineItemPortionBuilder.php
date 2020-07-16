@@ -51,6 +51,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountReference $discount
      * @return $this
      */
     public function withDiscount(?CartDiscountReference $discount)
@@ -61,6 +62,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $discountedAmount
      * @return $this
      */
     public function withDiscountedAmount(?TypedMoney $discountedAmount)

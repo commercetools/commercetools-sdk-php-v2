@@ -28,7 +28,13 @@ interface Money extends JsonObject
      */
     public function getCurrencyCode();
 
+    /**
+     * @param ?int $centAmount
+     */
     public function setCentAmount(?int $centAmount): void;
 
+    /**
+     * @param ?string $currencyCode
+     */
     public function setCurrencyCode(?string $currencyCode): void;
 }

@@ -36,7 +36,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -65,7 +65,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -73,6 +73,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetId
      * @return $this
      */
     public function withAssetId(?string $assetId)
@@ -83,6 +84,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $assetKey
      * @return $this
      */
     public function withAssetKey(?string $assetKey)
@@ -93,6 +95,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -103,9 +106,10 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

@@ -38,9 +38,12 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        Payment $obj = null
+        ?string $id = null,
+        ?Payment $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?Payment $obj
+     */
     public function setObj(?Payment $obj): void
     {
         $this->obj = $obj;

@@ -23,5 +23,8 @@ interface PriceImportRequest extends ImportRequest
      */
     public function getResources();
 
+    /**
+     * @param ?PriceImportCollection $resources
+     */
     public function setResources(?PriceImportCollection $resources): void;
 }

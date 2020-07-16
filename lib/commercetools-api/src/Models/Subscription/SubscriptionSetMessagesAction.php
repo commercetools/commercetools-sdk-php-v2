@@ -20,5 +20,8 @@ interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction
      */
     public function getMessages();
 
+    /**
+     * @param ?MessageSubscriptionCollection $messages
+     */
     public function setMessages(?MessageSubscriptionCollection $messages): void;
 }

@@ -44,13 +44,28 @@ interface ApiClientPagedQueryResponse extends JsonObject
      */
     public function getResults();
 
+    /**
+     * @param ?int $limit
+     */
     public function setLimit(?int $limit): void;
 
+    /**
+     * @param ?int $count
+     */
     public function setCount(?int $count): void;
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void;
 
+    /**
+     * @param ?int $offset
+     */
     public function setOffset(?int $offset): void;
 
+    /**
+     * @param ?ApiClientCollection $results
+     */
     public function setResults(?ApiClientCollection $results): void;
 }

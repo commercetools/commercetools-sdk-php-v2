@@ -30,9 +30,12 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     protected $suggestTokenizer;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $text = null,
-        JsonObject $suggestTokenizer = null
+        ?string $text = null,
+        ?JsonObject $suggestTokenizer = null
     ) {
         $this->text = $text;
         $this->suggestTokenizer = $suggestTokenizer;
@@ -114,11 +117,17 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
         return CustomTokenizerModel::of($data);
     }
 
+    /**
+     * @param ?string $text
+     */
     public function setText(?string $text): void
     {
         $this->text = $text;
     }
 
+    /**
+     * @param ?JsonObject $suggestTokenizer
+     */
     public function setSuggestTokenizer(?JsonObject $suggestTokenizer): void
     {
         $this->suggestTokenizer = $suggestTokenizer;

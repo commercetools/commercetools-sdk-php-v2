@@ -73,6 +73,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * @param ?string $uri
      * @return $this
      */
     public function withUri(?string $uri)
@@ -83,6 +84,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
      * @return $this
      */
     public function withKey(?string $key)
@@ -93,6 +95,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * @param ?AssetDimensions $dimensions
      * @return $this
      */
     public function withDimensions(?AssetDimensions $dimensions)
@@ -103,6 +106,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * @param ?string $contentType
      * @return $this
      */
     public function withContentType(?string $contentType)

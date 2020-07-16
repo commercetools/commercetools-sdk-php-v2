@@ -21,5 +21,8 @@ interface CategorySetMetaTitleAction extends CategoryUpdateAction
      */
     public function getMetaTitle();
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 }

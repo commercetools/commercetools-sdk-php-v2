@@ -49,6 +49,7 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+     * @param ?float $quantity
      * @return $this
      */
     public function withQuantity(?float $quantity)
@@ -59,6 +60,7 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
      * @return $this
      */
     public function withState(?StateReference $state)

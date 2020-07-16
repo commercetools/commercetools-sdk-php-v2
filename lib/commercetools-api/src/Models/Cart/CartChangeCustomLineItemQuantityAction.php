@@ -26,7 +26,13 @@ interface CartChangeCustomLineItemQuantityAction extends CartUpdateAction
      */
     public function getQuantity();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void;
 }

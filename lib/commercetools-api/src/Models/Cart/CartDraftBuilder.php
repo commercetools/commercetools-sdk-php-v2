@@ -378,6 +378,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $currency
      * @return $this
      */
     public function withCurrency(?string $currency)
@@ -388,6 +389,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerId
      * @return $this
      */
     public function withCustomerId(?string $customerId)
@@ -398,6 +400,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerEmail
      * @return $this
      */
     public function withCustomerEmail(?string $customerEmail)
@@ -408,6 +411,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
      * @return $this
      */
     public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
@@ -418,6 +422,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $anonymousId
      * @return $this
      */
     public function withAnonymousId(?string $anonymousId)
@@ -428,6 +433,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
      * @return $this
      */
     public function withStore(?StoreResourceIdentifier $store)
@@ -438,6 +444,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $country
      * @return $this
      */
     public function withCountry(?string $country)
@@ -448,6 +455,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
      * @return $this
      */
     public function withInventoryMode(?string $inventoryMode)
@@ -458,6 +466,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxMode
      * @return $this
      */
     public function withTaxMode(?string $taxMode)
@@ -468,6 +477,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRoundingMode
      * @return $this
      */
     public function withTaxRoundingMode(?string $taxRoundingMode)
@@ -478,6 +488,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxCalculationMode
      * @return $this
      */
     public function withTaxCalculationMode(?string $taxCalculationMode)
@@ -488,6 +499,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?LineItemDraftCollection $lineItems
      * @return $this
      */
     public function withLineItems(?LineItemDraftCollection $lineItems)
@@ -498,6 +510,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomLineItemDraftCollection $customLineItems
      * @return $this
      */
     public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
@@ -508,6 +521,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Address $shippingAddress
      * @return $this
      */
     public function withShippingAddress(?Address $shippingAddress)
@@ -518,6 +532,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Address $billingAddress
      * @return $this
      */
     public function withBillingAddress(?Address $billingAddress)
@@ -528,6 +543,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
      * @return $this
      */
     public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
@@ -538,6 +554,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $externalTaxRateForShippingMethod
      * @return $this
      */
     public function withExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod)
@@ -548,6 +565,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
     public function withCustom(?CustomFieldsDraft $custom)
@@ -558,6 +576,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $locale
      * @return $this
      */
     public function withLocale(?string $locale)
@@ -568,6 +587,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
      * @return $this
      */
     public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
@@ -578,6 +598,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $origin
      * @return $this
      */
     public function withOrigin(?string $origin)
@@ -588,6 +609,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingRateInputDraft $shippingRateInput
      * @return $this
      */
     public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)
@@ -598,6 +620,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?AddressCollection $itemShippingAddresses
      * @return $this
      */
     public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)

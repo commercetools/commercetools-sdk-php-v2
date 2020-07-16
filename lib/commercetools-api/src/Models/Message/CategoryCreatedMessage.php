@@ -21,5 +21,8 @@ interface CategoryCreatedMessage extends Message
      */
     public function getCategory();
 
+    /**
+     * @param ?Category $category
+     */
     public function setCategory(?Category $category): void;
 }

@@ -20,5 +20,8 @@ interface OrderChangePaymentStateAction extends OrderUpdateAction
      */
     public function getPaymentState();
 
+    /**
+     * @param ?string $paymentState
+     */
     public function setPaymentState(?string $paymentState): void;
 }

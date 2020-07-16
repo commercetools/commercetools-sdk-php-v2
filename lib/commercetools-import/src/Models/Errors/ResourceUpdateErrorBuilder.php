@@ -26,7 +26,7 @@ final class ResourceUpdateErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $resource;
 
@@ -41,7 +41,7 @@ final class ResourceUpdateErrorBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getResource()
     {
@@ -49,6 +49,7 @@ final class ResourceUpdateErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -59,9 +60,10 @@ final class ResourceUpdateErrorBuilder implements Builder
     }
 
     /**
+     * @param mixed $resource
      * @return $this
      */
-    public function withResource(?JsonObject $resource)
+    public function withResource($resource)
     {
         $this->resource = $resource;
 

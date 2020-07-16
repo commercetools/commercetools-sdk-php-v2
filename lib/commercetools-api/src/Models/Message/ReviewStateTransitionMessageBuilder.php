@@ -238,6 +238,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -248,6 +249,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -258,6 +260,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -268,6 +271,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -278,6 +282,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
@@ -288,6 +293,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?CreatedBy $createdBy
      * @return $this
      */
     public function withCreatedBy(?CreatedBy $createdBy)
@@ -298,6 +304,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $sequenceNumber
      * @return $this
      */
     public function withSequenceNumber(?int $sequenceNumber)
@@ -308,6 +315,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $resource
      * @return $this
      */
     public function withResource(?Reference $resource)
@@ -318,6 +326,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?int $resourceVersion
      * @return $this
      */
     public function withResourceVersion(?int $resourceVersion)
@@ -328,6 +337,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers
      * @return $this
      */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
@@ -338,6 +348,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $oldState
      * @return $this
      */
     public function withOldState(?StateReference $oldState)
@@ -348,6 +359,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $newState
      * @return $this
      */
     public function withNewState(?StateReference $newState)
@@ -358,6 +370,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?bool $oldIncludedInStatistics
      * @return $this
      */
     public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
@@ -368,6 +381,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?bool $newIncludedInStatistics
      * @return $this
      */
     public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
@@ -378,6 +392,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?Reference $target
      * @return $this
      */
     public function withTarget(?Reference $target)
@@ -388,6 +403,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?bool $force
      * @return $this
      */
     public function withForce(?bool $force)

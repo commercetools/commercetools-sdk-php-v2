@@ -38,6 +38,9 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
        'setStagedActions' => OrderEditSetStagedActionsActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

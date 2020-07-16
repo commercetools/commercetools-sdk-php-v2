@@ -34,9 +34,18 @@ interface OrderExcerpt extends JsonObject
      */
     public function getVersion();
 
+    /**
+     * @param ?TypedMoney $totalPrice
+     */
     public function setTotalPrice(?TypedMoney $totalPrice): void;
 
+    /**
+     * @param ?TaxedPrice $taxedPrice
+     */
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 }

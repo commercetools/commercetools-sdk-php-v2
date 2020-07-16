@@ -20,5 +20,8 @@ interface MyShoppingListChangeTextLineItemsOrderAction extends MyShoppingListUpd
      */
     public function getTextLineItemOrder();
 
+    /**
+     * @param ?array $textLineItemOrder
+     */
     public function setTextLineItemOrder(?array $textLineItemOrder): void;
 }

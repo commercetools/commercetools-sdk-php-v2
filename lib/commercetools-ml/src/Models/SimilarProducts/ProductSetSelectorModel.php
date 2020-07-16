@@ -50,13 +50,16 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     protected $productSetLimit;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $projectKey = null,
-        array $productIds = null,
-        array $productTypeIds = null,
-        bool $staged = null,
-        bool $includeVariants = null,
-        int $productSetLimit = null
+        ?string $projectKey = null,
+        ?array $productIds = null,
+        ?array $productTypeIds = null,
+        ?bool $staged = null,
+        ?bool $includeVariants = null,
+        ?int $productSetLimit = null
     ) {
         $this->projectKey = $projectKey;
         $this->productIds = $productIds;
@@ -93,7 +96,7 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     public function getProductIds()
     {
         if (is_null($this->productIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
@@ -112,7 +115,7 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     public function getProductTypeIds()
     {
         if (is_null($this->productTypeIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
@@ -181,31 +184,49 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     }
 
 
+    /**
+     * @param ?string $projectKey
+     */
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
     }
 
+    /**
+     * @param ?array $productIds
+     */
     public function setProductIds(?array $productIds): void
     {
         $this->productIds = $productIds;
     }
 
+    /**
+     * @param ?array $productTypeIds
+     */
     public function setProductTypeIds(?array $productTypeIds): void
     {
         $this->productTypeIds = $productTypeIds;
     }
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
 
+    /**
+     * @param ?bool $includeVariants
+     */
     public function setIncludeVariants(?bool $includeVariants): void
     {
         $this->includeVariants = $includeVariants;
     }
 
+    /**
+     * @param ?int $productSetLimit
+     */
     public function setProductSetLimit(?int $productSetLimit): void
     {
         $this->productSetLimit = $productSetLimit;

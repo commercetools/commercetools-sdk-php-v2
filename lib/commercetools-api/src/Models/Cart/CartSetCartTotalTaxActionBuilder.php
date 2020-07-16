@@ -51,6 +51,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
+     * @param ?Money $externalTotalGross
      * @return $this
      */
     public function withExternalTotalGross(?Money $externalTotalGross)
@@ -61,6 +62,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxPortionDraftCollection $externalTaxPortions
      * @return $this
      */
     public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)

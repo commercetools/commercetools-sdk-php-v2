@@ -107,27 +107,63 @@ interface DiscountCodeDraft extends JsonObject
      */
     public function getValidUntil();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?string $code
+     */
     public function setCode(?string $code): void;
 
+    /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
+     */
     public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void;
 
+    /**
+     * @param ?string $cartPredicate
+     */
     public function setCartPredicate(?string $cartPredicate): void;
 
+    /**
+     * @param ?bool $isActive
+     */
     public function setIsActive(?bool $isActive): void;
 
+    /**
+     * @param ?int $maxApplications
+     */
     public function setMaxApplications(?int $maxApplications): void;
 
+    /**
+     * @param ?int $maxApplicationsPerCustomer
+     */
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?array $groups
+     */
     public function setGroups(?array $groups): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

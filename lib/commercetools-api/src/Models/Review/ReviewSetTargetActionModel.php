@@ -35,8 +35,11 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     protected $target;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        JsonObject $target = null
+        ?JsonObject $target = null
     ) {
         $this->target = $target;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -116,6 +119,9 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
         return ChannelResourceIdentifierModel::of($data);
     }
 
+    /**
+     * @param ?JsonObject $target
+     */
     public function setTarget(?JsonObject $target): void
     {
         $this->target = $target;

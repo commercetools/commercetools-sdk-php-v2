@@ -31,8 +31,11 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
     protected $key;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null
+        ?string $key = null
     ) {
         $this->key = $key;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;

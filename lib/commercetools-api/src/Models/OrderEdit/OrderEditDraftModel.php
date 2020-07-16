@@ -55,13 +55,16 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     protected $dryRun;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $key = null,
-        OrderReference $resource = null,
-        StagedOrderUpdateActionCollection $stagedActions = null,
-        CustomFieldsDraft $custom = null,
-        string $comment = null,
-        bool $dryRun = null
+        ?string $key = null,
+        ?OrderReference $resource = null,
+        ?StagedOrderUpdateActionCollection $stagedActions = null,
+        ?CustomFieldsDraft $custom = null,
+        ?string $comment = null,
+        ?bool $dryRun = null
     ) {
         $this->key = $key;
         $this->resource = $resource;
@@ -118,7 +121,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     public function getStagedActions()
     {
         if (is_null($this->stagedActions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -188,31 +191,49 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     }
 
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?OrderReference $resource
+     */
     public function setResource(?OrderReference $resource): void
     {
         $this->resource = $resource;
     }
 
+    /**
+     * @param ?StagedOrderUpdateActionCollection $stagedActions
+     */
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
     {
         $this->stagedActions = $stagedActions;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?string $comment
+     */
     public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }
 
+    /**
+     * @param ?bool $dryRun
+     */
     public function setDryRun(?bool $dryRun): void
     {
         $this->dryRun = $dryRun;

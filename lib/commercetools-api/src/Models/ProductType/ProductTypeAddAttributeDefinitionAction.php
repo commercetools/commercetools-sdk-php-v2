@@ -20,5 +20,8 @@ interface ProductTypeAddAttributeDefinitionAction extends ProductTypeUpdateActio
      */
     public function getAttribute();
 
+    /**
+     * @param ?AttributeDefinitionDraft $attribute
+     */
     public function setAttribute(?AttributeDefinitionDraft $attribute): void;
 }

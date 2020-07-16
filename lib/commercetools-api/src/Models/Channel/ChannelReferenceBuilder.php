@@ -49,6 +49,7 @@ final class ChannelReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class ChannelReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?Channel $obj
      * @return $this
      */
     public function withObj(?Channel $obj)

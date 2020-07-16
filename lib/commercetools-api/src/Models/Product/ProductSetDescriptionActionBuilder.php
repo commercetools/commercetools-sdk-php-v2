@@ -49,6 +49,7 @@ final class ProductSetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
      * @return $this
      */
     public function withDescription(?LocalizedString $description)
@@ -59,6 +60,7 @@ final class ProductSetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

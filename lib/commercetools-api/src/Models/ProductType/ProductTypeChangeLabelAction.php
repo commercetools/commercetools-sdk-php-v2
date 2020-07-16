@@ -27,7 +27,13 @@ interface ProductTypeChangeLabelAction extends ProductTypeUpdateAction
      */
     public function getLabel();
 
+    /**
+     * @param ?string $attributeName
+     */
     public function setAttributeName(?string $attributeName): void;
 
+    /**
+     * @param ?LocalizedString $label
+     */
     public function setLabel(?LocalizedString $label): void;
 }

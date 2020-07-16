@@ -20,5 +20,8 @@ interface ProjectChangeMessagesEnabledAction extends ProjectUpdateAction
      */
     public function getMessagesEnabled();
 
+    /**
+     * @param ?bool $messagesEnabled
+     */
     public function setMessagesEnabled(?bool $messagesEnabled): void;
 }

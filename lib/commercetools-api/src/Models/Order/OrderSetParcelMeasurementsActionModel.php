@@ -36,9 +36,12 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     protected $measurements;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $parcelId = null,
-        ParcelMeasurements $measurements = null
+        ?string $parcelId = null,
+        ?ParcelMeasurements $measurements = null
     ) {
         $this->parcelId = $parcelId;
         $this->measurements = $measurements;
@@ -98,11 +101,17 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;

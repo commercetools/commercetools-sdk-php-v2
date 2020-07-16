@@ -31,8 +31,11 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     protected $changes;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ChangeSubscriptionCollection $changes = null
+        ?ChangeSubscriptionCollection $changes = null
     ) {
         $this->changes = $changes;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     public function getChanges()
     {
         if (is_null($this->changes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?ChangeSubscriptionCollection $changes
+     */
     public function setChanges(?ChangeSubscriptionCollection $changes): void
     {
         $this->changes = $changes;

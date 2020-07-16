@@ -54,6 +54,9 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
        'TimeSet' => TimeSetFieldModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

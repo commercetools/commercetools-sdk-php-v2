@@ -37,10 +37,13 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     protected $amount;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $name = null,
-        float $rate = null,
-        TypedMoney $amount = null
+        ?string $name = null,
+        ?float $rate = null,
+        ?TypedMoney $amount = null
     ) {
         $this->name = $name;
         $this->rate = $rate;
@@ -102,16 +105,25 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $rate
+     */
     public function setRate(?float $rate): void
     {
         $this->rate = $rate;
     }
 
+    /**
+     * @param ?TypedMoney $amount
+     */
     public function setAmount(?TypedMoney $amount): void
     {
         $this->amount = $amount;

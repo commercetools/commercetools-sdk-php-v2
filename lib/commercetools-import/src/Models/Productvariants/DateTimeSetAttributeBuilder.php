@@ -51,6 +51,7 @@ final class DateTimeSetAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -61,6 +62,7 @@ final class DateTimeSetAttributeBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutableCollection $value
      * @return $this
      */
     public function withValue(?DateTimeImmutableCollection $value)

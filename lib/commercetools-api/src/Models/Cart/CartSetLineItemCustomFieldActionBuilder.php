@@ -31,7 +31,7 @@ final class CartSetLineItemCustomFieldActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -52,7 +52,7 @@ final class CartSetLineItemCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -60,6 +60,7 @@ final class CartSetLineItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)
@@ -70,6 +71,7 @@ final class CartSetLineItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -80,9 +82,10 @@ final class CartSetLineItemCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 

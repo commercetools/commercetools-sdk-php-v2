@@ -26,7 +26,13 @@ interface PaymentChangeTransactionInteractionIdAction extends PaymentUpdateActio
      */
     public function getInteractionId();
 
+    /**
+     * @param ?string $transactionId
+     */
     public function setTransactionId(?string $transactionId): void;
 
+    /**
+     * @param ?string $interactionId
+     */
     public function setInteractionId(?string $interactionId): void;
 }

@@ -47,6 +47,7 @@ final class ZoneUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class ZoneUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?ZoneUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?ZoneUpdateActionCollection $actions)

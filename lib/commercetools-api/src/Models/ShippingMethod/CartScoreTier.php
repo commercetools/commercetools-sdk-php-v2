@@ -39,11 +39,23 @@ interface CartScoreTier extends ShippingRatePriceTier
      */
     public function getIsMatching();
 
+    /**
+     * @param ?float $score
+     */
     public function setScore(?float $score): void;
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void;
 
+    /**
+     * @param ?PriceFunction $priceFunction
+     */
     public function setPriceFunction(?PriceFunction $priceFunction): void;
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void;
 }

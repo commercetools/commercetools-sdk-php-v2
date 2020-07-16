@@ -20,5 +20,8 @@ interface MyCustomerSetVatIdAction extends MyCustomerUpdateAction
      */
     public function getVatId();
 
+    /**
+     * @param ?string $vatId
+     */
     public function setVatId(?string $vatId): void;
 }

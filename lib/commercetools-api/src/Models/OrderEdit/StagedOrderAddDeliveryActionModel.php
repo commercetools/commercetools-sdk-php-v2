@@ -47,10 +47,13 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $parcels;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DeliveryItemCollection $items = null,
-        Address $address = null,
-        ParcelDraftCollection $parcels = null
+        ?DeliveryItemCollection $items = null,
+        ?Address $address = null,
+        ?ParcelDraftCollection $parcels = null
     ) {
         $this->items = $items;
         $this->address = $address;
@@ -81,7 +84,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -116,7 +119,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function getParcels()
     {
         if (is_null($this->parcels)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;
@@ -128,16 +131,25 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * @param ?ParcelDraftCollection $parcels
+     */
     public function setParcels(?ParcelDraftCollection $parcels): void
     {
         $this->parcels = $parcels;

@@ -126,6 +126,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -136,6 +137,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
@@ -146,6 +148,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $comment
      * @return $this
      */
     public function withComment(?string $comment)
@@ -156,6 +159,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $shipmentState
      * @return $this
      */
     public function withShipmentState(?string $shipmentState)
@@ -166,6 +170,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $paymentState
      * @return $this
      */
     public function withPaymentState(?string $paymentState)
@@ -176,6 +181,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
@@ -186,6 +192,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
     public function withCreatedAt(?DateTimeImmutable $createdAt)
@@ -196,6 +203,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $lineItemId
      * @return $this
      */
     public function withLineItemId(?string $lineItemId)

@@ -38,9 +38,12 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        TaxCategory $obj = null
+        ?string $id = null,
+        ?TaxCategory $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?TaxCategory $obj
+     */
     public function setObj(?TaxCategory $obj): void
     {
         $this->obj = $obj;

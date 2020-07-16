@@ -36,6 +36,7 @@ final class CustomerRemoveStoreActionBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
      * @return $this
      */
     public function withStore(?StoreResourceIdentifier $store)

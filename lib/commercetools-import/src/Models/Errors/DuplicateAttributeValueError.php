@@ -23,5 +23,8 @@ interface DuplicateAttributeValueError extends ErrorObject
      */
     public function getAttribute();
 
+    /**
+     * @param ?Attribute $attribute
+     */
     public function setAttribute(?Attribute $attribute): void;
 }

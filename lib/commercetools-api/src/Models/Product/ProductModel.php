@@ -95,19 +95,22 @@ final class ProductModel extends JsonObjectModel implements Product
     protected $reviewRatingStatistics;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        LastModifiedBy $lastModifiedBy = null,
-        CreatedBy $createdBy = null,
-        string $key = null,
-        ProductTypeReference $productType = null,
-        ProductCatalogData $masterData = null,
-        TaxCategoryReference $taxCategory = null,
-        StateReference $state = null,
-        ReviewRatingStatistics $reviewRatingStatistics = null
+        ?string $id = null,
+        ?int $version = null,
+        ?DateTimeImmutable $createdAt = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null,
+        ?CreatedBy $createdBy = null,
+        ?string $key = null,
+        ?ProductTypeReference $productType = null,
+        ?ProductCatalogData $masterData = null,
+        ?TaxCategoryReference $taxCategory = null,
+        ?StateReference $state = null,
+        ?ReviewRatingStatistics $reviewRatingStatistics = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -358,61 +361,97 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?DateTimeImmutable $createdAt
+     */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    /**
+     * @param ?CreatedBy $createdBy
+     */
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
+    /**
+     * @param ?ProductTypeReference $productType
+     */
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
 
+    /**
+     * @param ?ProductCatalogData $masterData
+     */
     public function setMasterData(?ProductCatalogData $masterData): void
     {
         $this->masterData = $masterData;
     }
 
+    /**
+     * @param ?TaxCategoryReference $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?StateReference $state
+     */
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?ReviewRatingStatistics $reviewRatingStatistics
+     */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;

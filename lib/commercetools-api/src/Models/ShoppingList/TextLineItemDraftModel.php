@@ -50,12 +50,15 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     protected $quantity;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $addedAt = null,
-        CustomFieldsDraft $custom = null,
-        LocalizedString $description = null,
-        LocalizedString $name = null,
-        float $quantity = null
+        ?DateTimeImmutable $addedAt = null,
+        ?CustomFieldsDraft $custom = null,
+        ?LocalizedString $description = null,
+        ?LocalizedString $name = null,
+        ?float $quantity = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -163,26 +166,41 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @param ?float $quantity
+     */
     public function setQuantity(?float $quantity): void
     {
         $this->quantity = $quantity;

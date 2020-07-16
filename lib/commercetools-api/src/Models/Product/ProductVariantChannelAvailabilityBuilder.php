@@ -60,6 +60,7 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     }
 
     /**
+     * @param ?bool $isOnStock
      * @return $this
      */
     public function withIsOnStock(?bool $isOnStock)
@@ -70,6 +71,7 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     }
 
     /**
+     * @param ?int $restockableInDays
      * @return $this
      */
     public function withRestockableInDays(?int $restockableInDays)
@@ -80,6 +82,7 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     }
 
     /**
+     * @param ?int $availableQuantity
      * @return $this
      */
     public function withAvailableQuantity(?int $availableQuantity)

@@ -51,6 +51,7 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $parcelId
      * @return $this
      */
     public function withParcelId(?string $parcelId)
@@ -61,6 +62,7 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
+     * @param ?ParcelMeasurements $measurements
      * @return $this
      */
     public function withMeasurements(?ParcelMeasurements $measurements)

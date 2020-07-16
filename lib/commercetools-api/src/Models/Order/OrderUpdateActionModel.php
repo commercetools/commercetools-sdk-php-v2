@@ -73,6 +73,9 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'updateSyncInfo' => OrderUpdateSyncInfoActionModel::class,
     ];
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->action = static::DISCRIMINATOR_VALUE;

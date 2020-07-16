@@ -62,6 +62,7 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -72,6 +73,7 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $scope
      * @return $this
      */
     public function withScope(?string $scope)
@@ -82,6 +84,7 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterCreation
      * @return $this
      */
     public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)

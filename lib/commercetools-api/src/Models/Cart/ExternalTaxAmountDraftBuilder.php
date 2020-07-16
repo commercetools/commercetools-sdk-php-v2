@@ -51,6 +51,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalGross
      * @return $this
      */
     public function withTotalGross(?Money $totalGross)
@@ -61,6 +62,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ExternalTaxRateDraft $taxRate
      * @return $this
      */
     public function withTaxRate(?ExternalTaxRateDraft $taxRate)

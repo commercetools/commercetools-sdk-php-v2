@@ -64,17 +64,38 @@ interface ChannelDraft extends JsonObject
      */
     public function getGeoLocation();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 
+    /**
+     * @param ?array $roles
+     */
     public function setRoles(?array $roles): void;
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
     public function setCustom(?CustomFieldsDraft $custom): void;
 
+    /**
+     * @param ?GeoJson $geoLocation
+     */
     public function setGeoLocation(?GeoJson $geoLocation): void;
 }

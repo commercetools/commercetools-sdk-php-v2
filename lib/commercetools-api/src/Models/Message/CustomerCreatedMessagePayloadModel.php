@@ -33,8 +33,11 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     protected $customer;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Customer $customer = null
+        ?Customer $customer = null
     ) {
         $this->customer = $customer;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?Customer $customer
+     */
     public function setCustomer(?Customer $customer): void
     {
         $this->customer = $customer;

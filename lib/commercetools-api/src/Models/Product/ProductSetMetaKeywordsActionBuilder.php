@@ -49,6 +49,7 @@ final class ProductSetMetaKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $metaKeywords
      * @return $this
      */
     public function withMetaKeywords(?LocalizedString $metaKeywords)
@@ -59,6 +60,7 @@ final class ProductSetMetaKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

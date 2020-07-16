@@ -47,6 +47,7 @@ final class ProductDiscountUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class ProductDiscountUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?ProductDiscountUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?ProductDiscountUpdateActionCollection $actions)

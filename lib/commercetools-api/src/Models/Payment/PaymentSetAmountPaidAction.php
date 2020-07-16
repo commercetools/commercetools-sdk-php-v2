@@ -21,5 +21,8 @@ interface PaymentSetAmountPaidAction extends PaymentUpdateAction
      */
     public function getAmount();
 
+    /**
+     * @param ?Money $amount
+     */
     public function setAmount(?Money $amount): void;
 }

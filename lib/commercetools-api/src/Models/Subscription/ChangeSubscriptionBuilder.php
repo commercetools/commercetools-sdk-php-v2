@@ -34,6 +34,7 @@ final class ChangeSubscriptionBuilder implements Builder
     }
 
     /**
+     * @param ?string $resourceTypeId
      * @return $this
      */
     public function withResourceTypeId(?string $resourceTypeId)

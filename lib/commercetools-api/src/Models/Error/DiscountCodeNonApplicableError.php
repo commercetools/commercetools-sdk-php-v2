@@ -51,15 +51,33 @@ interface DiscountCodeNonApplicableError extends ErrorObject
      */
     public function getValidityCheckTime();
 
+    /**
+     * @param ?string $discountCode
+     */
     public function setDiscountCode(?string $discountCode): void;
 
+    /**
+     * @param ?string $reason
+     */
     public function setReason(?string $reason): void;
 
+    /**
+     * @param ?string $dicountCodeId
+     */
     public function setDicountCodeId(?string $dicountCodeId): void;
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
+    /**
+     * @param ?DateTimeImmutable $validityCheckTime
+     */
     public function setValidityCheckTime(?DateTimeImmutable $validityCheckTime): void;
 }

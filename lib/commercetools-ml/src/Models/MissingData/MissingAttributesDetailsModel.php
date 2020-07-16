@@ -35,10 +35,13 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     protected $missingAttributeValues;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $total = null,
-        int $missingAttributeNames = null,
-        int $missingAttributeValues = null
+        ?int $total = null,
+        ?int $missingAttributeNames = null,
+        ?int $missingAttributeValues = null
     ) {
         $this->total = $total;
         $this->missingAttributeNames = $missingAttributeNames;
@@ -103,16 +106,25 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     }
 
 
+    /**
+     * @param ?int $total
+     */
     public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
 
+    /**
+     * @param ?int $missingAttributeNames
+     */
     public function setMissingAttributeNames(?int $missingAttributeNames): void
     {
         $this->missingAttributeNames = $missingAttributeNames;
     }
 
+    /**
+     * @param ?int $missingAttributeValues
+     */
     public function setMissingAttributeValues(?int $missingAttributeValues): void
     {
         $this->missingAttributeValues = $missingAttributeValues;

@@ -31,8 +31,11 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
     protected $taxRate;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        TaxRateDraft $taxRate = null
+        ?TaxRateDraft $taxRate = null
     ) {
         $this->taxRate = $taxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?TaxRateDraft $taxRate
+     */
     public function setTaxRate(?TaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;

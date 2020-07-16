@@ -52,15 +52,33 @@ interface ReviewStateTransitionMessagePayload extends MessagePayload
      */
     public function getForce();
 
+    /**
+     * @param ?StateReference $oldState
+     */
     public function setOldState(?StateReference $oldState): void;
 
+    /**
+     * @param ?StateReference $newState
+     */
     public function setNewState(?StateReference $newState): void;
 
+    /**
+     * @param ?bool $oldIncludedInStatistics
+     */
     public function setOldIncludedInStatistics(?bool $oldIncludedInStatistics): void;
 
+    /**
+     * @param ?bool $newIncludedInStatistics
+     */
     public function setNewIncludedInStatistics(?bool $newIncludedInStatistics): void;
 
+    /**
+     * @param ?Reference $target
+     */
     public function setTarget(?Reference $target): void;
 
+    /**
+     * @param ?bool $force
+     */
     public function setForce(?bool $force): void;
 }

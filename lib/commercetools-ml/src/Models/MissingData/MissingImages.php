@@ -37,9 +37,18 @@ interface MissingImages extends JsonObject
      */
     public function getImageCount();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 
+    /**
+     * @param ?int $imageCount
+     */
     public function setImageCount(?int $imageCount): void;
 }

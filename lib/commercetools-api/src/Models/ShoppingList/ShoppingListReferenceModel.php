@@ -38,9 +38,12 @@ final class ShoppingListReferenceModel extends JsonObjectModel implements Shoppi
     protected $obj;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        ShoppingList $obj = null
+        ?string $id = null,
+        ?ShoppingList $obj = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
@@ -100,11 +103,17 @@ final class ShoppingListReferenceModel extends JsonObjectModel implements Shoppi
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?ShoppingList $obj
+     */
     public function setObj(?ShoppingList $obj): void
     {
         $this->obj = $obj;

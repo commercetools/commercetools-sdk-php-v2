@@ -38,6 +38,7 @@ final class StagedOrderSetShippingAddressActionBuilder implements Builder
     }
 
     /**
+     * @param ?Address $address
      * @return $this
      */
     public function withAddress(?Address $address)

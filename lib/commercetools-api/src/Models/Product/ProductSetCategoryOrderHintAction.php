@@ -32,9 +32,18 @@ interface ProductSetCategoryOrderHintAction extends ProductUpdateAction
      */
     public function getStaged();
 
+    /**
+     * @param ?string $categoryId
+     */
     public function setCategoryId(?string $categoryId): void;
 
+    /**
+     * @param ?string $orderHint
+     */
     public function setOrderHint(?string $orderHint): void;
 
+    /**
+     * @param ?bool $staged
+     */
     public function setStaged(?bool $staged): void;
 }

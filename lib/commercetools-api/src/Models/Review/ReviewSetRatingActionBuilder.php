@@ -37,6 +37,7 @@ final class ReviewSetRatingActionBuilder implements Builder
     }
 
     /**
+     * @param ?int $rating
      * @return $this
      */
     public function withRating(?int $rating)

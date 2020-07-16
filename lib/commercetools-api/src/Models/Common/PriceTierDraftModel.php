@@ -30,9 +30,12 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $minimumQuantity = null,
-        Money $value = null
+        ?int $minimumQuantity = null,
+        ?Money $value = null
     ) {
         $this->minimumQuantity = $minimumQuantity;
         $this->value = $value;
@@ -74,11 +77,17 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
     }
 
 
+    /**
+     * @param ?int $minimumQuantity
+     */
     public function setMinimumQuantity(?int $minimumQuantity): void
     {
         $this->minimumQuantity = $minimumQuantity;
     }
 
+    /**
+     * @param ?Money $value
+     */
     public function setValue(?Money $value): void
     {
         $this->value = $value;

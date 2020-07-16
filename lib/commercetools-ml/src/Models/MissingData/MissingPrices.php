@@ -29,7 +29,13 @@ interface MissingPrices extends JsonObject
      */
     public function getVariantId();
 
+    /**
+     * @param ?ProductReference $product
+     */
     public function setProduct(?ProductReference $product): void;
 
+    /**
+     * @param ?int $variantId
+     */
     public function setVariantId(?int $variantId): void;
 }

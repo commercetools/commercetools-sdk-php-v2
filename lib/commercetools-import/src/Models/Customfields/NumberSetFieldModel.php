@@ -31,8 +31,11 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     protected $value;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $value = null
+        ?array $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -63,7 +66,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
@@ -75,6 +78,9 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     }
 
 
+    /**
+     * @param ?array $value
+     */
     public function setValue(?array $value): void
     {
         $this->value = $value;

@@ -49,6 +49,7 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingInfo $shippingInfo
      * @return $this
      */
     public function withShippingInfo(?ShippingInfo $shippingInfo)
@@ -59,6 +60,7 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ShippingInfo $oldShippingInfo
      * @return $this
      */
     public function withOldShippingInfo(?ShippingInfo $oldShippingInfo)

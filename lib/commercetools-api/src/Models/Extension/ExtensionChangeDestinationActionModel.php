@@ -31,8 +31,11 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     protected $destination;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        ExtensionDestination $destination = null
+        ?ExtensionDestination $destination = null
     ) {
         $this->destination = $destination;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -74,6 +77,9 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     }
 
 
+    /**
+     * @param ?ExtensionDestination $destination
+     */
     public function setDestination(?ExtensionDestination $destination): void
     {
         $this->destination = $destination;

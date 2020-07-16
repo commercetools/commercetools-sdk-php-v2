@@ -26,7 +26,13 @@ interface GraphQLErrorLocation extends JsonObject
      */
     public function getColumn();
 
+    /**
+     * @param ?int $line
+     */
     public function setLine(?int $line): void;
 
+    /**
+     * @param ?int $column
+     */
     public function setColumn(?int $column): void;
 }

@@ -35,6 +35,7 @@ final class DiscountCodeChangeCartDiscountsActionBuilder implements Builder
     }
 
     /**
+     * @param ?CartDiscountResourceIdentifierCollection $cartDiscounts
      * @return $this
      */
     public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)

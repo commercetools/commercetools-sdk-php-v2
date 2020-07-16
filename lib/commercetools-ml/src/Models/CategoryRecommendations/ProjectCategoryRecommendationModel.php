@@ -37,10 +37,13 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     protected $path;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        CategoryReference $category = null,
-        float $confidence = null,
-        string $path = null
+        ?CategoryReference $category = null,
+        ?float $confidence = null,
+        ?string $path = null
     ) {
         $this->category = $category;
         $this->confidence = $confidence;
@@ -106,16 +109,25 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     }
 
 
+    /**
+     * @param ?CategoryReference $category
+     */
     public function setCategory(?CategoryReference $category): void
     {
         $this->category = $category;
     }
 
+    /**
+     * @param ?float $confidence
+     */
     public function setConfidence(?float $confidence): void
     {
         $this->confidence = $confidence;
     }
 
+    /**
+     * @param ?string $path
+     */
     public function setPath(?string $path): void
     {
         $this->path = $path;

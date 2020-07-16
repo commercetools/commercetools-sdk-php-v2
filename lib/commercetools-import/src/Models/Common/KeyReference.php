@@ -29,5 +29,8 @@ interface KeyReference extends JsonObject
      */
     public function getTypeId();
 
+    /**
+     * @param ?string $key
+     */
     public function setKey(?string $key): void;
 }

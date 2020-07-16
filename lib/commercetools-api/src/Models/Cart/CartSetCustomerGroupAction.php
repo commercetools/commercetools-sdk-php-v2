@@ -21,5 +21,8 @@ interface CartSetCustomerGroupAction extends CartUpdateAction
      */
     public function getCustomerGroup();
 
+    /**
+     * @param ?CustomerGroupResourceIdentifier $customerGroup
+     */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
 }

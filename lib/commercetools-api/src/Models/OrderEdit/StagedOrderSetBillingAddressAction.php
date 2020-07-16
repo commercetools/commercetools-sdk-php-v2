@@ -22,5 +22,8 @@ interface StagedOrderSetBillingAddressAction extends StagedOrderUpdateAction
      */
     public function getAddress();
 
+    /**
+     * @param ?Address $address
+     */
     public function setAddress(?Address $address): void;
 }

@@ -47,6 +47,7 @@ final class StoreUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?int $version
      * @return $this
      */
     public function withVersion(?int $version)
@@ -57,6 +58,7 @@ final class StoreUpdateBuilder implements Builder
     }
 
     /**
+     * @param ?StoreUpdateActionCollection $actions
      * @return $this
      */
     public function withActions(?StoreUpdateActionCollection $actions)

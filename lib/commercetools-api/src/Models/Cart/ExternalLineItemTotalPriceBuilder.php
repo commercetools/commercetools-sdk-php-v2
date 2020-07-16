@@ -49,6 +49,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
+     * @param ?Money $price
      * @return $this
      */
     public function withPrice(?Money $price)
@@ -59,6 +60,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
+     * @param ?Money $totalPrice
      * @return $this
      */
     public function withTotalPrice(?Money $totalPrice)

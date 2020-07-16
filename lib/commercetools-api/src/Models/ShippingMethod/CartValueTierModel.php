@@ -43,10 +43,13 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     protected $isMatching;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $minimumCentAmount = null,
-        Money $price = null,
-        bool $isMatching = null
+        ?int $minimumCentAmount = null,
+        ?Money $price = null,
+        ?bool $isMatching = null
     ) {
         $this->minimumCentAmount = $minimumCentAmount;
         $this->price = $price;
@@ -124,16 +127,25 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     }
 
 
+    /**
+     * @param ?int $minimumCentAmount
+     */
     public function setMinimumCentAmount(?int $minimumCentAmount): void
     {
         $this->minimumCentAmount = $minimumCentAmount;
     }
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?bool $isMatching
+     */
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;

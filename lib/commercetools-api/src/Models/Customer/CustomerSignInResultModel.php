@@ -25,14 +25,17 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     protected $customer;
 
     /**
-     * @var ?JsonObject
+     * @var ?mixed
      */
     protected $cart;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        Customer $customer = null,
-        JsonObject $cart = null
+        ?Customer $customer = null,
+        ?JsonObject $cart = null
     ) {
         $this->customer = $customer;
         $this->cart = $cart;
@@ -60,7 +63,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getCart()
     {
@@ -77,11 +80,17 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     }
 
 
+    /**
+     * @param ?Customer $customer
+     */
     public function setCustomer(?Customer $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?JsonObject $cart
+     */
     public function setCart(?JsonObject $cart): void
     {
         $this->cart = $cart;

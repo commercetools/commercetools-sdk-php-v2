@@ -47,6 +47,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $taxRateId
      * @return $this
      */
     public function withTaxRateId(?string $taxRateId)
@@ -57,6 +58,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @param ?TaxRateDraft $taxRate
      * @return $this
      */
     public function withTaxRate(?TaxRateDraft $taxRate)

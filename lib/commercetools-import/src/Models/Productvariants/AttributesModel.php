@@ -19,6 +19,9 @@ use stdClass;
  */
 final class AttributesModel extends JsonObjectModel implements Attributes
 {
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
     }

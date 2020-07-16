@@ -31,8 +31,11 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     protected $orderState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $orderState = null
+        ?string $orderState = null
     ) {
         $this->orderState = $orderState;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -73,6 +76,9 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?string $orderState
+     */
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;

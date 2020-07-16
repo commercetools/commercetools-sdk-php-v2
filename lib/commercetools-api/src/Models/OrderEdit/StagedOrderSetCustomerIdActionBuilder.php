@@ -36,6 +36,7 @@ final class StagedOrderSetCustomerIdActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $customerId
      * @return $this
      */
     public function withCustomerId(?string $customerId)

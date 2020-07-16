@@ -49,6 +49,7 @@ final class ZoneReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
@@ -59,6 +60,7 @@ final class ZoneReferenceBuilder implements Builder
     }
 
     /**
+     * @param ?Zone $obj
      * @return $this
      */
     public function withObj(?Zone $obj)

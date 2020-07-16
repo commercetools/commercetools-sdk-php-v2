@@ -33,8 +33,11 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     protected $store;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        StoreKeyReference $store = null
+        ?StoreKeyReference $store = null
     ) {
         $this->store = $store;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     }
 
 
+    /**
+     * @param ?StoreKeyReference $store
+     */
     public function setStore(?StoreKeyReference $store): void
     {
         $this->store = $store;

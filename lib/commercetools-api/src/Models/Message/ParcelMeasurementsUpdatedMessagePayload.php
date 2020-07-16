@@ -33,9 +33,18 @@ interface ParcelMeasurementsUpdatedMessagePayload extends MessagePayload
      */
     public function getMeasurements();
 
+    /**
+     * @param ?string $deliveryId
+     */
     public function setDeliveryId(?string $deliveryId): void;
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void;
 
+    /**
+     * @param ?ParcelMeasurements $measurements
+     */
     public function setMeasurements(?ParcelMeasurements $measurements): void;
 }

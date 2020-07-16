@@ -34,6 +34,7 @@ final class PaymentSetStatusInterfaceTextActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $interfaceText
      * @return $this
      */
     public function withInterfaceText(?string $interfaceText)

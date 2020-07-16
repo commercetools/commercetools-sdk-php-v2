@@ -113,6 +113,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $message
      * @return $this
      */
     public function withMessage(?string $message)
@@ -123,6 +124,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $discountCode
      * @return $this
      */
     public function withDiscountCode(?string $discountCode)
@@ -133,6 +135,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $reason
      * @return $this
      */
     public function withReason(?string $reason)
@@ -143,6 +146,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?string $dicountCodeId
      * @return $this
      */
     public function withDicountCodeId(?string $dicountCodeId)
@@ -153,6 +157,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validFrom
      * @return $this
      */
     public function withValidFrom(?DateTimeImmutable $validFrom)
@@ -163,6 +168,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validUntil
      * @return $this
      */
     public function withValidUntil(?DateTimeImmutable $validUntil)
@@ -173,6 +179,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $validityCheckTime
      * @return $this
      */
     public function withValidityCheckTime(?DateTimeImmutable $validityCheckTime)

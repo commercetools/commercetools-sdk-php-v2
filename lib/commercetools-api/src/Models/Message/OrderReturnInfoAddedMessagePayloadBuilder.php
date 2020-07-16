@@ -36,6 +36,7 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ReturnInfo $returnInfo
      * @return $this
      */
     public function withReturnInfo(?ReturnInfo $returnInfo)

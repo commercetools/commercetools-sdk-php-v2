@@ -20,5 +20,8 @@ interface DateTimeSetAttribute extends Attribute
      */
     public function getValue();
 
+    /**
+     * @param ?DateTimeImmutableCollection $value
+     */
     public function setValue(?DateTimeImmutableCollection $value): void;
 }

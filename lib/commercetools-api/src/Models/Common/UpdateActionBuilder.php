@@ -34,6 +34,7 @@ final class UpdateActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $action
      * @return $this
      */
     public function withAction(?string $action)

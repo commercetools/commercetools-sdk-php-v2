@@ -47,6 +47,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     }
 
     /**
+     * @param ?string $attributeName
      * @return $this
      */
     public function withAttributeName(?string $attributeName)
@@ -57,6 +58,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     }
 
     /**
+     * @param ?AttributeLocalizedEnumValueCollection $values
      * @return $this
      */
     public function withValues(?AttributeLocalizedEnumValueCollection $values)

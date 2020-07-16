@@ -23,5 +23,8 @@ interface DiscountCodeSetDescriptionAction extends DiscountCodeUpdateAction
      */
     public function getDescription();
 
+    /**
+     * @param ?LocalizedString $description
+     */
     public function setDescription(?LocalizedString $description): void;
 }

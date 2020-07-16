@@ -22,5 +22,8 @@ interface CategorySetExternalIdAction extends CategoryUpdateAction
      */
     public function getExternalId();
 
+    /**
+     * @param ?string $externalId
+     */
     public function setExternalId(?string $externalId): void;
 }

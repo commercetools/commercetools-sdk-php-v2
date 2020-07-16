@@ -34,6 +34,7 @@ final class StateChangeInitialActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $initial
      * @return $this
      */
     public function withInitial(?bool $initial)

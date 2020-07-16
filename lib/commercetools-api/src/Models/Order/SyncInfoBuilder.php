@@ -67,6 +67,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $channel
      * @return $this
      */
     public function withChannel(?ChannelReference $channel)
@@ -77,6 +78,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalId
      * @return $this
      */
     public function withExternalId(?string $externalId)
@@ -87,6 +89,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $syncedAt
      * @return $this
      */
     public function withSyncedAt(?DateTimeImmutable $syncedAt)

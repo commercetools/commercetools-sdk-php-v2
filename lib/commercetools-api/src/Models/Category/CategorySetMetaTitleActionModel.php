@@ -33,8 +33,11 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
     protected $metaTitle;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        LocalizedString $metaTitle = null
+        ?LocalizedString $metaTitle = null
     ) {
         $this->metaTitle = $metaTitle;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
     }
 
 
+    /**
+     * @param ?LocalizedString $metaTitle
+     */
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;

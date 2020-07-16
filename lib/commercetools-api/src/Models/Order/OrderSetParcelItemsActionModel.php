@@ -36,9 +36,12 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     protected $items;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $parcelId = null,
-        DeliveryItemCollection $items = null
+        ?string $parcelId = null,
+        ?DeliveryItemCollection $items = null
     ) {
         $this->parcelId = $parcelId;
         $this->items = $items;
@@ -85,7 +88,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -97,11 +100,17 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     }
 
 
+    /**
+     * @param ?string $parcelId
+     */
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
 
+    /**
+     * @param ?DeliveryItemCollection $items
+     */
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;

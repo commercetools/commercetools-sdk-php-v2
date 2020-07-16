@@ -31,8 +31,11 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     protected $customerId;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $customerId = null
+        ?string $customerId = null
     ) {
         $this->customerId = $customerId;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,6 +78,9 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     }
 
 
+    /**
+     * @param ?string $customerId
+     */
     public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;

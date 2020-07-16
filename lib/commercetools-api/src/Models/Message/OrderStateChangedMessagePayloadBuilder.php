@@ -47,6 +47,7 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $orderState
      * @return $this
      */
     public function withOrderState(?string $orderState)
@@ -57,6 +58,7 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $oldOrderState
      * @return $this
      */
     public function withOldOrderState(?string $oldOrderState)

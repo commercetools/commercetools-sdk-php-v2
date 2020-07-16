@@ -26,6 +26,9 @@ final class DeliveryPlatformFormatModel extends JsonObjectModel implements Deliv
     protected $type;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
     ) {
         $this->type = static::DISCRIMINATOR_VALUE;

@@ -31,8 +31,11 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     protected $coordinates;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $coordinates = null
+        ?array $coordinates = null
     ) {
         $this->coordinates = $coordinates;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     public function getCoordinates()
     {
         if (is_null($this->coordinates)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_COORDINATES);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     }
 
 
+    /**
+     * @param ?array $coordinates
+     */
     public function setCoordinates(?array $coordinates): void
     {
         $this->coordinates = $coordinates;

@@ -36,10 +36,13 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     protected $result;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $state = null,
-        DateTimeImmutable $expires = null,
-        SimilarProductsPagedQueryResult $result = null
+        ?string $state = null,
+        ?DateTimeImmutable $expires = null,
+        ?SimilarProductsPagedQueryResult $result = null
     ) {
         $this->state = $state;
         $this->expires = $expires;
@@ -107,16 +110,25 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     }
 
 
+    /**
+     * @param ?string $state
+     */
     public function setState(?string $state): void
     {
         $this->state = $state;
     }
 
+    /**
+     * @param ?DateTimeImmutable $expires
+     */
     public function setExpires(?DateTimeImmutable $expires): void
     {
         $this->expires = $expires;
     }
 
+    /**
+     * @param ?SimilarProductsPagedQueryResult $result
+     */
     public function setResult(?SimilarProductsPagedQueryResult $result): void
     {
         $this->result = $result;

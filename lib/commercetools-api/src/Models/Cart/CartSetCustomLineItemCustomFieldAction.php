@@ -28,13 +28,22 @@ interface CartSetCustomLineItemCustomFieldAction extends CartUpdateAction
     public function getName();
 
     /**
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue();
 
+    /**
+     * @param ?string $customLineItemId
+     */
     public function setCustomLineItemId(?string $customLineItemId): void;
 
+    /**
+     * @param ?string $name
+     */
     public function setName(?string $name): void;
 
-    public function setValue(?JsonObject $value): void;
+    /**
+     * @param mixed $value
+     */
+    public function setValue($value): void;
 }

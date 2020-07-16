@@ -75,16 +75,19 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     protected $shippingMethodState;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $shippingMethodName = null,
-        Money $price = null,
-        ShippingRateDraft $shippingRate = null,
-        TaxRate $taxRate = null,
-        TaxCategoryResourceIdentifier $taxCategory = null,
-        ShippingMethodResourceIdentifier $shippingMethod = null,
-        DeliveryCollection $deliveries = null,
-        DiscountedLineItemPriceDraft $discountedPrice = null,
-        string $shippingMethodState = null
+        ?string $shippingMethodName = null,
+        ?Money $price = null,
+        ?ShippingRateDraft $shippingRate = null,
+        ?TaxRate $taxRate = null,
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?ShippingMethodResourceIdentifier $shippingMethod = null,
+        ?DeliveryCollection $deliveries = null,
+        ?DiscountedLineItemPriceDraft $discountedPrice = null,
+        ?string $shippingMethodState = null
     ) {
         $this->shippingMethodName = $shippingMethodName;
         $this->price = $price;
@@ -216,7 +219,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     public function getDeliveries()
     {
         if (is_null($this->deliveries)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DELIVERIES);
             if (is_null($data)) {
                 return null;
@@ -265,46 +268,73 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
 
+    /**
+     * @param ?string $shippingMethodName
+     */
     public function setShippingMethodName(?string $shippingMethodName): void
     {
         $this->shippingMethodName = $shippingMethodName;
     }
 
+    /**
+     * @param ?Money $price
+     */
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
 
+    /**
+     * @param ?ShippingRateDraft $shippingRate
+     */
     public function setShippingRate(?ShippingRateDraft $shippingRate): void
     {
         $this->shippingRate = $shippingRate;
     }
 
+    /**
+     * @param ?TaxRate $taxRate
+     */
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
 
+    /**
+     * @param ?TaxCategoryResourceIdentifier $taxCategory
+     */
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
 
+    /**
+     * @param ?ShippingMethodResourceIdentifier $shippingMethod
+     */
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
 
+    /**
+     * @param ?DeliveryCollection $deliveries
+     */
     public function setDeliveries(?DeliveryCollection $deliveries): void
     {
         $this->deliveries = $deliveries;
     }
 
+    /**
+     * @param ?DiscountedLineItemPriceDraft $discountedPrice
+     */
     public function setDiscountedPrice(?DiscountedLineItemPriceDraft $discountedPrice): void
     {
         $this->discountedPrice = $discountedPrice;
     }
 
+    /**
+     * @param ?string $shippingMethodState
+     */
     public function setShippingMethodState(?string $shippingMethodState): void
     {
         $this->shippingMethodState = $shippingMethodState;

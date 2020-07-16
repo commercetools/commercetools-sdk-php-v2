@@ -20,5 +20,8 @@ interface EnumSetField extends CustomField
      */
     public function getValue();
 
+    /**
+     * @param ?array $value
+     */
     public function setValue(?array $value): void;
 }

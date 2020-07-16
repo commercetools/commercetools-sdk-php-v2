@@ -26,7 +26,13 @@ interface SubscriptionUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?SubscriptionUpdateActionCollection $actions
+     */
     public function setActions(?SubscriptionUpdateActionCollection $actions): void;
 }

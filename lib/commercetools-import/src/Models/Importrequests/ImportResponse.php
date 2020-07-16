@@ -21,5 +21,8 @@ interface ImportResponse extends JsonObject
      */
     public function getOperationStatus();
 
+    /**
+     * @param ?ImportOperationStatusCollection $operationStatus
+     */
     public function setOperationStatus(?ImportOperationStatusCollection $operationStatus): void;
 }

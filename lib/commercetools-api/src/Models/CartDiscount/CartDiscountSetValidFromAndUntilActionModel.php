@@ -37,9 +37,12 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     protected $validUntil;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        DateTimeImmutable $validFrom = null,
-        DateTimeImmutable $validUntil = null
+        ?DateTimeImmutable $validFrom = null,
+        ?DateTimeImmutable $validUntil = null
     ) {
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
@@ -110,11 +113,17 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     }
 
 
+    /**
+     * @param ?DateTimeImmutable $validFrom
+     */
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
+    /**
+     * @param ?DateTimeImmutable $validUntil
+     */
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;

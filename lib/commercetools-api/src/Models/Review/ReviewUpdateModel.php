@@ -30,9 +30,12 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     protected $actions;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        int $version = null,
-        ReviewUpdateActionCollection $actions = null
+        ?int $version = null,
+        ?ReviewUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
@@ -61,7 +64,7 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;
@@ -73,11 +76,17 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     }
 
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?ReviewUpdateActionCollection $actions
+     */
     public function setActions(?ReviewUpdateActionCollection $actions): void
     {
         $this->actions = $actions;

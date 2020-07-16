@@ -26,7 +26,13 @@ interface CategoryUpdate extends JsonObject
      */
     public function getActions();
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void;
 
+    /**
+     * @param ?CategoryUpdateActionCollection $actions
+     */
     public function setActions(?CategoryUpdateActionCollection $actions): void;
 }

@@ -26,7 +26,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?JsonObject
+     * @var null|mixed|mixed
      */
     private $value;
 
@@ -46,7 +46,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     /**
      * <p>The same update behavior as for Set Attribute applies.</p>
      *
-     * @return null|JsonObject
+     * @return null|mixed
      */
     public function getValue()
     {
@@ -62,6 +62,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $name
      * @return $this
      */
     public function withName(?string $name)
@@ -72,9 +73,10 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
+     * @param mixed $value
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withValue($value)
     {
         $this->value = $value;
 
@@ -82,6 +84,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $staged
      * @return $this
      */
     public function withStaged(?bool $staged)

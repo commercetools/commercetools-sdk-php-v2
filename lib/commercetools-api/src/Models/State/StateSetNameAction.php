@@ -21,5 +21,8 @@ interface StateSetNameAction extends StateUpdateAction
      */
     public function getName();
 
+    /**
+     * @param ?LocalizedString $name
+     */
     public function setName(?LocalizedString $name): void;
 }

@@ -31,8 +31,11 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     protected $sortOrder;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $sortOrder = null
+        ?string $sortOrder = null
     ) {
         $this->sortOrder = $sortOrder;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -76,6 +79,9 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     }
 
 
+    /**
+     * @param ?string $sortOrder
+     */
     public function setSortOrder(?string $sortOrder): void
     {
         $this->sortOrder = $sortOrder;

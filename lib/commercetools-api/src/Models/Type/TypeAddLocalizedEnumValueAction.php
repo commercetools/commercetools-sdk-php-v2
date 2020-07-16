@@ -26,7 +26,13 @@ interface TypeAddLocalizedEnumValueAction extends TypeUpdateAction
      */
     public function getValue();
 
+    /**
+     * @param ?string $fieldName
+     */
     public function setFieldName(?string $fieldName): void;
 
+    /**
+     * @param ?CustomFieldLocalizedEnumValue $value
+     */
     public function setValue(?CustomFieldLocalizedEnumValue $value): void;
 }

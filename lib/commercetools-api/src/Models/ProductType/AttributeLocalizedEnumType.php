@@ -20,5 +20,8 @@ interface AttributeLocalizedEnumType extends AttributeType
      */
     public function getValues();
 
+    /**
+     * @param ?AttributeLocalizedEnumValueCollection $values
+     */
     public function setValues(?AttributeLocalizedEnumValueCollection $values): void;
 }

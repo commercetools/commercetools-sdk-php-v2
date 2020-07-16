@@ -31,8 +31,11 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     protected $textLineItemOrder;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        array $textLineItemOrder = null
+        ?array $textLineItemOrder = null
     ) {
         $this->textLineItemOrder = $textLineItemOrder;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +64,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     public function getTextLineItemOrder()
     {
         if (is_null($this->textLineItemOrder)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_TEXT_LINE_ITEM_ORDER);
             if (is_null($data)) {
                 return null;
@@ -73,6 +76,9 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     }
 
 
+    /**
+     * @param ?array $textLineItemOrder
+     */
     public function setTextLineItemOrder(?array $textLineItemOrder): void
     {
         $this->textLineItemOrder = $textLineItemOrder;

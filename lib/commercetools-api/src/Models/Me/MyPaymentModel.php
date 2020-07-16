@@ -69,15 +69,18 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     protected $custom;
 
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function __construct(
-        string $id = null,
-        int $version = null,
-        CustomerReference $customer = null,
-        string $anonymousId = null,
-        TypedMoney $amountPlanned = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        TransactionCollection $transactions = null,
-        CustomFields $custom = null
+        ?string $id = null,
+        ?int $version = null,
+        ?CustomerReference $customer = null,
+        ?string $anonymousId = null,
+        ?TypedMoney $amountPlanned = null,
+        ?PaymentMethodInfo $paymentMethodInfo = null,
+        ?TransactionCollection $transactions = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -210,7 +213,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     public function getTransactions()
     {
         if (is_null($this->transactions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;
@@ -240,41 +243,65 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
 
+    /**
+     * @param ?string $id
+     */
     public function setId(?string $id): void
     {
         $this->id = $id;
     }
 
+    /**
+     * @param ?int $version
+     */
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @param ?CustomerReference $customer
+     */
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
     }
 
+    /**
+     * @param ?string $anonymousId
+     */
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
 
+    /**
+     * @param ?TypedMoney $amountPlanned
+     */
     public function setAmountPlanned(?TypedMoney $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
     }
 
+    /**
+     * @param ?PaymentMethodInfo $paymentMethodInfo
+     */
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
     }
 
+    /**
+     * @param ?TransactionCollection $transactions
+     */
     public function setTransactions(?TransactionCollection $transactions): void
     {
         $this->transactions = $transactions;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
