@@ -98,8 +98,8 @@ class MiscTest extends TestCase
         $a->setValue('foo');
 
         $t = ProductVariantModel::of();
-        var_dump($a->tap(AttributeAccessor::of())->getValue());
-        var_dump($t->tap());
+        $a->with(AttributeAccessor::of())->getValue();
+        $t->with();
     }
 
     public function testParams()
