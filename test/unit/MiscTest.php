@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Product\ProductDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\Product\ProductVariantDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantModel;
+use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValue;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
@@ -140,11 +141,14 @@ class MiscTest extends TestCase
             ]
         ]);
         $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getValueAsEnum();
+        /**
+         * @var AttributeLocalizedEnumValue $lenum
+         */
         $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getValueAsLocalizedEnum();
         $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getValueAsString();
 
-        var_dump($enum->getLabel());
-        var_dump($lenum->getLabel());
-        var_dump($text);
+        $this->assertSame("foo", $enum->getLabel());
+        $this->assertSame("foo", $lenum->getLabel()['en']);
+        $this->assertSame("foo", $text);
     }
 }
