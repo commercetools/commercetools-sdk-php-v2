@@ -64,7 +64,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     public function getTextLineItemOrder()
     {
         if (is_null($this->textLineItemOrder)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_TEXT_LINE_ITEM_ORDER);
             if (is_null($data)) {
                 return null;

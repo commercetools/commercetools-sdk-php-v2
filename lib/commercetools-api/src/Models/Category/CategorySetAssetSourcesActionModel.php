@@ -113,7 +113,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     public function getSources()
     {
         if (is_null($this->sources)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SOURCES);
             if (is_null($data)) {
                 return null;

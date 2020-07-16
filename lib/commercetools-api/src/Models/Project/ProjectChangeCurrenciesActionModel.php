@@ -66,7 +66,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     public function getCurrencies()
     {
         if (is_null($this->currencies)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_CURRENCIES);
             if (is_null($data)) {
                 return null;

@@ -64,7 +64,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     public function getTypes()
     {
         if (is_null($this->types)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_TYPES);
             if (is_null($data)) {
                 return null;

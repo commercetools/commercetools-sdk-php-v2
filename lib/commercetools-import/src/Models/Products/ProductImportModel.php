@@ -234,7 +234,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     public function getCategories()
     {
         if (is_null($this->categories)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;

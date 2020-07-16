@@ -143,7 +143,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     public function getMissingAttributeValues()
     {
         if (is_null($this->missingAttributeValues)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_VALUES);
             if (is_null($data)) {
                 return null;
@@ -162,7 +162,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     public function getMissingAttributeNames()
     {
         if (is_null($this->missingAttributeNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_MISSING_ATTRIBUTE_NAMES);
             if (is_null($data)) {
                 return null;

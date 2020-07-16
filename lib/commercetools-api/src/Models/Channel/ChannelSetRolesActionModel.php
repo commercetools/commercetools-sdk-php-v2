@@ -64,7 +64,7 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
     public function getRoles()
     {
         if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;

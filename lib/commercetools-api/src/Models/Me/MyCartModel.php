@@ -475,7 +475,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -492,7 +492,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function getCustomLineItems()
     {
         if (is_null($this->customLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -721,7 +721,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function getDiscountCodes()
     {
         if (is_null($this->discountCodes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DISCOUNT_CODES);
             if (is_null($data)) {
                 return null;
@@ -808,7 +808,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function getRefusedGifts()
     {
         if (is_null($this->refusedGifts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFUSED_GIFTS);
             if (is_null($data)) {
                 return null;
@@ -860,7 +860,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function getItemShippingAddresses()
     {
         if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;

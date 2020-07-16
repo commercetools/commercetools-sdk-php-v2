@@ -184,7 +184,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     public function getTags()
     {
         if (is_null($this->tags)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_TAGS);
             if (is_null($data)) {
                 return null;

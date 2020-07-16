@@ -131,7 +131,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     public function getCategories()
     {
         if (is_null($this->categories)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
@@ -274,7 +274,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     public function getVariants()
     {
         if (is_null($this->variants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;

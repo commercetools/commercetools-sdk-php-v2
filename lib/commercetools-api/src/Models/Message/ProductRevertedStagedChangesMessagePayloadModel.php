@@ -64,7 +64,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     public function getRemovedImageUrls()
     {
         if (is_null($this->removedImageUrls)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_REMOVED_IMAGE_URLS);
             if (is_null($data)) {
                 return null;

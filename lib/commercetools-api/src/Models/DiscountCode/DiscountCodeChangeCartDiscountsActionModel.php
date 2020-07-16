@@ -65,7 +65,7 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;

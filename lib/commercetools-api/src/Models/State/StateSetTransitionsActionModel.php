@@ -64,7 +64,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     public function getTransitions()
     {
         if (is_null($this->transitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;

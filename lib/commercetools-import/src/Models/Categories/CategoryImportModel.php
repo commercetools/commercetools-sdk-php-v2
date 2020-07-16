@@ -325,7 +325,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     public function getAssets()
     {
         if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;

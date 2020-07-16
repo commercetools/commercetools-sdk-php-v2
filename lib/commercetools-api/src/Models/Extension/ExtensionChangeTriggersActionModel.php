@@ -64,7 +64,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     public function getTriggers()
     {
         if (is_null($this->triggers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRIGGERS);
             if (is_null($data)) {
                 return null;

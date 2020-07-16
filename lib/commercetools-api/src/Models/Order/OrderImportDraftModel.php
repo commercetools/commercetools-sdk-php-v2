@@ -263,7 +263,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -282,7 +282,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function getCustomLineItems()
     {
         if (is_null($this->customLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -569,7 +569,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function getItemShippingAddresses()
     {
         if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;

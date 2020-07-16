@@ -120,7 +120,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;

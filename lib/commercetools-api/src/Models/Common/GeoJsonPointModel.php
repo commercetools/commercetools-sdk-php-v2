@@ -64,7 +64,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     public function getCoordinates()
     {
         if (is_null($this->coordinates)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_COORDINATES);
             if (is_null($data)) {
                 return null;

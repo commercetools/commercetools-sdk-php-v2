@@ -535,7 +535,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     public function getAddresses()
     {
         if (is_null($this->addresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -569,7 +569,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     public function getShippingAddressIds()
     {
         if (is_null($this->shippingAddressIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_SHIPPING_ADDRESS_IDS);
             if (is_null($data)) {
                 return null;
@@ -603,7 +603,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     public function getBillingAddressIds()
     {
         if (is_null($this->billingAddressIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_BILLING_ADDRESS_IDS);
             if (is_null($data)) {
                 return null;
@@ -741,7 +741,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     public function getStores()
     {
         if (is_null($this->stores)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STORES);
             if (is_null($data)) {
                 return null;

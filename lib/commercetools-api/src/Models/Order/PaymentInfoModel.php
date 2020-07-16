@@ -41,7 +41,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     public function getPayments()
     {
         if (is_null($this->payments)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PAYMENTS);
             if (is_null($data)) {
                 return null;

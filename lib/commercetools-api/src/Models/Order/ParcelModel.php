@@ -145,7 +145,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;

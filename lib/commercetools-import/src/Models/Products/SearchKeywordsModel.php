@@ -39,7 +39,7 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
             return null;
         }
         if (preg_match(SearchKeywords::FIELD_PATTERN0, $key) === 1) {
-            /** @psalm-var array<int, stdClass> $data */
+            /** @psalm-var list<stdClass> $data */
             return new SearchKeywordCollection($data);
         }
 

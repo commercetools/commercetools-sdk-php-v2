@@ -64,7 +64,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     public function getUpdatedPrices()
     {
         if (is_null($this->updatedPrices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_UPDATED_PRICES);
             if (is_null($data)) {
                 return null;

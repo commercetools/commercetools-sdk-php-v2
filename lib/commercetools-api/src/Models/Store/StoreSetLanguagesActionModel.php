@@ -64,7 +64,7 @@ final class StoreSetLanguagesActionModel extends JsonObjectModel implements Stor
     public function getLanguages()
     {
         if (is_null($this->languages)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;

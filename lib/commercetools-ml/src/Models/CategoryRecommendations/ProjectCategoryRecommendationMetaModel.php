@@ -94,7 +94,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     public function getGeneralCategoryNames()
     {
         if (is_null($this->generalCategoryNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GENERAL_CATEGORY_NAMES);
             if (is_null($data)) {
                 return null;

@@ -50,7 +50,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     public function getTargets()
     {
         if (is_null($this->targets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TARGETS);
             if (is_null($data)) {
                 return null;

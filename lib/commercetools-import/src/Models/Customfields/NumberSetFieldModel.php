@@ -66,7 +66,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;

@@ -88,7 +88,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     public function getSources()
     {
         if (is_null($this->sources)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SOURCES);
             if (is_null($data)) {
                 return null;
@@ -141,7 +141,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     public function getTags()
     {
         if (is_null($this->tags)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_TAGS);
             if (is_null($data)) {
                 return null;

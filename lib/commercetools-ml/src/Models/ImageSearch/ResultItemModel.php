@@ -69,7 +69,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     public function getProductVariants()
     {
         if (is_null($this->productVariants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRODUCT_VARIANTS);
             if (is_null($data)) {
                 return null;

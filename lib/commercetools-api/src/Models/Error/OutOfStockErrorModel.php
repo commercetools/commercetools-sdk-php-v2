@@ -95,7 +95,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -112,7 +112,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     public function getSkus()
     {
         if (is_null($this->skus)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_SKUS);
             if (is_null($data)) {
                 return null;

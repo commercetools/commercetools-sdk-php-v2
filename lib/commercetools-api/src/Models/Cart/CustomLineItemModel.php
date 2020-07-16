@@ -277,7 +277,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function getState()
     {
         if (is_null($this->state)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;
@@ -333,7 +333,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function getDiscountedPricePerQuantity()
     {
         if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;

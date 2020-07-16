@@ -69,7 +69,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
     public function getResources()
     {
         if (is_null($this->resources)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESOURCES);
             if (is_null($data)) {
                 return null;

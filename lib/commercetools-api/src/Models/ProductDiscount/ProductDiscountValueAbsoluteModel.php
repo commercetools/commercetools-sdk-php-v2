@@ -65,7 +65,7 @@ final class ProductDiscountValueAbsoluteModel extends JsonObjectModel implements
     public function getMoney()
     {
         if (is_null($this->money)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MONEY);
             if (is_null($data)) {
                 return null;

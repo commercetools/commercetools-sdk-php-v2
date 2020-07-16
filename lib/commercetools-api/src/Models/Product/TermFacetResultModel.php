@@ -160,7 +160,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     public function getTerms()
     {
         if (is_null($this->terms)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TERMS);
             if (is_null($data)) {
                 return null;

@@ -67,7 +67,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     public function getGroups()
     {
         if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;

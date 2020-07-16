@@ -356,7 +356,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -412,7 +412,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getReferences()
     {
         if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFERENCES);
             if (is_null($data)) {
                 return null;
@@ -487,7 +487,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function getGroups()
     {
         if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;

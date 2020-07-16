@@ -213,7 +213,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     public function getTransactions()
     {
         if (is_null($this->transactions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;

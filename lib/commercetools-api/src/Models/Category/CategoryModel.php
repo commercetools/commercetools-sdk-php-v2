@@ -357,7 +357,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function getAncestors()
     {
         if (is_null($this->ancestors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ANCESTORS);
             if (is_null($data)) {
                 return null;
@@ -504,7 +504,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function getAssets()
     {
         if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;

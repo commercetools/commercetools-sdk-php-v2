@@ -240,7 +240,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     public function getChanges()
     {
         if (is_null($this->changes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
@@ -292,7 +292,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     public function getMessages()
     {
         if (is_null($this->messages)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;

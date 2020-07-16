@@ -41,7 +41,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     public function getOperationStatus()
     {
         if (is_null($this->operationStatus)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_OPERATION_STATUS);
             if (is_null($data)) {
                 return null;

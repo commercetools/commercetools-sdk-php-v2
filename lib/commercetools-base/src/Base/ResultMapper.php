@@ -18,7 +18,7 @@ use stdClass;
 
 class ResultMapper
 {
-    /** @psalm-var array<class-string, array<int, string>> */
+    /** @psalm-var array<class-string, list<string>> */
     private $constructorParamNames = [];
 
     /**
@@ -31,7 +31,7 @@ class ResultMapper
      */
     public function mapToConstructor(string $type, array $data)
     {
-        /** @psalm-var array<int, mixed> $args */
+        /** @psalm-var list<mixed> $args */
         $args = array_map(
             function ($paramName) use ($data) {
                 return ($data[$paramName] ?? null);
@@ -43,7 +43,7 @@ class ResultMapper
     
     /**
      * @psalm-param class-string $type
-     * @psalm-return array<int, string>
+     * @psalm-return list<string>
      * @throws InvalidArgumentException
      * @throws ReflectionException
      */

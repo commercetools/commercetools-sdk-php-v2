@@ -49,14 +49,14 @@ abstract class BaseJsonObject implements JsonObject
     }
 
     /**
-     * @psalm-return scalar|array<int, mixed>|array<string, mixed>|stdClass|null
+     * @psalm-return scalar|list<mixed>|array<string, mixed>|stdClass|null
      */
     final protected function raw(string $field)
     {
         if (isset($this->rawData->$field)) {
             /**
              * @psalm-suppress PossiblyNullPropertyFetch
-             * @psalm-var scalar|array<int, mixed>|array<string, mixed>|stdClass|null
+             * @psalm-var scalar|list<mixed>|array<string, mixed>|stdClass|null
              */
             return $this->rawData->$field;
         }

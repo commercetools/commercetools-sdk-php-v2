@@ -203,7 +203,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -260,7 +260,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     public function getTextLineItems()
     {
         if (is_null($this->textLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;

@@ -278,7 +278,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     public function getTiers()
     {
         if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TIERS);
             if (is_null($data)) {
                 return null;

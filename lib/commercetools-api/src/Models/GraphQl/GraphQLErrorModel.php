@@ -71,7 +71,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     public function getLocations()
     {
         if (is_null($this->locations)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LOCATIONS);
             if (is_null($data)) {
                 return null;
@@ -88,7 +88,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     public function getPath()
     {
         if (is_null($this->path)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PATH);
             if (is_null($data)) {
                 return null;

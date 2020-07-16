@@ -180,7 +180,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function getZoneRates()
     {
         if (is_null($this->zoneRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ZONE_RATES);
             if (is_null($data)) {
                 return null;

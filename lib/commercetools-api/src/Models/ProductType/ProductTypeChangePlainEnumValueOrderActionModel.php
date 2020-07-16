@@ -88,7 +88,7 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     public function getValues()
     {
         if (is_null($this->values)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUES);
             if (is_null($data)) {
                 return null;

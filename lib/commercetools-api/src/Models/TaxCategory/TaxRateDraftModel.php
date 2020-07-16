@@ -173,7 +173,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     public function getSubRates()
     {
         if (is_null($this->subRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;

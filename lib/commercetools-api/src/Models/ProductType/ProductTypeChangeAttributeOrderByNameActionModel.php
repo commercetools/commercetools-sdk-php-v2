@@ -64,7 +64,7 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
     public function getAttributeNames()
     {
         if (is_null($this->attributeNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTE_NAMES);
             if (is_null($data)) {
                 return null;

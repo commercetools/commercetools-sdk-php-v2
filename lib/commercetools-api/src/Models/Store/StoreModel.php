@@ -266,7 +266,7 @@ final class StoreModel extends JsonObjectModel implements Store
     public function getLanguages()
     {
         if (is_null($this->languages)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LANGUAGES);
             if (is_null($data)) {
                 return null;
@@ -285,7 +285,7 @@ final class StoreModel extends JsonObjectModel implements Store
     public function getDistributionChannels()
     {
         if (is_null($this->distributionChannels)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNELS);
             if (is_null($data)) {
                 return null;

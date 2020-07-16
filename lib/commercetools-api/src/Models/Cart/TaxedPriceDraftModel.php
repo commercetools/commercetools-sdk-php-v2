@@ -92,7 +92,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     public function getTaxPortions()
     {
         if (is_null($this->taxPortions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;

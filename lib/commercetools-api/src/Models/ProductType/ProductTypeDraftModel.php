@@ -116,7 +116,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;

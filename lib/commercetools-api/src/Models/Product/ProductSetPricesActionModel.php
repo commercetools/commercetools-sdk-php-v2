@@ -120,7 +120,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     public function getPrices()
     {
         if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;

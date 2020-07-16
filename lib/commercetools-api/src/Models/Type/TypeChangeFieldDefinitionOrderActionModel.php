@@ -64,7 +64,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     public function getFieldNames()
     {
         if (is_null($this->fieldNames)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_FIELD_NAMES);
             if (is_null($data)) {
                 return null;

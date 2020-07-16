@@ -14,7 +14,7 @@ use stdClass;
 class JsonObjectModel extends BaseJsonObject implements JsonObject
 {
     /**
-     * @psalm-return scalar|array<int|string, mixed>|JsonObject|JsonObjectCollection|null
+     * @psalm-return scalar|list<mixed>|array<string, mixed>|JsonObject|JsonObjectCollection|null
      */
     final public function get(string $field)
     {
@@ -23,7 +23,7 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             return JsonObjectModel::of($data);
         }
         if (is_array($data) && isset($data[0]) && $data[0] instanceof stdClass) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             return new JsonObjectCollection($data);
         }
         return $data;

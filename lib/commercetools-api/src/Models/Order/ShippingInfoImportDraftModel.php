@@ -219,7 +219,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     public function getDeliveries()
     {
         if (is_null($this->deliveries)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_DELIVERIES);
             if (is_null($data)) {
                 return null;

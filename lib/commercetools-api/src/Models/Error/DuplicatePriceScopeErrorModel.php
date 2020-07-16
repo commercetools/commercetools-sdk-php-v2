@@ -89,7 +89,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     public function getConflictingPrices()
     {
         if (is_null($this->conflictingPrices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CONFLICTING_PRICES);
             if (is_null($data)) {
                 return null;

@@ -517,7 +517,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     public function getTransactions()
     {
         if (is_null($this->transactions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSACTIONS);
             if (is_null($data)) {
                 return null;
@@ -539,7 +539,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     public function getInterfaceInteractions()
     {
         if (is_null($this->interfaceInteractions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_INTERFACE_INTERACTIONS);
             if (is_null($data)) {
                 return null;

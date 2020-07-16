@@ -95,7 +95,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;

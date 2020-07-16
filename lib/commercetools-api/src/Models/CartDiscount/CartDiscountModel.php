@@ -523,7 +523,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     public function getReferences()
     {
         if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_REFERENCES);
             if (is_null($data)) {
                 return null;

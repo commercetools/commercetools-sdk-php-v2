@@ -68,7 +68,7 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
     public function getIncludedDiscounts()
     {
         if (is_null($this->includedDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_INCLUDED_DISCOUNTS);
             if (is_null($data)) {
                 return null;

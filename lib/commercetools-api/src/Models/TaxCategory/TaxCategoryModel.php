@@ -266,7 +266,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     public function getRates()
     {
         if (is_null($this->rates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RATES);
             if (is_null($data)) {
                 return null;

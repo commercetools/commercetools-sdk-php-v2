@@ -65,7 +65,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     public function getErrors()
     {
         if (is_null($this->errors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;

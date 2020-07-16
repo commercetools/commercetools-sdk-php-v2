@@ -92,7 +92,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, string> $data */
+            /** @psalm-var ?list<string> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;

@@ -116,7 +116,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     public function getLocations()
     {
         if (is_null($this->locations)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LOCATIONS);
             if (is_null($data)) {
                 return null;

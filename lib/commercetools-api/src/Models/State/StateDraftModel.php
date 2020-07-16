@@ -171,7 +171,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     public function getRoles()
     {
         if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ROLES);
             if (is_null($data)) {
                 return null;
@@ -188,7 +188,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     public function getTransitions()
     {
         if (is_null($this->transitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TRANSITIONS);
             if (is_null($data)) {
                 return null;

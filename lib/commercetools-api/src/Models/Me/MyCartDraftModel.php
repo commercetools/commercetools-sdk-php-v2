@@ -205,7 +205,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     public function getLineItems()
     {
         if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -355,7 +355,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     public function getItemShippingAddresses()
     {
         if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEM_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;

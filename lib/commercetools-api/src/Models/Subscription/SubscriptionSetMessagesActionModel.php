@@ -64,7 +64,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     public function getMessages()
     {
         if (is_null($this->messages)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGES);
             if (is_null($data)) {
                 return null;

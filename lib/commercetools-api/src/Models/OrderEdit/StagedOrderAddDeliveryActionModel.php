@@ -84,7 +84,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -119,7 +119,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function getParcels()
     {
         if (is_null($this->parcels)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PARCELS);
             if (is_null($data)) {
                 return null;

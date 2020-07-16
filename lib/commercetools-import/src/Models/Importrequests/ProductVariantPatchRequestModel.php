@@ -69,7 +69,7 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     public function getPatches()
     {
         if (is_null($this->patches)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PATCHES);
             if (is_null($data)) {
                 return null;

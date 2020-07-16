@@ -23,7 +23,7 @@ interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \Iterat
 
     /**
      * @template T
-     * @psalm-param array<int, T|TRaw> $data
+     * @psalm-param list<T|TRaw> $data
      * @return static
      */
     public static function fromArray(array $data);

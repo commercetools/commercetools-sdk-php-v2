@@ -125,7 +125,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     public function getResourceTypeIds()
     {
         if (is_null($this->resourceTypeIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_RESOURCE_TYPE_IDS);
             if (is_null($data)) {
                 return null;
@@ -142,7 +142,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     public function getFieldDefinitions()
     {
         if (is_null($this->fieldDefinitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_FIELD_DEFINITIONS);
             if (is_null($data)) {
                 return null;

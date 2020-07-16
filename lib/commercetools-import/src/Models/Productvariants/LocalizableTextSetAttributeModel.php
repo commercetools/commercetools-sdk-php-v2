@@ -93,7 +93,7 @@ final class LocalizableTextSetAttributeModel extends JsonObjectModel implements 
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;

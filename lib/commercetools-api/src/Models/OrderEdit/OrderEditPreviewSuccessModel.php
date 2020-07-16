@@ -90,7 +90,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     public function getMessagePayloads()
     {
         if (is_null($this->messagePayloads)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_MESSAGE_PAYLOADS);
             if (is_null($data)) {
                 return null;

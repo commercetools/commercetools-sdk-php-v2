@@ -115,7 +115,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getPrices()
     {
         if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRICES);
             if (is_null($data)) {
                 return null;
@@ -135,7 +135,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
@@ -155,7 +155,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     public function getImages()
     {
         if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;

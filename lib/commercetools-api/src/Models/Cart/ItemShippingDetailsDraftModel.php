@@ -45,7 +45,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
     public function getTargets()
     {
         if (is_null($this->targets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_TARGETS);
             if (is_null($data)) {
                 return null;

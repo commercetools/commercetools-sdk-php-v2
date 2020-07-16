@@ -69,7 +69,7 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
     public function getShippingRates()
     {
         if (is_null($this->shippingRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SHIPPING_RATES);
             if (is_null($data)) {
                 return null;

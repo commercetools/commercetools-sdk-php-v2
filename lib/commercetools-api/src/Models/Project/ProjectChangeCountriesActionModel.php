@@ -66,7 +66,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     public function getCountries()
     {
         if (is_null($this->countries)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_COUNTRIES);
             if (is_null($data)) {
                 return null;

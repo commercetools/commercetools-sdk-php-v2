@@ -302,7 +302,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     public function getAddresses()
     {
         if (is_null($this->addresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
@@ -396,7 +396,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     public function getStores()
     {
         if (is_null($this->stores)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STORES);
             if (is_null($data)) {
                 return null;

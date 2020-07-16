@@ -148,7 +148,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function getAttributes()
     {
         if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
@@ -167,7 +167,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function getImages()
     {
         if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_IMAGES);
             if (is_null($data)) {
                 return null;
@@ -186,7 +186,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function getAssets()
     {
         if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;

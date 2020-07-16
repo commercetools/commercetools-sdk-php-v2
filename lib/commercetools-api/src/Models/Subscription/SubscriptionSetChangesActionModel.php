@@ -64,7 +64,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     public function getChanges()
     {
         if (is_null($this->changes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;

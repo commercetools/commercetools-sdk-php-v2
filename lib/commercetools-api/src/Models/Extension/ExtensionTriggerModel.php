@@ -64,7 +64,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     public function getActions()
     {
         if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ACTIONS);
             if (is_null($data)) {
                 return null;

@@ -121,7 +121,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     public function getStagedActions()
     {
         if (is_null($this->stagedActions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STAGED_ACTIONS);
             if (is_null($data)) {
                 return null;

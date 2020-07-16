@@ -136,7 +136,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     public function getAllowedValues()
     {
         if (is_null($this->allowedValues)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_ALLOWED_VALUES);
             if (is_null($data)) {
                 return null;

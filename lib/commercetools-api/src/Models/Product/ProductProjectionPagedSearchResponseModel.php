@@ -119,7 +119,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     public function getResults()
     {
         if (is_null($this->results)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RESULTS);
             if (is_null($data)) {
                 return null;

@@ -64,7 +64,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     public function getRanges()
     {
         if (is_null($this->ranges)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RANGES);
             if (is_null($data)) {
                 return null;

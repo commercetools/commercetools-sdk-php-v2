@@ -379,7 +379,7 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     public function getItems()
     {
         if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
@@ -396,7 +396,7 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     public function getOldItems()
     {
         if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;

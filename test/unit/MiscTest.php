@@ -139,9 +139,9 @@ class MiscTest extends TestCase
                 ])
             ]
         ]);
-        $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getEnumValue();
-        $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getLocalizedEnumValue();
-        $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTextValue();
+        $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getValueAsEnum();
+        $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getValueAsLocalizedEnum();
+        $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getValueAsString();
 
         var_dump($enum->getLabel());
         var_dump($lenum->getLabel());

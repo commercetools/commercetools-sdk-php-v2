@@ -94,7 +94,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     public function getExternalTaxPortions()
     {
         if (is_null($this->externalTaxPortions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_EXTERNAL_TAX_PORTIONS);
             if (is_null($data)) {
                 return null;

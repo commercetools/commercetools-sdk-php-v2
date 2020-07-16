@@ -88,7 +88,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
     public function getKeys()
     {
         if (is_null($this->keys)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_KEYS);
             if (is_null($data)) {
                 return null;

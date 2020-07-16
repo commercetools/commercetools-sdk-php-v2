@@ -183,7 +183,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     public function getCartDiscounts()
     {
         if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_CART_DISCOUNTS);
             if (is_null($data)) {
                 return null;
@@ -290,7 +290,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     public function getGroups()
     {
         if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_GROUPS);
             if (is_null($data)) {
                 return null;

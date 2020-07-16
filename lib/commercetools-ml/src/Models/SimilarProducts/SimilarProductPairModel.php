@@ -66,7 +66,7 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     public function getProducts()
     {
         if (is_null($this->products)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRODUCTS);
             if (is_null($data)) {
                 return null;

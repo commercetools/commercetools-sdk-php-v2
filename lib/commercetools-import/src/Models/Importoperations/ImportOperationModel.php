@@ -248,7 +248,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     public function getErrors()
     {
         if (is_null($this->errors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_ERRORS);
             if (is_null($data)) {
                 return null;

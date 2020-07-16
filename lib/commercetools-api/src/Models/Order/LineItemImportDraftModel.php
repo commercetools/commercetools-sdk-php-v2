@@ -215,7 +215,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function getState()
     {
         if (is_null($this->state)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_STATE);
             if (is_null($data)) {
                 return null;

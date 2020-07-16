@@ -14,7 +14,7 @@ use stdClass;
 interface JsonObject extends \JsonSerializable
 {
     /**
-     * @psalm-return scalar|array<int|string, mixed>|JsonObject|JsonObjectCollection|null
+     * @psalm-return scalar|list<mixed>|array<string, mixed>|JsonObject|JsonObjectCollection|null
      */
     public function get(string $field);
     

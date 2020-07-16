@@ -183,7 +183,7 @@ final class SimilarProductSearchRequestModel extends JsonObjectModel implements 
     public function getProductSetSelectors()
     {
         if (is_null($this->productSetSelectors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_PRODUCT_SET_SELECTORS);
             if (is_null($data)) {
                 return null;

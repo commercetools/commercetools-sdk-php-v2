@@ -96,7 +96,7 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     public function getProductIds()
     {
         if (is_null($this->productIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_IDS);
             if (is_null($data)) {
                 return null;
@@ -115,7 +115,7 @@ final class ProductSetSelectorModel extends JsonObjectModel implements ProductSe
     public function getProductTypeIds()
     {
         if (is_null($this->productTypeIds)) {
-            /** @psalm-var ?array<int, mixed> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_PRODUCT_TYPE_IDS);
             if (is_null($data)) {
                 return null;
