@@ -1,10 +1,14 @@
 VRAP_VERSION ?= 1.0.0-20200716101307
 SHELL := /bin/bash
-.PHONY: codegen_install composer_install analyse test_unit check_pending
+.PHONY: analyse test_unit check_pending
 
 build: codegen_install generate
 
-generate: generate_base generate_sdk composer_install test_unit generate_sdk_test prettify analyse test_unit
+generate: generate_base generate_api_sdk prettify analyse test_unit
+
+generate_api_sdk: generate_api composer_install test_unit generate_api_test
+generate_import_sdk: generate_ml composer_install test_unit generate_import_test
+generate_ml_sdk: generate_ml composer_install test_unit generate_ml_test
 
 codegen_install:
 	curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
@@ -13,13 +17,32 @@ composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
 
 generate_base:
-	rmf-codegen generate -o lib/commercetools-base -t PHP_BASE -b "commercetools" ${RAML_FILE}
+	cd lib
+	RAML_FILE=$API_RAML make generate_base
 
-generate_sdk:
-	rmf-codegen generate -o lib/commercetools-${LIB_NAME} -t PHP_CLIENT -s "commercetools" -b "commercetools/${LIB_NAME}" ${RAML_FILE}
+generate_api:
+	cd lib
+	LIB_NAME=api RAML_FILE=$API_RAML make generate_sdk
 
-generate_sdk_test:
-	rmf-codegen generate -o lib/commercetools-${LIB_NAME}-tests -t PHP_TEST -s "commercetools" -b "commercetools/${LIB_NAME}" ${RAML_FILE}
+generate_api_test:
+	cd lib
+	LIB_NAME=api RAML_FILE=$API_RAML make generate_sdk_test
+
+generate_import:
+	cd lib
+	LIB_NAME=import RAML_FILE=$IMPORT_RAML make generate_sdk
+
+generate_import_test:
+	cd lib
+	LIB_NAME=import RAML_FILE=$IMPORT_RAML make generate_sdk_test
+
+generate_ml:
+	cd lib
+	LIB_NAME=ml RAML_FILE=$ML_RAML make generate_sdk
+
+generate_ml_test:
+	cd lib
+	LIB_NAME=ml RAML_FILE=$ML_RAML make generate_sdk_test
 
 prettify:
 	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
