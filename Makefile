@@ -2,13 +2,14 @@ VRAP_VERSION := "1.0.0-20200716101307"
 SHELL := /bin/bash
 CHANGES_PENDING := `git status --porcelain -- ':(exclude)*gen.properties' | grep -c ^ || true`
 
-build: codegen_install generate
+build: codegen_install generate_base gen_api_sdk gen_import_sdk gen_ml_sdk prettify analyse test_unit
+build_api_sdk: codegen_install generate_base gen_api_sdk prettify analyse test_unit
+build_import_sdk: codegen_install generate_base gen_import_sdk prettify analyse test_unit
+build_ml_sdk: codegen_install generate_base gen_ml_sdk prettify analyse test_unit
 
-generate: generate_base generate_api_sdk prettify analyse test_unit
-
-generate_api_sdk: generate_api composer_install test_bc generate_api_test
-generate_import_sdk: generate_import composer_install test_bc generate_import_test
-generate_ml_sdk: generate_ml composer_install test_bc generate_ml_test
+gen_api_sdk: generate_api composer_install test_bc generate_api_test
+gen_import_sdk: generate_import composer_install test_bc generate_import_test
+gen_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 
 codegen_install:
 	export VRAP_VERSION=$(VRAP_VERSION) && curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
