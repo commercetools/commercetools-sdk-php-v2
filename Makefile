@@ -3,6 +3,11 @@ SHELL := /bin/bash
 
 build: codegen_install generate
 
+debug_info:
+	pwd
+	ls -la
+	ls -la ..
+
 generate: generate_base generate_sdk composer_install test_unit generate_sdk_test prettify analyse test_unit
 
 codegen_install:
