@@ -1,17 +1,13 @@
+VRAP_VERSION ?= 1.0.0-20200716101307
 SHELL := /bin/bash
 .PHONY: codegen_install composer_install analyse test_unit check_pending
 
 build: codegen_install generate
 
-debug_info:
-	pwd
-	ls -la
-	ls -la ..
-
 generate: generate_base generate_sdk composer_install test_unit generate_sdk_test prettify analyse test_unit
 
 codegen_install:
-	export VRAP_VERSION=1.0.0-20200716101307 && curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
+	curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
 
 composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
