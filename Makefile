@@ -1,14 +1,14 @@
 VRAP_VERSION := "1.0.0-20200716101307"
 SHELL := /bin/bash
-.PHONY: analyse test_unit check_pending
+CHANGES_PENDING := `git status --porcelain -- ':(exclude)*gen.properties' | grep -c ^ || true`
 
 build: codegen_install generate
 
 generate: generate_base generate_api_sdk prettify analyse test_unit
 
-generate_api_sdk: generate_api composer_install test_unit generate_api_test
-generate_import_sdk: generate_import composer_install test_unit generate_import_test
-generate_ml_sdk: generate_ml composer_install test_unit generate_ml_test
+generate_api_sdk: generate_api composer_install test_bc generate_api_test
+generate_import_sdk: generate_import composer_install test_bc generate_import_test
+generate_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 
 codegen_install:
 	export VRAP_VERSION=$(VRAP_VERSION) && curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
@@ -43,11 +43,14 @@ prettify:
 analyse:
 	vendor/bin/psalm --threads=2
 
+test_bc:
+	vendor/bin/phpunit --testsuite=unit
+
 test_unit:
 	vendor/bin/phpunit --testsuite=unit
 
 check_pending:
 	git status --porcelain -- ':(exclude)*gen.properties'
-	CHANGES_PENDING=`git status --porcelain -- ':(exclude)*gen.properties' | grep -c ^ || true`
-	echo "::set-env name=CHANGES_PENDING::${CHANGES_PENDING}"
+	@echo "::set-env name=CHANGES_PENDING::$(CHANGES_PENDING)"
+
 
