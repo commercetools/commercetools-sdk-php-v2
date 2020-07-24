@@ -11,12 +11,16 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Product\AttributeAccessor;
+use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\AttributeModel;
+use Commercetools\Api\Models\Product\NestedAttribute;
+use Commercetools\Api\Models\Product\NestedAttributeCollection;
 use Commercetools\Api\Models\Product\ProductDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantDraftCollection;
 use Commercetools\Api\Models\Product\ProductVariantDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValue;
+use Commercetools\Api\Models\ProductType\AttributePlainEnumValue;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
@@ -137,18 +141,58 @@ class MiscTest extends TestCase
                 AttributeModel::fromArray([
                     'name' => 'text',
                     'value' => 'foo'
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'nested',
+                    'value' => [
+                        [
+                            'name' => 'nested-text',
+                            'value' => 'foo'
+                        ]
+                    ]
+                ]),
+                AttributeModel::fromArray([
+                    'name' => 'nested-set',
+                    'value' => [
+                        [
+                            [
+                                'name' => 'nested-text',
+                                'value' => 'foo'
+                            ]
+                        ]
+                    ]
                 ])
             ]
         ]);
+        /**
+         * @var AttributePlainEnumValue $enum
+         */
         $enum = $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getValueAsEnum();
         /**
          * @var AttributeLocalizedEnumValue $lenum
          */
         $lenum = $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getValueAsLocalizedEnum();
         $text = $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getValueAsString();
+        /**
+         * @var NestedAttribute $nested
+         */
+        $nested = $variant->getAttributes()->at(3)->with(AttributeAccessor::of())->getValueAsNested();
+        /**
+         * @var NestedAttributeCollection $nestedSet
+         */
+        $nestedSet = $variant->getAttributes()->at(4)->with(AttributeAccessor::of())->getValueAsNestedSet();
+
 
         $this->assertSame("foo", $enum->getLabel());
         $this->assertSame("foo", $lenum->getLabel()['en']);
         $this->assertSame("foo", $text);
+        $this->assertSame("foo", $nested->current()->getValue());
+        $this->assertSame("foo", $nestedSet->current()->current()->getValue());
+
+//        $this->assertSame("foo", $variant->getAttributes()->at(0)->with(AttributeAccessor::of())->getTypedValue()->getLabel());
+//        $this->assertSame("foo", $variant->getAttributes()->at(1)->with(AttributeAccessor::of())->getTypedValue()->getLabel()['en']);
+//        $this->assertSame("foo", $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTypedValue());
+//        $this->assertSame("foo", $variant->getAttributes()->at(3)->with(AttributeAccessor::of())->getTypedValue()->current()->getValue());
+//        $this->assertSame("foo", $variant->getAttributes()->at(4)->with(AttributeAccessor::of())->getTypedValue()->current()->current()->getValue());
     }
 }

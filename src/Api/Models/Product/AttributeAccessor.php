@@ -20,6 +20,7 @@ use Commercetools\Api\Models\ProductType\AttributePlainEnumValueModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
+use stdClass;
 
 class AttributeAccessor
 {
@@ -131,13 +132,13 @@ class AttributeAccessor
         return $refClass::of($value);
     }
 
-    public function getValueAsNested(): AttributeCollection
+    public function getValueAsNested(): NestedAttribute
     {
         /**
          * @psalm-var list<mixed> $value
          */
         $value = $this->attribute->getValue();
-        return AttributeCollection::fromArray($value);
+        return NestedAttribute::fromArray($value);
     }
 
     public function getValueAsLocalizedString(): LocalizedString
@@ -251,4 +252,89 @@ class AttributeAccessor
         $value = $this->attribute->getValue();
         return LocalizedStringCollection::fromArray($value);
     }
+
+    public function getValueAsNestedSet(): NestedAttributeCollection
+    {
+        /**
+         * @psalm-var list<mixed> $value
+         */
+        $value = $this->attribute->getValue();
+        return NestedAttributeCollection::fromArray($value);
+    }
+
+//    public function getTypedValue()
+//    {
+//        $value = $this->attribute->getValue();
+//        if (is_scalar($value)) {
+//            return $value;
+//        }
+//        if ($value instanceof stdClass) {
+//            return $this->objectToValue($value);
+//        }
+//        if (is_array($value)) {
+//            return $this->arrayToValue($value);
+//        }
+//        return $value;
+//    }
+//
+//    private function objectToValue(stdClass $value)
+//    {
+//        if (isset($value->key)) {
+//            if ($value->label instanceof stdClass) {
+//                return AttributeLocalizedEnumValueModel::fromStdClass($value);
+//            }
+//            return AttributePlainEnumValueModel::fromStdClass($value);
+//        }
+//        if (isset($value->currencyCode)) {
+//            return MoneyModel::fromStdClass($value);
+//        }
+//        if (isset($value->typeId)) {
+//            $refClass = ReferenceModel::resolveDiscriminatorClass($value);
+//            return $refClass::fromStdClass($value);
+//        }
+//        return LocalizedStringModel::fromStdClass($value);
+//    }
+//
+//    private function arrayToValue(array $value)
+//    {
+//        $firstItem = current($value);
+//        if (is_array($firstItem)) {
+//            return $this->objectToValueCollection($firstItem, $value);
+//        }
+//        if (isset($value['key'])) {
+//            if ($value['label'] instanceof stdClass) {
+//                return AttributeLocalizedEnumValueModel::fromArray($value);
+//            }
+//            return AttributePlainEnumValueModel::fromArray($value);
+//        }
+//        if (isset($value['currencyCode'])) {
+//            return MoneyModel::fromArray($value);
+//        }
+//        if (isset($value['typeId'])) {
+//            $refClass = ReferenceModel::resolveDiscriminatorClass($value);
+//            return $refClass::fromArray($value);
+//        }
+//        if (is_string(key($value))) {
+//            return LocalizedStringModel::fromArray($value);
+//        }
+//        return $value;
+//    }
+//
+//    private function objectToValueCollection($firstItem, array $value)
+//    {
+//        if (isset($firstItem->key)) {
+//            if ($firstItem->label instanceof stdClass) {
+//                return AttributeLocalizedEnumValueCollection::fromArray($value);
+//            }
+//            return AttributePlainEnumValueCollection::fromArray($value);
+//        }
+//        if (isset($firstItem->currencyCode)) {
+//            return MoneyCollection::fromArray($value);
+//        }
+//        if (isset($firstItem->typeId)) {
+//            $refClass = ReferenceModel::resolveDiscriminatorClass($value) . "Collection";
+//            return $refClass::fromArray($value);
+//        }
+//        return LocalizedStringCollection::fromArray($value);
+//    }
 }

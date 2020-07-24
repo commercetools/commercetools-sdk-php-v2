@@ -4,13 +4,16 @@ CHANGES_PENDING := `git status --porcelain -- ':(exclude)*gen.properties' | grep
 API_RAML ?= $(RAML_FILE)
 IMPORT_RAML ?= $(RAML_FILE)
 ML_RAML ?= $(RAML_FILE)
+CPUS := `./tools/numcpu.sh`
+
+.PHONY: build build_api_sdk build_import_sdk build_import_sdk build_ml_sdk gen_api_sdk gen_import_sdk gen_ml_sdk
 
 build: codegen_install generate_base gen_api_sdk gen_import_sdk gen_ml_sdk prettify analyse test_unit
-build_api_sdk: codegen_install generate_base gen_api_sdk prettify analyse test_unit
-build_import_sdk: codegen_install generate_base gen_import_sdk prettify analyse test_unit
-build_ml_sdk: codegen_install generate_base gen_ml_sdk prettify analyse test_unit
+build_api_sdk: codegen_install generate_base gen_api_sdk prettify analyse test_api
+build_import_sdk: codegen_install generate_base gen_import_sdk prettify analyse test_import
+build_ml_sdk: codegen_install generate_base gen_ml_sdk prettify analyse test_ml
 
-gen_api_sdk: generate_api composer_install test_bc generate_api_test
+gen_api_sdk: generate_api composer_install generate_api_test
 gen_import_sdk: generate_import composer_install test_bc generate_import_test
 gen_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 
@@ -45,13 +48,25 @@ prettify:
 	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
 
 analyse:
-	vendor/bin/psalm --threads=2
+	vendor/bin/psalm --threads=$(CPUS)
 
 test_bc:
 	vendor/bin/phpunit --testsuite=unit
 
 test_unit:
 	vendor/bin/phpunit --testsuite=unit
+
+test_api:
+	vendor/bin/phpunit --testsuite=api
+
+test_ml:
+	vendor/bin/phpunit --testsuite=ml
+
+test_import:
+	vendor/bin/phpunit --testsuite=import
+
+test_integration:
+	vendor/bin/phpunit --testsuite=integration
 
 check_pending:
 	git status --porcelain -- ':(exclude)*gen.properties'

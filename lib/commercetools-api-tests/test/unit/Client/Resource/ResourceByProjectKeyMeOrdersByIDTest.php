@@ -22,7 +22,6 @@ use Psr\Http\Message\RequestInterface;
 
 /**
  * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersByIDGet
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyMeOrdersByIDPost
  * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyMeOrdersByID
  */
 class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
@@ -115,31 +114,6 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                 },
                 'get',
                 'test_projectKey/me/orders/test_ID',
-            ],
-            'ByProjectKeyMeOrdersByIDPost_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->me()
-                        ->orders()
-                        ->withId('test_ID')
-                        ->post(null)
-                        ->withExpand('expand');
-                },
-                'post',
-                'test_projectKey/me/orders/test_ID?expand=expand',
-            ],
-            'ByProjectKeyMeOrdersByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("test_ID")
-                        ->post(null);
-                },
-                'post',
-                'test_projectKey/me/orders/test_ID',
             ]
         ];
     }
@@ -161,16 +135,6 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->orders()
                         ->withId("ID")
                         ->get();
-                }
-            ],
-            'ByProjectKeyMeOrdersByIDPost' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
                 }
             ]
         ];
@@ -264,105 +228,6 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->orders()
                         ->withId("ID")
                         ->get();
-                },
-                599
-            ],
-            'ByProjectKeyMeOrdersByIDPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                200
-            ],
-            'ByProjectKeyMeOrdersByIDPost_409' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                409
-            ],
-            'ByProjectKeyMeOrdersByIDPost_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                400
-            ],
-            'ByProjectKeyMeOrdersByIDPost_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                401
-            ],
-            'ByProjectKeyMeOrdersByIDPost_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                403
-            ],
-            'ByProjectKeyMeOrdersByIDPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                404
-            ],
-            'ByProjectKeyMeOrdersByIDPost_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                500
-            ],
-            'ByProjectKeyMeOrdersByIDPost_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
-                },
-                503
-            ],
-            'ByProjectKeyMeOrdersByIDPost_599' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->orders()
-                        ->withId("ID")
-                        ->post(null);
                 },
                 599
             ]

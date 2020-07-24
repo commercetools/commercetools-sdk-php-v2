@@ -93,7 +93,7 @@ final class ReviewDraftBuilder implements Builder
 
     /**
      * <p>If set, this value must be unique among reviews.
-     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> + <code>product's id</code>.</p>
+     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code>��+ <code>product's id</code>.</p>
      *
      * @return null|string
      */

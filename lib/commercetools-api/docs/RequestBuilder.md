@@ -2170,22 +2170,6 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
-## `withProjectKey("projectKey")->me()->orders()->withId("ID")->post(null)`
-
-Update MyOrder by ID
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->me()
-                ->orders()
-                ->withId("ID")
-                ->post(null);
-```
 ## `withProjectKey("projectKey")->me()->password()->post(null)`
 
 null
