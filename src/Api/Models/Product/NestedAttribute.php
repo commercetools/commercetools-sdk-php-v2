@@ -39,7 +39,7 @@ class NestedAttribute extends MapperSequence
     {
         return function (int $index): ?Attribute {
             $data = $this->get($index);
-            if ($data instanceof Attribute) {
+            if ($data instanceof Attribute || $data == null) {
                 return $data;
             }
             $data = AttributeModel::of($data);
