@@ -13,7 +13,7 @@ build_api_sdk: codegen_install generate_base gen_api_sdk prettify analyse test_a
 build_import_sdk: codegen_install generate_base gen_import_sdk prettify analyse test_import
 build_ml_sdk: codegen_install generate_base gen_ml_sdk prettify analyse test_ml
 
-gen_api_sdk: generate_api composer_install generate_api_test
+gen_api_sdk: generate_api composer_install test_bc generate_api_test
 gen_import_sdk: generate_import composer_install test_bc generate_import_test
 gen_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 
