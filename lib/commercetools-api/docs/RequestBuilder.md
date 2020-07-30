@@ -554,7 +554,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->get()`
 
-Get CustomObject by key
+Get CustomObject by container and key
 
 ### Example
 ```php
@@ -569,7 +569,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->delete()`
 
-Delete CustomObject by key
+Delete CustomObject by container and key
 
 ### Example
 ```php
@@ -584,7 +584,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withId("ID")->get()`
 
-Get CustomObject by container
+Get CustomObject by ID
 
 ### Example
 ```php

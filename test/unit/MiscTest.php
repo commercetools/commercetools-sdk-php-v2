@@ -7,12 +7,14 @@ use Commercetools\Api\Client\Resource\ByProjectKeyGet;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
+use Commercetools\Api\Models\Category\CategoryModel;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Product\AttributeAccessor;
 use Commercetools\Api\Models\Product\AttributeCollection;
 use Commercetools\Api\Models\Product\AttributeModel;
+use Commercetools\Api\Models\Product\CustomFieldAccessor;
 use Commercetools\Api\Models\Product\NestedAttribute;
 use Commercetools\Api\Models\Product\NestedAttributeCollection;
 use Commercetools\Api\Models\Product\ProductDraftModel;
@@ -194,5 +196,31 @@ class MiscTest extends TestCase
 //        $this->assertSame("foo", $variant->getAttributes()->at(2)->with(AttributeAccessor::of())->getTypedValue());
 //        $this->assertSame("foo", $variant->getAttributes()->at(3)->with(AttributeAccessor::of())->getTypedValue()->current()->getValue());
 //        $this->assertSame("foo", $variant->getAttributes()->at(4)->with(AttributeAccessor::of())->getTypedValue()->current()->current()->getValue());
+    }
+
+    public function testCustomFields()
+    {
+        $c = CategoryModel::fromArray([
+            'custom' => [
+                'fields' => [
+                    'string' => 'foo',
+                    'enum' => [
+                        'key' => 'foo',
+                        'label' => 'foo'
+                    ],
+                    'lenum' => [
+                        'key' => 'foo',
+                        'label' => [
+                            'en' => 'foo'
+                        ]
+                    ],
+                ]
+            ]
+        ]);
+        $this->assertSame('foo', $c->getCustom()->getFields()->with('string', CustomFieldAccessor::of())->getValueAsString());
+        $this->assertSame('foo', $c->getCustom()->getFields()->with('enum', CustomFieldAccessor::of())->getValueAsEnum()->getKey());
+        $this->assertSame('foo', $c->getCustom()->getFields()->with('enum', CustomFieldAccessor::of())->getValueAsEnum()->getLabel());
+        $this->assertSame('foo', $c->getCustom()->getFields()->with('lenum', CustomFieldAccessor::of())->getValueAsLocalizedEnum()->getKey());
+        $this->assertSame('foo', $c->getCustom()->getFields()->with('lenum', CustomFieldAccessor::of())->getValueAsLocalizedEnum()->getLabel()->at('en'));
     }
 }

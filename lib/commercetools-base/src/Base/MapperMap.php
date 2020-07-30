@@ -147,6 +147,19 @@ abstract class MapperMap implements CMap
     }
 
     /**
+     * @return ?TObject|mixed
+     */
+    public function with(string $key, callable $callback = null)
+    {
+        $data = $this->at($key);
+        if (is_null($callback)) {
+            return $data;
+        }
+
+        return $callback($data);
+    }
+
+    /**
      * @psalm-return callable(string): ?TObject
      */
     abstract protected function mapper();

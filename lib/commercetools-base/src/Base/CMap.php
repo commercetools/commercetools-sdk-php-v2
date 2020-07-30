@@ -58,6 +58,11 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
      */
     public function at(string $key);
 
+    /**
+     * @return static|mixed
+     */
+    public function with(string $key, callable $callable = null);
+
     public function getIterator(): MapperIterator;
 
     /**
