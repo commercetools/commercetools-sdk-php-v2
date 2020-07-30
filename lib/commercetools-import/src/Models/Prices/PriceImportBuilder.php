@@ -23,6 +23,7 @@ use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
@@ -74,6 +75,11 @@ final class PriceImportBuilder implements Builder
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
+
+    /**
+     * @var ?PriceTierCollection
+     */
+    private $tiers;
 
     /**
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
@@ -168,6 +174,16 @@ final class PriceImportBuilder implements Builder
     public function getDiscounted()
     {
         return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+    }
+
+    /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers()
+    {
+        return $this->tiers;
     }
 
     /**
@@ -285,6 +301,17 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?PriceTierCollection $tiers
+     * @return $this
+     */
+    public function withTiers(?PriceTierCollection $tiers)
+    {
+        $this->tiers = $tiers;
+
+        return $this;
+    }
+
+    /**
      * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
@@ -377,6 +404,7 @@ final class PriceImportBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->tiers,
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );

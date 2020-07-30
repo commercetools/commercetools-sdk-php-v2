@@ -15,6 +15,7 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use DateTimeImmutable;
@@ -28,6 +29,7 @@ interface PriceImport extends ImportResource
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_TIERS = 'tiers';
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_PRODUCT = 'product';
 
@@ -88,6 +90,13 @@ interface PriceImport extends ImportResource
     public function getDiscounted();
 
     /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers();
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -141,6 +150,11 @@ interface PriceImport extends ImportResource
      * @param ?DiscountedPrice $discounted
      */
     public function setDiscounted(?DiscountedPrice $discounted): void;
+
+    /**
+     * @param ?PriceTierCollection $tiers
+     */
+    public function setTiers(?PriceTierCollection $tiers): void;
 
     /**
      * @param ?ProductVariantKeyReference $productVariant

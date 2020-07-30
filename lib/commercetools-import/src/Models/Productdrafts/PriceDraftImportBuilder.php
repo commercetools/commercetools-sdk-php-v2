@@ -21,6 +21,7 @@ use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
@@ -70,6 +71,11 @@ final class PriceDraftImportBuilder implements Builder
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
+
+    /**
+     * @var ?PriceTierCollection
+     */
+    private $tiers;
 
     /**
      * @return null|Money
@@ -143,6 +149,16 @@ final class PriceDraftImportBuilder implements Builder
     public function getDiscounted()
     {
         return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+    }
+
+    /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers()
+    {
+        return $this->tiers;
     }
 
     /**
@@ -234,6 +250,17 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?PriceTierCollection $tiers
+     * @return $this
+     */
+    public function withTiers(?PriceTierCollection $tiers)
+    {
+        $this->tiers = $tiers;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withValueBuilder(?MoneyBuilder $value)
@@ -293,7 +320,8 @@ final class PriceDraftImportBuilder implements Builder
             $this->validFrom,
             $this->validUntil,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
-            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->tiers
         );
     }
 

@@ -22,6 +22,7 @@ use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
@@ -75,6 +76,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $discounted;
 
     /**
+     * @var ?PriceTierCollection
+     */
+    protected $tiers;
+
+    /**
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
@@ -97,6 +103,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         ?CustomerGroupKeyReference $customerGroup = null,
         ?ChannelKeyReference $channel = null,
         ?DiscountedPrice $discounted = null,
+        ?PriceTierCollection $tiers = null,
         ?ProductVariantKeyReference $productVariant = null,
         ?ProductKeyReference $product = null
     ) {
@@ -108,6 +115,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
         $this->discounted = $discounted;
+        $this->tiers = $tiers;
         $this->productVariant = $productVariant;
         $this->product = $product;
     }
@@ -282,6 +290,25 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers()
+    {
+        if (is_null($this->tiers)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TIERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tiers = PriceTierCollection::fromArray($data);
+        }
+
+        return $this->tiers;
+    }
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -390,6 +417,14 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
+    }
+
+    /**
+     * @param ?PriceTierCollection $tiers
+     */
+    public function setTiers(?PriceTierCollection $tiers): void
+    {
+        $this->tiers = $tiers;
     }
 
     /**
