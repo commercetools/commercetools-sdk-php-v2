@@ -6,15 +6,18 @@ build:
           - 'true'
       tests:
         override:
+          - php-scrutinizer-run
+          -
+            command: phpcs-run
+            use_website_config: true
+    tests:
+      tests:
+        override:
           -
             command: vendor/bin/phpunit --testsuite=unit --coverage-clover=my-coverage-file
             coverage:
               file: my-coverage-file
               format: php-clover
-          - php-scrutinizer-run
-          -
-            command: phpcs-run
-            use_website_config: true
 filter:
   excluded_paths:
     - 'test/*'
