@@ -1,0 +1,45 @@
+build:
+  nodes:
+    analysis:
+      project_setup:
+        override:
+          - 'true'
+      tests:
+        override:
+          - php-scrutinizer-run
+          -
+            command: phpcs-run
+            use_website_config: true
+    tests:
+      override:
+        - command: phpunit --testsuite=unit --coverage-clover=my-coverage-file
+          coverage:
+            file: my-coverage-file
+            format: php-clover
+filter:
+  excluded_paths:
+    - 'test/*'
+    - 'tools/*'
+    - 'lambda/*'
+  dependency_paths:
+    - 'lib/commercetools-ml/src/Models/ImageSearchConfig/*'
+    - 'tools/*'
+    - 'lambda/*'
+checks:
+  php:
+    duplication: false
+    unused_methods: false
+    unused_parameters: false
+    argument_type_checks: false
+    verify_property_names: false
+    method_calls_on_non_object: false
+    fix_doc_comments: false
+    instanceof_class_exists: false
+    catch_class_exists: false
+    assignment_of_null_return: false
+    use_statement_alias_conflict: false
+coding_style:
+  php:
+    spaces:
+      around_operators:
+        concatenation: true
