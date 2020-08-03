@@ -14,6 +14,7 @@ use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\Money;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
@@ -27,6 +28,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_VALID_UNTIL = 'validUntil';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_TIERS = 'tiers';
 
     /**
      * @return null|Money
@@ -79,6 +81,13 @@ interface PriceDraftImport extends JsonObject
     public function getDiscounted();
 
     /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers();
+
+    /**
      * @param ?Money $value
      */
     public function setValue(?Money $value): void;
@@ -117,4 +126,9 @@ interface PriceDraftImport extends JsonObject
      * @param ?DiscountedPrice $discounted
      */
     public function setDiscounted(?DiscountedPrice $discounted): void;
+
+    /**
+     * @param ?PriceTierCollection $tiers
+     */
+    public function setTiers(?PriceTierCollection $tiers): void;
 }

@@ -20,6 +20,7 @@ use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceModel;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyModel;
+use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
@@ -70,6 +71,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      */
     protected $discounted;
 
+    /**
+     * @var ?PriceTierCollection
+     */
+    protected $tiers;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -82,7 +88,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
         ?Custom $custom = null,
-        ?DiscountedPrice $discounted = null
+        ?DiscountedPrice $discounted = null,
+        ?PriceTierCollection $tiers = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -92,6 +99,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->validUntil = $validUntil;
         $this->custom = $custom;
         $this->discounted = $discounted;
+        $this->tiers = $tiers;
     }
 
     /**
@@ -253,6 +261,25 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         return $this->discounted;
     }
 
+    /**
+     * <p>The tiered prices for this price.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers()
+    {
+        if (is_null($this->tiers)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TIERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tiers = PriceTierCollection::fromArray($data);
+        }
+
+        return $this->tiers;
+    }
+
 
     /**
      * @param ?Money $value
@@ -316,6 +343,14 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
+    }
+
+    /**
+     * @param ?PriceTierCollection $tiers
+     */
+    public function setTiers(?PriceTierCollection $tiers): void
+    {
+        $this->tiers = $tiers;
     }
 
 
