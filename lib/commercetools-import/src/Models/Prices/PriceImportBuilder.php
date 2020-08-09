@@ -77,6 +77,11 @@ final class PriceImportBuilder implements Builder
     private $discounted;
 
     /**
+     * @var ?bool
+     */
+    private $publish;
+
+    /**
      * @var ?PriceTierCollection
      */
     private $tiers;
@@ -174,6 +179,16 @@ final class PriceImportBuilder implements Builder
     public function getDiscounted()
     {
         return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+    }
+
+    /**
+     * <p>Only the Price updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        return $this->publish;
     }
 
     /**
@@ -301,6 +316,17 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $publish
+     * @return $this
+     */
+    public function withPublish(?bool $publish)
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    /**
      * @param ?PriceTierCollection $tiers
      * @return $this
      */
@@ -404,6 +430,7 @@ final class PriceImportBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->publish,
             $this->tiers,
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product

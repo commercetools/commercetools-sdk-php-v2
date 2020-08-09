@@ -29,6 +29,7 @@ interface PriceImport extends ImportResource
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_PUBLISH = 'publish';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_PRODUCT = 'product';
@@ -88,6 +89,13 @@ interface PriceImport extends ImportResource
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
+
+    /**
+     * <p>Only the Price updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish();
 
     /**
      * <p>The tiered prices for this price.</p>
@@ -150,6 +158,11 @@ interface PriceImport extends ImportResource
      * @param ?DiscountedPrice $discounted
      */
     public function setDiscounted(?DiscountedPrice $discounted): void;
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void;
 
     /**
      * @param ?PriceTierCollection $tiers

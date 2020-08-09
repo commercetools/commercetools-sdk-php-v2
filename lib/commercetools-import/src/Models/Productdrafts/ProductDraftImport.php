@@ -33,6 +33,7 @@ interface ProductDraftImport extends ImportResource
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STATE = 'state';
+    public const FIELD_PUBLISH = 'publish';
 
     /**
      * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
@@ -130,6 +131,14 @@ interface ProductDraftImport extends ImportResource
     public function getState();
 
     /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish();
+
+    /**
      * @param ?ProductTypeKeyReference $productType
      */
     public function setProductType(?ProductTypeKeyReference $productType): void;
@@ -193,4 +202,9 @@ interface ProductDraftImport extends ImportResource
      * @param ?StateKeyReference $state
      */
     public function setState(?StateKeyReference $state): void;
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void;
 }

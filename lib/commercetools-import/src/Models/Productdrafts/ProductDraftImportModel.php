@@ -102,6 +102,11 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
      */
     protected $state;
 
+    /**
+     * @var ?bool
+     */
+    protected $publish;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -120,7 +125,8 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         ?ProductVariantDraftImportCollection $variants = null,
         ?TaxCategoryKeyReference $taxCategory = null,
         ?SearchKeywords $searchKeywords = null,
-        ?StateKeyReference $state = null
+        ?StateKeyReference $state = null,
+        ?bool $publish = null
     ) {
         $this->key = $key;
         $this->productType = $productType;
@@ -136,6 +142,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         $this->taxCategory = $taxCategory;
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
+        $this->publish = $publish;
     }
 
     /**
@@ -417,6 +424,26 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
         return $this->state;
     }
 
+    /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        if (is_null($this->publish)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PUBLISH);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->publish = (bool) $data;
+        }
+
+        return $this->publish;
+    }
+
 
     /**
      * @param ?string $key
@@ -528,5 +555,13 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     public function setState(?StateKeyReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void
+    {
+        $this->publish = $publish;
     }
 }

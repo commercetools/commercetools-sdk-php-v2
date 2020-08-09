@@ -57,6 +57,11 @@ final class ProductVariantImportBuilder implements Builder
     private $assets;
 
     /**
+     * @var ?bool
+     */
+    private $publish;
+
+    /**
      * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
@@ -120,6 +125,17 @@ final class ProductVariantImportBuilder implements Builder
     public function getAssets()
     {
         return $this->assets;
+    }
+
+    /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        return $this->publish;
     }
 
     /**
@@ -202,6 +218,17 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $publish
+     * @return $this
+     */
+    public function withPublish(?bool $publish)
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    /**
      * @param ?ProductKeyReference $product
      * @return $this
      */
@@ -231,6 +258,7 @@ final class ProductVariantImportBuilder implements Builder
             $this->attributes,
             $this->images,
             $this->assets,
+            $this->publish,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );
     }

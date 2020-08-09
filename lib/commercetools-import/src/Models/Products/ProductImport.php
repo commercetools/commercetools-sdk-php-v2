@@ -30,6 +30,7 @@ interface ProductImport extends ImportResource
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STATE = 'state';
+    public const FIELD_PUBLISH = 'publish';
 
     /**
      * <p>Maps to <code>Product.name</code>.</p>
@@ -114,6 +115,14 @@ interface ProductImport extends ImportResource
     public function getState();
 
     /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -167,4 +176,9 @@ interface ProductImport extends ImportResource
      * @param ?StateKeyReference $state
      */
     public function setState(?StateKeyReference $state): void;
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void;
 }

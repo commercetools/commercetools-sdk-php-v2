@@ -22,6 +22,7 @@ interface ProductVariantImport extends ImportResource
     public const FIELD_ATTRIBUTES = 'attributes';
     public const FIELD_IMAGES = 'images';
     public const FIELD_ASSETS = 'assets';
+    public const FIELD_PUBLISH = 'publish';
     public const FIELD_PRODUCT = 'product';
 
     /**
@@ -63,6 +64,14 @@ interface ProductVariantImport extends ImportResource
     public function getAssets();
 
     /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish();
+
+    /**
      * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
@@ -96,6 +105,11 @@ interface ProductVariantImport extends ImportResource
      * @param ?AssetCollection $assets
      */
     public function setAssets(?AssetCollection $assets): void;
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void;
 
     /**
      * @param ?ProductKeyReference $product

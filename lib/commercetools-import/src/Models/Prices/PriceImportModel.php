@@ -76,6 +76,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $discounted;
 
     /**
+     * @var ?bool
+     */
+    protected $publish;
+
+    /**
      * @var ?PriceTierCollection
      */
     protected $tiers;
@@ -103,6 +108,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         ?CustomerGroupKeyReference $customerGroup = null,
         ?ChannelKeyReference $channel = null,
         ?DiscountedPrice $discounted = null,
+        ?bool $publish = null,
         ?PriceTierCollection $tiers = null,
         ?ProductVariantKeyReference $productVariant = null,
         ?ProductKeyReference $product = null
@@ -115,6 +121,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
         $this->discounted = $discounted;
+        $this->publish = $publish;
         $this->tiers = $tiers;
         $this->productVariant = $productVariant;
         $this->product = $product;
@@ -290,6 +297,25 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
+     * <p>Only the Price updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        if (is_null($this->publish)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PUBLISH);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->publish = (bool) $data;
+        }
+
+        return $this->publish;
+    }
+
+    /**
      * <p>The tiered prices for this price.</p>
      *
      * @return null|PriceTierCollection
@@ -417,6 +443,14 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     public function setDiscounted(?DiscountedPrice $discounted): void
     {
         $this->discounted = $discounted;
+    }
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void
+    {
+        $this->publish = $publish;
     }
 
     /**

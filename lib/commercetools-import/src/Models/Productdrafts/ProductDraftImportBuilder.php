@@ -104,6 +104,11 @@ final class ProductDraftImportBuilder implements Builder
     private $state;
 
     /**
+     * @var ?bool
+     */
+    private $publish;
+
+    /**
      * @return null|string
      */
     public function getKey()
@@ -243,6 +248,17 @@ final class ProductDraftImportBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        return $this->publish;
     }
 
     /**
@@ -400,6 +416,17 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?bool $publish
+     * @return $this
+     */
+    public function withPublish(?bool $publish)
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeKeyReferenceBuilder $productType)
@@ -525,7 +552,8 @@ final class ProductDraftImportBuilder implements Builder
             $this->variants,
             $this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
-            $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state,
+            $this->publish
         );
     }
 

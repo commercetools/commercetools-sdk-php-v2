@@ -56,6 +56,11 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $assets;
 
     /**
+     * @var ?bool
+     */
+    protected $publish;
+
+    /**
      * @var ?ProductKeyReference
      */
     protected $product;
@@ -71,6 +76,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         ?AttributeCollection $attributes = null,
         ?ImageCollection $images = null,
         ?AssetCollection $assets = null,
+        ?bool $publish = null,
         ?ProductKeyReference $product = null
     ) {
         $this->key = $key;
@@ -79,6 +85,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->attributes = $attributes;
         $this->images = $images;
         $this->assets = $assets;
+        $this->publish = $publish;
         $this->product = $product;
     }
 
@@ -198,6 +205,26 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>Set product Published field to <code>true</code> if there were no updates.
+     * If there were Updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     *
+     * @return null|bool
+     */
+    public function getPublish()
+    {
+        if (is_null($this->publish)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PUBLISH);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->publish = (bool) $data;
+        }
+
+        return $this->publish;
+    }
+
+    /**
      * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced
      * must already exist in the commercetools project, or the
@@ -267,6 +294,14 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
+    }
+
+    /**
+     * @param ?bool $publish
+     */
+    public function setPublish(?bool $publish): void
+    {
+        $this->publish = $publish;
     }
 
     /**
