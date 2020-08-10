@@ -42,6 +42,11 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $distributionChannels;
 
+    /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    protected $supplyChannels;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -50,12 +55,14 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?string $key = null,
         ?LocalizedString $name = null,
         ?array $languages = null,
-        ?ChannelResourceIdentifierCollection $distributionChannels = null
+        ?ChannelResourceIdentifierCollection $distributionChannels = null,
+        ?ChannelResourceIdentifierCollection $supplyChannels = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
+        $this->supplyChannels = $supplyChannels;
     }
 
     /**
@@ -117,7 +124,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
@@ -133,6 +140,25 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         }
 
         return $this->distributionChannels;
+    }
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels()
+    {
+        if (is_null($this->supplyChannels)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNELS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->supplyChannels = ChannelResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->supplyChannels;
     }
 
 
@@ -166,5 +192,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void
     {
         $this->distributionChannels = $distributionChannels;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     */
+    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void
+    {
+        $this->supplyChannels = $supplyChannels;
     }
 }

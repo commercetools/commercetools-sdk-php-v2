@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -25,6 +26,7 @@ interface Store extends BaseResource
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
+    public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
 
     /**
      * @return null|string
@@ -78,11 +80,18 @@ interface Store extends BaseResource
     public function getLanguages();
 
     /**
-     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels();
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels();
 
     /**
      * @param ?string $id
@@ -133,4 +142,9 @@ interface Store extends BaseResource
      * @param ?ChannelReferenceCollection $distributionChannels
      */
     public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void;
+
+    /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     */
+    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
 }

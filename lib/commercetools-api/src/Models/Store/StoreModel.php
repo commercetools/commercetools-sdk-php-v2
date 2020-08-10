@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -79,6 +80,11 @@ final class StoreModel extends JsonObjectModel implements Store
      */
     protected $distributionChannels;
 
+    /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    protected $supplyChannels;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -93,7 +99,8 @@ final class StoreModel extends JsonObjectModel implements Store
         ?string $key = null,
         ?LocalizedString $name = null,
         ?array $languages = null,
-        ?ChannelReferenceCollection $distributionChannels = null
+        ?ChannelReferenceCollection $distributionChannels = null,
+        ?ChannelResourceIdentifierCollection $supplyChannels = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -105,6 +112,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->name = $name;
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
+        $this->supplyChannels = $supplyChannels;
     }
 
     /**
@@ -278,7 +286,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelReferenceCollection
      */
@@ -294,6 +302,25 @@ final class StoreModel extends JsonObjectModel implements Store
         }
 
         return $this->distributionChannels;
+    }
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels()
+    {
+        if (is_null($this->supplyChannels)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNELS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->supplyChannels = ChannelResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->supplyChannels;
     }
 
 
@@ -375,6 +402,14 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void
     {
         $this->distributionChannels = $distributionChannels;
+    }
+
+    /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     */
+    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void
+    {
+        $this->supplyChannels = $supplyChannels;
     }
 
 

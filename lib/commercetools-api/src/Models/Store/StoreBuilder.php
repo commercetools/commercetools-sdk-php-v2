@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -79,6 +80,11 @@ final class StoreBuilder implements Builder
      * @var ?ChannelReferenceCollection
      */
     private $distributionChannels;
+
+    /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    private $supplyChannels;
 
     /**
      * @return null|string
@@ -159,13 +165,23 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>Array of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
     {
         return $this->distributionChannels;
+    }
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels()
+    {
+        return $this->supplyChannels;
     }
 
     /**
@@ -279,6 +295,17 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     * @return $this
+     */
+    public function withSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels)
+    {
+        $this->supplyChannels = $supplyChannels;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -320,7 +347,8 @@ final class StoreBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
-            $this->distributionChannels
+            $this->distributionChannels,
+            $this->supplyChannels
         );
     }
 

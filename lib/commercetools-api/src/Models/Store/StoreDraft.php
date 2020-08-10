@@ -19,6 +19,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
+    public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
 
     /**
      * <p>User-specific unique identifier for the store.
@@ -42,11 +43,18 @@ interface StoreDraft extends JsonObject
     public function getLanguages();
 
     /**
-     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels();
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels();
 
     /**
      * @param ?string $key
@@ -67,4 +75,9 @@ interface StoreDraft extends JsonObject
      * @param ?ChannelResourceIdentifierCollection $distributionChannels
      */
     public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void;
+
+    /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     */
+    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
 }

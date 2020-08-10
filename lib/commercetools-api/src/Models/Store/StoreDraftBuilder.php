@@ -44,6 +44,11 @@ final class StoreDraftBuilder implements Builder
     private $distributionChannels;
 
     /**
+     * @var ?ChannelResourceIdentifierCollection
+     */
+    private $supplyChannels;
+
+    /**
      * <p>User-specific unique identifier for the store.
      * The <code>key</code> is mandatory and immutable.
      * It is used to reference the store.</p>
@@ -74,13 +79,23 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
-     * <p>Array of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Set of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels()
     {
         return $this->distributionChannels;
+    }
+
+    /**
+     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     *
+     * @return null|ChannelResourceIdentifierCollection
+     */
+    public function getSupplyChannels()
+    {
+        return $this->supplyChannels;
     }
 
     /**
@@ -128,6 +143,17 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     * @return $this
+     */
+    public function withSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels)
+    {
+        $this->supplyChannels = $supplyChannels;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -143,7 +169,8 @@ final class StoreDraftBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
-            $this->distributionChannels
+            $this->distributionChannels,
+            $this->supplyChannels
         );
     }
 
