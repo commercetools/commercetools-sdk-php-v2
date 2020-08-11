@@ -42,20 +42,39 @@ use Commercetools\Api\Client\ApiRequestBuilder;
 use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
-$root =  new ApiRequestBuilder($client);
-$request = $root->withProjectKey('your-project-key')->get();
+$builder =  new ApiRequestBuilder($client);
+$request = $builder->withProjectKey('your-project-key')->get();
+```
+
+To avoid specifying the project key for every request built it's possible to use the ones in the `Commercetools\Client` namespace instead
+
+```php
+use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Client\ImportRequestBuilder;
+use Commercetools\Client\MLRequestBuilder;
+use GuzzleHttp\ClientInterface;
+
+/** @var ClientInterface $client */
+$builder =  new ApiRequestBuilder('your-project-key', $client);
+$request = $builder->with()->categories()->get();
+
+$importBuilder =  new ImportRequestBuilder('your-project-key', $client);
+$request = $importBuilder->with()->importSinks()->get();
+
+$mlBuilder =  new MLRequestBuilder('your-project-key', $client);
+$request = $mlBuilder->with()->recommendations()->generalCategories()->get();
 ```
 
 
 ### Executing requests
 
 ```php
-use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Client\ApiRequestBuilder;
 use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
-$root =  new ApiRequestBuilder($client);
-$request = $root->withProjectKey('your-project-key')->get();
+$builder =  new ApiRequestBuilder('your-project-key', $client);
+$request = $builder->with()->get();
 
 // executing the request and mapping the response directly to a domain model
 $project = $request->execute();
