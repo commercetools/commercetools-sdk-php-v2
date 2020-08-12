@@ -17,22 +17,22 @@ interface ImageDimensions extends JsonObject
     public const FIELD_H = 'h';
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getW();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getH();
 
     /**
-     * @param ?float $w
+     * @param ?int $w
      */
-    public function setW(?float $w): void;
+    public function setW(?int $w): void;
 
     /**
-     * @param ?float $h
+     * @param ?int $h
      */
-    public function setH(?float $h): void;
+    public function setH(?int $h): void;
 }

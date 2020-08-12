@@ -50,7 +50,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     protected $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -64,7 +64,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         ?LocalizedString $description = null,
         ?string $id = null,
         ?LocalizedString $name = null,
-        ?float $quantity = null
+        ?int $quantity = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -171,17 +171,17 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -229,9 +229,9 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

@@ -49,7 +49,7 @@ interface TextLineItemDraft extends JsonObject
     /**
      * <p>Defaults to <code>1</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -74,7 +74,7 @@ interface TextLineItemDraft extends JsonObject
     public function setName(?LocalizedString $name): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 }
