@@ -28,7 +28,7 @@ abstract class MapperSequence implements CSequence
      * @psalm-param ?array<int, TObject|stdClass> $data
      * @param array|null $data
      */
-    public function __construct(array $data = null)
+    final public function __construct(array $data = null)
     {
         if (!is_null($data)) {
             $this->index($data);

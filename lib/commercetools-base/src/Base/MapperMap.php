@@ -28,7 +28,7 @@ abstract class MapperMap implements CMap
      * @psalm-param ?array<string, TObject|stdClass> $data
      * @param array|null $data
      */
-    public function __construct(array $data = null)
+    final public function __construct(array $data = null)
     {
         if (!is_null($data)) {
             $this->index($data);
@@ -149,14 +149,14 @@ abstract class MapperMap implements CMap
     /**
      * @return ?TObject|mixed
      */
-    public function with(string $key, callable $callback = null)
+    public function with(string $key, callable $callable = null)
     {
         $data = $this->at($key);
-        if (is_null($callback)) {
+        if (is_null($callable)) {
             return $data;
         }
 
-        return $callback($data);
+        return $callable($data);
     }
 
     /**

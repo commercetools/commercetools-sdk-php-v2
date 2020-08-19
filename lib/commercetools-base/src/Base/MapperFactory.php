@@ -81,24 +81,4 @@ class MapperFactory
                return $date;
            };
     }
-
-    /**
-     * @template T
-     * @psalm-return callable(?mixed): ?T
-     * @psalm-param class-string<T> $className
-     */
-    public static function classMapper(string $className)
-    {
-        return
-           /**
-            * @psalm-param ?mixed $data
-            * @psalm-return ?T
-            */
-           function ($data) use ($className): ?object {
-               if (is_null($data)) {
-                   return null;
-               }
-               return new $className($data);
-           };
-    }
 }

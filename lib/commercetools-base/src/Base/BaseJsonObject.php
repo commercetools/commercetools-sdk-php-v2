@@ -11,6 +11,9 @@ namespace Commercetools\Base;
 
 use stdClass;
 
+/**
+ * @psalm-consistent-constructor
+ */
 abstract class BaseJsonObject implements JsonObject
 {
     /** @psalm-var ?stdClass */
