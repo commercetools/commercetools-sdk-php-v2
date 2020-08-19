@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
@@ -27,7 +27,7 @@ final class MoneySetAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     private $value;
 
@@ -44,7 +44,7 @@ final class MoneySetAttributeBuilder implements Builder
     }
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getValue()
     {
@@ -63,10 +63,10 @@ final class MoneySetAttributeBuilder implements Builder
     }
 
     /**
-     * @param ?MoneyCollection $value
+     * @param ?TypedMoneyCollection $value
      * @return $this
      */
-    public function withValue(?MoneyCollection $value)
+    public function withValue(?TypedMoneyCollection $value)
     {
         $this->value = $value;
 

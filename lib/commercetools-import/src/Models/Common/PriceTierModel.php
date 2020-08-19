@@ -25,7 +25,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     protected $minimumQuantity;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -35,7 +35,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
      */
     public function __construct(
         ?int $minimumQuantity = null,
-        ?Money $value = null
+        ?TypedMoney $value = null
     ) {
         $this->minimumQuantity = $minimumQuantity;
         $this->value = $value;
@@ -63,7 +63,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     /**
      * <p>The currency of a price tier is always the same as the currency of the base Price.</p>
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -73,8 +73,8 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -90,9 +90,9 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

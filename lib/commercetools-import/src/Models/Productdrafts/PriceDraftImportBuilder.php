@@ -19,9 +19,9 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceBuilder;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyBuilder;
 use Commercetools\Import\Models\Common\PriceTierCollection;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyBuilder;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
@@ -33,7 +33,7 @@ use stdClass;
 final class PriceDraftImportBuilder implements Builder
 {
     /**
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -78,11 +78,11 @@ final class PriceDraftImportBuilder implements Builder
     private $tiers;
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -162,10 +162,10 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -263,7 +263,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -313,7 +313,7 @@ final class PriceDraftImportBuilder implements Builder
     public function build(): PriceDraftImport
     {
         return new PriceDraftImportModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel,

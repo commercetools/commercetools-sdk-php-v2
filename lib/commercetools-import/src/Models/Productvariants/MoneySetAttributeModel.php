@@ -12,7 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
@@ -32,7 +32,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     protected $type;
 
     /**
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     protected $value;
 
@@ -42,7 +42,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
      */
     public function __construct(
         ?string $name = null,
-        ?MoneyCollection $value = null
+        ?TypedMoneyCollection $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -88,7 +88,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getValue()
     {
@@ -98,7 +98,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
             if (is_null($data)) {
                 return null;
             }
-            $this->value = MoneyCollection::fromArray($data);
+            $this->value = TypedMoneyCollection::fromArray($data);
         }
 
         return $this->value;
@@ -114,9 +114,9 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
-     * @param ?MoneyCollection $value
+     * @param ?TypedMoneyCollection $value
      */
-    public function setValue(?MoneyCollection $value): void
+    public function setValue(?TypedMoneyCollection $value): void
     {
         $this->value = $value;
     }

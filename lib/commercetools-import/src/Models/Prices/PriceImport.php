@@ -14,10 +14,10 @@ use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Commercetools\Import\Models\Common\TypedMoney;
 use DateTimeImmutable;
 
 interface PriceImport extends ImportResource
@@ -38,7 +38,7 @@ interface PriceImport extends ImportResource
      * <p>Maps to <code>Price.value</code>.</p>
      * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
@@ -125,9 +125,9 @@ interface PriceImport extends ImportResource
     public function getProduct();
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 
     /**
      * @param ?string $country

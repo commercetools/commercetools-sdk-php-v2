@@ -21,7 +21,7 @@ use stdClass;
 final class DiscountedPriceBuilder implements Builder
 {
     /**
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -31,11 +31,11 @@ final class DiscountedPriceBuilder implements Builder
     private $discount;
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -49,10 +49,10 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -73,7 +73,7 @@ final class DiscountedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -93,7 +93,7 @@ final class DiscountedPriceBuilder implements Builder
     public function build(): DiscountedPrice
     {
         return new DiscountedPriceModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->discount instanceof ProductDiscountKeyReferenceBuilder ? $this->discount->build() : $this->discount
         );
     }

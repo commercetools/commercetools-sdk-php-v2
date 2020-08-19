@@ -26,7 +26,7 @@ final class PriceTierBuilder implements Builder
     private $minimumQuantity;
 
     /**
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -43,11 +43,11 @@ final class PriceTierBuilder implements Builder
     /**
      * <p>The currency of a price tier is always the same as the currency of the base Price.</p>
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -62,10 +62,10 @@ final class PriceTierBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -75,7 +75,7 @@ final class PriceTierBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -86,7 +86,7 @@ final class PriceTierBuilder implements Builder
     {
         return new PriceTierModel(
             $this->minimumQuantity,
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

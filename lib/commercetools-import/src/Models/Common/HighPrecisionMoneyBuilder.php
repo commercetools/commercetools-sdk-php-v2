@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<Money>
+ * @implements Builder<HighPrecisionMoney>
  */
-final class MoneyBuilder implements Builder
+final class HighPrecisionMoneyBuilder implements Builder
 {
     /**
      * @var ?int
@@ -34,6 +34,11 @@ final class MoneyBuilder implements Builder
      * @var ?string
      */
     private $currencyCode;
+
+    /**
+     * @var ?int
+     */
+    private $preciseAmount;
 
     /**
      * @return null|int
@@ -59,6 +64,14 @@ final class MoneyBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getPreciseAmount()
+    {
+        return $this->preciseAmount;
     }
 
     /**
@@ -94,17 +107,29 @@ final class MoneyBuilder implements Builder
         return $this;
     }
 
-
-    public function build(): Money
+    /**
+     * @param ?int $preciseAmount
+     * @return $this
+     */
+    public function withPreciseAmount(?int $preciseAmount)
     {
-        return new MoneyModel(
+        $this->preciseAmount = $preciseAmount;
+
+        return $this;
+    }
+
+
+    public function build(): HighPrecisionMoney
+    {
+        return new HighPrecisionMoneyModel(
             $this->fractionDigits,
             $this->centAmount,
-            $this->currencyCode
+            $this->currencyCode,
+            $this->preciseAmount
         );
     }
 
-    public static function of(): MoneyBuilder
+    public static function of(): HighPrecisionMoneyBuilder
     {
         return new self();
     }

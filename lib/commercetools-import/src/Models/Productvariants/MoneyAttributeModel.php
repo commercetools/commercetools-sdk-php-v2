@@ -12,8 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyModel;
 use stdClass;
 
 /**
@@ -33,7 +33,7 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     protected $type;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -43,7 +43,7 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
      */
     public function __construct(
         ?string $name = null,
-        ?Money $value = null
+        ?TypedMoney $value = null
     ) {
         $this->name = $name;
         $this->value = $value;
@@ -89,7 +89,7 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -99,8 +99,8 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -116,9 +116,9 @@ final class MoneyAttributeModel extends JsonObjectModel implements MoneyAttribut
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

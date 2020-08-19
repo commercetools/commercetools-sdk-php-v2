@@ -20,13 +20,13 @@ use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceModel;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
 use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyModel;
 use DateTimeImmutable;
 use stdClass;
 
@@ -41,7 +41,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $key;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -101,7 +101,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      */
     public function __construct(
         ?string $key = null,
-        ?Money $value = null,
+        ?TypedMoney $value = null,
         ?string $country = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
@@ -148,7 +148,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
      * <p>Maps to <code>Price.value</code>.</p>
      * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -158,8 +158,8 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -390,9 +390,9 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

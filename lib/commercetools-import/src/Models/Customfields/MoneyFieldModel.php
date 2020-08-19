@@ -12,8 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyModel;
 use stdClass;
 
 /**
@@ -28,7 +28,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     protected $type;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -37,7 +37,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null
+        ?TypedMoney $value = null
     ) {
         $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -63,7 +63,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -73,8 +73,8 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -82,9 +82,9 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
 
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

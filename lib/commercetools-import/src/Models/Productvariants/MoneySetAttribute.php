@@ -10,19 +10,19 @@ namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\MoneyCollection;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 
 interface MoneySetAttribute extends Attribute
 {
     public const FIELD_VALUE = 'value';
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getValue();
 
     /**
-     * @param ?MoneyCollection $value
+     * @param ?TypedMoneyCollection $value
      */
-    public function setValue(?MoneyCollection $value): void;
+    public function setValue(?TypedMoneyCollection $value): void;
 }

@@ -17,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class MoneyModel extends JsonObjectModel implements Money
+final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 {
-    public const DISCRIMINATOR_VALUE = 'centPrecision';
+    public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string
      */
@@ -40,6 +40,14 @@ final class MoneyModel extends JsonObjectModel implements Money
      */
     protected $currencyCode;
 
+    /**
+     * @psalm-var array<string, class-string<TypedMoney> >
+     *
+     */
+    private static $discriminatorClasses = [
+       'centPrecision' => MoneyModel::class,
+       'highPrecision' => HighPrecisionMoneyModel::class,
+    ];
 
     /**
      * @psalm-suppress MissingParamType
@@ -148,5 +156,34 @@ final class MoneyModel extends JsonObjectModel implements Money
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
+    }
+
+
+
+    /**
+     * @psalm-param stdClass|array<string, mixed> $value
+     * @psalm-return class-string<TypedMoney>
+     */
+    public static function resolveDiscriminatorClass($value): string
+    {
+        $fieldName = TypedMoney::DISCRIMINATOR_FIELD;
+        if (is_object($value) && isset($value->$fieldName)) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value->$fieldName;
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+                return static::$discriminatorClasses[$discriminatorValue];
+            }
+        }
+        if (is_array($value) && isset($value[$fieldName])) {
+            /** @psalm-var string $discriminatorValue */
+            $discriminatorValue = $value[$fieldName];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+                return static::$discriminatorClasses[$discriminatorValue];
+            }
+        }
+
+        /** @psalm-var class-string<TypedMoney> */
+        $type = TypedMoneyModel::class;
+        return $type;
     }
 }

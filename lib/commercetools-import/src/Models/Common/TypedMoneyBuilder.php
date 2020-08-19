@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<Money>
+ * @implements Builder<TypedMoney>
  */
-final class MoneyBuilder implements Builder
+final class TypedMoneyBuilder implements Builder
 {
     /**
      * @var ?int
@@ -95,16 +95,16 @@ final class MoneyBuilder implements Builder
     }
 
 
-    public function build(): Money
+    public function build(): TypedMoney
     {
-        return new MoneyModel(
+        return new TypedMoneyModel(
             $this->fractionDigits,
             $this->centAmount,
             $this->currencyCode
         );
     }
 
-    public static function of(): MoneyBuilder
+    public static function of(): TypedMoneyBuilder
     {
         return new self();
     }

@@ -13,8 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyBuilder;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyBuilder;
 use stdClass;
 
 /**
@@ -28,7 +28,7 @@ final class MoneyAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -45,11 +45,11 @@ final class MoneyAttributeBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -64,10 +64,10 @@ final class MoneyAttributeBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -77,7 +77,7 @@ final class MoneyAttributeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -88,7 +88,7 @@ final class MoneyAttributeBuilder implements Builder
     {
         return new MoneyAttributeModel(
             $this->name,
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value
         );
     }
 

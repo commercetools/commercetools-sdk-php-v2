@@ -18,9 +18,9 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceModel;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyModel;
 use Commercetools\Import\Models\Common\PriceTierCollection;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyModel;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
@@ -32,7 +32,7 @@ use stdClass;
 final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftImport
 {
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -81,7 +81,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null,
+        ?TypedMoney $value = null,
         ?string $country = null,
         ?CustomerGroupKeyReference $customerGroup = null,
         ?ChannelKeyReference $channel = null,
@@ -103,7 +103,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -113,8 +113,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -282,9 +282,9 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
 
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

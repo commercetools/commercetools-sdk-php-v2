@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\DiscountedPrice;
-use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\PriceTierCollection;
+use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
@@ -31,7 +31,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
@@ -88,9 +88,9 @@ interface PriceDraftImport extends JsonObject
     public function getTiers();
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 
     /**
      * @param ?string $country

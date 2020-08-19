@@ -21,13 +21,13 @@ use Commercetools\Import\Models\Common\DiscountedPrice;
 use Commercetools\Import\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
-use Commercetools\Import\Models\Common\Money;
-use Commercetools\Import\Models\Common\MoneyBuilder;
 use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Common\TypedMoneyBuilder;
 use DateTimeImmutable;
 use stdClass;
 
@@ -42,7 +42,7 @@ final class PriceImportBuilder implements Builder
     private $key;
 
     /**
-     * @var null|Money|MoneyBuilder
+     * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
@@ -108,11 +108,11 @@ final class PriceImportBuilder implements Builder
      * <p>Maps to <code>Price.value</code>.</p>
      * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -239,10 +239,10 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
 
@@ -362,7 +362,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?TypedMoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -423,7 +423,7 @@ final class PriceImportBuilder implements Builder
     {
         return new PriceImportModel(
             $this->key,
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->validFrom,
             $this->validUntil,

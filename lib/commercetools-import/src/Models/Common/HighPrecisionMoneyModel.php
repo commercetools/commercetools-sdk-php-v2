@@ -17,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class MoneyModel extends JsonObjectModel implements Money
+final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPrecisionMoney
 {
-    public const DISCRIMINATOR_VALUE = 'centPrecision';
+    public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
      * @var ?string
      */
@@ -40,6 +40,11 @@ final class MoneyModel extends JsonObjectModel implements Money
      */
     protected $currencyCode;
 
+    /**
+     * @var ?int
+     */
+    protected $preciseAmount;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -47,11 +52,13 @@ final class MoneyModel extends JsonObjectModel implements Money
     public function __construct(
         ?int $fractionDigits = null,
         ?int $centAmount = null,
-        ?string $currencyCode = null
+        ?string $currencyCode = null,
+        ?int $preciseAmount = null
     ) {
         $this->fractionDigits = $fractionDigits;
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+        $this->preciseAmount = $preciseAmount;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -125,6 +132,23 @@ final class MoneyModel extends JsonObjectModel implements Money
         return $this->currencyCode;
     }
 
+    /**
+     * @return null|int
+     */
+    public function getPreciseAmount()
+    {
+        if (is_null($this->preciseAmount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_PRECISE_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->preciseAmount = (int) $data;
+        }
+
+        return $this->preciseAmount;
+    }
+
 
     /**
      * @param ?int $fractionDigits
@@ -148,5 +172,13 @@ final class MoneyModel extends JsonObjectModel implements Money
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
+    }
+
+    /**
+     * @param ?int $preciseAmount
+     */
+    public function setPreciseAmount(?int $preciseAmount): void
+    {
+        $this->preciseAmount = $preciseAmount;
     }
 }

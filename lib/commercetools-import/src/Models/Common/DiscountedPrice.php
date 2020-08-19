@@ -17,7 +17,7 @@ interface DiscountedPrice extends JsonObject
     public const FIELD_DISCOUNT = 'discount';
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
@@ -29,9 +29,9 @@ interface DiscountedPrice extends JsonObject
     public function getDiscount();
 
     /**
-     * @param ?Money $value
+     * @param ?TypedMoney $value
      */
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 
     /**
      * @param ?ProductDiscountKeyReference $discount
