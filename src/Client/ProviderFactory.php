@@ -64,6 +64,6 @@ class ProviderFactory
 
     public static function of(): ProviderFactory
     {
-        return new static();
+        return new self();
     }
 }

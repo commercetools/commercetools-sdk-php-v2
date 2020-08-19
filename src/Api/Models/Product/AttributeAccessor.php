@@ -53,7 +53,7 @@ class AttributeAccessor
     public static function of()
     {
         return function (Attribute $attribute): AttributeAccessor {
-            return new static($attribute);
+            return new self($attribute);
         };
     }
 

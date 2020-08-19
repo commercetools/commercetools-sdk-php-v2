@@ -62,7 +62,7 @@ class CustomFieldAccessor
     public static function of()
     {
         return function ($value): CustomFieldAccessor {
-            return new static($value);
+            return new self($value);
         };
     }
 
