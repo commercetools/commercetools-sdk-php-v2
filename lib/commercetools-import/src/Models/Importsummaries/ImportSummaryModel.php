@@ -25,7 +25,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     protected $states;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $total;
 
@@ -35,7 +35,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
      */
     public function __construct(
         ?OperationStates $states = null,
-        ?float $total = null
+        ?int $total = null
     ) {
         $this->states = $states;
         $this->total = $total;
@@ -64,17 +64,17 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getTotal()
     {
         if (is_null($this->total)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
-            $this->total = (float) $data;
+            $this->total = (int) $data;
         }
 
         return $this->total;
@@ -90,9 +90,9 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     }
 
     /**
-     * @param ?float $total
+     * @param ?int $total
      */
-    public function setTotal(?float $total): void
+    public function setTotal(?int $total): void
     {
         $this->total = $total;
     }

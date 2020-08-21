@@ -53,7 +53,7 @@ final class ImportOperationBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $retryCount;
 
@@ -140,7 +140,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getRetryCount()
     {
@@ -255,10 +255,10 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * @param ?float $retryCount
+     * @param ?int $retryCount
      * @return $this
      */
-    public function withRetryCount(?float $retryCount)
+    public function withRetryCount(?int $retryCount)
     {
         $this->retryCount = $retryCount;
 

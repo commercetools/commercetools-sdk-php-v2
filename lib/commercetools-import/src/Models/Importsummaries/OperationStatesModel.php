@@ -20,52 +20,52 @@ use stdClass;
 final class OperationStatesModel extends JsonObjectModel implements OperationStates
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Accepted;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $ValidationFailed;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Unresolved;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Resolved;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $WaitForMasterVariant;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Imported;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Deleted;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Rejected;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Skipped;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $Expired;
 
@@ -74,16 +74,16 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $Accepted = null,
-        ?float $ValidationFailed = null,
-        ?float $Unresolved = null,
-        ?float $Resolved = null,
-        ?float $WaitForMasterVariant = null,
-        ?float $Imported = null,
-        ?float $Deleted = null,
-        ?float $Rejected = null,
-        ?float $Skipped = null,
-        ?float $Expired = null
+        ?int $Accepted = null,
+        ?int $ValidationFailed = null,
+        ?int $Unresolved = null,
+        ?int $Resolved = null,
+        ?int $WaitForMasterVariant = null,
+        ?int $Imported = null,
+        ?int $Deleted = null,
+        ?int $Rejected = null,
+        ?int $Skipped = null,
+        ?int $Expired = null
     ) {
         $this->Accepted = $Accepted;
         $this->ValidationFailed = $ValidationFailed;
@@ -100,17 +100,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getAccepted()
     {
         if (is_null($this->Accepted)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_ACCEPTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Accepted = (float) $data;
+            $this->Accepted = (int) $data;
         }
 
         return $this->Accepted;
@@ -119,17 +119,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getValidationFailed()
     {
         if (is_null($this->ValidationFailed)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_VALIDATION_FAILED);
             if (is_null($data)) {
                 return null;
             }
-            $this->ValidationFailed = (float) $data;
+            $this->ValidationFailed = (int) $data;
         }
 
         return $this->ValidationFailed;
@@ -138,17 +138,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Unresolved</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getUnresolved()
     {
         if (is_null($this->Unresolved)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_UNRESOLVED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Unresolved = (float) $data;
+            $this->Unresolved = (int) $data;
         }
 
         return $this->Unresolved;
@@ -157,17 +157,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Resolved</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getResolved()
     {
         if (is_null($this->Resolved)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_RESOLVED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Resolved = (float) $data;
+            $this->Resolved = (int) $data;
         }
 
         return $this->Resolved;
@@ -176,17 +176,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>WaitForMasterVariant</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getWaitForMasterVariant()
     {
         if (is_null($this->WaitForMasterVariant)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_WAIT_FOR_MASTER_VARIANT);
             if (is_null($data)) {
                 return null;
             }
-            $this->WaitForMasterVariant = (float) $data;
+            $this->WaitForMasterVariant = (int) $data;
         }
 
         return $this->WaitForMasterVariant;
@@ -195,17 +195,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Imported</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getImported()
     {
         if (is_null($this->Imported)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_IMPORTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Imported = (float) $data;
+            $this->Imported = (int) $data;
         }
 
         return $this->Imported;
@@ -214,17 +214,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getDeleted()
     {
         if (is_null($this->Deleted)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_DELETED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Deleted = (float) $data;
+            $this->Deleted = (int) $data;
         }
 
         return $this->Deleted;
@@ -233,17 +233,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Rejected</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getRejected()
     {
         if (is_null($this->Rejected)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_REJECTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Rejected = (float) $data;
+            $this->Rejected = (int) $data;
         }
 
         return $this->Rejected;
@@ -252,17 +252,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Skipped</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getSkipped()
     {
         if (is_null($this->Skipped)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_SKIPPED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Skipped = (float) $data;
+            $this->Skipped = (int) $data;
         }
 
         return $this->Skipped;
@@ -271,17 +271,17 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of import operations that are in the state <code>Expired</code>.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getExpired()
     {
         if (is_null($this->Expired)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_EXPIRED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Expired = (float) $data;
+            $this->Expired = (int) $data;
         }
 
         return $this->Expired;
@@ -289,81 +289,81 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
 
 
     /**
-     * @param ?float $Accepted
+     * @param ?int $Accepted
      */
-    public function setAccepted(?float $Accepted): void
+    public function setAccepted(?int $Accepted): void
     {
         $this->Accepted = $Accepted;
     }
 
     /**
-     * @param ?float $ValidationFailed
+     * @param ?int $ValidationFailed
      */
-    public function setValidationFailed(?float $ValidationFailed): void
+    public function setValidationFailed(?int $ValidationFailed): void
     {
         $this->ValidationFailed = $ValidationFailed;
     }
 
     /**
-     * @param ?float $Unresolved
+     * @param ?int $Unresolved
      */
-    public function setUnresolved(?float $Unresolved): void
+    public function setUnresolved(?int $Unresolved): void
     {
         $this->Unresolved = $Unresolved;
     }
 
     /**
-     * @param ?float $Resolved
+     * @param ?int $Resolved
      */
-    public function setResolved(?float $Resolved): void
+    public function setResolved(?int $Resolved): void
     {
         $this->Resolved = $Resolved;
     }
 
     /**
-     * @param ?float $WaitForMasterVariant
+     * @param ?int $WaitForMasterVariant
      */
-    public function setWaitForMasterVariant(?float $WaitForMasterVariant): void
+    public function setWaitForMasterVariant(?int $WaitForMasterVariant): void
     {
         $this->WaitForMasterVariant = $WaitForMasterVariant;
     }
 
     /**
-     * @param ?float $Imported
+     * @param ?int $Imported
      */
-    public function setImported(?float $Imported): void
+    public function setImported(?int $Imported): void
     {
         $this->Imported = $Imported;
     }
 
     /**
-     * @param ?float $Deleted
+     * @param ?int $Deleted
      */
-    public function setDeleted(?float $Deleted): void
+    public function setDeleted(?int $Deleted): void
     {
         $this->Deleted = $Deleted;
     }
 
     /**
-     * @param ?float $Rejected
+     * @param ?int $Rejected
      */
-    public function setRejected(?float $Rejected): void
+    public function setRejected(?int $Rejected): void
     {
         $this->Rejected = $Rejected;
     }
 
     /**
-     * @param ?float $Skipped
+     * @param ?int $Skipped
      */
-    public function setSkipped(?float $Skipped): void
+    public function setSkipped(?int $Skipped): void
     {
         $this->Skipped = $Skipped;
     }
 
     /**
-     * @param ?float $Expired
+     * @param ?int $Expired
      */
-    public function setExpired(?float $Expired): void
+    public function setExpired(?int $Expired): void
     {
         $this->Expired = $Expired;
     }

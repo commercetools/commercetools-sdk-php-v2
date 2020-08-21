@@ -21,21 +21,21 @@ interface ImportOperationPagedResponse extends JsonObject
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLimit();
 
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getOffset();
 
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getCount();
 
@@ -47,19 +47,19 @@ interface ImportOperationPagedResponse extends JsonObject
     public function getResults();
 
     /**
-     * @param ?float $limit
+     * @param ?int $limit
      */
-    public function setLimit(?float $limit): void;
+    public function setLimit(?int $limit): void;
 
     /**
-     * @param ?float $offset
+     * @param ?int $offset
      */
-    public function setOffset(?float $offset): void;
+    public function setOffset(?int $offset): void;
 
     /**
-     * @param ?float $count
+     * @param ?int $count
      */
-    public function setCount(?float $count): void;
+    public function setCount(?int $count): void;
 
     /**
      * @param ?ImportOperationCollection $results

@@ -12,6 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use stdClass;
 
 /**
@@ -44,6 +46,11 @@ final class AssetModel extends JsonObjectModel implements Asset
      */
     protected $tags;
 
+    /**
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,13 +60,15 @@ final class AssetModel extends JsonObjectModel implements Asset
         ?AssetSourceCollection $sources = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
-        ?array $tags = null
+        ?array $tags = null,
+        ?Custom $custom = null
     ) {
         $this->key = $key;
         $this->sources = $sources;
         $this->name = $name;
         $this->description = $description;
         $this->tags = $tags;
+        $this->custom = $custom;
     }
 
     /**
@@ -152,6 +161,26 @@ final class AssetModel extends JsonObjectModel implements Asset
         return $this->tags;
     }
 
+    /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $key
@@ -191,5 +220,13 @@ final class AssetModel extends JsonObjectModel implements Asset
     public function setTags(?array $tags): void
     {
         $this->tags = $tags;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }

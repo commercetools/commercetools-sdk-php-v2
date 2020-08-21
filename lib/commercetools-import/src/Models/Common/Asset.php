@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Common;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Customfields\Custom;
 
 interface Asset extends JsonObject
 {
@@ -18,6 +19,7 @@ interface Asset extends JsonObject
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_TAGS = 'tags';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>User-defined identifier for the asset.
@@ -48,6 +50,13 @@ interface Asset extends JsonObject
     public function getTags();
 
     /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -71,4 +80,9 @@ interface Asset extends JsonObject
      * @param ?array $tags
      */
     public function setTags(?array $tags): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 }

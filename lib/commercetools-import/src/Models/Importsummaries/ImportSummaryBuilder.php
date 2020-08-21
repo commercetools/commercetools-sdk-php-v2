@@ -26,7 +26,7 @@ final class ImportSummaryBuilder implements Builder
     private $states;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $total;
 
@@ -43,7 +43,7 @@ final class ImportSummaryBuilder implements Builder
     /**
      * <p>The total number of import operations received for this import group.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getTotal()
     {
@@ -62,10 +62,10 @@ final class ImportSummaryBuilder implements Builder
     }
 
     /**
-     * @param ?float $total
+     * @param ?int $total
      * @return $this
      */
-    public function withTotal(?float $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
 

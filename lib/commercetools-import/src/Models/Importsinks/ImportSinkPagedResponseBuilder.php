@@ -21,17 +21,17 @@ use stdClass;
 final class ImportSinkPagedResponseBuilder implements Builder
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     private $limit;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $offset;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $count;
 
@@ -43,7 +43,7 @@ final class ImportSinkPagedResponseBuilder implements Builder
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLimit()
     {
@@ -53,7 +53,7 @@ final class ImportSinkPagedResponseBuilder implements Builder
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getOffset()
     {
@@ -63,7 +63,7 @@ final class ImportSinkPagedResponseBuilder implements Builder
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getCount()
     {
@@ -81,10 +81,10 @@ final class ImportSinkPagedResponseBuilder implements Builder
     }
 
     /**
-     * @param ?float $limit
+     * @param ?int $limit
      * @return $this
      */
-    public function withLimit(?float $limit)
+    public function withLimit(?int $limit)
     {
         $this->limit = $limit;
 
@@ -92,10 +92,10 @@ final class ImportSinkPagedResponseBuilder implements Builder
     }
 
     /**
-     * @param ?float $offset
+     * @param ?int $offset
      * @return $this
      */
-    public function withOffset(?float $offset)
+    public function withOffset(?int $offset)
     {
         $this->offset = $offset;
 
@@ -103,10 +103,10 @@ final class ImportSinkPagedResponseBuilder implements Builder
     }
 
     /**
-     * @param ?float $count
+     * @param ?int $count
      * @return $this
      */
-    public function withCount(?float $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
 

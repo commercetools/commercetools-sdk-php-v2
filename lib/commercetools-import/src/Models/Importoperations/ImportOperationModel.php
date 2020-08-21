@@ -52,7 +52,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $resourceVersion;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $retryCount;
 
@@ -87,7 +87,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         ?string $id = null,
         ?string $state = null,
         ?int $resourceVersion = null,
-        ?float $retryCount = null,
+        ?int $retryCount = null,
         ?ErrorObjectCollection $errors = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
@@ -223,17 +223,17 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The number of request retries for processing the import resource.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getRetryCount()
     {
         if (is_null($this->retryCount)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_RETRY_COUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->retryCount = (float) $data;
+            $this->retryCount = (int) $data;
         }
 
         return $this->retryCount;
@@ -378,9 +378,9 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * @param ?float $retryCount
+     * @param ?int $retryCount
      */
-    public function setRetryCount(?float $retryCount): void
+    public function setRetryCount(?int $retryCount): void
     {
         $this->retryCount = $retryCount;
     }

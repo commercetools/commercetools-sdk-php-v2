@@ -13,6 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use stdClass;
 
 /**
@@ -44,6 +46,11 @@ final class AssetBuilder implements Builder
      * @var ?array
      */
     private $tags;
+
+    /**
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
      * <p>User-defined identifier for the asset.
@@ -86,6 +93,16 @@ final class AssetBuilder implements Builder
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -144,6 +161,17 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
+     * @return $this
+     */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -163,6 +191,16 @@ final class AssetBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Asset
     {
         return new AssetModel(
@@ -170,7 +208,8 @@ final class AssetBuilder implements Builder
             $this->sources,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->tags
+            $this->tags,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

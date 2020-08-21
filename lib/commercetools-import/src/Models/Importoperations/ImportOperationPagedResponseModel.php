@@ -20,17 +20,17 @@ use stdClass;
 final class ImportOperationPagedResponseModel extends JsonObjectModel implements ImportOperationPagedResponse
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $limit;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $offset;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $count;
 
@@ -44,9 +44,9 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $limit = null,
-        ?float $offset = null,
-        ?float $count = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?int $count = null,
         ?ImportOperationCollection $results = null
     ) {
         $this->limit = $limit;
@@ -58,17 +58,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The maximum number of import operations returned for a page.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLimit()
     {
         if (is_null($this->limit)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_LIMIT);
             if (is_null($data)) {
                 return null;
             }
-            $this->limit = (float) $data;
+            $this->limit = (int) $data;
         }
 
         return $this->limit;
@@ -77,17 +77,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getOffset()
     {
         if (is_null($this->offset)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_OFFSET);
             if (is_null($data)) {
                 return null;
             }
-            $this->offset = (float) $data;
+            $this->offset = (int) $data;
         }
 
         return $this->offset;
@@ -96,17 +96,17 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The actual number of results returned by this response.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getCount()
     {
         if (is_null($this->count)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_COUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->count = (float) $data;
+            $this->count = (int) $data;
         }
 
         return $this->count;
@@ -133,25 +133,25 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
 
 
     /**
-     * @param ?float $limit
+     * @param ?int $limit
      */
-    public function setLimit(?float $limit): void
+    public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
     }
 
     /**
-     * @param ?float $offset
+     * @param ?int $offset
      */
-    public function setOffset(?float $offset): void
+    public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
 
     /**
-     * @param ?float $count
+     * @param ?int $count
      */
-    public function setCount(?float $count): void
+    public function setCount(?int $count): void
     {
         $this->count = $count;
     }
