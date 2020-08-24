@@ -16,6 +16,7 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface MyCartAddLineItemAction extends MyCartUpdateAction
 {
@@ -30,6 +31,7 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_ADDED_AT = 'addedAt';
 
     /**
      * @return null|CustomFieldsDraft
@@ -87,6 +89,11 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public function getShippingDetails();
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
+
+    /**
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
@@ -140,4 +147,9 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 }

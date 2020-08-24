@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface LineItemDraft extends JsonObject
 {
@@ -20,6 +21,7 @@ interface LineItemDraft extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
@@ -50,6 +52,14 @@ interface LineItemDraft extends JsonObject
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * <p>When the line item was added to the cart. Optional for backwards
+     * compatibility reasons only.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
 
     /**
      * <p>By providing supply channel information, you can unique identify
@@ -123,6 +133,11 @@ interface LineItemDraft extends JsonObject
      * @param ?int $quantity
      */
     public function setQuantity(?int $quantity): void;
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?ChannelResourceIdentifier $supplyChannel

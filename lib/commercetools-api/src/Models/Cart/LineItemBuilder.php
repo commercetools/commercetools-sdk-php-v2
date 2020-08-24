@@ -30,6 +30,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -86,6 +87,11 @@ final class LineItemBuilder implements Builder
      * @var ?int
      */
     private $quantity;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
 
     /**
      * @var ?ItemStateCollection
@@ -235,6 +241,17 @@ final class LineItemBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * <p>When the line item was added to the cart. Optional for backwards
+     * compatibility reasons only.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
     }
 
     /**
@@ -427,6 +444,17 @@ final class LineItemBuilder implements Builder
     public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
 
         return $this;
     }
@@ -663,6 +691,7 @@ final class LineItemBuilder implements Builder
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->quantity,
+            $this->addedAt,
             $this->state,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,

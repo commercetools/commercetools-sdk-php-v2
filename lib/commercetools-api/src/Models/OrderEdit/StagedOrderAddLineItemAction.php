@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
 {
@@ -27,6 +28,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_SKU = 'sku';
     public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
@@ -66,6 +68,11 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
      * @return null|float
      */
     public function getQuantity();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
 
     /**
      * @return null|ChannelResourceIdentifier
@@ -121,6 +128,11 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
      * @param ?float $quantity
      */
     public function setQuantity(?float $quantity): void;
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?ChannelResourceIdentifier $supplyChannel

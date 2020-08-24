@@ -24,6 +24,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -92,6 +93,11 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
      */
     protected $shippingDetails;
 
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -107,7 +113,8 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?DateTimeImmutable $addedAt = null
     ) {
         $this->custom = $custom;
         $this->distributionChannel = $distributionChannel;
@@ -120,6 +127,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->shippingDetails = $shippingDetails;
+        $this->addedAt = $addedAt;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -334,6 +342,27 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         return $this->shippingDetails;
     }
 
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
+    }
+
 
     /**
      * @param ?CustomFieldsDraft $custom
@@ -421,5 +450,23 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[MyCartAddLineItemAction::FIELD_ADDED_AT]) && $data[MyCartAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[MyCartAddLineItemAction::FIELD_ADDED_AT] = $data[MyCartAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

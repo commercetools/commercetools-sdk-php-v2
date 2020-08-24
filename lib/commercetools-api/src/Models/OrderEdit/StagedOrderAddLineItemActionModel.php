@@ -26,6 +26,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -75,6 +76,11 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     protected $quantity;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -106,6 +112,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         ?int $variantId = null,
         ?string $sku = null,
         ?float $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
@@ -118,6 +125,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->quantity = $quantity;
+        $this->addedAt = $addedAt;
         $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
@@ -265,6 +273,27 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
+    }
+
+    /**
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -394,6 +423,14 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
@@ -423,5 +460,15 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[StagedOrderAddLineItemAction::FIELD_ADDED_AT]) && $data[StagedOrderAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[StagedOrderAddLineItemAction::FIELD_ADDED_AT] = $data[StagedOrderAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

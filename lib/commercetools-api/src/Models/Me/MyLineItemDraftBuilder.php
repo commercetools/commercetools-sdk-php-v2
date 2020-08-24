@@ -19,6 +19,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -40,6 +41,11 @@ final class MyLineItemDraftBuilder implements Builder
      * @var ?float
      */
     private $quantity;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $addedAt;
 
     /**
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
@@ -88,6 +94,17 @@ final class MyLineItemDraftBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * <p>When the line item was added to the cart. Optional for backwards
+     * compatibility reasons only.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
     }
 
     /**
@@ -170,6 +187,17 @@ final class MyLineItemDraftBuilder implements Builder
     public function withQuantity(?float $quantity)
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
 
         return $this;
     }
@@ -275,6 +303,7 @@ final class MyLineItemDraftBuilder implements Builder
             $this->productId,
             $this->variantId,
             $this->quantity,
+            $this->addedAt,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,

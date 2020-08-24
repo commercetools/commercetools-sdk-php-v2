@@ -19,6 +19,7 @@ use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface LineItem extends JsonObject
 {
@@ -32,6 +33,7 @@ interface LineItem extends JsonObject
     public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_QUANTITY = 'quantity';
+    public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_STATE = 'state';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
@@ -116,6 +118,14 @@ interface LineItem extends JsonObject
      * @return null|int
      */
     public function getQuantity();
+
+    /**
+     * <p>When the line item was added to the cart. Optional for backwards
+     * compatibility reasons only.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt();
 
     /**
      * @return null|ItemStateCollection
@@ -223,6 +233,11 @@ interface LineItem extends JsonObject
      * @param ?int $quantity
      */
     public function setQuantity(?int $quantity): void;
+
+    /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void;
 
     /**
      * @param ?ItemStateCollection $state

@@ -18,6 +18,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -39,6 +40,11 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
      * @var ?float
      */
     protected $quantity;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
 
     /**
      * @var ?ChannelResourceIdentifier
@@ -73,6 +79,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         ?string $productId = null,
         ?int $variantId = null,
         ?float $quantity = null,
+        ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?CustomFieldsDraft $custom = null,
@@ -82,6 +89,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         $this->productId = $productId;
         $this->variantId = $variantId;
         $this->quantity = $quantity;
+        $this->addedAt = $addedAt;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
         $this->custom = $custom;
@@ -138,6 +146,30 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         }
 
         return $this->quantity;
+    }
+
+    /**
+     * <p>When the line item was added to the cart. Optional for backwards
+     * compatibility reasons only.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
     }
 
     /**
@@ -266,6 +298,14 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+     * @param ?DateTimeImmutable $addedAt
+     */
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifier $supplyChannel
      */
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
@@ -303,5 +343,15 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[MyLineItemDraft::FIELD_ADDED_AT]) && $data[MyLineItemDraft::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
+            $data[MyLineItemDraft::FIELD_ADDED_AT] = $data[MyLineItemDraft::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }
