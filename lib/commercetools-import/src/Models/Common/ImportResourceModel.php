@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Categories\CategoryImportModel;
+use Commercetools\Import\Models\Orders\OrderImport;
+use Commercetools\Import\Models\Orders\OrderImportModel;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Prices\PriceImportModel;
 use Commercetools\Import\Models\Productdrafts\ProductDraftImport;

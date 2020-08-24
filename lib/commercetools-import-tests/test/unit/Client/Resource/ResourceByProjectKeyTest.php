@@ -16,6 +16,7 @@ use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSinks;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSummaries;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyOrders;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyPrices;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductDrafts;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProducts;
@@ -149,6 +150,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyProductVariantPatches::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-variant-patches'
+            ],
+            'ResourceByProjectKeyOrders' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyOrders {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->orders();
+                },
+                ResourceByProjectKeyOrders::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/orders'
             ]
         ];
     }

@@ -47,6 +47,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
        'product-variant' => ProductVariantKeyReferenceModel::class,
        'shipping-method' => ShippingMethodKeyReferenceModel::class,
        'state' => StateKeyReferenceModel::class,
+       'store' => StoreKeyReferenceModel::class,
        'tax-category' => TaxCategoryKeyReferenceModel::class,
        'type' => TypeKeyReferenceModel::class,
     ];

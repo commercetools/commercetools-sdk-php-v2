@@ -164,6 +164,55 @@ $request = $builder
                 ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                 ->get();
 ```
+## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
+
+Creates a new import request for an order
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->orders()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->post(null);
+```
+## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->get()`
+
+Retrieves all order import operations of an import sink key.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->orders()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->get();
+```
+## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->withIdValue("id")->get()`
+
+Retrieves the import operation with the given id.
+
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->orders()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->withIdValue("id")
+                ->get();
+```
 ## `withProjectKeyValue("projectKey")->prices()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates a new import request for prices
