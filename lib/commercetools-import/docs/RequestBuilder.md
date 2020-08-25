@@ -73,6 +73,71 @@ $request = $builder
                 ->resourceKeyWithResourceKeyValue("resourceKey")
                 ->delete();
 ```
+## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
+
+Creates a new import request for a customer
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->customers()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->post(null);
+```
+## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->get()`
+
+Retrieves all customer import operations of an import sink key.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->customers()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->get();
+```
+## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->withIdValue("id")->get()`
+
+Retrieves the import operation with the given id.
+
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->customers()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->withIdValue("id")
+                ->get();
+```
+## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
+
+Deletes the customer given by the resource key.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->customers()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->resourceKeyWithResourceKeyValue("resourceKey")
+                ->delete();
+```
 ## `withProjectKeyValue("projectKey")->importSinks()->post(null)`
 
 Creates a new import sink.

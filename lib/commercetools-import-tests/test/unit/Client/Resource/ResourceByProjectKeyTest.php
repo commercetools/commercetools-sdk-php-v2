@@ -14,6 +14,7 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSinks;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSummaries;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyOrders;
@@ -160,6 +161,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyOrders::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/orders'
+            ],
+            'ResourceByProjectKeyCustomers' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyCustomers {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->customers();
+                },
+                ResourceByProjectKeyCustomers::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/customers'
             ]
         ];
     }

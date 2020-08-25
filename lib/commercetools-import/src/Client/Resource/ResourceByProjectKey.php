@@ -85,4 +85,10 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyOrders($args, $this->getClient());
     }
+    public function customers(): ResourceByProjectKeyCustomers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomers($args, $this->getClient());
+    }
 }
