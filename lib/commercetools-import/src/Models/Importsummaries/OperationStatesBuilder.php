@@ -66,11 +66,6 @@ final class OperationStatesBuilder implements Builder
     private $Skipped;
 
     /**
-     * @var ?int
-     */
-    private $Expired;
-
-    /**
      * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
      *
      * @return null|int
@@ -158,16 +153,6 @@ final class OperationStatesBuilder implements Builder
     public function getSkipped()
     {
         return $this->Skipped;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Expired</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getExpired()
-    {
-        return $this->Expired;
     }
 
     /**
@@ -269,17 +254,6 @@ final class OperationStatesBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?int $Expired
-     * @return $this
-     */
-    public function withExpired(?int $Expired)
-    {
-        $this->Expired = $Expired;
-
-        return $this;
-    }
-
 
     public function build(): OperationStates
     {
@@ -292,8 +266,7 @@ final class OperationStatesBuilder implements Builder
             $this->Imported,
             $this->Deleted,
             $this->Rejected,
-            $this->Skipped,
-            $this->Expired
+            $this->Skipped
         );
     }
 

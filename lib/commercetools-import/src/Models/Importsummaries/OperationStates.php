@@ -22,7 +22,6 @@ interface OperationStates extends JsonObject
     public const FIELD_DELETED = 'Deleted';
     public const FIELD_REJECTED = 'Rejected';
     public const FIELD_SKIPPED = 'Skipped';
-    public const FIELD_EXPIRED = 'Expired';
 
     /**
      * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
@@ -88,13 +87,6 @@ interface OperationStates extends JsonObject
     public function getSkipped();
 
     /**
-     * <p>The number of import operations that are in the state <code>Expired</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getExpired();
-
-    /**
      * @param ?int $Accepted
      */
     public function setAccepted(?int $Accepted): void;
@@ -138,9 +130,4 @@ interface OperationStates extends JsonObject
      * @param ?int $Skipped
      */
     public function setSkipped(?int $Skipped): void;
-
-    /**
-     * @param ?int $Expired
-     */
-    public function setExpired(?int $Expired): void;
 }

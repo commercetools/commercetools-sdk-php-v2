@@ -64,11 +64,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      */
     protected $Skipped;
 
-    /**
-     * @var ?int
-     */
-    protected $Expired;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -82,8 +77,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         ?int $Imported = null,
         ?int $Deleted = null,
         ?int $Rejected = null,
-        ?int $Skipped = null,
-        ?int $Expired = null
+        ?int $Skipped = null
     ) {
         $this->Accepted = $Accepted;
         $this->ValidationFailed = $ValidationFailed;
@@ -94,7 +88,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         $this->Deleted = $Deleted;
         $this->Rejected = $Rejected;
         $this->Skipped = $Skipped;
-        $this->Expired = $Expired;
     }
 
     /**
@@ -268,25 +261,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         return $this->Skipped;
     }
 
-    /**
-     * <p>The number of import operations that are in the state <code>Expired</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getExpired()
-    {
-        if (is_null($this->Expired)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_EXPIRED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Expired = (int) $data;
-        }
-
-        return $this->Expired;
-    }
-
 
     /**
      * @param ?int $Accepted
@@ -358,13 +332,5 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setSkipped(?int $Skipped): void
     {
         $this->Skipped = $Skipped;
-    }
-
-    /**
-     * @param ?int $Expired
-     */
-    public function setExpired(?int $Expired): void
-    {
-        $this->Expired = $Expired;
     }
 }
