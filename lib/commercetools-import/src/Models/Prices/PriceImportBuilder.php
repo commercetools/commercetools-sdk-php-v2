@@ -28,6 +28,8 @@ use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyBuilder;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
 use stdClass;
 
@@ -85,6 +87,11 @@ final class PriceImportBuilder implements Builder
      * @var ?PriceTierCollection
      */
     private $tiers;
+
+    /**
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
@@ -199,6 +206,16 @@ final class PriceImportBuilder implements Builder
     public function getTiers()
     {
         return $this->tiers;
+    }
+
+    /**
+     * <p>The custom fields for this price.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -338,6 +355,17 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
+     * @return $this
+     */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
@@ -402,6 +430,16 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
         $this->productVariant = $productVariant;
@@ -432,6 +470,7 @@ final class PriceImportBuilder implements Builder
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->publish,
             $this->tiers,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product
         );

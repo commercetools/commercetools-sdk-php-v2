@@ -18,6 +18,7 @@ use Commercetools\Import\Models\Common\PriceTierCollection;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\TypedMoney;
+use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
 interface PriceImport extends ImportResource
@@ -31,6 +32,7 @@ interface PriceImport extends ImportResource
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_PUBLISH = 'publish';
     public const FIELD_TIERS = 'tiers';
+    public const FIELD_CUSTOM = 'custom';
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_PRODUCT = 'product';
 
@@ -105,6 +107,13 @@ interface PriceImport extends ImportResource
     public function getTiers();
 
     /**
+     * <p>The custom fields for this price.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom();
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -168,6 +177,11 @@ interface PriceImport extends ImportResource
      * @param ?PriceTierCollection $tiers
      */
     public function setTiers(?PriceTierCollection $tiers): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 
     /**
      * @param ?ProductVariantKeyReference $productVariant

@@ -27,6 +27,8 @@ use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyModel;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
 use stdClass;
 
@@ -86,6 +88,11 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $tiers;
 
     /**
+     * @var ?Custom
+     */
+    protected $custom;
+
+    /**
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
@@ -110,6 +117,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         ?DiscountedPrice $discounted = null,
         ?bool $publish = null,
         ?PriceTierCollection $tiers = null,
+        ?Custom $custom = null,
         ?ProductVariantKeyReference $productVariant = null,
         ?ProductKeyReference $product = null
     ) {
@@ -123,6 +131,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->discounted = $discounted;
         $this->publish = $publish;
         $this->tiers = $tiers;
+        $this->custom = $custom;
         $this->productVariant = $productVariant;
         $this->product = $product;
     }
@@ -335,6 +344,26 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
+     * <p>The custom fields for this price.</p>
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
      * <p>The product variant in which this price is contained.</p>
      * <p>The product variant referenced
      * must already exist in the commercetools project, or the
@@ -459,6 +488,14 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     public function setTiers(?PriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 
     /**
