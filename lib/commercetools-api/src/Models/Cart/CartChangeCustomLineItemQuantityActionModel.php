@@ -31,7 +31,7 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     protected $customLineItemId;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -41,7 +41,7 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?float $quantity = null
+        ?int $quantity = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
@@ -83,17 +83,17 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -109,9 +109,9 @@ final class CartChangeCustomLineItemQuantityActionModel extends JsonObjectModel 
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

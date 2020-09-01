@@ -22,7 +22,7 @@ interface CartChangeCustomLineItemQuantityAction extends CartUpdateAction
     public function getCustomLineItemId();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -32,7 +32,7 @@ interface CartChangeCustomLineItemQuantityAction extends CartUpdateAction
     public function setCustomLineItemId(?string $customLineItemId): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 }

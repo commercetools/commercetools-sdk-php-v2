@@ -61,7 +61,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     protected $slug;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -106,7 +106,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?TaxedItemPrice $taxedPrice = null,
         ?TypedMoney $totalPrice = null,
         ?string $slug = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?ItemStateCollection $state = null,
         ?TaxCategoryReference $taxCategory = null,
         ?TaxRate $taxRate = null,
@@ -255,17 +255,17 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -434,9 +434,9 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

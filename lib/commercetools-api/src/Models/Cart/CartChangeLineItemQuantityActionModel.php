@@ -33,7 +33,7 @@ final class CartChangeLineItemQuantityActionModel extends JsonObjectModel implem
     protected $lineItemId;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -53,7 +53,7 @@ final class CartChangeLineItemQuantityActionModel extends JsonObjectModel implem
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
@@ -99,17 +99,17 @@ final class CartChangeLineItemQuantityActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -161,9 +161,9 @@ final class CartChangeLineItemQuantityActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

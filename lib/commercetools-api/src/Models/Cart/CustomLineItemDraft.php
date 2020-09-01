@@ -35,7 +35,7 @@ interface CustomLineItemDraft extends JsonObject
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -83,9 +83,9 @@ interface CustomLineItemDraft extends JsonObject
     public function setName(?LocalizedString $name): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?Money $money

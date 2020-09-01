@@ -39,7 +39,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -80,7 +80,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -142,10 +142,10 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 

@@ -62,7 +62,7 @@ final class CustomLineItemBuilder implements Builder
     private $slug;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -164,7 +164,7 @@ final class CustomLineItemBuilder implements Builder
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -293,10 +293,10 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 
