@@ -74,10 +74,14 @@ class ClientFactory
                 'verify' => true,
                 'timeout' => 60,
                 'connect_timeout' => 10,
-                'pool_size' => 25
+                'pool_size' => 25,
+                'headers' => []
             ],
             $options
         );
+        if (!isset($options['headers']['accept-encoding']) && $this->acceptCompressedResponse()) {
+            $options['headers']['accept-encoding'] = 'gzip';
+        }
         if (!isset($options['headers']['user-agent'])) {
             $options['headers']['user-agent'] = (new UserAgentProvider())->getUserAgent();
         }
@@ -93,6 +97,15 @@ class ClientFactory
         $client = new HttpClient($options);
 
         return $client;
+    }
+    
+    private function acceptCompressedResponse(): bool
+    {
+        if (function_exists('gzdecode')) {
+            return true;
+        }
+        
+        return false;
     }
 
     public static function of(): ClientFactory
