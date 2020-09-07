@@ -3,13 +3,12 @@
 
 namespace Commercetools\Client;
 
-
 use Psr\Http\Message\RequestInterface;
 use function GuzzleHttp\Psr7\modify_request;
 
 class GzipRequestMiddleware
 {
-    public static function gzipEnabled()
+    public static function gzipEnabled(): bool
     {
         return function_exists('gzencode');
     }

@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\CartDiscount;
 
-
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueGiftLineItemDraftBuilder;

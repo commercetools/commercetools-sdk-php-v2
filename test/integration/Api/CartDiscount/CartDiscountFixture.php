@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\CartDiscount;
 
-
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraft;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
@@ -16,7 +15,7 @@ use Ramsey\Uuid\Uuid;
 
 class CartDiscountFixture
 {
-    const RAND_MAX = 10000;
+    public const RAND_MAX = 10000;
 
     final public static function uniqueCategoryString()
     {
