@@ -13,22 +13,15 @@ use Commercetools\Base\JsonObject;
 
 interface OperationStates extends JsonObject
 {
-    public const FIELD_ACCEPTED = 'Accepted';
     public const FIELD_VALIDATION_FAILED = 'ValidationFailed';
     public const FIELD_UNRESOLVED = 'Unresolved';
     public const FIELD_RESOLVED = 'Resolved';
     public const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
     public const FIELD_IMPORTED = 'Imported';
+    public const FIELD_DELETE = 'Delete';
     public const FIELD_DELETED = 'Deleted';
     public const FIELD_REJECTED = 'Rejected';
     public const FIELD_SKIPPED = 'Skipped';
-
-    /**
-     * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getAccepted();
 
     /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
@@ -66,6 +59,13 @@ interface OperationStates extends JsonObject
     public function getImported();
 
     /**
+     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
+     *
+     * @return null|int
+     */
+    public function getDelete();
+
+    /**
      * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
      *
      * @return null|int
@@ -85,11 +85,6 @@ interface OperationStates extends JsonObject
      * @return null|int
      */
     public function getSkipped();
-
-    /**
-     * @param ?int $Accepted
-     */
-    public function setAccepted(?int $Accepted): void;
 
     /**
      * @param ?int $ValidationFailed
@@ -115,6 +110,11 @@ interface OperationStates extends JsonObject
      * @param ?int $Imported
      */
     public function setImported(?int $Imported): void;
+
+    /**
+     * @param ?int $Delete
+     */
+    public function setDelete(?int $Delete): void;
 
     /**
      * @param ?int $Deleted

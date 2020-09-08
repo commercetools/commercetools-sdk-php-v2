@@ -22,11 +22,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * @var ?int
      */
-    protected $Accepted;
-
-    /**
-     * @var ?int
-     */
     protected $ValidationFailed;
 
     /**
@@ -52,6 +47,11 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * @var ?int
      */
+    protected $Delete;
+
+    /**
+     * @var ?int
+     */
     protected $Deleted;
 
     /**
@@ -69,44 +69,25 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $Accepted = null,
         ?int $ValidationFailed = null,
         ?int $Unresolved = null,
         ?int $Resolved = null,
         ?int $WaitForMasterVariant = null,
         ?int $Imported = null,
+        ?int $Delete = null,
         ?int $Deleted = null,
         ?int $Rejected = null,
         ?int $Skipped = null
     ) {
-        $this->Accepted = $Accepted;
         $this->ValidationFailed = $ValidationFailed;
         $this->Unresolved = $Unresolved;
         $this->Resolved = $Resolved;
         $this->WaitForMasterVariant = $WaitForMasterVariant;
         $this->Imported = $Imported;
+        $this->Delete = $Delete;
         $this->Deleted = $Deleted;
         $this->Rejected = $Rejected;
         $this->Skipped = $Skipped;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getAccepted()
-    {
-        if (is_null($this->Accepted)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_ACCEPTED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Accepted = (int) $data;
-        }
-
-        return $this->Accepted;
     }
 
     /**
@@ -205,6 +186,25 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
+     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
+     *
+     * @return null|int
+     */
+    public function getDelete()
+    {
+        if (is_null($this->Delete)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_DELETE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->Delete = (int) $data;
+        }
+
+        return $this->Delete;
+    }
+
+    /**
      * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
      *
      * @return null|int
@@ -263,14 +263,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
 
 
     /**
-     * @param ?int $Accepted
-     */
-    public function setAccepted(?int $Accepted): void
-    {
-        $this->Accepted = $Accepted;
-    }
-
-    /**
      * @param ?int $ValidationFailed
      */
     public function setValidationFailed(?int $ValidationFailed): void
@@ -308,6 +300,14 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setImported(?int $Imported): void
     {
         $this->Imported = $Imported;
+    }
+
+    /**
+     * @param ?int $Delete
+     */
+    public function setDelete(?int $Delete): void
+    {
+        $this->Delete = $Delete;
     }
 
     /**

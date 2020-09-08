@@ -23,11 +23,6 @@ final class OperationStatesBuilder implements Builder
     /**
      * @var ?int
      */
-    private $Accepted;
-
-    /**
-     * @var ?int
-     */
     private $ValidationFailed;
 
     /**
@@ -53,6 +48,11 @@ final class OperationStatesBuilder implements Builder
     /**
      * @var ?int
      */
+    private $Delete;
+
+    /**
+     * @var ?int
+     */
     private $Deleted;
 
     /**
@@ -64,16 +64,6 @@ final class OperationStatesBuilder implements Builder
      * @var ?int
      */
     private $Skipped;
-
-    /**
-     * <p>The number of import operations that are in the state <code>Accepted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getAccepted()
-    {
-        return $this->Accepted;
-    }
 
     /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
@@ -126,6 +116,16 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
+     *
+     * @return null|int
+     */
+    public function getDelete()
+    {
+        return $this->Delete;
+    }
+
+    /**
      * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
      *
      * @return null|int
@@ -153,17 +153,6 @@ final class OperationStatesBuilder implements Builder
     public function getSkipped()
     {
         return $this->Skipped;
-    }
-
-    /**
-     * @param ?int $Accepted
-     * @return $this
-     */
-    public function withAccepted(?int $Accepted)
-    {
-        $this->Accepted = $Accepted;
-
-        return $this;
     }
 
     /**
@@ -222,6 +211,17 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
+     * @param ?int $Delete
+     * @return $this
+     */
+    public function withDelete(?int $Delete)
+    {
+        $this->Delete = $Delete;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $Deleted
      * @return $this
      */
@@ -258,12 +258,12 @@ final class OperationStatesBuilder implements Builder
     public function build(): OperationStates
     {
         return new OperationStatesModel(
-            $this->Accepted,
             $this->ValidationFailed,
             $this->Unresolved,
             $this->Resolved,
             $this->WaitForMasterVariant,
             $this->Imported,
+            $this->Delete,
             $this->Deleted,
             $this->Rejected,
             $this->Skipped
