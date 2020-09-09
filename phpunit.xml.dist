@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.0/phpunit.xsd"
-    bootstrap="vendor/autoload.php"
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    verbose="true"
->
-    <testsuites>
-        <testsuite name="unit">
-            <directory suffix="Test.php">test/unit</directory>
-            <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
-            <directory suffix="Test.php">lib/commercetools-api-tests/test/unit</directory>
-            <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
-            <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
-        </testsuite>
-        <testsuite name="base">
-            <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
-        </testsuite>
-        <testsuite name="api">
-            <directory suffix="Test.php">lib/commercetools-api-tests/test/unit</directory>
-        </testsuite>
-        <testsuite name="import">
-            <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
-        </testsuite>
-        <testsuite name="ml">
-            <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
-        </testsuite>
-        <testsuite name="integration">
-            <directory suffix="Test.php">test/integration</directory>
-        </testsuite>
-    </testsuites>
-
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
-            <directory suffix=".php">lib/commercetools-api/src</directory>
-            <directory suffix=".php">lib/commercetools-base/src</directory>
-            <directory suffix=".php">lib/commercetools-import/src</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <ini name="memory_limit" value="-1"/>
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         verbose="true">
+  <testsuites>
+    <testsuite name="unit">
+      <directory suffix="Test.php">test/unit</directory>
+      <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
+      <directory suffix="Test.php">lib/commercetools-api-tests/test/unit</directory>
+      <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
+      <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
+    </testsuite>
+    <testsuite name="base">
+      <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
+    </testsuite>
+    <testsuite name="api">
+      <directory suffix="Test.php">lib/commercetools-api-tests/test/unit</directory>
+    </testsuite>
+    <testsuite name="import">
+      <directory suffix="Test.php">lib/commercetools-import-tests/test/unit</directory>
+    </testsuite>
+    <testsuite name="ml">
+      <directory suffix="Test.php">lib/commercetools-ml-tests/test/unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory suffix="Test.php">test/integration</directory>
+    </testsuite>
+  </testsuites>
+  <coverage includeUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">src</directory>
+      <directory suffix=".php">lib/commercetools-api/src</directory>
+      <directory suffix=".php">lib/commercetools-base/src</directory>
+      <directory suffix=".php">lib/commercetools-import/src</directory>
+    </include>
+  </coverage>
+  <php>
+    <ini name="memory_limit" value="-1"/>
+  </php>
 </phpunit>
