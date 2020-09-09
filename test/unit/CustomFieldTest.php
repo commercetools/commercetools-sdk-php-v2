@@ -24,13 +24,10 @@ class CustomFieldTest extends TestCase
                             FieldContainerBuilder::of()
                                 ->put(
                                     "price",
-                                    PriceDraftBuilder::of()
-                                        ->withValueBuilder(
-                                            MoneyBuilder::of()
-                                                ->withCurrencyCode('EUR')
-                                                ->withCentAmount(100)
-                                        )
-                                        ->build()
+                                    MoneyBuilder::of()
+                                        ->withCurrencyCode('EUR')
+                                        ->withCentAmount(100)
+                                    ->build()
                                 )
                         )
                 );
@@ -40,10 +37,8 @@ class CustomFieldTest extends TestCase
                 "custom": {
                     "fields": {
                         "price": {
-                            "value": {
-                                "centAmount": 100,
-                                "currencyCode": "EUR"
-                            }
+                            "centAmount": 100,
+                            "currencyCode": "EUR"
                         }
                     },
                     "type": {
