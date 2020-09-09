@@ -42,6 +42,7 @@ interface CartDraft extends JsonObject
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_DISCOUNT_CODES = 'discountCodes';
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
@@ -206,6 +207,13 @@ interface CartDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
+     * <p>The code of existing DiscountCodes.</p>
+     *
+     * @return null|array
+     */
+    public function getDiscountCodes();
+
+    /**
      * @param ?string $currency
      */
     public function setCurrency(?string $currency): void;
@@ -319,4 +327,9 @@ interface CartDraft extends JsonObject
      * @param ?AddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?array $discountCodes
+     */
+    public function setDiscountCodes(?array $discountCodes): void;
 }

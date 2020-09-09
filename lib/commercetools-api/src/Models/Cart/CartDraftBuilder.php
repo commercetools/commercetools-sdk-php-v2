@@ -147,6 +147,11 @@ final class CartDraftBuilder implements Builder
     private $itemShippingAddresses;
 
     /**
+     * @var ?array
+     */
+    private $discountCodes;
+
+    /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
@@ -375,6 +380,16 @@ final class CartDraftBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <p>The code of existing DiscountCodes.</p>
+     *
+     * @return null|array
+     */
+    public function getDiscountCodes()
+    {
+        return $this->discountCodes;
     }
 
     /**
@@ -631,6 +646,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?array $discountCodes
+     * @return $this
+     */
+    public function withDiscountCodes(?array $discountCodes)
+    {
+        $this->discountCodes = $discountCodes;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
@@ -735,7 +761,8 @@ final class CartDraftBuilder implements Builder
             $this->deleteDaysAfterLastModification,
             $this->origin,
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
-            $this->itemShippingAddresses
+            $this->itemShippingAddresses,
+            $this->discountCodes
         );
     }
 

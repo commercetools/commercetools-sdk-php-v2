@@ -145,6 +145,11 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      */
     protected $itemShippingAddresses;
 
+    /**
+     * @var ?array
+     */
+    protected $discountCodes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -172,7 +177,8 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?int $deleteDaysAfterLastModification = null,
         ?string $origin = null,
         ?ShippingRateInputDraft $shippingRateInput = null,
-        ?AddressCollection $itemShippingAddresses = null
+        ?AddressCollection $itemShippingAddresses = null,
+        ?array $discountCodes = null
     ) {
         $this->currency = $currency;
         $this->customerId = $customerId;
@@ -197,6 +203,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->origin = $origin;
         $this->shippingRateInput = $shippingRateInput;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->discountCodes = $discountCodes;
     }
 
     /**
@@ -645,6 +652,25 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         return $this->itemShippingAddresses;
     }
 
+    /**
+     * <p>The code of existing DiscountCodes.</p>
+     *
+     * @return null|array
+     */
+    public function getDiscountCodes()
+    {
+        if (is_null($this->discountCodes)) {
+            /** @psalm-var ?list<mixed> $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_CODES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountCodes = $data;
+        }
+
+        return $this->discountCodes;
+    }
+
 
     /**
      * @param ?string $currency
@@ -828,5 +854,13 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?array $discountCodes
+     */
+    public function setDiscountCodes(?array $discountCodes): void
+    {
+        $this->discountCodes = $discountCodes;
     }
 }
