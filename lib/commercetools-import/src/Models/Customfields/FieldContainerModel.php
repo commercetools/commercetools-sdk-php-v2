@@ -8,42 +8,24 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+use Commercetools\Base\MapperMap;
 
 /**
  * @internal
  */
-final class FieldContainerModel extends JsonObjectModel implements FieldContainer
+final class FieldContainerModel extends MapperMap implements FieldContainer
 {
     /**
-     * @psalm-suppress MissingParamType
+     * @psalm-return callable(string):?mixed
      */
-    public function __construct(
-    ) {
-    }
-
-
-
-
-    /**
-     * @return mixed
-     */
-    public function by(string $key)
+    protected function mapper()
     {
-        $data = $this->raw($key);
-        if (is_null($data)) {
-            return null;
-        }
-        if (preg_match(FieldContainer::FIELD_PATTERN0, $key) === 1) {
-            /** @psalm-var stdClass|array<string, mixed> $data */
-
-            return CustomFieldModel::of($data);
-        }
-
-        return $data;
+        return
+            /**
+             * @psalm-return ?mixed
+             */
+            function (string $key) {
+                return $this->get($key);
+            };
     }
 }

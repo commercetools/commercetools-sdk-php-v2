@@ -8,10 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Commercetools\Base\CMap;
 
-interface FieldContainer extends JsonObject
+interface FieldContainer extends CMap
 {
-    public const FIELD_PATTERN0 = '//';
 }

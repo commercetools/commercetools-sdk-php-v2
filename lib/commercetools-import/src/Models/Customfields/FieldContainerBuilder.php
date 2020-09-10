@@ -9,25 +9,38 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Customfields;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Commercetools\Base\MapperMap;
 use stdClass;
 
 /**
  * @implements Builder<FieldContainer>
+ * @extends MapperMap<FieldContainer>
  */
-final class FieldContainerBuilder implements Builder
+final class FieldContainerBuilder extends MapperMap implements Builder
 {
-    public function build(): FieldContainer
+    /**
+     * @psalm-return callable(string):?FieldContainer
+     */
+    protected function mapper()
     {
-        return new FieldContainerModel(
-        );
+        return
+            /**
+             * @psalm-return ?FieldContainer
+             */
+            function (string $key) {
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = FieldContainerModel::of($data);
+                }
+                return $data;
+            };
     }
 
-    public static function of(): FieldContainerBuilder
+    /**
+     * @return FieldContainer
+     */
+    public function build()
     {
-        return new self();
+        return new FieldContainerModel($this->toArray());
     }
 }
