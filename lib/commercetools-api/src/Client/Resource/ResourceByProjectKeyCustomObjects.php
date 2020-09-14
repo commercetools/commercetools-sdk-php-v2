@@ -39,14 +39,14 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
 
         return new ResourceByProjectKeyCustomObjectsByContainerByKey($args, $this->getClient());
     }
-    public function withId(string $ID = null): ResourceByProjectKeyCustomObjectsByID
+    public function withContainer(string $container = null): ResourceByProjectKeyCustomObjectsByContainer
     {
         $args = $this->getArgs();
-        if (!is_null($ID)) {
-            $args['ID'] = $ID;
+        if (!is_null($container)) {
+            $args['container'] = $container;
         }
 
-        return new ResourceByProjectKeyCustomObjectsByID($args, $this->getClient());
+        return new ResourceByProjectKeyCustomObjectsByContainer($args, $this->getClient());
     }
 
     /**

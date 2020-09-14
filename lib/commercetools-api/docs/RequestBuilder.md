@@ -552,6 +552,21 @@ $request = $builder
                 ->customObjects()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->customObjects()->withContainer("container")->get()`
+
+Get CustomObject by container
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->customObjects()
+                ->withContainer("container")
+                ->get();
+```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->get()`
 
 Get CustomObject by container and key
@@ -580,37 +595,6 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->customObjects()
                 ->withContainerAndKey("container", "key")
-                ->delete();
-```
-## `withProjectKey("projectKey")->customObjects()->withId("ID")->get()`
-
-Get CustomObject by ID
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->customObjects()
-                ->withId("ID")
-                ->get();
-```
-## `withProjectKey("projectKey")->customObjects()->withId("ID")->delete()`
-
-The version control is optional. If the query contains a version, then it must match the version of the object.
-
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->customObjects()
-                ->withId("ID")
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->customerGroups()->get()`

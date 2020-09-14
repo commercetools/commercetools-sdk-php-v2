@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjectsByContainer;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjectsByContainerByKey;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjectsByID;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -227,16 +227,16 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 ['projectKey' => 'test_projectKey', 'container' => 'test_container', 'key' => 'test_key'],
                 '/{projectKey}/custom-objects/{container}/{key}'
             ],
-            'ResourceByProjectKeyCustomObjectsByID' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomObjectsByID {
+            'ResourceByProjectKeyCustomObjectsByContainer' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyCustomObjectsByContainer {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->customObjects()
-                        ->withId("test_ID");
+                        ->withContainer("test_container");
                 },
-                ResourceByProjectKeyCustomObjectsByID::class,
-                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
-                '/{projectKey}/custom-objects/{ID}'
+                ResourceByProjectKeyCustomObjectsByContainer::class,
+                ['projectKey' => 'test_projectKey', 'container' => 'test_container'],
+                '/{projectKey}/custom-objects/{container}'
             ]
         ];
     }

@@ -28,15 +28,15 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyCustomObjectsByIDGet extends ApiRequest
+class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
 {
     /**
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $container, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/custom-objects/{ID}');
+        $uri = str_replace(['{projectKey}', '{container}'], [$projectKey, $container], '{projectKey}/custom-objects/{container}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
@@ -138,7 +138,7 @@ class ByProjectKeyCustomObjectsByIDGet extends ApiRequest
      *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyCustomObjectsByIDGet
+    public function withExpand($expand): ByProjectKeyCustomObjectsByContainerGet
     {
         return $this->withQueryParam('expand', $expand);
     }
