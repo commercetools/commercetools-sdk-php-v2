@@ -27,7 +27,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
 
     /**
      * @psalm-var array<string, class-string<CartUpdateAction> >
-     *
+     * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
        'addCustomLineItem' => CartAddCustomLineItemActionModel::class,
@@ -68,6 +68,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'setDeleteDaysAfterLastModification' => CartSetDeleteDaysAfterLastModificationActionModel::class,
        'setLineItemCustomField' => CartSetLineItemCustomFieldActionModel::class,
        'setLineItemCustomType' => CartSetLineItemCustomTypeActionModel::class,
+       'setLineItemDistributionChannel' => CartSetLineItemDistributionChannelActionModel::class,
        'setLineItemPrice' => CartSetLineItemPriceActionModel::class,
        'setLineItemShippingDetails' => CartSetLineItemShippingDetailsActionModel::class,
        'setLineItemTaxAmount' => CartSetLineItemTaxAmountActionModel::class,

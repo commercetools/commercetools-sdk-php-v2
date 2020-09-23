@@ -96,6 +96,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemShippingDetailsAction;
@@ -212,6 +214,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setDeliveryItems' => StagedOrderSetDeliveryItemsActionModel::class,
        'setLineItemCustomField' => StagedOrderSetLineItemCustomFieldActionModel::class,
        'setLineItemCustomType' => StagedOrderSetLineItemCustomTypeActionModel::class,
+       'setLineItemDistributionChannel' => StagedOrderSetLineItemDistributionChannelActionModel::class,
        'setLineItemPrice' => StagedOrderSetLineItemPriceActionModel::class,
        'setLineItemShippingDetails' => StagedOrderSetLineItemShippingDetailsActionModel::class,
        'setLineItemTaxAmount' => StagedOrderSetLineItemTaxAmountActionModel::class,

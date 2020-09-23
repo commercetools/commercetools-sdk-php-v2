@@ -52,6 +52,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemShippingDetailsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemTaxAmountAction;

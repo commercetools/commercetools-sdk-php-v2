@@ -96,6 +96,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemDistributionChannelActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemPriceActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemShippingDetailsAction;

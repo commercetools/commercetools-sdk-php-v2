@@ -62,6 +62,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'OutOfStock' => OutOfStockErrorModel::class,
        'PriceChanged' => PriceChangedErrorModel::class,
        'ReferenceExists' => ReferenceExistsErrorModel::class,
+       'ReferencedResourceNotFound' => ReferencedResourceNotFoundErrorModel::class,
        'RequiredField' => RequiredFieldErrorModel::class,
        'ResourceNotFound' => ResourceNotFoundErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
