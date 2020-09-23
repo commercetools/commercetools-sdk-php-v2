@@ -10,7 +10,7 @@ $root = new ImportRequestBuilder();
 
 ## `withProjectKeyValue("projectKey")->categories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for a category
+Creates import request for creating new categories or updating existing ones.
 
 ### Example
 ```php
@@ -75,7 +75,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for a customer
+Creates import request for creating new customers or updating existing ones.
 
 ### Example
 ```php
@@ -231,7 +231,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for an order
+Creates import request for creating new orders or updating existing ones.
 
 ### Example
 ```php
@@ -280,7 +280,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->prices()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for prices
+Creates import request for creating new prices or updating existing ones.
 
 ### Example
 ```php
@@ -345,7 +345,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productDrafts()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for product drafts
+Creates import request for creating new product drafts or updating existing ones.
 
 
 ### Example
@@ -411,7 +411,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productTypes()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for product types
+Creates import request for creating new product types or updating existing ones.
 
 ### Example
 ```php
@@ -525,7 +525,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->productVariants()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for product variants
+Creates import request for creating new product variants or updating existing ones.
 
 ### Example
 ```php
@@ -590,7 +590,7 @@ $request = $builder
 ```
 ## `withProjectKeyValue("projectKey")->products()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
-Creates a new import request for products
+Creates import request for creating new products or updating existing ones.
 
 ### Example
 ```php
