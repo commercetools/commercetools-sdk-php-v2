@@ -38,6 +38,8 @@ final class TaxedPriceBuilder implements Builder
     private $taxPortions;
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalNet()
@@ -46,6 +48,8 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalGross()
@@ -54,6 +58,8 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
+     *
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()

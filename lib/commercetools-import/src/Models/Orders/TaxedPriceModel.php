@@ -51,6 +51,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalNet()
@@ -69,6 +71,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalGross()
@@ -87,6 +91,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+     * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
+     *
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()

@@ -19,16 +19,22 @@ interface TaxedPrice extends JsonObject
     public const FIELD_TAX_PORTIONS = 'taxPortions';
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalNet();
 
     /**
+     * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
+     *
      * @return null|Money
      */
     public function getTotalGross();
 
     /**
+     * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
+     *
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions();
