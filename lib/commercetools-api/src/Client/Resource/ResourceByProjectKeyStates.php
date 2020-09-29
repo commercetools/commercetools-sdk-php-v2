@@ -26,6 +26,15 @@ class ResourceByProjectKeyStates extends ApiResource
         parent::__construct('/{projectKey}/states', $args, $client);
     }
 
+    public function withKey(string $key = null): ResourceByProjectKeyStatesKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyStatesKeyByKey($args, $this->getClient());
+    }
     public function withId(string $ID = null): ResourceByProjectKeyStatesByID
     {
         $args = $this->getArgs();

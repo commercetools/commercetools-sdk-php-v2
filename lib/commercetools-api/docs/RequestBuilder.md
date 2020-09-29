@@ -3842,6 +3842,51 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->states()->withKey("key")->get()`
+
+Get State by Key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->states()->withKey("key")->post(null)`
+
+Update State by Key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->states()->withKey("key")->delete()`
+
+Delete State by Key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->states()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->stores()->get()`
 
 Query stores

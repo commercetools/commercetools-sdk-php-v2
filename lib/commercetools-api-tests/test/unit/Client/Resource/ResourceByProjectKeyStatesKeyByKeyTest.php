@@ -9,8 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyStatesByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyStatesKeyByKey;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -23,11 +21,12 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesGet
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesPost
- * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStates
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesKeyByKeyPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyStatesKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyStatesKeyByKey
  */
-class ResourceByProjectKeyStatesTest extends TestCase
+class ResourceByProjectKeyStatesKeyByKeyTest extends TestCase
 {
     /**
      * @dataProvider getRequests()
@@ -45,16 +44,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -102,113 +92,86 @@ class ResourceByProjectKeyStatesTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyStatesGet_withExpand' => [
+            'ByProjectKeyStatesKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->states()
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                'test_projectKey/states?expand=expand',
+                'test_projectKey/states/key=test_key?expand=expand',
             ],
-            'ByProjectKeyStatesGet_withSort' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withSort('sort');
-                },
-                'get',
-                'test_projectKey/states?sort=sort',
-            ],
-            'ByProjectKeyStatesGet_withLimit' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withLimit('limit');
-                },
-                'get',
-                'test_projectKey/states?limit=limit',
-            ],
-            'ByProjectKeyStatesGet_withOffset' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withOffset('offset');
-                },
-                'get',
-                'test_projectKey/states?offset=offset',
-            ],
-            'ByProjectKeyStatesGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/states?withTotal=withTotal',
-            ],
-            'ByProjectKeyStatesGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/states?where=where',
-            ],
-            'ByProjectKeyStatesGet_withPredicateVar' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->states()
-                        ->get()
-                        ->withPredicateVar('varName', 'var.varName');
-                },
-                'get',
-                'test_projectKey/states?var.varName=var.varName',
-            ],
-            'ByProjectKeyStatesGet' => [
+            'ByProjectKeyStatesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->states()
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                'test_projectKey/states',
+                'test_projectKey/states/key=test_key',
             ],
-            'ByProjectKeyStatesPost_withExpand' => [
+            'ByProjectKeyStatesKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->states()
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                'test_projectKey/states?expand=expand',
+                'test_projectKey/states/key=test_key?expand=expand',
             ],
-            'ByProjectKeyStatesPost' => [
+            'ByProjectKeyStatesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->states()
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                'test_projectKey/states',
+                'test_projectKey/states/key=test_key',
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->states()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/states/key=test_key?version=version',
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->states()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/states/key=test_key?expand=expand',
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->states()
+                        ->withKey("test_key")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/states/key=test_key',
             ]
         ];
     }
@@ -216,48 +179,37 @@ class ResourceByProjectKeyStatesTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyStatesKeyByKey' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyStatesKeyByKey {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->states()
-                        ->withKey("test_key");
-                },
-                ResourceByProjectKeyStatesKeyByKey::class,
-                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
-                '/{projectKey}/states/key={key}'
-            ],
-            'ResourceByProjectKeyStatesByID' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyStatesByID {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->states()
-                        ->withId("test_ID");
-                },
-                ResourceByProjectKeyStatesByID::class,
-                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
-                '/{projectKey}/states/{ID}'
-            ]
         ];
     }
 
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyStatesGet' => [
+            'ByProjectKeyStatesKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 }
             ],
-            'ByProjectKeyStatesPost' => [
+            'ByProjectKeyStatesKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
                 }
             ]
         ];
@@ -266,156 +218,263 @@ class ResourceByProjectKeyStatesTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyStatesGet_200' => [
+            'ByProjectKeyStatesKeyByKeyGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 200
             ],
-            'ByProjectKeyStatesGet_400' => [
+            'ByProjectKeyStatesKeyByKeyGet_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 400
             ],
-            'ByProjectKeyStatesGet_401' => [
+            'ByProjectKeyStatesKeyByKeyGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 401
             ],
-            'ByProjectKeyStatesGet_403' => [
+            'ByProjectKeyStatesKeyByKeyGet_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 403
             ],
-            'ByProjectKeyStatesGet_404' => [
+            'ByProjectKeyStatesKeyByKeyGet_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 404
             ],
-            'ByProjectKeyStatesGet_500' => [
+            'ByProjectKeyStatesKeyByKeyGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 500
             ],
-            'ByProjectKeyStatesGet_503' => [
+            'ByProjectKeyStatesKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 503
             ],
-            'ByProjectKeyStatesGet_599' => [
+            'ByProjectKeyStatesKeyByKeyGet_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->get();
                 },
                 599
             ],
-            'ByProjectKeyStatesPost_201' => [
+            'ByProjectKeyStatesKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
-                        ->post(null);
-                },
-                201
-            ],
-            'ByProjectKeyStatesPost_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                400
-            ],
-            'ByProjectKeyStatesPost_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                401
-            ],
-            'ByProjectKeyStatesPost_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                403
-            ],
-            'ByProjectKeyStatesPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                404
-            ],
-            'ByProjectKeyStatesPost_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                500
-            ],
-            'ByProjectKeyStatesPost_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                503
-            ],
-            'ByProjectKeyStatesPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
+                        ->withKey("key")
                         ->post(null);
                 },
                 200
             ],
-            'ByProjectKeyStatesPost_599' => [
+            'ByProjectKeyStatesKeyByKeyPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->states()
+                        ->withKey("key")
                         ->post(null);
+                },
+                409
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyStatesKeyByKeyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyStatesKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withKey("key")
+                        ->delete();
                 },
                 599
             ]
