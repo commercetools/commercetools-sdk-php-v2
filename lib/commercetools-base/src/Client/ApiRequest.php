@@ -13,7 +13,7 @@ use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
 use stdClass;
@@ -90,7 +90,7 @@ class ApiRequest extends Request
                     }
                     return [$value];
                 },
-                Psr7\parse_query($query)
+                Query::parse($query)
             );
         }
         if (is_array($value)) {
@@ -101,11 +101,11 @@ class ApiRequest extends Request
             $this->queryParts[$parameterName][] = $value;
         }
         ksort($this->queryParts);
-        $this->query = Psr7\build_query($this->queryParts);
+        $this->query = Query::build($this->queryParts);
 
         return $this->withUri($this->getUri()->withQuery($this->query));
     }
-    
+
     /**
      * @param array $options
      * @throws InvalidArgumentException

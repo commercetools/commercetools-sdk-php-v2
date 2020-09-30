@@ -3,8 +3,9 @@
 
 namespace Commercetools\Client;
 
+use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\RequestInterface;
-use function GuzzleHttp\Psr7\modify_request;
+use function gzencode;
 
 class GzipRequestMiddleware
 {
@@ -15,8 +16,8 @@ class GzipRequestMiddleware
 
     public function __invoke(RequestInterface $request, array $options = []): RequestInterface
     {
-        $content = \gzencode($request->getBody()->getContents());
-        $request = modify_request($request, [
+        $content = gzencode($request->getBody()->getContents());
+        $request = Utils::modifyRequest($request, [
             'body' => $content,
             'set_headers' => [
                 'Content-Encoding' => 'gzip',
