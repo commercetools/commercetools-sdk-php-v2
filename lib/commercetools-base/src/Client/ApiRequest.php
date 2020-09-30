@@ -105,7 +105,7 @@ class ApiRequest extends Request
 
         return $this->withUri($this->getUri()->withQuery($this->query));
     }
-
+    
     /**
      * @param array $options
      * @throws InvalidArgumentException
