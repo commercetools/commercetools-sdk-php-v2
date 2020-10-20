@@ -78,6 +78,11 @@ final class PriceDraftImportBuilder implements Builder
     private $tiers;
 
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @return null|TypedMoney
      */
     public function getValue()
@@ -159,6 +164,14 @@ final class PriceDraftImportBuilder implements Builder
     public function getTiers()
     {
         return $this->tiers;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -261,6 +274,17 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withValueBuilder(?TypedMoneyBuilder $value)
@@ -321,7 +345,8 @@ final class PriceDraftImportBuilder implements Builder
             $this->validUntil,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->tiers
+            $this->tiers,
+            $this->key
         );
     }
 

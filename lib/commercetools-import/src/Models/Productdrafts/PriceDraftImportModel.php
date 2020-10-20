@@ -76,6 +76,11 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
      */
     protected $tiers;
 
+    /**
+     * @var ?string
+     */
+    protected $key;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -89,7 +94,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         ?DateTimeImmutable $validUntil = null,
         ?Custom $custom = null,
         ?DiscountedPrice $discounted = null,
-        ?PriceTierCollection $tiers = null
+        ?PriceTierCollection $tiers = null,
+        ?string $key = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -100,6 +106,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         $this->custom = $custom;
         $this->discounted = $discounted;
         $this->tiers = $tiers;
+        $this->key = $key;
     }
 
     /**
@@ -280,6 +287,23 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
         return $this->tiers;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
 
     /**
      * @param ?TypedMoney $value
@@ -351,6 +375,14 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     public function setTiers(?PriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
 

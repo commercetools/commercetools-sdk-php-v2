@@ -29,6 +29,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_TIERS = 'tiers';
+    public const FIELD_KEY = 'key';
 
     /**
      * @return null|TypedMoney
@@ -88,6 +89,11 @@ interface PriceDraftImport extends JsonObject
     public function getTiers();
 
     /**
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * @param ?TypedMoney $value
      */
     public function setValue(?TypedMoney $value): void;
@@ -131,4 +137,9 @@ interface PriceDraftImport extends JsonObject
      * @param ?PriceTierCollection $tiers
      */
     public function setTiers(?PriceTierCollection $tiers): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }
