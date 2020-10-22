@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -89,7 +88,7 @@ interface Store extends BaseResource
     /**
      * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
      *
-     * @return null|ChannelResourceIdentifierCollection
+     * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels();
 
@@ -144,7 +143,7 @@ interface Store extends BaseResource
     public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void;
 
     /**
-     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     * @param ?ChannelReferenceCollection $supplyChannels
      */
-    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
+    public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void;
 }

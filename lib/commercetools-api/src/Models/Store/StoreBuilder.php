@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -82,7 +81,7 @@ final class StoreBuilder implements Builder
     private $distributionChannels;
 
     /**
-     * @var ?ChannelResourceIdentifierCollection
+     * @var ?ChannelReferenceCollection
      */
     private $supplyChannels;
 
@@ -177,7 +176,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
      *
-     * @return null|ChannelResourceIdentifierCollection
+     * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
     {
@@ -295,10 +294,10 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     * @param ?ChannelReferenceCollection $supplyChannels
      * @return $this
      */
-    public function withSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels)
+    public function withSupplyChannels(?ChannelReferenceCollection $supplyChannels)
     {
         $this->supplyChannels = $supplyChannels;
 
