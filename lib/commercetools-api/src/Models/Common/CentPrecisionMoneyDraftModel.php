@@ -35,16 +35,23 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
      */
     protected $type;
 
+    /**
+     * @var ?int
+     */
+    protected $fractionDigits;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?int $centAmount = null,
-        ?string $currencyCode = null
+        ?string $currencyCode = null,
+        ?int $fractionDigits = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+        $this->fractionDigits = $fractionDigits;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -101,6 +108,23 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
         return $this->type;
     }
 
+    /**
+     * @return null|int
+     */
+    public function getFractionDigits()
+    {
+        if (is_null($this->fractionDigits)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fractionDigits = (int) $data;
+        }
+
+        return $this->fractionDigits;
+    }
+
 
     /**
      * @param ?int $centAmount
@@ -116,5 +140,13 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
+    }
+
+    /**
+     * @param ?int $fractionDigits
+     */
+    public function setFractionDigits(?int $fractionDigits): void
+    {
+        $this->fractionDigits = $fractionDigits;
     }
 }

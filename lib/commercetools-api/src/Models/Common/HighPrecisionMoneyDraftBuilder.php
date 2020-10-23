@@ -33,6 +33,11 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     /**
      * @var ?int
      */
+    private $fractionDigits;
+
+    /**
+     * @var ?int
+     */
     private $preciseAmount;
 
     /**
@@ -51,6 +56,14 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getFractionDigits()
+    {
+        return $this->fractionDigits;
     }
 
     /**
@@ -84,6 +97,17 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $fractionDigits
+     * @return $this
+     */
+    public function withFractionDigits(?int $fractionDigits)
+    {
+        $this->fractionDigits = $fractionDigits;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $preciseAmount
      * @return $this
      */
@@ -100,6 +124,7 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
         return new HighPrecisionMoneyDraftModel(
             $this->centAmount,
             $this->currencyCode,
+            $this->fractionDigits,
             $this->preciseAmount
         );
     }

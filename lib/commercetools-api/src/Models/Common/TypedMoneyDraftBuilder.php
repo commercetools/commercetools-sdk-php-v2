@@ -31,6 +31,11 @@ final class TypedMoneyDraftBuilder implements Builder
     private $currencyCode;
 
     /**
+     * @var ?int
+     */
+    private $fractionDigits;
+
+    /**
      * @return null|int
      */
     public function getCentAmount()
@@ -46,6 +51,14 @@ final class TypedMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getFractionDigits()
+    {
+        return $this->fractionDigits;
     }
 
     /**
@@ -70,12 +83,24 @@ final class TypedMoneyDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $fractionDigits
+     * @return $this
+     */
+    public function withFractionDigits(?int $fractionDigits)
+    {
+        $this->fractionDigits = $fractionDigits;
+
+        return $this;
+    }
+
 
     public function build(): TypedMoneyDraft
     {
         return new TypedMoneyDraftModel(
             $this->centAmount,
-            $this->currencyCode
+            $this->currencyCode,
+            $this->fractionDigits
         );
     }
 

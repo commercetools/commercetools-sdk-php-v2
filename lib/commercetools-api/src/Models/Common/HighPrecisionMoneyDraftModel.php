@@ -38,6 +38,11 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     /**
      * @var ?int
      */
+    protected $fractionDigits;
+
+    /**
+     * @var ?int
+     */
     protected $preciseAmount;
 
 
@@ -47,10 +52,12 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     public function __construct(
         ?int $centAmount = null,
         ?string $currencyCode = null,
+        ?int $fractionDigits = null,
         ?int $preciseAmount = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+        $this->fractionDigits = $fractionDigits;
         $this->preciseAmount = $preciseAmount;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -111,6 +118,23 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     /**
      * @return null|int
      */
+    public function getFractionDigits()
+    {
+        if (is_null($this->fractionDigits)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fractionDigits = (int) $data;
+        }
+
+        return $this->fractionDigits;
+    }
+
+    /**
+     * @return null|int
+     */
     public function getPreciseAmount()
     {
         if (is_null($this->preciseAmount)) {
@@ -140,6 +164,14 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
+    }
+
+    /**
+     * @param ?int $fractionDigits
+     */
+    public function setFractionDigits(?int $fractionDigits): void
+    {
+        $this->fractionDigits = $fractionDigits;
     }
 
     /**

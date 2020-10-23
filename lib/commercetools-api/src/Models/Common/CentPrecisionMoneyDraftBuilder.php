@@ -31,6 +31,11 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
     private $currencyCode;
 
     /**
+     * @var ?int
+     */
+    private $fractionDigits;
+
+    /**
      * @return null|int
      */
     public function getCentAmount()
@@ -46,6 +51,14 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getFractionDigits()
+    {
+        return $this->fractionDigits;
     }
 
     /**
@@ -70,12 +83,24 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $fractionDigits
+     * @return $this
+     */
+    public function withFractionDigits(?int $fractionDigits)
+    {
+        $this->fractionDigits = $fractionDigits;
+
+        return $this;
+    }
+
 
     public function build(): CentPrecisionMoneyDraft
     {
         return new CentPrecisionMoneyDraftModel(
             $this->centAmount,
-            $this->currencyCode
+            $this->currencyCode,
+            $this->fractionDigits
         );
     }
 
