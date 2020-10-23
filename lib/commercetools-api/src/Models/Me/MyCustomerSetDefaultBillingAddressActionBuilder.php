@@ -26,11 +26,24 @@ final class MyCustomerSetDefaultBillingAddressActionBuilder implements Builder
     private $addressId;
 
     /**
+     * @var ?string
+     */
+    private $addressKey;
+
+    /**
      * @return null|string
      */
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        return $this->addressKey;
     }
 
     /**
@@ -44,11 +57,23 @@ final class MyCustomerSetDefaultBillingAddressActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $addressKey
+     * @return $this
+     */
+    public function withAddressKey(?string $addressKey)
+    {
+        $this->addressKey = $addressKey;
+
+        return $this;
+    }
+
 
     public function build(): MyCustomerSetDefaultBillingAddressAction
     {
         return new MyCustomerSetDefaultBillingAddressActionModel(
-            $this->addressId
+            $this->addressId,
+            $this->addressKey
         );
     }
 

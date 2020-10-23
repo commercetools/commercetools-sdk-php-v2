@@ -33,6 +33,11 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     protected $addressId;
 
     /**
+     * @var ?string
+     */
+    protected $addressKey;
+
+    /**
      * @var ?Address
      */
     protected $address;
@@ -43,9 +48,11 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
      */
     public function __construct(
         ?string $addressId = null,
+        ?string $addressKey = null,
         ?Address $address = null
     ) {
         $this->addressId = $addressId;
+        $this->addressKey = $addressKey;
         $this->address = $address;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
@@ -85,6 +92,23 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        if (is_null($this->addressKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressKey = (string) $data;
+        }
+
+        return $this->addressKey;
+    }
+
+    /**
      * @return null|Address
      */
     public function getAddress()
@@ -109,6 +133,14 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     public function setAddressId(?string $addressId): void
     {
         $this->addressId = $addressId;
+    }
+
+    /**
+     * @param ?string $addressKey
+     */
+    public function setAddressKey(?string $addressKey): void
+    {
+        $this->addressKey = $addressKey;
     }
 
     /**

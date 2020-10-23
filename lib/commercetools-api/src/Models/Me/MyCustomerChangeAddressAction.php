@@ -15,12 +15,18 @@ use Commercetools\Base\JsonObject;
 interface MyCustomerChangeAddressAction extends MyCustomerUpdateAction
 {
     public const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
     public const FIELD_ADDRESS = 'address';
 
     /**
      * @return null|string
      */
     public function getAddressId();
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey();
 
     /**
      * @return null|Address
@@ -31,6 +37,11 @@ interface MyCustomerChangeAddressAction extends MyCustomerUpdateAction
      * @param ?string $addressId
      */
     public function setAddressId(?string $addressId): void;
+
+    /**
+     * @param ?string $addressKey
+     */
+    public function setAddressKey(?string $addressKey): void;
 
     /**
      * @param ?Address $address

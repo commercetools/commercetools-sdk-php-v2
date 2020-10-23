@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObject;
 interface MyCustomerSetDefaultBillingAddressAction extends MyCustomerUpdateAction
 {
     public const FIELD_ADDRESS_ID = 'addressId';
+    public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
      * @return null|string
@@ -21,7 +22,17 @@ interface MyCustomerSetDefaultBillingAddressAction extends MyCustomerUpdateActio
     public function getAddressId();
 
     /**
+     * @return null|string
+     */
+    public function getAddressKey();
+
+    /**
      * @param ?string $addressId
      */
     public function setAddressId(?string $addressId): void;
+
+    /**
+     * @param ?string $addressKey
+     */
+    public function setAddressKey(?string $addressKey): void;
 }

@@ -28,6 +28,11 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     private $addressId;
 
     /**
+     * @var ?string
+     */
+    private $addressKey;
+
+    /**
      * @var null|Address|AddressBuilder
      */
     private $address;
@@ -38,6 +43,14 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     public function getAddressId()
     {
         return $this->addressId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        return $this->addressKey;
     }
 
     /**
@@ -55,6 +68,17 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     public function withAddressId(?string $addressId)
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $addressKey
+     * @return $this
+     */
+    public function withAddressKey(?string $addressKey)
+    {
+        $this->addressKey = $addressKey;
 
         return $this;
     }
@@ -84,6 +108,7 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     {
         return new MyCustomerChangeAddressActionModel(
             $this->addressId,
+            $this->addressKey,
             $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
         );
     }

@@ -30,14 +30,21 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
      */
     protected $addressId;
 
+    /**
+     * @var ?string
+     */
+    protected $addressKey;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $addressId = null
+        ?string $addressId = null,
+        ?string $addressKey = null
     ) {
         $this->addressId = $addressId;
+        $this->addressKey = $addressKey;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -75,6 +82,23 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
         return $this->addressId;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getAddressKey()
+    {
+        if (is_null($this->addressKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressKey = (string) $data;
+        }
+
+        return $this->addressKey;
+    }
+
 
     /**
      * @param ?string $addressId
@@ -82,5 +106,13 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
     public function setAddressId(?string $addressId): void
     {
         $this->addressId = $addressId;
+    }
+
+    /**
+     * @param ?string $addressKey
+     */
+    public function setAddressKey(?string $addressKey): void
+    {
+        $this->addressKey = $addressKey;
     }
 }
