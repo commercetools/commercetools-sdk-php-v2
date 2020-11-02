@@ -61,6 +61,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'NoMatchingProductDiscountFound' => NoMatchingProductDiscountFoundErrorModel::class,
        'OutOfStock' => OutOfStockErrorModel::class,
        'PriceChanged' => PriceChangedErrorModel::class,
+       'QueryTimedOut' => QueryTimedOutErrorModel::class,
        'ReferenceExists' => ReferenceExistsErrorModel::class,
        'ReferencedResourceNotFound' => ReferencedResourceNotFoundErrorModel::class,
        'RequiredField' => RequiredFieldErrorModel::class,
