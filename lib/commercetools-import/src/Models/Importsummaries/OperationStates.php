@@ -15,13 +15,11 @@ interface OperationStates extends JsonObject
 {
     public const FIELD_VALIDATION_FAILED = 'ValidationFailed';
     public const FIELD_UNRESOLVED = 'Unresolved';
-    public const FIELD_RESOLVED = 'Resolved';
     public const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
     public const FIELD_IMPORTED = 'Imported';
     public const FIELD_DELETE = 'Delete';
     public const FIELD_DELETED = 'Deleted';
     public const FIELD_REJECTED = 'Rejected';
-    public const FIELD_SKIPPED = 'Skipped';
 
     /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
@@ -36,13 +34,6 @@ interface OperationStates extends JsonObject
      * @return null|int
      */
     public function getUnresolved();
-
-    /**
-     * <p>The number of import operations that are in the state <code>Resolved</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getResolved();
 
     /**
      * <p>The number of import operations that are in the state <code>WaitForMasterVariant</code>.</p>
@@ -80,13 +71,6 @@ interface OperationStates extends JsonObject
     public function getRejected();
 
     /**
-     * <p>The number of import operations that are in the state <code>Skipped</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getSkipped();
-
-    /**
      * @param ?int $ValidationFailed
      */
     public function setValidationFailed(?int $ValidationFailed): void;
@@ -95,11 +79,6 @@ interface OperationStates extends JsonObject
      * @param ?int $Unresolved
      */
     public function setUnresolved(?int $Unresolved): void;
-
-    /**
-     * @param ?int $Resolved
-     */
-    public function setResolved(?int $Resolved): void;
 
     /**
      * @param ?int $WaitForMasterVariant
@@ -125,9 +104,4 @@ interface OperationStates extends JsonObject
      * @param ?int $Rejected
      */
     public function setRejected(?int $Rejected): void;
-
-    /**
-     * @param ?int $Skipped
-     */
-    public function setSkipped(?int $Skipped): void;
 }

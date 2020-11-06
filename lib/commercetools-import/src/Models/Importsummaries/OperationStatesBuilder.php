@@ -33,11 +33,6 @@ final class OperationStatesBuilder implements Builder
     /**
      * @var ?int
      */
-    private $Resolved;
-
-    /**
-     * @var ?int
-     */
     private $WaitForMasterVariant;
 
     /**
@@ -61,11 +56,6 @@ final class OperationStatesBuilder implements Builder
     private $Rejected;
 
     /**
-     * @var ?int
-     */
-    private $Skipped;
-
-    /**
      * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
      *
      * @return null|int
@@ -83,16 +73,6 @@ final class OperationStatesBuilder implements Builder
     public function getUnresolved()
     {
         return $this->Unresolved;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Resolved</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getResolved()
-    {
-        return $this->Resolved;
     }
 
     /**
@@ -146,16 +126,6 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
-     * <p>The number of import operations that are in the state <code>Skipped</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getSkipped()
-    {
-        return $this->Skipped;
-    }
-
-    /**
      * @param ?int $ValidationFailed
      * @return $this
      */
@@ -173,17 +143,6 @@ final class OperationStatesBuilder implements Builder
     public function withUnresolved(?int $Unresolved)
     {
         $this->Unresolved = $Unresolved;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $Resolved
-     * @return $this
-     */
-    public function withResolved(?int $Resolved)
-    {
-        $this->Resolved = $Resolved;
 
         return $this;
     }
@@ -243,30 +202,17 @@ final class OperationStatesBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?int $Skipped
-     * @return $this
-     */
-    public function withSkipped(?int $Skipped)
-    {
-        $this->Skipped = $Skipped;
-
-        return $this;
-    }
-
 
     public function build(): OperationStates
     {
         return new OperationStatesModel(
             $this->ValidationFailed,
             $this->Unresolved,
-            $this->Resolved,
             $this->WaitForMasterVariant,
             $this->Imported,
             $this->Delete,
             $this->Deleted,
-            $this->Rejected,
-            $this->Skipped
+            $this->Rejected
         );
     }
 

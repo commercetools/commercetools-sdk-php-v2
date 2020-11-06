@@ -32,11 +32,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * @var ?int
      */
-    protected $Resolved;
-
-    /**
-     * @var ?int
-     */
     protected $WaitForMasterVariant;
 
     /**
@@ -59,11 +54,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
      */
     protected $Rejected;
 
-    /**
-     * @var ?int
-     */
-    protected $Skipped;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -71,23 +61,19 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function __construct(
         ?int $ValidationFailed = null,
         ?int $Unresolved = null,
-        ?int $Resolved = null,
         ?int $WaitForMasterVariant = null,
         ?int $Imported = null,
         ?int $Delete = null,
         ?int $Deleted = null,
-        ?int $Rejected = null,
-        ?int $Skipped = null
+        ?int $Rejected = null
     ) {
         $this->ValidationFailed = $ValidationFailed;
         $this->Unresolved = $Unresolved;
-        $this->Resolved = $Resolved;
         $this->WaitForMasterVariant = $WaitForMasterVariant;
         $this->Imported = $Imported;
         $this->Delete = $Delete;
         $this->Deleted = $Deleted;
         $this->Rejected = $Rejected;
-        $this->Skipped = $Skipped;
     }
 
     /**
@@ -126,25 +112,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         }
 
         return $this->Unresolved;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Resolved</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getResolved()
-    {
-        if (is_null($this->Resolved)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_RESOLVED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Resolved = (int) $data;
-        }
-
-        return $this->Resolved;
     }
 
     /**
@@ -242,25 +209,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         return $this->Rejected;
     }
 
-    /**
-     * <p>The number of import operations that are in the state <code>Skipped</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getSkipped()
-    {
-        if (is_null($this->Skipped)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_SKIPPED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Skipped = (int) $data;
-        }
-
-        return $this->Skipped;
-    }
-
 
     /**
      * @param ?int $ValidationFailed
@@ -276,14 +224,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setUnresolved(?int $Unresolved): void
     {
         $this->Unresolved = $Unresolved;
-    }
-
-    /**
-     * @param ?int $Resolved
-     */
-    public function setResolved(?int $Resolved): void
-    {
-        $this->Resolved = $Resolved;
     }
 
     /**
@@ -324,13 +264,5 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setRejected(?int $Rejected): void
     {
         $this->Rejected = $Rejected;
-    }
-
-    /**
-     * @param ?int $Skipped
-     */
-    public function setSkipped(?int $Skipped): void
-    {
-        $this->Skipped = $Skipped;
     }
 }
