@@ -132,6 +132,15 @@ class ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperati
 
     /**
      *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $resourceKey
      */
     public function withResourceKey($resourceKey): ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyImportOperationsGet

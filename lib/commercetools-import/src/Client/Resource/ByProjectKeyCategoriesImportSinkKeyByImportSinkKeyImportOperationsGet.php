@@ -132,6 +132,15 @@ class ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet exte
 
     /**
      *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $resourceKey
      */
     public function withResourceKey($resourceKey): ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet

@@ -126,6 +126,19 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperati
                 'get',
                 'test_projectKey/product-drafts/importSinkKey=test_importSinkKey/import-operations?offset=offset',
             ],
+            'ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsGet_withSort' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->productDrafts()
+                        ->importSinkKeyWithImportSinkKeyValue('test_importSinkKey')
+                        ->importOperations()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/product-drafts/importSinkKey=test_importSinkKey/import-operations?sort=sort',
+            ],
             'ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperationsGet_withResourceKey' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
