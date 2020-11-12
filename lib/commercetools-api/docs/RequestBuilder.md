@@ -1373,7 +1373,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
 
-Create a Token for verifying the Customer's Email
+Create a Token for verifying the Customer's Email in store
 
 ### Example
 ```php
@@ -1525,7 +1525,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->login()->post(null)`
 
-Authenticate Customer (Sign In)
+Authenticate Customer (Sign In) in store
 
 ### Example
 ```php
@@ -1959,7 +1959,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-Create a customer
+Create my customer
 
 ### Example
 ```php
@@ -1973,7 +1973,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->delete()`
 
-Delete a Customer
+Delete my Customer
 
 ### Example
 ```php
