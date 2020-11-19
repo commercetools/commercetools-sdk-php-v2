@@ -10,13 +10,11 @@ namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 
 interface ProductVariantPatch extends JsonObject
 {
     public const FIELD_PRODUCT_VARIANT = 'productVariant';
-    public const FIELD_PRODUCT = 'product';
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
@@ -28,16 +26,6 @@ interface ProductVariantPatch extends JsonObject
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant();
-
-    /**
-     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
-     *
-     * @return null|ProductKeyReference
-     */
-    public function getProduct();
 
     /**
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
@@ -53,11 +41,6 @@ interface ProductVariantPatch extends JsonObject
      * @param ?ProductVariantKeyReference $productVariant
      */
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void;
-
-    /**
-     * @param ?ProductKeyReference $product
-     */
-    public function setProduct(?ProductKeyReference $product): void;
 
     /**
      * @param ?Attributes $attributes

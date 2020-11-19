@@ -12,8 +12,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use stdClass;
@@ -29,11 +27,6 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     protected $productVariant;
 
     /**
-     * @var ?ProductKeyReference
-     */
-    protected $product;
-
-    /**
      * @var ?Attributes
      */
     protected $attributes;
@@ -44,11 +37,9 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      */
     public function __construct(
         ?ProductVariantKeyReference $productVariant = null,
-        ?ProductKeyReference $product = null,
         ?Attributes $attributes = null
     ) {
         $this->productVariant = $productVariant;
-        $this->product = $product;
         $this->attributes = $attributes;
     }
 
@@ -73,29 +64,6 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         }
 
         return $this->productVariant;
-    }
-
-    /**
-     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
-     *
-     * @return null|ProductKeyReference
-     */
-    public function getProduct()
-    {
-        if (is_null($this->product)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->product = ProductKeyReferenceModel::of($data);
-        }
-
-        return $this->product;
     }
 
     /**
@@ -128,14 +96,6 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
         $this->productVariant = $productVariant;
-    }
-
-    /**
-     * @param ?ProductKeyReference $product
-     */
-    public function setProduct(?ProductKeyReference $product): void
-    {
-        $this->product = $product;
     }
 
     /**

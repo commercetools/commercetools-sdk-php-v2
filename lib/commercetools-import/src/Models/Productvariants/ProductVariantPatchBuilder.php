@@ -13,8 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use stdClass;
@@ -28,11 +26,6 @@ final class ProductVariantPatchBuilder implements Builder
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
-
-    /**
-     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
-     */
-    private $product;
 
     /**
      * @var null|Attributes|AttributesBuilder
@@ -50,19 +43,6 @@ final class ProductVariantPatchBuilder implements Builder
     public function getProductVariant()
     {
         return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
-    }
-
-    /**
-     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
-     *
-     * @return null|ProductKeyReference
-     */
-    public function getProduct()
-    {
-        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -85,17 +65,6 @@ final class ProductVariantPatchBuilder implements Builder
     public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
         $this->productVariant = $productVariant;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ProductKeyReference $product
-     * @return $this
-     */
-    public function withProduct(?ProductKeyReference $product)
-    {
-        $this->product = $product;
 
         return $this;
     }
@@ -124,16 +93,6 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withAttributesBuilder(?AttributesBuilder $attributes)
     {
         $this->attributes = $attributes;
@@ -145,7 +104,6 @@ final class ProductVariantPatchBuilder implements Builder
     {
         return new ProductVariantPatchModel(
             $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
-            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product,
             $this->attributes instanceof AttributesBuilder ? $this->attributes->build() : $this->attributes
         );
     }
