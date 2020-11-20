@@ -17,6 +17,8 @@ use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Categories\CategoryImportBuilder;
 use Commercetools\Import\Models\Customers\CustomerImport;
 use Commercetools\Import\Models\Customers\CustomerImportBuilder;
+use Commercetools\Import\Models\Inventories\InventoryImport;
+use Commercetools\Import\Models\Inventories\InventoryImportBuilder;
 use Commercetools\Import\Models\Orders\OrderImport;
 use Commercetools\Import\Models\Orders\OrderImportBuilder;
 use Commercetools\Import\Models\Prices\PriceImport;

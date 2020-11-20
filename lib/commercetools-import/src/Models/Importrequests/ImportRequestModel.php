@@ -32,6 +32,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     private static $discriminatorClasses = [
        'category' => CategoryImportRequestModel::class,
        'customer' => CustomerImportRequestModel::class,
+       'inventory' => InventoryImportRequestModel::class,
        'order' => OrderImportRequestModel::class,
        'price' => PriceImportRequestModel::class,
        'product' => ProductImportRequestModel::class,

@@ -17,6 +17,7 @@ use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSinks;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSummaries;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyInventories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyOrders;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyPrices;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductDrafts;
@@ -171,6 +172,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyCustomers::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers'
+            ],
+            'ResourceByProjectKeyInventories' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyInventories {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->inventories();
+                },
+                ResourceByProjectKeyInventories::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/inventories'
             ]
         ];
     }

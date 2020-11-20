@@ -229,6 +229,71 @@ $request = $builder
                 ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
                 ->get();
 ```
+## `withProjectKeyValue("projectKey")->inventories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
+
+Creates import request for creating new inventories or updating existing ones.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->inventories()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->post(null);
+```
+## `withProjectKeyValue("projectKey")->inventories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->get()`
+
+Retrieves all inventory import operations of an import sink key.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->inventories()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->get();
+```
+## `withProjectKeyValue("projectKey")->inventories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->importOperations()->withIdValue("id")->get()`
+
+Retrieves the import operation with the given id.
+
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->inventories()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->importOperations()
+                ->withIdValue("id")
+                ->get();
+```
+## `withProjectKeyValue("projectKey")->inventories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
+
+Deletes the inventory given by the resource key.
+
+### Example
+```php
+use Commercetools\Import\Client\ImportRequestBuilder;
+
+$builder =  new ImportRequestBuilder();
+$request = $builder
+                ->withProjectKeyValue("projectKey")
+                ->inventories()
+                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
+                ->resourceKeyWithResourceKeyValue("resourceKey")
+                ->delete();
+```
 ## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new orders or updating existing ones.
