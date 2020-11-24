@@ -31,7 +31,7 @@ interface ProductVariantPatch extends JsonObject
      * <p>Maps to <code>ProductVariant.attributes</code>.</p>
      * <p>Each attribute referenced must be defined
      * in an already existing product type in the commercetools project, or the import
-     * operation state is set to <code>Unresolved</code>.</p>
+     * operation state is set to <code>ValidationFailed</code>.</p>
      *
      * @return null|Attributes
      */
