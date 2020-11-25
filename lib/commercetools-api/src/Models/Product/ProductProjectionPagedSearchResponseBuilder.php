@@ -23,6 +23,11 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $limit;
+
+    /**
+     * @var ?int
+     */
     private $count;
 
     /**
@@ -44,6 +49,14 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
      * @var null|FacetResults|FacetResultsBuilder
      */
     private $facets;
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
 
     /**
      * @return null|int
@@ -83,6 +96,17 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function getFacets()
     {
         return $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets;
+    }
+
+    /**
+     * @param ?int $limit
+     * @return $this
+     */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
     }
 
     /**
@@ -153,6 +177,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function build(): ProductProjectionPagedSearchResponse
     {
         return new ProductProjectionPagedSearchResponseModel(
+            $this->limit,
             $this->count,
             $this->total,
             $this->offset,

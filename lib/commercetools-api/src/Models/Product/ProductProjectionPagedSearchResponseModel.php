@@ -22,6 +22,11 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     /**
      * @var ?int
      */
+    protected $limit;
+
+    /**
+     * @var ?int
+     */
     protected $count;
 
     /**
@@ -49,17 +54,36 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?int $limit = null,
         ?int $count = null,
         ?int $total = null,
         ?int $offset = null,
         ?ProductProjectionCollection $results = null,
         ?FacetResults $facets = null
     ) {
+        $this->limit = $limit;
         $this->count = $count;
         $this->total = $total;
         $this->offset = $offset;
         $this->results = $results;
         $this->facets = $facets;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
     }
 
     /**
@@ -148,6 +172,14 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
         return $this->facets;
     }
 
+
+    /**
+     * @param ?int $limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
 
     /**
      * @param ?int $count

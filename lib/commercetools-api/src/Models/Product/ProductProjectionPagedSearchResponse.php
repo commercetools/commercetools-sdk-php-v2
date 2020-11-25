@@ -13,11 +13,17 @@ use Commercetools\Base\JsonObject;
 
 interface ProductProjectionPagedSearchResponse extends JsonObject
 {
+    public const FIELD_LIMIT = 'limit';
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_RESULTS = 'results';
     public const FIELD_FACETS = 'facets';
+
+    /**
+     * @return null|int
+     */
+    public function getLimit();
 
     /**
      * @return null|int
@@ -43,6 +49,11 @@ interface ProductProjectionPagedSearchResponse extends JsonObject
      * @return null|FacetResults
      */
     public function getFacets();
+
+    /**
+     * @param ?int $limit
+     */
+    public function setLimit(?int $limit): void;
 
     /**
      * @param ?int $count
