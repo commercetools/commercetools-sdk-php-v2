@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\Money;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,12 +19,12 @@ interface TaxedPriceDraft extends JsonObject
     public const FIELD_TAX_PORTIONS = 'taxPortions';
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|Money
      */
     public function getTotalNet();
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|Money
      */
     public function getTotalGross();
 
@@ -34,14 +34,14 @@ interface TaxedPriceDraft extends JsonObject
     public function getTaxPortions();
 
     /**
-     * @param ?TypedMoneyDraft $totalNet
+     * @param ?Money $totalNet
      */
-    public function setTotalNet(?TypedMoneyDraft $totalNet): void;
+    public function setTotalNet(?Money $totalNet): void;
 
     /**
-     * @param ?TypedMoneyDraft $totalGross
+     * @param ?Money $totalGross
      */
-    public function setTotalGross(?TypedMoneyDraft $totalGross): void;
+    public function setTotalGross(?Money $totalGross): void;
 
     /**
      * @param ?TaxPortionDraftCollection $taxPortions

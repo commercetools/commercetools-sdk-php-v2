@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraft;
-use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -22,12 +22,12 @@ use stdClass;
 final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDraft
 {
     /**
-     * @var ?TypedMoneyDraft
+     * @var ?Money
      */
     protected $totalNet;
 
     /**
-     * @var ?TypedMoneyDraft
+     * @var ?Money
      */
     protected $totalGross;
 
@@ -41,8 +41,8 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoneyDraft $totalNet = null,
-        ?TypedMoneyDraft $totalGross = null,
+        ?Money $totalNet = null,
+        ?Money $totalGross = null,
         ?TaxPortionDraftCollection $taxPortions = null
     ) {
         $this->totalNet = $totalNet;
@@ -51,7 +51,7 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
     }
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|Money
      */
     public function getTotalNet()
     {
@@ -61,15 +61,15 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyDraftModel::resolveDiscriminatorClass($data);
-            $this->totalNet = $className::of($data);
+
+            $this->totalNet = MoneyModel::of($data);
         }
 
         return $this->totalNet;
     }
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|Money
      */
     public function getTotalGross()
     {
@@ -79,8 +79,8 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyDraftModel::resolveDiscriminatorClass($data);
-            $this->totalGross = $className::of($data);
+
+            $this->totalGross = MoneyModel::of($data);
         }
 
         return $this->totalGross;
@@ -105,17 +105,17 @@ final class TaxedPriceDraftModel extends JsonObjectModel implements TaxedPriceDr
 
 
     /**
-     * @param ?TypedMoneyDraft $totalNet
+     * @param ?Money $totalNet
      */
-    public function setTotalNet(?TypedMoneyDraft $totalNet): void
+    public function setTotalNet(?Money $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
 
     /**
-     * @param ?TypedMoneyDraft $totalGross
+     * @param ?Money $totalGross
      */
-    public function setTotalGross(?TypedMoneyDraft $totalGross): void
+    public function setTotalGross(?Money $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
