@@ -7,7 +7,7 @@ namespace Commercetools\UnitTest;
 use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueGiftLineItemDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
 use PHPUnit\Framework\TestCase;
 
 class CartDiscountTest extends TestCase
@@ -22,7 +22,7 @@ class CartDiscountTest extends TestCase
             ->withSortOrder('0.903')
             ->withValue(
                 CartDiscountValueGiftLineItemDraftBuilder::of()
-                    ->withProductBuilder(ProductReferenceBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294"))
+                    ->withProductBuilder(ProductResourceIdentifierBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294"))
                     ->withVariantId(1)
                     ->build()
             )

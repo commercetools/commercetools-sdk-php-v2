@@ -94,7 +94,7 @@ interface CartDiscount extends BaseResource
     public function getDescription();
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue();
 
@@ -213,9 +213,9 @@ interface CartDiscount extends BaseResource
     public function setDescription(?LocalizedString $description): void;
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      */
-    public function setValue(?CartDiscountValue $value): void;
+    public function setValue(?CartDiscountValueDraft $value): void;
 
     /**
      * @param ?string $cartPredicate

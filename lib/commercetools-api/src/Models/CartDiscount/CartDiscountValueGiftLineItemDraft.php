@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -21,7 +21,7 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
-     * @return null|ProductReference
+     * @return null|ProductResourceIdentifier
      */
     public function getProduct();
 
@@ -31,19 +31,23 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     public function getVariantId();
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>InventorySupply</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
 
     /**
-     * @param ?ProductReference $product
+     * @param ?ProductResourceIdentifier $product
      */
-    public function setProduct(?ProductReference $product): void;
+    public function setProduct(?ProductResourceIdentifier $product): void;
 
     /**
      * @param ?int $variantId
@@ -51,12 +55,12 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     public function setVariantId(?int $variantId): void;
 
     /**
-     * @param ?ChannelReference $supplyChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setSupplyChannel(?ChannelReference $supplyChannel): void;
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 
     /**
-     * @param ?ChannelReference $distributionChannel
+     * @param ?ChannelResourceIdentifier $distributionChannel
      */
-    public function setDistributionChannel(?ChannelReference $distributionChannel): void;
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
 }

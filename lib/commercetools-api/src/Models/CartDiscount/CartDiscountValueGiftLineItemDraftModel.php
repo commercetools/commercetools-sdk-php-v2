@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceModel;
-use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -30,7 +30,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     protected $type;
 
     /**
-     * @var ?ProductReference
+     * @var ?ProductResourceIdentifier
      */
     protected $product;
 
@@ -40,12 +40,12 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     protected $variantId;
 
     /**
-     * @var ?ChannelReference
+     * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
-     * @var ?ChannelReference
+     * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
 
@@ -54,10 +54,10 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductReference $product = null,
+        ?ProductResourceIdentifier $product = null,
         ?int $variantId = null,
-        ?ChannelReference $supplyChannel = null,
-        ?ChannelReference $distributionChannel = null
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?ChannelResourceIdentifier $distributionChannel = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
@@ -84,7 +84,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|ProductReference
+     * @return null|ProductResourceIdentifier
      */
     public function getProduct()
     {
@@ -95,7 +95,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->product = ProductReferenceModel::of($data);
+            $this->product = ProductResourceIdentifierModel::of($data);
         }
 
         return $this->product;
@@ -119,7 +119,9 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>InventorySupply</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
     {
@@ -130,14 +132,16 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->supplyChannel = ChannelReferenceModel::of($data);
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
         }
 
         return $this->supplyChannel;
     }
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
     {
@@ -148,7 +152,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
                 return null;
             }
 
-            $this->distributionChannel = ChannelReferenceModel::of($data);
+            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
         }
 
         return $this->distributionChannel;
@@ -156,9 +160,9 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
 
 
     /**
-     * @param ?ProductReference $product
+     * @param ?ProductResourceIdentifier $product
      */
-    public function setProduct(?ProductReference $product): void
+    public function setProduct(?ProductResourceIdentifier $product): void
     {
         $this->product = $product;
     }
@@ -172,17 +176,17 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?ChannelReference $supplyChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setSupplyChannel(?ChannelReference $supplyChannel): void
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
 
     /**
-     * @param ?ChannelReference $distributionChannel
+     * @param ?ChannelResourceIdentifier $distributionChannel
      */
-    public function setDistributionChannel(?ChannelReference $distributionChannel): void
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
     }

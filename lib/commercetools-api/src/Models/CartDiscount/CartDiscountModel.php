@@ -77,7 +77,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     protected $description;
 
     /**
-     * @var ?CartDiscountValue
+     * @var ?CartDiscountValueDraft
      */
     protected $value;
 
@@ -145,7 +145,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
         ?LocalizedString $name = null,
         ?string $key = null,
         ?LocalizedString $description = null,
-        ?CartDiscountValue $value = null,
+        ?CartDiscountValueDraft $value = null,
         ?string $cartPredicate = null,
         ?CartDiscountTarget $target = null,
         ?string $sortOrder = null,
@@ -356,7 +356,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
@@ -367,7 +367,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
                 return null;
             }
 
-            $this->value = CartDiscountValueModel::of($data);
+            $this->value = CartDiscountValueDraftModel::of($data);
         }
 
         return $this->value;
@@ -646,9 +646,9 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      */
-    public function setValue(?CartDiscountValue $value): void
+    public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }

@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
-use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
+use Commercetools\Api\Models\Product\ProductResourceIdentifier;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,7 +25,7 @@ use stdClass;
 final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
 {
     /**
-     * @var null|ProductReference|ProductReferenceBuilder
+     * @var null|ProductResourceIdentifier|ProductResourceIdentifierBuilder
      */
     private $product;
 
@@ -35,21 +35,21 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     private $variantId;
 
     /**
-     * @var null|ChannelReference|ChannelReferenceBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
-     * @var null|ChannelReference|ChannelReferenceBuilder
+     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
-     * @return null|ProductReference
+     * @return null|ProductResourceIdentifier
      */
     public function getProduct()
     {
-        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+        return $this->product instanceof ProductResourceIdentifierBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -61,26 +61,30 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>InventorySupply</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
     {
-        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
-     * @return null|ChannelReference
+     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     *
+     * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
     {
-        return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+        return $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
     }
 
     /**
-     * @param ?ProductReference $product
+     * @param ?ProductResourceIdentifier $product
      * @return $this
      */
-    public function withProduct(?ProductReference $product)
+    public function withProduct(?ProductResourceIdentifier $product)
     {
         $this->product = $product;
 
@@ -99,10 +103,10 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelReference $supplyChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
-    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
 
@@ -110,10 +114,10 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelReference $distributionChannel
+     * @param ?ChannelResourceIdentifier $distributionChannel
      * @return $this
      */
-    public function withDistributionChannel(?ChannelReference $distributionChannel)
+    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
 
@@ -123,7 +127,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductBuilder(?ProductReferenceBuilder $product)
+    public function withProductBuilder(?ProductResourceIdentifierBuilder $product)
     {
         $this->product = $product;
 
@@ -133,7 +137,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
 
@@ -143,7 +147,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
+    public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
 
@@ -153,10 +157,10 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     public function build(): CartDiscountValueGiftLineItemDraft
     {
         return new CartDiscountValueGiftLineItemDraftModel(
-            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
+            $this->product instanceof ProductResourceIdentifierBuilder ? $this->product->build() : $this->product,
             $this->variantId,
-            $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
-            $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel
         );
     }
 

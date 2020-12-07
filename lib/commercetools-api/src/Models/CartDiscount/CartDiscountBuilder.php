@@ -78,7 +78,7 @@ final class CartDiscountBuilder implements Builder
     private $description;
 
     /**
-     * @var null|CartDiscountValue|CartDiscountValueBuilder
+     * @var null|CartDiscountValueDraft|CartDiscountValueDraftBuilder
      */
     private $value;
 
@@ -216,11 +216,11 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
-        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -422,10 +422,10 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @param ?CartDiscountValue $value
+     * @param ?CartDiscountValueDraft $value
      * @return $this
      */
-    public function withValue(?CartDiscountValue $value)
+    public function withValue(?CartDiscountValueDraft $value)
     {
         $this->value = $value;
 
@@ -585,7 +585,7 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?CartDiscountValueBuilder $value)
+    public function withValueBuilder(?CartDiscountValueDraftBuilder $value)
     {
         $this->value = $value;
 
@@ -624,7 +624,7 @@ final class CartDiscountBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value,
             $this->cartPredicate,
             $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,

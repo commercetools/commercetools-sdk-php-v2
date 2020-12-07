@@ -61,6 +61,8 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * <p>The channel must have the role <code>InventorySupply</code></p>
+     *
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -69,6 +71,8 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     *
      * @return null|ChannelReference
      */
     public function getDistributionChannel()
