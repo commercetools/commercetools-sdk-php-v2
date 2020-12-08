@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Cart;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -66,7 +66,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -108,9 +108,9 @@ interface CustomLineItemDraft extends JsonObject
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
