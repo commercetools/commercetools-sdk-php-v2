@@ -77,37 +77,12 @@ final class PaymentBuilder implements Builder
     /**
      * @var ?string
      */
-    private $externalId;
-
-    /**
-     * @var ?string
-     */
     private $interfaceId;
 
     /**
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPlanned;
-
-    /**
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountAuthorized;
-
-    /**
-     * @var ?string
-     */
-    private $authorizedUntil;
-
-    /**
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountPaid;
-
-    /**
-     * @var null|TypedMoney|TypedMoneyBuilder
-     */
-    private $amountRefunded;
 
     /**
      * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
@@ -212,14 +187,6 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
      * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
@@ -240,38 +207,6 @@ final class PaymentBuilder implements Builder
     public function getAmountPlanned()
     {
         return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountAuthorized()
-    {
-        return $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorizedUntil()
-    {
-        return $this->authorizedUntil;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountPaid()
-    {
-        return $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountRefunded()
-    {
-        return $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded;
     }
 
     /**
@@ -421,17 +356,6 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalId
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
      * @param ?string $interfaceId
      * @return $this
      */
@@ -449,50 +373,6 @@ final class PaymentBuilder implements Builder
     public function withAmountPlanned(?TypedMoney $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountAuthorized
-     * @return $this
-     */
-    public function withAmountAuthorized(?TypedMoney $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $authorizedUntil
-     * @return $this
-     */
-    public function withAuthorizedUntil(?string $authorizedUntil)
-    {
-        $this->authorizedUntil = $authorizedUntil;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountPaid
-     * @return $this
-     */
-    public function withAmountPaid(?TypedMoney $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @param ?TypedMoney $amountRefunded
-     * @return $this
-     */
-    public function withAmountRefunded(?TypedMoney $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
 
         return $this;
     }
@@ -606,36 +486,6 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountAuthorizedBuilder(?TypedMoneyBuilder $amountAuthorized)
-    {
-        $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAmountPaidBuilder(?TypedMoneyBuilder $amountPaid)
-    {
-        $this->amountPaid = $amountPaid;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAmountRefundedBuilder(?TypedMoneyBuilder $amountRefunded)
-    {
-        $this->amountRefunded = $amountRefunded;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
@@ -674,13 +524,8 @@ final class PaymentBuilder implements Builder
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->anonymousId,
-            $this->externalId,
             $this->interfaceId,
             $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned,
-            $this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized,
-            $this->authorizedUntil,
-            $this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid,
-            $this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded,
             $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo,
             $this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus,
             $this->transactions,

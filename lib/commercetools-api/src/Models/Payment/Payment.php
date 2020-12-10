@@ -25,13 +25,8 @@ interface Payment extends BaseResource
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
-    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_INTERFACE_ID = 'interfaceId';
     public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
-    public const FIELD_AMOUNT_AUTHORIZED = 'amountAuthorized';
-    public const FIELD_AUTHORIZED_UNTIL = 'authorizedUntil';
-    public const FIELD_AMOUNT_PAID = 'amountPaid';
-    public const FIELD_AMOUNT_REFUNDED = 'amountRefunded';
     public const FIELD_PAYMENT_METHOD_INFO = 'paymentMethodInfo';
     public const FIELD_PAYMENT_STATUS = 'paymentStatus';
     public const FIELD_TRANSACTIONS = 'transactions';
@@ -88,11 +83,6 @@ interface Payment extends BaseResource
     public function getAnonymousId();
 
     /**
-     * @return null|string
-     */
-    public function getExternalId();
-
-    /**
      * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
@@ -108,26 +98,6 @@ interface Payment extends BaseResource
      * @return null|TypedMoney
      */
     public function getAmountPlanned();
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountAuthorized();
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorizedUntil();
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountPaid();
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountRefunded();
 
     /**
      * @return null|PaymentMethodInfo
@@ -210,11 +180,6 @@ interface Payment extends BaseResource
     public function setAnonymousId(?string $anonymousId): void;
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void;
-
-    /**
      * @param ?string $interfaceId
      */
     public function setInterfaceId(?string $interfaceId): void;
@@ -223,26 +188,6 @@ interface Payment extends BaseResource
      * @param ?TypedMoney $amountPlanned
      */
     public function setAmountPlanned(?TypedMoney $amountPlanned): void;
-
-    /**
-     * @param ?TypedMoney $amountAuthorized
-     */
-    public function setAmountAuthorized(?TypedMoney $amountAuthorized): void;
-
-    /**
-     * @param ?string $authorizedUntil
-     */
-    public function setAuthorizedUntil(?string $authorizedUntil): void;
-
-    /**
-     * @param ?TypedMoney $amountPaid
-     */
-    public function setAmountPaid(?TypedMoney $amountPaid): void;
-
-    /**
-     * @param ?TypedMoney $amountRefunded
-     */
-    public function setAmountRefunded(?TypedMoney $amountRefunded): void;
 
     /**
      * @param ?PaymentMethodInfo $paymentMethodInfo

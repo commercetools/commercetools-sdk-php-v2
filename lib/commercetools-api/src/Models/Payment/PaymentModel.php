@@ -151,13 +151,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
         ?CreatedBy $createdBy = null,
         ?CustomerReference $customer = null,
         ?string $anonymousId = null,
-        ?string $externalId = null,
         ?string $interfaceId = null,
         ?TypedMoney $amountPlanned = null,
-        ?TypedMoney $amountAuthorized = null,
-        ?string $authorizedUntil = null,
-        ?TypedMoney $amountPaid = null,
-        ?TypedMoney $amountRefunded = null,
         ?PaymentMethodInfo $paymentMethodInfo = null,
         ?PaymentStatus $paymentStatus = null,
         ?TransactionCollection $transactions = null,
@@ -173,13 +168,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
         $this->createdBy = $createdBy;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
-        $this->externalId = $externalId;
         $this->interfaceId = $interfaceId;
         $this->amountPlanned = $amountPlanned;
-        $this->amountAuthorized = $amountAuthorized;
-        $this->authorizedUntil = $authorizedUntil;
-        $this->amountPaid = $amountPaid;
-        $this->amountRefunded = $amountRefunded;
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->paymentStatus = $paymentStatus;
         $this->transactions = $transactions;
@@ -344,23 +334,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
      * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
@@ -400,77 +373,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
         }
 
         return $this->amountPlanned;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountAuthorized()
-    {
-        if (is_null($this->amountAuthorized)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_AUTHORIZED);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountAuthorized = $className::of($data);
-        }
-
-        return $this->amountAuthorized;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorizedUntil()
-    {
-        if (is_null($this->authorizedUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_AUTHORIZED_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->authorizedUntil = (string) $data;
-        }
-
-        return $this->authorizedUntil;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountPaid()
-    {
-        if (is_null($this->amountPaid)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_PAID);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountPaid = $className::of($data);
-        }
-
-        return $this->amountPaid;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountRefunded()
-    {
-        if (is_null($this->amountRefunded)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_AMOUNT_REFUNDED);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountRefunded = $className::of($data);
-        }
-
-        return $this->amountRefunded;
     }
 
     /**
@@ -654,14 +556,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void
-    {
-        $this->externalId = $externalId;
-    }
-
-    /**
      * @param ?string $interfaceId
      */
     public function setInterfaceId(?string $interfaceId): void
@@ -675,38 +569,6 @@ final class PaymentModel extends JsonObjectModel implements Payment
     public function setAmountPlanned(?TypedMoney $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
-    }
-
-    /**
-     * @param ?TypedMoney $amountAuthorized
-     */
-    public function setAmountAuthorized(?TypedMoney $amountAuthorized): void
-    {
-        $this->amountAuthorized = $amountAuthorized;
-    }
-
-    /**
-     * @param ?string $authorizedUntil
-     */
-    public function setAuthorizedUntil(?string $authorizedUntil): void
-    {
-        $this->authorizedUntil = $authorizedUntil;
-    }
-
-    /**
-     * @param ?TypedMoney $amountPaid
-     */
-    public function setAmountPaid(?TypedMoney $amountPaid): void
-    {
-        $this->amountPaid = $amountPaid;
-    }
-
-    /**
-     * @param ?TypedMoney $amountRefunded
-     */
-    public function setAmountRefunded(?TypedMoney $amountRefunded): void
-    {
-        $this->amountRefunded = $amountRefunded;
     }
 
     /**
