@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -91,6 +94,16 @@ final class MyCartDraftBuilder implements Builder
      * @var ?AddressCollection
      */
     private $itemShippingAddresses;
+
+    /**
+     * @var null|StoreKeyReference|StoreKeyReferenceBuilder
+     */
+    private $store;
+
+    /**
+     * @var ?DiscountCodeInfoCollection
+     */
+    private $discountCodes;
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
@@ -210,6 +223,22 @@ final class MyCartDraftBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes()
+    {
+        return $this->discountCodes;
     }
 
     /**
@@ -356,6 +385,28 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReference $store
+     * @return $this
+     */
+    public function withStore(?StoreKeyReference $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @return $this
+     */
+    public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
+    {
+        $this->discountCodes = $discountCodes;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
@@ -395,6 +446,16 @@ final class MyCartDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
     public function build(): MyCartDraft
     {
         return new MyCartDraftModel(
@@ -410,7 +471,9 @@ final class MyCartDraftBuilder implements Builder
             $this->locale,
             $this->taxMode,
             $this->deleteDaysAfterLastModification,
-            $this->itemShippingAddresses
+            $this->itemShippingAddresses,
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
+            $this->discountCodes
         );
     }
 

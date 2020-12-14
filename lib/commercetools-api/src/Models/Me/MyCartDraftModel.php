@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -91,6 +94,16 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
      */
     protected $itemShippingAddresses;
 
+    /**
+     * @var ?StoreKeyReference
+     */
+    protected $store;
+
+    /**
+     * @var ?DiscountCodeInfoCollection
+     */
+    protected $discountCodes;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -108,7 +121,9 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         ?string $locale = null,
         ?string $taxMode = null,
         ?int $deleteDaysAfterLastModification = null,
-        ?AddressCollection $itemShippingAddresses = null
+        ?AddressCollection $itemShippingAddresses = null,
+        ?StoreKeyReference $store = null,
+        ?DiscountCodeInfoCollection $discountCodes = null
     ) {
         $this->currency = $currency;
         $this->customerEmail = $customerEmail;
@@ -123,6 +138,8 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         $this->taxMode = $taxMode;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->store = $store;
+        $this->discountCodes = $discountCodes;
     }
 
     /**
@@ -366,6 +383,41 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         return $this->itemShippingAddresses;
     }
 
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
+    }
+
+    /**
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes()
+    {
+        if (is_null($this->discountCodes)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DISCOUNT_CODES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountCodes = DiscountCodeInfoCollection::fromArray($data);
+        }
+
+        return $this->discountCodes;
+    }
+
 
     /**
      * @param ?string $currency
@@ -469,5 +521,21 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
+    }
+
+    /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
+     */
+    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void
+    {
+        $this->discountCodes = $discountCodes;
     }
 }

@@ -8,9 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -30,6 +32,8 @@ interface MyCartDraft extends JsonObject
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_STORE = 'store';
+    public const FIELD_DISCOUNT_CODES = 'discountCodes';
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
@@ -113,6 +117,16 @@ interface MyCartDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
+     * @return null|DiscountCodeInfoCollection
+     */
+    public function getDiscountCodes();
+
+    /**
      * @param ?string $currency
      */
     public function setCurrency(?string $currency): void;
@@ -176,4 +190,14 @@ interface MyCartDraft extends JsonObject
      * @param ?AddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
+
+    /**
+     * @param ?DiscountCodeInfoCollection $discountCodes
+     */
+    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
 }
