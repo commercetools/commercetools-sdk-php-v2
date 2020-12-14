@@ -55,6 +55,11 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
      */
     protected $modifiedAt;
 
+    /**
+     * @var ?bool
+     */
+    protected $dataErasure;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -64,13 +69,15 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         ?Reference $resource = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?int $version = null,
-        ?DateTimeImmutable $modifiedAt = null
+        ?DateTimeImmutable $modifiedAt = null,
+        ?bool $dataErasure = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->version = $version;
         $this->modifiedAt = $modifiedAt;
+        $this->dataErasure = $dataErasure;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -182,6 +189,23 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         return $this->modifiedAt;
     }
 
+    /**
+     * @return null|bool
+     */
+    public function getDataErasure()
+    {
+        if (is_null($this->dataErasure)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DATA_ERASURE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dataErasure = (bool) $data;
+        }
+
+        return $this->dataErasure;
+    }
+
 
     /**
      * @param ?string $projectKey
@@ -221,6 +245,14 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
     {
         $this->modifiedAt = $modifiedAt;
+    }
+
+    /**
+     * @param ?bool $dataErasure
+     */
+    public function setDataErasure(?bool $dataErasure): void
+    {
+        $this->dataErasure = $dataErasure;
     }
 
 

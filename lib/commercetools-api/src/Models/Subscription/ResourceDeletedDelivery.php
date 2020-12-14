@@ -16,6 +16,7 @@ interface ResourceDeletedDelivery extends SubscriptionDelivery
 {
     public const FIELD_VERSION = 'version';
     public const FIELD_MODIFIED_AT = 'modifiedAt';
+    public const FIELD_DATA_ERASURE = 'dataErasure';
 
     /**
      * @return null|int
@@ -28,6 +29,11 @@ interface ResourceDeletedDelivery extends SubscriptionDelivery
     public function getModifiedAt();
 
     /**
+     * @return null|bool
+     */
+    public function getDataErasure();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -36,4 +42,9 @@ interface ResourceDeletedDelivery extends SubscriptionDelivery
      * @param ?DateTimeImmutable $modifiedAt
      */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void;
+
+    /**
+     * @param ?bool $dataErasure
+     */
+    public function setDataErasure(?bool $dataErasure): void;
 }
