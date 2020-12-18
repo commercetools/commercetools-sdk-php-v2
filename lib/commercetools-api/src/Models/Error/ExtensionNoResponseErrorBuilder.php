@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,19 +26,14 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var null|LocalizedString|LocalizedStringBuilder
+     * @var ?string
      */
-    private $localizedMessage;
+    private $extensionId;
 
     /**
-     * @var ?JsonObject
+     * @var ?string
      */
-    private $extensionExtraInfo;
-
-    /**
-     * @var null|ErrorByExtension|ErrorByExtensionBuilder
-     */
-    private $errorByExtension;
+    private $extensionKey;
 
     /**
      * @return null|string
@@ -51,27 +44,19 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|string
      */
-    public function getLocalizedMessage()
+    public function getExtensionId()
     {
-        return $this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage;
+        return $this->extensionId;
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|string
      */
-    public function getExtensionExtraInfo()
+    public function getExtensionKey()
     {
-        return $this->extensionExtraInfo;
-    }
-
-    /**
-     * @return null|ErrorByExtension
-     */
-    public function getErrorByExtension()
-    {
-        return $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension;
+        return $this->extensionKey;
     }
 
     /**
@@ -86,65 +71,34 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $localizedMessage
+     * @param ?string $extensionId
      * @return $this
      */
-    public function withLocalizedMessage(?LocalizedString $localizedMessage)
+    public function withExtensionId(?string $extensionId)
     {
-        $this->localizedMessage = $localizedMessage;
+        $this->extensionId = $extensionId;
 
         return $this;
     }
 
     /**
-     * @param ?JsonObject $extensionExtraInfo
+     * @param ?string $extensionKey
      * @return $this
      */
-    public function withExtensionExtraInfo(?JsonObject $extensionExtraInfo)
+    public function withExtensionKey(?string $extensionKey)
     {
-        $this->extensionExtraInfo = $extensionExtraInfo;
+        $this->extensionKey = $extensionKey;
 
         return $this;
     }
 
-    /**
-     * @param ?ErrorByExtension $errorByExtension
-     * @return $this
-     */
-    public function withErrorByExtension(?ErrorByExtension $errorByExtension)
-    {
-        $this->errorByExtension = $errorByExtension;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLocalizedMessageBuilder(?LocalizedStringBuilder $localizedMessage)
-    {
-        $this->localizedMessage = $localizedMessage;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withErrorByExtensionBuilder(?ErrorByExtensionBuilder $errorByExtension)
-    {
-        $this->errorByExtension = $errorByExtension;
-
-        return $this;
-    }
 
     public function build(): ExtensionNoResponseError
     {
         return new ExtensionNoResponseErrorModel(
             $this->message,
-            $this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage,
-            $this->extensionExtraInfo,
-            $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension
+            $this->extensionId,
+            $this->extensionKey
         );
     }
 

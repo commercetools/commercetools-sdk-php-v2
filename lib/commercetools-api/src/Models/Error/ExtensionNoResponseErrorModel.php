@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -33,19 +31,14 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     protected $message;
 
     /**
-     * @var ?LocalizedString
+     * @var ?string
      */
-    protected $localizedMessage;
+    protected $extensionId;
 
     /**
-     * @var ?mixed
+     * @var ?string
      */
-    protected $extensionExtraInfo;
-
-    /**
-     * @var ?ErrorByExtension
-     */
-    protected $errorByExtension;
+    protected $extensionKey;
 
 
     /**
@@ -53,14 +46,12 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
      */
     public function __construct(
         ?string $message = null,
-        ?LocalizedString $localizedMessage = null,
-        ?JsonObject $extensionExtraInfo = null,
-        ?ErrorByExtension $errorByExtension = null
+        ?string $extensionId = null,
+        ?string $extensionKey = null
     ) {
         $this->message = $message;
-        $this->localizedMessage = $localizedMessage;
-        $this->extensionExtraInfo = $extensionExtraInfo;
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionId = $extensionId;
+        $this->extensionKey = $extensionKey;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -99,56 +90,37 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|string
      */
-    public function getLocalizedMessage()
+    public function getExtensionId()
     {
-        if (is_null($this->localizedMessage)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_LOCALIZED_MESSAGE);
+        if (is_null($this->extensionId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTENSION_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->localizedMessage = LocalizedStringModel::of($data);
+            $this->extensionId = (string) $data;
         }
 
-        return $this->localizedMessage;
+        return $this->extensionId;
     }
 
     /**
-     * @return null|mixed
+     * @return null|string
      */
-    public function getExtensionExtraInfo()
+    public function getExtensionKey()
     {
-        if (is_null($this->extensionExtraInfo)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTENSION_EXTRA_INFO);
+        if (is_null($this->extensionKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTENSION_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->extensionExtraInfo = JsonObjectModel::of($data);
+            $this->extensionKey = (string) $data;
         }
 
-        return $this->extensionExtraInfo;
-    }
-
-    /**
-     * @return null|ErrorByExtension
-     */
-    public function getErrorByExtension()
-    {
-        if (is_null($this->errorByExtension)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ERROR_BY_EXTENSION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->errorByExtension = ErrorByExtensionModel::of($data);
-        }
-
-        return $this->errorByExtension;
+        return $this->extensionKey;
     }
 
 
@@ -161,26 +133,18 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
-     * @param ?LocalizedString $localizedMessage
+     * @param ?string $extensionId
      */
-    public function setLocalizedMessage(?LocalizedString $localizedMessage): void
+    public function setExtensionId(?string $extensionId): void
     {
-        $this->localizedMessage = $localizedMessage;
+        $this->extensionId = $extensionId;
     }
 
     /**
-     * @param ?JsonObject $extensionExtraInfo
+     * @param ?string $extensionKey
      */
-    public function setExtensionExtraInfo(?JsonObject $extensionExtraInfo): void
+    public function setExtensionKey(?string $extensionKey): void
     {
-        $this->extensionExtraInfo = $extensionExtraInfo;
-    }
-
-    /**
-     * @param ?ErrorByExtension $errorByExtension
-     */
-    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void
-    {
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionKey = $extensionKey;
     }
 }

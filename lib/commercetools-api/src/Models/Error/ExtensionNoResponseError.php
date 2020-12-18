@@ -8,43 +8,31 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface ExtensionNoResponseError extends ErrorObject
 {
-    public const FIELD_LOCALIZED_MESSAGE = 'localizedMessage';
-    public const FIELD_EXTENSION_EXTRA_INFO = 'extensionExtraInfo';
-    public const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';
+    public const FIELD_EXTENSION_ID = 'extensionId';
+    public const FIELD_EXTENSION_KEY = 'extensionKey';
 
     /**
-     * @return null|LocalizedString
+     * @return null|string
      */
-    public function getLocalizedMessage();
+    public function getExtensionId();
 
     /**
-     * @return null|mixed
+     * @return null|string
      */
-    public function getExtensionExtraInfo();
+    public function getExtensionKey();
 
     /**
-     * @return null|ErrorByExtension
+     * @param ?string $extensionId
      */
-    public function getErrorByExtension();
+    public function setExtensionId(?string $extensionId): void;
 
     /**
-     * @param ?LocalizedString $localizedMessage
+     * @param ?string $extensionKey
      */
-    public function setLocalizedMessage(?LocalizedString $localizedMessage): void;
-
-    /**
-     * @param ?JsonObject $extensionExtraInfo
-     */
-    public function setExtensionExtraInfo(?JsonObject $extensionExtraInfo): void;
-
-    /**
-     * @param ?ErrorByExtension $errorByExtension
-     */
-    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void;
+    public function setExtensionKey(?string $extensionKey): void;
 }
