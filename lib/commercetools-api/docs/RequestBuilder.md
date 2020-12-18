@@ -1959,7 +1959,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-Create my customer
+Update my customer
 
 ### Example
 ```php
@@ -2077,6 +2077,22 @@ $request = $builder
                 ->carts()
                 ->withId("ID")
                 ->delete();
+```
+## `withProjectKey("projectKey")->me()->carts()->keyWithKeyValue("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->keyWithKeyValue("key")
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
 

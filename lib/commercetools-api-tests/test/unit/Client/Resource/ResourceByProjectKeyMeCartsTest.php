@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCartsByID;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCartsKeyByKey;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -236,6 +237,18 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
                 ResourceByProjectKeyMeCartsByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/me/carts/{ID}'
+            ],
+            'ResourceByProjectKeyMeCartsKeyByKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsKeyByKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->carts()
+                        ->keyWithKeyValue("test_key");
+                },
+                ResourceByProjectKeyMeCartsKeyByKey::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
+                '/{projectKey}/me/carts/key={key}'
             ]
         ];
     }
