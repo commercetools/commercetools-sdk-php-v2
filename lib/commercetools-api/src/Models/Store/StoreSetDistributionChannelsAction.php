@@ -12,17 +12,17 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface StoresSetSupplyChannelsAction extends StoreUpdateAction
+interface StoreSetDistributionChannelsAction extends StoreUpdateAction
 {
-    public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
 
     /**
      * @return null|ChannelResourceIdentifierCollection
      */
-    public function getSupplyChannels();
+    public function getDistributionChannels();
 
     /**
-     * @param ?ChannelResourceIdentifierCollection $supplyChannels
+     * @param ?ChannelResourceIdentifierCollection $distributionChannels
      */
-    public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
+    public function setDistributionChannels(?ChannelResourceIdentifierCollection $distributionChannels): void;
 }

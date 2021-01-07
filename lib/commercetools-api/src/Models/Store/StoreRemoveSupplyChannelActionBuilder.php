@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<StoresAddSupplyChannelsAction>
+ * @implements Builder<StoreRemoveSupplyChannelAction>
  */
-final class StoresAddSupplyChannelsActionBuilder implements Builder
+final class StoreRemoveSupplyChannelActionBuilder implements Builder
 {
     /**
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
@@ -56,14 +56,14 @@ final class StoresAddSupplyChannelsActionBuilder implements Builder
         return $this;
     }
 
-    public function build(): StoresAddSupplyChannelsAction
+    public function build(): StoreRemoveSupplyChannelAction
     {
-        return new StoresAddSupplyChannelsActionModel(
+        return new StoreRemoveSupplyChannelActionModel(
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 
-    public static function of(): StoresAddSupplyChannelsActionBuilder
+    public static function of(): StoreRemoveSupplyChannelActionBuilder
     {
         return new self();
     }

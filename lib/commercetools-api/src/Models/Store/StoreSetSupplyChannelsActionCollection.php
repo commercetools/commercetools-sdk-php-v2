@@ -13,22 +13,22 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StoresRemoveSupplyChannelsAction>
- * @method StoresRemoveSupplyChannelsAction current()
- * @method StoresRemoveSupplyChannelsAction at($offset)
+ * @extends MapperSequence<StoreSetSupplyChannelsAction>
+ * @method StoreSetSupplyChannelsAction current()
+ * @method StoreSetSupplyChannelsAction at($offset)
  */
-class StoresRemoveSupplyChannelsActionCollection extends MapperSequence
+class StoreSetSupplyChannelsActionCollection extends MapperSequence
 {
     /**
-     * @psalm-assert StoresRemoveSupplyChannelsAction $value
-     * @psalm-param StoresRemoveSupplyChannelsAction|stdClass $value
+     * @psalm-assert StoreSetSupplyChannelsAction $value
+     * @psalm-param StoreSetSupplyChannelsAction|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return StoresRemoveSupplyChannelsActionCollection
+     * @return StoreSetSupplyChannelsActionCollection
      */
     public function add($value)
     {
-        if (!$value instanceof StoresRemoveSupplyChannelsAction) {
+        if (!$value instanceof StoreSetSupplyChannelsAction) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -37,14 +37,14 @@ class StoresRemoveSupplyChannelsActionCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?StoresRemoveSupplyChannelsAction
+     * @psalm-return callable(int):?StoreSetSupplyChannelsAction
      */
     protected function mapper()
     {
-        return function (int $index): ?StoresRemoveSupplyChannelsAction {
+        return function (int $index): ?StoreSetSupplyChannelsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                $data = StoresRemoveSupplyChannelsActionModel::of($data);
+                $data = StoreSetSupplyChannelsActionModel::of($data);
                 $this->set($data, $index);
             }
 

@@ -18,7 +18,7 @@ use stdClass;
 /**
  * @internal
  */
-final class StoresSetDistributionChannelsActionModel extends JsonObjectModel implements StoresSetDistributionChannelsAction
+final class StoreSetDistributionChannelsActionModel extends JsonObjectModel implements StoreSetDistributionChannelsAction
 {
     public const DISCRIMINATOR_VALUE = 'setDistributionChannels';
     /**

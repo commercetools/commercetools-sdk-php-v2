@@ -19,7 +19,7 @@ use stdClass;
 /**
  * @internal
  */
-final class StoresRemoveSupplyChannelsActionModel extends JsonObjectModel implements StoresRemoveSupplyChannelsAction
+final class StoreRemoveSupplyChannelActionModel extends JsonObjectModel implements StoreRemoveSupplyChannelAction
 {
     public const DISCRIMINATOR_VALUE = 'removeSupplyChannel';
     /**

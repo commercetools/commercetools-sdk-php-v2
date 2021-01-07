@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface StoresAddSupplyChannelsAction extends StoreUpdateAction
+interface StoreRemoveSupplyChannelAction extends StoreUpdateAction
 {
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 

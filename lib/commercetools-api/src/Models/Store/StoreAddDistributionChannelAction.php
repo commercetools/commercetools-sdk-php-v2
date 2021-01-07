@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface StoresAddDistributionChannelsAction extends StoreUpdateAction
+interface StoreAddDistributionChannelAction extends StoreUpdateAction
 {
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
