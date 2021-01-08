@@ -43,6 +43,7 @@ interface LineItem extends JsonObject
     public const FIELD_LINE_ITEM_MODE = 'lineItemMode';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
      * <p>The unique ID of this LineItem.</p>
@@ -185,6 +186,15 @@ interface LineItem extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>The date when the LineItem was last modified by one of the following actions
+     * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
+     * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -283,4 +293,9 @@ interface LineItem extends JsonObject
      * @param ?ItemShippingDetails $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 }

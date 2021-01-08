@@ -137,6 +137,11 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      */
     protected $shippingDetails;
 
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -161,7 +166,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?string $priceMode = null,
         ?string $lineItemMode = null,
         ?CustomFields $custom = null,
-        ?ItemShippingDetails $shippingDetails = null
+        ?ItemShippingDetails $shippingDetails = null,
+        ?DateTimeImmutable $lastModifiedAt = null
     ) {
         $this->id = $id;
         $this->productId = $productId;
@@ -183,6 +189,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->lineItemMode = $lineItemMode;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     /**
@@ -581,6 +588,31 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         return $this->shippingDetails;
     }
 
+    /**
+     * <p>The date when the LineItem was last modified by one of the following actions
+     * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
+     * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
+    }
+
 
     /**
      * @param ?string $id
@@ -742,12 +774,24 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->shippingDetails = $shippingDetails;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+
 
     public function jsonSerialize()
     {
         $data = $this->toArray();
         if (isset($data[LineItem::FIELD_ADDED_AT]) && $data[LineItem::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
             $data[LineItem::FIELD_ADDED_AT] = $data[LineItem::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[LineItem::FIELD_LAST_MODIFIED_AT]) && $data[LineItem::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[LineItem::FIELD_LAST_MODIFIED_AT] = $data[LineItem::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

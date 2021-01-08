@@ -139,6 +139,11 @@ final class LineItemBuilder implements Builder
     private $shippingDetails;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
+
+    /**
      * <p>The unique ID of this LineItem.</p>
      *
      * @return null|string
@@ -336,6 +341,18 @@ final class LineItemBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>The date when the LineItem was last modified by one of the following actions
+     * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
+     * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -559,6 +576,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -700,7 +728,8 @@ final class LineItemBuilder implements Builder
             $this->priceMode,
             $this->lineItemMode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->lastModifiedAt
         );
     }
 
