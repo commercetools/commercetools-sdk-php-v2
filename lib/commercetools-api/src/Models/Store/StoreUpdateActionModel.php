@@ -34,6 +34,8 @@ final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdat
        'addSupplyChannel' => StoreAddSupplyChannelActionModel::class,
        'removeDistributionChannel' => StoreRemoveDistributionChannelActionModel::class,
        'removeSupplyChannel' => StoreRemoveSupplyChannelActionModel::class,
+       'setCustomField' => StoreSetCustomFieldActionModel::class,
+       'setCustomType' => StoreSetCustomTypeActionModel::class,
        'setDistributionChannels' => StoreSetDistributionChannelsActionModel::class,
        'setLanguages' => StoreSetLanguagesActionModel::class,
        'setName' => StoreSetNameActionModel::class,

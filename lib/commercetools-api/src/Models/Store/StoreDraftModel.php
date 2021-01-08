@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Store;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -47,6 +49,11 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      */
     protected $supplyChannels;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -56,13 +63,15 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?LocalizedString $name = null,
         ?array $languages = null,
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
-        ?ChannelResourceIdentifierCollection $supplyChannels = null
+        ?ChannelResourceIdentifierCollection $supplyChannels = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->custom = $custom;
     }
 
     /**
@@ -161,6 +170,24 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->supplyChannels;
     }
 
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $key
@@ -200,5 +227,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

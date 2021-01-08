@@ -17,6 +17,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -84,6 +86,11 @@ final class StoreModel extends JsonObjectModel implements Store
      */
     protected $supplyChannels;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -99,7 +106,8 @@ final class StoreModel extends JsonObjectModel implements Store
         ?LocalizedString $name = null,
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
-        ?ChannelReferenceCollection $supplyChannels = null
+        ?ChannelReferenceCollection $supplyChannels = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -112,6 +120,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->custom = $custom;
     }
 
     /**
@@ -322,6 +331,24 @@ final class StoreModel extends JsonObjectModel implements Store
         return $this->supplyChannels;
     }
 
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -409,6 +436,14 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

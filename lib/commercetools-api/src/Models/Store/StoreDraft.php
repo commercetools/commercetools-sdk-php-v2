@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -20,6 +21,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>User-specific unique identifier for the store.
@@ -57,6 +59,11 @@ interface StoreDraft extends JsonObject
     public function getSupplyChannels();
 
     /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -80,4 +87,9 @@ interface StoreDraft extends JsonObject
      * @param ?ChannelResourceIdentifierCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

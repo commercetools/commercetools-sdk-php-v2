@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Store;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -47,6 +49,11 @@ final class StoreDraftBuilder implements Builder
      * @var ?ChannelResourceIdentifierCollection
      */
     private $supplyChannels;
+
+    /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * <p>User-specific unique identifier for the store.
@@ -96,6 +103,14 @@ final class StoreDraftBuilder implements Builder
     public function getSupplyChannels()
     {
         return $this->supplyChannels;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -154,11 +169,32 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -170,7 +206,8 @@ final class StoreDraftBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
             $this->distributionChannels,
-            $this->supplyChannels
+            $this->supplyChannels,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

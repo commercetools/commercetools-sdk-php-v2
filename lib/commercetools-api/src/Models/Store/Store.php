@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -26,6 +27,7 @@ interface Store extends BaseResource
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|string
@@ -93,6 +95,11 @@ interface Store extends BaseResource
     public function getSupplyChannels();
 
     /**
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -146,4 +153,9 @@ interface Store extends BaseResource
      * @param ?ChannelReferenceCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }
