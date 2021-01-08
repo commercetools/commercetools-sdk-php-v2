@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
@@ -66,6 +68,11 @@ final class CustomerDraftBuilder implements Builder
      * @var ?string
      */
     private $anonymousCartId;
+
+    /**
+     * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
+     */
+    private $anonymousCart;
 
     /**
      * @var ?string
@@ -225,6 +232,16 @@ final class CustomerDraftBuilder implements Builder
     public function getAnonymousCartId()
     {
         return $this->anonymousCartId;
+    }
+
+    /**
+     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart()
+    {
+        return $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart;
     }
 
     /**
@@ -480,6 +497,17 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     * @return $this
+     */
+    public function withAnonymousCart(?CartResourceIdentifier $anonymousCart)
+    {
+        $this->anonymousCart = $anonymousCart;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $anonymousId
      * @return $this
      */
@@ -669,6 +697,16 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withAnonymousCartBuilder(?CartResourceIdentifierBuilder $anonymousCart)
+    {
+        $this->anonymousCart = $anonymousCart;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
@@ -697,6 +735,7 @@ final class CustomerDraftBuilder implements Builder
             $this->middleName,
             $this->title,
             $this->anonymousCartId,
+            $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart,
             $this->anonymousId,
             $this->dateOfBirth,
             $this->companyName,

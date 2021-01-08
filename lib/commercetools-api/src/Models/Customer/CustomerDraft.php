@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
@@ -26,6 +27,7 @@ interface CustomerDraft extends JsonObject
     public const FIELD_MIDDLE_NAME = 'middleName';
     public const FIELD_TITLE = 'title';
     public const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';
+    public const FIELD_ANONYMOUS_CART = 'anonymousCart';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
     public const FIELD_COMPANY_NAME = 'companyName';
@@ -94,6 +96,13 @@ interface CustomerDraft extends JsonObject
      * @return null|string
      */
     public function getAnonymousCartId();
+
+    /**
+     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart();
 
     /**
      * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
@@ -247,6 +256,11 @@ interface CustomerDraft extends JsonObject
      * @param ?string $anonymousCartId
      */
     public function setAnonymousCartId(?string $anonymousCartId): void;
+
+    /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     */
+    public function setAnonymousCart(?CartResourceIdentifier $anonymousCart): void;
 
     /**
      * @param ?string $anonymousId

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -35,6 +37,11 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     protected $anonymousCartId;
 
     /**
+     * @var ?CartResourceIdentifier
+     */
+    protected $anonymousCart;
+
+    /**
      * @var ?string
      */
     protected $anonymousCartSignInMode;
@@ -57,6 +64,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         ?string $email = null,
         ?string $password = null,
         ?string $anonymousCartId = null,
+        ?CartResourceIdentifier $anonymousCart = null,
         ?string $anonymousCartSignInMode = null,
         ?string $anonymousId = null,
         ?bool $updateProductData = null
@@ -64,6 +72,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         $this->email = $email;
         $this->password = $password;
         $this->anonymousCartId = $anonymousCartId;
+        $this->anonymousCart = $anonymousCart;
         $this->anonymousCartSignInMode = $anonymousCartSignInMode;
         $this->anonymousId = $anonymousId;
         $this->updateProductData = $updateProductData;
@@ -118,6 +127,24 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         }
 
         return $this->anonymousCartId;
+    }
+
+    /**
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart()
+    {
+        if (is_null($this->anonymousCart)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ANONYMOUS_CART);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->anonymousCart = CartResourceIdentifierModel::of($data);
+        }
+
+        return $this->anonymousCart;
     }
 
     /**
@@ -194,6 +221,14 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     public function setAnonymousCartId(?string $anonymousCartId): void
     {
         $this->anonymousCartId = $anonymousCartId;
+    }
+
+    /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     */
+    public function setAnonymousCart(?CartResourceIdentifier $anonymousCart): void
+    {
+        $this->anonymousCart = $anonymousCart;
     }
 
     /**

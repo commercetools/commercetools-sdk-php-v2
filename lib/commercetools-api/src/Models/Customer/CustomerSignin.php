@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -16,6 +17,7 @@ interface CustomerSignin extends JsonObject
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
     public const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';
+    public const FIELD_ANONYMOUS_CART = 'anonymousCart';
     public const FIELD_ANONYMOUS_CART_SIGN_IN_MODE = 'anonymousCartSignInMode';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
@@ -34,6 +36,11 @@ interface CustomerSignin extends JsonObject
      * @return null|string
      */
     public function getAnonymousCartId();
+
+    /**
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart();
 
     /**
      * @return null|string
@@ -64,6 +71,11 @@ interface CustomerSignin extends JsonObject
      * @param ?string $anonymousCartId
      */
     public function setAnonymousCartId(?string $anonymousCartId): void;
+
+    /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     */
+    public function setAnonymousCart(?CartResourceIdentifier $anonymousCart): void;
 
     /**
      * @param ?string $anonymousCartSignInMode

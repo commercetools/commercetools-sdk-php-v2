@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
@@ -65,6 +67,11 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * @var ?string
      */
     protected $anonymousCartId;
+
+    /**
+     * @var ?CartResourceIdentifier
+     */
+    protected $anonymousCart;
 
     /**
      * @var ?string
@@ -164,6 +171,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         ?string $middleName = null,
         ?string $title = null,
         ?string $anonymousCartId = null,
+        ?CartResourceIdentifier $anonymousCart = null,
         ?string $anonymousId = null,
         ?DateTimeImmutable $dateOfBirth = null,
         ?string $companyName = null,
@@ -190,6 +198,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->middleName = $middleName;
         $this->title = $title;
         $this->anonymousCartId = $anonymousCartId;
+        $this->anonymousCart = $anonymousCart;
         $this->anonymousId = $anonymousId;
         $this->dateOfBirth = $dateOfBirth;
         $this->companyName = $companyName;
@@ -354,6 +363,26 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
 
         return $this->anonymousCartId;
+    }
+
+    /**
+     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart()
+    {
+        if (is_null($this->anonymousCart)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ANONYMOUS_CART);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->anonymousCart = CartResourceIdentifierModel::of($data);
+        }
+
+        return $this->anonymousCart;
     }
 
     /**
@@ -742,6 +771,14 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function setAnonymousCartId(?string $anonymousCartId): void
     {
         $this->anonymousCartId = $anonymousCartId;
+    }
+
+    /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     */
+    public function setAnonymousCart(?CartResourceIdentifier $anonymousCart): void
+    {
+        $this->anonymousCart = $anonymousCart;
     }
 
     /**

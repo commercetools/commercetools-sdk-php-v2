@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -34,6 +36,11 @@ final class CustomerSigninBuilder implements Builder
      * @var ?string
      */
     private $anonymousCartId;
+
+    /**
+     * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
+     */
+    private $anonymousCart;
 
     /**
      * @var ?string
@@ -72,6 +79,14 @@ final class CustomerSigninBuilder implements Builder
     public function getAnonymousCartId()
     {
         return $this->anonymousCartId;
+    }
+
+    /**
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart()
+    {
+        return $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart;
     }
 
     /**
@@ -132,6 +147,17 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @param ?CartResourceIdentifier $anonymousCart
+     * @return $this
+     */
+    public function withAnonymousCart(?CartResourceIdentifier $anonymousCart)
+    {
+        $this->anonymousCart = $anonymousCart;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $anonymousCartSignInMode
      * @return $this
      */
@@ -164,6 +190,15 @@ final class CustomerSigninBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAnonymousCartBuilder(?CartResourceIdentifierBuilder $anonymousCart)
+    {
+        $this->anonymousCart = $anonymousCart;
+
+        return $this;
+    }
 
     public function build(): CustomerSignin
     {
@@ -171,6 +206,7 @@ final class CustomerSigninBuilder implements Builder
             $this->email,
             $this->password,
             $this->anonymousCartId,
+            $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart,
             $this->anonymousCartSignInMode,
             $this->anonymousId,
             $this->updateProductData
