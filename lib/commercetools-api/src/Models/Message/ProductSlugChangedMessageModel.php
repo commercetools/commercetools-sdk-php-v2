@@ -89,6 +89,11 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
      */
     protected $slug;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $oldSlug;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -104,7 +109,8 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?LocalizedString $slug = null
+        ?LocalizedString $slug = null,
+        ?LocalizedString $oldSlug = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -117,6 +123,7 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->slug = $slug;
+        $this->oldSlug = $oldSlug;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -337,6 +344,24 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
         return $this->slug;
     }
 
+    /**
+     * @return null|LocalizedString
+     */
+    public function getOldSlug()
+    {
+        if (is_null($this->oldSlug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldSlug = LocalizedStringModel::of($data);
+        }
+
+        return $this->oldSlug;
+    }
+
 
     /**
      * @param ?string $id
@@ -424,6 +449,14 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @param ?LocalizedString $oldSlug
+     */
+    public function setOldSlug(?LocalizedString $oldSlug): void
+    {
+        $this->oldSlug = $oldSlug;
     }
 
 

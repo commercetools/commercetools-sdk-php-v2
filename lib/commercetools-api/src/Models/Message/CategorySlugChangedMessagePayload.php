@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface CategorySlugChangedMessagePayload extends MessagePayload
 {
     public const FIELD_SLUG = 'slug';
+    public const FIELD_OLD_SLUG = 'oldSlug';
 
     /**
      * @return null|LocalizedString
@@ -22,7 +23,17 @@ interface CategorySlugChangedMessagePayload extends MessagePayload
     public function getSlug();
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getOldSlug();
+
+    /**
      * @param ?LocalizedString $slug
      */
     public function setSlug(?LocalizedString $slug): void;
+
+    /**
+     * @param ?LocalizedString $oldSlug
+     */
+    public function setOldSlug(?LocalizedString $oldSlug): void;
 }

@@ -32,14 +32,21 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
      */
     protected $slug;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $oldSlug;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $slug = null
+        ?LocalizedString $slug = null,
+        ?LocalizedString $oldSlug = null
     ) {
         $this->slug = $slug;
+        $this->oldSlug = $oldSlug;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -78,6 +85,24 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
         return $this->slug;
     }
 
+    /**
+     * @return null|LocalizedString
+     */
+    public function getOldSlug()
+    {
+        if (is_null($this->oldSlug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldSlug = LocalizedStringModel::of($data);
+        }
+
+        return $this->oldSlug;
+    }
+
 
     /**
      * @param ?LocalizedString $slug
@@ -85,5 +110,13 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @param ?LocalizedString $oldSlug
+     */
+    public function setOldSlug(?LocalizedString $oldSlug): void
+    {
+        $this->oldSlug = $oldSlug;
     }
 }

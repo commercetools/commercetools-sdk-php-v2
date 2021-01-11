@@ -85,6 +85,11 @@ final class CategorySlugChangedMessageBuilder implements Builder
     private $slug;
 
     /**
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $oldSlug;
+
+    /**
      * @return null|string
      */
     public function getId()
@@ -170,6 +175,14 @@ final class CategorySlugChangedMessageBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getOldSlug()
+    {
+        return $this->oldSlug instanceof LocalizedStringBuilder ? $this->oldSlug->build() : $this->oldSlug;
     }
 
     /**
@@ -294,6 +307,17 @@ final class CategorySlugChangedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $oldSlug
+     * @return $this
+     */
+    public function withOldSlug(?LocalizedString $oldSlug)
+    {
+        $this->oldSlug = $oldSlug;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -343,6 +367,16 @@ final class CategorySlugChangedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldSlugBuilder(?LocalizedStringBuilder $oldSlug)
+    {
+        $this->oldSlug = $oldSlug;
+
+        return $this;
+    }
+
     public function build(): CategorySlugChangedMessage
     {
         return new CategorySlugChangedMessageModel(
@@ -356,7 +390,8 @@ final class CategorySlugChangedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->oldSlug instanceof LocalizedStringBuilder ? $this->oldSlug->build() : $this->oldSlug
         );
     }
 
