@@ -35,6 +35,12 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCarts extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId($args, $this->getClient());
     }
+    public function replicate(): ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate($args, $this->getClient());
+    }
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID
     {
         $args = $this->getArgs();

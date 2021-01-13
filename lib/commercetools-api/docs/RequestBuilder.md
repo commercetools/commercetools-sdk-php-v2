@@ -1262,6 +1262,22 @@ $request = $builder
                 ->withCustomerId("customerId")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->replicate()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->carts()
+                ->replicate()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->get()`
 
 Query customers

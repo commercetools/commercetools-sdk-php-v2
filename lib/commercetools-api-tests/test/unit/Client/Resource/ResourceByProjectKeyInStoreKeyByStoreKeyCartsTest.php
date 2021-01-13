@@ -11,6 +11,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -249,6 +250,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey', 'customerId' => 'test_customerId'],
                 '/{projectKey}/in-store/key={storeKey}/carts/customer-id={customerId}'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->carts()
+                        ->replicate();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/carts/replicate'
             ],
             'ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID {
