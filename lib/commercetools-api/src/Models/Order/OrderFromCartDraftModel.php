@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -25,6 +27,11 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      * @var ?string
      */
     protected $id;
+
+    /**
+     * @var ?CartResourceIdentifier
+     */
+    protected $cart;
 
     /**
      * @var ?int
@@ -62,6 +69,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      */
     public function __construct(
         ?string $id = null,
+        ?CartResourceIdentifier $cart = null,
         ?int $version = null,
         ?string $orderNumber = null,
         ?string $paymentState = null,
@@ -70,6 +78,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         ?StateResourceIdentifier $state = null
     ) {
         $this->id = $id;
+        $this->cart = $cart;
         $this->version = $version;
         $this->orderNumber = $orderNumber;
         $this->paymentState = $paymentState;
@@ -95,6 +104,26 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getCart()
+    {
+        if (is_null($this->cart)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CART);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->cart = CartResourceIdentifierModel::of($data);
+        }
+
+        return $this->cart;
     }
 
     /**
@@ -215,6 +244,14 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?CartResourceIdentifier $cart
+     */
+    public function setCart(?CartResourceIdentifier $cart): void
+    {
+        $this->cart = $cart;
     }
 
     /**

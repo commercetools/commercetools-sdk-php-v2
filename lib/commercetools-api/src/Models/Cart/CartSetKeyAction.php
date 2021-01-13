@@ -8,31 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ReplicaCartDraft extends JsonObject
+interface CartSetKeyAction extends CartUpdateAction
 {
-    public const FIELD_REFERENCE = 'reference';
     public const FIELD_KEY = 'key';
 
     /**
-     * @return null|mixed
-     */
-    public function getReference();
-
-    /**
-     * <p>User-specific unique identifier of the cart.</p>
-     *
      * @return null|string
      */
     public function getKey();
-
-    /**
-     * @param ?JsonObject $reference
-     */
-    public function setReference(?JsonObject $reference): void;
 
     /**
      * @param ?string $key

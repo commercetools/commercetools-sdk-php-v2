@@ -26,14 +26,21 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
      */
     protected $reference;
 
+    /**
+     * @var ?string
+     */
+    protected $key;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?JsonObject $reference = null
+        ?JsonObject $reference = null,
+        ?string $key = null
     ) {
         $this->reference = $reference;
+        $this->key = $key;
     }
 
     /**
@@ -51,6 +58,25 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
         }
 
         return $this->reference;
+    }
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -87,5 +113,13 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     public function setReference(?JsonObject $reference): void
     {
         $this->reference = $reference;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 }

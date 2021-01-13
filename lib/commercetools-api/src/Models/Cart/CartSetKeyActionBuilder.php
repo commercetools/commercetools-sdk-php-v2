@@ -16,47 +16,21 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ReplicaCartDraft>
+ * @implements Builder<CartSetKeyAction>
  */
-final class ReplicaCartDraftBuilder implements Builder
+final class CartSetKeyActionBuilder implements Builder
 {
-    /**
-     * @var ?JsonObject
-     */
-    private $reference;
-
     /**
      * @var ?string
      */
     private $key;
 
     /**
-     * @return null|JsonObject
-     */
-    public function getReference()
-    {
-        return $this->reference;
-    }
-
-    /**
-     * <p>User-specific unique identifier of the cart.</p>
-     *
      * @return null|string
      */
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @param ?JsonObject $reference
-     * @return $this
-     */
-    public function withReference(?JsonObject $reference)
-    {
-        $this->reference = $reference;
-
-        return $this;
     }
 
     /**
@@ -71,15 +45,14 @@ final class ReplicaCartDraftBuilder implements Builder
     }
 
 
-    public function build(): ReplicaCartDraft
+    public function build(): CartSetKeyAction
     {
-        return new ReplicaCartDraftModel(
-            $this->reference,
+        return new CartSetKeyActionModel(
             $this->key
         );
     }
 
-    public static function of(): ReplicaCartDraftBuilder
+    public static function of(): CartSetKeyActionBuilder
     {
         return new self();
     }

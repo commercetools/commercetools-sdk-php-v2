@@ -9,10 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsByID;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsCustomerIdByCustomerId;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsKeyByKey;
-use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsReplicate;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -25,11 +21,12 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsGet
- * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsPost
- * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCarts
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsKeyByKeyGet
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsKeyByKeyPost
+ * @covers \Commercetools\Api\Client\Resource\ByProjectKeyCartsKeyByKeyDelete
+ * @covers \Commercetools\Api\Client\Resource\ResourceByProjectKeyCartsKeyByKey
  */
-class ResourceByProjectKeyCartsTest extends TestCase
+class ResourceByProjectKeyCartsKeyByKeyTest extends TestCase
 {
     /**
      * @dataProvider getRequests()
@@ -47,16 +44,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getResources()
-     */
-    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
-    {
-        $builder = new ApiRequestBuilder();
-        $resource = $builderFunction($builder);
-        $this->assertInstanceOf($class, $resource);
-        $this->assertEquals($expectedArgs, $resource->getArgs());
-    }
+
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -104,124 +92,98 @@ class ResourceByProjectKeyCartsTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyCartsGet_withCustomerId' => [
+            'ByProjectKeyCartsKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->carts()
-                        ->get()
-                        ->withCustomerId('customerId');
-                },
-                'get',
-                'test_projectKey/carts?customerId=customerId',
-            ],
-            'ByProjectKeyCartsGet_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
+                        ->withKey('test_key')
                         ->get()
                         ->withExpand('expand');
                 },
                 'get',
-                'test_projectKey/carts?expand=expand',
+                'test_projectKey/carts/key=test_key?expand=expand',
             ],
-            'ByProjectKeyCartsGet_withSort' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withSort('sort');
-                },
-                'get',
-                'test_projectKey/carts?sort=sort',
-            ],
-            'ByProjectKeyCartsGet_withLimit' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withLimit('limit');
-                },
-                'get',
-                'test_projectKey/carts?limit=limit',
-            ],
-            'ByProjectKeyCartsGet_withOffset' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withOffset('offset');
-                },
-                'get',
-                'test_projectKey/carts?offset=offset',
-            ],
-            'ByProjectKeyCartsGet_withWithTotal' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withWithTotal('withTotal');
-                },
-                'get',
-                'test_projectKey/carts?withTotal=withTotal',
-            ],
-            'ByProjectKeyCartsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/carts?where=where',
-            ],
-            'ByProjectKeyCartsGet_withPredicateVar' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withPredicateVar('varName', 'var.varName');
-                },
-                'get',
-                'test_projectKey/carts?var.varName=var.varName',
-            ],
-            'ByProjectKeyCartsGet' => [
+            'ByProjectKeyCartsKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->carts()
+                        ->withKey("test_key")
                         ->get();
                 },
                 'get',
-                'test_projectKey/carts',
+                'test_projectKey/carts/key=test_key',
             ],
-            'ByProjectKeyCartsPost_withExpand' => [
+            'ByProjectKeyCartsKeyByKeyPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->carts()
+                        ->withKey('test_key')
                         ->post(null)
                         ->withExpand('expand');
                 },
                 'post',
-                'test_projectKey/carts?expand=expand',
+                'test_projectKey/carts/key=test_key?expand=expand',
             ],
-            'ByProjectKeyCartsPost' => [
+            'ByProjectKeyCartsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("test_projectKey")
                         ->carts()
+                        ->withKey("test_key")
                         ->post(null);
                 },
                 'post',
-                'test_projectKey/carts',
+                'test_projectKey/carts/key=test_key',
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->carts()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/carts/key=test_key?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_withVersion' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->carts()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                'test_projectKey/carts/key=test_key?version=version',
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->carts()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/carts/key=test_key?expand=expand',
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->carts()
+                        ->withKey("test_key")
+                        ->delete();
+                },
+                'delete',
+                'test_projectKey/carts/key=test_key',
             ]
         ];
     }
@@ -229,70 +191,37 @@ class ResourceByProjectKeyCartsTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyCartsReplicate' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsReplicate {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->carts()
-                        ->replicate();
-                },
-                ResourceByProjectKeyCartsReplicate::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/carts/replicate'
-            ],
-            'ResourceByProjectKeyCartsCustomerIdByCustomerId' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsCustomerIdByCustomerId {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->carts()
-                        ->withCustomerId("test_customerId");
-                },
-                ResourceByProjectKeyCartsCustomerIdByCustomerId::class,
-                ['projectKey' => 'test_projectKey', 'customerId' => 'test_customerId'],
-                '/{projectKey}/carts/customer-id={customerId}'
-            ],
-            'ResourceByProjectKeyCartsKeyByKey' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsKeyByKey {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->carts()
-                        ->withKey("test_key");
-                },
-                ResourceByProjectKeyCartsKeyByKey::class,
-                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
-                '/{projectKey}/carts/key={key}'
-            ],
-            'ResourceByProjectKeyCartsByID' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyCartsByID {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->carts()
-                        ->withId("test_ID");
-                },
-                ResourceByProjectKeyCartsByID::class,
-                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
-                '/{projectKey}/carts/{ID}'
-            ]
         ];
     }
 
     public function getRequestBuilders()
     {
         return [
-            'ByProjectKeyCartsGet' => [
+            'ByProjectKeyCartsKeyByKeyGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 }
             ],
-            'ByProjectKeyCartsPost' => [
+            'ByProjectKeyCartsKeyByKeyPost' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->post(null);
+                }
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
                 }
             ]
         ];
@@ -301,156 +230,263 @@ class ResourceByProjectKeyCartsTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyCartsGet_200' => [
+            'ByProjectKeyCartsKeyByKeyGet_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 200
             ],
-            'ByProjectKeyCartsGet_400' => [
+            'ByProjectKeyCartsKeyByKeyGet_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 400
             ],
-            'ByProjectKeyCartsGet_401' => [
+            'ByProjectKeyCartsKeyByKeyGet_401' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 401
             ],
-            'ByProjectKeyCartsGet_403' => [
+            'ByProjectKeyCartsKeyByKeyGet_403' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 403
             ],
-            'ByProjectKeyCartsGet_404' => [
+            'ByProjectKeyCartsKeyByKeyGet_404' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 404
             ],
-            'ByProjectKeyCartsGet_500' => [
+            'ByProjectKeyCartsKeyByKeyGet_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 500
             ],
-            'ByProjectKeyCartsGet_503' => [
+            'ByProjectKeyCartsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 503
             ],
-            'ByProjectKeyCartsGet_599' => [
+            'ByProjectKeyCartsKeyByKeyGet_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->get();
                 },
                 599
             ],
-            'ByProjectKeyCartsPost_201' => [
+            'ByProjectKeyCartsKeyByKeyPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
-                        ->post(null);
-                },
-                201
-            ],
-            'ByProjectKeyCartsPost_400' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                400
-            ],
-            'ByProjectKeyCartsPost_401' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                401
-            ],
-            'ByProjectKeyCartsPost_403' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                403
-            ],
-            'ByProjectKeyCartsPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                404
-            ],
-            'ByProjectKeyCartsPost_500' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                500
-            ],
-            'ByProjectKeyCartsPost_503' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
-                        ->post(null);
-                },
-                503
-            ],
-            'ByProjectKeyCartsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->carts()
+                        ->withKey("key")
                         ->post(null);
                 },
                 200
             ],
-            'ByProjectKeyCartsPost_599' => [
+            'ByProjectKeyCartsKeyByKeyPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->carts()
+                        ->withKey("key")
                         ->post(null);
+                },
+                409
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                400
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                401
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                403
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                404
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                500
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                503
+            ],
+            'ByProjectKeyCartsKeyByKeyPost_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                599
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                200
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                409
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_400' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                400
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_401' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                401
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_403' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                403
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                404
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_500' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                500
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_503' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                503
+            ],
+            'ByProjectKeyCartsKeyByKeyDelete_599' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
                 },
                 599
             ]

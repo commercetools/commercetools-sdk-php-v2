@@ -25,6 +25,7 @@ use DateTimeImmutable;
 
 interface Cart extends BaseResource
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_CUSTOMER_ID = 'customerId';
@@ -61,6 +62,13 @@ interface Cart extends BaseResource
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>The current version of the cart.</p>
@@ -270,6 +278,11 @@ interface Cart extends BaseResource
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?int $version

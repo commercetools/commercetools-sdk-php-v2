@@ -41,6 +41,15 @@ class ResourceByProjectKeyCarts extends ApiResource
 
         return new ResourceByProjectKeyCartsCustomerIdByCustomerId($args, $this->getClient());
     }
+    public function withKey(string $key = null): ResourceByProjectKeyCartsKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyCartsKeyByKey($args, $this->getClient());
+    }
     public function withId(string $ID = null): ResourceByProjectKeyCartsByID
     {
         $args = $this->getArgs();

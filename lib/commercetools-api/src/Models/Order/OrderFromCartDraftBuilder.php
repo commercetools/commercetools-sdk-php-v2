@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
@@ -26,6 +28,11 @@ final class OrderFromCartDraftBuilder implements Builder
      * @var ?string
      */
     private $id;
+
+    /**
+     * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
+     */
+    private $cart;
 
     /**
      * @var ?int
@@ -65,6 +72,16 @@ final class OrderFromCartDraftBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getCart()
+    {
+        return $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart;
     }
 
     /**
@@ -130,6 +147,17 @@ final class OrderFromCartDraftBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CartResourceIdentifier $cart
+     * @return $this
+     */
+    public function withCart(?CartResourceIdentifier $cart)
+    {
+        $this->cart = $cart;
 
         return $this;
     }
@@ -203,6 +231,16 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCartBuilder(?CartResourceIdentifierBuilder $cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)
     {
         $this->state = $state;
@@ -214,6 +252,7 @@ final class OrderFromCartDraftBuilder implements Builder
     {
         return new OrderFromCartDraftModel(
             $this->id,
+            $this->cart instanceof CartResourceIdentifierBuilder ? $this->cart->build() : $this->cart,
             $this->version,
             $this->orderNumber,
             $this->paymentState,

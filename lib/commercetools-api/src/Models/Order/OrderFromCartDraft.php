@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -15,6 +16,7 @@ use Commercetools\Base\JsonObject;
 interface OrderFromCartDraft extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_CART = 'cart';
     public const FIELD_VERSION = 'version';
     public const FIELD_ORDER_NUMBER = 'orderNumber';
     public const FIELD_PAYMENT_STATE = 'paymentState';
@@ -28,6 +30,13 @@ interface OrderFromCartDraft extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     *
+     * @return null|CartResourceIdentifier
+     */
+    public function getCart();
 
     /**
      * @return null|int
@@ -71,6 +80,11 @@ interface OrderFromCartDraft extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?CartResourceIdentifier $cart
+     */
+    public function setCart(?CartResourceIdentifier $cart): void;
 
     /**
      * @param ?int $version
