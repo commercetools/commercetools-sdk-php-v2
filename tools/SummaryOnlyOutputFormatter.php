@@ -8,6 +8,7 @@ use Symplify\EasyCodingStandard\Configuration\Configuration;
 use Symplify\EasyCodingStandard\Console\Style\EasyCodingStandardStyle;
 use Symplify\EasyCodingStandard\Contract\Console\Output\OutputFormatterInterface;
 use Symplify\EasyCodingStandard\Error\ErrorAndDiffCollector;
+use Symplify\EasyCodingStandard\ValueObject\Error\ErrorAndDiffResult;
 use Symplify\PackageBuilder\Console\ShellCode;
 
 final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
@@ -39,13 +40,13 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
     ) {
         $this->easyCodingStandardStyle = $easyCodingStandardStyle;
         $this->configuration = $configuration;
-        $this->errorAndDiffCollector = $errorAndDiffCollector;
+        $errorAndDiffResult = $errorAndDiffCollector;
     }
 
-    public function report(int $processedFilesCount): int
+    public function report(ErrorAndDiffResult $errorAndDiffResult, int $processedFilesCount): int
     {
-        if ($this->errorAndDiffCollector->getErrorCount() === 0
-            && $this->errorAndDiffCollector->getFileDiffsCount() === 0
+        if ($errorAndDiffResult->getErrorCount() === 0
+            && $errorAndDiffResult->getFileDiffsCount() === 0
         ) {
             if ($processedFilesCount !== 0) {
                 $this->easyCodingStandardStyle->newLine();
@@ -58,7 +59,7 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
 
         $this->easyCodingStandardStyle->newLine();
 
-        return $this->configuration->isFixer() ? $this->printAfterFixerStatus() : $this->printNoFixerStatus();
+        return $this->configuration->isFixer() ? $this->printAfterFixerStatus($errorAndDiffResult) : $this->printNoFixerStatus($errorAndDiffResult);
     }
 
     public function getName(): string
@@ -66,18 +67,18 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         return self::NAME;
     }
 
-    private function printAfterFixerStatus(): int
+    private function printAfterFixerStatus(ErrorAndDiffResult $errorAndDiffResult): int
     {
         if ($this->configuration->shouldShowErrorTable()) {
-            $this->easyCodingStandardStyle->printErrors($this->errorAndDiffCollector->getErrors());
+            $this->easyCodingStandardStyle->printErrors($errorAndDiffResult->getErrors());
         }
 
-        if ($this->errorAndDiffCollector->getErrorCount() === 0) {
+        if ($errorAndDiffResult->getErrorCount() === 0) {
             $this->easyCodingStandardStyle->success(
                 sprintf(
                     '%d error%s successfully fixed and no other found!',
-                    $this->errorAndDiffCollector->getFileDiffsCount(),
-                    $this->errorAndDiffCollector->getFileDiffsCount() === 1 ? '' : 's'
+                    $errorAndDiffResult->getFileDiffsCount(),
+                    $errorAndDiffResult->getFileDiffsCount() === 1 ? '' : 's'
                 )
             );
 
@@ -85,17 +86,17 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         }
 
         $this->printErrorMessageFromErrorCounts(
-            $this->errorAndDiffCollector->getErrorCount(),
-            $this->errorAndDiffCollector->getFileDiffsCount()
+            $errorAndDiffResult->getErrorCount(),
+            $errorAndDiffResult->getFileDiffsCount()
         );
 
         return ShellCode::ERROR;
     }
 
-    private function printNoFixerStatus(): int
+    private function printNoFixerStatus(ErrorAndDiffResult $errorAndDiffResult): int
     {
         if ($this->configuration->shouldShowErrorTable()) {
-            $errors = $this->errorAndDiffCollector->getErrors();
+            $errors = $errorAndDiffResult->getErrors();
             if (count($errors) > 0) {
                 $this->easyCodingStandardStyle->newLine();
                 $this->easyCodingStandardStyle->printErrors($errors);
@@ -103,8 +104,8 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         }
 
         $this->printErrorMessageFromErrorCounts(
-            $this->errorAndDiffCollector->getErrorCount(),
-            $this->errorAndDiffCollector->getFileDiffsCount()
+            $errorAndDiffResult->getErrorCount(),
+            $errorAndDiffResult->getFileDiffsCount()
         );
 
         return ShellCode::ERROR;
