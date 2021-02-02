@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -26,7 +28,7 @@ final class CustomerSignInResultBuilder implements Builder
     private $customer;
 
     /**
-     * @var ?JsonObject
+     * @var null|Cart|CartBuilder
      */
     private $cart;
 
@@ -42,11 +44,11 @@ final class CustomerSignInResultBuilder implements Builder
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-     * @return null|JsonObject
+     * @return null|Cart
      */
     public function getCart()
     {
-        return $this->cart;
+        return $this->cart instanceof CartBuilder ? $this->cart->build() : $this->cart;
     }
 
     /**
@@ -61,10 +63,10 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $cart
+     * @param ?Cart $cart
      * @return $this
      */
-    public function withCart(?JsonObject $cart)
+    public function withCart(?Cart $cart)
     {
         $this->cart = $cart;
 
@@ -81,11 +83,21 @@ final class CustomerSignInResultBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCartBuilder(?CartBuilder $cart)
+    {
+        $this->cart = $cart;
+
+        return $this;
+    }
+
     public function build(): CustomerSignInResult
     {
         return new CustomerSignInResultModel(
             $this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer,
-            $this->cart
+            $this->cart instanceof CartBuilder ? $this->cart->build() : $this->cart
         );
     }
 

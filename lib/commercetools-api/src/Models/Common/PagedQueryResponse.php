@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,7 +18,6 @@ interface PagedQueryResponse extends JsonObject
     public const FIELD_TOTAL = 'total';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_RESULTS = 'results';
-    public const FIELD_FACETS = 'facets';
     public const FIELD_META = 'meta';
 
     /**
@@ -46,11 +44,6 @@ interface PagedQueryResponse extends JsonObject
      * @return null|BaseResourceCollection
      */
     public function getResults();
-
-    /**
-     * @return null|FacetResults
-     */
-    public function getFacets();
 
     /**
      * @return null|mixed
@@ -81,11 +74,6 @@ interface PagedQueryResponse extends JsonObject
      * @param ?BaseResourceCollection $results
      */
     public function setResults(?BaseResourceCollection $results): void;
-
-    /**
-     * @param ?FacetResults $facets
-     */
-    public function setFacets(?FacetResults $facets): void;
 
     /**
      * @param ?JsonObject $meta

@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Product\FacetResults;
-use Commercetools\Api\Models\Product\FacetResultsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -46,11 +44,6 @@ final class PagedQueryResponseBuilder implements Builder
      * @var ?BaseResourceCollection
      */
     private $results;
-
-    /**
-     * @var null|FacetResults|FacetResultsBuilder
-     */
-    private $facets;
 
     /**
      * @var ?JsonObject
@@ -95,14 +88,6 @@ final class PagedQueryResponseBuilder implements Builder
     public function getResults()
     {
         return $this->results;
-    }
-
-    /**
-     * @return null|FacetResults
-     */
-    public function getFacets()
-    {
-        return $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets;
     }
 
     /**
@@ -169,17 +154,6 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @param ?FacetResults $facets
-     * @return $this
-     */
-    public function withFacets(?FacetResults $facets)
-    {
-        $this->facets = $facets;
-
-        return $this;
-    }
-
-    /**
      * @param ?JsonObject $meta
      * @return $this
      */
@@ -190,15 +164,6 @@ final class PagedQueryResponseBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withFacetsBuilder(?FacetResultsBuilder $facets)
-    {
-        $this->facets = $facets;
-
-        return $this;
-    }
 
     public function build(): PagedQueryResponse
     {
@@ -208,7 +173,6 @@ final class PagedQueryResponseBuilder implements Builder
             $this->total,
             $this->offset,
             $this->results,
-            $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets,
             $this->meta
         );
     }

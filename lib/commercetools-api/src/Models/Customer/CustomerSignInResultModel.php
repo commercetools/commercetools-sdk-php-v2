@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -25,7 +27,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     protected $customer;
 
     /**
-     * @var ?mixed
+     * @var ?Cart
      */
     protected $cart;
 
@@ -35,7 +37,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
      */
     public function __construct(
         ?Customer $customer = null,
-        ?JsonObject $cart = null
+        ?Cart $cart = null
     ) {
         $this->customer = $customer;
         $this->cart = $cart;
@@ -63,7 +65,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-     * @return null|mixed
+     * @return null|Cart
      */
     public function getCart()
     {
@@ -73,7 +75,8 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
             if (is_null($data)) {
                 return null;
             }
-            $this->cart = JsonObjectModel::of($data);
+
+            $this->cart = CartModel::of($data);
         }
 
         return $this->cart;
@@ -89,9 +92,9 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     }
 
     /**
-     * @param ?JsonObject $cart
+     * @param ?Cart $cart
      */
-    public function setCart(?JsonObject $cart): void
+    public function setCart(?Cart $cart): void
     {
         $this->cart = $cart;
     }

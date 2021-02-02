@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Product\FacetResults;
-use Commercetools\Api\Models\Product\FacetResultsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -47,11 +45,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     protected $results;
 
     /**
-     * @var ?FacetResults
-     */
-    protected $facets;
-
-    /**
      * @var ?mixed
      */
     protected $meta;
@@ -66,7 +59,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
         ?int $total = null,
         ?int $offset = null,
         ?BaseResourceCollection $results = null,
-        ?FacetResults $facets = null,
         ?JsonObject $meta = null
     ) {
         $this->limit = $limit;
@@ -74,7 +66,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
         $this->total = $total;
         $this->offset = $offset;
         $this->results = $results;
-        $this->facets = $facets;
         $this->meta = $meta;
     }
 
@@ -164,24 +155,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
-     * @return null|FacetResults
-     */
-    public function getFacets()
-    {
-        if (is_null($this->facets)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_FACETS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->facets = FacetResultsModel::of($data);
-        }
-
-        return $this->facets;
-    }
-
-    /**
      * @return null|mixed
      */
     public function getMeta()
@@ -237,14 +210,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     public function setResults(?BaseResourceCollection $results): void
     {
         $this->results = $results;
-    }
-
-    /**
-     * @param ?FacetResults $facets
-     */
-    public function setFacets(?FacetResults $facets): void
-    {
-        $this->facets = $facets;
     }
 
     /**

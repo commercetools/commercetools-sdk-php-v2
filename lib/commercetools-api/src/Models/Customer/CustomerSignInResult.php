@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
+use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -25,7 +26,7 @@ interface CustomerSignInResult extends JsonObject
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-     * @return null|mixed
+     * @return null|Cart
      */
     public function getCart();
 
@@ -35,7 +36,7 @@ interface CustomerSignInResult extends JsonObject
     public function setCustomer(?Customer $customer): void;
 
     /**
-     * @param ?JsonObject $cart
+     * @param ?Cart $cart
      */
-    public function setCart(?JsonObject $cart): void;
+    public function setCart(?Cart $cart): void;
 }
