@@ -26,7 +26,7 @@ final class SearchKeywordBuilder implements Builder
     private $text;
 
     /**
-     * @var ?JsonObject
+     * @var null|SuggestTokenizer|SuggestTokenizerBuilder
      */
     private $suggestTokenizer;
 
@@ -39,11 +39,11 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()
     {
-        return $this->suggestTokenizer;
+        return $this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer;
     }
 
     /**
@@ -58,22 +58,31 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $suggestTokenizer
+     * @param ?SuggestTokenizer $suggestTokenizer
      * @return $this
      */
-    public function withSuggestTokenizer(?JsonObject $suggestTokenizer)
+    public function withSuggestTokenizer(?SuggestTokenizer $suggestTokenizer)
     {
         $this->suggestTokenizer = $suggestTokenizer;
 
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withSuggestTokenizerBuilder(?SuggestTokenizerBuilder $suggestTokenizer)
+    {
+        $this->suggestTokenizer = $suggestTokenizer;
+
+        return $this;
+    }
 
     public function build(): SearchKeyword
     {
         return new SearchKeywordModel(
             $this->text,
-            $this->suggestTokenizer
+            $this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer
         );
     }
 

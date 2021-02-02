@@ -22,7 +22,7 @@ interface SearchKeyword extends JsonObject
     public function getText();
 
     /**
-     * @return null|mixed
+     * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer();
 
@@ -32,7 +32,7 @@ interface SearchKeyword extends JsonObject
     public function setText(?string $text): void;
 
     /**
-     * @param ?JsonObject $suggestTokenizer
+     * @param ?SuggestTokenizer $suggestTokenizer
      */
-    public function setSuggestTokenizer(?JsonObject $suggestTokenizer): void;
+    public function setSuggestTokenizer(?SuggestTokenizer $suggestTokenizer): void;
 }

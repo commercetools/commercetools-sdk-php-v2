@@ -25,7 +25,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     protected $text;
 
     /**
-     * @var ?mixed
+     * @var ?SuggestTokenizer
      */
     protected $suggestTokenizer;
 
@@ -35,7 +35,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
      */
     public function __construct(
         ?string $text = null,
-        ?JsonObject $suggestTokenizer = null
+        ?SuggestTokenizer $suggestTokenizer = null
     ) {
         $this->text = $text;
         $this->suggestTokenizer = $suggestTokenizer;
@@ -59,63 +59,23 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
-     * @return ?mixed
+     * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()
     {
         if (is_null($this->suggestTokenizer)) {
-            /** @psalm-var ?mixed $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
             if (is_null($data)) {
                 return null;
             }
-            $this->suggestTokenizer = $data;
+            $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
+            $this->suggestTokenizer = $className::of($data);
         }
 
         return $this->suggestTokenizer;
     }
 
-    /**
-     * @return null|SuggestTokenizer
-     */
-    public function getSuggestTokenizerAsSuggestTokenizer()
-    {
-        /** @psalm-var stdClass|array<string, mixed>|null $data */
-        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-        if (is_null($data)) {
-            return null;
-        }
-        $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
-        return $className::of($data);
-    }
-
-    /**
-     * @return null|WhitespaceTokenizer
-     */
-    public function getSuggestTokenizerAsWhitespaceTokenizer()
-    {
-        /** @psalm-var stdClass|array<string, mixed>|null $data */
-        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-        if (is_null($data)) {
-            return null;
-        }
-
-        return WhitespaceTokenizerModel::of($data);
-    }
-
-    /**
-     * @return null|CustomTokenizer
-     */
-    public function getSuggestTokenizerAsCustomTokenizer()
-    {
-        /** @psalm-var stdClass|array<string, mixed>|null $data */
-        $data = $this->raw(self::FIELD_SUGGEST_TOKENIZER);
-        if (is_null($data)) {
-            return null;
-        }
-
-        return CustomTokenizerModel::of($data);
-    }
 
     /**
      * @param ?string $text
@@ -126,9 +86,9 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
-     * @param ?JsonObject $suggestTokenizer
+     * @param ?SuggestTokenizer $suggestTokenizer
      */
-    public function setSuggestTokenizer(?JsonObject $suggestTokenizer): void
+    public function setSuggestTokenizer(?SuggestTokenizer $suggestTokenizer): void
     {
         $this->suggestTokenizer = $suggestTokenizer;
     }
