@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -63,6 +65,11 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
      */
     protected $predicate;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -75,7 +82,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ZoneRateDraftCollection $zoneRates = null,
         ?bool $isDefault = null,
-        ?string $predicate = null
+        ?string $predicate = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -85,6 +93,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->zoneRates = $zoneRates;
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
+        $this->custom = $custom;
     }
 
     /**
@@ -229,6 +238,24 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         return $this->predicate;
     }
 
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $key
@@ -292,5 +319,13 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

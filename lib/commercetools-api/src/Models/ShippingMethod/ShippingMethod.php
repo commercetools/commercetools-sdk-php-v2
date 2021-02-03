@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -29,6 +30,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_ZONE_RATES = 'zoneRates';
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The unique ID of the shipping method.</p>
@@ -111,6 +113,11 @@ interface ShippingMethod extends BaseResource
     public function getPredicate();
 
     /**
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -179,4 +186,9 @@ interface ShippingMethod extends BaseResource
      * @param ?string $predicate
      */
     public function setPredicate(?string $predicate): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

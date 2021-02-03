@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -100,6 +102,11 @@ final class ShippingMethodBuilder implements Builder
      * @var ?string
      */
     private $predicate;
+
+    /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * <p>The unique ID of the shipping method.</p>
@@ -221,6 +228,14 @@ final class ShippingMethodBuilder implements Builder
     public function getPredicate()
     {
         return $this->predicate;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -378,6 +393,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -417,6 +443,16 @@ final class ShippingMethodBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ShippingMethod
     {
         return new ShippingMethodModel(
@@ -433,7 +469,8 @@ final class ShippingMethodBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,
-            $this->predicate
+            $this->predicate,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

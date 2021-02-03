@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -100,6 +102,11 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
      */
     protected $predicate;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -118,7 +125,8 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         ?TaxCategoryReference $taxCategory = null,
         ?ZoneRateCollection $zoneRates = null,
         ?bool $isDefault = null,
-        ?string $predicate = null
+        ?string $predicate = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -134,6 +142,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->zoneRates = $zoneRates;
         $this->isDefault = $isDefault;
         $this->predicate = $predicate;
+        $this->custom = $custom;
     }
 
     /**
@@ -396,6 +405,24 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         return $this->predicate;
     }
 
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -507,6 +534,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     public function setPredicate(?string $predicate): void
     {
         $this->predicate = $predicate;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

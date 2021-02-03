@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -63,6 +65,11 @@ final class ShippingMethodDraftBuilder implements Builder
      * @var ?string
      */
     private $predicate;
+
+    /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * @return null|string
@@ -130,6 +137,14 @@ final class ShippingMethodDraftBuilder implements Builder
     public function getPredicate()
     {
         return $this->predicate;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -221,6 +236,17 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
@@ -240,6 +266,16 @@ final class ShippingMethodDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ShippingMethodDraft
     {
         return new ShippingMethodDraftModel(
@@ -250,7 +286,8 @@ final class ShippingMethodDraftBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->zoneRates,
             $this->isDefault,
-            $this->predicate
+            $this->predicate,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

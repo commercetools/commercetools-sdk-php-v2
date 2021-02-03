@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -23,6 +24,7 @@ interface ShippingMethodDraft extends JsonObject
     public const FIELD_ZONE_RATES = 'zoneRates';
     public const FIELD_IS_DEFAULT = 'isDefault';
     public const FIELD_PREDICATE = 'predicate';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|string
@@ -69,6 +71,11 @@ interface ShippingMethodDraft extends JsonObject
     public function getPredicate();
 
     /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -107,4 +114,9 @@ interface ShippingMethodDraft extends JsonObject
      * @param ?string $predicate
      */
     public function setPredicate(?string $predicate): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }
