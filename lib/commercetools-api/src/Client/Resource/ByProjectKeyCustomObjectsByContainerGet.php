@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\CustomObject\CustomObject;
-use Commercetools\Api\Models\CustomObject\CustomObjectModel;
+use Commercetools\Api\Models\CustomObject\CustomObjectPagedQueryResponse;
+use Commercetools\Api\Models\CustomObject\CustomObjectPagedQueryResponseModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
@@ -43,7 +43,7 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return CustomObject|ErrorResponse|JsonObject|T|null
+     * @return CustomObjectPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,7 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = CustomObjectModel::class;
+                    $resultType = CustomObjectPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -90,7 +90,7 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CustomObject|ErrorResponse|JsonObject
+     * @return null|CustomObjectPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -132,6 +132,24 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $varName
+     * @psalm-param scalar|scalar[] $predicateVar
+     */
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 
     /**

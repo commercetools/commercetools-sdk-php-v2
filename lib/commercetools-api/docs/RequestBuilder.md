@@ -601,7 +601,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainer("container")->get()`
 
-Get CustomObject by container
+Get CustomObjectPagedQueryResponse by container
 
 ### Example
 ```php

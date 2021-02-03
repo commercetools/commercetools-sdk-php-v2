@@ -90,6 +90,30 @@ class ResourceByProjectKeyCustomObjectsByContainerTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyCustomObjectsByContainerGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?where=where',
+            ],
+            'ByProjectKeyCustomObjectsByContainerGet_withPredicateVar' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withPredicateVar('varName', 'var.varName');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?var.varName=var.varName',
+            ],
             'ByProjectKeyCustomObjectsByContainerGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
