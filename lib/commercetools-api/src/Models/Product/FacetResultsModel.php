@@ -39,8 +39,9 @@ final class FacetResultsModel extends JsonObjectModel implements FacetResults
             return null;
         }
         if (preg_match(FacetResults::FIELD_PATTERN0, $key) === 1) {
-            /** @psalm-var stdClass $data */
-            return JsonObjectModel::of($data);
+            /** @psalm-var stdClass|array<string, mixed> $data */
+            $className = FacetResultModel::resolveDiscriminatorClass($data);
+            return $className::of($data);
         }
 
         return $data;

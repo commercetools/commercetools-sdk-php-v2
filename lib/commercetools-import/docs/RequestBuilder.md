@@ -57,22 +57,6 @@ $request = $builder
                 ->withIdValue("id")
                 ->get();
 ```
-## `withProjectKeyValue("projectKey")->categories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the category given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->categories()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
-```
 ## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new customers or updating existing ones.
@@ -121,22 +105,6 @@ $request = $builder
                 ->importOperations()
                 ->withIdValue("id")
                 ->get();
-```
-## `withProjectKeyValue("projectKey")->customers()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the customer given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->customers()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
 ```
 ## `withProjectKeyValue("projectKey")->importSinks()->post(null)`
 
@@ -278,22 +246,6 @@ $request = $builder
                 ->withIdValue("id")
                 ->get();
 ```
-## `withProjectKeyValue("projectKey")->inventories()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the inventory given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->inventories()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
-```
 ## `withProjectKeyValue("projectKey")->orders()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new orders or updating existing ones.
@@ -392,22 +344,6 @@ $request = $builder
                 ->withIdValue("id")
                 ->get();
 ```
-## `withProjectKeyValue("projectKey")->prices()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the price given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->prices()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
-```
 ## `withProjectKeyValue("projectKey")->productDrafts()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new product drafts or updating existing ones.
@@ -458,22 +394,6 @@ $request = $builder
                 ->withIdValue("id")
                 ->get();
 ```
-## `withProjectKeyValue("projectKey")->productDrafts()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the product type given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->productDrafts()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
-```
 ## `withProjectKeyValue("projectKey")->productTypes()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new product types or updating existing ones.
@@ -522,22 +442,6 @@ $request = $builder
                 ->importOperations()
                 ->withIdValue("id")
                 ->get();
-```
-## `withProjectKeyValue("projectKey")->productTypes()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the product type given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->productTypes()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
 ```
 ## `withProjectKeyValue("projectKey")->productVariantPatches()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
@@ -637,22 +541,6 @@ $request = $builder
                 ->withIdValue("id")
                 ->get();
 ```
-## `withProjectKeyValue("projectKey")->productVariants()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the product variant given by the resource key.
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->productVariants()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
-```
 ## `withProjectKeyValue("projectKey")->products()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->post(null)`
 
 Creates import request for creating new products or updating existing ones.
@@ -701,21 +589,4 @@ $request = $builder
                 ->importOperations()
                 ->withIdValue("id")
                 ->get();
-```
-## `withProjectKeyValue("projectKey")->products()->importSinkKeyWithImportSinkKeyValue("importSinkKey")->resourceKeyWithResourceKeyValue("resourceKey")->delete()`
-
-Deletes the product given by the resource key.
-
-
-### Example
-```php
-use Commercetools\Import\Client\ImportRequestBuilder;
-
-$builder =  new ImportRequestBuilder();
-$request = $builder
-                ->withProjectKeyValue("projectKey")
-                ->products()
-                ->importSinkKeyWithImportSinkKeyValue("importSinkKey")
-                ->resourceKeyWithResourceKeyValue("resourceKey")
-                ->delete();
 ```

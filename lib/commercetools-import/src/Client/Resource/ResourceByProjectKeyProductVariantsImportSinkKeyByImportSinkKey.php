@@ -26,15 +26,6 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
         parent::__construct('/{projectKey}/product-variants/importSinkKey={importSinkKey}', $args, $client);
     }
 
-    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($resourceKey)) {
-            $args['resourceKey'] = $resourceKey;
-        }
-
-        return new ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($args, $this->getClient());
-    }
     public function importOperations(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

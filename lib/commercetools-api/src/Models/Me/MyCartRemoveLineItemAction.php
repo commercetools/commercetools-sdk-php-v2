@@ -28,7 +28,7 @@ interface MyCartRemoveLineItemAction extends MyCartUpdateAction
     public function getLineItemId();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -53,9 +53,9 @@ interface MyCartRemoveLineItemAction extends MyCartUpdateAction
     public function setLineItemId(?string $lineItemId): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?Money $externalPrice

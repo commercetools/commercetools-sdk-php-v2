@@ -26,15 +26,6 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey extends ApiRe
         parent::__construct('/{projectKey}/product-types/importSinkKey={importSinkKey}', $args, $client);
     }
 
-    public function resourceKeyWithResourceKeyValue(string $resourceKey = null): ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($resourceKey)) {
-            $args['resourceKey'] = $resourceKey;
-        }
-
-        return new ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey($args, $this->getClient());
-    }
     public function importOperations(): ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

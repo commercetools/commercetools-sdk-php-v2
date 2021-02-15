@@ -8,18 +8,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use stdClass;
 
 /**
  * @internal
@@ -150,7 +150,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+            $this->id =  (string) $data;
         }
 
         return $this->id;
@@ -167,7 +167,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->version = (int) $data;
+            $this->version =  (int) $data;
         }
 
         return $this->version;
@@ -188,7 +188,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (false === $data) {
                 return null;
             }
-            $this->createdAt = $data;
+            $this->createdAt =  $data;
         }
 
         return $this->createdAt;
@@ -209,7 +209,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (false === $data) {
                 return null;
             }
-            $this->lastModifiedAt = $data;
+            $this->lastModifiedAt =  $data;
         }
 
         return $this->lastModifiedAt;
@@ -227,7 +227,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
+            $this->lastModifiedBy =  LastModifiedByModel::of($data);
         }
 
         return $this->lastModifiedBy;
@@ -245,7 +245,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->createdBy = CreatedByModel::of($data);
+            $this->createdBy =  CreatedByModel::of($data);
         }
 
         return $this->createdBy;
@@ -262,7 +262,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->sequenceNumber = (int) $data;
+            $this->sequenceNumber =  (int) $data;
         }
 
         return $this->sequenceNumber;
@@ -280,7 +280,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
                 return null;
             }
             $className = ReferenceModel::resolveDiscriminatorClass($data);
-            $this->resource = $className::of($data);
+            $this->resource =  $className::of($data);
         }
 
         return $this->resource;
@@ -297,7 +297,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->resourceVersion = (int) $data;
+            $this->resourceVersion =  (int) $data;
         }
 
         return $this->resourceVersion;
@@ -314,7 +314,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->type = (string) $data;
+            $this->type =  (string) $data;
         }
 
         return $this->type;
@@ -332,7 +332,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
                 return null;
             }
 
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
+            $this->resourceUserProvidedIdentifiers =  UserProvidedIdentifiersModel::of($data);
         }
 
         return $this->resourceUserProvidedIdentifiers;
@@ -349,7 +349,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->oldQuantityOnStock = (int) $data;
+            $this->oldQuantityOnStock =  (int) $data;
         }
 
         return $this->oldQuantityOnStock;
@@ -366,7 +366,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->newQuantityOnStock = (int) $data;
+            $this->newQuantityOnStock =  (int) $data;
         }
 
         return $this->newQuantityOnStock;
@@ -383,7 +383,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->oldAvailableQuantity = (int) $data;
+            $this->oldAvailableQuantity =  (int) $data;
         }
 
         return $this->oldAvailableQuantity;
@@ -400,7 +400,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->newAvailableQuantity = (int) $data;
+            $this->newAvailableQuantity =  (int) $data;
         }
 
         return $this->newAvailableQuantity;
@@ -532,4 +532,5 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
         }
         return (object) $data;
     }
+
 }

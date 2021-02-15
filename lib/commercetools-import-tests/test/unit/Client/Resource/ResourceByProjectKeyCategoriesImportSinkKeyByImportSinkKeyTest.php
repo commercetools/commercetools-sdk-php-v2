@@ -14,7 +14,6 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -118,18 +117,6 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyTest extends Tes
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->categories()
-                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey")
-                        ->resourceKeyWithResourceKeyValue("test_resourceKey");
-                },
-                ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyResourceKeyByResourceKey::class,
-                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey', 'resourceKey' => 'test_resourceKey'],
-                '/{projectKey}/categories/importSinkKey={importSinkKey}/resourceKey={resourceKey}'
-            ],
             'ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations {
                     return $builder
