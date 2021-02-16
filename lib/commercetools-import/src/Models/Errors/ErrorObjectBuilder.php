@@ -26,7 +26,7 @@ final class ErrorObjectBuilder implements Builder
     private $message;
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */

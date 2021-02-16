@@ -22,6 +22,8 @@ interface SearchKeyword extends JsonObject
     public function getText();
 
     /**
+     * <p>The tokenizer defines the tokens that are used to match against the <a href="/../products-suggestions#suggest-query">Suggest Query</a> input.</p>
+     *
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer();

@@ -31,7 +31,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     private $variantValues;
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */

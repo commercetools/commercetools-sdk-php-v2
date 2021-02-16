@@ -31,6 +31,8 @@ final class AssetDimensionsBuilder implements Builder
     private $h;
 
     /**
+     * <p>The width of the asset source.</p>
+     *
      * @return null|float
      */
     public function getW()
@@ -39,6 +41,8 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
+     * <p>The height of the asset source.</p>
+     *
      * @return null|float
      */
     public function getH()

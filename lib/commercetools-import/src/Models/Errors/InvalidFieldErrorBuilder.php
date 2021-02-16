@@ -41,7 +41,7 @@ final class InvalidFieldErrorBuilder implements Builder
     private $allowedValues;
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */

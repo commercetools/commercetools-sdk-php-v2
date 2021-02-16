@@ -17,11 +17,15 @@ interface AssetDimensions extends JsonObject
     public const FIELD_H = 'h';
 
     /**
+     * <p>The width of the asset source.</p>
+     *
      * @return null|float
      */
     public function getW();
 
     /**
+     * <p>The height of the asset source.</p>
+     *
      * @return null|float
      */
     public function getH();

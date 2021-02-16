@@ -76,16 +76,37 @@ interface ProductDraftImport extends ImportResource
     public function getCategories();
 
     /**
+     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
+     * <pre><code class="language-json">{
+     *   &quot;de&quot;: &quot;Hundefutter&quot;,
+     *   &quot;en&quot;: &quot;dog food&quot;
+     * }
+     * </code></pre>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
+     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
+     * <pre><code class="language-json">{
+     *   &quot;de&quot;: &quot;Hundefutter&quot;,
+     *   &quot;en&quot;: &quot;dog food&quot;
+     * }
+     * </code></pre>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
+     * <p>A localized string is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values the corresponding strings used for that language.</p>
+     * <pre><code class="language-json">{
+     *   &quot;de&quot;: &quot;Hundefutter&quot;,
+     *   &quot;en&quot;: &quot;dog food&quot;
+     * }
+     * </code></pre>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
@@ -116,6 +137,24 @@ interface ProductDraftImport extends ImportResource
     public function getTaxCategory();
 
     /**
+     * <p>Search keywords are primarily used by the suggester but are also considered for the full-text search. SearchKeywords is a JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>. The value to a language tag key is an array of SearchKeyword for the specific language.</p>
+     * <pre><code class="language-json">{
+     *   &quot;en&quot;: [
+     *     { &quot;text&quot;: &quot;Multi tool&quot; },
+     *     { &quot;text&quot;: &quot;Swiss Army Knife&quot;, &quot;suggestTokenizer&quot;: { &quot;type&quot;: &quot;whitespace&quot; } }
+     *   ],
+     *   &quot;de&quot;: [
+     *     {
+     *       &quot;text&quot;: &quot;Schweizer Messer&quot;,
+     *       &quot;suggestTokenizer&quot;: {
+     *         &quot;type&quot;: &quot;custom&quot;,
+     *         &quot;inputs&quot;: [&quot;schweizer messer&quot;, &quot;offiziersmesser&quot;, &quot;sackmesser&quot;]
+     *       }
+     *     }
+     *   ]
+     * }
+     * </code></pre>
+     *
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();

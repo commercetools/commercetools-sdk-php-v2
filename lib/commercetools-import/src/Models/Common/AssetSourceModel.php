@@ -90,6 +90,8 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
     /**
+     * <p>The width and height of the Asset Source.</p>
+     *
      * @return null|AssetDimensions
      */
     public function getDimensions()

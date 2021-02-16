@@ -66,7 +66,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */

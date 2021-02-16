@@ -59,7 +59,7 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */

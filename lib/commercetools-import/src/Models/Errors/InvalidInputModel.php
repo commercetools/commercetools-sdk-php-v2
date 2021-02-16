@@ -59,7 +59,7 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     }
 
     /**
-     * <p>The error's description.</p>
+     * <p>This is a placeholder for an actual platform error message.</p>
      *
      * @return null|string
      */
