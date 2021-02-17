@@ -31,10 +31,18 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
      */
     private static $discriminatorClasses = [
        'addStagedAction' => OrderEditAddStagedActionActionModel::class,
+       'setBillingAddressCustomField' => OrderEditSetBillingAddressCustomFieldActionModel::class,
+       'setBillingAddressCustomType' => OrderEditSetBillingAddressCustomTypeActionModel::class,
        'setComment' => OrderEditSetCommentActionModel::class,
        'setCustomField' => OrderEditSetCustomFieldActionModel::class,
        'setCustomType' => OrderEditSetCustomTypeActionModel::class,
+       'setDeliveryAddressCustomField' => OrderEditSetDeliveryAddressCustomFieldActionModel::class,
+       'setDeliveryAddressCustomType' => OrderEditSetDeliveryAddressCustomTypeActionModel::class,
+       'setItemShippingAddressCustomField' => OrderEditSetItemShippingAddressCustomFieldActionModel::class,
+       'setItemShippingAddressCustomType' => OrderEditSetItemShippingAddressCustomTypeActionModel::class,
        'setKey' => OrderEditSetKeyActionModel::class,
+       'setShippingAddressCustomField' => OrderEditSetShippingAddressCustomFieldActionModel::class,
+       'setShippingAddressCustomType' => OrderEditSetShippingAddressCustomTypeActionModel::class,
        'setStagedActions' => OrderEditSetStagedActionsActionModel::class,
     ];
 

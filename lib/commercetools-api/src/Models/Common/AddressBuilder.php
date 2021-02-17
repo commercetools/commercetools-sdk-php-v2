@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -144,6 +146,11 @@ final class AddressBuilder implements Builder
      * @var ?string
      */
     private $externalId;
+
+    /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * @return null|string
@@ -345,6 +352,14 @@ final class AddressBuilder implements Builder
     public function getExternalId()
     {
         return $this->externalId;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -622,6 +637,26 @@ final class AddressBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
 
     public function build(): Address
     {
@@ -650,7 +685,8 @@ final class AddressBuilder implements Builder
             $this->email,
             $this->fax,
             $this->additionalAddressInfo,
-            $this->externalId
+            $this->externalId,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

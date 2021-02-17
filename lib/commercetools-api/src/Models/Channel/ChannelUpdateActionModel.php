@@ -36,6 +36,8 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
        'changeName' => ChannelChangeNameActionModel::class,
        'removeRoles' => ChannelRemoveRolesActionModel::class,
        'setAddress' => ChannelSetAddressActionModel::class,
+       'setAddressCustomField' => ChannelSetAddressCustomFieldActionModel::class,
+       'setAddressCustomType' => ChannelSetAddressCustomTypeActionModel::class,
        'setCustomField' => ChannelSetCustomFieldActionModel::class,
        'setCustomType' => ChannelSetCustomTypeActionModel::class,
        'setGeoLocation' => ChannelSetGeoLocationActionModel::class,
