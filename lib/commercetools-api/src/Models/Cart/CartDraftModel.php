@@ -38,6 +38,11 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $customerId;
 
     /**
@@ -156,6 +161,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      */
     public function __construct(
         ?string $currency = null,
+        ?string $key = null,
         ?string $customerId = null,
         ?string $customerEmail = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
@@ -181,6 +187,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?array $discountCodes = null
     ) {
         $this->currency = $currency;
+        $this->key = $key;
         $this->customerId = $customerId;
         $this->customerEmail = $customerEmail;
         $this->customerGroup = $customerGroup;
@@ -223,6 +230,25 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         }
 
         return $this->currency;
+    }
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -678,6 +704,14 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setCurrency(?string $currency): void
     {
         $this->currency = $currency;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

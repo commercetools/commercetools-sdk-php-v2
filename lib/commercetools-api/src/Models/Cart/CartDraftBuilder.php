@@ -39,6 +39,11 @@ final class CartDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $customerId;
 
     /**
@@ -159,6 +164,16 @@ final class CartDraftBuilder implements Builder
     public function getCurrency()
     {
         return $this->currency;
+    }
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -399,6 +414,17 @@ final class CartDraftBuilder implements Builder
     public function withCurrency(?string $currency)
     {
         $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -740,6 +766,7 @@ final class CartDraftBuilder implements Builder
     {
         return new CartDraftModel(
             $this->currency,
+            $this->key,
             $this->customerId,
             $this->customerEmail,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,

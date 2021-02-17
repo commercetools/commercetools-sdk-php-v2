@@ -71,6 +71,11 @@ final class MyCartBuilder implements Builder
     private $lastModifiedAt;
 
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
@@ -245,6 +250,16 @@ final class MyCartBuilder implements Builder
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -521,6 +536,17 @@ final class MyCartBuilder implements Builder
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -971,6 +997,7 @@ final class MyCartBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
+            $this->key,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->customerId,

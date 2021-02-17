@@ -20,6 +20,7 @@ use Commercetools\Base\JsonObject;
 interface CartDraft extends JsonObject
 {
     public const FIELD_CURRENCY = 'currency';
+    public const FIELD_KEY = 'key';
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -50,6 +51,13 @@ interface CartDraft extends JsonObject
      * @return null|string
      */
     public function getCurrency();
+
+    /**
+     * <p>User-specific unique identifier of the cart.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Id of an existing Customer.</p>
@@ -217,6 +225,11 @@ interface CartDraft extends JsonObject
      * @param ?string $currency
      */
     public function setCurrency(?string $currency): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $customerId
