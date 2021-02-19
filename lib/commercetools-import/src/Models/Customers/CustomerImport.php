@@ -10,10 +10,10 @@ namespace Commercetools\Import\Models\Customers;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\StoreKeyReferenceCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
@@ -22,6 +22,7 @@ interface CustomerImport extends ImportResource
     public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
+    public const FIELD_STORES = 'stores';
     public const FIELD_FIRST_NAME = 'firstName';
     public const FIELD_LAST_NAME = 'lastName';
     public const FIELD_MIDDLE_NAME = 'middleName';
@@ -61,6 +62,16 @@ interface CustomerImport extends ImportResource
      * @return null|string
      */
     public function getPassword();
+
+    /**
+     * <p>References stores by its keys.</p>
+     * <p>The stores referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
 
     /**
      * <p>Maps to <code>Customer.firstName</code>.</p>
@@ -150,30 +161,30 @@ interface CustomerImport extends ImportResource
     public function getAddresses();
 
     /**
-     * <p>Maps to <code>Customer.defaultBillingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultBillingAddress();
 
     /**
-     * <p>Maps to <code>Customer.billingAddresses</code>.</p>
+     * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getBillingAddresses();
 
     /**
-     * <p>Maps to <code>Customer.defaultShippingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultShippingAddress();
 
     /**
-     * <p>Maps to <code>Customer.shippingAddresses</code>.</p>
+     * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getShippingAddresses();
 
@@ -205,6 +216,11 @@ interface CustomerImport extends ImportResource
      * @param ?string $password
      */
     public function setPassword(?string $password): void;
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 
     /**
      * @param ?string $firstName
@@ -267,24 +283,24 @@ interface CustomerImport extends ImportResource
     public function setAddresses(?AddressCollection $addresses): void;
 
     /**
-     * @param ?Address $defaultBillingAddress
+     * @param ?int $defaultBillingAddress
      */
-    public function setDefaultBillingAddress(?Address $defaultBillingAddress): void;
+    public function setDefaultBillingAddress(?int $defaultBillingAddress): void;
 
     /**
-     * @param ?Address $billingAddresses
+     * @param ?array $billingAddresses
      */
-    public function setBillingAddresses(?Address $billingAddresses): void;
+    public function setBillingAddresses(?array $billingAddresses): void;
 
     /**
-     * @param ?Address $defaultShippingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShippingAddress(?Address $defaultShippingAddress): void;
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void;
 
     /**
-     * @param ?Address $shippingAddresses
+     * @param ?array $shippingAddresses
      */
-    public function setShippingAddresses(?Address $shippingAddresses): void;
+    public function setShippingAddresses(?array $shippingAddresses): void;
 
     /**
      * @param ?string $locale

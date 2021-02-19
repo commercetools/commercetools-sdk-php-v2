@@ -13,13 +13,12 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Address;
-use Commercetools\Import\Models\Common\AddressBuilder;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceBuilder;
+use Commercetools\Import\Models\Common\StoreKeyReferenceCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomBuilder;
 use DateTimeImmutable;
@@ -49,6 +48,11 @@ final class CustomerImportBuilder implements Builder
      * @var ?string
      */
     private $password;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
      * @var ?string
@@ -111,22 +115,22 @@ final class CustomerImportBuilder implements Builder
     private $addresses;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var ?int
      */
     private $defaultBillingAddress;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var ?array
      */
     private $billingAddresses;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var ?int
      */
     private $defaultShippingAddress;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var ?array
      */
     private $shippingAddresses;
 
@@ -176,6 +180,19 @@ final class CustomerImportBuilder implements Builder
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * <p>References stores by its keys.</p>
+     * <p>The stores referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -302,43 +319,43 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Customer.defaultBillingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultBillingAddress()
     {
-        return $this->defaultBillingAddress instanceof AddressBuilder ? $this->defaultBillingAddress->build() : $this->defaultBillingAddress;
+        return $this->defaultBillingAddress;
     }
 
     /**
-     * <p>Maps to <code>Customer.billingAddresses</code>.</p>
+     * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getBillingAddresses()
     {
-        return $this->billingAddresses instanceof AddressBuilder ? $this->billingAddresses->build() : $this->billingAddresses;
+        return $this->billingAddresses;
     }
 
     /**
-     * <p>Maps to <code>Customer.defaultShippingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultShippingAddress()
     {
-        return $this->defaultShippingAddress instanceof AddressBuilder ? $this->defaultShippingAddress->build() : $this->defaultShippingAddress;
+        return $this->defaultShippingAddress;
     }
 
     /**
-     * <p>Maps to <code>Customer.shippingAddresses</code>.</p>
+     * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getShippingAddresses()
     {
-        return $this->shippingAddresses instanceof AddressBuilder ? $this->shippingAddresses->build() : $this->shippingAddresses;
+        return $this->shippingAddresses;
     }
 
     /**
@@ -401,6 +418,17 @@ final class CustomerImportBuilder implements Builder
     public function withPassword(?string $password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -538,10 +566,10 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * @param ?Address $defaultBillingAddress
+     * @param ?int $defaultBillingAddress
      * @return $this
      */
-    public function withDefaultBillingAddress(?Address $defaultBillingAddress)
+    public function withDefaultBillingAddress(?int $defaultBillingAddress)
     {
         $this->defaultBillingAddress = $defaultBillingAddress;
 
@@ -549,10 +577,10 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * @param ?Address $billingAddresses
+     * @param ?array $billingAddresses
      * @return $this
      */
-    public function withBillingAddresses(?Address $billingAddresses)
+    public function withBillingAddresses(?array $billingAddresses)
     {
         $this->billingAddresses = $billingAddresses;
 
@@ -560,10 +588,10 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * @param ?Address $defaultShippingAddress
+     * @param ?int $defaultShippingAddress
      * @return $this
      */
-    public function withDefaultShippingAddress(?Address $defaultShippingAddress)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
 
@@ -571,10 +599,10 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * @param ?Address $shippingAddresses
+     * @param ?array $shippingAddresses
      * @return $this
      */
-    public function withShippingAddresses(?Address $shippingAddresses)
+    public function withShippingAddresses(?array $shippingAddresses)
     {
         $this->shippingAddresses = $shippingAddresses;
 
@@ -616,46 +644,6 @@ final class CustomerImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDefaultBillingAddressBuilder(?AddressBuilder $defaultBillingAddress)
-    {
-        $this->defaultBillingAddress = $defaultBillingAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withBillingAddressesBuilder(?AddressBuilder $billingAddresses)
-    {
-        $this->billingAddresses = $billingAddresses;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDefaultShippingAddressBuilder(?AddressBuilder $defaultShippingAddress)
-    {
-        $this->defaultShippingAddress = $defaultShippingAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingAddressesBuilder(?AddressBuilder $shippingAddresses)
-    {
-        $this->shippingAddresses = $shippingAddresses;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomBuilder(?CustomBuilder $custom)
     {
         $this->custom = $custom;
@@ -670,6 +658,7 @@ final class CustomerImportBuilder implements Builder
             $this->customerNumber,
             $this->email,
             $this->password,
+            $this->stores,
             $this->firstName,
             $this->lastName,
             $this->middleName,
@@ -682,10 +671,10 @@ final class CustomerImportBuilder implements Builder
             $this->isEmailVerified,
             $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->addresses,
-            $this->defaultBillingAddress instanceof AddressBuilder ? $this->defaultBillingAddress->build() : $this->defaultBillingAddress,
-            $this->billingAddresses instanceof AddressBuilder ? $this->billingAddresses->build() : $this->billingAddresses,
-            $this->defaultShippingAddress instanceof AddressBuilder ? $this->defaultShippingAddress->build() : $this->defaultShippingAddress,
-            $this->shippingAddresses instanceof AddressBuilder ? $this->shippingAddresses->build() : $this->shippingAddresses,
+            $this->defaultBillingAddress,
+            $this->billingAddresses,
+            $this->defaultShippingAddress,
+            $this->shippingAddresses,
             $this->locale,
             $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );

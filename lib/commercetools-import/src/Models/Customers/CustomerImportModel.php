@@ -12,13 +12,12 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
-use Commercetools\Import\Models\Common\AddressModel;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\ImportResourceModel;
+use Commercetools\Import\Models\Common\StoreKeyReferenceCollection;
 use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Customfields\CustomModel;
 use DateTimeImmutable;
@@ -48,6 +47,11 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
      * @var ?string
      */
     protected $password;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
 
     /**
      * @var ?string
@@ -110,22 +114,22 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     protected $addresses;
 
     /**
-     * @var ?Address
+     * @var ?int
      */
     protected $defaultBillingAddress;
 
     /**
-     * @var ?Address
+     * @var ?array
      */
     protected $billingAddresses;
 
     /**
-     * @var ?Address
+     * @var ?int
      */
     protected $defaultShippingAddress;
 
     /**
-     * @var ?Address
+     * @var ?array
      */
     protected $shippingAddresses;
 
@@ -148,6 +152,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         ?string $customerNumber = null,
         ?string $email = null,
         ?string $password = null,
+        ?StoreKeyReferenceCollection $stores = null,
         ?string $firstName = null,
         ?string $lastName = null,
         ?string $middleName = null,
@@ -160,10 +165,10 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         ?bool $isEmailVerified = null,
         ?CustomerGroupKeyReference $customerGroup = null,
         ?AddressCollection $addresses = null,
-        ?Address $defaultBillingAddress = null,
-        ?Address $billingAddresses = null,
-        ?Address $defaultShippingAddress = null,
-        ?Address $shippingAddresses = null,
+        ?int $defaultBillingAddress = null,
+        ?array $billingAddresses = null,
+        ?int $defaultShippingAddress = null,
+        ?array $shippingAddresses = null,
         ?string $locale = null,
         ?Custom $custom = null
     ) {
@@ -171,6 +176,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         $this->customerNumber = $customerNumber;
         $this->email = $email;
         $this->password = $password;
+        $this->stores = $stores;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->middleName = $middleName;
@@ -263,6 +269,28 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         }
 
         return $this->password;
+    }
+
+    /**
+     * <p>References stores by its keys.</p>
+     * <p>The stores referenced
+     * must already exist in the commercetools project, or the
+     * import operation state is set to <code>Unresolved</code>.</p>
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
     }
 
     /**
@@ -502,80 +530,76 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
-     * <p>Maps to <code>Customer.defaultBillingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultBillingAddress()
     {
         if (is_null($this->defaultBillingAddress)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_DEFAULT_BILLING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->defaultBillingAddress = AddressModel::of($data);
+            $this->defaultBillingAddress = (int) $data;
         }
 
         return $this->defaultBillingAddress;
     }
 
     /**
-     * <p>Maps to <code>Customer.billingAddresses</code>.</p>
+     * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getBillingAddresses()
     {
         if (is_null($this->billingAddresses)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_BILLING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->billingAddresses = AddressModel::of($data);
+            $this->billingAddresses = $data;
         }
 
         return $this->billingAddresses;
     }
 
     /**
-     * <p>Maps to <code>Customer.defaultShippingAddress</code>.</p>
+     * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-     * @return null|Address
+     * @return null|int
      */
     public function getDefaultShippingAddress()
     {
         if (is_null($this->defaultShippingAddress)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_DEFAULT_SHIPPING_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->defaultShippingAddress = AddressModel::of($data);
+            $this->defaultShippingAddress = (int) $data;
         }
 
         return $this->defaultShippingAddress;
     }
 
     /**
-     * <p>Maps to <code>Customer.shippingAddresses</code>.</p>
+     * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
-     * @return null|Address
+     * @return null|array
      */
     public function getShippingAddresses()
     {
         if (is_null($this->shippingAddresses)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_SHIPPING_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->shippingAddresses = AddressModel::of($data);
+            $this->shippingAddresses = $data;
         }
 
         return $this->shippingAddresses;
@@ -651,6 +675,14 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     public function setPassword(?string $password): void
     {
         $this->password = $password;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     /**
@@ -750,33 +782,33 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
-     * @param ?Address $defaultBillingAddress
+     * @param ?int $defaultBillingAddress
      */
-    public function setDefaultBillingAddress(?Address $defaultBillingAddress): void
+    public function setDefaultBillingAddress(?int $defaultBillingAddress): void
     {
         $this->defaultBillingAddress = $defaultBillingAddress;
     }
 
     /**
-     * @param ?Address $billingAddresses
+     * @param ?array $billingAddresses
      */
-    public function setBillingAddresses(?Address $billingAddresses): void
+    public function setBillingAddresses(?array $billingAddresses): void
     {
         $this->billingAddresses = $billingAddresses;
     }
 
     /**
-     * @param ?Address $defaultShippingAddress
+     * @param ?int $defaultShippingAddress
      */
-    public function setDefaultShippingAddress(?Address $defaultShippingAddress): void
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
     /**
-     * @param ?Address $shippingAddresses
+     * @param ?array $shippingAddresses
      */
-    public function setShippingAddresses(?Address $shippingAddresses): void
+    public function setShippingAddresses(?array $shippingAddresses): void
     {
         $this->shippingAddresses = $shippingAddresses;
     }
