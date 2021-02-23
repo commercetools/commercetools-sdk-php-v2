@@ -50,6 +50,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
        'setLineItemCustomField' => ShoppingListSetLineItemCustomFieldActionModel::class,
        'setLineItemCustomType' => ShoppingListSetLineItemCustomTypeActionModel::class,
        'setSlug' => ShoppingListSetSlugActionModel::class,
+       'setStore' => ShoppingListSetStoreActionModel::class,
        'setTextLineItemCustomField' => ShoppingListSetTextLineItemCustomFieldActionModel::class,
        'setTextLineItemCustomType' => ShoppingListSetTextLineItemCustomTypeActionModel::class,
        'setTextLineItemDescription' => ShoppingListSetTextLineItemDescriptionActionModel::class,

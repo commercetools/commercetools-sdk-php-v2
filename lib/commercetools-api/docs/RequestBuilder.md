@@ -1968,6 +1968,132 @@ $request = $builder
                 ->matchingCart()
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->get()`
+
+Query shopping-lists
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
+
+Create ShoppingList
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->get()`
+
+Gets a shopping list by ID.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
+
+Update ShoppingList by ID
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->delete()`
+
+Delete ShoppingList by ID
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->get()`
+
+Gets a shopping list by Key.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
+
+Update a shopping list found by its Key.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->delete()`
+
+Delete ShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->inventory()->get()`
 
 Query inventory
