@@ -50,7 +50,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     protected $productCount;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     protected $total;
 
@@ -80,7 +80,7 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
         ?string $toStr = null,
         ?int $count = null,
         ?int $productCount = null,
-        ?int $total = null,
+        ?float $total = null,
         ?float $min = null,
         ?float $max = null,
         ?float $mean = null
@@ -200,17 +200,17 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTotal()
     {
         if (is_null($this->total)) {
-            /** @psalm-var ?int $data */
+            /** @psalm-var ?float $data */
             $data = $this->raw(self::FIELD_TOTAL);
             if (is_null($data)) {
                 return null;
             }
-            $this->total = (int) $data;
+            $this->total = (float) $data;
         }
 
         return $this->total;
@@ -317,9 +317,9 @@ final class FacetResultRangeModel extends JsonObjectModel implements FacetResult
     }
 
     /**
-     * @param ?int $total
+     * @param ?float $total
      */
-    public function setTotal(?int $total): void
+    public function setTotal(?float $total): void
     {
         $this->total = $total;
     }

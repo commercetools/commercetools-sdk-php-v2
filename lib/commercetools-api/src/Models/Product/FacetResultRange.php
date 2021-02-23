@@ -55,7 +55,7 @@ interface FacetResultRange extends JsonObject
     public function getProductCount();
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTotal();
 
@@ -105,9 +105,9 @@ interface FacetResultRange extends JsonObject
     public function setProductCount(?int $productCount): void;
 
     /**
-     * @param ?int $total
+     * @param ?float $total
      */
-    public function setTotal(?int $total): void;
+    public function setTotal(?float $total): void;
 
     /**
      * @param ?float $min

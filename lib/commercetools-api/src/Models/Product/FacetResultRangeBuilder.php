@@ -51,7 +51,7 @@ final class FacetResultRangeBuilder implements Builder
     private $productCount;
 
     /**
-     * @var ?int
+     * @var ?float
      */
     private $total;
 
@@ -119,7 +119,7 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|float
      */
     public function getTotal()
     {
@@ -217,10 +217,10 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @param ?int $total
+     * @param ?float $total
      * @return $this
      */
-    public function withTotal(?int $total)
+    public function withTotal(?float $total)
     {
         $this->total = $total;
 
