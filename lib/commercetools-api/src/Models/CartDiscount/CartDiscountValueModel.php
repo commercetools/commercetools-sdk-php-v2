@@ -31,6 +31,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
      */
     private static $discriminatorClasses = [
        'absolute' => CartDiscountValueAbsoluteModel::class,
+       'fixed' => CartDiscountValueFixedModel::class,
        'giftLineItem' => CartDiscountValueGiftLineItemModel::class,
        'relative' => CartDiscountValueRelativeModel::class,
     ];
