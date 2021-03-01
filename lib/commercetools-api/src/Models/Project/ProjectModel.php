@@ -82,6 +82,11 @@ final class ProjectModel extends JsonObjectModel implements Project
      */
     protected $carts;
 
+    /**
+     * @var ?SearchIndexingConfiguration
+     */
+    protected $searchIndexing;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -98,7 +103,8 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?MessageConfiguration $messages = null,
         ?ShippingRateInputType $shippingRateInputType = null,
         ?ExternalOAuth $externalOAuth = null,
-        ?CartsConfiguration $carts = null
+        ?CartsConfiguration $carts = null,
+        ?SearchIndexingConfiguration $searchIndexing = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -112,6 +118,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->shippingRateInputType = $shippingRateInputType;
         $this->externalOAuth = $externalOAuth;
         $this->carts = $carts;
+        $this->searchIndexing = $searchIndexing;
     }
 
     /**
@@ -338,6 +345,24 @@ final class ProjectModel extends JsonObjectModel implements Project
         return $this->carts;
     }
 
+    /**
+     * @return null|SearchIndexingConfiguration
+     */
+    public function getSearchIndexing()
+    {
+        if (is_null($this->searchIndexing)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SEARCH_INDEXING);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->searchIndexing = SearchIndexingConfigurationModel::of($data);
+        }
+
+        return $this->searchIndexing;
+    }
+
 
     /**
      * @param ?int $version
@@ -433,6 +458,14 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setCarts(?CartsConfiguration $carts): void
     {
         $this->carts = $carts;
+    }
+
+    /**
+     * @param ?SearchIndexingConfiguration $searchIndexing
+     */
+    public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void
+    {
+        $this->searchIndexing = $searchIndexing;
     }
 
 

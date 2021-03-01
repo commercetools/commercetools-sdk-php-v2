@@ -27,6 +27,7 @@ interface Project extends JsonObject
     public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
     public const FIELD_CARTS = 'carts';
+    public const FIELD_SEARCH_INDEXING = 'searchIndexing';
 
     /**
      * <p>The current version of the project.</p>
@@ -101,6 +102,11 @@ interface Project extends JsonObject
     public function getCarts();
 
     /**
+     * @return null|SearchIndexingConfiguration
+     */
+    public function getSearchIndexing();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -159,4 +165,9 @@ interface Project extends JsonObject
      * @param ?CartsConfiguration $carts
      */
     public function setCarts(?CartsConfiguration $carts): void;
+
+    /**
+     * @param ?SearchIndexingConfiguration $searchIndexing
+     */
+    public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void;
 }

@@ -84,6 +84,11 @@ final class ProjectBuilder implements Builder
     private $carts;
 
     /**
+     * @var null|SearchIndexingConfiguration|SearchIndexingConfigurationBuilder
+     */
+    private $searchIndexing;
+
+    /**
      * <p>The current version of the project.</p>
      *
      * @return null|int
@@ -189,6 +194,14 @@ final class ProjectBuilder implements Builder
     public function getCarts()
     {
         return $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts;
+    }
+
+    /**
+     * @return null|SearchIndexingConfiguration
+     */
+    public function getSearchIndexing()
+    {
+        return $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing;
     }
 
     /**
@@ -324,6 +337,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?SearchIndexingConfiguration $searchIndexing
+     * @return $this
+     */
+    public function withSearchIndexing(?SearchIndexingConfiguration $searchIndexing)
+    {
+        $this->searchIndexing = $searchIndexing;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
@@ -363,6 +387,16 @@ final class ProjectBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withSearchIndexingBuilder(?SearchIndexingConfigurationBuilder $searchIndexing)
+    {
+        $this->searchIndexing = $searchIndexing;
+
+        return $this;
+    }
+
     public function build(): Project
     {
         return new ProjectModel(
@@ -377,7 +411,8 @@ final class ProjectBuilder implements Builder
             $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages,
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
-            $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts
+            $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts,
+            $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing
         );
     }
 
