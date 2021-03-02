@@ -28,7 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMeCartsKeyByKeyPost extends ApiRequest
+class ByProjectKeyMeCartsKeyByKeyDelete extends ApiRequest
 {
     /**
      * @param ?object $body
@@ -37,7 +37,7 @@ class ByProjectKeyMeCartsKeyByKeyPost extends ApiRequest
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/me/carts/key={key}');
-        parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
@@ -140,9 +140,18 @@ class ByProjectKeyMeCartsKeyByKeyPost extends ApiRequest
 
     /**
      *
+     * @psalm-param scalar|scalar[] $version
+     */
+    public function withVersion($version): ByProjectKeyMeCartsKeyByKeyDelete
+    {
+        return $this->withQueryParam('version', $version);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyMeCartsKeyByKeyPost
+    public function withExpand($expand): ByProjectKeyMeCartsKeyByKeyDelete
     {
         return $this->withQueryParam('expand', $expand);
     }

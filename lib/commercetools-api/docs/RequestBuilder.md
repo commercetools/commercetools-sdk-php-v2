@@ -2323,9 +2323,9 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->carts()->keyWithKeyValue("key")->post(null)`
+## `withProjectKey("projectKey")->me()->carts()->withKey("key")->get()`
 
-null
+Get MyCart by key
 
 ### Example
 ```php
@@ -2336,8 +2336,40 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->carts()
-                ->keyWithKeyValue("key")
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->carts()->withKey("key")->post(null)`
+
+Update MyCart by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->withKey("key")
                 ->post(null);
+```
+## `withProjectKey("projectKey")->me()->carts()->withKey("key")->delete()`
+
+Delete MyCart by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
 

@@ -226,6 +226,18 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyMeCartsKeyByKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsKeyByKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->carts()
+                        ->withKey("test_key");
+                },
+                ResourceByProjectKeyMeCartsKeyByKey::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
+                '/{projectKey}/me/carts/key={key}'
+            ],
             'ResourceByProjectKeyMeCartsByID' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsByID {
                     return $builder
@@ -237,18 +249,6 @@ class ResourceByProjectKeyMeCartsTest extends TestCase
                 ResourceByProjectKeyMeCartsByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/me/carts/{ID}'
-            ],
-            'ResourceByProjectKeyMeCartsKeyByKey' => [
-                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCartsKeyByKey {
-                    return $builder
-                        ->withProjectKey("test_projectKey")
-                        ->me()
-                        ->carts()
-                        ->keyWithKeyValue("test_key");
-                },
-                ResourceByProjectKeyMeCartsKeyByKey::class,
-                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
-                '/{projectKey}/me/carts/key={key}'
             ]
         ];
     }

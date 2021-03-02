@@ -26,6 +26,15 @@ class ResourceByProjectKeyMeCarts extends ApiResource
         parent::__construct('/{projectKey}/me/carts', $args, $client);
     }
 
+    public function withKey(string $key = null): ResourceByProjectKeyMeCartsKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyMeCartsKeyByKey($args, $this->getClient());
+    }
     public function withId(string $ID = null): ResourceByProjectKeyMeCartsByID
     {
         $args = $this->getArgs();
@@ -34,15 +43,6 @@ class ResourceByProjectKeyMeCarts extends ApiResource
         }
 
         return new ResourceByProjectKeyMeCartsByID($args, $this->getClient());
-    }
-    public function keyWithKeyValue(string $key = null): ResourceByProjectKeyMeCartsKeyByKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($key)) {
-            $args['key'] = $key;
-        }
-
-        return new ResourceByProjectKeyMeCartsKeyByKey($args, $this->getClient());
     }
 
     /**
