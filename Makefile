@@ -51,7 +51,7 @@ gen_ml_sdk: generate_ml composer_install test_bc generate_ml_test
 gen_history_sdk: generate_history composer_install test_bc generate_history_test
 
 codegen_install:
-	curl -o- -s https://raw.githubusercontent.com/vrapio/rmf-codegen/master/scripts/install.sh | bash
+	curl -o- -s https://raw.githubusercontent.com/commercetools/rmf-codegen/main/scripts/install.sh | bash
 
 composer_install:
 	composer install --no-ansi --no-interaction --no-progress --no-suggest
