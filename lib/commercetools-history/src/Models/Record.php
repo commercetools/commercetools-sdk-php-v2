@@ -78,7 +78,7 @@ interface Record extends JsonObject
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not designed to represent the actual array of update actions that was sent to the platform nor is limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
-     * @return null|ActionCollection
+     * @return null|ChangeCollection
      */
     public function getChanges();
 
@@ -132,9 +132,9 @@ interface Record extends JsonObject
     public function setPreviousLabel(?Label $previousLabel): void;
 
     /**
-     * @param ?ActionCollection $changes
+     * @param ?ChangeCollection $changes
      */
-    public function setChanges(?ActionCollection $changes): void;
+    public function setChanges(?ChangeCollection $changes): void;
 
     /**
      * @param ?Reference $resource

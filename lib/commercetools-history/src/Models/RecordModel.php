@@ -56,7 +56,7 @@ final class RecordModel extends JsonObjectModel implements Record
     protected $previousLabel;
 
     /**
-     * @var ?ActionCollection
+     * @var ?ChangeCollection
      */
     protected $changes;
 
@@ -82,7 +82,7 @@ final class RecordModel extends JsonObjectModel implements Record
         ?string $modifiedAt = null,
         ?Label $label = null,
         ?Label $previousLabel = null,
-        ?ActionCollection $changes = null,
+        ?ChangeCollection $changes = null,
         ?Reference $resource = null,
         ?bool $withoutChanges = null
     ) {
@@ -239,7 +239,7 @@ final class RecordModel extends JsonObjectModel implements Record
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not designed to represent the actual array of update actions that was sent to the platform nor is limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
-     * @return null|ActionCollection
+     * @return null|ChangeCollection
      */
     public function getChanges()
     {
@@ -249,7 +249,7 @@ final class RecordModel extends JsonObjectModel implements Record
             if (is_null($data)) {
                 return null;
             }
-            $this->changes =  ActionCollection::fromArray($data);
+            $this->changes =  ChangeCollection::fromArray($data);
         }
 
         return $this->changes;
@@ -352,9 +352,9 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * @param ?ActionCollection $changes
+     * @param ?ChangeCollection $changes
      */
-    public function setChanges(?ActionCollection $changes): void
+    public function setChanges(?ChangeCollection $changes): void
     {
         $this->changes = $changes;
     }

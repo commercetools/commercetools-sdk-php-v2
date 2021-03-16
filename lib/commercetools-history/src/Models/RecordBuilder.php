@@ -56,7 +56,7 @@ final class RecordBuilder implements Builder
     private $previousLabel;
 
     /**
-     * @var ?ActionCollection
+     * @var ?ChangeCollection
      */
     private $changes;
 
@@ -144,7 +144,7 @@ final class RecordBuilder implements Builder
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not designed to represent the actual array of update actions that was sent to the platform nor is limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
-     * @return null|ActionCollection
+     * @return null|ChangeCollection
      */
     public function getChanges()
     {
@@ -249,10 +249,10 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * @param ?ActionCollection $changes
+     * @param ?ChangeCollection $changes
      * @return $this
      */
-    public function withChanges(?ActionCollection $changes)
+    public function withChanges(?ChangeCollection $changes)
     {
         $this->changes = $changes;
 

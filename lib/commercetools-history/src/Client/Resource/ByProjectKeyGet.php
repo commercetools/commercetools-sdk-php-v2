@@ -190,15 +190,6 @@ class ByProjectKeyGet extends ApiRequest
 
     /**
      * 
-     * @psalm-param scalar|scalar[] $changeType
-     */
-    public function withChangeType($changeType): ByProjectKeyGet
-    {
-        return $this->withQueryParam('changeType', $changeType);
-    }
-
-    /**
-     * 
      * @psalm-param scalar|scalar[] $clientId
      */
     public function withClientId($clientId): ByProjectKeyGet

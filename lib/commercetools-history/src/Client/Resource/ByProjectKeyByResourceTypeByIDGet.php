@@ -181,15 +181,6 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
 
     /**
      * 
-     * @psalm-param scalar|scalar[] $changeType
-     */
-    public function withChangeType($changeType): ByProjectKeyByResourceTypeByIDGet
-    {
-        return $this->withQueryParam('changeType', $changeType);
-    }
-
-    /**
-     * 
      * @psalm-param scalar|scalar[] $clientId
      */
     public function withClientId($clientId): ByProjectKeyByResourceTypeByIDGet
