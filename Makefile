@@ -29,7 +29,7 @@ parallel_generate_ml_test: install_deps parallel_test_sdks_bc
 	$(MAKE) -C lib LIB_NAME=ml GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
 
 parallel_generate_history_test: install_deps parallel_test_sdks_bc
-	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
+	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk_test
 
 parallel_prettify_sdks: install_deps parallel_gen_sdk_tests
 	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
@@ -78,10 +78,10 @@ generate_ml_test: install_deps
 	$(MAKE) -C lib LIB_NAME=ml GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
 
 generate_history: install_deps
-	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(ML_RAML) generate_sdk
+	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk
 
 generate_history_test: install_deps
-	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(ML_RAML) generate_sdk_test
+	$(MAKE) -C lib LIB_NAME=history GEN_RAML_FILE=../$(HISTORY_RAML) generate_sdk_test
 
 prettify: install_deps
 	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
