@@ -27,7 +27,7 @@ filter:
     - 'tools/*'
     - 'lambda/*'
   dependency_paths:
-    - 'lib/commercetools-ml/src/Models/ImageSearchConfig/*'
+    - 'vendor/*'
     - 'tools/*'
     - 'lambda/*'
 checks:
