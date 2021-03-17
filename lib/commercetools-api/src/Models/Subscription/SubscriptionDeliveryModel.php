@@ -176,15 +176,15 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
         if (is_object($value) && isset($value->$fieldName)) {
             /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->$fieldName;
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
-                return static::$discriminatorClasses[$discriminatorValue];
+            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
             }
         }
         if (is_array($value) && isset($value[$fieldName])) {
             /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value[$fieldName];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
-                return static::$discriminatorClasses[$discriminatorValue];
+            if (isset(self::$discriminatorClasses[$discriminatorValue])) {
+                return self::$discriminatorClasses[$discriminatorValue];
             }
         }
 
