@@ -1,15 +1,15 @@
 build:
   nodes:
     analysis:
+      environment:
+        php:
+          version: 7.4
       project_setup:
         override:
           - 'true'
       tests:
         override:
           - php-scrutinizer-run
-          -
-            command: phpcs-run
-            use_website_config: true
     tests:
       environment:
         php:
