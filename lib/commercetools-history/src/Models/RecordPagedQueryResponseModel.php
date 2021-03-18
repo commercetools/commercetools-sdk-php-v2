@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class ChangeHistoryPagedQueryResponseModel extends JsonObjectModel implements ChangeHistoryPagedQueryResponse
+final class RecordPagedQueryResponseModel extends JsonObjectModel implements RecordPagedQueryResponse
 {
 
     /**

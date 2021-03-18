@@ -13,22 +13,22 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeHistoryPagedQueryResponse>
- * @method ChangeHistoryPagedQueryResponse current()
- * @method ChangeHistoryPagedQueryResponse at($offset)
+ * @extends MapperSequence<RecordPagedQueryResponse>
+ * @method RecordPagedQueryResponse current()
+ * @method RecordPagedQueryResponse at($offset)
  */
-class ChangeHistoryPagedQueryResponseCollection extends MapperSequence
+class RecordPagedQueryResponseCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ChangeHistoryPagedQueryResponse $value
-     * @psalm-param ChangeHistoryPagedQueryResponse|stdClass $value
+     * @psalm-assert RecordPagedQueryResponse $value
+     * @psalm-param RecordPagedQueryResponse|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ChangeHistoryPagedQueryResponseCollection
+     * @return RecordPagedQueryResponseCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ChangeHistoryPagedQueryResponse) {
+        if (!$value instanceof RecordPagedQueryResponse) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -37,14 +37,14 @@ class ChangeHistoryPagedQueryResponseCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ChangeHistoryPagedQueryResponse
+     * @psalm-return callable(int):?RecordPagedQueryResponse
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeHistoryPagedQueryResponse {
+        return function (int $index): ?RecordPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                $data = ChangeHistoryPagedQueryResponseModel::of($data);
+                $data = RecordPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
 

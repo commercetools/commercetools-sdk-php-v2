@@ -11,7 +11,7 @@ namespace Commercetools\History\Models;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 
-interface ChangeHistoryPagedQueryResponse extends JsonObject
+interface RecordPagedQueryResponse extends JsonObject
 {
 
     public const FIELD_LIMIT = 'limit';

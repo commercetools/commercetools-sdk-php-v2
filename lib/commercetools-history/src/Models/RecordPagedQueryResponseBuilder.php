@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ChangeHistoryPagedQueryResponse>
+ * @implements Builder<RecordPagedQueryResponse>
  */
-final class ChangeHistoryPagedQueryResponseBuilder implements Builder
+final class RecordPagedQueryResponseBuilder implements Builder
 {
     /**
      * @var ?int
@@ -141,9 +141,9 @@ final class ChangeHistoryPagedQueryResponseBuilder implements Builder
     }
 
 
-    public function build(): ChangeHistoryPagedQueryResponse
+    public function build(): RecordPagedQueryResponse
     {
-        return new ChangeHistoryPagedQueryResponseModel(
+        return new RecordPagedQueryResponseModel(
             $this->limit,
             $this->count,
             $this->total,
@@ -152,7 +152,7 @@ final class ChangeHistoryPagedQueryResponseBuilder implements Builder
         );
     }
 
-    public static function of(): ChangeHistoryPagedQueryResponseBuilder
+    public static function of(): RecordPagedQueryResponseBuilder
     {
         return new self();
     }

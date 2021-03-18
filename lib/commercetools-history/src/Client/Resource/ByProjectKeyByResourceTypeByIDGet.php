@@ -20,10 +20,10 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\History\Models\ChangeHistoryPagedQueryResponse;
-use Commercetools\History\Models\ChangeHistoryPagedQueryResponseModel;
 use Commercetools\History\Models\ErrorResponse;
 use Commercetools\History\Models\ErrorResponseModel;
+use Commercetools\History\Models\RecordPagedQueryResponse;
+use Commercetools\History\Models\RecordPagedQueryResponseModel;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -43,7 +43,7 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ChangeHistoryPagedQueryResponse|ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|RecordPagedQueryResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,7 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = ChangeHistoryPagedQueryResponseModel::class;
+                    $resultType = RecordPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -90,7 +90,7 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ChangeHistoryPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|RecordPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {
