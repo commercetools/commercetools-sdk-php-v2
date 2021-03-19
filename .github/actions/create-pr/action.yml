@@ -22,10 +22,15 @@ inputs:
     description: 'Draft PR'
     required: false
     default: "false"
+  github_token:
+    description: 'Github token'
+    required: false
+    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    GITHUB_TOKEN: ${{ inputs.github_token }}
     BRANCH_PREFIX: ${{ inputs.branch_prefix }}
     BASE_BRANCH: ${{ inputs.base_branch }}
     PULL_REQUEST_TITLE: ${{ inputs.request_title }}

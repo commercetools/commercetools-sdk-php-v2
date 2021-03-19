@@ -7,7 +7,7 @@ name: Create Changes PR
 
 jobs:
   create_pr:
-    name: Coding Guidelines
+    name: Create/Update PR
 
     runs-on: ubuntu-latest
     steps:
@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@v2
       - uses: ./.github/actions/create-pr
         with:
-          PULL_REQUEST_DRAFT: "true"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          draft_pr: "true"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
