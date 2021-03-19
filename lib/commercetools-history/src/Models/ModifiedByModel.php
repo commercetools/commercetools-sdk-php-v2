@@ -13,8 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceModel;
 
 /**
  * @internal
@@ -94,7 +92,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
-     * <p>Indicates whether the change was made by a user or the API client with or without an
+     * <p>Indicates whether the change was made by a user with or without an
      * <a href="/client-logging#external-user-ids">External user ID</a>.</p>
      *
      * @return null|string

@@ -10,7 +10,6 @@ namespace Commercetools\History\Models;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\Reference;
 
 interface ModifiedBy extends JsonObject
 {
@@ -31,7 +30,7 @@ interface ModifiedBy extends JsonObject
     public function getId();
 
     /**
-     * <p>Indicates whether the change was made by a user or the API client with or without an
+     * <p>Indicates whether the change was made by a user with or without an
      * <a href="/client-logging#external-user-ids">External user ID</a>.</p>
      *
      * @return null|string

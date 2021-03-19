@@ -155,17 +155,6 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?userId=userId',
             ],
-            'ByProjectKeyByResourceTypeGet_withType' => [
-                function (HistoryRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKeyValue('test_projectKey')
-                        ->withResourceTypeValue('test_resourceType')
-                        ->get()
-                        ->withType('type');
-                },
-                'get',
-                'test_projectKey/test_resourceType?type=type',
-            ],
             'ByProjectKeyByResourceTypeGet_withClientId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder
