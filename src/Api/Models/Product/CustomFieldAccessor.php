@@ -28,6 +28,7 @@ use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
 use stdClass;
 
+
 class CustomFieldAccessor
 {
     /**
