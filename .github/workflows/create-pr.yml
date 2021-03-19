@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - 'changes/master'
+
+name: Create Changes PR
+
+jobs:
+  create_pr:
+    name: Coding Guidelines
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: jenschude/auto-create-pr-action@0.1.0
+        with:
+          PULL_REQUEST_DRAFT: "true"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
