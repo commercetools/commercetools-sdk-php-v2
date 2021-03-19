@@ -7,13 +7,13 @@ name: Create Changes PR
 
 jobs:
   create_pr:
-    name: Coding Guidelines
+    name: Create/Update PR
 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: jenschude/auto-create-pr-action@0.1.0
+      - uses: jenschude/auto-create-pr-action@master
         with:
-          PULL_REQUEST_DRAFT: "true"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          draft_pr: "true"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
