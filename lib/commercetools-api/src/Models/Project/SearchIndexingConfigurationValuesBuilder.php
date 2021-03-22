@@ -8,11 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -26,6 +29,16 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     private $status;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
+
+    /**
+     * @var null|LastModifiedBy|LastModifiedByBuilder
+     */
+    private $lastModifiedBy;
+
+    /**
      * <p>Can be one of the following or absent. &quot;Activated&quot; or absent means that the search and suggest endpoints for the specified resource type are active. &quot;Deactivated&quot; means that the search and suggest endpoints for the specified resource type cannot be used. &quot;Indexing&quot; indicates that the search and suggest endpoints can <em>temporally</em> not be used because the search index is being re-built.</p>
      *
      * @return null|string
@@ -33,6 +46,22 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
@@ -46,11 +75,44 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     * @return $this
+     */
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
 
     public function build(): SearchIndexingConfigurationValues
     {
         return new SearchIndexingConfigurationValuesModel(
-            $this->status
+            $this->status,
+            $this->lastModifiedAt,
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy
         );
     }
 

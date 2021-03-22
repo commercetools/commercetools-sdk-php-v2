@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use DateTimeImmutable;
 use stdClass;
 
 /**
@@ -24,14 +27,28 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
      */
     protected $status;
 
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $status = null
+        ?string $status = null,
+        ?DateTimeImmutable $lastModifiedAt = null,
+        ?LastModifiedBy $lastModifiedBy = null
     ) {
         $this->status = $status;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     /**
@@ -53,6 +70,45 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
         return $this->status;
     }
 
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
+    }
+
 
     /**
      * @param ?string $status
@@ -60,5 +116,31 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     public function setStatus(?string $status): void
     {
         $this->status = $status;
+    }
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $data = $this->toArray();
+        if (isset($data[SearchIndexingConfigurationValues::FIELD_LAST_MODIFIED_AT]) && $data[SearchIndexingConfigurationValues::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[SearchIndexingConfigurationValues::FIELD_LAST_MODIFIED_AT] = $data[SearchIndexingConfigurationValues::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object) $data;
     }
 }

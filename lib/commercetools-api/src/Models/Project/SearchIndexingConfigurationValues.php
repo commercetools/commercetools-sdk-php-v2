@@ -8,12 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use DateTimeImmutable;
 
 interface SearchIndexingConfigurationValues extends JsonObject
 {
     public const FIELD_STATUS = 'status';
+    public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
 
     /**
      * <p>Can be one of the following or absent. &quot;Activated&quot; or absent means that the search and suggest endpoints for the specified resource type are active. &quot;Deactivated&quot; means that the search and suggest endpoints for the specified resource type cannot be used. &quot;Indexing&quot; indicates that the search and suggest endpoints can <em>temporally</em> not be used because the search index is being re-built.</p>
@@ -23,7 +27,27 @@ interface SearchIndexingConfigurationValues extends JsonObject
     public function getStatus();
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
      * @param ?string $status
      */
     public function setStatus(?string $status): void;
+
+    /**
+     * @param ?DateTimeImmutable $lastModifiedAt
+     */
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     */
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 }
