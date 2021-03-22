@@ -15,4 +15,5 @@ jobs:
         uses: actions/checkout@v2
       - uses: jenschude/auto-create-pr-action@v0.2.0
         with:
+          request_title: "Update generated SDKs"
           github_token: ${{ secrets.GITHUB_TOKEN }}
