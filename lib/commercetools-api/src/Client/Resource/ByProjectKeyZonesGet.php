@@ -31,7 +31,7 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyZonesGet extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)

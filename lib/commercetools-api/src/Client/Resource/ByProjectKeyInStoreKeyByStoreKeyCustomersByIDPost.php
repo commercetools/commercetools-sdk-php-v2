@@ -31,7 +31,7 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $storeKey, string $ID, $body = null, array $headers = [], ClientInterface $client = null)

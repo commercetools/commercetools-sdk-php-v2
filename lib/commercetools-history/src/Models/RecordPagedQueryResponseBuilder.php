@@ -46,6 +46,8 @@ final class RecordPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
+     * <p>Maximum number of results requested in the query request.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -54,6 +56,8 @@ final class RecordPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
      * @return null|int
      */
     public function getCount()
@@ -62,6 +66,9 @@ final class RecordPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation and not <a href="/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     *
      * @return null|int
      */
     public function getTotal()
@@ -70,6 +77,8 @@ final class RecordPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>The number of elements skipped, not a page number. Supplied by the client or the server default.</p>
+     *
      * @return null|int
      */
     public function getOffset()

@@ -31,7 +31,7 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyByResourceTypeGet extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $resourceType, $body = null, array $headers = [], ClientInterface $client = null)
@@ -177,6 +177,15 @@ class ByProjectKeyByResourceTypeGet extends ApiRequest
     public function withUserId($userId): ByProjectKeyByResourceTypeGet
     {
         return $this->withQueryParam('userId', $userId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $type
+     */
+    public function withType($type): ByProjectKeyByResourceTypeGet
+    {
+        return $this->withQueryParam('type', $type);
     }
 
     /**

@@ -29,7 +29,7 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyOrdersEditsByIDApplyPost extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ClientInterface $client = null)
