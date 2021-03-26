@@ -17,3 +17,4 @@ jobs:
         with:
           request_title: "Update generated SDKs"
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          reviewer: "commercetools/clients-team"
