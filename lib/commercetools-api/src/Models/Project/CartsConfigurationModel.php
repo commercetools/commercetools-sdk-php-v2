@@ -24,14 +24,21 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
      */
     protected $countryTaxRateFallbackEnabled;
 
+    /**
+     * @var ?int
+     */
+    protected $deleteDaysAfterLastModification;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $countryTaxRateFallbackEnabled = null
+        ?bool $countryTaxRateFallbackEnabled = null,
+        ?int $deleteDaysAfterLastModification = null
     ) {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
     /**
@@ -53,6 +60,25 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
         return $this->countryTaxRateFallbackEnabled;
     }
 
+    /**
+     * <p>The default value for the deleteDaysAfterLastModification parameter of the CartDraft. Initially set to 90 for projects created after December 2019.</p>
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
+    }
+
 
     /**
      * @param ?bool $countryTaxRateFallbackEnabled
@@ -60,5 +86,13 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
     {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+    }
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 }
