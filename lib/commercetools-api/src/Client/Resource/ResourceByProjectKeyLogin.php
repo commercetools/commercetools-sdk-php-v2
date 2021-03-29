@@ -30,7 +30,7 @@ class ResourceByProjectKeyLogin extends ApiResource
      * @psalm-param ?CustomerSignin $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerSignin $body = null, array $headers = []): ByProjectKeyLoginPost
+    public function post(?CustomerSignin$body = null, array $headers = []): ByProjectKeyLoginPost
     {
         $args = $this->getArgs();
 

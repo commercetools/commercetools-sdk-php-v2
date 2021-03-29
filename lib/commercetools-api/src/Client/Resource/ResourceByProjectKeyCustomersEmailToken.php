@@ -30,7 +30,7 @@ class ResourceByProjectKeyCustomersEmailToken extends ApiResource
      * @psalm-param ?CustomerCreateEmailToken $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerCreateEmailToken $body = null, array $headers = []): ByProjectKeyCustomersEmailTokenPost
+    public function post(?CustomerCreateEmailToken$body = null, array $headers = []): ByProjectKeyCustomersEmailTokenPost
     {
         $args = $this->getArgs();
 

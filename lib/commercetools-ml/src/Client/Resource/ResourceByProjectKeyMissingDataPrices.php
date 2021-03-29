@@ -37,7 +37,7 @@ class ResourceByProjectKeyMissingDataPrices extends ApiResource
      * @psalm-param ?MissingPricesSearchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MissingPricesSearchRequest $body = null, array $headers = []): ByProjectKeyMissingDataPricesPost
+    public function post(?MissingPricesSearchRequest$body = null, array $headers = []): ByProjectKeyMissingDataPricesPost
     {
         $args = $this->getArgs();
 

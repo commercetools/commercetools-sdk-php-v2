@@ -217,7 +217,7 @@ class ResourceByProjectKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyGet
@@ -230,7 +230,7 @@ class ResourceByProjectKey extends ApiResource
      * @psalm-param ?ProjectUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProjectUpdate $body = null, array $headers = []): ByProjectKeyPost
+    public function post(?ProjectUpdate$body = null, array $headers = []): ByProjectKeyPost
     {
         $args = $this->getArgs();
 

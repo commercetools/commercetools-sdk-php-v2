@@ -26,7 +26,7 @@ class ResourceByProjectKeyMeLogin extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function post($body = null, array $headers = []): ByProjectKeyMeLoginPost

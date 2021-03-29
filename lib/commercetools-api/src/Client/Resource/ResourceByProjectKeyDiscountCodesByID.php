@@ -27,7 +27,7 @@ class ResourceByProjectKeyDiscountCodesByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyDiscountCodesByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyDiscountCodesByID extends ApiResource
      * @psalm-param ?DiscountCodeUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?DiscountCodeUpdate $body = null, array $headers = []): ByProjectKeyDiscountCodesByIDPost
+    public function post(?DiscountCodeUpdate$body = null, array $headers = []): ByProjectKeyDiscountCodesByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyDiscountCodesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyDiscountCodesByIDDelete

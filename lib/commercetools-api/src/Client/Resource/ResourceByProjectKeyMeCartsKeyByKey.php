@@ -27,7 +27,7 @@ class ResourceByProjectKeyMeCartsKeyByKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyMeCartsKeyByKeyGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyMeCartsKeyByKey extends ApiResource
      * @psalm-param ?MyCartUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyCartUpdate $body = null, array $headers = []): ByProjectKeyMeCartsKeyByKeyPost
+    public function post(?MyCartUpdate$body = null, array $headers = []): ByProjectKeyMeCartsKeyByKeyPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyMeCartsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyMeCartsKeyByKeyDelete

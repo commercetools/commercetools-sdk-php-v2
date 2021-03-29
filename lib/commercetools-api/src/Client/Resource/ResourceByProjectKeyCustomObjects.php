@@ -50,7 +50,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyCustomObjectsGet
@@ -63,7 +63,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
      * @psalm-param ?CustomObjectDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomObjectDraft $body = null, array $headers = []): ByProjectKeyCustomObjectsPost
+    public function post(?CustomObjectDraft$body = null, array $headers = []): ByProjectKeyCustomObjectsPost
     {
         $args = $this->getArgs();
 

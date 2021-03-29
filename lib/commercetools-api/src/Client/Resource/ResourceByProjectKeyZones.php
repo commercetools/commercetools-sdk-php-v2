@@ -46,7 +46,7 @@ class ResourceByProjectKeyZones extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyZonesGet
@@ -59,7 +59,7 @@ class ResourceByProjectKeyZones extends ApiResource
      * @psalm-param ?ZoneDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ZoneDraft $body = null, array $headers = []): ByProjectKeyZonesPost
+    public function post(?ZoneDraft$body = null, array $headers = []): ByProjectKeyZonesPost
     {
         $args = $this->getArgs();
 

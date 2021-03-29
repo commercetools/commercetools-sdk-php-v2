@@ -27,7 +27,7 @@ class ResourceByProjectKeyMePaymentsByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyMePaymentsByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyMePaymentsByID extends ApiResource
      * @psalm-param ?MyPaymentUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyPaymentUpdate $body = null, array $headers = []): ByProjectKeyMePaymentsByIDPost
+    public function post(?MyPaymentUpdate$body = null, array $headers = []): ByProjectKeyMePaymentsByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyMePaymentsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyMePaymentsByIDDelete

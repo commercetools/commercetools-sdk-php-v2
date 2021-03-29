@@ -46,7 +46,7 @@ class ResourceByProjectKeyCategories extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyCategoriesGet
@@ -59,7 +59,7 @@ class ResourceByProjectKeyCategories extends ApiResource
      * @psalm-param ?CategoryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CategoryDraft $body = null, array $headers = []): ByProjectKeyCategoriesPost
+    public function post(?CategoryDraft$body = null, array $headers = []): ByProjectKeyCategoriesPost
     {
         $args = $this->getArgs();
 

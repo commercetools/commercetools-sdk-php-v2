@@ -30,7 +30,7 @@ class ResourceByProjectKeyProductDiscountsMatching extends ApiResource
      * @psalm-param ?ProductDiscountMatchQuery $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductDiscountMatchQuery $body = null, array $headers = []): ByProjectKeyProductDiscountsMatchingPost
+    public function post(?ProductDiscountMatchQuery$body = null, array $headers = []): ByProjectKeyProductDiscountsMatchingPost
     {
         $args = $this->getArgs();
 

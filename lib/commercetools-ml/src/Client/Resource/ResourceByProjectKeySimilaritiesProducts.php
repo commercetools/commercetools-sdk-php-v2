@@ -37,7 +37,7 @@ class ResourceByProjectKeySimilaritiesProducts extends ApiResource
      * @psalm-param ?SimilarProductSearchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?SimilarProductSearchRequest $body = null, array $headers = []): ByProjectKeySimilaritiesProductsPost
+    public function post(?SimilarProductSearchRequest$body = null, array $headers = []): ByProjectKeySimilaritiesProductsPost
     {
         $args = $this->getArgs();
 

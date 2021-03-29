@@ -30,14 +30,14 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
      * @psalm-param ?ImportSinkDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function put(?ImportSinkDraft $body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
+    public function put(?ImportSinkDraft$body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyImportSinksByImportSinkKeyPut($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyGet
@@ -47,7 +47,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
         return new ByProjectKeyImportSinksByImportSinkKeyGet($args['projectKey'], $args['importSinkKey'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyDelete

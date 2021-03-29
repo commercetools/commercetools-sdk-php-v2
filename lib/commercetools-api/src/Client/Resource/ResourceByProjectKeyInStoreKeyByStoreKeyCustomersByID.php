@@ -27,7 +27,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID extends ApiResource
      * @psalm-param ?CustomerUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerUpdate $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost
+    public function post(?CustomerUpdate$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyInStoreKeyByStoreKeyCustomersByIDPost($args['projectKey'], $args['storeKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersByIDDelete

@@ -58,7 +58,7 @@ class ResourceByProjectKeyOrders extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersGet
@@ -71,7 +71,7 @@ class ResourceByProjectKeyOrders extends ApiResource
      * @psalm-param ?OrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderFromCartDraft $body = null, array $headers = []): ByProjectKeyOrdersPost
+    public function post(?OrderFromCartDraft$body = null, array $headers = []): ByProjectKeyOrdersPost
     {
         $args = $this->getArgs();
 

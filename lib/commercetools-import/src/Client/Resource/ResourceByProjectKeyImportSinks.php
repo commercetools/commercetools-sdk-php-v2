@@ -40,14 +40,14 @@ class ResourceByProjectKeyImportSinks extends ApiResource
      * @psalm-param ?ImportSinkDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ImportSinkDraft $body = null, array $headers = []): ByProjectKeyImportSinksPost
+    public function post(?ImportSinkDraft$body = null, array $headers = []): ByProjectKeyImportSinksPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyImportSinksPost($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyImportSinksGet

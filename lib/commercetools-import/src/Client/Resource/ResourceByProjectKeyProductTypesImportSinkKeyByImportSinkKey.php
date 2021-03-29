@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey extends ApiRe
      * @psalm-param ?ProductTypeImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductTypeImportRequest $body = null, array $headers = []): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyPost
+    public function post(?ProductTypeImportRequest$body = null, array $headers = []): ByProjectKeyProductTypesImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

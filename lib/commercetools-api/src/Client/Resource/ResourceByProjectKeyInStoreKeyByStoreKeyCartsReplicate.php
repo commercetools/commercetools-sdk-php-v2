@@ -30,7 +30,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate extends ApiResource
      * @psalm-param ?ReplicaCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ReplicaCartDraft $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCartsReplicatePost
+    public function post(?ReplicaCartDraft$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCartsReplicatePost
     {
         $args = $this->getArgs();
 

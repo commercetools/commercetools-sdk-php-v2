@@ -64,7 +64,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyShippingMethodsGet
@@ -77,7 +77,7 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
      * @psalm-param ?ShippingMethodDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ShippingMethodDraft $body = null, array $headers = []): ByProjectKeyShippingMethodsPost
+    public function post(?ShippingMethodDraft$body = null, array $headers = []): ByProjectKeyShippingMethodsPost
     {
         $args = $this->getArgs();
 
