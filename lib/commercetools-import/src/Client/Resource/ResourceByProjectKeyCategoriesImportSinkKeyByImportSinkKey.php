@@ -37,7 +37,7 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKey extends ApiReso
      * @psalm-param ?CategoryImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CategoryImportRequest $body = null, array $headers = []): ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyPost
+    public function post(?CategoryImportRequest$body = null, array $headers = []): ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

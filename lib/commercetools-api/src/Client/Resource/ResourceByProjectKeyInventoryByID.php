@@ -27,7 +27,7 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyInventoryByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyInventoryByID extends ApiResource
      * @psalm-param ?InventoryEntryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?InventoryEntryUpdate $body = null, array $headers = []): ByProjectKeyInventoryByIDPost
+    public function post(?InventoryEntryUpdate$body = null, array $headers = []): ByProjectKeyInventoryByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyInventoryByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyInventoryByIDDelete

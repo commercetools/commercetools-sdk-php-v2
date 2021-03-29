@@ -46,7 +46,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyTaxCategoriesGet
@@ -59,7 +59,7 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
      * @psalm-param ?TaxCategoryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?TaxCategoryDraft $body = null, array $headers = []): ByProjectKeyTaxCategoriesPost
+    public function post(?TaxCategoryDraft$body = null, array $headers = []): ByProjectKeyTaxCategoriesPost
     {
         $args = $this->getArgs();
 

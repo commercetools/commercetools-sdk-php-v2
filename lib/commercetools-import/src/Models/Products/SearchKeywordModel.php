@@ -71,8 +71,8 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
             if (is_null($data)) {
                 return null;
             }
-            $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
-            $this->suggestTokenizer = $className::of($data);
+
+            $this->suggestTokenizer = SuggestTokenizerModel::of($data);
         }
 
         return $this->suggestTokenizer;

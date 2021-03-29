@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomersImportSinkKeyByImportSinkKey extends ApiResou
      * @psalm-param ?CustomerImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerImportRequest $body = null, array $headers = []): ByProjectKeyCustomersImportSinkKeyByImportSinkKeyPost
+    public function post(?CustomerImportRequest$body = null, array $headers = []): ByProjectKeyCustomersImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

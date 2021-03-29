@@ -63,7 +63,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     }
 
     /**
-     * <p>References a resource by its key.</p>
+     * <p>References a resource by its key</p>
      *
      * @return null|KeyReference
      */
@@ -75,8 +75,8 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
             if (is_null($data)) {
                 return null;
             }
-            $className = KeyReferenceModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = KeyReferenceModel::of($data);
         }
 
         return $this->value;

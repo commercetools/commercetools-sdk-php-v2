@@ -27,7 +27,7 @@ class ResourceByProjectKeyImageSearchConfig extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyImageSearchConfigGet
@@ -40,7 +40,7 @@ class ResourceByProjectKeyImageSearchConfig extends ApiResource
      * @psalm-param ?ImageSearchConfigRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ImageSearchConfigRequest $body = null, array $headers = []): ByProjectKeyImageSearchConfigPost
+    public function post(?ImageSearchConfigRequest$body = null, array $headers = []): ByProjectKeyImageSearchConfigPost
     {
         $args = $this->getArgs();
 

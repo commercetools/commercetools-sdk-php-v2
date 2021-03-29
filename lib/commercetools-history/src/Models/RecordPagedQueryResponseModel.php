@@ -65,6 +65,8 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
+     * <p>Maximum number of results requested in the query request.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -82,6 +84,8 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
      * @return null|int
      */
     public function getCount()
@@ -99,6 +103,9 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation and not <a href="/general-concepts#strong-consistency">strongly consistent</a>.</p>
+     *
      * @return null|int
      */
     public function getTotal()
@@ -116,6 +123,8 @@ final class RecordPagedQueryResponseModel extends JsonObjectModel implements Rec
     }
 
     /**
+     * <p>The number of elements skipped, not a page number. Supplied by the client or the server default.</p>
+     *
      * @return null|int
      */
     public function getOffset()

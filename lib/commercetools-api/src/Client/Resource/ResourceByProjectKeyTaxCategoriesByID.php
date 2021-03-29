@@ -27,7 +27,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
      * @psalm-param ?TaxCategoryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?TaxCategoryUpdate $body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDPost
+    public function post(?TaxCategoryUpdate$body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyTaxCategoriesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDDelete

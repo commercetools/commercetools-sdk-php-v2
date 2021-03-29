@@ -29,13 +29,13 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyOrdersImportSinkKeyByImportSinkKeyPost extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $importSinkKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/orders/importSinkKey={importSinkKey}');
-        parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**

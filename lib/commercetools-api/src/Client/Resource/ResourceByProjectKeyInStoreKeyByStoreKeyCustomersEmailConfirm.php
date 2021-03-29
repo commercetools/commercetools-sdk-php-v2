@@ -30,7 +30,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm extends ApiR
      * @psalm-param ?CustomerEmailVerify $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerEmailVerify $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost
+    public function post(?CustomerEmailVerify$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost
     {
         $args = $this->getArgs();
 

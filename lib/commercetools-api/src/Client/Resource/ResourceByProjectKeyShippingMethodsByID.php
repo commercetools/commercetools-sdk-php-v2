@@ -27,7 +27,7 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyShippingMethodsByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
      * @psalm-param ?ShippingMethodUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ShippingMethodUpdate $body = null, array $headers = []): ByProjectKeyShippingMethodsByIDPost
+    public function post(?ShippingMethodUpdate$body = null, array $headers = []): ByProjectKeyShippingMethodsByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyShippingMethodsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyShippingMethodsByIDDelete

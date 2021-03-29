@@ -30,7 +30,7 @@ class ResourceByProjectKeyCustomersPassword extends ApiResource
      * @psalm-param ?CustomerChangePassword $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerChangePassword $body = null, array $headers = []): ByProjectKeyCustomersPasswordPost
+    public function post(?CustomerChangePassword$body = null, array $headers = []): ByProjectKeyCustomersPasswordPost
     {
         $args = $this->getArgs();
 

@@ -3359,7 +3359,7 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
-## `withProjectKey("projectKey")->productProjections()->search()->post()`
+## `withProjectKey("projectKey")->productProjections()->search()->post(null)`
 
 Search Product Projection
 
@@ -3372,7 +3372,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
                 ->search()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->productProjections()->search()->get()`
 

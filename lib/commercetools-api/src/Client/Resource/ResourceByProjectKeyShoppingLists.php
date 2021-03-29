@@ -46,7 +46,7 @@ class ResourceByProjectKeyShoppingLists extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyShoppingListsGet
@@ -59,7 +59,7 @@ class ResourceByProjectKeyShoppingLists extends ApiResource
      * @psalm-param ?ShoppingListDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ShoppingListDraft $body = null, array $headers = []): ByProjectKeyShoppingListsPost
+    public function post(?ShoppingListDraft$body = null, array $headers = []): ByProjectKeyShoppingListsPost
     {
         $args = $this->getArgs();
 

@@ -37,7 +37,7 @@ class ResourceByProjectKeyInventoriesImportSinkKeyByImportSinkKey extends ApiRes
      * @psalm-param ?InventoryImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?InventoryImportRequest $body = null, array $headers = []): ByProjectKeyInventoriesImportSinkKeyByImportSinkKeyPost
+    public function post(?InventoryImportRequest$body = null, array $headers = []): ByProjectKeyInventoriesImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

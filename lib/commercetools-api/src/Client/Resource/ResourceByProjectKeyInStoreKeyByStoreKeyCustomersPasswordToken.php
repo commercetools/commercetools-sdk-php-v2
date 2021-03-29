@@ -30,7 +30,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken extends Api
      * @psalm-param ?CustomerCreatePasswordResetToken $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerCreatePasswordResetToken $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost
+    public function post(?CustomerCreatePasswordResetToken$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost
     {
         $args = $this->getArgs();
 

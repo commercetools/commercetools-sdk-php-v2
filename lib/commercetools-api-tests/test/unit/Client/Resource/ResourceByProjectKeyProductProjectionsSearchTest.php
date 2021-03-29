@@ -97,7 +97,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("test_projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 'post',
                 'test_projectKey/product-projections/search',
@@ -371,7 +371,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 }
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
@@ -395,7 +395,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 400
             ],
@@ -405,7 +405,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 401
             ],
@@ -415,7 +415,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 403
             ],
@@ -425,7 +425,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 404
             ],
@@ -435,7 +435,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 500
             ],
@@ -445,7 +445,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 503
             ],
@@ -455,7 +455,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 200
             ],
@@ -465,7 +465,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->productProjections()
                         ->search()
-                        ->post();
+                        ->post(null);
                 },
                 599
             ],

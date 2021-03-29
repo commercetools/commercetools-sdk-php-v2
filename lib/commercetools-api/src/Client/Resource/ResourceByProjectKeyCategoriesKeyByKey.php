@@ -27,7 +27,7 @@ class ResourceByProjectKeyCategoriesKeyByKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyCategoriesKeyByKey extends ApiResource
      * @psalm-param ?CategoryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CategoryUpdate $body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyPost
+    public function post(?CategoryUpdate$body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyCategoriesKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyDelete

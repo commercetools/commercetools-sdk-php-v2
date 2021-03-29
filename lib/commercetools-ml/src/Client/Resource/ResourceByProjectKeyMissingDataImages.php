@@ -37,7 +37,7 @@ class ResourceByProjectKeyMissingDataImages extends ApiResource
      * @psalm-param ?MissingImagesSearchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MissingImagesSearchRequest $body = null, array $headers = []): ByProjectKeyMissingDataImagesPost
+    public function post(?MissingImagesSearchRequest$body = null, array $headers = []): ByProjectKeyMissingDataImagesPost
     {
         $args = $this->getArgs();
 

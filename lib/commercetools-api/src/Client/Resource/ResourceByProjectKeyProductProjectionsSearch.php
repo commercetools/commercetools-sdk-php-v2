@@ -26,17 +26,17 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post($body = null, array $headers = []): ByProjectKeyProductProjectionsSearchPost
+    public function post(?string$body = null, array $headers = []): ByProjectKeyProductProjectionsSearchPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyProductProjectionsSearchPost($args['projectKey'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductProjectionsSearchGet

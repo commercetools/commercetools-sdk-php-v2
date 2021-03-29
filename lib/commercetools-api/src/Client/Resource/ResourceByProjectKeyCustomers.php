@@ -94,7 +94,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyCustomersGet
@@ -107,7 +107,7 @@ class ResourceByProjectKeyCustomers extends ApiResource
      * @psalm-param ?CustomerDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerDraft $body = null, array $headers = []): ByProjectKeyCustomersPost
+    public function post(?CustomerDraft$body = null, array $headers = []): ByProjectKeyCustomersPost
     {
         $args = $this->getArgs();
 

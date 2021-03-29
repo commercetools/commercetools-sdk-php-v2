@@ -34,7 +34,7 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyOrdersEditsByIDGet
@@ -47,14 +47,14 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
      * @psalm-param ?OrderEditUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderEditUpdate $body = null, array $headers = []): ByProjectKeyOrdersEditsByIDPost
+    public function post(?OrderEditUpdate$body = null, array $headers = []): ByProjectKeyOrdersEditsByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyOrdersEditsByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyOrdersEditsByIDDelete

@@ -27,7 +27,7 @@ class ResourceByProjectKeySubscriptionsKeyByKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeySubscriptionsKeyByKeyGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeySubscriptionsKeyByKey extends ApiResource
      * @psalm-param ?SubscriptionUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?SubscriptionUpdate $body = null, array $headers = []): ByProjectKeySubscriptionsKeyByKeyPost
+    public function post(?SubscriptionUpdate$body = null, array $headers = []): ByProjectKeySubscriptionsKeyByKeyPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeySubscriptionsKeyByKeyPost($args['projectKey'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeySubscriptionsKeyByKeyDelete

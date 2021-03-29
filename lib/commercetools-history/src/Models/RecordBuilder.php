@@ -14,6 +14,11 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\Reference;
+use Commercetools\History\Models\Common\ReferenceBuilder;
+use Commercetools\History\Models\Label\Label;
+use Commercetools\History\Models\Label\LabelBuilder;
 
 /**
  * @implements Builder<Record>
@@ -101,7 +106,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * <p>Information about the user or the client who performed the change.</p>
+     * <p>Information about the user or the API client who performed the change.</p>
      *
      * @return null|ModifiedBy
      */
@@ -142,7 +147,7 @@ final class RecordBuilder implements Builder
 
     /**
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
-     * The value is not designed to represent the actual array of update actions that was sent to the platform nor is limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
+     * The value is not identical to the actual array of update actions that was sent to the platform and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
      * @return null|ChangeCollection
      */
@@ -162,7 +167,8 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code> if no change was detected.</p>
+     * <p><code>true</code> if no change was detected.
+     * The version number of the resource can be increased even without any change in the resource.</p>
      *
      * @return null|bool
      */

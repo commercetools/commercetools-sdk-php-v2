@@ -27,7 +27,7 @@ class ResourceByProjectKeyZonesByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyZonesByIDGet
@@ -40,14 +40,14 @@ class ResourceByProjectKeyZonesByID extends ApiResource
      * @psalm-param ?ZoneUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ZoneUpdate $body = null, array $headers = []): ByProjectKeyZonesByIDPost
+    public function post(?ZoneUpdate$body = null, array $headers = []): ByProjectKeyZonesByIDPost
     {
         $args = $this->getArgs();
 
         return new ByProjectKeyZonesByIDPost($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyZonesByIDDelete

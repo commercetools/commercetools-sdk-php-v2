@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function get($body = null, array $headers = []): ByProjectKeyCustomObjectsByContainerByKeyGet
@@ -36,7 +36,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKey extends ApiResource
         return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key'], $body, $headers, $this->getClient());
     }
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function delete($body = null, array $headers = []): ByProjectKeyCustomObjectsByContainerByKeyDelete

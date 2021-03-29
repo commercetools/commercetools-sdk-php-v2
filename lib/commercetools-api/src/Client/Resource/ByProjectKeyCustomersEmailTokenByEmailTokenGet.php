@@ -31,13 +31,13 @@ use Psr\Http\Message\ResponseInterface;
 class ByProjectKeyCustomersEmailTokenByEmailTokenGet extends ApiRequest
 {
     /**
-     * @param ?object $body
+     * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function __construct(string $projectKey, string $emailToken, $body = null, array $headers = [], ClientInterface $client = null)
     {
         $uri = str_replace(['{projectKey}', '{emailToken}'], [$projectKey, $emailToken], '{projectKey}/customers/email-token={emailToken}');
-        parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**

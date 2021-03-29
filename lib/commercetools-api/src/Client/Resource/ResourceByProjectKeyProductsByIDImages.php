@@ -27,7 +27,7 @@ class ResourceByProjectKeyProductsByIDImages extends ApiResource
     }
 
     /**
-     * @psalm-param ?UploadedFileInterface $body
+     * @psalm-param ?UploadedFileInterface  $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
     public function post(?UploadedFileInterface $body = null, array $headers = []): ByProjectKeyProductsByIDImagesPost
