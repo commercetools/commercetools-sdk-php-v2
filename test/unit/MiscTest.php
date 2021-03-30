@@ -26,6 +26,7 @@ use Commercetools\Api\Models\ProductType\AttributePlainEnumValue;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Base\JsonObject;
+use Commercetools\Client\ClientFactory;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -222,5 +223,14 @@ class MiscTest extends TestCase
         $this->assertSame('foo', $c->getCustom()->getFields()->with('enum', CustomFieldAccessor::of())->getValueAsEnum()->getLabel());
         $this->assertSame('foo', $c->getCustom()->getFields()->with('lenum', CustomFieldAccessor::of())->getValueAsLocalizedEnum()->getKey());
         $this->assertSame('foo', $c->getCustom()->getFields()->with('lenum', CustomFieldAccessor::of())->getValueAsLocalizedEnum()->getLabel()->at('en'));
+    }
+
+    public function testStringBody()
+    {
+        $b = new ApiRequestBuilder();
+        $body = (string)$b->withProjectKey('')->productProjections()->search()->post('hello world')->getBody();
+        $this->assertSame('hello world', $body);
+        $body = (string)$b->withProjectKey('')->productProjections()->search()->post(null)->getBody();
+        $this->assertSame('', $body);
     }
 }
