@@ -53,11 +53,6 @@ final class ImportOperationBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?int
-     */
-    private $retryCount;
-
-    /**
      * @var ?ErrorObjectCollection
      */
     private $errors;
@@ -135,16 +130,6 @@ final class ImportOperationBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * <p>The number of request retries for processing the import resource.</p>
-     *
-     * @return null|int
-     */
-    public function getRetryCount()
-    {
-        return $this->retryCount;
     }
 
     /**
@@ -255,17 +240,6 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * @param ?int $retryCount
-     * @return $this
-     */
-    public function withRetryCount(?int $retryCount)
-    {
-        $this->retryCount = $retryCount;
-
-        return $this;
-    }
-
-    /**
      * @param ?ErrorObjectCollection $errors
      * @return $this
      */
@@ -319,7 +293,6 @@ final class ImportOperationBuilder implements Builder
             $this->id,
             $this->state,
             $this->resourceVersion,
-            $this->retryCount,
             $this->errors,
             $this->createdAt,
             $this->lastModifiedAt,

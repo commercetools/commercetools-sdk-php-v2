@@ -43,16 +43,6 @@ final class OperationStatesBuilder implements Builder
     /**
      * @var ?int
      */
-    private $Delete;
-
-    /**
-     * @var ?int
-     */
-    private $Deleted;
-
-    /**
-     * @var ?int
-     */
     private $Rejected;
 
     /**
@@ -93,26 +83,6 @@ final class OperationStatesBuilder implements Builder
     public function getImported()
     {
         return $this->Imported;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDelete()
-    {
-        return $this->Delete;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDeleted()
-    {
-        return $this->Deleted;
     }
 
     /**
@@ -170,28 +140,6 @@ final class OperationStatesBuilder implements Builder
     }
 
     /**
-     * @param ?int $Delete
-     * @return $this
-     */
-    public function withDelete(?int $Delete)
-    {
-        $this->Delete = $Delete;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $Deleted
-     * @return $this
-     */
-    public function withDeleted(?int $Deleted)
-    {
-        $this->Deleted = $Deleted;
-
-        return $this;
-    }
-
-    /**
      * @param ?int $Rejected
      * @return $this
      */
@@ -210,8 +158,6 @@ final class OperationStatesBuilder implements Builder
             $this->Unresolved,
             $this->WaitForMasterVariant,
             $this->Imported,
-            $this->Delete,
-            $this->Deleted,
             $this->Rejected
         );
     }

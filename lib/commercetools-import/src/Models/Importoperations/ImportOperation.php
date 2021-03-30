@@ -21,7 +21,6 @@ interface ImportOperation extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_STATE = 'state';
     public const FIELD_RESOURCE_VERSION = 'resourceVersion';
-    public const FIELD_RETRY_COUNT = 'retryCount';
     public const FIELD_ERRORS = 'errors';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
@@ -68,13 +67,6 @@ interface ImportOperation extends JsonObject
      * @return null|int
      */
     public function getResourceVersion();
-
-    /**
-     * <p>The number of request retries for processing the import resource.</p>
-     *
-     * @return null|int
-     */
-    public function getRetryCount();
 
     /**
      * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
@@ -134,11 +126,6 @@ interface ImportOperation extends JsonObject
      * @param ?int $resourceVersion
      */
     public function setResourceVersion(?int $resourceVersion): void;
-
-    /**
-     * @param ?int $retryCount
-     */
-    public function setRetryCount(?int $retryCount): void;
 
     /**
      * @param ?ErrorObjectCollection $errors
