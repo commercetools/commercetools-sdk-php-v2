@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -16,12 +17,12 @@ interface ShippingMethodSetLocalizedDescriptionAction extends ShippingMethodUpda
     public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
 
     /**
-     * @return null|string
+     * @return null|LocalizedString
      */
     public function getLocalizedDescription();
 
     /**
-     * @param ?string $localizedDescription
+     * @param ?LocalizedString $localizedDescription
      */
-    public function setLocalizedDescription(?string $localizedDescription): void;
+    public function setLocalizedDescription(?LocalizedString $localizedDescription): void;
 }
