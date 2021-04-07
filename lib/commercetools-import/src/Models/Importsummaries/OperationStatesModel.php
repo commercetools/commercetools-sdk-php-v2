@@ -42,16 +42,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * @var ?int
      */
-    protected $Delete;
-
-    /**
-     * @var ?int
-     */
-    protected $Deleted;
-
-    /**
-     * @var ?int
-     */
     protected $Rejected;
 
 
@@ -63,16 +53,12 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
         ?int $Unresolved = null,
         ?int $WaitForMasterVariant = null,
         ?int $Imported = null,
-        ?int $Delete = null,
-        ?int $Deleted = null,
         ?int $Rejected = null
     ) {
         $this->ValidationFailed = $ValidationFailed;
         $this->Unresolved = $Unresolved;
         $this->WaitForMasterVariant = $WaitForMasterVariant;
         $this->Imported = $Imported;
-        $this->Delete = $Delete;
-        $this->Deleted = $Deleted;
         $this->Rejected = $Rejected;
     }
 
@@ -153,44 +139,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     }
 
     /**
-     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDelete()
-    {
-        if (is_null($this->Delete)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DELETE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Delete = (int) $data;
-        }
-
-        return $this->Delete;
-    }
-
-    /**
-     * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDeleted()
-    {
-        if (is_null($this->Deleted)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DELETED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->Deleted = (int) $data;
-        }
-
-        return $this->Deleted;
-    }
-
-    /**
      * <p>The number of import operations that are in the state <code>Rejected</code>.</p>
      *
      * @return null|int
@@ -240,22 +188,6 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     public function setImported(?int $Imported): void
     {
         $this->Imported = $Imported;
-    }
-
-    /**
-     * @param ?int $Delete
-     */
-    public function setDelete(?int $Delete): void
-    {
-        $this->Delete = $Delete;
-    }
-
-    /**
-     * @param ?int $Deleted
-     */
-    public function setDeleted(?int $Deleted): void
-    {
-        $this->Deleted = $Deleted;
     }
 
     /**

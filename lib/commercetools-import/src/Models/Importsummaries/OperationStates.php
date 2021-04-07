@@ -17,8 +17,6 @@ interface OperationStates extends JsonObject
     public const FIELD_UNRESOLVED = 'Unresolved';
     public const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
     public const FIELD_IMPORTED = 'Imported';
-    public const FIELD_DELETE = 'Delete';
-    public const FIELD_DELETED = 'Deleted';
     public const FIELD_REJECTED = 'Rejected';
 
     /**
@@ -50,20 +48,6 @@ interface OperationStates extends JsonObject
     public function getImported();
 
     /**
-     * <p>The number of import operations that are in the state <code>Delete</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDelete();
-
-    /**
-     * <p>The number of import operations that are in the state <code>Deleted</code>.</p>
-     *
-     * @return null|int
-     */
-    public function getDeleted();
-
-    /**
      * <p>The number of import operations that are in the state <code>Rejected</code>.</p>
      *
      * @return null|int
@@ -89,16 +73,6 @@ interface OperationStates extends JsonObject
      * @param ?int $Imported
      */
     public function setImported(?int $Imported): void;
-
-    /**
-     * @param ?int $Delete
-     */
-    public function setDelete(?int $Delete): void;
-
-    /**
-     * @param ?int $Deleted
-     */
-    public function setDeleted(?int $Deleted): void;
 
     /**
      * @param ?int $Rejected

@@ -4137,7 +4137,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->get()`
 
-Get State by Key
+Get State by key
 
 ### Example
 ```php
@@ -4152,7 +4152,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->post(null)`
 
-Update State by Key
+Update State by key
 
 ### Example
 ```php
@@ -4167,7 +4167,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->delete()`
 
-Delete State by Key
+Delete State by key
 
 ### Example
 ```php

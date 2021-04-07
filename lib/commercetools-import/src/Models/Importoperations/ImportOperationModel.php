@@ -52,11 +52,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $resourceVersion;
 
     /**
-     * @var ?int
-     */
-    protected $retryCount;
-
-    /**
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -87,7 +82,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         ?string $id = null,
         ?string $state = null,
         ?int $resourceVersion = null,
-        ?int $retryCount = null,
         ?ErrorObjectCollection $errors = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
@@ -99,7 +93,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         $this->id = $id;
         $this->state = $state;
         $this->resourceVersion = $resourceVersion;
-        $this->retryCount = $retryCount;
         $this->errors = $errors;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -218,25 +211,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         }
 
         return $this->resourceVersion;
-    }
-
-    /**
-     * <p>The number of request retries for processing the import resource.</p>
-     *
-     * @return null|int
-     */
-    public function getRetryCount()
-    {
-        if (is_null($this->retryCount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_RETRY_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->retryCount = (int) $data;
-        }
-
-        return $this->retryCount;
     }
 
     /**
@@ -375,14 +349,6 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    /**
-     * @param ?int $retryCount
-     */
-    public function setRetryCount(?int $retryCount): void
-    {
-        $this->retryCount = $retryCount;
     }
 
     /**
