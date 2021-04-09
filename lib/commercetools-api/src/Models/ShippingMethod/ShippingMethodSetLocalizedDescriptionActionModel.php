@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -26,7 +28,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     protected $action;
 
     /**
-     * @var ?string
+     * @var ?LocalizedString
      */
     protected $localizedDescription;
 
@@ -35,7 +37,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $localizedDescription = null
+        ?LocalizedString $localizedDescription = null
     ) {
         $this->localizedDescription = $localizedDescription;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -59,17 +61,18 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     }
 
     /**
-     * @return null|string
+     * @return null|LocalizedString
      */
     public function getLocalizedDescription()
     {
         if (is_null($this->localizedDescription)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_LOCALIZED_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
-            $this->localizedDescription = (string) $data;
+
+            $this->localizedDescription = LocalizedStringModel::of($data);
         }
 
         return $this->localizedDescription;
@@ -77,9 +80,9 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
 
 
     /**
-     * @param ?string $localizedDescription
+     * @param ?LocalizedString $localizedDescription
      */
-    public function setLocalizedDescription(?string $localizedDescription): void
+    public function setLocalizedDescription(?LocalizedString $localizedDescription): void
     {
         $this->localizedDescription = $localizedDescription;
     }

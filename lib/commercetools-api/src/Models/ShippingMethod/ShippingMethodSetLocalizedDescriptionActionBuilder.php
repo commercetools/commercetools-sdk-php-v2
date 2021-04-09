@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -21,34 +23,43 @@ use stdClass;
 final class ShippingMethodSetLocalizedDescriptionActionBuilder implements Builder
 {
     /**
-     * @var ?string
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedDescription;
 
     /**
-     * @return null|string
+     * @return null|LocalizedString
      */
     public function getLocalizedDescription()
     {
-        return $this->localizedDescription;
+        return $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription;
     }
 
     /**
-     * @param ?string $localizedDescription
+     * @param ?LocalizedString $localizedDescription
      * @return $this
      */
-    public function withLocalizedDescription(?string $localizedDescription)
+    public function withLocalizedDescription(?LocalizedString $localizedDescription)
     {
         $this->localizedDescription = $localizedDescription;
 
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
+    {
+        $this->localizedDescription = $localizedDescription;
+
+        return $this;
+    }
 
     public function build(): ShippingMethodSetLocalizedDescriptionAction
     {
         return new ShippingMethodSetLocalizedDescriptionActionModel(
-            $this->localizedDescription
+            $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription
         );
     }
 
