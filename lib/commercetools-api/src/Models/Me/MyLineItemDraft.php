@@ -38,7 +38,7 @@ interface MyLineItemDraft extends JsonObject
     public function getVariantId();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -97,9 +97,9 @@ interface MyLineItemDraft extends JsonObject
     public function setVariantId(?int $variantId): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?DateTimeImmutable $addedAt
