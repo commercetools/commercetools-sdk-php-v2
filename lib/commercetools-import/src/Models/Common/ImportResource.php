@@ -13,7 +13,6 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Categories\CategoryImport;
 use Commercetools\Import\Models\Customers\CustomerImport;
 use Commercetools\Import\Models\Inventories\InventoryImport;
-use Commercetools\Import\Models\Orders\OrderImport;
 use Commercetools\Import\Models\Prices\PriceImport;
 use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
 use Commercetools\Import\Models\Products\ProductImport;

@@ -20,8 +20,6 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceBuilder;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceBuilder;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyBuilder;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -34,11 +32,6 @@ use stdClass;
  */
 final class OrderImportBuilder implements Builder
 {
-    /**
-     * @var ?string
-     */
-    private $key;
-
     /**
      * @var ?string
      */
@@ -150,15 +143,7 @@ final class OrderImportBuilder implements Builder
     private $itemShippingAddresses;
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * <p>Maps to <code>Order.orderNumber</code>.</p>
+     * <p>Maps to <code>Order.orderNumber</code>. A string that identifies an Order. Must be unique across a Project. Once it is set, it cannot be changed.</p>
      *
      * @return null|string
      */
@@ -375,17 +360,6 @@ final class OrderImportBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
-    }
-
-    /**
-     * @param ?string $key
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
     }
 
     /**
@@ -713,7 +687,6 @@ final class OrderImportBuilder implements Builder
     public function build(): OrderImport
     {
         return new OrderImportModel(
-            $this->key,
             $this->orderNumber,
             $this->customer instanceof CustomerKeyReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->customerEmail,
