@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,6 +24,7 @@ interface MyShoppingListDraft extends JsonObject
     public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
+    public const FIELD_STORE = 'store';
 
     /**
      * @return null|LocalizedString
@@ -59,6 +61,11 @@ interface MyShoppingListDraft extends JsonObject
     public function getDeleteDaysAfterLastModification();
 
     /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -87,4 +94,9 @@ interface MyShoppingListDraft extends JsonObject
      * @param ?int $deleteDaysAfterLastModification
      */
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
+    public function setStore(?StoreResourceIdentifier $store): void;
 }

@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Cart\Cart;
-use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\ShoppingList\ShoppingListModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -28,22 +28,22 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMeCartsByIDGet extends ApiRequest
+class ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKeyPost extends ApiRequest
 {
     /**
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $storeKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/me/carts/{ID}');
-        parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{key}'], [$projectKey, $storeKey, $key], '{projectKey}/in-store/key={storeKey}/me/shopping-lists/key={key}');
+        parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return Cart|ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|ShoppingList|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,11 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = CartModel::class;
+                    $resultType = ShoppingListModel::class;
+
+                    break;
+                case '409':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 case '400':
@@ -90,7 +94,7 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Cart|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|ShoppingList
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -138,7 +142,7 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
      *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyMeCartsByIDGet
+    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKeyPost
     {
         return $this->withQueryParam('expand', $expand);
     }

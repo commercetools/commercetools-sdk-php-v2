@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Customer\Customer;
+use Commercetools\Api\Models\Customer\CustomerModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\Me\MyCustomer;
-use Commercetools\Api\Models\Me\MyCustomerModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -43,7 +43,7 @@ class ByProjectKeyMeGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|MyCustomer|T|null
+     * @return Customer|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,7 @@ class ByProjectKeyMeGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = MyCustomerModel::class;
+                    $resultType = CustomerModel::class;
 
                     break;
                 case '400':
@@ -90,7 +90,7 @@ class ByProjectKeyMeGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|MyCustomer
+     * @return null|Customer|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

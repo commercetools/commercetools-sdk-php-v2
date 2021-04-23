@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierBuilder;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -75,6 +77,11 @@ final class ShoppingListDraftBuilder implements Builder
      * @var ?string
      */
     private $anonymousId;
+
+    /**
+     * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
+     */
+    private $store;
 
     /**
      * <p>The custom fields.</p>
@@ -166,6 +173,14 @@ final class ShoppingListDraftBuilder implements Builder
     public function getAnonymousId()
     {
         return $this->anonymousId;
+    }
+
+    /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -279,6 +294,17 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
+     * @return $this
+     */
+    public function withStore(?StoreResourceIdentifier $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -328,6 +354,16 @@ final class ShoppingListDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
     public function build(): ShoppingListDraft
     {
         return new ShoppingListDraftModel(
@@ -340,7 +376,8 @@ final class ShoppingListDraftBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->textLineItems,
-            $this->anonymousId
+            $this->anonymousId,
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store
         );
     }
 

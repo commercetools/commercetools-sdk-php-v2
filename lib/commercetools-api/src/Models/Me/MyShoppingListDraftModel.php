@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -55,6 +57,11 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
      */
     protected $deleteDaysAfterLastModification;
 
+    /**
+     * @var ?StoreResourceIdentifier
+     */
+    protected $store;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -65,7 +72,8 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
         ?ShoppingListLineItemDraftCollection $lineItems = null,
         ?TextLineItemDraftCollection $textLineItems = null,
         ?CustomFieldsDraft $custom = null,
-        ?int $deleteDaysAfterLastModification = null
+        ?int $deleteDaysAfterLastModification = null,
+        ?StoreResourceIdentifier $store = null
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -73,6 +81,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
         $this->textLineItems = $textLineItems;
         $this->custom = $custom;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->store = $store;
     }
 
     /**
@@ -184,6 +193,24 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
         return $this->deleteDaysAfterLastModification;
     }
 
+    /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreResourceIdentifierModel::of($data);
+        }
+
+        return $this->store;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -231,5 +258,13 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
+    public function setStore(?StoreResourceIdentifier $store): void
+    {
+        $this->store = $store;
     }
 }

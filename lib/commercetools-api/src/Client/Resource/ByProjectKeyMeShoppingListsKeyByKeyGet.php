@@ -10,8 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\ShoppingList\MyShoppingList;
-use Commercetools\Api\Models\ShoppingList\MyShoppingListModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\ShoppingList\ShoppingListModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -43,7 +43,7 @@ class ByProjectKeyMeShoppingListsKeyByKeyGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|MyShoppingList|T|null
+     * @return ErrorResponse|JsonObject|ShoppingList|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,7 @@ class ByProjectKeyMeShoppingListsKeyByKeyGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = MyShoppingListModel::class;
+                    $resultType = ShoppingListModel::class;
 
                     break;
                 case '400':
@@ -90,7 +90,7 @@ class ByProjectKeyMeShoppingListsKeyByKeyGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|MyShoppingList
+     * @return null|ErrorResponse|JsonObject|ShoppingList
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Cart\Cart;
-use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingListPagedQueryResponse;
+use Commercetools\Api\Models\ShoppingList\ShoppingListPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -28,22 +28,22 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMeCartsByIDGet extends ApiRequest
+class ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet extends ApiRequest
 {
     /**
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/me/carts/{ID}');
+        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/me/shopping-lists');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return Cart|ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|ShoppingListPagedQueryResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,7 +53,7 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = CartModel::class;
+                    $resultType = ShoppingListPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -90,7 +90,7 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Cart|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|ShoppingListPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -138,8 +138,62 @@ class ByProjectKeyMeCartsByIDGet extends ApiRequest
      *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyMeCartsByIDGet
+    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $limit
+     */
+    public function withLimit($limit): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam('limit', $limit);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $offset
+     */
+    public function withOffset($offset): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam('offset', $offset);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     * @psalm-param string $varName
+     * @psalm-param scalar|scalar[] $predicateVar
+     */
+    public function withPredicateVar(string $varName, $predicateVar): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsGet
+    {
+        return $this->withQueryParam(sprintf('var.%s', $varName), $predicateVar);
     }
 }

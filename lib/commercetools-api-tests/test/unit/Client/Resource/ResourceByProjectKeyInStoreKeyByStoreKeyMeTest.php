@@ -12,6 +12,7 @@ use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMeCarts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -89,6 +90,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}/me/active-cart'
+            ],
+            'ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inStoreKeyWithStoreKeyValue("test_storeKey")
+                        ->me()
+                        ->shoppingLists();
+                },
+                ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists::class,
+                ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
+                '/{projectKey}/in-store/key={storeKey}/me/shopping-lists'
             ]
         ];
     }

@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -32,6 +33,7 @@ interface ShoppingList extends BaseResource
     public const FIELD_SLUG = 'slug';
     public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_STORE = 'store';
 
     /**
      * <p>The unique ID of the shopping list.</p>
@@ -132,6 +134,11 @@ interface ShoppingList extends BaseResource
     public function getAnonymousId();
 
     /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -210,4 +217,9 @@ interface ShoppingList extends BaseResource
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
 }

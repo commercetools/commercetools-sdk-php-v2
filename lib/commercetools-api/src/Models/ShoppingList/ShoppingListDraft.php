@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -26,6 +27,7 @@ interface ShoppingListDraft extends JsonObject
     public const FIELD_SLUG = 'slug';
     public const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_STORE = 'store';
 
     /**
      * <p>The custom fields.</p>
@@ -90,6 +92,11 @@ interface ShoppingListDraft extends JsonObject
     public function getAnonymousId();
 
     /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore();
+
+    /**
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
@@ -138,4 +145,9 @@ interface ShoppingListDraft extends JsonObject
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
+    public function setStore(?StoreResourceIdentifier $store): void;
 }
