@@ -59,8 +59,6 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
     }
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()

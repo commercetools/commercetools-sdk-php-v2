@@ -41,8 +41,6 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $conflictedResource;
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -71,7 +69,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
-     * <p>The conflicted resource.</p>
+     * <p>The resource in conflict.</p>
      *
      * @return null|mixed
      */

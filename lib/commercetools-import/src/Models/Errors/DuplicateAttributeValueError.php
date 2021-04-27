@@ -17,7 +17,7 @@ interface DuplicateAttributeValueError extends ErrorObject
     public const FIELD_ATTRIBUTE = 'attribute';
 
     /**
-     * <p>The conflicting attribute.</p>
+     * <p>The attribute in conflict.</p>
      *
      * @return null|Attribute
      */

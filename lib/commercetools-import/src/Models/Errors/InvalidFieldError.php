@@ -32,7 +32,7 @@ interface InvalidFieldError extends ErrorObject
     public function getInvalidValue();
 
     /**
-     * <p>A fixed set of allowed values for the field, if any.</p>
+     * <p>The set of allowed values for the field, if any.</p>
      *
      * @return null|array
      */

@@ -80,8 +80,6 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -137,7 +135,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The conflicted resource.</p>
+     * <p>The resource in conflict.</p>
      *
      * @return null|mixed
      */
