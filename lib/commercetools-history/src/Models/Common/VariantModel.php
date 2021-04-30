@@ -20,6 +20,7 @@ use stdClass;
 final class VariantModel extends JsonObjectModel implements Variant
 {
 
+
     /**
      * @var ?int
      */

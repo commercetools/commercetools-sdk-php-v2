@@ -20,6 +20,7 @@ use stdClass;
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 {
 
+
     /**
      * @var ?ReturnItemCollection
      */

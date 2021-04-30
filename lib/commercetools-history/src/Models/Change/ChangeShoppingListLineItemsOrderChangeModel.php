@@ -20,6 +20,7 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValueCollection
  */
 final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel implements ChangeShoppingListLineItemsOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeShoppingListLineItemsOrderChange';
     /**
      * @var ?string

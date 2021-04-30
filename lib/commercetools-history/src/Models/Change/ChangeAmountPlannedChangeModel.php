@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\MoneyModel;
  */
 final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements ChangeAmountPlannedChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeAmountPlannedChange';
     /**
      * @var ?string

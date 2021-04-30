@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetStatusInterfaceTextChangeModel extends JsonObjectModel implements SetStatusInterfaceTextChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetStatusInterfaceTextChange';
     /**
      * @var ?string

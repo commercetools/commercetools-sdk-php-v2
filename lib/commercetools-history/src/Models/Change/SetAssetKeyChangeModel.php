@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\AssetChangeValueModel;
  */
 final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKeyChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetAssetKeyChange';
     /**
      * @var ?string

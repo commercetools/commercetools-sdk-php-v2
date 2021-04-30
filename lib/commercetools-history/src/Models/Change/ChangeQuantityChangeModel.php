@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\InventoryQuantityValueModel;
  */
 final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQuantityChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeQuantityChange';
     /**
      * @var ?string

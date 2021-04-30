@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ImageCollection;
  */
 final class RemoveImageChangeModel extends JsonObjectModel implements RemoveImageChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveImageChange';
     /**
      * @var ?string

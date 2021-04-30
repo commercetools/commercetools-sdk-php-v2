@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\TextLineItemModel;
  */
 final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTextLineItemChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddTextLineItemChange';
     /**
      * @var ?string

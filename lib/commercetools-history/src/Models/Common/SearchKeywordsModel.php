@@ -22,6 +22,7 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
 
 
 
+
     /**
      * @psalm-suppress MissingParamType
      */

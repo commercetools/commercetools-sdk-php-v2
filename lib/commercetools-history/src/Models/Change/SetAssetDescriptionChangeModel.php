@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetAssetDescriptionChangeModel extends JsonObjectModel implements SetAssetDescriptionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetAssetDescriptionChange';
     /**
      * @var ?string

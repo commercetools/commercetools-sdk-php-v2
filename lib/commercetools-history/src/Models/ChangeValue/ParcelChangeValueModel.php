@@ -20,6 +20,7 @@ use stdClass;
 final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChangeValue
 {
 
+
     /**
      * @var ?string
      */

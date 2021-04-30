@@ -20,6 +20,7 @@ use stdClass;
 final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 {
 
+
     /**
      * @var ?ReferenceCollection
      */

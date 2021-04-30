@@ -19,6 +19,7 @@ use stdClass;
  */
 final class OrderLabelModel extends JsonObjectModel implements OrderLabel
 {
+
     public const DISCRIMINATOR_VALUE = 'OrderLabel';
     /**
      * @var ?string

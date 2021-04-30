@@ -20,6 +20,7 @@ use stdClass;
 final class AddressModel extends JsonObjectModel implements Address
 {
 
+
     /**
      * @var ?string
      */

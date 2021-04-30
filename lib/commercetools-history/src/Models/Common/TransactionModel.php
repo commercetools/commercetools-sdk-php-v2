@@ -20,6 +20,7 @@ use stdClass;
 final class TransactionModel extends JsonObjectModel implements Transaction
 {
 
+
     /**
      * @var ?string
      */

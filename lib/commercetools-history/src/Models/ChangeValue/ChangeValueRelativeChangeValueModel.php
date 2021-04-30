@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implements ChangeValueRelativeChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'relative';
     /**
      * @var ?string

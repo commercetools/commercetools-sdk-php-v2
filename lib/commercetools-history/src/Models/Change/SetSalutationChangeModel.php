@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetSalutationChangeModel extends JsonObjectModel implements SetSalutationChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetSalutationChange';
     /**
      * @var ?string

@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\MoneyModel;
  */
 final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements SetCustomLineItemMoneyChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemMoneyChange';
     /**
      * @var ?string

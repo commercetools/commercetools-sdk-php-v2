@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel implements SetCustomLineItemCustomFieldChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomFieldChange';
     /**
      * @var ?string

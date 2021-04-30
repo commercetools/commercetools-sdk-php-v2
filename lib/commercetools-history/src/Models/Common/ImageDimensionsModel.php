@@ -20,6 +20,7 @@ use stdClass;
 final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensions
 {
 
+
     /**
      * @var ?int
      */

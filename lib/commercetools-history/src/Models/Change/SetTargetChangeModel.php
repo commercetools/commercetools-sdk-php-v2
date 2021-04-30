@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class SetTargetChangeModel extends JsonObjectModel implements SetTargetChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetTargetChange';
     /**
      * @var ?string

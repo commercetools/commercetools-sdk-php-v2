@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
 final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
 {
 
+
     /**
      * @var ?string
      */

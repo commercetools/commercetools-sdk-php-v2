@@ -20,6 +20,7 @@ use stdClass;
 final class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics
 {
 
+
     /**
      * @var ?int
      */

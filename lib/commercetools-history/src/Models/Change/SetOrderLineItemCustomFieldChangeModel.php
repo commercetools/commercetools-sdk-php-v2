@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel implements SetOrderLineItemCustomFieldChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetOrderLineItemCustomFieldChange';
     /**
      * @var ?string

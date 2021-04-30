@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\CustomFieldsModel;
  */
 final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCustomTypeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomTypeChange';
     /**
      * @var ?string

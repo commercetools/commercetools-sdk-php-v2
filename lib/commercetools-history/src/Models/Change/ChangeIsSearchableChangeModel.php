@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeIsSearchableChangeModel extends JsonObjectModel implements ChangeIsSearchableChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeIsSearchableChange';
     /**
      * @var ?string

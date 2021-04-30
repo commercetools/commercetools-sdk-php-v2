@@ -20,6 +20,7 @@ use stdClass;
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
 
+
     /**
      * @var ?string
      */

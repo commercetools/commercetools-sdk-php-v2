@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetDescriptionChangeModel extends JsonObjectModel implements SetDescriptionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDescriptionChange';
     /**
      * @var ?string

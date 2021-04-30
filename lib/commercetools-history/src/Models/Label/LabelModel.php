@@ -19,6 +19,7 @@ use stdClass;
  */
 final class LabelModel extends JsonObjectModel implements Label
 {
+
     public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string

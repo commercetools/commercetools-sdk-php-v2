@@ -19,6 +19,7 @@ use stdClass;
  */
 final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
 {
+
     public const DISCRIMINATOR_VALUE = 'UnknownChange';
     /**
      * @var ?string

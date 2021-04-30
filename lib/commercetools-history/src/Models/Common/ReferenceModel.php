@@ -20,6 +20,7 @@ use stdClass;
 final class ReferenceModel extends JsonObjectModel implements Reference
 {
 
+
     /**
      * @var ?string
      */

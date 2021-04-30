@@ -20,6 +20,7 @@ use stdClass;
 final class ImageModel extends JsonObjectModel implements Image
 {
 
+
     /**
      * @var ?string
      */

@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeAttributeConstraintChangeModel extends JsonObjectModel implements ChangeAttributeConstraintChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeAttributeConstraintChange';
     /**
      * @var ?string

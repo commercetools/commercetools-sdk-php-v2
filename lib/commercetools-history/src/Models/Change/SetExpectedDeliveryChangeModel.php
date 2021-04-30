@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements SetExpectedDeliveryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetExpectedDeliveryChange';
     /**
      * @var ?string

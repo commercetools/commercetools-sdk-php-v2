@@ -20,6 +20,7 @@ use stdClass;
 final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
 {
 
+
     /**
      * @var ?string
      */

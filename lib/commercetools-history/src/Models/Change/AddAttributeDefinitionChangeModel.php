@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AttributeDefinitionModel;
  */
 final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements AddAttributeDefinitionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddAttributeDefinitionChange';
     /**
      * @var ?string

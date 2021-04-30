@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\CustomFieldsModel;
  */
 final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel implements SetShoppingListLineItemCustomTypeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetShoppingListLineItemCustomTypeChange';
     /**
      * @var ?string

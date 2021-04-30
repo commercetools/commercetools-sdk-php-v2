@@ -20,6 +20,7 @@ use stdClass;
 final class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
 {
 
+
     /**
      * @var ?mixed
      */

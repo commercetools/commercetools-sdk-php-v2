@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetKeyChangeModel extends JsonObjectModel implements SetKeyChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetKeyChange';
     /**
      * @var ?string

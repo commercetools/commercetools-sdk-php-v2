@@ -25,6 +25,7 @@ use Commercetools\History\Models\Label\LabelModel;
 final class RecordModel extends JsonObjectModel implements Record
 {
 
+
     /**
      * @var ?int
      */

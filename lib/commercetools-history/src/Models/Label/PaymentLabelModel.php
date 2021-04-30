@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\MoneyModel;
  */
 final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
 {
+
     public const DISCRIMINATOR_VALUE = 'PaymentLabel';
     /**
      * @var ?string

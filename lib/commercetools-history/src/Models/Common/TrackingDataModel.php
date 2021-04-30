@@ -20,6 +20,7 @@ use stdClass;
 final class TrackingDataModel extends JsonObjectModel implements TrackingData
 {
 
+
     /**
      * @var ?string
      */

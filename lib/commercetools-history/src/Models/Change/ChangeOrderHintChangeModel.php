@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeOrderHintChangeModel extends JsonObjectModel implements ChangeOrderHintChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeOrderHintChange';
     /**
      * @var ?string

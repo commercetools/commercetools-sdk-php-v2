@@ -20,6 +20,7 @@ use stdClass;
 final class EnumValueModel extends JsonObjectModel implements EnumValue
 {
 
+
     /**
      * @var ?string
      */

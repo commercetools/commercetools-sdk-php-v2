@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
 final class CustomFieldExpandedValueModel extends JsonObjectModel implements CustomFieldExpandedValue
 {
 
+
     /**
      * @var ?string
      */

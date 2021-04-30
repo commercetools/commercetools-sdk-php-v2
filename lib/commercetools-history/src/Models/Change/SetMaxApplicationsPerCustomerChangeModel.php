@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel implements SetMaxApplicationsPerCustomerChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetMaxApplicationsPerCustomerChange';
     /**
      * @var ?string

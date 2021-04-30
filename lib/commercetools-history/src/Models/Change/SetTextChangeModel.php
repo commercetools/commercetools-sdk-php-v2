@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetTextChangeModel extends JsonObjectModel implements SetTextChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetTextChange';
     /**
      * @var ?string

@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
 final class TextLineItemValueModel extends JsonObjectModel implements TextLineItemValue
 {
 
+
     /**
      * @var ?string
      */

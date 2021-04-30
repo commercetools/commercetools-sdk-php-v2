@@ -20,6 +20,7 @@ use stdClass;
 final class ReservationModel extends JsonObjectModel implements Reservation
 {
 
+
     /**
      * @var ?int
      */

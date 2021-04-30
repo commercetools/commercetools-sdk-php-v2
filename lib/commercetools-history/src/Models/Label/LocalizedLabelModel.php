@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabel
 {
+
     public const DISCRIMINATOR_VALUE = 'LocalizedLabel';
     /**
      * @var ?string

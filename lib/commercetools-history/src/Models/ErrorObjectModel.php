@@ -20,6 +20,7 @@ use stdClass;
 final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
 
+
     /**
      * @var ?string
      */

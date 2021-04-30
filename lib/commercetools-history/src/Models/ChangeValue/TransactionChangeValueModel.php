@@ -20,6 +20,7 @@ use stdClass;
 final class TransactionChangeValueModel extends JsonObjectModel implements TransactionChangeValue
 {
 
+
     /**
      * @var ?string
      */

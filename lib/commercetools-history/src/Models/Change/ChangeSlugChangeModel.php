@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class ChangeSlugChangeModel extends JsonObjectModel implements ChangeSlugChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeSlugChange';
     /**
      * @var ?string

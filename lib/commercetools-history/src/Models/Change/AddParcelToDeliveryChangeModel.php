@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ParcelModel;
  */
 final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements AddParcelToDeliveryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddParcelToDeliveryChange';
     /**
      * @var ?string

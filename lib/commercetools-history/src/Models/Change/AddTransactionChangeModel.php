@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\TransactionModel;
  */
 final class AddTransactionChangeModel extends JsonObjectModel implements AddTransactionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddTransactionChange';
     /**
      * @var ?string

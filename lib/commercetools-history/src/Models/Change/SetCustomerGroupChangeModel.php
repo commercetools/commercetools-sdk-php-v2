@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class SetCustomerGroupChangeModel extends JsonObjectModel implements SetCustomerGroupChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomerGroupChange';
     /**
      * @var ?string

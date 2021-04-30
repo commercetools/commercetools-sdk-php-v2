@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeOrderStateChangeModel extends JsonObjectModel implements ChangeOrderStateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeOrderStateChange';
     /**
      * @var ?string

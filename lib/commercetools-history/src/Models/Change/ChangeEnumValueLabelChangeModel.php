@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements ChangeEnumValueLabelChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeEnumValueLabelChange';
     /**
      * @var ?string

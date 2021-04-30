@@ -20,6 +20,7 @@ use stdClass;
 final class InventoryQuantityValueModel extends JsonObjectModel implements InventoryQuantityValue
 {
 
+
     /**
      * @var ?int
      */

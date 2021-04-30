@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\PaymentInfoModel;
  */
 final class RemovePaymentChangeModel extends JsonObjectModel implements RemovePaymentChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemovePaymentChange';
     /**
      * @var ?string

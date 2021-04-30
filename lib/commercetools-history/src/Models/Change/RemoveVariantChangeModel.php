@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\VariantModel;
  */
 final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVariantChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveVariantChange';
     /**
      * @var ?string

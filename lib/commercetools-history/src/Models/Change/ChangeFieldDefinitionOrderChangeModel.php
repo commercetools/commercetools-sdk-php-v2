@@ -20,6 +20,7 @@ use Commercetools\History\Models\ChangeValue\FieldDefinitionOrderValueCollection
  */
 final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implements ChangeFieldDefinitionOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeFieldDefinitionOrderChange';
     /**
      * @var ?string

@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReviewRatingStatisticsModel;
  */
 final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel implements ChangeReviewRatingStatisticsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeReviewRatingStatisticsChange';
     /**
      * @var ?string

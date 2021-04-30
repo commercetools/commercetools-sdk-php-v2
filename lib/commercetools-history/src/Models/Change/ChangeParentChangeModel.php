@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class ChangeParentChangeModel extends JsonObjectModel implements ChangeParentChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeParentChange';
     /**
      * @var ?string

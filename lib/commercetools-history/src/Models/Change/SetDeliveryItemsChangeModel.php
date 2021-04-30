@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\DeliveryItemCollection;
  */
 final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDeliveryItemsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDeliveryItemsChange';
     /**
      * @var ?string

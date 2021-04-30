@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ImageCollection;
  */
 final class MoveImageToPositionChangeModel extends JsonObjectModel implements MoveImageToPositionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'MoveImageToPositionChange';
     /**
      * @var ?string

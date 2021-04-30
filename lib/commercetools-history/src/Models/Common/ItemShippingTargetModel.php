@@ -20,6 +20,7 @@ use stdClass;
 final class ItemShippingTargetModel extends JsonObjectModel implements ItemShippingTarget
 {
 
+
     /**
      * @var ?string
      */

@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\AssetSourceCollection;
  */
 final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAssetSourcesChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetAssetSourcesChange';
     /**
      * @var ?string

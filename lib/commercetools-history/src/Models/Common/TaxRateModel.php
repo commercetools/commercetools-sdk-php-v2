@@ -20,6 +20,7 @@ use stdClass;
 final class TaxRateModel extends JsonObjectModel implements TaxRate
 {
 
+
     /**
      * @var ?string
      */

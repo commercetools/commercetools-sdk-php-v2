@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\MoneyModel;
  */
 final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements SetLineItemTotalPriceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetLineItemTotalPriceChange';
     /**
      * @var ?string

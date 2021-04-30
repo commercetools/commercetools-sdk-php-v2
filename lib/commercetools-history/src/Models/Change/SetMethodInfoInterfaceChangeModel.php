@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetMethodInfoInterfaceChangeModel extends JsonObjectModel implements SetMethodInfoInterfaceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetMethodInfoInterfaceChange';
     /**
      * @var ?string

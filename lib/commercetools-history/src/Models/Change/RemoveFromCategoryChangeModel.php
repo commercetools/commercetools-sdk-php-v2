@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class RemoveFromCategoryChangeModel extends JsonObjectModel implements RemoveFromCategoryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveFromCategoryChange';
     /**
      * @var ?string

@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\SyncInfoModel;
  */
 final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateSyncInfoChange
 {
+
     public const DISCRIMINATOR_VALUE = 'UpdateSyncInfoChange';
     /**
      * @var ?string

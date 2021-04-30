@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetMethodInfoNameChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetMethodInfoNameChange';
     /**
      * @var ?string

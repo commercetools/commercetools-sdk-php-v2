@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetMiddleNameChangeModel extends JsonObjectModel implements SetMiddleNameChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetMiddleNameChange';
     /**
      * @var ?string

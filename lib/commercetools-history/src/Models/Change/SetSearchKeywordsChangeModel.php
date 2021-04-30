@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\SearchKeywordsModel;
  */
 final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetSearchKeywordsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetSearchKeywordsChange';
     /**
      * @var ?string

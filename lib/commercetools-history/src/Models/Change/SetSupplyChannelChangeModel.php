@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class SetSupplyChannelChangeModel extends JsonObjectModel implements SetSupplyChannelChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetSupplyChannelChange';
     /**
      * @var ?string

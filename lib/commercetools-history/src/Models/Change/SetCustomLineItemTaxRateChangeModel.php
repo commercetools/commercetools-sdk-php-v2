@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\TaxRateModel;
  */
 final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implements SetCustomLineItemTaxRateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemTaxRateChange';
     /**
      * @var ?string

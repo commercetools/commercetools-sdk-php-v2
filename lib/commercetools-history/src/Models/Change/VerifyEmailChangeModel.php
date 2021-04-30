@@ -19,6 +19,7 @@ use stdClass;
  */
 final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmailChange
 {
+
     public const DISCRIMINATOR_VALUE = 'VerifyEmailChange';
     /**
      * @var ?string

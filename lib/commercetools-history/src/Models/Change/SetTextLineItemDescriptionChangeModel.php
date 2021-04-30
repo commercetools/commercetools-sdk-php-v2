@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implements SetTextLineItemDescriptionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetTextLineItemDescriptionChange';
     /**
      * @var ?string

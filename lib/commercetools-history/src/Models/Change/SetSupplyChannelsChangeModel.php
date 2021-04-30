@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ReferenceCollection;
  */
 final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetSupplyChannelsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetSupplyChannelsChange';
     /**
      * @var ?string

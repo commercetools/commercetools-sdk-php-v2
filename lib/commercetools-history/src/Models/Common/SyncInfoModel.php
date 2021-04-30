@@ -20,6 +20,7 @@ use stdClass;
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 {
 
+
     /**
      * @var ?Reference
      */

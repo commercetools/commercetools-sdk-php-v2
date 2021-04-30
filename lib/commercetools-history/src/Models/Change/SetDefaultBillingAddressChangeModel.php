@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AddressModel;
  */
 final class SetDefaultBillingAddressChangeModel extends JsonObjectModel implements SetDefaultBillingAddressChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDefaultBillingAddressChange';
     /**
      * @var ?string

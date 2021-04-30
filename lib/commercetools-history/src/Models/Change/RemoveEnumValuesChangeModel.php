@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\EnumValueModel;
  */
 final class RemoveEnumValuesChangeModel extends JsonObjectModel implements RemoveEnumValuesChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveEnumValuesChange';
     /**
      * @var ?string

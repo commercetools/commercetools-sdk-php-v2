@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ItemShippingDetailsModel;
  */
 final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel implements SetCustomLineItemShippingDetailsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemShippingDetailsChange';
     /**
      * @var ?string

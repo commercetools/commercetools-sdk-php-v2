@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implements SetLineItemDiscountedPriceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetLineItemDiscountedPriceChange';
     /**
      * @var ?string

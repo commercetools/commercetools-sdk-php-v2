@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class TransitionStateChangeModel extends JsonObjectModel implements TransitionStateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'TransitionStateChange';
     /**
      * @var ?string

@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\PriceModel;
  */
 final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddPriceChange';
     /**
      * @var ?string

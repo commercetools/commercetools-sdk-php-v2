@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetSkuChange';
     /**
      * @var ?string

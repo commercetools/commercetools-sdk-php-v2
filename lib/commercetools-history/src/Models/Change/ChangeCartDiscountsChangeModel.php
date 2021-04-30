@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ReferenceCollection;
  */
 final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements ChangeCartDiscountsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeCartDiscountsChange';
     /**
      * @var ?string

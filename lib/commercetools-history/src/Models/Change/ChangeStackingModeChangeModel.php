@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeStackingModeChangeModel extends JsonObjectModel implements ChangeStackingModeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeStackingModeChange';
     /**
      * @var ?string

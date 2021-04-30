@@ -20,6 +20,7 @@ use stdClass;
 final class ValidFromAndUntilValueModel extends JsonObjectModel implements ValidFromAndUntilValue
 {
 
+
     /**
      * @var ?string
      */

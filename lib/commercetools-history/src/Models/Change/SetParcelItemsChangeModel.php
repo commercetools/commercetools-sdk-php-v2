@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\DeliveryItemCollection;
  */
 final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParcelItemsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetParcelItemsChange';
     /**
      * @var ?string

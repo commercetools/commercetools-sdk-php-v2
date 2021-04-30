@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetRatingChangeModel extends JsonObjectModel implements SetRatingChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetRatingChange';
     /**
      * @var ?string

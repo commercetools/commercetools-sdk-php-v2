@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
 {
+
     public const DISCRIMINATOR_VALUE = 'ReviewLabel';
     /**
      * @var ?string

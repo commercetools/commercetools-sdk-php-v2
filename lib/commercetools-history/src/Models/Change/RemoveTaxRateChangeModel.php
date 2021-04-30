@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\TaxRateModel;
  */
 final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTaxRateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveTaxRateChange';
     /**
      * @var ?string
