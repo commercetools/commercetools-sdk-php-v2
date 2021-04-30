@@ -8,6 +8,9 @@ use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryModel;
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
@@ -23,8 +26,11 @@ use Commercetools\Api\Models\Product\ProductVariantDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValue;
 use Commercetools\Api\Models\ProductType\AttributePlainEnumValue;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
+use Commercetools\Api\Models\Type\TypeReferenceBuilder;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ClientFactory;
 use GuzzleHttp\Psr7\Response;
@@ -119,6 +125,24 @@ class MiscTest extends TestCase
 
         $t = $root->withProjectKey('test')->categories()->get()->withPredicateVar("test", ["test"]);
         $this->assertSame("test/categories?var.test=test", $t->getUri()->__toString());
+    }
+
+    public function testAddressToDraft()
+    {
+        $json = '{
+          "country": "DE",
+          "custom" : {
+            "type": {
+              "typeId": "type",
+              "id": "abc"
+            }
+          }
+        }';
+        $address = AddressModel::of(json_decode($json));
+        $addressDraft = $address->toAddressDraft();
+        $this->assertInstanceOf(CustomFieldsDraft::class, $addressDraft->getCustom());
+        $this->assertInstanceOf(TypeResourceIdentifier::class, $addressDraft->getCustom()->getType());
+        $this->assertJsonStringEqualsJsonString($json, json_encode($addressDraft));
     }
 
     public function testAttributes()
