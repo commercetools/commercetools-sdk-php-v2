@@ -14,12 +14,11 @@ use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
-use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
 
-interface OrderImport extends ImportResource
+interface OrderImport extends JsonObject
 {
     public const FIELD_ORDER_NUMBER = 'orderNumber';
     public const FIELD_CUSTOMER = 'customer';
@@ -45,7 +44,7 @@ interface OrderImport extends ImportResource
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     * <p>Maps to <code>Order.orderNumber</code>.</p>
+     * <p>Maps to <code>Order.orderNumber</code>. A string that identifies an Order. Must be unique across a Project. Once it is set, it cannot be changed.</p>
      *
      * @return null|string
      */

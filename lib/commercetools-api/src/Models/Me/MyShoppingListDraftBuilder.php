@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftCollection;
 use Commercetools\Api\Models\ShoppingList\TextLineItemDraftCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -55,6 +57,11 @@ final class MyShoppingListDraftBuilder implements Builder
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
+
+    /**
+     * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
+     */
+    private $store;
 
     /**
      * @return null|LocalizedString
@@ -106,6 +113,14 @@ final class MyShoppingListDraftBuilder implements Builder
     public function getDeleteDaysAfterLastModification()
     {
         return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -175,6 +190,17 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreResourceIdentifier $store
+     * @return $this
+     */
+    public function withStore(?StoreResourceIdentifier $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -204,6 +230,16 @@ final class MyShoppingListDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
     public function build(): MyShoppingListDraft
     {
         return new MyShoppingListDraftModel(
@@ -212,7 +248,8 @@ final class MyShoppingListDraftBuilder implements Builder
             $this->lineItems,
             $this->textLineItems,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->deleteDaysAfterLastModification
+            $this->deleteDaysAfterLastModification,
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store
         );
     }
 

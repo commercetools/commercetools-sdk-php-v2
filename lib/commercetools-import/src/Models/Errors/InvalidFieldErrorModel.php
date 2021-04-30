@@ -80,8 +80,6 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -137,7 +135,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>A fixed set of allowed values for the field, if any.</p>
+     * <p>The set of allowed values for the field, if any.</p>
      *
      * @return null|array
      */

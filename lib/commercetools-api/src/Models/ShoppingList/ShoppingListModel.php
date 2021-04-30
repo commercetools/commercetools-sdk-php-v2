@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -112,6 +114,11 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
      */
     protected $anonymousId;
 
+    /**
+     * @var ?StoreKeyReference
+     */
+    protected $store;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -132,7 +139,8 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         ?LocalizedString $name = null,
         ?LocalizedString $slug = null,
         ?TextLineItemCollection $textLineItems = null,
-        ?string $anonymousId = null
+        ?string $anonymousId = null,
+        ?StoreKeyReference $store = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -150,6 +158,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         $this->slug = $slug;
         $this->textLineItems = $textLineItems;
         $this->anonymousId = $anonymousId;
+        $this->store = $store;
     }
 
     /**
@@ -457,6 +466,24 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         return $this->anonymousId;
     }
 
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
+    }
+
 
     /**
      * @param ?string $id
@@ -584,6 +611,14 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
+    }
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
     }
 
 

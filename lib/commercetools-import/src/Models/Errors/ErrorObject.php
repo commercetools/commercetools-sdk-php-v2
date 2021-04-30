@@ -23,8 +23,6 @@ interface ErrorObject extends JsonObject
     public function getCode();
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage();

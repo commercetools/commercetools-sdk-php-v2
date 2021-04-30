@@ -33,8 +33,6 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     private $attribute;
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -43,7 +41,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
-     * <p>The conflicting attribute.</p>
+     * <p>The attribute in conflict.</p>
      *
      * @return null|Attribute
      */

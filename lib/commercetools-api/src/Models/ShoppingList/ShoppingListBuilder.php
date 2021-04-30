@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -112,6 +114,11 @@ final class ShoppingListBuilder implements Builder
      * @var ?string
      */
     private $anonymousId;
+
+    /**
+     * @var null|StoreKeyReference|StoreKeyReferenceBuilder
+     */
+    private $store;
 
     /**
      * <p>The unique ID of the shopping list.</p>
@@ -257,6 +264,14 @@ final class ShoppingListBuilder implements Builder
     public function getAnonymousId()
     {
         return $this->anonymousId;
+    }
+
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -436,6 +451,17 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReference $store
+     * @return $this
+     */
+    public function withStore(?StoreKeyReference $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -505,6 +531,16 @@ final class ShoppingListBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
     public function build(): ShoppingList
     {
         return new ShoppingListModel(
@@ -523,7 +559,8 @@ final class ShoppingListBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
             $this->textLineItems,
-            $this->anonymousId
+            $this->anonymousId,
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store
         );
     }
 

@@ -32,7 +32,7 @@ interface ConcurrentModificationError extends ErrorObject
     public function getCurrentVersion();
 
     /**
-     * <p>The conflicted resource.</p>
+     * <p>The resource in conflict.</p>
      *
      * @return null|mixed
      */

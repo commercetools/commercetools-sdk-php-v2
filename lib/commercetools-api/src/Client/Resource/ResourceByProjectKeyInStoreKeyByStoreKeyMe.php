@@ -43,4 +43,10 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMe extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCart($args, $this->getClient());
     }
+    public function shoppingLists(): ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingLists($args, $this->getClient());
+    }
 }

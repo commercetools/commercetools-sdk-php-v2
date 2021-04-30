@@ -41,8 +41,6 @@ final class InvalidFieldErrorBuilder implements Builder
     private $allowedValues;
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -71,7 +69,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
-     * <p>A fixed set of allowed values for the field, if any.</p>
+     * <p>The set of allowed values for the field, if any.</p>
      *
      * @return null|array
      */

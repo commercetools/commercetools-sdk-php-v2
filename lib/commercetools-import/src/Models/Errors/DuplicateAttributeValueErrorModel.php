@@ -68,8 +68,6 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
@@ -87,7 +85,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The conflicting attribute.</p>
+     * <p>The attribute in conflict.</p>
      *
      * @return null|Attribute
      */

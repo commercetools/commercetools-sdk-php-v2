@@ -162,7 +162,6 @@ final class MessageModel extends JsonObjectModel implements Message
        'ReviewCreated' => ReviewCreatedMessageModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessageModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
-       'ShoppingListStoreSet' => ShoppingListStoreSetMessageModel::class,
     ];
 
     /**

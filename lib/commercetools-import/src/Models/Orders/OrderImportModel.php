@@ -19,8 +19,6 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceModel;
-use Commercetools\Import\Models\Common\ImportResource;
-use Commercetools\Import\Models\Common\ImportResourceModel;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyModel;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -33,11 +31,6 @@ use stdClass;
  */
 final class OrderImportModel extends JsonObjectModel implements OrderImport
 {
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     /**
      * @var ?string
      */
@@ -153,7 +146,6 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null,
         ?string $orderNumber = null,
         ?CustomerKeyReference $customer = null,
         ?string $customerEmail = null,
@@ -177,7 +169,6 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         ?string $origin = null,
         ?AddressCollection $itemShippingAddresses = null
     ) {
-        $this->key = $key;
         $this->orderNumber = $orderNumber;
         $this->customer = $customer;
         $this->customerEmail = $customerEmail;
@@ -203,24 +194,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
-     * <p>Maps to <code>Order.orderNumber</code>.</p>
+     * <p>Maps to <code>Order.orderNumber</code>. A string that identifies an Order. Must be unique across a Project. Once it is set, it cannot be changed.</p>
      *
      * @return null|string
      */
@@ -649,14 +623,6 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         return $this->itemShippingAddresses;
     }
 
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
 
     /**
      * @param ?string $orderNumber

@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -75,6 +77,11 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
      */
     protected $anonymousId;
 
+    /**
+     * @var ?StoreResourceIdentifier
+     */
+    protected $store;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -89,7 +96,8 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         ?LocalizedString $name = null,
         ?LocalizedString $slug = null,
         ?TextLineItemDraftCollection $textLineItems = null,
-        ?string $anonymousId = null
+        ?string $anonymousId = null,
+        ?StoreResourceIdentifier $store = null
     ) {
         $this->custom = $custom;
         $this->customer = $customer;
@@ -101,6 +109,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         $this->slug = $slug;
         $this->textLineItems = $textLineItems;
         $this->anonymousId = $anonymousId;
+        $this->store = $store;
     }
 
     /**
@@ -290,6 +299,24 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         return $this->anonymousId;
     }
 
+    /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreResourceIdentifierModel::of($data);
+        }
+
+        return $this->store;
+    }
+
 
     /**
      * @param ?CustomFieldsDraft $custom
@@ -369,5 +396,13 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifier $store
+     */
+    public function setStore(?StoreResourceIdentifier $store): void
+    {
+        $this->store = $store;
     }
 }

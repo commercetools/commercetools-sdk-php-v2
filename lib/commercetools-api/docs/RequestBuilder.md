@@ -1805,6 +1805,140 @@ $request = $builder
                 ->withId("ID")
                 ->get();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->get()`
+
+Query shopping-lists
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
+
+Create ShoppingList
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->get()`
+
+Gets a shopping list by ID.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
+
+Update ShoppingList by ID
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->delete()`
+
+Delete ShoppingList by ID
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->get()`
+
+Gets a shopping list by Key.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
+
+Update a shopping list found by its Key.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->delete()`
+
+Delete ShoppingList by key
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
 Queries orders in a specific Store. The {storeKey} path parameter maps to a Store's key.
@@ -2262,7 +2396,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
-Create MyCart
+Create Cart
 
 ### Example
 ```php
@@ -2277,7 +2411,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->get()`
 
-Get MyCart by ID
+Get Cart by ID
 
 ### Example
 ```php
@@ -2293,7 +2427,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->post(null)`
 
-Update MyCart by ID
+Update Cart by ID
 
 ### Example
 ```php
@@ -2309,7 +2443,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->delete()`
 
-Delete MyCart by ID
+Delete Cart by ID
 
 ### Example
 ```php
@@ -2325,7 +2459,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->get()`
 
-Get MyCart by key
+Get Cart by key
 
 ### Example
 ```php
@@ -2341,7 +2475,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->post(null)`
 
-Update MyCart by key
+Update Cart by key
 
 ### Example
 ```php
@@ -2357,7 +2491,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->delete()`
 
-Delete MyCart by key
+Delete Cart by key
 
 ### Example
 ```php
@@ -2418,7 +2552,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
-Create MyOrder
+Create Order
 
 ### Example
 ```php
@@ -2433,7 +2567,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->withId("ID")->get()`
 
-Get MyOrder by ID
+Get Order by ID
 
 ### Example
 ```php
@@ -2621,7 +2755,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
-Create MyShoppingList
+Create ShoppingList
 
 ### Example
 ```php
@@ -2636,7 +2770,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->get()`
 
-Get MyShoppingList by ID
+Get ShoppingList by ID
 
 ### Example
 ```php
@@ -2652,7 +2786,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Update MyShoppingList by ID
+Update ShoppingList by ID
 
 ### Example
 ```php
@@ -2668,7 +2802,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-Delete MyShoppingList by ID
+Delete ShoppingList by ID
 
 ### Example
 ```php
@@ -2684,7 +2818,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->get()`
 
-Get MyShoppingList by key
+Get ShoppingList by key
 
 ### Example
 ```php
@@ -2700,7 +2834,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Update MyShoppingList by key
+Update ShoppingList by key
 
 ### Example
 ```php
@@ -2716,7 +2850,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-Delete MyShoppingList by key
+Delete ShoppingList by key
 
 ### Example
 ```php

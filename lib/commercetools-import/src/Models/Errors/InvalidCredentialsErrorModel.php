@@ -59,8 +59,6 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()

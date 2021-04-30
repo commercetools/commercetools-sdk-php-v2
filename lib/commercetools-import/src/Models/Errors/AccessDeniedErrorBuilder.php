@@ -26,8 +26,6 @@ final class AccessDeniedErrorBuilder implements Builder
     private $message;
 
     /**
-     * <p>This is a placeholder for an actual platform error message.</p>
-     *
      * @return null|string
      */
     public function getMessage()
