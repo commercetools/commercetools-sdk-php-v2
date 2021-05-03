@@ -2,7 +2,7 @@
   "extends": [
     "config:base",
     ":enableVulnerabilityAlerts",
-    ":pinOnlyDevDependencies"
+    ":pinOnlyDevDependencies",
     "schedule:weekly"
   ],
   "separateMajorMinor": true,
