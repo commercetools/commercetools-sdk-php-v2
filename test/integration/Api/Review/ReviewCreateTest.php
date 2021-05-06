@@ -5,12 +5,6 @@ namespace Commercetools\IntegrationTest\Api\Review;
 
 
 use Commercetools\Api\Models\Review\Review;
-use Commercetools\Api\Models\Review\ReviewTransitionStateActionCollection;
-use Commercetools\Api\Models\Review\ReviewTransitionStateActionModel;
-use Commercetools\Api\Models\Review\ReviewUpdateBuilder;
-use Commercetools\Api\Models\State\State;
-use Commercetools\Api\Models\State\StateDraft;
-use Commercetools\Api\Models\State\StateResourceIdentifierCollection;
 use Commercetools\Exception\NotFoundException;
 use Commercetools\IntegrationTest\ApiTestCase;
 

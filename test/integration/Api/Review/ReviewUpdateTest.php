@@ -6,12 +6,8 @@ namespace Commercetools\IntegrationTest\Api\Review;
 
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\Review\ReviewTransitionStateActionBuilder;
-use Commercetools\Api\Models\Review\ReviewTransitionStateActionCollection;
-use Commercetools\Api\Models\Review\ReviewTransitionStateActionModel;
 use Commercetools\Api\Models\Review\ReviewUpdateActionCollection;
 use Commercetools\Api\Models\Review\ReviewUpdateBuilder;
-use Commercetools\Api\Models\State\State;
-use Commercetools\Api\Models\State\StateDraft;
 use Commercetools\Api\Models\State\StateDraftBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifierCollection;
