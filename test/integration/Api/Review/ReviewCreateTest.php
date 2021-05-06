@@ -9,7 +9,6 @@ use Commercetools\IntegrationTest\ApiTestCase;
 
 class ReviewCreateTest extends ApiTestCase
 {
-
     public const REVIEW_STATE = 'ReviewState';
 
     public function testCreate()

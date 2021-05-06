@@ -13,7 +13,7 @@ use Commercetools\Api\Models\State\StateResourceIdentifierCollection;
 use Commercetools\IntegrationTest\ApiTestCase;
 use Ramsey\Uuid\Uuid;
 
-class ReviewUpdateTest  extends ApiTestCase
+class ReviewUpdateTest extends ApiTestCase
 {
     public const REVIEW_STATE = 'ReviewState';
 
