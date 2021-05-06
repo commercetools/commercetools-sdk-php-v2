@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Review;
 
-
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Exception\NotFoundException;
 use Commercetools\IntegrationTest\ApiTestCase;
@@ -11,7 +10,7 @@ use Commercetools\IntegrationTest\ApiTestCase;
 class ReviewCreateTest extends ApiTestCase
 {
 
-    const REVIEW_STATE = 'ReviewState';
+    public const REVIEW_STATE = 'ReviewState';
 
     public function testCreate()
     {
@@ -31,7 +30,8 @@ class ReviewCreateTest extends ApiTestCase
         );
     }
 
-    public function testDeleteById() {
+    public function testDeleteById()
+    {
         $this->expectException(NotFoundException::class);
         $this->expectExceptionCode(404);
 
@@ -52,7 +52,8 @@ class ReviewCreateTest extends ApiTestCase
         );
     }
 
-    public function testDeleteByKey() {
+    public function testDeleteByKey()
+    {
         $this->expectException(NotFoundException::class);
         $this->expectExceptionCode(404);
 
@@ -72,6 +73,4 @@ class ReviewCreateTest extends ApiTestCase
             }
         );
     }
-
-
 }

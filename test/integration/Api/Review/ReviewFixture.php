@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Review;
 
-
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\Review\ReviewDraft;
 use Commercetools\Api\Models\Review\ReviewDraftBuilder;

@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\Review;
 
-
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\Review\ReviewTransitionStateActionBuilder;
 use Commercetools\Api\Models\Review\ReviewUpdateActionCollection;
@@ -16,14 +15,15 @@ use Ramsey\Uuid\Uuid;
 
 class ReviewUpdateTest  extends ApiTestCase
 {
-    const REVIEW_STATE = 'ReviewState';
+    public const REVIEW_STATE = 'ReviewState';
 
     final public static function uniqueString()
     {
         return 'test-' . Uuid::uuid4();
     }
 
-    public function testTransitionState() {
+    public function testTransitionState()
+    {
         $builder = $this->getApiBuilder();
 
         $stateDraftBuilder1 = new StateDraftBuilder();
@@ -85,5 +85,4 @@ class ReviewUpdateTest  extends ApiTestCase
 
         $request2->execute();
     }
-
 }
