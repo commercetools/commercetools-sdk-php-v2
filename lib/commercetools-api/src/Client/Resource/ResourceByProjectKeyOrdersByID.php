@@ -40,7 +40,7 @@ class ResourceByProjectKeyOrdersByID extends ApiResource
      * @psalm-param ?OrderUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderUpdate$body = null, array $headers = []): ByProjectKeyOrdersByIDPost
+    public function post(?OrderUpdate $body = null, array $headers = []): ByProjectKeyOrdersByIDPost
     {
         $args = $this->getArgs();
 

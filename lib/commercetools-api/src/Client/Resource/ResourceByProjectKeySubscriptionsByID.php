@@ -40,7 +40,7 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
      * @psalm-param ?SubscriptionUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?SubscriptionUpdate$body = null, array $headers = []): ByProjectKeySubscriptionsByIDPost
+    public function post(?SubscriptionUpdate $body = null, array $headers = []): ByProjectKeySubscriptionsByIDPost
     {
         $args = $this->getArgs();
 

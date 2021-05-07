@@ -30,7 +30,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
      * @psalm-param ?ImportSinkDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function put(?ImportSinkDraft$body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
+    public function put(?ImportSinkDraft $body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
     {
         $args = $this->getArgs();
 

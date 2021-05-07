@@ -59,7 +59,7 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
      * @psalm-param ?OrderEditDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderEditDraft$body = null, array $headers = []): ByProjectKeyOrdersEditsPost
+    public function post(?OrderEditDraft $body = null, array $headers = []): ByProjectKeyOrdersEditsPost
     {
         $args = $this->getArgs();
 

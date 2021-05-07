@@ -30,7 +30,7 @@ class ResourceByProjectKeyOrdersImport extends ApiResource
      * @psalm-param ?OrderImportDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderImportDraft$body = null, array $headers = []): ByProjectKeyOrdersImportPost
+    public function post(?OrderImportDraft $body = null, array $headers = []): ByProjectKeyOrdersImportPost
     {
         $args = $this->getArgs();
 

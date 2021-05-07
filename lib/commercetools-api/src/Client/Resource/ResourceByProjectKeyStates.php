@@ -59,7 +59,7 @@ class ResourceByProjectKeyStates extends ApiResource
      * @psalm-param ?StateDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?StateDraft$body = null, array $headers = []): ByProjectKeyStatesPost
+    public function post(?StateDraft $body = null, array $headers = []): ByProjectKeyStatesPost
     {
         $args = $this->getArgs();
 

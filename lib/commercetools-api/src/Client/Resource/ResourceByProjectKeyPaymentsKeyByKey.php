@@ -40,7 +40,7 @@ class ResourceByProjectKeyPaymentsKeyByKey extends ApiResource
      * @psalm-param ?PaymentUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?PaymentUpdate$body = null, array $headers = []): ByProjectKeyPaymentsKeyByKeyPost
+    public function post(?PaymentUpdate $body = null, array $headers = []): ByProjectKeyPaymentsKeyByKeyPost
     {
         $args = $this->getArgs();
 

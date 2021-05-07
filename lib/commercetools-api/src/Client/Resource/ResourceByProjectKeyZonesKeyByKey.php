@@ -40,7 +40,7 @@ class ResourceByProjectKeyZonesKeyByKey extends ApiResource
      * @psalm-param ?ZoneUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ZoneUpdate$body = null, array $headers = []): ByProjectKeyZonesKeyByKeyPost
+    public function post(?ZoneUpdate $body = null, array $headers = []): ByProjectKeyZonesKeyByKeyPost
     {
         $args = $this->getArgs();
 

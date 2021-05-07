@@ -40,7 +40,7 @@ class ResourceByProjectKeyProductTypesKeyByKey extends ApiResource
      * @psalm-param ?ProductTypeUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductTypeUpdate$body = null, array $headers = []): ByProjectKeyProductTypesKeyByKeyPost
+    public function post(?ProductTypeUpdate $body = null, array $headers = []): ByProjectKeyProductTypesKeyByKeyPost
     {
         $args = $this->getArgs();
 

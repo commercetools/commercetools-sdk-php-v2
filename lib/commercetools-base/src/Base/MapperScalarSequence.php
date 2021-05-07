@@ -233,4 +233,12 @@ abstract class MapperScalarSequence implements CSequence
             $this->iterator = $this->getIterator();
         }
     }
+
+    /**
+     * @return static
+     */
+    final public static function of()
+    {
+        return new static();
+    }
 }

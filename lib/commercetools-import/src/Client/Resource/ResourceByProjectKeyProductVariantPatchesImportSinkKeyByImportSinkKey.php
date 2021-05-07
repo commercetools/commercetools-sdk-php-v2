@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey exte
      * @psalm-param ?ProductVariantPatchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductVariantPatchRequest$body = null, array $headers = []): ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost
+    public function post(?ProductVariantPatchRequest $body = null, array $headers = []): ByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

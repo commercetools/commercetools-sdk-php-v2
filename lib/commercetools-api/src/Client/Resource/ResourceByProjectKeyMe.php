@@ -95,7 +95,7 @@ class ResourceByProjectKeyMe extends ApiResource
      * @psalm-param ?MyCustomerUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyCustomerUpdate$body = null, array $headers = []): ByProjectKeyMePost
+    public function post(?MyCustomerUpdate $body = null, array $headers = []): ByProjectKeyMePost
     {
         $args = $this->getArgs();
 

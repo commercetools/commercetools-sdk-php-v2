@@ -50,7 +50,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders extends ApiResource
      * @psalm-param ?MyOrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyOrderFromCartDraft$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost
+    public function post(?MyOrderFromCartDraft $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost
     {
         $args = $this->getArgs();
 

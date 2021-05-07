@@ -50,7 +50,7 @@ class ResourceByProjectKeyChannels extends ApiResource
      * @psalm-param ?ChannelDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ChannelDraft$body = null, array $headers = []): ByProjectKeyChannelsPost
+    public function post(?ChannelDraft $body = null, array $headers = []): ByProjectKeyChannelsPost
     {
         $args = $this->getArgs();
 

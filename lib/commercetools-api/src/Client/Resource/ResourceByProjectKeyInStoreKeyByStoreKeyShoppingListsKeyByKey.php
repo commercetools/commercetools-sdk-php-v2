@@ -40,7 +40,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKey extends ApiR
      * @psalm-param ?ShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ShoppingListUpdate$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyPost
+    public function post(?ShoppingListUpdate $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyPost
     {
         $args = $this->getArgs();
 

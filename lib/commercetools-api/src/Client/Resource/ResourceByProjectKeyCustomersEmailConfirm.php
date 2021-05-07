@@ -30,7 +30,7 @@ class ResourceByProjectKeyCustomersEmailConfirm extends ApiResource
      * @psalm-param ?CustomerEmailVerify $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerEmailVerify$body = null, array $headers = []): ByProjectKeyCustomersEmailConfirmPost
+    public function post(?CustomerEmailVerify $body = null, array $headers = []): ByProjectKeyCustomersEmailConfirmPost
     {
         $args = $this->getArgs();
 

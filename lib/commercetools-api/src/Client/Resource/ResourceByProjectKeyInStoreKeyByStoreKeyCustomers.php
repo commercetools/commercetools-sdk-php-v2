@@ -107,7 +107,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
      * @psalm-param ?CustomerDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerDraft$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPost
+    public function post(?CustomerDraft $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPost
     {
         $args = $this->getArgs();
 
