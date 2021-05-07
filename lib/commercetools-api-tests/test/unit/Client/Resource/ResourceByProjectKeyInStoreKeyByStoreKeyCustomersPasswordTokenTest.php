@@ -130,7 +130,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenTest extends
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost_201' => [
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
@@ -139,7 +139,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenTest extends
                         ->passwordToken()
                         ->post(null);
                 },
-                201
+                200
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -206,17 +206,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenTest extends
                         ->post(null);
                 },
                 503
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->customers()
-                        ->passwordToken()
-                        ->post(null);
-                },
-                200
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
