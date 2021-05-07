@@ -40,7 +40,7 @@ class ResourceByProjectKeyTaxCategoriesByID extends ApiResource
      * @psalm-param ?TaxCategoryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?TaxCategoryUpdate$body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDPost
+    public function post(?TaxCategoryUpdate $body = null, array $headers = []): ByProjectKeyTaxCategoriesByIDPost
     {
         $args = $this->getArgs();
 

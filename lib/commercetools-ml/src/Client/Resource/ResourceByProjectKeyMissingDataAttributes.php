@@ -37,7 +37,7 @@ class ResourceByProjectKeyMissingDataAttributes extends ApiResource
      * @psalm-param ?MissingAttributesSearchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MissingAttributesSearchRequest$body = null, array $headers = []): ByProjectKeyMissingDataAttributesPost
+    public function post(?MissingAttributesSearchRequest $body = null, array $headers = []): ByProjectKeyMissingDataAttributesPost
     {
         $args = $this->getArgs();
 

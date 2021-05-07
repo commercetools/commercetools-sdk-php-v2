@@ -40,7 +40,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber ext
      * @psalm-param ?OrderUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderUpdate$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost
+    public function post(?OrderUpdate $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost
     {
         $args = $this->getArgs();
 

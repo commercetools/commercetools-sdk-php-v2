@@ -40,7 +40,7 @@ class ResourceByProjectKeyShippingMethodsByID extends ApiResource
      * @psalm-param ?ShippingMethodUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ShippingMethodUpdate$body = null, array $headers = []): ByProjectKeyShippingMethodsByIDPost
+    public function post(?ShippingMethodUpdate $body = null, array $headers = []): ByProjectKeyShippingMethodsByIDPost
     {
         $args = $this->getArgs();
 

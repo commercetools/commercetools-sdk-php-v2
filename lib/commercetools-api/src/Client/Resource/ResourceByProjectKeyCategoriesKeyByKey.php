@@ -40,7 +40,7 @@ class ResourceByProjectKeyCategoriesKeyByKey extends ApiResource
      * @psalm-param ?CategoryUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CategoryUpdate$body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyPost
+    public function post(?CategoryUpdate $body = null, array $headers = []): ByProjectKeyCategoriesKeyByKeyPost
     {
         $args = $this->getArgs();
 

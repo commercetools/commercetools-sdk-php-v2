@@ -50,7 +50,7 @@ class ResourceByProjectKeyInventory extends ApiResource
      * @psalm-param ?InventoryEntryDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?InventoryEntryDraft$body = null, array $headers = []): ByProjectKeyInventoryPost
+    public function post(?InventoryEntryDraft $body = null, array $headers = []): ByProjectKeyInventoryPost
     {
         $args = $this->getArgs();
 

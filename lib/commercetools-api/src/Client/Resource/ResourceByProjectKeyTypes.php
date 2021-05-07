@@ -59,7 +59,7 @@ class ResourceByProjectKeyTypes extends ApiResource
      * @psalm-param ?TypeDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?TypeDraft$body = null, array $headers = []): ByProjectKeyTypesPost
+    public function post(?TypeDraft $body = null, array $headers = []): ByProjectKeyTypesPost
     {
         $args = $this->getArgs();
 

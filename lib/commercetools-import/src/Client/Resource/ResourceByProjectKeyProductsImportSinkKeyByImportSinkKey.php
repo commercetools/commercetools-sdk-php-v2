@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKey extends ApiResour
      * @psalm-param ?ProductImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductImportRequest$body = null, array $headers = []): ByProjectKeyProductsImportSinkKeyByImportSinkKeyPost
+    public function post(?ProductImportRequest $body = null, array $headers = []): ByProjectKeyProductsImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

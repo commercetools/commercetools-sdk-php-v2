@@ -40,7 +40,7 @@ class ResourceByProjectKeyReviewsByID extends ApiResource
      * @psalm-param ?ReviewUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ReviewUpdate$body = null, array $headers = []): ByProjectKeyReviewsByIDPost
+    public function post(?ReviewUpdate $body = null, array $headers = []): ByProjectKeyReviewsByIDPost
     {
         $args = $this->getArgs();
 

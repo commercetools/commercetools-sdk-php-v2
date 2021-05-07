@@ -40,7 +40,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByID extends ApiRes
      * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyShoppingListUpdate$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDPost
+    public function post(?MyShoppingListUpdate $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsByIDPost
     {
         $args = $this->getArgs();
 

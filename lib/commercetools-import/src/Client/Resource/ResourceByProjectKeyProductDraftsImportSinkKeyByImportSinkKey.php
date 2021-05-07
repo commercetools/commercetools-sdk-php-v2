@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey extends ApiR
      * @psalm-param ?ProductDraftImportRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProductDraftImportRequest$body = null, array $headers = []): ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyPost
+    public function post(?ProductDraftImportRequest $body = null, array $headers = []): ByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyPost
     {
         $args = $this->getArgs();
 

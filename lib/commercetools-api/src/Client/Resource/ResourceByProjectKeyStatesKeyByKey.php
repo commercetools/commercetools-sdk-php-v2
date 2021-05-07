@@ -40,7 +40,7 @@ class ResourceByProjectKeyStatesKeyByKey extends ApiResource
      * @psalm-param ?StateUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?StateUpdate$body = null, array $headers = []): ByProjectKeyStatesKeyByKeyPost
+    public function post(?StateUpdate $body = null, array $headers = []): ByProjectKeyStatesKeyByKeyPost
     {
         $args = $this->getArgs();
 

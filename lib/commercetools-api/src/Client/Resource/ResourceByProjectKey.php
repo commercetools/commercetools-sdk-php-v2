@@ -230,7 +230,7 @@ class ResourceByProjectKey extends ApiResource
      * @psalm-param ?ProjectUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?ProjectUpdate$body = null, array $headers = []): ByProjectKeyPost
+    public function post(?ProjectUpdate $body = null, array $headers = []): ByProjectKeyPost
     {
         $args = $this->getArgs();
 

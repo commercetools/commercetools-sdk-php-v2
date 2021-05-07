@@ -71,7 +71,7 @@ class ResourceByProjectKeyOrders extends ApiResource
      * @psalm-param ?OrderFromCartDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?OrderFromCartDraft$body = null, array $headers = []): ByProjectKeyOrdersPost
+    public function post(?OrderFromCartDraft $body = null, array $headers = []): ByProjectKeyOrdersPost
     {
         $args = $this->getArgs();
 

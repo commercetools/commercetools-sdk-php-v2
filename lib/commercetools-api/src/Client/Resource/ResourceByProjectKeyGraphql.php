@@ -30,7 +30,7 @@ class ResourceByProjectKeyGraphql extends ApiResource
      * @psalm-param ?GraphQLRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?GraphQLRequest$body = null, array $headers = []): ByProjectKeyGraphqlPost
+    public function post(?GraphQLRequest $body = null, array $headers = []): ByProjectKeyGraphqlPost
     {
         $args = $this->getArgs();
 

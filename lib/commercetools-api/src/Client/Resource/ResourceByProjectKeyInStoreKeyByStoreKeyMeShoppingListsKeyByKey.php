@@ -40,7 +40,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKey extends Ap
      * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyShoppingListUpdate$body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKeyPost
+    public function post(?MyShoppingListUpdate $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeShoppingListsKeyByKeyPost
     {
         $args = $this->getArgs();
 
