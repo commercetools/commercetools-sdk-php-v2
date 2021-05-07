@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\ValidFromAndUntilValueModel;
  */
 final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements SetValidFromAndUntilChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetValidFromAndUntilChange';
     /**
      * @var ?string

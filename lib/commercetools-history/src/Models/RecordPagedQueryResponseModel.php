@@ -20,6 +20,7 @@ use stdClass;
 final class RecordPagedQueryResponseModel extends JsonObjectModel implements RecordPagedQueryResponse
 {
 
+
     /**
      * @var ?int
      */

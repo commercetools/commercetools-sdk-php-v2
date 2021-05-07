@@ -20,6 +20,7 @@ use stdClass;
 final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
 {
 
+
     /**
      * @var ?mixed
      */

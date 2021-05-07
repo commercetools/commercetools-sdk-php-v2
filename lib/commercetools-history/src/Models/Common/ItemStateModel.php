@@ -20,6 +20,7 @@ use stdClass;
 final class ItemStateModel extends JsonObjectModel implements ItemState
 {
 
+
     /**
      * @var ?int
      */

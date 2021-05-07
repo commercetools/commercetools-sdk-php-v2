@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\DeliveryChangeValueModel;
  */
 final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliveryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddDeliveryChange';
     /**
      * @var ?string

@@ -20,6 +20,7 @@ use stdClass;
 final class LineItemModel extends JsonObjectModel implements LineItem
 {
 
+
     /**
      * @var ?string
      */

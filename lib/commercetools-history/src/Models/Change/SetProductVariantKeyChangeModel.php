@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetProductVariantKeyChangeModel extends JsonObjectModel implements SetProductVariantKeyChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetProductVariantKeyChange';
     /**
      * @var ?string

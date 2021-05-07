@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\EnumValueModel;
  */
 final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumValueChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddEnumValueChange';
     /**
      * @var ?string

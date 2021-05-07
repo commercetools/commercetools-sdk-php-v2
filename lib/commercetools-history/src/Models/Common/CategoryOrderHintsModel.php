@@ -22,6 +22,7 @@ final class CategoryOrderHintsModel extends JsonObjectModel implements CategoryO
 
 
 
+
     /**
      * @psalm-suppress MissingParamType
      */

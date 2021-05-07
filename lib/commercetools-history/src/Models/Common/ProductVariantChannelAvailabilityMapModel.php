@@ -22,6 +22,7 @@ final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel im
 
 
 
+
     /**
      * @psalm-suppress MissingParamType
      */

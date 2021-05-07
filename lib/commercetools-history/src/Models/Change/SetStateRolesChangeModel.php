@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetStateRolesChangeModel extends JsonObjectModel implements SetStateRolesChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetStateRolesChange';
     /**
      * @var ?string

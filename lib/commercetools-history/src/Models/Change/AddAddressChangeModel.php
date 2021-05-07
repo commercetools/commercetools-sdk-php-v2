@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AddressModel;
  */
 final class AddAddressChangeModel extends JsonObjectModel implements AddAddressChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddAddressChange';
     /**
      * @var ?string

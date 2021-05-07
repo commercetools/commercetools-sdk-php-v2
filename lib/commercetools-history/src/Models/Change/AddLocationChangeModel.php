@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocationModel;
  */
 final class AddLocationChangeModel extends JsonObjectModel implements AddLocationChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddLocationChange';
     /**
      * @var ?string

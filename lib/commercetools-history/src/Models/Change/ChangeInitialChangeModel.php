@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeInitialChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeInitialChange';
     /**
      * @var ?string

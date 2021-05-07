@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReturnInfoModel;
  */
 final class AddReturnInfoChangeModel extends JsonObjectModel implements AddReturnInfoChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddReturnInfoChange';
     /**
      * @var ?string

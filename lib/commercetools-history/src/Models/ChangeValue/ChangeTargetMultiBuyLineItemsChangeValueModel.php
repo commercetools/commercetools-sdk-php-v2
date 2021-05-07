@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeTargetMultiBuyLineItemsChangeValueModel extends JsonObjectModel implements ChangeTargetMultiBuyLineItemsChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'multiBuyLineItems';
     /**
      * @var ?string

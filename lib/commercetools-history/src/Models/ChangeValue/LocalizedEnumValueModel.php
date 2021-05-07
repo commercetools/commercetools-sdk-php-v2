@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
 final class LocalizedEnumValueModel extends JsonObjectModel implements LocalizedEnumValue
 {
 
+
     /**
      * @var ?string
      */

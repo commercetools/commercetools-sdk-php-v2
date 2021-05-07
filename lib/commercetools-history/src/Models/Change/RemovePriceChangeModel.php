@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\PriceModel;
  */
 final class RemovePriceChangeModel extends JsonObjectModel implements RemovePriceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemovePriceChange';
     /**
      * @var ?string

@@ -20,6 +20,7 @@ use stdClass;
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
 
+
     /**
      * @var ?int
      */

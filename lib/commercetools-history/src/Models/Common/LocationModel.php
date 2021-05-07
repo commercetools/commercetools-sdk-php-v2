@@ -20,6 +20,7 @@ use stdClass;
 final class LocationModel extends JsonObjectModel implements Location
 {
 
+
     /**
      * @var ?string
      */

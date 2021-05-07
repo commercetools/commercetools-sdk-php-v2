@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabelChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeLabelChange';
     /**
      * @var ?string

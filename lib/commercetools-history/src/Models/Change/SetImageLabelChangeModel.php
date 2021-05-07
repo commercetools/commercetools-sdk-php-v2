@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ImageModel;
  */
 final class SetImageLabelChangeModel extends JsonObjectModel implements SetImageLabelChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetImageLabelChange';
     /**
      * @var ?string

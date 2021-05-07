@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxCategoryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetTaxCategoryChange';
     /**
      * @var ?string

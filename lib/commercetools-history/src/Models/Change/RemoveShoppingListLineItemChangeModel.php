@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LineItemModel;
  */
 final class RemoveShoppingListLineItemChangeModel extends JsonObjectModel implements RemoveShoppingListLineItemChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveShoppingListLineItemChange';
     /**
      * @var ?string

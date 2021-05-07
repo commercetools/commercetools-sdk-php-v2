@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel implements ChangeValueGiftLineItemChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
      * @var ?string

@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectModel implements SetDeleteDaysAfterLastModificationChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDeleteDaysAfterLastModificationChange';
     /**
      * @var ?string

@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangePaymentStateChangeModel extends JsonObjectModel implements ChangePaymentStateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangePaymentStateChange';
     /**
      * @var ?string

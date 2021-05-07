@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeValueExternalChangeValueModel extends JsonObjectModel implements ChangeValueExternalChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'external';
     /**
      * @var ?string

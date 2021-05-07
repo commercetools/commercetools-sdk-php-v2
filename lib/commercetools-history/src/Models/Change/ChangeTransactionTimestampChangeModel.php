@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\TransactionChangeValueModel;
  */
 final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implements ChangeTransactionTimestampChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeTransactionTimestampChange';
     /**
      * @var ?string

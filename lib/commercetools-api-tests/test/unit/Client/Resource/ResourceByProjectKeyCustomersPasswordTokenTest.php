@@ -128,7 +128,7 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyCustomersPasswordTokenPost_201' => [
+            'ByProjectKeyCustomersPasswordTokenPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
@@ -136,7 +136,7 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
                         ->passwordToken()
                         ->post(null);
                 },
-                201
+                200
             ],
             'ByProjectKeyCustomersPasswordTokenPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -197,16 +197,6 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
                         ->post(null);
                 },
                 503
-            ],
-            'ByProjectKeyCustomersPasswordTokenPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->customers()
-                        ->passwordToken()
-                        ->post(null);
-                },
-                200
             ],
             'ByProjectKeyCustomersPasswordTokenPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

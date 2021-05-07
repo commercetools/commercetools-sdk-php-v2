@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValueModel;
  */
 final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectModel implements SetShoppingListLineItemCustomFieldChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetShoppingListLineItemCustomFieldChange';
     /**
      * @var ?string

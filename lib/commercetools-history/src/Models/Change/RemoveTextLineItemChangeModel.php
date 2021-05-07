@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\TextLineItemModel;
  */
 final class RemoveTextLineItemChangeModel extends JsonObjectModel implements RemoveTextLineItemChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveTextLineItemChange';
     /**
      * @var ?string

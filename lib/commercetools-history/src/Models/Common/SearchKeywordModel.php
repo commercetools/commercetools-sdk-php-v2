@@ -20,6 +20,7 @@ use stdClass;
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
 
+
     /**
      * @var ?string
      */

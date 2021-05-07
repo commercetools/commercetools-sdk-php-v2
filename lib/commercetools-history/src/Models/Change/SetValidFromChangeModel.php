@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetValidFromChangeModel extends JsonObjectModel implements SetValidFromChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetValidFromChange';
     /**
      * @var ?string

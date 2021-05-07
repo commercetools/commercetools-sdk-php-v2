@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetDateOfBirthChangeModel extends JsonObjectModel implements SetDateOfBirthChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDateOfBirthChange';
     /**
      * @var ?string

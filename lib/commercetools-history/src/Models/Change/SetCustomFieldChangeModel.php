@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCustomFieldChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomFieldChange';
     /**
      * @var ?string

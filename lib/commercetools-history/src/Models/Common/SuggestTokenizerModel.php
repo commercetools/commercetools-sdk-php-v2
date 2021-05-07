@@ -20,6 +20,7 @@ use stdClass;
 final class SuggestTokenizerModel extends JsonObjectModel implements SuggestTokenizer
 {
 
+
     /**
      * @var ?string
      */

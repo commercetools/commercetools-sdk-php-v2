@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValueModel;
  */
 final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectModel implements ChangeShoppingListLineItemQuantityChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeShoppingListLineItemQuantityChange';
     /**
      * @var ?string

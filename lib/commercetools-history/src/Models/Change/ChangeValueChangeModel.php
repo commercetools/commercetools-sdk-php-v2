@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\ChangeValueChangeValueModel;
  */
 final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValueChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeValueChange';
     /**
      * @var ?string

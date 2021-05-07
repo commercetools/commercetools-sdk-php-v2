@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implements ChangeAttributeOrderByNameChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeAttributeOrderByNameChange';
     /**
      * @var ?string

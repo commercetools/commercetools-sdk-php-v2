@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeInputHintChangeModel extends JsonObjectModel implements ChangeInputHintChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeInputHintChange';
     /**
      * @var ?string

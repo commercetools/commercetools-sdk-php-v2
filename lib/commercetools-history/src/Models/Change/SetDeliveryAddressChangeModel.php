@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AddressModel;
  */
 final class SetDeliveryAddressChangeModel extends JsonObjectModel implements SetDeliveryAddressChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetDeliveryAddressChange';
     /**
      * @var ?string

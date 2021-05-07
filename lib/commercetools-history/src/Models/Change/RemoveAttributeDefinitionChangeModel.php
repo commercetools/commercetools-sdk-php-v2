@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AttributeDefinitionModel;
  */
 final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel implements RemoveAttributeDefinitionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveAttributeDefinitionChange';
     /**
      * @var ?string

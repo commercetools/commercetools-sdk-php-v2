@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\TaxedItemPriceModel;
  */
 final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements SetOrderTaxedPriceChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetOrderTaxedPriceChange';
     /**
      * @var ?string

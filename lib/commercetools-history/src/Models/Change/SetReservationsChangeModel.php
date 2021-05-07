@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ReservationCollection;
  */
 final class SetReservationsChangeModel extends JsonObjectModel implements SetReservationsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetReservationsChange';
     /**
      * @var ?string

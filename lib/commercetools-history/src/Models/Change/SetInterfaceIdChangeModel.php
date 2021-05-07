@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetInterfaceIdChangeModel extends JsonObjectModel implements SetInterfaceIdChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetInterfaceIdChange';
     /**
      * @var ?string

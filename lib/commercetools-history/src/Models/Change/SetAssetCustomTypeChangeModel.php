@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\CustomFieldsModel;
  */
 final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements SetAssetCustomTypeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetAssetCustomTypeChange';
     /**
      * @var ?string

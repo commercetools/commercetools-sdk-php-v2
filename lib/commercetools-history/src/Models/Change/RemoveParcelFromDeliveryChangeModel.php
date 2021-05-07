@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ParcelModel;
  */
 final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implements RemoveParcelFromDeliveryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveParcelFromDeliveryChange';
     /**
      * @var ?string

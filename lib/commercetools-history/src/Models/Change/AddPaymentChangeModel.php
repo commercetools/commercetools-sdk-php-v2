@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\PaymentInfoModel;
  */
 final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddPaymentChange';
     /**
      * @var ?string

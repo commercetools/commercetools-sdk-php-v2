@@ -24,6 +24,7 @@ use Commercetools\History\Models\Common\ParcelCollection;
 final class DeliveryChangeValueModel extends JsonObjectModel implements DeliveryChangeValue
 {
 
+
     /**
      * @var ?DeliveryItemCollection
      */

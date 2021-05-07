@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\CategoryOrderHintsModel;
  */
 final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements SetCategoryOrderHintChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCategoryOrderHintChange';
     /**
      * @var ?string

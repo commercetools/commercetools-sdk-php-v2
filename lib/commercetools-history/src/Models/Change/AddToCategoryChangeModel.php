@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\ReferenceModel;
  */
 final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCategoryChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddToCategoryChange';
     /**
      * @var ?string

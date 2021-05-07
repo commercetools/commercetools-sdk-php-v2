@@ -20,6 +20,7 @@ use stdClass;
 final class DiscountedLineItemPriceModel extends JsonObjectModel implements DiscountedLineItemPrice
 {
 
+
     /**
      * @var ?Money
      */

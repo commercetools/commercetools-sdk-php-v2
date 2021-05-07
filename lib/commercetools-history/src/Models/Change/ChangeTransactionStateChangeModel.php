@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\TransactionChangeValueModel;
  */
 final class ChangeTransactionStateChangeModel extends JsonObjectModel implements ChangeTransactionStateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeTransactionStateChange';
     /**
      * @var ?string

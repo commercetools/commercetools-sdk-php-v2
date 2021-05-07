@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetValidUntilChangeModel extends JsonObjectModel implements SetValidUntilChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetValidUntilChange';
     /**
      * @var ?string

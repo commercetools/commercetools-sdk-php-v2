@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\ProductVariantAvailabilityModel;
  */
 final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements SetVariantAvailabilityChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetVariantAvailabilityChange';
     /**
      * @var ?string

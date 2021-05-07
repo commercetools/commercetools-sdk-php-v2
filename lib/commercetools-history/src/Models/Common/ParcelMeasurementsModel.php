@@ -20,6 +20,7 @@ use stdClass;
 final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMeasurements
 {
 
+
     /**
      * @var ?int
      */

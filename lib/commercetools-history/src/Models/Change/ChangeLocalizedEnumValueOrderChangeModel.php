@@ -20,6 +20,7 @@ use Commercetools\History\Models\ChangeValue\LocalizedEnumValueCollection;
  */
 final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel implements ChangeLocalizedEnumValueOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeLocalizedEnumValueOrderChange';
     /**
      * @var ?string

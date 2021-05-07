@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements SetLineItemProductSlugChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetLineItemProductSlugChange';
     /**
      * @var ?string

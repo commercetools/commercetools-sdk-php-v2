@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class ChangeLocalizedNameChangeModel extends JsonObjectModel implements ChangeLocalizedNameChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeLocalizedNameChange';
     /**
      * @var ?string

@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
 final class FieldDefinitionOrderValueModel extends JsonObjectModel implements FieldDefinitionOrderValue
 {
 
+
     /**
      * @var ?string
      */

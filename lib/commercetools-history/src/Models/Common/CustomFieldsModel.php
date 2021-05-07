@@ -20,6 +20,7 @@ use stdClass;
 final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 {
 
+
     /**
      * @var ?Reference
      */

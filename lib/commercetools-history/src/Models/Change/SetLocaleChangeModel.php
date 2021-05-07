@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetLocaleChange';
     /**
      * @var ?string

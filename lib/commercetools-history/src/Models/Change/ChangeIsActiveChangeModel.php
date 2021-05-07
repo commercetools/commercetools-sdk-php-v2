@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeIsActiveChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeIsActiveChange';
     /**
      * @var ?string

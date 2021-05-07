@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements ChangeLineItemQuantityChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeLineItemQuantityChange';
     /**
      * @var ?string

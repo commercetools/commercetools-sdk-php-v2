@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeTargetChangeValueModel extends JsonObjectModel implements ChangeTargetChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = '';
     /**
      * @var ?string

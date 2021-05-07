@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\MoneyCollection;
  */
 final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implements ChangeValueAbsoluteChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'absolute';
     /**
      * @var ?string

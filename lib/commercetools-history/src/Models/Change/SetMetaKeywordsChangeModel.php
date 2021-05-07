@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMetaKeywordsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetMetaKeywordsChange';
     /**
      * @var ?string

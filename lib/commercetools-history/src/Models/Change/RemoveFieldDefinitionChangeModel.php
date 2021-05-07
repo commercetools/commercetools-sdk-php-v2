@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\FieldDefinitionModel;
  */
 final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements RemoveFieldDefinitionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveFieldDefinitionChange';
     /**
      * @var ?string

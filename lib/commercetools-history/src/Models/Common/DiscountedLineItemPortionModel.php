@@ -20,6 +20,7 @@ use stdClass;
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
 {
 
+
     /**
      * @var ?Reference
      */

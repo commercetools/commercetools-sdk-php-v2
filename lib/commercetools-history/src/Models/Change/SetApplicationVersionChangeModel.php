@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetApplicationVersionChangeModel extends JsonObjectModel implements SetApplicationVersionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetApplicationVersionChange';
     /**
      * @var ?string

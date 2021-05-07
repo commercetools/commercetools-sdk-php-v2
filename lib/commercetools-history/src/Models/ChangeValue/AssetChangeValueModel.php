@@ -22,6 +22,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
 final class AssetChangeValueModel extends JsonObjectModel implements AssetChangeValue
 {
 
+
     /**
      * @var ?string
      */

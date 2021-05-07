@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\VariantModel;
  */
 final class AddVariantChangeModel extends JsonObjectModel implements AddVariantChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddVariantChange';
     /**
      * @var ?string

@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetRestockableInDaysChangeModel extends JsonObjectModel implements SetRestockableInDaysChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetRestockableInDaysChange';
     /**
      * @var ?string

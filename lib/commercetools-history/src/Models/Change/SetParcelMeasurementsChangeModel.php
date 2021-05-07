@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\ParcelMeasurementsModel;
  */
 final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements SetParcelMeasurementsChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetParcelMeasurementsChange';
     /**
      * @var ?string

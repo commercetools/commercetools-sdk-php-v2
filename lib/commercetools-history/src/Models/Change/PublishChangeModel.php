@@ -19,6 +19,7 @@ use stdClass;
  */
 final class PublishChangeModel extends JsonObjectModel implements PublishChange
 {
+
     public const DISCRIMINATOR_VALUE = 'PublishChange';
     /**
      * @var ?string

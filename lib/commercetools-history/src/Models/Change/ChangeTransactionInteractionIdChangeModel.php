@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\TransactionChangeValueModel;
  */
 final class ChangeTransactionInteractionIdChangeModel extends JsonObjectModel implements ChangeTransactionInteractionIdChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeTransactionInteractionIdChange';
     /**
      * @var ?string

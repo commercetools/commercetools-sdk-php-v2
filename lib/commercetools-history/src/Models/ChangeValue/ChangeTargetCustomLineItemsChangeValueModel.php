@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeTargetCustomLineItemsChangeValueModel extends JsonObjectModel implements ChangeTargetCustomLineItemsChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'customLineItems';
     /**
      * @var ?string

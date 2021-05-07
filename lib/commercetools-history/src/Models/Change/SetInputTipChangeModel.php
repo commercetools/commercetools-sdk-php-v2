@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTipChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetInputTipChange';
     /**
      * @var ?string

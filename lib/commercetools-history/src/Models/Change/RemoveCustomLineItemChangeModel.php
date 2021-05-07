@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\CustomLineItemModel;
  */
 final class RemoveCustomLineItemChangeModel extends JsonObjectModel implements RemoveCustomLineItemChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveCustomLineItemChange';
     /**
      * @var ?string

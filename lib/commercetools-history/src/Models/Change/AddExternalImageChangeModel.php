@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ImageCollection;
  */
 final class AddExternalImageChangeModel extends JsonObjectModel implements AddExternalImageChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddExternalImageChange';
     /**
      * @var ?string

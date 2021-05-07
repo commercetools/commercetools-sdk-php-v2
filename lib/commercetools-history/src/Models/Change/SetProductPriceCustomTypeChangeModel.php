@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\CustomFieldsModel;
  */
 final class SetProductPriceCustomTypeChangeModel extends JsonObjectModel implements SetProductPriceCustomTypeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetProductPriceCustomTypeChange';
     /**
      * @var ?string

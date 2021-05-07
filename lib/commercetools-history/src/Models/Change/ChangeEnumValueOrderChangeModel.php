@@ -20,6 +20,7 @@ use Commercetools\History\Models\ChangeValue\EnumValueCollection;
  */
 final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements ChangeEnumValueOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeEnumValueOrderChange';
     /**
      * @var ?string

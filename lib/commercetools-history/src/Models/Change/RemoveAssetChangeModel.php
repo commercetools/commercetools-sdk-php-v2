@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\AssetModel;
  */
 final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAssetChange
 {
+
     public const DISCRIMINATOR_VALUE = 'RemoveAssetChange';
     /**
      * @var ?string

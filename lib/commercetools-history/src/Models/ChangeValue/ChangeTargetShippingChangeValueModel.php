@@ -19,6 +19,7 @@ use stdClass;
  */
 final class ChangeTargetShippingChangeValueModel extends JsonObjectModel implements ChangeTargetShippingChangeValue
 {
+
     public const DISCRIMINATOR_VALUE = 'shipping';
     /**
      * @var ?string

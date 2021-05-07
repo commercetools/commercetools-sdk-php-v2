@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\ItemStateCollection;
  */
 final class TransitionLineItemStateChangeModel extends JsonObjectModel implements TransitionLineItemStateChange
 {
+
     public const DISCRIMINATOR_VALUE = 'TransitionLineItemStateChange';
     /**
      * @var ?string

@@ -21,6 +21,7 @@ use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValueModel;
  */
 final class AddInterfaceInteractionChangeModel extends JsonObjectModel implements AddInterfaceInteractionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddInterfaceInteractionChange';
     /**
      * @var ?string

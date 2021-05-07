@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\TrackingDataModel;
  */
 final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements SetParcelTrackingDataChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetParcelTrackingDataChange';
     /**
      * @var ?string

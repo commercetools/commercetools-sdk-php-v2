@@ -20,6 +20,7 @@ use stdClass;
 final class ProductVariantAvailabilityModel extends JsonObjectModel implements ProductVariantAvailability
 {
 
+
     /**
      * @var ?bool
      */

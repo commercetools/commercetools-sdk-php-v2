@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetAuthorNameChangeModel extends JsonObjectModel implements SetAuthorNameChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetAuthorNameChange';
     /**
      * @var ?string

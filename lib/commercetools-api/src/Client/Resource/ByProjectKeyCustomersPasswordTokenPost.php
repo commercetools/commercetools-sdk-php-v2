@@ -52,7 +52,7 @@ class ByProjectKeyCustomersPasswordTokenPost extends ApiRequest
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '201':
+                case '200':
                     $resultType = CustomerTokenModel::class;
 
                     break;

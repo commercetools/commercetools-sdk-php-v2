@@ -19,6 +19,7 @@ use stdClass;
  */
 final class SetLanguagesChangeModel extends JsonObjectModel implements SetLanguagesChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetLanguagesChange';
     /**
      * @var ?string

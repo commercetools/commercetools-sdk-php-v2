@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\GeoLocationModel;
  */
 final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoLocationChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetGeoLocationChange';
     /**
      * @var ?string

@@ -23,6 +23,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel implements SetCustomLineItemCustomTypeChange
 {
+
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomTypeChange';
     /**
      * @var ?string

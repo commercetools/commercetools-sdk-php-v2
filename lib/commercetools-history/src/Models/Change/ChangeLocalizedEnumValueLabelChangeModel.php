@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\LocalizedStringModel;
  */
 final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel implements ChangeLocalizedEnumValueLabelChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeLocalizedEnumValueLabelChange';
     /**
      * @var ?string

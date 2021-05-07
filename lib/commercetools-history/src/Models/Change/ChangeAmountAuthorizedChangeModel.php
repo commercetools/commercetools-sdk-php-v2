@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\MoneyModel;
  */
 final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements ChangeAmountAuthorizedChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeAmountAuthorizedChange';
     /**
      * @var ?string

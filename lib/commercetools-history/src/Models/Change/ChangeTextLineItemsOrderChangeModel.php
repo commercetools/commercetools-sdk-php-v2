@@ -20,6 +20,7 @@ use Commercetools\History\Models\ChangeValue\TextLineItemValueCollection;
  */
 final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implements ChangeTextLineItemsOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeTextLineItemsOrderChange';
     /**
      * @var ?string

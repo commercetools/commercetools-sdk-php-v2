@@ -20,6 +20,7 @@ use stdClass;
 final class AssetModel extends JsonObjectModel implements Asset
 {
 
+
     /**
      * @var ?string
      */

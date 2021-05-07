@@ -20,6 +20,7 @@ use Commercetools\History\Models\Common\LocalizedStringCollection;
  */
 final class ChangeAssetOrderChangeModel extends JsonObjectModel implements ChangeAssetOrderChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeAssetOrderChange';
     /**
      * @var ?string

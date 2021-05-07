@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\VariantModel;
  */
 final class ChangeMasterVariantChangeModel extends JsonObjectModel implements ChangeMasterVariantChange
 {
+
     public const DISCRIMINATOR_VALUE = 'ChangeMasterVariantChange';
     /**
      * @var ?string

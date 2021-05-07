@@ -19,6 +19,7 @@ use stdClass;
  */
 final class AddChannelRolesChangeModel extends JsonObjectModel implements AddChannelRolesChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddChannelRolesChange';
     /**
      * @var ?string

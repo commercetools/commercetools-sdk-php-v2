@@ -21,6 +21,7 @@ use Commercetools\History\Models\Common\FieldDefinitionModel;
  */
 final class AddFieldDefinitionChangeModel extends JsonObjectModel implements AddFieldDefinitionChange
 {
+
     public const DISCRIMINATOR_VALUE = 'AddFieldDefinitionChange';
     /**
      * @var ?string
