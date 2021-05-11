@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -66,7 +66,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     protected $sku;
 
     /**
-     * @var ?ChannelResourceIdentifier
+     * @var ?ChannelReference
      */
     protected $supplyChannel;
 
@@ -107,7 +107,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
         ?string $sku = null,
-        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?ChannelReference $supplyChannel = null,
         ?int $quantityOnStock = null,
         ?int $availableQuantity = null,
         ?int $restockableInDays = null,
@@ -267,7 +267,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Optional connection to a particular supplier.</p>
      *
-     * @return null|ChannelResourceIdentifier
+     * @return null|ChannelReference
      */
     public function getSupplyChannel()
     {
@@ -278,7 +278,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
                 return null;
             }
 
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+            $this->supplyChannel = ChannelReferenceModel::of($data);
         }
 
         return $this->supplyChannel;
@@ -442,9 +442,9 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
+     * @param ?ChannelReference $supplyChannel
      */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
