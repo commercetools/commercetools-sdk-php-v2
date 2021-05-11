@@ -5,9 +5,16 @@ namespace Commercetools\UnitTest;
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ByProjectKeyGet;
 use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartDraft;
+use Commercetools\Api\Models\Cart\CartDraftBuilder;
 use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Category\CategoryModel;
+use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\AddressDraft;
+use Commercetools\Api\Models\Common\AddressDraftBuilder;
+use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
@@ -23,8 +30,11 @@ use Commercetools\Api\Models\Product\ProductVariantDraftModel;
 use Commercetools\Api\Models\Product\ProductVariantModel;
 use Commercetools\Api\Models\ProductType\AttributeLocalizedEnumValue;
 use Commercetools\Api\Models\ProductType\AttributePlainEnumValue;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
+use Commercetools\Api\Models\Type\TypeReferenceBuilder;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ClientFactory;
 use GuzzleHttp\Psr7\Response;
@@ -232,5 +242,41 @@ class MiscTest extends TestCase
         $this->assertSame('hello world', $body);
         $body = (string)$b->withProjectKey('')->productProjections()->search()->post(null)->getBody();
         $this->assertSame('', $body);
+    }
+
+    public function testAddressDraft()
+    {
+        $addressDraft = AddressDraftBuilder::of()
+            ->withCustom(
+                CustomFieldsDraftBuilder::of()
+                    ->withType(
+                        TypeResourceIdentifierBuilder::of()->withKey("abc")->build()
+                    )->build()
+            )->build();
+        $this->assertInstanceOf(AddressDraft::class, $addressDraft);
+
+        $address = AddressBuilder::of()
+            ->withCustom(
+                CustomFieldsBuilder::of()
+                    ->withType(
+                        TypeReferenceBuilder::of()->withId("abc")->build()
+                    )->build()
+            )->build();
+        $this->assertInstanceOf(Address::class, $address);
+
+        $cart = CartDraftBuilder::of()
+            ->withShippingAddress($addressDraft)
+            ->withBillingAddress($address)
+            ->build();
+        $this->assertInstanceOf(CartDraft::class, $cart);
+        $this->assertInstanceOf(BaseAddress::class, $cart->getShippingAddress());
+        $this->assertInstanceOf(BaseAddress::class, $cart->getBillingAddress());
+        $this->assertJsonStringEqualsJsonString(
+            '{
+                "shippingAddress":{"custom":{"type":{"typeId":"type","key":"abc"}}},
+                "billingAddress":{"custom":{"type":{"typeId":"type","id":"abc"}}}
+            }',
+            json_encode($cart)
+        );
     }
 }
