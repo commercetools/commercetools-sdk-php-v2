@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Message\MessageCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReviewRatingSetMessage>
+ * @extends MessageCollection<ReviewRatingSetMessage>
  * @method ReviewRatingSetMessage current()
  * @method ReviewRatingSetMessage at($offset)
  */
-class ReviewRatingSetMessageCollection extends MapperSequence
+class ReviewRatingSetMessageCollection extends MessageCollection
 {
     /**
      * @psalm-assert ReviewRatingSetMessage $value
@@ -44,6 +44,7 @@ class ReviewRatingSetMessageCollection extends MapperSequence
         return function (int $index): ?ReviewRatingSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewRatingSetMessage $data */
                 $data = ReviewRatingSetMessageModel::of($data);
                 $this->set($data, $index);
             }

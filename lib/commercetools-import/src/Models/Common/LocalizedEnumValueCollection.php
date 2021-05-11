@@ -44,6 +44,7 @@ class LocalizedEnumValueCollection extends MapperSequence
         return function (int $index): ?LocalizedEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizedEnumValue $data */
                 $data = LocalizedEnumValueModel::of($data);
                 $this->set($data, $index);
             }

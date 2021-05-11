@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypedMoney>
+ * @template T of TypedMoney
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method TypedMoney current()
  * @method TypedMoney at($offset)
  */
 class TypedMoneyCollection extends MapperSequence
 {
     /**
-     * @psalm-assert TypedMoney $value
-     * @psalm-param TypedMoney|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return TypedMoneyCollection
@@ -37,13 +40,14 @@ class TypedMoneyCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?TypedMoney
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?TypedMoney {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = TypedMoneyModel::of($data);
                 $this->set($data, $index);
             }

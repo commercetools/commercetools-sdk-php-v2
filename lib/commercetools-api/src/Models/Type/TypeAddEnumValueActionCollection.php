@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\TypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypeAddEnumValueAction>
+ * @extends TypeUpdateActionCollection<TypeAddEnumValueAction>
  * @method TypeAddEnumValueAction current()
  * @method TypeAddEnumValueAction at($offset)
  */
-class TypeAddEnumValueActionCollection extends MapperSequence
+class TypeAddEnumValueActionCollection extends TypeUpdateActionCollection
 {
     /**
      * @psalm-assert TypeAddEnumValueAction $value
@@ -44,6 +44,7 @@ class TypeAddEnumValueActionCollection extends MapperSequence
         return function (int $index): ?TypeAddEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeAddEnumValueAction $data */
                 $data = TypeAddEnumValueActionModel::of($data);
                 $this->set($data, $index);
             }

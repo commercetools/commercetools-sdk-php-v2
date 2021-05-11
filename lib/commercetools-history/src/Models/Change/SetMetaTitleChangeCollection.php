@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetMetaTitleChange>
+ * @extends ChangeCollection<SetMetaTitleChange>
  * @method SetMetaTitleChange current()
  * @method SetMetaTitleChange at($offset)
  */
-class SetMetaTitleChangeCollection extends MapperSequence
+class SetMetaTitleChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetMetaTitleChange $value
@@ -44,6 +44,7 @@ class SetMetaTitleChangeCollection extends MapperSequence
         return function (int $index): ?SetMetaTitleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetMetaTitleChange $data */
                 $data = SetMetaTitleChangeModel::of($data);
                 $this->set($data, $index);
             }

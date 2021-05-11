@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ResourceNotFoundError>
+ * @extends ErrorObjectCollection<ResourceNotFoundError>
  * @method ResourceNotFoundError current()
  * @method ResourceNotFoundError at($offset)
  */
-class ResourceNotFoundErrorCollection extends MapperSequence
+class ResourceNotFoundErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ResourceNotFoundError $value
@@ -44,6 +44,7 @@ class ResourceNotFoundErrorCollection extends MapperSequence
         return function (int $index): ?ResourceNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ResourceNotFoundError $data */
                 $data = ResourceNotFoundErrorModel::of($data);
                 $this->set($data, $index);
             }

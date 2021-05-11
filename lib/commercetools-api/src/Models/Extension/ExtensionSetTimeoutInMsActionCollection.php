@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Extension\ExtensionUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionSetTimeoutInMsAction>
+ * @extends ExtensionUpdateActionCollection<ExtensionSetTimeoutInMsAction>
  * @method ExtensionSetTimeoutInMsAction current()
  * @method ExtensionSetTimeoutInMsAction at($offset)
  */
-class ExtensionSetTimeoutInMsActionCollection extends MapperSequence
+class ExtensionSetTimeoutInMsActionCollection extends ExtensionUpdateActionCollection
 {
     /**
      * @psalm-assert ExtensionSetTimeoutInMsAction $value
@@ -44,6 +44,7 @@ class ExtensionSetTimeoutInMsActionCollection extends MapperSequence
         return function (int $index): ?ExtensionSetTimeoutInMsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionSetTimeoutInMsAction $data */
                 $data = ExtensionSetTimeoutInMsActionModel::of($data);
                 $this->set($data, $index);
             }

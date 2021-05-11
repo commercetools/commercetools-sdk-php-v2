@@ -44,6 +44,7 @@ class ReturnInfoCollection extends MapperSequence
         return function (int $index): ?ReturnInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReturnInfo $data */
                 $data = ReturnInfoModel::of($data);
                 $this->set($data, $index);
             }

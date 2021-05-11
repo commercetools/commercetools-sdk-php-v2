@@ -44,6 +44,7 @@ class MyOrderFromCartDraftCollection extends MapperSequence
         return function (int $index): ?MyOrderFromCartDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyOrderFromCartDraft $data */
                 $data = MyOrderFromCartDraftModel::of($data);
                 $this->set($data, $index);
             }

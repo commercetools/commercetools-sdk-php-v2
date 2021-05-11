@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraftCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountValueGiftLineItemDraft>
+ * @extends CartDiscountValueDraftCollection<CartDiscountValueGiftLineItemDraft>
  * @method CartDiscountValueGiftLineItemDraft current()
  * @method CartDiscountValueGiftLineItemDraft at($offset)
  */
-class CartDiscountValueGiftLineItemDraftCollection extends MapperSequence
+class CartDiscountValueGiftLineItemDraftCollection extends CartDiscountValueDraftCollection
 {
     /**
      * @psalm-assert CartDiscountValueGiftLineItemDraft $value
@@ -44,6 +44,7 @@ class CartDiscountValueGiftLineItemDraftCollection extends MapperSequence
         return function (int $index): ?CartDiscountValueGiftLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountValueGiftLineItemDraft $data */
                 $data = CartDiscountValueGiftLineItemDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetProductPriceCustomTypeChange>
+ * @extends ChangeCollection<SetProductPriceCustomTypeChange>
  * @method SetProductPriceCustomTypeChange current()
  * @method SetProductPriceCustomTypeChange at($offset)
  */
-class SetProductPriceCustomTypeChangeCollection extends MapperSequence
+class SetProductPriceCustomTypeChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetProductPriceCustomTypeChange $value
@@ -44,6 +44,7 @@ class SetProductPriceCustomTypeChangeCollection extends MapperSequence
         return function (int $index): ?SetProductPriceCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetProductPriceCustomTypeChange $data */
                 $data = SetProductPriceCustomTypeChangeModel::of($data);
                 $this->set($data, $index);
             }

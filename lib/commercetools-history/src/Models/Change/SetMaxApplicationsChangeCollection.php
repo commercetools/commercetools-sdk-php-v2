@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetMaxApplicationsChange>
+ * @extends ChangeCollection<SetMaxApplicationsChange>
  * @method SetMaxApplicationsChange current()
  * @method SetMaxApplicationsChange at($offset)
  */
-class SetMaxApplicationsChangeCollection extends MapperSequence
+class SetMaxApplicationsChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetMaxApplicationsChange $value
@@ -44,6 +44,7 @@ class SetMaxApplicationsChangeCollection extends MapperSequence
         return function (int $index): ?SetMaxApplicationsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetMaxApplicationsChange $data */
                 $data = SetMaxApplicationsChangeModel::of($data);
                 $this->set($data, $index);
             }

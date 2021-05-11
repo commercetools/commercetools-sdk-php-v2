@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SnsDestination>
+ * @extends DestinationCollection<SnsDestination>
  * @method SnsDestination current()
  * @method SnsDestination at($offset)
  */
-class SnsDestinationCollection extends MapperSequence
+class SnsDestinationCollection extends DestinationCollection
 {
     /**
      * @psalm-assert SnsDestination $value
@@ -44,6 +44,7 @@ class SnsDestinationCollection extends MapperSequence
         return function (int $index): ?SnsDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SnsDestination $data */
                 $data = SnsDestinationModel::of($data);
                 $this->set($data, $index);
             }

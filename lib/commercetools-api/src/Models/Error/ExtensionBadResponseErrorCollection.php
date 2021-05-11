@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionBadResponseError>
+ * @extends ErrorObjectCollection<ExtensionBadResponseError>
  * @method ExtensionBadResponseError current()
  * @method ExtensionBadResponseError at($offset)
  */
-class ExtensionBadResponseErrorCollection extends MapperSequence
+class ExtensionBadResponseErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ExtensionBadResponseError $value
@@ -44,6 +44,7 @@ class ExtensionBadResponseErrorCollection extends MapperSequence
         return function (int $index): ?ExtensionBadResponseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionBadResponseError $data */
                 $data = ExtensionBadResponseErrorModel::of($data);
                 $this->set($data, $index);
             }

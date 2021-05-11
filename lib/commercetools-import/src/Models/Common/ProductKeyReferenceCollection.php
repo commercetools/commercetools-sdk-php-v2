@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductKeyReference>
+ * @extends KeyReferenceCollection<ProductKeyReference>
  * @method ProductKeyReference current()
  * @method ProductKeyReference at($offset)
  */
-class ProductKeyReferenceCollection extends MapperSequence
+class ProductKeyReferenceCollection extends KeyReferenceCollection
 {
     /**
      * @psalm-assert ProductKeyReference $value
@@ -44,6 +44,7 @@ class ProductKeyReferenceCollection extends MapperSequence
         return function (int $index): ?ProductKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductKeyReference $data */
                 $data = ProductKeyReferenceModel::of($data);
                 $this->set($data, $index);
             }

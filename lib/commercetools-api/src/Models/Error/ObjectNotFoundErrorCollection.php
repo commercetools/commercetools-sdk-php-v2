@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ObjectNotFoundError>
+ * @extends ErrorObjectCollection<ObjectNotFoundError>
  * @method ObjectNotFoundError current()
  * @method ObjectNotFoundError at($offset)
  */
-class ObjectNotFoundErrorCollection extends MapperSequence
+class ObjectNotFoundErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ObjectNotFoundError $value
@@ -44,6 +44,7 @@ class ObjectNotFoundErrorCollection extends MapperSequence
         return function (int $index): ?ObjectNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ObjectNotFoundError $data */
                 $data = ObjectNotFoundErrorModel::of($data);
                 $this->set($data, $index);
             }

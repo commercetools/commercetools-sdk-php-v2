@@ -44,6 +44,7 @@ class CustomObjectPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?CustomObjectPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomObjectPagedQueryResponse $data */
                 $data = CustomObjectPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

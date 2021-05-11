@@ -44,6 +44,7 @@ class CartsConfigurationCollection extends MapperSequence
         return function (int $index): ?CartsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartsConfiguration $data */
                 $data = CartsConfigurationModel::of($data);
                 $this->set($data, $index);
             }

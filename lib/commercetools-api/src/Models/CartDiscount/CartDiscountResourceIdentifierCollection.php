@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountResourceIdentifier>
+ * @extends ResourceIdentifierCollection<CartDiscountResourceIdentifier>
  * @method CartDiscountResourceIdentifier current()
  * @method CartDiscountResourceIdentifier at($offset)
  */
-class CartDiscountResourceIdentifierCollection extends MapperSequence
+class CartDiscountResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert CartDiscountResourceIdentifier $value
@@ -44,6 +44,7 @@ class CartDiscountResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?CartDiscountResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountResourceIdentifier $data */
                 $data = CartDiscountResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

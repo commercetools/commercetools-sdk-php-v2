@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\SubscriptionDeliveryCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ResourceCreatedDelivery>
+ * @extends SubscriptionDeliveryCollection<ResourceCreatedDelivery>
  * @method ResourceCreatedDelivery current()
  * @method ResourceCreatedDelivery at($offset)
  */
-class ResourceCreatedDeliveryCollection extends MapperSequence
+class ResourceCreatedDeliveryCollection extends SubscriptionDeliveryCollection
 {
     /**
      * @psalm-assert ResourceCreatedDelivery $value
@@ -44,6 +44,7 @@ class ResourceCreatedDeliveryCollection extends MapperSequence
         return function (int $index): ?ResourceCreatedDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ResourceCreatedDelivery $data */
                 $data = ResourceCreatedDeliveryModel::of($data);
                 $this->set($data, $index);
             }

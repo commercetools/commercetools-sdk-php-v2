@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\ImageSearchConfig;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Ml\Models\ImageSearchConfig\ImageSearchConfigUpdateActionCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeStatusUpdateAction>
+ * @extends ImageSearchConfigUpdateActionCollection<ChangeStatusUpdateAction>
  * @method ChangeStatusUpdateAction current()
  * @method ChangeStatusUpdateAction at($offset)
  */
-class ChangeStatusUpdateActionCollection extends MapperSequence
+class ChangeStatusUpdateActionCollection extends ImageSearchConfigUpdateActionCollection
 {
     /**
      * @psalm-assert ChangeStatusUpdateAction $value
@@ -44,6 +44,7 @@ class ChangeStatusUpdateActionCollection extends MapperSequence
         return function (int $index): ?ChangeStatusUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeStatusUpdateAction $data */
                 $data = ChangeStatusUpdateActionModel::of($data);
                 $this->set($data, $index);
             }

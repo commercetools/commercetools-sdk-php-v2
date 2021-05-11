@@ -44,6 +44,7 @@ class TypeUpdateCollection extends MapperSequence
         return function (int $index): ?TypeUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeUpdate $data */
                 $data = TypeUpdateModel::of($data);
                 $this->set($data, $index);
             }

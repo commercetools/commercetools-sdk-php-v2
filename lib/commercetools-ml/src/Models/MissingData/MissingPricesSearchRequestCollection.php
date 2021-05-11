@@ -44,6 +44,7 @@ class MissingPricesSearchRequestCollection extends MapperSequence
         return function (int $index): ?MissingPricesSearchRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingPricesSearchRequest $data */
                 $data = MissingPricesSearchRequestModel::of($data);
                 $this->set($data, $index);
             }

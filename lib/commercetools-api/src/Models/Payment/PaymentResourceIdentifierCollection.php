@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<PaymentResourceIdentifier>
+ * @extends ResourceIdentifierCollection<PaymentResourceIdentifier>
  * @method PaymentResourceIdentifier current()
  * @method PaymentResourceIdentifier at($offset)
  */
-class PaymentResourceIdentifierCollection extends MapperSequence
+class PaymentResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert PaymentResourceIdentifier $value
@@ -44,6 +44,7 @@ class PaymentResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?PaymentResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentResourceIdentifier $data */
                 $data = PaymentResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

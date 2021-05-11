@@ -44,6 +44,7 @@ class EnumValueCollection extends MapperSequence
         return function (int $index): ?EnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumValue $data */
                 $data = EnumValueModel::of($data);
                 $this->set($data, $index);
             }

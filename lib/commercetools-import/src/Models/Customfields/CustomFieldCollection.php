@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomField>
+ * @template T of CustomField
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method CustomField current()
  * @method CustomField at($offset)
  */
 class CustomFieldCollection extends MapperSequence
 {
     /**
-     * @psalm-assert CustomField $value
-     * @psalm-param CustomField|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return CustomFieldCollection
@@ -37,13 +40,14 @@ class CustomFieldCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?CustomField
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?CustomField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = CustomFieldModel::of($data);
                 $this->set($data, $index);
             }

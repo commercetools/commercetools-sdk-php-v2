@@ -44,6 +44,7 @@ class ChannelDraftCollection extends MapperSequence
         return function (int $index): ?ChannelDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelDraft $data */
                 $data = ChannelDraftModel::of($data);
                 $this->set($data, $index);
             }

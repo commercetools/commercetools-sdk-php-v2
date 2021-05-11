@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AzureEventGridDestination>
+ * @extends DestinationCollection<AzureEventGridDestination>
  * @method AzureEventGridDestination current()
  * @method AzureEventGridDestination at($offset)
  */
-class AzureEventGridDestinationCollection extends MapperSequence
+class AzureEventGridDestinationCollection extends DestinationCollection
 {
     /**
      * @psalm-assert AzureEventGridDestination $value
@@ -44,6 +44,7 @@ class AzureEventGridDestinationCollection extends MapperSequence
         return function (int $index): ?AzureEventGridDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AzureEventGridDestination $data */
                 $data = AzureEventGridDestinationModel::of($data);
                 $this->set($data, $index);
             }

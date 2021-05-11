@@ -44,6 +44,7 @@ class AddressCollection extends MapperSequence
         return function (int $index): ?Address {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Address $data */
                 $data = AddressModel::of($data);
                 $this->set($data, $index);
             }

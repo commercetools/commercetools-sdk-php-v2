@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountCodeNonApplicableError>
+ * @extends ErrorObjectCollection<DiscountCodeNonApplicableError>
  * @method DiscountCodeNonApplicableError current()
  * @method DiscountCodeNonApplicableError at($offset)
  */
-class DiscountCodeNonApplicableErrorCollection extends MapperSequence
+class DiscountCodeNonApplicableErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DiscountCodeNonApplicableError $value
@@ -44,6 +44,7 @@ class DiscountCodeNonApplicableErrorCollection extends MapperSequence
         return function (int $index): ?DiscountCodeNonApplicableError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodeNonApplicableError $data */
                 $data = DiscountCodeNonApplicableErrorModel::of($data);
                 $this->set($data, $index);
             }

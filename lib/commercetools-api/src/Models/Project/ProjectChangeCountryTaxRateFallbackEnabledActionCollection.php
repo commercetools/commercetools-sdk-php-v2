@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectChangeCountryTaxRateFallbackEnabledAction>
+ * @extends ProjectUpdateActionCollection<ProjectChangeCountryTaxRateFallbackEnabledAction>
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction current()
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction at($offset)
  */
-class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends MapperSequence
+class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectChangeCountryTaxRateFallbackEnabledAction $value
@@ -44,6 +44,7 @@ class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends MapperS
         return function (int $index): ?ProjectChangeCountryTaxRateFallbackEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectChangeCountryTaxRateFallbackEnabledAction $data */
                 $data = ProjectChangeCountryTaxRateFallbackEnabledActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Label;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Label\LabelCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<LocalizedLabel>
+ * @extends LabelCollection<LocalizedLabel>
  * @method LocalizedLabel current()
  * @method LocalizedLabel at($offset)
  */
-class LocalizedLabelCollection extends MapperSequence
+class LocalizedLabelCollection extends LabelCollection
 {
     /**
      * @psalm-assert LocalizedLabel $value
@@ -44,6 +44,7 @@ class LocalizedLabelCollection extends MapperSequence
         return function (int $index): ?LocalizedLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizedLabel $data */
                 $data = LocalizedLabelModel::of($data);
                 $this->set($data, $index);
             }

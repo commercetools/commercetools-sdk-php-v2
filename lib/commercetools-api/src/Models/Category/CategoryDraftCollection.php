@@ -44,6 +44,7 @@ class CategoryDraftCollection extends MapperSequence
         return function (int $index): ?CategoryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategoryDraft $data */
                 $data = CategoryDraftModel::of($data);
                 $this->set($data, $index);
             }

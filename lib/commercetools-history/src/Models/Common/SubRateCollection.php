@@ -44,6 +44,7 @@ class SubRateCollection extends MapperSequence
         return function (int $index): ?SubRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SubRate $data */
                 $data = SubRateModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class GeneralCategoryRecommendationPagedQueryResponseCollection extends MapperSe
         return function (int $index): ?GeneralCategoryRecommendationPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GeneralCategoryRecommendationPagedQueryResponse $data */
                 $data = GeneralCategoryRecommendationPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

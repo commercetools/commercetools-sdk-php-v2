@@ -44,6 +44,7 @@ class ProductVariantChannelAvailabilityCollection extends MapperSequence
         return function (int $index): ?ProductVariantChannelAvailability {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductVariantChannelAvailability $data */
                 $data = ProductVariantChannelAvailabilityModel::of($data);
                 $this->set($data, $index);
             }

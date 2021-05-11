@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StateResourceIdentifier>
+ * @extends ResourceIdentifierCollection<StateResourceIdentifier>
  * @method StateResourceIdentifier current()
  * @method StateResourceIdentifier at($offset)
  */
-class StateResourceIdentifierCollection extends MapperSequence
+class StateResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert StateResourceIdentifier $value
@@ -44,6 +44,7 @@ class StateResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?StateResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateResourceIdentifier $data */
                 $data = StateResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

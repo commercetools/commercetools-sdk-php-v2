@@ -44,6 +44,7 @@ class CustomLineItemCollection extends MapperSequence
         return function (int $index): ?CustomLineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomLineItem $data */
                 $data = CustomLineItemModel::of($data);
                 $this->set($data, $index);
             }

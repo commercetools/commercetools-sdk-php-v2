@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\TypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypeChangeNameAction>
+ * @extends TypeUpdateActionCollection<TypeChangeNameAction>
  * @method TypeChangeNameAction current()
  * @method TypeChangeNameAction at($offset)
  */
-class TypeChangeNameActionCollection extends MapperSequence
+class TypeChangeNameActionCollection extends TypeUpdateActionCollection
 {
     /**
      * @psalm-assert TypeChangeNameAction $value
@@ -44,6 +44,7 @@ class TypeChangeNameActionCollection extends MapperSequence
         return function (int $index): ?TypeChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeChangeNameAction $data */
                 $data = TypeChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }

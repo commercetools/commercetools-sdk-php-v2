@@ -44,6 +44,7 @@ class TaxPortionCollection extends MapperSequence
         return function (int $index): ?TaxPortion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxPortion $data */
                 $data = TaxPortionModel::of($data);
                 $this->set($data, $index);
             }

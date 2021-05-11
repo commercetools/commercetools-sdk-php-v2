@@ -44,6 +44,7 @@ class ProductSetSelectorCollection extends MapperSequence
         return function (int $index): ?ProductSetSelector {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductSetSelector $data */
                 $data = ProductSetSelectorModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Producttypes\AttributeTypeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeMoneyType>
+ * @extends AttributeTypeCollection<AttributeMoneyType>
  * @method AttributeMoneyType current()
  * @method AttributeMoneyType at($offset)
  */
-class AttributeMoneyTypeCollection extends MapperSequence
+class AttributeMoneyTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeMoneyType $value
@@ -44,6 +44,7 @@ class AttributeMoneyTypeCollection extends MapperSequence
         return function (int $index): ?AttributeMoneyType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeMoneyType $data */
                 $data = AttributeMoneyTypeModel::of($data);
                 $this->set($data, $index);
             }

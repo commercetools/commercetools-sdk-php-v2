@@ -44,6 +44,7 @@ class CustomObjectDraftCollection extends MapperSequence
         return function (int $index): ?CustomObjectDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomObjectDraft $data */
                 $data = CustomObjectDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Ml\Models\Common\ReferenceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<CategoryReference>
+ * @extends ReferenceCollection<CategoryReference>
  * @method CategoryReference current()
  * @method CategoryReference at($offset)
  */
-class CategoryReferenceCollection extends MapperSequence
+class CategoryReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert CategoryReference $value
@@ -44,6 +44,7 @@ class CategoryReferenceCollection extends MapperSequence
         return function (int $index): ?CategoryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategoryReference $data */
                 $data = CategoryReferenceModel::of($data);
                 $this->set($data, $index);
             }

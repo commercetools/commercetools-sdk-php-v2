@@ -44,6 +44,7 @@ class OrderImportDraftCollection extends MapperSequence
         return function (int $index): ?OrderImportDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderImportDraft $data */
                 $data = OrderImportDraftModel::of($data);
                 $this->set($data, $index);
             }

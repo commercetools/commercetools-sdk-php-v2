@@ -44,6 +44,7 @@ class MessageConfigurationCollection extends MapperSequence
         return function (int $index): ?MessageConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MessageConfiguration $data */
                 $data = MessageConfigurationModel::of($data);
                 $this->set($data, $index);
             }

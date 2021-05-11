@@ -44,6 +44,7 @@ class CustomerCreateEmailTokenCollection extends MapperSequence
         return function (int $index): ?CustomerCreateEmailToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerCreateEmailToken $data */
                 $data = CustomerCreateEmailTokenModel::of($data);
                 $this->set($data, $index);
             }

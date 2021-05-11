@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderEditResult>
+ * @template T of OrderEditResult
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method OrderEditResult current()
  * @method OrderEditResult at($offset)
  */
 class OrderEditResultCollection extends MapperSequence
 {
     /**
-     * @psalm-assert OrderEditResult $value
-     * @psalm-param OrderEditResult|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return OrderEditResultCollection
@@ -37,13 +40,14 @@ class OrderEditResultCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?OrderEditResult
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?OrderEditResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = OrderEditResultModel::of($data);
                 $this->set($data, $index);
             }

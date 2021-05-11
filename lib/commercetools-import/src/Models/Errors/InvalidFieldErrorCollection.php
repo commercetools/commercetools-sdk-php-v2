@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidFieldError>
+ * @extends ErrorObjectCollection<InvalidFieldError>
  * @method InvalidFieldError current()
  * @method InvalidFieldError at($offset)
  */
-class InvalidFieldErrorCollection extends MapperSequence
+class InvalidFieldErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidFieldError $value
@@ -44,6 +44,7 @@ class InvalidFieldErrorCollection extends MapperSequence
         return function (int $index): ?InvalidFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidFieldError $data */
                 $data = InvalidFieldErrorModel::of($data);
                 $this->set($data, $index);
             }

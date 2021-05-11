@@ -44,6 +44,7 @@ class ExtensionInputCollection extends MapperSequence
         return function (int $index): ?ExtensionInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionInput $data */
                 $data = ExtensionInputModel::of($data);
                 $this->set($data, $index);
             }

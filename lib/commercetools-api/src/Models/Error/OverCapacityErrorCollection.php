@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OverCapacityError>
+ * @extends ErrorObjectCollection<OverCapacityError>
  * @method OverCapacityError current()
  * @method OverCapacityError at($offset)
  */
-class OverCapacityErrorCollection extends MapperSequence
+class OverCapacityErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert OverCapacityError $value
@@ -44,6 +44,7 @@ class OverCapacityErrorCollection extends MapperSequence
         return function (int $index): ?OverCapacityError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OverCapacityError $data */
                 $data = OverCapacityErrorModel::of($data);
                 $this->set($data, $index);
             }

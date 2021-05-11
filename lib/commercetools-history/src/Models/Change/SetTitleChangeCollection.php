@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetTitleChange>
+ * @extends ChangeCollection<SetTitleChange>
  * @method SetTitleChange current()
  * @method SetTitleChange at($offset)
  */
-class SetTitleChangeCollection extends MapperSequence
+class SetTitleChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetTitleChange $value
@@ -44,6 +44,7 @@ class SetTitleChangeCollection extends MapperSequence
         return function (int $index): ?SetTitleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetTitleChange $data */
                 $data = SetTitleChangeModel::of($data);
                 $this->set($data, $index);
             }

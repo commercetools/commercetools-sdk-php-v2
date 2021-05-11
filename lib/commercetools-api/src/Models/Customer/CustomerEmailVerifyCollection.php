@@ -44,6 +44,7 @@ class CustomerEmailVerifyCollection extends MapperSequence
         return function (int $index): ?CustomerEmailVerify {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerEmailVerify $data */
                 $data = CustomerEmailVerifyModel::of($data);
                 $this->set($data, $index);
             }

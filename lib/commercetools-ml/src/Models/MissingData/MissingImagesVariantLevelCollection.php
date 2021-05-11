@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Ml\Models\MissingData\MissingImagesCountCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<MissingImagesVariantLevel>
+ * @extends MissingImagesCountCollection<MissingImagesVariantLevel>
  * @method MissingImagesVariantLevel current()
  * @method MissingImagesVariantLevel at($offset)
  */
-class MissingImagesVariantLevelCollection extends MapperSequence
+class MissingImagesVariantLevelCollection extends MissingImagesCountCollection
 {
     /**
      * @psalm-assert MissingImagesVariantLevel $value
@@ -44,6 +44,7 @@ class MissingImagesVariantLevelCollection extends MapperSequence
         return function (int $index): ?MissingImagesVariantLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingImagesVariantLevel $data */
                 $data = MissingImagesVariantLevelModel::of($data);
                 $this->set($data, $index);
             }

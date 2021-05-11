@@ -44,6 +44,7 @@ class ZonePagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ZonePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ZonePagedQueryResponse $data */
                 $data = ZonePagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

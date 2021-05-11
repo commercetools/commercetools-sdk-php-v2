@@ -44,6 +44,7 @@ class PaymentStatusCollection extends MapperSequence
         return function (int $index): ?PaymentStatus {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentStatus $data */
                 $data = PaymentStatusModel::of($data);
                 $this->set($data, $index);
             }

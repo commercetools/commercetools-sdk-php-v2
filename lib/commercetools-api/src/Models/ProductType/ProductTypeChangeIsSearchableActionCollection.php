@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\ProductTypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductTypeChangeIsSearchableAction>
+ * @extends ProductTypeUpdateActionCollection<ProductTypeChangeIsSearchableAction>
  * @method ProductTypeChangeIsSearchableAction current()
  * @method ProductTypeChangeIsSearchableAction at($offset)
  */
-class ProductTypeChangeIsSearchableActionCollection extends MapperSequence
+class ProductTypeChangeIsSearchableActionCollection extends ProductTypeUpdateActionCollection
 {
     /**
      * @psalm-assert ProductTypeChangeIsSearchableAction $value
@@ -44,6 +44,7 @@ class ProductTypeChangeIsSearchableActionCollection extends MapperSequence
         return function (int $index): ?ProductTypeChangeIsSearchableAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeChangeIsSearchableAction $data */
                 $data = ProductTypeChangeIsSearchableActionModel::of($data);
                 $this->set($data, $index);
             }

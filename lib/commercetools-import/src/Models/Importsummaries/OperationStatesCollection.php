@@ -44,6 +44,7 @@ class OperationStatesCollection extends MapperSequence
         return function (int $index): ?OperationStates {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OperationStates $data */
                 $data = OperationStatesModel::of($data);
                 $this->set($data, $index);
             }

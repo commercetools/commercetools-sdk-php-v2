@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductSetTaxCategoryAction>
+ * @extends ProductUpdateActionCollection<ProductSetTaxCategoryAction>
  * @method ProductSetTaxCategoryAction current()
  * @method ProductSetTaxCategoryAction at($offset)
  */
-class ProductSetTaxCategoryActionCollection extends MapperSequence
+class ProductSetTaxCategoryActionCollection extends ProductUpdateActionCollection
 {
     /**
      * @psalm-assert ProductSetTaxCategoryAction $value
@@ -44,6 +44,7 @@ class ProductSetTaxCategoryActionCollection extends MapperSequence
         return function (int $index): ?ProductSetTaxCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductSetTaxCategoryAction $data */
                 $data = ProductSetTaxCategoryActionModel::of($data);
                 $this->set($data, $index);
             }

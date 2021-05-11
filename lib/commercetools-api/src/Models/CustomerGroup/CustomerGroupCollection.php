@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomerGroup>
+ * @extends BaseResourceCollection<CustomerGroup>
  * @method CustomerGroup current()
  * @method CustomerGroup at($offset)
  */
-class CustomerGroupCollection extends MapperSequence
+class CustomerGroupCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert CustomerGroup $value
@@ -44,6 +44,7 @@ class CustomerGroupCollection extends MapperSequence
         return function (int $index): ?CustomerGroup {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerGroup $data */
                 $data = CustomerGroupModel::of($data);
                 $this->set($data, $index);
             }

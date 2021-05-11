@@ -44,6 +44,7 @@ class ProductDiscountMatchQueryCollection extends MapperSequence
         return function (int $index): ?ProductDiscountMatchQuery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductDiscountMatchQuery $data */
                 $data = ProductDiscountMatchQueryModel::of($data);
                 $this->set($data, $index);
             }

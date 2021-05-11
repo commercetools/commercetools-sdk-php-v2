@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\OrderUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderSetDeliveryAddressCustomTypeAction>
+ * @extends OrderUpdateActionCollection<OrderSetDeliveryAddressCustomTypeAction>
  * @method OrderSetDeliveryAddressCustomTypeAction current()
  * @method OrderSetDeliveryAddressCustomTypeAction at($offset)
  */
-class OrderSetDeliveryAddressCustomTypeActionCollection extends MapperSequence
+class OrderSetDeliveryAddressCustomTypeActionCollection extends OrderUpdateActionCollection
 {
     /**
      * @psalm-assert OrderSetDeliveryAddressCustomTypeAction $value
@@ -44,6 +44,7 @@ class OrderSetDeliveryAddressCustomTypeActionCollection extends MapperSequence
         return function (int $index): ?OrderSetDeliveryAddressCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderSetDeliveryAddressCustomTypeAction $data */
                 $data = OrderSetDeliveryAddressCustomTypeActionModel::of($data);
                 $this->set($data, $index);
             }

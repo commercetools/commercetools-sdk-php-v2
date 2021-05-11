@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountTargetCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MultiBuyLineItemsTarget>
+ * @extends CartDiscountTargetCollection<MultiBuyLineItemsTarget>
  * @method MultiBuyLineItemsTarget current()
  * @method MultiBuyLineItemsTarget at($offset)
  */
-class MultiBuyLineItemsTargetCollection extends MapperSequence
+class MultiBuyLineItemsTargetCollection extends CartDiscountTargetCollection
 {
     /**
      * @psalm-assert MultiBuyLineItemsTarget $value
@@ -44,6 +44,7 @@ class MultiBuyLineItemsTargetCollection extends MapperSequence
         return function (int $index): ?MultiBuyLineItemsTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MultiBuyLineItemsTarget $data */
                 $data = MultiBuyLineItemsTargetModel::of($data);
                 $this->set($data, $index);
             }

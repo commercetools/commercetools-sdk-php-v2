@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SearchFacetPathNotFoundError>
+ * @extends ErrorObjectCollection<SearchFacetPathNotFoundError>
  * @method SearchFacetPathNotFoundError current()
  * @method SearchFacetPathNotFoundError at($offset)
  */
-class SearchFacetPathNotFoundErrorCollection extends MapperSequence
+class SearchFacetPathNotFoundErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert SearchFacetPathNotFoundError $value
@@ -44,6 +44,7 @@ class SearchFacetPathNotFoundErrorCollection extends MapperSequence
         return function (int $index): ?SearchFacetPathNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SearchFacetPathNotFoundError $data */
                 $data = SearchFacetPathNotFoundErrorModel::of($data);
                 $this->set($data, $index);
             }

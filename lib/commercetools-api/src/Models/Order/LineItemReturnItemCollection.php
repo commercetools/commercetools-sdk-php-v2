@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\ReturnItemCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<LineItemReturnItem>
+ * @extends ReturnItemCollection<LineItemReturnItem>
  * @method LineItemReturnItem current()
  * @method LineItemReturnItem at($offset)
  */
-class LineItemReturnItemCollection extends MapperSequence
+class LineItemReturnItemCollection extends ReturnItemCollection
 {
     /**
      * @psalm-assert LineItemReturnItem $value
@@ -44,6 +44,7 @@ class LineItemReturnItemCollection extends MapperSequence
         return function (int $index): ?LineItemReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LineItemReturnItem $data */
                 $data = LineItemReturnItemModel::of($data);
                 $this->set($data, $index);
             }

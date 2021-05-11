@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Message\MessageCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderShippingRateInputSetMessage>
+ * @extends MessageCollection<OrderShippingRateInputSetMessage>
  * @method OrderShippingRateInputSetMessage current()
  * @method OrderShippingRateInputSetMessage at($offset)
  */
-class OrderShippingRateInputSetMessageCollection extends MapperSequence
+class OrderShippingRateInputSetMessageCollection extends MessageCollection
 {
     /**
      * @psalm-assert OrderShippingRateInputSetMessage $value
@@ -44,6 +44,7 @@ class OrderShippingRateInputSetMessageCollection extends MapperSequence
         return function (int $index): ?OrderShippingRateInputSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderShippingRateInputSetMessage $data */
                 $data = OrderShippingRateInputSetMessageModel::of($data);
                 $this->set($data, $index);
             }

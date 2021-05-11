@@ -44,6 +44,7 @@ class AttributeCountCollection extends MapperSequence
         return function (int $index): ?AttributeCount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeCount $data */
                 $data = AttributeCountModel::of($data);
                 $this->set($data, $index);
             }

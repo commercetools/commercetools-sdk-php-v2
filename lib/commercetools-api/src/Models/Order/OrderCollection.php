@@ -8,20 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Order>
+ * @template T of Order
+ * @extends BaseResourceCollection<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method Order current()
  * @method Order at($offset)
  */
-class OrderCollection extends MapperSequence
+class OrderCollection extends BaseResourceCollection
 {
     /**
-     * @psalm-assert Order $value
-     * @psalm-param Order|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return OrderCollection
@@ -37,13 +40,14 @@ class OrderCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?Order
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?Order {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = OrderModel::of($data);
                 $this->set($data, $index);
             }

@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MyShoppingListUpdateAction>
+ * @template T of MyShoppingListUpdateAction
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method MyShoppingListUpdateAction current()
  * @method MyShoppingListUpdateAction at($offset)
  */
 class MyShoppingListUpdateActionCollection extends MapperSequence
 {
     /**
-     * @psalm-assert MyShoppingListUpdateAction $value
-     * @psalm-param MyShoppingListUpdateAction|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return MyShoppingListUpdateActionCollection
@@ -37,13 +40,14 @@ class MyShoppingListUpdateActionCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?MyShoppingListUpdateAction
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?MyShoppingListUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = MyShoppingListUpdateActionModel::of($data);
                 $this->set($data, $index);
             }

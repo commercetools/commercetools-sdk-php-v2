@@ -44,6 +44,7 @@ class MyTransactionDraftCollection extends MapperSequence
         return function (int $index): ?MyTransactionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyTransactionDraft $data */
                 $data = MyTransactionDraftModel::of($data);
                 $this->set($data, $index);
             }

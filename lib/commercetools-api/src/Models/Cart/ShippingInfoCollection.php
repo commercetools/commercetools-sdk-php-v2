@@ -44,6 +44,7 @@ class ShippingInfoCollection extends MapperSequence
         return function (int $index): ?ShippingInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingInfo $data */
                 $data = ShippingInfoModel::of($data);
                 $this->set($data, $index);
             }

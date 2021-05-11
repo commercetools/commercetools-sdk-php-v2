@@ -44,6 +44,7 @@ class TextLineItemValueCollection extends MapperSequence
         return function (int $index): ?TextLineItemValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TextLineItemValue $data */
                 $data = TextLineItemValueModel::of($data);
                 $this->set($data, $index);
             }

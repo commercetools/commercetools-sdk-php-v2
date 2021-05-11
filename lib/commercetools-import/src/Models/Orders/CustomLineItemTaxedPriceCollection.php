@@ -44,6 +44,7 @@ class CustomLineItemTaxedPriceCollection extends MapperSequence
         return function (int $index): ?CustomLineItemTaxedPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomLineItemTaxedPrice $data */
                 $data = CustomLineItemTaxedPriceModel::of($data);
                 $this->set($data, $index);
             }

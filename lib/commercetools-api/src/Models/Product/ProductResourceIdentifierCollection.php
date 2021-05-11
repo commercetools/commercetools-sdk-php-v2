@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductResourceIdentifier>
+ * @extends ResourceIdentifierCollection<ProductResourceIdentifier>
  * @method ProductResourceIdentifier current()
  * @method ProductResourceIdentifier at($offset)
  */
-class ProductResourceIdentifierCollection extends MapperSequence
+class ProductResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert ProductResourceIdentifier $value
@@ -44,6 +44,7 @@ class ProductResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?ProductResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductResourceIdentifier $data */
                 $data = ProductResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

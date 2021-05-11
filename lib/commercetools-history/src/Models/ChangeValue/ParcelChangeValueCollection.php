@@ -44,6 +44,7 @@ class ParcelChangeValueCollection extends MapperSequence
         return function (int $index): ?ParcelChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ParcelChangeValue $data */
                 $data = ParcelChangeValueModel::of($data);
                 $this->set($data, $index);
             }

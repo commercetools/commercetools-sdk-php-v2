@@ -44,6 +44,7 @@ class CustomCollection extends MapperSequence
         return function (int $index): ?Custom {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Custom $data */
                 $data = CustomModel::of($data);
                 $this->set($data, $index);
             }

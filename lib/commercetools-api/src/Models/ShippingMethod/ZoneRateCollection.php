@@ -44,6 +44,7 @@ class ZoneRateCollection extends MapperSequence
         return function (int $index): ?ZoneRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ZoneRate $data */
                 $data = ZoneRateModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class CartDiscountUpdateCollection extends MapperSequence
         return function (int $index): ?CartDiscountUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountUpdate $data */
                 $data = CartDiscountUpdateModel::of($data);
                 $this->set($data, $index);
             }

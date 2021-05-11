@@ -44,6 +44,7 @@ class TrackingDataCollection extends MapperSequence
         return function (int $index): ?TrackingData {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TrackingData $data */
                 $data = TrackingDataModel::of($data);
                 $this->set($data, $index);
             }

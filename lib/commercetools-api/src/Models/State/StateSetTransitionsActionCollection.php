@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\State\StateUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StateSetTransitionsAction>
+ * @extends StateUpdateActionCollection<StateSetTransitionsAction>
  * @method StateSetTransitionsAction current()
  * @method StateSetTransitionsAction at($offset)
  */
-class StateSetTransitionsActionCollection extends MapperSequence
+class StateSetTransitionsActionCollection extends StateUpdateActionCollection
 {
     /**
      * @psalm-assert StateSetTransitionsAction $value
@@ -44,6 +44,7 @@ class StateSetTransitionsActionCollection extends MapperSequence
         return function (int $index): ?StateSetTransitionsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateSetTransitionsAction $data */
                 $data = StateSetTransitionsActionModel::of($data);
                 $this->set($data, $index);
             }

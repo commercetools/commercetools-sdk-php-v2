@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductType>
+ * @extends BaseResourceCollection<ProductType>
  * @method ProductType current()
  * @method ProductType at($offset)
  */
-class ProductTypeCollection extends MapperSequence
+class ProductTypeCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert ProductType $value
@@ -44,6 +44,7 @@ class ProductTypeCollection extends MapperSequence
         return function (int $index): ?ProductType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductType $data */
                 $data = ProductTypeModel::of($data);
                 $this->set($data, $index);
             }

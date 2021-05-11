@@ -44,6 +44,7 @@ class ProductPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ProductPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductPagedQueryResponse $data */
                 $data = ProductPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

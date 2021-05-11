@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OutOfStockError>
+ * @extends ErrorObjectCollection<OutOfStockError>
  * @method OutOfStockError current()
  * @method OutOfStockError at($offset)
  */
-class OutOfStockErrorCollection extends MapperSequence
+class OutOfStockErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert OutOfStockError $value
@@ -44,6 +44,7 @@ class OutOfStockErrorCollection extends MapperSequence
         return function (int $index): ?OutOfStockError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OutOfStockError $data */
                 $data = OutOfStockErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ExtensionDraftCollection extends MapperSequence
         return function (int $index): ?ExtensionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionDraft $data */
                 $data = ExtensionDraftModel::of($data);
                 $this->set($data, $index);
             }

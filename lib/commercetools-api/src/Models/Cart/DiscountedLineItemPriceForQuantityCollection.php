@@ -44,6 +44,7 @@ class DiscountedLineItemPriceForQuantityCollection extends MapperSequence
         return function (int $index): ?DiscountedLineItemPriceForQuantity {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountedLineItemPriceForQuantity $data */
                 $data = DiscountedLineItemPriceForQuantityModel::of($data);
                 $this->set($data, $index);
             }

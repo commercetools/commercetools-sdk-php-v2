@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StoreReference>
+ * @extends ReferenceCollection<StoreReference>
  * @method StoreReference current()
  * @method StoreReference at($offset)
  */
-class StoreReferenceCollection extends MapperSequence
+class StoreReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert StoreReference $value
@@ -44,6 +44,7 @@ class StoreReferenceCollection extends MapperSequence
         return function (int $index): ?StoreReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StoreReference $data */
                 $data = StoreReferenceModel::of($data);
                 $this->set($data, $index);
             }

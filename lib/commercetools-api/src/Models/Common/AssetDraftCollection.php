@@ -44,6 +44,7 @@ class AssetDraftCollection extends MapperSequence
         return function (int $index): ?AssetDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AssetDraft $data */
                 $data = AssetDraftModel::of($data);
                 $this->set($data, $index);
             }

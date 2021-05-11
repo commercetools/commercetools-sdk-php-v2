@@ -44,6 +44,7 @@ class TaxCategoryUpdateCollection extends MapperSequence
         return function (int $index): ?TaxCategoryUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategoryUpdate $data */
                 $data = TaxCategoryUpdateModel::of($data);
                 $this->set($data, $index);
             }

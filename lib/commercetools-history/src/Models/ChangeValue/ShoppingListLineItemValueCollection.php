@@ -44,6 +44,7 @@ class ShoppingListLineItemValueCollection extends MapperSequence
         return function (int $index): ?ShoppingListLineItemValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShoppingListLineItemValue $data */
                 $data = ShoppingListLineItemValueModel::of($data);
                 $this->set($data, $index);
             }

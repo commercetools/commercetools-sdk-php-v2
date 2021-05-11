@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Label>
+ * @template T of Label
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method Label current()
  * @method Label at($offset)
  */
 class LabelCollection extends MapperSequence
 {
     /**
-     * @psalm-assert Label $value
-     * @psalm-param Label|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return LabelCollection
@@ -37,13 +40,14 @@ class LabelCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?Label
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?Label {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = LabelModel::of($data);
                 $this->set($data, $index);
             }

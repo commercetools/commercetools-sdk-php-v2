@@ -44,6 +44,7 @@ class AttributeCoverageCollection extends MapperSequence
         return function (int $index): ?AttributeCoverage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeCoverage $data */
                 $data = AttributeCoverageModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class LocalizedStringCollection extends MapperSequence
         return function (int $index): ?LocalizedString {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizedString $data */
                 $data = LocalizedStringModel::of($data);
                 $this->set($data, $index);
             }

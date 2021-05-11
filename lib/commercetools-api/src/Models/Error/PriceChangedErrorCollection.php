@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<PriceChangedError>
+ * @extends ErrorObjectCollection<PriceChangedError>
  * @method PriceChangedError current()
  * @method PriceChangedError at($offset)
  */
-class PriceChangedErrorCollection extends MapperSequence
+class PriceChangedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert PriceChangedError $value
@@ -44,6 +44,7 @@ class PriceChangedErrorCollection extends MapperSequence
         return function (int $index): ?PriceChangedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PriceChangedError $data */
                 $data = PriceChangedErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<QueryTimedOutError>
+ * @extends ErrorObjectCollection<QueryTimedOutError>
  * @method QueryTimedOutError current()
  * @method QueryTimedOutError at($offset)
  */
-class QueryTimedOutErrorCollection extends MapperSequence
+class QueryTimedOutErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert QueryTimedOutError $value
@@ -44,6 +44,7 @@ class QueryTimedOutErrorCollection extends MapperSequence
         return function (int $index): ?QueryTimedOutError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var QueryTimedOutError $data */
                 $data = QueryTimedOutErrorModel::of($data);
                 $this->set($data, $index);
             }

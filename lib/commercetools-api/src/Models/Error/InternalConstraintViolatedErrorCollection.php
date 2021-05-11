@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InternalConstraintViolatedError>
+ * @extends ErrorObjectCollection<InternalConstraintViolatedError>
  * @method InternalConstraintViolatedError current()
  * @method InternalConstraintViolatedError at($offset)
  */
-class InternalConstraintViolatedErrorCollection extends MapperSequence
+class InternalConstraintViolatedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InternalConstraintViolatedError $value
@@ -44,6 +44,7 @@ class InternalConstraintViolatedErrorCollection extends MapperSequence
         return function (int $index): ?InternalConstraintViolatedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InternalConstraintViolatedError $data */
                 $data = InternalConstraintViolatedErrorModel::of($data);
                 $this->set($data, $index);
             }

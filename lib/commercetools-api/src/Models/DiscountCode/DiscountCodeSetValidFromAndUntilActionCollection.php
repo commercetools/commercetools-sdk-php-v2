@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountCodeSetValidFromAndUntilAction>
+ * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetValidFromAndUntilAction>
  * @method DiscountCodeSetValidFromAndUntilAction current()
  * @method DiscountCodeSetValidFromAndUntilAction at($offset)
  */
-class DiscountCodeSetValidFromAndUntilActionCollection extends MapperSequence
+class DiscountCodeSetValidFromAndUntilActionCollection extends DiscountCodeUpdateActionCollection
 {
     /**
      * @psalm-assert DiscountCodeSetValidFromAndUntilAction $value
@@ -44,6 +44,7 @@ class DiscountCodeSetValidFromAndUntilActionCollection extends MapperSequence
         return function (int $index): ?DiscountCodeSetValidFromAndUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodeSetValidFromAndUntilAction $data */
                 $data = DiscountCodeSetValidFromAndUntilActionModel::of($data);
                 $this->set($data, $index);
             }

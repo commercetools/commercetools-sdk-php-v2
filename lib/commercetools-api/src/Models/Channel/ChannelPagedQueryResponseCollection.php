@@ -44,6 +44,7 @@ class ChannelPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ChannelPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelPagedQueryResponse $data */
                 $data = ChannelPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Channel\ChannelUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelSetCustomFieldAction>
+ * @extends ChannelUpdateActionCollection<ChannelSetCustomFieldAction>
  * @method ChannelSetCustomFieldAction current()
  * @method ChannelSetCustomFieldAction at($offset)
  */
-class ChannelSetCustomFieldActionCollection extends MapperSequence
+class ChannelSetCustomFieldActionCollection extends ChannelUpdateActionCollection
 {
     /**
      * @psalm-assert ChannelSetCustomFieldAction $value
@@ -44,6 +44,7 @@ class ChannelSetCustomFieldActionCollection extends MapperSequence
         return function (int $index): ?ChannelSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelSetCustomFieldAction $data */
                 $data = ChannelSetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

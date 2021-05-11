@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<GeneralError>
+ * @extends ErrorObjectCollection<GeneralError>
  * @method GeneralError current()
  * @method GeneralError at($offset)
  */
-class GeneralErrorCollection extends MapperSequence
+class GeneralErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert GeneralError $value
@@ -44,6 +44,7 @@ class GeneralErrorCollection extends MapperSequence
         return function (int $index): ?GeneralError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GeneralError $data */
                 $data = GeneralErrorModel::of($data);
                 $this->set($data, $index);
             }

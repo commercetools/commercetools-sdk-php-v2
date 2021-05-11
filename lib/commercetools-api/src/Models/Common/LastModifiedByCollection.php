@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ClientLoggingCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<LastModifiedBy>
+ * @extends ClientLoggingCollection<LastModifiedBy>
  * @method LastModifiedBy current()
  * @method LastModifiedBy at($offset)
  */
-class LastModifiedByCollection extends MapperSequence
+class LastModifiedByCollection extends ClientLoggingCollection
 {
     /**
      * @psalm-assert LastModifiedBy $value
@@ -44,6 +44,7 @@ class LastModifiedByCollection extends MapperSequence
         return function (int $index): ?LastModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LastModifiedBy $data */
                 $data = LastModifiedByModel::of($data);
                 $this->set($data, $index);
             }

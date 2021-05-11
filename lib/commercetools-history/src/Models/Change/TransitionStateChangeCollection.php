@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TransitionStateChange>
+ * @extends ChangeCollection<TransitionStateChange>
  * @method TransitionStateChange current()
  * @method TransitionStateChange at($offset)
  */
-class TransitionStateChangeCollection extends MapperSequence
+class TransitionStateChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert TransitionStateChange $value
@@ -44,6 +44,7 @@ class TransitionStateChangeCollection extends MapperSequence
         return function (int $index): ?TransitionStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TransitionStateChange $data */
                 $data = TransitionStateChangeModel::of($data);
                 $this->set($data, $index);
             }

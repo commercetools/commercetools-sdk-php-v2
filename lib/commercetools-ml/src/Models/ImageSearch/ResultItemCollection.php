@@ -44,6 +44,7 @@ class ResultItemCollection extends MapperSequence
         return function (int $index): ?ResultItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ResultItem $data */
                 $data = ResultItemModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class AssetDimensionsCollection extends MapperSequence
         return function (int $index): ?AssetDimensions {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AssetDimensions $data */
                 $data = AssetDimensionsModel::of($data);
                 $this->set($data, $index);
             }

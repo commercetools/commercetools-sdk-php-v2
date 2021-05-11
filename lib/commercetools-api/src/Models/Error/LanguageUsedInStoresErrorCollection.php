@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<LanguageUsedInStoresError>
+ * @extends ErrorObjectCollection<LanguageUsedInStoresError>
  * @method LanguageUsedInStoresError current()
  * @method LanguageUsedInStoresError at($offset)
  */
-class LanguageUsedInStoresErrorCollection extends MapperSequence
+class LanguageUsedInStoresErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert LanguageUsedInStoresError $value
@@ -44,6 +44,7 @@ class LanguageUsedInStoresErrorCollection extends MapperSequence
         return function (int $index): ?LanguageUsedInStoresError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LanguageUsedInStoresError $data */
                 $data = LanguageUsedInStoresErrorModel::of($data);
                 $this->set($data, $index);
             }

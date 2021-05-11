@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MissingTaxRateForCountryError>
+ * @extends ErrorObjectCollection<MissingTaxRateForCountryError>
  * @method MissingTaxRateForCountryError current()
  * @method MissingTaxRateForCountryError at($offset)
  */
-class MissingTaxRateForCountryErrorCollection extends MapperSequence
+class MissingTaxRateForCountryErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert MissingTaxRateForCountryError $value
@@ -44,6 +44,7 @@ class MissingTaxRateForCountryErrorCollection extends MapperSequence
         return function (int $index): ?MissingTaxRateForCountryError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingTaxRateForCountryError $data */
                 $data = MissingTaxRateForCountryErrorModel::of($data);
                 $this->set($data, $index);
             }

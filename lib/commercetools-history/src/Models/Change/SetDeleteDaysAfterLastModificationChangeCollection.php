@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetDeleteDaysAfterLastModificationChange>
+ * @extends ChangeCollection<SetDeleteDaysAfterLastModificationChange>
  * @method SetDeleteDaysAfterLastModificationChange current()
  * @method SetDeleteDaysAfterLastModificationChange at($offset)
  */
-class SetDeleteDaysAfterLastModificationChangeCollection extends MapperSequence
+class SetDeleteDaysAfterLastModificationChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetDeleteDaysAfterLastModificationChange $value
@@ -44,6 +44,7 @@ class SetDeleteDaysAfterLastModificationChangeCollection extends MapperSequence
         return function (int $index): ?SetDeleteDaysAfterLastModificationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetDeleteDaysAfterLastModificationChange $data */
                 $data = SetDeleteDaysAfterLastModificationChangeModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ChangeSubscriptionCollection extends MapperSequence
         return function (int $index): ?ChangeSubscription {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeSubscription $data */
                 $data = ChangeSubscriptionModel::of($data);
                 $this->set($data, $index);
             }

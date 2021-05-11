@@ -44,6 +44,7 @@ class UserProvidedIdentifiersCollection extends MapperSequence
         return function (int $index): ?UserProvidedIdentifiers {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var UserProvidedIdentifiers $data */
                 $data = UserProvidedIdentifiersModel::of($data);
                 $this->set($data, $index);
             }

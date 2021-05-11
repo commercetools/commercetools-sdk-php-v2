@@ -44,6 +44,7 @@ class GraphQLResponseCollection extends MapperSequence
         return function (int $index): ?GraphQLResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GraphQLResponse $data */
                 $data = GraphQLResponseModel::of($data);
                 $this->set($data, $index);
             }

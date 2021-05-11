@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Payment\PaymentUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<PaymentChangeTransactionTimestampAction>
+ * @extends PaymentUpdateActionCollection<PaymentChangeTransactionTimestampAction>
  * @method PaymentChangeTransactionTimestampAction current()
  * @method PaymentChangeTransactionTimestampAction at($offset)
  */
-class PaymentChangeTransactionTimestampActionCollection extends MapperSequence
+class PaymentChangeTransactionTimestampActionCollection extends PaymentUpdateActionCollection
 {
     /**
      * @psalm-assert PaymentChangeTransactionTimestampAction $value
@@ -44,6 +44,7 @@ class PaymentChangeTransactionTimestampActionCollection extends MapperSequence
         return function (int $index): ?PaymentChangeTransactionTimestampAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentChangeTransactionTimestampAction $data */
                 $data = PaymentChangeTransactionTimestampActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductProjection>
+ * @extends BaseResourceCollection<ProductProjection>
  * @method ProductProjection current()
  * @method ProductProjection at($offset)
  */
-class ProductProjectionCollection extends MapperSequence
+class ProductProjectionCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert ProductProjection $value
@@ -44,6 +44,7 @@ class ProductProjectionCollection extends MapperSequence
         return function (int $index): ?ProductProjection {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductProjection $data */
                 $data = ProductProjectionModel::of($data);
                 $this->set($data, $index);
             }

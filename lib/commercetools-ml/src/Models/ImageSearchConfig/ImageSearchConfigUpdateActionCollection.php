@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ImageSearchConfigUpdateAction>
+ * @template T of ImageSearchConfigUpdateAction
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ImageSearchConfigUpdateAction current()
  * @method ImageSearchConfigUpdateAction at($offset)
  */
 class ImageSearchConfigUpdateActionCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ImageSearchConfigUpdateAction $value
-     * @psalm-param ImageSearchConfigUpdateAction|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ImageSearchConfigUpdateActionCollection
@@ -37,13 +40,14 @@ class ImageSearchConfigUpdateActionCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ImageSearchConfigUpdateAction
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ImageSearchConfigUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ImageSearchConfigUpdateActionModel::of($data);
                 $this->set($data, $index);
             }

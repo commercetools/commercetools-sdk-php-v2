@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidFieldError>
+ * @extends ErrorObjectCollection<InvalidFieldError>
  * @method InvalidFieldError current()
  * @method InvalidFieldError at($offset)
  */
-class InvalidFieldErrorCollection extends MapperSequence
+class InvalidFieldErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidFieldError $value
@@ -44,6 +44,7 @@ class InvalidFieldErrorCollection extends MapperSequence
         return function (int $index): ?InvalidFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidFieldError $data */
                 $data = InvalidFieldErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReferenceSetAttribute>
+ * @extends AttributeCollection<ReferenceSetAttribute>
  * @method ReferenceSetAttribute current()
  * @method ReferenceSetAttribute at($offset)
  */
-class ReferenceSetAttributeCollection extends MapperSequence
+class ReferenceSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert ReferenceSetAttribute $value
@@ -44,6 +44,7 @@ class ReferenceSetAttributeCollection extends MapperSequence
         return function (int $index): ?ReferenceSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReferenceSetAttribute $data */
                 $data = ReferenceSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

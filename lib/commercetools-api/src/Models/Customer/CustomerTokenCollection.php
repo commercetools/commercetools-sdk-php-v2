@@ -44,6 +44,7 @@ class CustomerTokenCollection extends MapperSequence
         return function (int $index): ?CustomerToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerToken $data */
                 $data = CustomerTokenModel::of($data);
                 $this->set($data, $index);
             }

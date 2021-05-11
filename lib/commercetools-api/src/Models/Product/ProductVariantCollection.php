@@ -44,6 +44,7 @@ class ProductVariantCollection extends MapperSequence
         return function (int $index): ?ProductVariant {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductVariant $data */
                 $data = ProductVariantModel::of($data);
                 $this->set($data, $index);
             }

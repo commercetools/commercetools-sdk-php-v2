@@ -44,6 +44,7 @@ class ReviewPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ReviewPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewPagedQueryResponse $data */
                 $data = ReviewPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Review\ReviewUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReviewSetKeyAction>
+ * @extends ReviewUpdateActionCollection<ReviewSetKeyAction>
  * @method ReviewSetKeyAction current()
  * @method ReviewSetKeyAction at($offset)
  */
-class ReviewSetKeyActionCollection extends MapperSequence
+class ReviewSetKeyActionCollection extends ReviewUpdateActionCollection
 {
     /**
      * @psalm-assert ReviewSetKeyAction $value
@@ -44,6 +44,7 @@ class ReviewSetKeyActionCollection extends MapperSequence
         return function (int $index): ?ReviewSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewSetKeyAction $data */
                 $data = ReviewSetKeyActionModel::of($data);
                 $this->set($data, $index);
             }

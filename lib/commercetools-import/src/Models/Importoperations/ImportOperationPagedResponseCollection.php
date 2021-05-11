@@ -44,6 +44,7 @@ class ImportOperationPagedResponseCollection extends MapperSequence
         return function (int $index): ?ImportOperationPagedResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportOperationPagedResponse $data */
                 $data = ImportOperationPagedResponseModel::of($data);
                 $this->set($data, $index);
             }

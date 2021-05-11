@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectChangeLanguagesAction>
+ * @extends ProjectUpdateActionCollection<ProjectChangeLanguagesAction>
  * @method ProjectChangeLanguagesAction current()
  * @method ProjectChangeLanguagesAction at($offset)
  */
-class ProjectChangeLanguagesActionCollection extends MapperSequence
+class ProjectChangeLanguagesActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectChangeLanguagesAction $value
@@ -44,6 +44,7 @@ class ProjectChangeLanguagesActionCollection extends MapperSequence
         return function (int $index): ?ProjectChangeLanguagesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectChangeLanguagesAction $data */
                 $data = ProjectChangeLanguagesActionModel::of($data);
                 $this->set($data, $index);
             }

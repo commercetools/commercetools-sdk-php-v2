@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldEnumType>
+ * @extends FieldTypeCollection<CustomFieldEnumType>
  * @method CustomFieldEnumType current()
  * @method CustomFieldEnumType at($offset)
  */
-class CustomFieldEnumTypeCollection extends MapperSequence
+class CustomFieldEnumTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldEnumType $value
@@ -44,6 +44,7 @@ class CustomFieldEnumTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldEnumType $data */
                 $data = CustomFieldEnumTypeModel::of($data);
                 $this->set($data, $index);
             }

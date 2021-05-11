@@ -44,6 +44,7 @@ class ImportSinkPagedResponseCollection extends MapperSequence
         return function (int $index): ?ImportSinkPagedResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportSinkPagedResponse $data */
                 $data = ImportSinkPagedResponseModel::of($data);
                 $this->set($data, $index);
             }

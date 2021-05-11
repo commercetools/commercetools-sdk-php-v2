@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShippingMethodDoesNotMatchCartError>
+ * @extends ErrorObjectCollection<ShippingMethodDoesNotMatchCartError>
  * @method ShippingMethodDoesNotMatchCartError current()
  * @method ShippingMethodDoesNotMatchCartError at($offset)
  */
-class ShippingMethodDoesNotMatchCartErrorCollection extends MapperSequence
+class ShippingMethodDoesNotMatchCartErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ShippingMethodDoesNotMatchCartError $value
@@ -44,6 +44,7 @@ class ShippingMethodDoesNotMatchCartErrorCollection extends MapperSequence
         return function (int $index): ?ShippingMethodDoesNotMatchCartError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodDoesNotMatchCartError $data */
                 $data = ShippingMethodDoesNotMatchCartErrorModel::of($data);
                 $this->set($data, $index);
             }

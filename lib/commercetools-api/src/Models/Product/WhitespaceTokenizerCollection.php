@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\SuggestTokenizerCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<WhitespaceTokenizer>
+ * @extends SuggestTokenizerCollection<WhitespaceTokenizer>
  * @method WhitespaceTokenizer current()
  * @method WhitespaceTokenizer at($offset)
  */
-class WhitespaceTokenizerCollection extends MapperSequence
+class WhitespaceTokenizerCollection extends SuggestTokenizerCollection
 {
     /**
      * @psalm-assert WhitespaceTokenizer $value
@@ -44,6 +44,7 @@ class WhitespaceTokenizerCollection extends MapperSequence
         return function (int $index): ?WhitespaceTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var WhitespaceTokenizer $data */
                 $data = WhitespaceTokenizerModel::of($data);
                 $this->set($data, $index);
             }

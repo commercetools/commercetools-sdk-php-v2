@@ -44,6 +44,7 @@ class OrderUpdateCollection extends MapperSequence
         return function (int $index): ?OrderUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderUpdate $data */
                 $data = OrderUpdateModel::of($data);
                 $this->set($data, $index);
             }

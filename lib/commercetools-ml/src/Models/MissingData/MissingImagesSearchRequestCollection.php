@@ -44,6 +44,7 @@ class MissingImagesSearchRequestCollection extends MapperSequence
         return function (int $index): ?MissingImagesSearchRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingImagesSearchRequest $data */
                 $data = MissingImagesSearchRequestModel::of($data);
                 $this->set($data, $index);
             }

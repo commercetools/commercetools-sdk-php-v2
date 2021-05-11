@@ -44,6 +44,7 @@ class MissingImagesMetaCollection extends MapperSequence
         return function (int $index): ?MissingImagesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingImagesMeta $data */
                 $data = MissingImagesMetaModel::of($data);
                 $this->set($data, $index);
             }

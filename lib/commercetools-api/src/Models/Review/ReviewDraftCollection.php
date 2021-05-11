@@ -44,6 +44,7 @@ class ReviewDraftCollection extends MapperSequence
         return function (int $index): ?ReviewDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewDraft $data */
                 $data = ReviewDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class StateUpdateCollection extends MapperSequence
         return function (int $index): ?StateUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateUpdate $data */
                 $data = StateUpdateModel::of($data);
                 $this->set($data, $index);
             }

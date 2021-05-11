@@ -44,6 +44,7 @@ class SimilarityMeasuresCollection extends MapperSequence
         return function (int $index): ?SimilarityMeasures {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SimilarityMeasures $data */
                 $data = SimilarityMeasuresModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReviewResourceIdentifier>
+ * @extends ResourceIdentifierCollection<ReviewResourceIdentifier>
  * @method ReviewResourceIdentifier current()
  * @method ReviewResourceIdentifier at($offset)
  */
-class ReviewResourceIdentifierCollection extends MapperSequence
+class ReviewResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert ReviewResourceIdentifier $value
@@ -44,6 +44,7 @@ class ReviewResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?ReviewResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewResourceIdentifier $data */
                 $data = ReviewResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

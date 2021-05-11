@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelResourceIdentifier>
+ * @extends ResourceIdentifierCollection<ChannelResourceIdentifier>
  * @method ChannelResourceIdentifier current()
  * @method ChannelResourceIdentifier at($offset)
  */
-class ChannelResourceIdentifierCollection extends MapperSequence
+class ChannelResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert ChannelResourceIdentifier $value
@@ -44,6 +44,7 @@ class ChannelResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?ChannelResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelResourceIdentifier $data */
                 $data = ChannelResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

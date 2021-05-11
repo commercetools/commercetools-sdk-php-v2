@@ -44,6 +44,7 @@ class ImageSearchResponseCollection extends MapperSequence
         return function (int $index): ?ImageSearchResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImageSearchResponse $data */
                 $data = ImageSearchResponseModel::of($data);
                 $this->set($data, $index);
             }

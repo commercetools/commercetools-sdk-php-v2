@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\OrderUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderAddReturnInfoAction>
+ * @extends OrderUpdateActionCollection<OrderAddReturnInfoAction>
  * @method OrderAddReturnInfoAction current()
  * @method OrderAddReturnInfoAction at($offset)
  */
-class OrderAddReturnInfoActionCollection extends MapperSequence
+class OrderAddReturnInfoActionCollection extends OrderUpdateActionCollection
 {
     /**
      * @psalm-assert OrderAddReturnInfoAction $value
@@ -44,6 +44,7 @@ class OrderAddReturnInfoActionCollection extends MapperSequence
         return function (int $index): ?OrderAddReturnInfoAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderAddReturnInfoAction $data */
                 $data = OrderAddReturnInfoActionModel::of($data);
                 $this->set($data, $index);
             }

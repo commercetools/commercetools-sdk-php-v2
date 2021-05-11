@@ -44,6 +44,7 @@ class OrderEditApplyCollection extends MapperSequence
         return function (int $index): ?OrderEditApply {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditApply $data */
                 $data = OrderEditApplyModel::of($data);
                 $this->set($data, $index);
             }

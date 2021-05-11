@@ -44,6 +44,7 @@ class ImportSinkCollection extends MapperSequence
         return function (int $index): ?ImportSink {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportSink $data */
                 $data = ImportSinkModel::of($data);
                 $this->set($data, $index);
             }

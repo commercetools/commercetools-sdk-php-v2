@@ -44,6 +44,7 @@ class UpdateCollection extends MapperSequence
         return function (int $index): ?Update {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Update $data */
                 $data = UpdateModel::of($data);
                 $this->set($data, $index);
             }

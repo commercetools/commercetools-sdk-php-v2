@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ResourceCreationError>
+ * @extends ErrorObjectCollection<ResourceCreationError>
  * @method ResourceCreationError current()
  * @method ResourceCreationError at($offset)
  */
-class ResourceCreationErrorCollection extends MapperSequence
+class ResourceCreationErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ResourceCreationError $value
@@ -44,6 +44,7 @@ class ResourceCreationErrorCollection extends MapperSequence
         return function (int $index): ?ResourceCreationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ResourceCreationError $data */
                 $data = ResourceCreationErrorModel::of($data);
                 $this->set($data, $index);
             }

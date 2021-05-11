@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StateReference>
+ * @extends ReferenceCollection<StateReference>
  * @method StateReference current()
  * @method StateReference at($offset)
  */
-class StateReferenceCollection extends MapperSequence
+class StateReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert StateReference $value
@@ -44,6 +44,7 @@ class StateReferenceCollection extends MapperSequence
         return function (int $index): ?StateReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateReference $data */
                 $data = StateReferenceModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Message\MessagePayloadCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CategoryCreatedMessagePayload>
+ * @extends MessagePayloadCollection<CategoryCreatedMessagePayload>
  * @method CategoryCreatedMessagePayload current()
  * @method CategoryCreatedMessagePayload at($offset)
  */
-class CategoryCreatedMessagePayloadCollection extends MapperSequence
+class CategoryCreatedMessagePayloadCollection extends MessagePayloadCollection
 {
     /**
      * @psalm-assert CategoryCreatedMessagePayload $value
@@ -44,6 +44,7 @@ class CategoryCreatedMessagePayloadCollection extends MapperSequence
         return function (int $index): ?CategoryCreatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategoryCreatedMessagePayload $data */
                 $data = CategoryCreatedMessagePayloadModel::of($data);
                 $this->set($data, $index);
             }

@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeValueChangeValue>
+ * @template T of ChangeValueChangeValue
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ChangeValueChangeValue current()
  * @method ChangeValueChangeValue at($offset)
  */
 class ChangeValueChangeValueCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ChangeValueChangeValue $value
-     * @psalm-param ChangeValueChangeValue|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ChangeValueChangeValueCollection
@@ -37,13 +40,14 @@ class ChangeValueChangeValueCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ChangeValueChangeValue
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ChangeValueChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ChangeValueChangeValueModel::of($data);
                 $this->set($data, $index);
             }

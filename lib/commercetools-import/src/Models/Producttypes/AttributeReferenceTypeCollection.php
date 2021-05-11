@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Producttypes\AttributeTypeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeReferenceType>
+ * @extends AttributeTypeCollection<AttributeReferenceType>
  * @method AttributeReferenceType current()
  * @method AttributeReferenceType at($offset)
  */
-class AttributeReferenceTypeCollection extends MapperSequence
+class AttributeReferenceTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeReferenceType $value
@@ -44,6 +44,7 @@ class AttributeReferenceTypeCollection extends MapperSequence
         return function (int $index): ?AttributeReferenceType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeReferenceType $data */
                 $data = AttributeReferenceTypeModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<RemoveEnumValuesChange>
+ * @extends ChangeCollection<RemoveEnumValuesChange>
  * @method RemoveEnumValuesChange current()
  * @method RemoveEnumValuesChange at($offset)
  */
-class RemoveEnumValuesChangeCollection extends MapperSequence
+class RemoveEnumValuesChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert RemoveEnumValuesChange $value
@@ -44,6 +44,7 @@ class RemoveEnumValuesChangeCollection extends MapperSequence
         return function (int $index): ?RemoveEnumValuesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var RemoveEnumValuesChange $data */
                 $data = RemoveEnumValuesChangeModel::of($data);
                 $this->set($data, $index);
             }

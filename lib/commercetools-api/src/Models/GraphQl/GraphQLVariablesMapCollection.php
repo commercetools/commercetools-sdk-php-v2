@@ -44,6 +44,7 @@ class GraphQLVariablesMapCollection extends MapperSequence
         return function (int $index): ?GraphQLVariablesMap {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GraphQLVariablesMap $data */
                 $data = GraphQLVariablesMapModel::of($data);
                 $this->set($data, $index);
             }

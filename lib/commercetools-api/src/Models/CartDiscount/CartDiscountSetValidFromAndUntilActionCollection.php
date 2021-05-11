@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountSetValidFromAndUntilAction>
+ * @extends CartDiscountUpdateActionCollection<CartDiscountSetValidFromAndUntilAction>
  * @method CartDiscountSetValidFromAndUntilAction current()
  * @method CartDiscountSetValidFromAndUntilAction at($offset)
  */
-class CartDiscountSetValidFromAndUntilActionCollection extends MapperSequence
+class CartDiscountSetValidFromAndUntilActionCollection extends CartDiscountUpdateActionCollection
 {
     /**
      * @psalm-assert CartDiscountSetValidFromAndUntilAction $value
@@ -44,6 +44,7 @@ class CartDiscountSetValidFromAndUntilActionCollection extends MapperSequence
         return function (int $index): ?CartDiscountSetValidFromAndUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountSetValidFromAndUntilAction $data */
                 $data = CartDiscountSetValidFromAndUntilActionModel::of($data);
                 $this->set($data, $index);
             }

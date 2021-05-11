@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<EnumValueIsUsedError>
+ * @extends ErrorObjectCollection<EnumValueIsUsedError>
  * @method EnumValueIsUsedError current()
  * @method EnumValueIsUsedError at($offset)
  */
-class EnumValueIsUsedErrorCollection extends MapperSequence
+class EnumValueIsUsedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert EnumValueIsUsedError $value
@@ -44,6 +44,7 @@ class EnumValueIsUsedErrorCollection extends MapperSequence
         return function (int $index): ?EnumValueIsUsedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumValueIsUsedError $data */
                 $data = EnumValueIsUsedErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<FieldType>
+ * @template T of FieldType
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method FieldType current()
  * @method FieldType at($offset)
  */
 class FieldTypeCollection extends MapperSequence
 {
     /**
-     * @psalm-assert FieldType $value
-     * @psalm-param FieldType|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return FieldTypeCollection
@@ -37,13 +40,14 @@ class FieldTypeCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?FieldType
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?FieldType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = FieldTypeModel::of($data);
                 $this->set($data, $index);
             }

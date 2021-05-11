@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<IronMqDestination>
+ * @extends DestinationCollection<IronMqDestination>
  * @method IronMqDestination current()
  * @method IronMqDestination at($offset)
  */
-class IronMqDestinationCollection extends MapperSequence
+class IronMqDestinationCollection extends DestinationCollection
 {
     /**
      * @psalm-assert IronMqDestination $value
@@ -44,6 +44,7 @@ class IronMqDestinationCollection extends MapperSequence
         return function (int $index): ?IronMqDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var IronMqDestination $data */
                 $data = IronMqDestinationModel::of($data);
                 $this->set($data, $index);
             }

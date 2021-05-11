@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AddBillingAddressIdChange>
+ * @extends ChangeCollection<AddBillingAddressIdChange>
  * @method AddBillingAddressIdChange current()
  * @method AddBillingAddressIdChange at($offset)
  */
-class AddBillingAddressIdChangeCollection extends MapperSequence
+class AddBillingAddressIdChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert AddBillingAddressIdChange $value
@@ -44,6 +44,7 @@ class AddBillingAddressIdChangeCollection extends MapperSequence
         return function (int $index): ?AddBillingAddressIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AddBillingAddressIdChange $data */
                 $data = AddBillingAddressIdChangeModel::of($data);
                 $this->set($data, $index);
             }

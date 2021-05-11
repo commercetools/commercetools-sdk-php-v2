@@ -44,6 +44,7 @@ class FieldDefinitionCollection extends MapperSequence
         return function (int $index): ?FieldDefinition {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FieldDefinition $data */
                 $data = FieldDefinitionModel::of($data);
                 $this->set($data, $index);
             }

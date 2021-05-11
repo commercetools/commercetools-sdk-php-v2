@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShippingMethodReference>
+ * @extends ReferenceCollection<ShippingMethodReference>
  * @method ShippingMethodReference current()
  * @method ShippingMethodReference at($offset)
  */
-class ShippingMethodReferenceCollection extends MapperSequence
+class ShippingMethodReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert ShippingMethodReference $value
@@ -44,6 +44,7 @@ class ShippingMethodReferenceCollection extends MapperSequence
         return function (int $index): ?ShippingMethodReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodReference $data */
                 $data = ShippingMethodReferenceModel::of($data);
                 $this->set($data, $index);
             }

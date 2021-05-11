@@ -44,6 +44,7 @@ class MyShoppingListUpdateCollection extends MapperSequence
         return function (int $index): ?MyShoppingListUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyShoppingListUpdate $data */
                 $data = MyShoppingListUpdateModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidInput>
+ * @extends ErrorObjectCollection<InvalidInput>
  * @method InvalidInput current()
  * @method InvalidInput at($offset)
  */
-class InvalidInputCollection extends MapperSequence
+class InvalidInputCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidInput $value
@@ -44,6 +44,7 @@ class InvalidInputCollection extends MapperSequence
         return function (int $index): ?InvalidInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidInput $data */
                 $data = InvalidInputModel::of($data);
                 $this->set($data, $index);
             }

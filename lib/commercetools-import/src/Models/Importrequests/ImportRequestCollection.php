@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ImportRequest>
+ * @template T of ImportRequest
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ImportRequest current()
  * @method ImportRequest at($offset)
  */
 class ImportRequestCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ImportRequest $value
-     * @psalm-param ImportRequest|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ImportRequestCollection
@@ -37,13 +40,14 @@ class ImportRequestCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ImportRequest
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ImportRequestModel::of($data);
                 $this->set($data, $index);
             }

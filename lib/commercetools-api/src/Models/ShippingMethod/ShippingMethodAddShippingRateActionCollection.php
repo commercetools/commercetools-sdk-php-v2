@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ShippingMethod\ShippingMethodUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShippingMethodAddShippingRateAction>
+ * @extends ShippingMethodUpdateActionCollection<ShippingMethodAddShippingRateAction>
  * @method ShippingMethodAddShippingRateAction current()
  * @method ShippingMethodAddShippingRateAction at($offset)
  */
-class ShippingMethodAddShippingRateActionCollection extends MapperSequence
+class ShippingMethodAddShippingRateActionCollection extends ShippingMethodUpdateActionCollection
 {
     /**
      * @psalm-assert ShippingMethodAddShippingRateAction $value
@@ -44,6 +44,7 @@ class ShippingMethodAddShippingRateActionCollection extends MapperSequence
         return function (int $index): ?ShippingMethodAddShippingRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodAddShippingRateAction $data */
                 $data = ShippingMethodAddShippingRateActionModel::of($data);
                 $this->set($data, $index);
             }

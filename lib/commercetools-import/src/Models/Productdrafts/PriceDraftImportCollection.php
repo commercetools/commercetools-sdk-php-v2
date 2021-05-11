@@ -44,6 +44,7 @@ class PriceDraftImportCollection extends MapperSequence
         return function (int $index): ?PriceDraftImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PriceDraftImport $data */
                 $data = PriceDraftImportModel::of($data);
                 $this->set($data, $index);
             }

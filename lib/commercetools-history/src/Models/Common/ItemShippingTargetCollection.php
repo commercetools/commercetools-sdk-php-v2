@@ -44,6 +44,7 @@ class ItemShippingTargetCollection extends MapperSequence
         return function (int $index): ?ItemShippingTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ItemShippingTarget $data */
                 $data = ItemShippingTargetModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangePlainEnumValueOrderChange>
+ * @extends ChangeCollection<ChangePlainEnumValueOrderChange>
  * @method ChangePlainEnumValueOrderChange current()
  * @method ChangePlainEnumValueOrderChange at($offset)
  */
-class ChangePlainEnumValueOrderChangeCollection extends MapperSequence
+class ChangePlainEnumValueOrderChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert ChangePlainEnumValueOrderChange $value
@@ -44,6 +44,7 @@ class ChangePlainEnumValueOrderChangeCollection extends MapperSequence
         return function (int $index): ?ChangePlainEnumValueOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangePlainEnumValueOrderChange $data */
                 $data = ChangePlainEnumValueOrderChangeModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetValidFromAndUntilChange>
+ * @extends ChangeCollection<SetValidFromAndUntilChange>
  * @method SetValidFromAndUntilChange current()
  * @method SetValidFromAndUntilChange at($offset)
  */
-class SetValidFromAndUntilChangeCollection extends MapperSequence
+class SetValidFromAndUntilChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetValidFromAndUntilChange $value
@@ -44,6 +44,7 @@ class SetValidFromAndUntilChangeCollection extends MapperSequence
         return function (int $index): ?SetValidFromAndUntilChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetValidFromAndUntilChange $data */
                 $data = SetValidFromAndUntilChangeModel::of($data);
                 $this->set($data, $index);
             }

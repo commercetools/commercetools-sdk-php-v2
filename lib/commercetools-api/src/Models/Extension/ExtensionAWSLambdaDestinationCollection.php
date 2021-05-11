@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Extension\ExtensionDestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionAWSLambdaDestination>
+ * @extends ExtensionDestinationCollection<ExtensionAWSLambdaDestination>
  * @method ExtensionAWSLambdaDestination current()
  * @method ExtensionAWSLambdaDestination at($offset)
  */
-class ExtensionAWSLambdaDestinationCollection extends MapperSequence
+class ExtensionAWSLambdaDestinationCollection extends ExtensionDestinationCollection
 {
     /**
      * @psalm-assert ExtensionAWSLambdaDestination $value
@@ -44,6 +44,7 @@ class ExtensionAWSLambdaDestinationCollection extends MapperSequence
         return function (int $index): ?ExtensionAWSLambdaDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionAWSLambdaDestination $data */
                 $data = ExtensionAWSLambdaDestinationModel::of($data);
                 $this->set($data, $index);
             }

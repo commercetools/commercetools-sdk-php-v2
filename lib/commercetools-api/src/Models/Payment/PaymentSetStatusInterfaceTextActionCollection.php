@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Payment\PaymentUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<PaymentSetStatusInterfaceTextAction>
+ * @extends PaymentUpdateActionCollection<PaymentSetStatusInterfaceTextAction>
  * @method PaymentSetStatusInterfaceTextAction current()
  * @method PaymentSetStatusInterfaceTextAction at($offset)
  */
-class PaymentSetStatusInterfaceTextActionCollection extends MapperSequence
+class PaymentSetStatusInterfaceTextActionCollection extends PaymentUpdateActionCollection
 {
     /**
      * @psalm-assert PaymentSetStatusInterfaceTextAction $value
@@ -44,6 +44,7 @@ class PaymentSetStatusInterfaceTextActionCollection extends MapperSequence
         return function (int $index): ?PaymentSetStatusInterfaceTextAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentSetStatusInterfaceTextAction $data */
                 $data = PaymentSetStatusInterfaceTextActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Category\CategoryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CategorySetMetaDescriptionAction>
+ * @extends CategoryUpdateActionCollection<CategorySetMetaDescriptionAction>
  * @method CategorySetMetaDescriptionAction current()
  * @method CategorySetMetaDescriptionAction at($offset)
  */
-class CategorySetMetaDescriptionActionCollection extends MapperSequence
+class CategorySetMetaDescriptionActionCollection extends CategoryUpdateActionCollection
 {
     /**
      * @psalm-assert CategorySetMetaDescriptionAction $value
@@ -44,6 +44,7 @@ class CategorySetMetaDescriptionActionCollection extends MapperSequence
         return function (int $index): ?CategorySetMetaDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategorySetMetaDescriptionAction $data */
                 $data = CategorySetMetaDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }

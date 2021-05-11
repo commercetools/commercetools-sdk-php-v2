@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SemanticErrorError>
+ * @extends ErrorObjectCollection<SemanticErrorError>
  * @method SemanticErrorError current()
  * @method SemanticErrorError at($offset)
  */
-class SemanticErrorErrorCollection extends MapperSequence
+class SemanticErrorErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert SemanticErrorError $value
@@ -44,6 +44,7 @@ class SemanticErrorErrorCollection extends MapperSequence
         return function (int $index): ?SemanticErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SemanticErrorError $data */
                 $data = SemanticErrorErrorModel::of($data);
                 $this->set($data, $index);
             }

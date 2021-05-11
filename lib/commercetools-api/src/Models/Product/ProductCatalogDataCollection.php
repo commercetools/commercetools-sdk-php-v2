@@ -44,6 +44,7 @@ class ProductCatalogDataCollection extends MapperSequence
         return function (int $index): ?ProductCatalogData {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductCatalogData $data */
                 $data = ProductCatalogDataModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class CustomerCreatePasswordResetTokenCollection extends MapperSequence
         return function (int $index): ?CustomerCreatePasswordResetToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerCreatePasswordResetToken $data */
                 $data = CustomerCreatePasswordResetTokenModel::of($data);
                 $this->set($data, $index);
             }

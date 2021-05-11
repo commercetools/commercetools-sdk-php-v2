@@ -44,6 +44,7 @@ class MissingPricesPagedQueryResultCollection extends MapperSequence
         return function (int $index): ?MissingPricesPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingPricesPagedQueryResult $data */
                 $data = MissingPricesPagedQueryResultModel::of($data);
                 $this->set($data, $index);
             }

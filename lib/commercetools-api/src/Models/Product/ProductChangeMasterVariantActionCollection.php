@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductChangeMasterVariantAction>
+ * @extends ProductUpdateActionCollection<ProductChangeMasterVariantAction>
  * @method ProductChangeMasterVariantAction current()
  * @method ProductChangeMasterVariantAction at($offset)
  */
-class ProductChangeMasterVariantActionCollection extends MapperSequence
+class ProductChangeMasterVariantActionCollection extends ProductUpdateActionCollection
 {
     /**
      * @psalm-assert ProductChangeMasterVariantAction $value
@@ -44,6 +44,7 @@ class ProductChangeMasterVariantActionCollection extends MapperSequence
         return function (int $index): ?ProductChangeMasterVariantAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductChangeMasterVariantAction $data */
                 $data = ProductChangeMasterVariantActionModel::of($data);
                 $this->set($data, $index);
             }

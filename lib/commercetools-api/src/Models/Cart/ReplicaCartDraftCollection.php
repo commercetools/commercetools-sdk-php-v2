@@ -44,6 +44,7 @@ class ReplicaCartDraftCollection extends MapperSequence
         return function (int $index): ?ReplicaCartDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReplicaCartDraft $data */
                 $data = ReplicaCartDraftModel::of($data);
                 $this->set($data, $index);
             }

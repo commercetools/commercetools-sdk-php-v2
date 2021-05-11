@@ -44,6 +44,7 @@ class ShippingMethodUpdateCollection extends MapperSequence
         return function (int $index): ?ShippingMethodUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodUpdate $data */
                 $data = ShippingMethodUpdateModel::of($data);
                 $this->set($data, $index);
             }

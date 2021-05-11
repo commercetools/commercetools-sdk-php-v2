@@ -44,6 +44,7 @@ class SimilarProductPairCollection extends MapperSequence
         return function (int $index): ?SimilarProductPair {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SimilarProductPair $data */
                 $data = SimilarProductPairModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class FieldContainerCollection extends MapperSequence
         return function (int $index): ?FieldContainer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FieldContainer $data */
                 $data = FieldContainerModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class PaymentDraftCollection extends MapperSequence
         return function (int $index): ?PaymentDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentDraft $data */
                 $data = PaymentDraftModel::of($data);
                 $this->set($data, $index);
             }

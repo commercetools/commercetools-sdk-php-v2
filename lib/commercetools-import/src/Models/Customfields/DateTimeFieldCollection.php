@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<DateTimeField>
+ * @extends CustomFieldCollection<DateTimeField>
  * @method DateTimeField current()
  * @method DateTimeField at($offset)
  */
-class DateTimeFieldCollection extends MapperSequence
+class DateTimeFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert DateTimeField $value
@@ -44,6 +44,7 @@ class DateTimeFieldCollection extends MapperSequence
         return function (int $index): ?DateTimeField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DateTimeField $data */
                 $data = DateTimeFieldModel::of($data);
                 $this->set($data, $index);
             }

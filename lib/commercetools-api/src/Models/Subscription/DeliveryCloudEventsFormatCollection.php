@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DeliveryFormatCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DeliveryCloudEventsFormat>
+ * @extends DeliveryFormatCollection<DeliveryCloudEventsFormat>
  * @method DeliveryCloudEventsFormat current()
  * @method DeliveryCloudEventsFormat at($offset)
  */
-class DeliveryCloudEventsFormatCollection extends MapperSequence
+class DeliveryCloudEventsFormatCollection extends DeliveryFormatCollection
 {
     /**
      * @psalm-assert DeliveryCloudEventsFormat $value
@@ -44,6 +44,7 @@ class DeliveryCloudEventsFormatCollection extends MapperSequence
         return function (int $index): ?DeliveryCloudEventsFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DeliveryCloudEventsFormat $data */
                 $data = DeliveryCloudEventsFormatModel::of($data);
                 $this->set($data, $index);
             }

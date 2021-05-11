@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Me\MyCartUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MyCartSetLineItemCustomTypeAction>
+ * @extends MyCartUpdateActionCollection<MyCartSetLineItemCustomTypeAction>
  * @method MyCartSetLineItemCustomTypeAction current()
  * @method MyCartSetLineItemCustomTypeAction at($offset)
  */
-class MyCartSetLineItemCustomTypeActionCollection extends MapperSequence
+class MyCartSetLineItemCustomTypeActionCollection extends MyCartUpdateActionCollection
 {
     /**
      * @psalm-assert MyCartSetLineItemCustomTypeAction $value
@@ -44,6 +44,7 @@ class MyCartSetLineItemCustomTypeActionCollection extends MapperSequence
         return function (int $index): ?MyCartSetLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyCartSetLineItemCustomTypeAction $data */
                 $data = MyCartSetLineItemCustomTypeActionModel::of($data);
                 $this->set($data, $index);
             }

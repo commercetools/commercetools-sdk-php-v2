@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\ProductTypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductTypeChangePlainEnumValueLabelAction>
+ * @extends ProductTypeUpdateActionCollection<ProductTypeChangePlainEnumValueLabelAction>
  * @method ProductTypeChangePlainEnumValueLabelAction current()
  * @method ProductTypeChangePlainEnumValueLabelAction at($offset)
  */
-class ProductTypeChangePlainEnumValueLabelActionCollection extends MapperSequence
+class ProductTypeChangePlainEnumValueLabelActionCollection extends ProductTypeUpdateActionCollection
 {
     /**
      * @psalm-assert ProductTypeChangePlainEnumValueLabelAction $value
@@ -44,6 +44,7 @@ class ProductTypeChangePlainEnumValueLabelActionCollection extends MapperSequenc
         return function (int $index): ?ProductTypeChangePlainEnumValueLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeChangePlainEnumValueLabelAction $data */
                 $data = ProductTypeChangePlainEnumValueLabelActionModel::of($data);
                 $this->set($data, $index);
             }

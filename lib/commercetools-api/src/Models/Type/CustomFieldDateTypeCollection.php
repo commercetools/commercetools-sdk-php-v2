@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldDateType>
+ * @extends FieldTypeCollection<CustomFieldDateType>
  * @method CustomFieldDateType current()
  * @method CustomFieldDateType at($offset)
  */
-class CustomFieldDateTypeCollection extends MapperSequence
+class CustomFieldDateTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldDateType $value
@@ -44,6 +44,7 @@ class CustomFieldDateTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldDateType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldDateType $data */
                 $data = CustomFieldDateTypeModel::of($data);
                 $this->set($data, $index);
             }

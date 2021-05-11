@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelKeyReference>
+ * @extends KeyReferenceCollection<ChannelKeyReference>
  * @method ChannelKeyReference current()
  * @method ChannelKeyReference at($offset)
  */
-class ChannelKeyReferenceCollection extends MapperSequence
+class ChannelKeyReferenceCollection extends KeyReferenceCollection
 {
     /**
      * @psalm-assert ChannelKeyReference $value
@@ -44,6 +44,7 @@ class ChannelKeyReferenceCollection extends MapperSequence
         return function (int $index): ?ChannelKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelKeyReference $data */
                 $data = ChannelKeyReferenceModel::of($data);
                 $this->set($data, $index);
             }

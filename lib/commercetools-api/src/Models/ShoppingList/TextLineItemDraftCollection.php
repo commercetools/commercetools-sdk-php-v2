@@ -44,6 +44,7 @@ class TextLineItemDraftCollection extends MapperSequence
         return function (int $index): ?TextLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TextLineItemDraft $data */
                 $data = TextLineItemDraftModel::of($data);
                 $this->set($data, $index);
             }

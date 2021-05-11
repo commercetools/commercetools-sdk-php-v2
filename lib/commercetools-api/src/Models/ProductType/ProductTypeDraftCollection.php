@@ -44,6 +44,7 @@ class ProductTypeDraftCollection extends MapperSequence
         return function (int $index): ?ProductTypeDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeDraft $data */
                 $data = ProductTypeDraftModel::of($data);
                 $this->set($data, $index);
             }

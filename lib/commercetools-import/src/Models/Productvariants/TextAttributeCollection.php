@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<TextAttribute>
+ * @extends AttributeCollection<TextAttribute>
  * @method TextAttribute current()
  * @method TextAttribute at($offset)
  */
-class TextAttributeCollection extends MapperSequence
+class TextAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert TextAttribute $value
@@ -44,6 +44,7 @@ class TextAttributeCollection extends MapperSequence
         return function (int $index): ?TextAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TextAttribute $data */
                 $data = TextAttributeModel::of($data);
                 $this->set($data, $index);
             }

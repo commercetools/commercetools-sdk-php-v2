@@ -44,6 +44,7 @@ class TaxCategoryPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?TaxCategoryPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategoryPagedQueryResponse $data */
                 $data = TaxCategoryPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

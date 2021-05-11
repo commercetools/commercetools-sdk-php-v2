@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\OrderUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderAddParcelToDeliveryAction>
+ * @extends OrderUpdateActionCollection<OrderAddParcelToDeliveryAction>
  * @method OrderAddParcelToDeliveryAction current()
  * @method OrderAddParcelToDeliveryAction at($offset)
  */
-class OrderAddParcelToDeliveryActionCollection extends MapperSequence
+class OrderAddParcelToDeliveryActionCollection extends OrderUpdateActionCollection
 {
     /**
      * @psalm-assert OrderAddParcelToDeliveryAction $value
@@ -44,6 +44,7 @@ class OrderAddParcelToDeliveryActionCollection extends MapperSequence
         return function (int $index): ?OrderAddParcelToDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderAddParcelToDeliveryAction $data */
                 $data = OrderAddParcelToDeliveryActionModel::of($data);
                 $this->set($data, $index);
             }

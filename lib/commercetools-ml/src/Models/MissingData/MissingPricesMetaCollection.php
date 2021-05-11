@@ -44,6 +44,7 @@ class MissingPricesMetaCollection extends MapperSequence
         return function (int $index): ?MissingPricesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingPricesMeta $data */
                 $data = MissingPricesMetaModel::of($data);
                 $this->set($data, $index);
             }

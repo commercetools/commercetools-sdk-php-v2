@@ -44,6 +44,7 @@ class ModifiedByCollection extends MapperSequence
         return function (int $index): ?ModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ModifiedBy $data */
                 $data = ModifiedByModel::of($data);
                 $this->set($data, $index);
             }

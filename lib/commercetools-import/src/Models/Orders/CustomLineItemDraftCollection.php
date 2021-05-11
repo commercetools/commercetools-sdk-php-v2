@@ -44,6 +44,7 @@ class CustomLineItemDraftCollection extends MapperSequence
         return function (int $index): ?CustomLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomLineItemDraft $data */
                 $data = CustomLineItemDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class AttributePlainEnumValueCollection extends MapperSequence
         return function (int $index): ?AttributePlainEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributePlainEnumValue $data */
                 $data = AttributePlainEnumValueModel::of($data);
                 $this->set($data, $index);
             }

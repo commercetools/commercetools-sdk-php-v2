@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetMiddleNameChange>
+ * @extends ChangeCollection<SetMiddleNameChange>
  * @method SetMiddleNameChange current()
  * @method SetMiddleNameChange at($offset)
  */
-class SetMiddleNameChangeCollection extends MapperSequence
+class SetMiddleNameChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetMiddleNameChange $value
@@ -44,6 +44,7 @@ class SetMiddleNameChangeCollection extends MapperSequence
         return function (int $index): ?SetMiddleNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetMiddleNameChange $data */
                 $data = SetMiddleNameChangeModel::of($data);
                 $this->set($data, $index);
             }

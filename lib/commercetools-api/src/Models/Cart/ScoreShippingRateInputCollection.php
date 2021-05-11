@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Cart\ShippingRateInputCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ScoreShippingRateInput>
+ * @extends ShippingRateInputCollection<ScoreShippingRateInput>
  * @method ScoreShippingRateInput current()
  * @method ScoreShippingRateInput at($offset)
  */
-class ScoreShippingRateInputCollection extends MapperSequence
+class ScoreShippingRateInputCollection extends ShippingRateInputCollection
 {
     /**
      * @psalm-assert ScoreShippingRateInput $value
@@ -44,6 +44,7 @@ class ScoreShippingRateInputCollection extends MapperSequence
         return function (int $index): ?ScoreShippingRateInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ScoreShippingRateInput $data */
                 $data = ScoreShippingRateInputModel::of($data);
                 $this->set($data, $index);
             }

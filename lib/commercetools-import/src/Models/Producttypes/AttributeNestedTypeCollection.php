@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Producttypes\AttributeTypeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeNestedType>
+ * @extends AttributeTypeCollection<AttributeNestedType>
  * @method AttributeNestedType current()
  * @method AttributeNestedType at($offset)
  */
-class AttributeNestedTypeCollection extends MapperSequence
+class AttributeNestedTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeNestedType $value
@@ -44,6 +44,7 @@ class AttributeNestedTypeCollection extends MapperSequence
         return function (int $index): ?AttributeNestedType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeNestedType $data */
                 $data = AttributeNestedTypeModel::of($data);
                 $this->set($data, $index);
             }

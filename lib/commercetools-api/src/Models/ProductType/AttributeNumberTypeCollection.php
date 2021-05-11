@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\AttributeTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeNumberType>
+ * @extends AttributeTypeCollection<AttributeNumberType>
  * @method AttributeNumberType current()
  * @method AttributeNumberType at($offset)
  */
-class AttributeNumberTypeCollection extends MapperSequence
+class AttributeNumberTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeNumberType $value
@@ -44,6 +44,7 @@ class AttributeNumberTypeCollection extends MapperSequence
         return function (int $index): ?AttributeNumberType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeNumberType $data */
                 $data = AttributeNumberTypeModel::of($data);
                 $this->set($data, $index);
             }

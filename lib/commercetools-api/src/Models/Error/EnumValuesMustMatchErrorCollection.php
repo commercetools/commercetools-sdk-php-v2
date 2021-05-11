@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<EnumValuesMustMatchError>
+ * @extends ErrorObjectCollection<EnumValuesMustMatchError>
  * @method EnumValuesMustMatchError current()
  * @method EnumValuesMustMatchError at($offset)
  */
-class EnumValuesMustMatchErrorCollection extends MapperSequence
+class EnumValuesMustMatchErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert EnumValuesMustMatchError $value
@@ -44,6 +44,7 @@ class EnumValuesMustMatchErrorCollection extends MapperSequence
         return function (int $index): ?EnumValuesMustMatchError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumValuesMustMatchError $data */
                 $data = EnumValuesMustMatchErrorModel::of($data);
                 $this->set($data, $index);
             }

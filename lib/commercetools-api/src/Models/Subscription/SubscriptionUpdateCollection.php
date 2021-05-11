@@ -44,6 +44,7 @@ class SubscriptionUpdateCollection extends MapperSequence
         return function (int $index): ?SubscriptionUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SubscriptionUpdate $data */
                 $data = SubscriptionUpdateModel::of($data);
                 $this->set($data, $index);
             }

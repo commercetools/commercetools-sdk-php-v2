@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<BooleanSetAttribute>
+ * @extends AttributeCollection<BooleanSetAttribute>
  * @method BooleanSetAttribute current()
  * @method BooleanSetAttribute at($offset)
  */
-class BooleanSetAttributeCollection extends MapperSequence
+class BooleanSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert BooleanSetAttribute $value
@@ -44,6 +44,7 @@ class BooleanSetAttributeCollection extends MapperSequence
         return function (int $index): ?BooleanSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var BooleanSetAttribute $data */
                 $data = BooleanSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

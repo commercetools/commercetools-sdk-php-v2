@@ -44,6 +44,7 @@ class ImportSinkDraftCollection extends MapperSequence
         return function (int $index): ?ImportSinkDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportSinkDraft $data */
                 $data = ImportSinkDraftModel::of($data);
                 $this->set($data, $index);
             }

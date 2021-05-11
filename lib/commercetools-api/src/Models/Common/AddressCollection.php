@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Address>
+ * @extends BaseAddressCollection<Address>
  * @method Address current()
  * @method Address at($offset)
  */
-class AddressCollection extends MapperSequence
+class AddressCollection extends BaseAddressCollection
 {
     /**
      * @psalm-assert Address $value
@@ -44,6 +44,7 @@ class AddressCollection extends MapperSequence
         return function (int $index): ?Address {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Address $data */
                 $data = AddressModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class LineItemCollection extends MapperSequence
         return function (int $index): ?LineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LineItem $data */
                 $data = LineItemModel::of($data);
                 $this->set($data, $index);
             }

@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ResourceIdentifier>
+ * @template T of ResourceIdentifier
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ResourceIdentifier current()
  * @method ResourceIdentifier at($offset)
  */
 class ResourceIdentifierCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ResourceIdentifier $value
-     * @psalm-param ResourceIdentifier|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ResourceIdentifierCollection
@@ -37,13 +40,14 @@ class ResourceIdentifierCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ResourceIdentifier
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

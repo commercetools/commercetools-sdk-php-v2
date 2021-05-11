@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductSetAssetCustomFieldAction>
+ * @extends ProductUpdateActionCollection<ProductSetAssetCustomFieldAction>
  * @method ProductSetAssetCustomFieldAction current()
  * @method ProductSetAssetCustomFieldAction at($offset)
  */
-class ProductSetAssetCustomFieldActionCollection extends MapperSequence
+class ProductSetAssetCustomFieldActionCollection extends ProductUpdateActionCollection
 {
     /**
      * @psalm-assert ProductSetAssetCustomFieldAction $value
@@ -44,6 +44,7 @@ class ProductSetAssetCustomFieldActionCollection extends MapperSequence
         return function (int $index): ?ProductSetAssetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductSetAssetCustomFieldAction $data */
                 $data = ProductSetAssetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class PriceFunctionCollection extends MapperSequence
         return function (int $index): ?PriceFunction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PriceFunction $data */
                 $data = PriceFunctionModel::of($data);
                 $this->set($data, $index);
             }

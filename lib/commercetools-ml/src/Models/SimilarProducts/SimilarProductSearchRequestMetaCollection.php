@@ -44,6 +44,7 @@ class SimilarProductSearchRequestMetaCollection extends MapperSequence
         return function (int $index): ?SimilarProductSearchRequestMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SimilarProductSearchRequestMeta $data */
                 $data = SimilarProductSearchRequestMetaModel::of($data);
                 $this->set($data, $index);
             }

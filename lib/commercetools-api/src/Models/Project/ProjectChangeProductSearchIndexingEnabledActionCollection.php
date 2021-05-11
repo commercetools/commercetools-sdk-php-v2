@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectChangeProductSearchIndexingEnabledAction>
+ * @extends ProjectUpdateActionCollection<ProjectChangeProductSearchIndexingEnabledAction>
  * @method ProjectChangeProductSearchIndexingEnabledAction current()
  * @method ProjectChangeProductSearchIndexingEnabledAction at($offset)
  */
-class ProjectChangeProductSearchIndexingEnabledActionCollection extends MapperSequence
+class ProjectChangeProductSearchIndexingEnabledActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectChangeProductSearchIndexingEnabledAction $value
@@ -44,6 +44,7 @@ class ProjectChangeProductSearchIndexingEnabledActionCollection extends MapperSe
         return function (int $index): ?ProjectChangeProductSearchIndexingEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectChangeProductSearchIndexingEnabledAction $data */
                 $data = ProjectChangeProductSearchIndexingEnabledActionModel::of($data);
                 $this->set($data, $index);
             }

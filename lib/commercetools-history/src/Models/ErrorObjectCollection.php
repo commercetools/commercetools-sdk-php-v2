@@ -44,6 +44,7 @@ class ErrorObjectCollection extends MapperSequence
         return function (int $index): ?ErrorObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ErrorObject $data */
                 $data = ErrorObjectModel::of($data);
                 $this->set($data, $index);
             }

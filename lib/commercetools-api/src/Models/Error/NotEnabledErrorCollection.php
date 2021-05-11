@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<NotEnabledError>
+ * @extends ErrorObjectCollection<NotEnabledError>
  * @method NotEnabledError current()
  * @method NotEnabledError at($offset)
  */
-class NotEnabledErrorCollection extends MapperSequence
+class NotEnabledErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert NotEnabledError $value
@@ -44,6 +44,7 @@ class NotEnabledErrorCollection extends MapperSequence
         return function (int $index): ?NotEnabledError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var NotEnabledError $data */
                 $data = NotEnabledErrorModel::of($data);
                 $this->set($data, $index);
             }

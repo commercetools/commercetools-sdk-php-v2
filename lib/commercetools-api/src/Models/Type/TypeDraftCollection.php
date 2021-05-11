@@ -44,6 +44,7 @@ class TypeDraftCollection extends MapperSequence
         return function (int $index): ?TypeDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeDraft $data */
                 $data = TypeDraftModel::of($data);
                 $this->set($data, $index);
             }

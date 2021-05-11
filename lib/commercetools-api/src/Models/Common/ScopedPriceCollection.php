@@ -44,6 +44,7 @@ class ScopedPriceCollection extends MapperSequence
         return function (int $index): ?ScopedPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ScopedPrice $data */
                 $data = ScopedPriceModel::of($data);
                 $this->set($data, $index);
             }

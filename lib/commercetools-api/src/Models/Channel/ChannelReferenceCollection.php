@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelReference>
+ * @extends ReferenceCollection<ChannelReference>
  * @method ChannelReference current()
  * @method ChannelReference at($offset)
  */
-class ChannelReferenceCollection extends MapperSequence
+class ChannelReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert ChannelReference $value
@@ -44,6 +44,7 @@ class ChannelReferenceCollection extends MapperSequence
         return function (int $index): ?ChannelReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelReference $data */
                 $data = ChannelReferenceModel::of($data);
                 $this->set($data, $index);
             }

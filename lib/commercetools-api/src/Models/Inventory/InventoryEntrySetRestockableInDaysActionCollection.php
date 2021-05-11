@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Inventory\InventoryEntryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InventoryEntrySetRestockableInDaysAction>
+ * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetRestockableInDaysAction>
  * @method InventoryEntrySetRestockableInDaysAction current()
  * @method InventoryEntrySetRestockableInDaysAction at($offset)
  */
-class InventoryEntrySetRestockableInDaysActionCollection extends MapperSequence
+class InventoryEntrySetRestockableInDaysActionCollection extends InventoryEntryUpdateActionCollection
 {
     /**
      * @psalm-assert InventoryEntrySetRestockableInDaysAction $value
@@ -44,6 +44,7 @@ class InventoryEntrySetRestockableInDaysActionCollection extends MapperSequence
         return function (int $index): ?InventoryEntrySetRestockableInDaysAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryEntrySetRestockableInDaysAction $data */
                 $data = InventoryEntrySetRestockableInDaysActionModel::of($data);
                 $this->set($data, $index);
             }

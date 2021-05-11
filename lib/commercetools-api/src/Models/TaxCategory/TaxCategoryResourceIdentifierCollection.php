@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TaxCategoryResourceIdentifier>
+ * @extends ResourceIdentifierCollection<TaxCategoryResourceIdentifier>
  * @method TaxCategoryResourceIdentifier current()
  * @method TaxCategoryResourceIdentifier at($offset)
  */
-class TaxCategoryResourceIdentifierCollection extends MapperSequence
+class TaxCategoryResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert TaxCategoryResourceIdentifier $value
@@ -44,6 +44,7 @@ class TaxCategoryResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?TaxCategoryResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategoryResourceIdentifier $data */
                 $data = TaxCategoryResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

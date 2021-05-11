@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Label;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Label\LabelCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReviewLabel>
+ * @extends LabelCollection<ReviewLabel>
  * @method ReviewLabel current()
  * @method ReviewLabel at($offset)
  */
-class ReviewLabelCollection extends MapperSequence
+class ReviewLabelCollection extends LabelCollection
 {
     /**
      * @psalm-assert ReviewLabel $value
@@ -44,6 +44,7 @@ class ReviewLabelCollection extends MapperSequence
         return function (int $index): ?ReviewLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewLabel $data */
                 $data = ReviewLabelModel::of($data);
                 $this->set($data, $index);
             }

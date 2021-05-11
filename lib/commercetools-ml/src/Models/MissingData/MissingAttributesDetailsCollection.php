@@ -44,6 +44,7 @@ class MissingAttributesDetailsCollection extends MapperSequence
         return function (int $index): ?MissingAttributesDetails {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingAttributesDetails $data */
                 $data = MissingAttributesDetailsModel::of($data);
                 $this->set($data, $index);
             }

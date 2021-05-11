@@ -44,6 +44,7 @@ class ApiClientPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ApiClientPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ApiClientPagedQueryResponse $data */
                 $data = ApiClientPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class CustomFieldLocalizedEnumValueCollection extends MapperSequence
         return function (int $index): ?CustomFieldLocalizedEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldLocalizedEnumValue $data */
                 $data = CustomFieldLocalizedEnumValueModel::of($data);
                 $this->set($data, $index);
             }

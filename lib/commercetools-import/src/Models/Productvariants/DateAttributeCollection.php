@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<DateAttribute>
+ * @extends AttributeCollection<DateAttribute>
  * @method DateAttribute current()
  * @method DateAttribute at($offset)
  */
-class DateAttributeCollection extends MapperSequence
+class DateAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert DateAttribute $value
@@ -44,6 +44,7 @@ class DateAttributeCollection extends MapperSequence
         return function (int $index): ?DateAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DateAttribute $data */
                 $data = DateAttributeModel::of($data);
                 $this->set($data, $index);
             }

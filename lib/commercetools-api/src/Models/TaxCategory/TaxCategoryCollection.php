@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TaxCategory>
+ * @extends BaseResourceCollection<TaxCategory>
  * @method TaxCategory current()
  * @method TaxCategory at($offset)
  */
-class TaxCategoryCollection extends MapperSequence
+class TaxCategoryCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert TaxCategory $value
@@ -44,6 +44,7 @@ class TaxCategoryCollection extends MapperSequence
         return function (int $index): ?TaxCategory {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategory $data */
                 $data = TaxCategoryModel::of($data);
                 $this->set($data, $index);
             }

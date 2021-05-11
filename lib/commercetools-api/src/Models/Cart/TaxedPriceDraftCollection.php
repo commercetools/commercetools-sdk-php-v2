@@ -44,6 +44,7 @@ class TaxedPriceDraftCollection extends MapperSequence
         return function (int $index): ?TaxedPriceDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxedPriceDraft $data */
                 $data = TaxedPriceDraftModel::of($data);
                 $this->set($data, $index);
             }

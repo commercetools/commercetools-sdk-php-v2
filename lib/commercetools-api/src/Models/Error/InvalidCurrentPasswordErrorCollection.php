@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidCurrentPasswordError>
+ * @extends ErrorObjectCollection<InvalidCurrentPasswordError>
  * @method InvalidCurrentPasswordError current()
  * @method InvalidCurrentPasswordError at($offset)
  */
-class InvalidCurrentPasswordErrorCollection extends MapperSequence
+class InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidCurrentPasswordError $value
@@ -44,6 +44,7 @@ class InvalidCurrentPasswordErrorCollection extends MapperSequence
         return function (int $index): ?InvalidCurrentPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidCurrentPasswordError $data */
                 $data = InvalidCurrentPasswordErrorModel::of($data);
                 $this->set($data, $index);
             }

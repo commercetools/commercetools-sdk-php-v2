@@ -44,6 +44,7 @@ class ImportSummaryCollection extends MapperSequence
         return function (int $index): ?ImportSummary {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportSummary $data */
                 $data = ImportSummaryModel::of($data);
                 $this->set($data, $index);
             }

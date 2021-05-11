@@ -44,6 +44,7 @@ class MissingImagesTaskStatusCollection extends MapperSequence
         return function (int $index): ?MissingImagesTaskStatus {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingImagesTaskStatus $data */
                 $data = MissingImagesTaskStatusModel::of($data);
                 $this->set($data, $index);
             }

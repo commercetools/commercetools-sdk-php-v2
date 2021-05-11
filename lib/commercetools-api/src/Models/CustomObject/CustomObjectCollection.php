@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomObject;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomObject>
+ * @extends BaseResourceCollection<CustomObject>
  * @method CustomObject current()
  * @method CustomObject at($offset)
  */
-class CustomObjectCollection extends MapperSequence
+class CustomObjectCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert CustomObject $value
@@ -44,6 +44,7 @@ class CustomObjectCollection extends MapperSequence
         return function (int $index): ?CustomObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomObject $data */
                 $data = CustomObjectModel::of($data);
                 $this->set($data, $index);
             }

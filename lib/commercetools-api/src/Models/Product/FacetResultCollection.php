@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<FacetResult>
+ * @template T of FacetResult
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method FacetResult current()
  * @method FacetResult at($offset)
  */
 class FacetResultCollection extends MapperSequence
 {
     /**
-     * @psalm-assert FacetResult $value
-     * @psalm-param FacetResult|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return FacetResultCollection
@@ -37,13 +40,14 @@ class FacetResultCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?FacetResult
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?FacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = FacetResultModel::of($data);
                 $this->set($data, $index);
             }

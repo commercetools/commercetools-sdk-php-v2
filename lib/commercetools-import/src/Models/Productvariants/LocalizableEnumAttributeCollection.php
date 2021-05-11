@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<LocalizableEnumAttribute>
+ * @extends AttributeCollection<LocalizableEnumAttribute>
  * @method LocalizableEnumAttribute current()
  * @method LocalizableEnumAttribute at($offset)
  */
-class LocalizableEnumAttributeCollection extends MapperSequence
+class LocalizableEnumAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert LocalizableEnumAttribute $value
@@ -44,6 +44,7 @@ class LocalizableEnumAttributeCollection extends MapperSequence
         return function (int $index): ?LocalizableEnumAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizableEnumAttribute $data */
                 $data = LocalizableEnumAttributeModel::of($data);
                 $this->set($data, $index);
             }

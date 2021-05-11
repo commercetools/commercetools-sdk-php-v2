@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Importrequests\ImportRequestCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductVariantImportRequest>
+ * @extends ImportRequestCollection<ProductVariantImportRequest>
  * @method ProductVariantImportRequest current()
  * @method ProductVariantImportRequest at($offset)
  */
-class ProductVariantImportRequestCollection extends MapperSequence
+class ProductVariantImportRequestCollection extends ImportRequestCollection
 {
     /**
      * @psalm-assert ProductVariantImportRequest $value
@@ -44,6 +44,7 @@ class ProductVariantImportRequestCollection extends MapperSequence
         return function (int $index): ?ProductVariantImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductVariantImportRequest $data */
                 $data = ProductVariantImportRequestModel::of($data);
                 $this->set($data, $index);
             }

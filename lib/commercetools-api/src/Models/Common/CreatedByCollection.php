@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ClientLoggingCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CreatedBy>
+ * @extends ClientLoggingCollection<CreatedBy>
  * @method CreatedBy current()
  * @method CreatedBy at($offset)
  */
-class CreatedByCollection extends MapperSequence
+class CreatedByCollection extends ClientLoggingCollection
 {
     /**
      * @psalm-assert CreatedBy $value
@@ -44,6 +44,7 @@ class CreatedByCollection extends MapperSequence
         return function (int $index): ?CreatedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CreatedBy $data */
                 $data = CreatedByModel::of($data);
                 $this->set($data, $index);
             }

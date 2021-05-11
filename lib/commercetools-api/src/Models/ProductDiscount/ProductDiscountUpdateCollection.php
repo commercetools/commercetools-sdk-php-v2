@@ -44,6 +44,7 @@ class ProductDiscountUpdateCollection extends MapperSequence
         return function (int $index): ?ProductDiscountUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductDiscountUpdate $data */
                 $data = ProductDiscountUpdateModel::of($data);
                 $this->set($data, $index);
             }

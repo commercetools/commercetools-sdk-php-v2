@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\OrderEdit\OrderEditUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderEditSetBillingAddressCustomFieldAction>
+ * @extends OrderEditUpdateActionCollection<OrderEditSetBillingAddressCustomFieldAction>
  * @method OrderEditSetBillingAddressCustomFieldAction current()
  * @method OrderEditSetBillingAddressCustomFieldAction at($offset)
  */
-class OrderEditSetBillingAddressCustomFieldActionCollection extends MapperSequence
+class OrderEditSetBillingAddressCustomFieldActionCollection extends OrderEditUpdateActionCollection
 {
     /**
      * @psalm-assert OrderEditSetBillingAddressCustomFieldAction $value
@@ -44,6 +44,7 @@ class OrderEditSetBillingAddressCustomFieldActionCollection extends MapperSequen
         return function (int $index): ?OrderEditSetBillingAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditSetBillingAddressCustomFieldAction $data */
                 $data = OrderEditSetBillingAddressCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

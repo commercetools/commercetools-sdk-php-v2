@@ -44,6 +44,7 @@ class ImportResponseCollection extends MapperSequence
         return function (int $index): ?ImportResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportResponse $data */
                 $data = ImportResponseModel::of($data);
                 $this->set($data, $index);
             }

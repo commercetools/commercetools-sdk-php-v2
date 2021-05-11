@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReturnItem>
+ * @template T of ReturnItem
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ReturnItem current()
  * @method ReturnItem at($offset)
  */
 class ReturnItemCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ReturnItem $value
-     * @psalm-param ReturnItem|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ReturnItemCollection
@@ -37,13 +40,14 @@ class ReturnItemCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ReturnItem
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ReturnItemModel::of($data);
                 $this->set($data, $index);
             }
