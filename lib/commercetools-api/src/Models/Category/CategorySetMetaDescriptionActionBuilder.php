@@ -47,6 +47,7 @@ final class CategorySetMetaDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)

@@ -266,6 +266,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -276,6 +277,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -286,6 +288,7 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPayloadNotIncluded() instead
      * @return $this
      */
     public function withPayloadNotIncludedBuilder(?PayloadNotIncludedBuilder $payloadNotIncluded)

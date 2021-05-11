@@ -45,6 +45,7 @@ final class TypeAddFieldDefinitionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFieldDefinition() instead
      * @return $this
      */
     public function withFieldDefinitionBuilder(?FieldDefinitionBuilder $fieldDefinition)

@@ -101,6 +101,7 @@ final class SimilarProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductReferenceBuilder $product)
@@ -111,6 +112,7 @@ final class SimilarProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeta() instead
      * @return $this
      */
     public function withMetaBuilder(?SimilarProductMetaBuilder $meta)

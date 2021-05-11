@@ -117,6 +117,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCurrent() instead
      * @return $this
      */
     public function withCurrentBuilder(?ProductDataBuilder $current)
@@ -127,6 +128,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStaged() instead
      * @return $this
      */
     public function withStagedBuilder(?ProductDataBuilder $staged)

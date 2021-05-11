@@ -121,6 +121,7 @@ final class ChangeTransactionTimestampChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTransaction() instead
      * @return $this
      */
     public function withTransactionBuilder(?TransactionChangeValueBuilder $transaction)

@@ -409,6 +409,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
@@ -419,6 +420,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPlanned() instead
      * @return $this
      */
     public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
@@ -429,6 +431,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountAuthorized() instead
      * @return $this
      */
     public function withAmountAuthorizedBuilder(?MoneyBuilder $amountAuthorized)
@@ -439,6 +442,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPaid() instead
      * @return $this
      */
     public function withAmountPaidBuilder(?MoneyBuilder $amountPaid)
@@ -449,6 +453,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountRefunded() instead
      * @return $this
      */
     public function withAmountRefundedBuilder(?MoneyBuilder $amountRefunded)
@@ -459,6 +464,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
     public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
@@ -469,6 +475,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentStatus() instead
      * @return $this
      */
     public function withPaymentStatusBuilder(?PaymentStatusDraftBuilder $paymentStatus)
@@ -479,6 +486,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

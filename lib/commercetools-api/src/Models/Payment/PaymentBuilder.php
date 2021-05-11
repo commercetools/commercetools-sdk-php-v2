@@ -444,6 +444,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -454,6 +455,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -464,6 +466,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
@@ -474,6 +477,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPlanned() instead
      * @return $this
      */
     public function withAmountPlannedBuilder(?TypedMoneyBuilder $amountPlanned)
@@ -484,6 +488,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
     public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
@@ -494,6 +499,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentStatus() instead
      * @return $this
      */
     public function withPaymentStatusBuilder(?PaymentStatusBuilder $paymentStatus)
@@ -504,6 +510,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

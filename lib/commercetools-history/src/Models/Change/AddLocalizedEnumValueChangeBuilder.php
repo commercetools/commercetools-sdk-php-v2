@@ -125,6 +125,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?LocalizedEnumValueBuilder $nextValue)

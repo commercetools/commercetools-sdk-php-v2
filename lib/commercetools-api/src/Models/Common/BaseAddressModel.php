@@ -22,6 +22,11 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
     /**
      * @var ?string
      */
+    protected $id;
+
+    /**
+     * @var ?string
+     */
     protected $key;
 
     /**
@@ -144,6 +149,7 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $id = null,
         ?string $key = null,
         ?string $title = null,
         ?string $salutation = null,
@@ -169,6 +175,7 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
         ?string $additionalAddressInfo = null,
         ?string $externalId = null
     ) {
+        $this->id = $id;
         $this->key = $key;
         $this->title = $title;
         $this->salutation = $salutation;
@@ -193,6 +200,23 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -605,6 +629,14 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
         return $this->externalId;
     }
 
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @param ?string $key

@@ -119,6 +119,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTarget() instead
      * @return $this
      */
     public function withTargetBuilder(?ReferenceBuilder $target)

@@ -388,6 +388,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?TypedMoneyBuilder $value)
@@ -398,6 +399,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupKeyReferenceBuilder $customerGroup)
@@ -408,6 +410,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ChannelKeyReferenceBuilder $channel)
@@ -418,6 +421,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
@@ -428,6 +432,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomBuilder $custom)
@@ -438,6 +443,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductVariant() instead
      * @return $this
      */
     public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
@@ -448,6 +454,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductKeyReferenceBuilder $product)

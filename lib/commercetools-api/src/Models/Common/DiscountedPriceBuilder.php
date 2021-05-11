@@ -71,6 +71,7 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?MoneyBuilder $value)
@@ -81,6 +82,7 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscount() instead
      * @return $this
      */
     public function withDiscountBuilder(?ProductDiscountReferenceBuilder $discount)

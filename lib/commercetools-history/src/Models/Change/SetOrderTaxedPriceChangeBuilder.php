@@ -97,6 +97,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?TaxedItemPriceBuilder $nextValue)
@@ -107,6 +108,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?TaxedItemPriceBuilder $previousValue)

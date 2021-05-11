@@ -45,6 +45,7 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDestination() instead
      * @return $this
      */
     public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)

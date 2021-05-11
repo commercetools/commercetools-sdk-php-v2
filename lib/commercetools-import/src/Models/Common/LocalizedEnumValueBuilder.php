@@ -76,6 +76,7 @@ final class LocalizedEnumValueBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLabel() instead
      * @return $this
      */
     public function withLabelBuilder(?LocalizedStringBuilder $label)

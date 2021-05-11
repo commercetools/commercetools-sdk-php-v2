@@ -99,6 +99,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDimensions() instead
      * @return $this
      */
     public function withDimensionsBuilder(?AssetDimensionsBuilder $dimensions)

@@ -73,6 +73,7 @@ final class StagedOrderSetLineItemDistributionChannelActionBuilder implements Bu
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)

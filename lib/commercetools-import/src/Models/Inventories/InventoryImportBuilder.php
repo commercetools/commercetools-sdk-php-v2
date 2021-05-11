@@ -204,6 +204,7 @@ final class InventoryImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelKeyReferenceBuilder $supplyChannel)
@@ -214,6 +215,7 @@ final class InventoryImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomBuilder $custom)

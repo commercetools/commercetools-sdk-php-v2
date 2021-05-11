@@ -232,6 +232,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
@@ -242,6 +243,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPlanned() instead
      * @return $this
      */
     public function withAmountPlannedBuilder(?TypedMoneyBuilder $amountPlanned)
@@ -252,6 +254,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
     public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
@@ -262,6 +265,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

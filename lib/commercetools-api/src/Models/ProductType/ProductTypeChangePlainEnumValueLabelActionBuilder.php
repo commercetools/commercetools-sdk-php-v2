@@ -69,6 +69,7 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNewValue() instead
      * @return $this
      */
     public function withNewValueBuilder(?AttributePlainEnumValueBuilder $newValue)

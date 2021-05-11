@@ -45,6 +45,7 @@ final class ProjectChangeCartsConfigurationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCartsConfiguration() instead
      * @return $this
      */
     public function withCartsConfigurationBuilder(?CartsConfigurationBuilder $cartsConfiguration)

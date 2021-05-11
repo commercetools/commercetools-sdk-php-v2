@@ -193,6 +193,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -203,6 +204,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ChannelReferenceBuilder $channel)

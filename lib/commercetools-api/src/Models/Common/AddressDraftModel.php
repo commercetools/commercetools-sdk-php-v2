@@ -24,6 +24,11 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * @var ?string
      */
+    protected $id;
+
+    /**
+     * @var ?string
+     */
     protected $key;
 
     /**
@@ -151,6 +156,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $id = null,
         ?string $key = null,
         ?string $title = null,
         ?string $salutation = null,
@@ -177,6 +183,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
         ?string $externalId = null,
         ?CustomFieldsDraft $custom = null
     ) {
+        $this->id = $id;
         $this->key = $key;
         $this->title = $title;
         $this->salutation = $salutation;
@@ -202,6 +209,23 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
         $this->custom = $custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -632,6 +656,14 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @param ?string $key

@@ -73,6 +73,7 @@ final class AddAttributeDefinitionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?AttributeDefinitionBuilder $nextValue)

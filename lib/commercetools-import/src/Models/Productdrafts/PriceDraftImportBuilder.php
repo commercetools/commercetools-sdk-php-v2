@@ -285,6 +285,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?TypedMoneyBuilder $value)
@@ -295,6 +296,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupKeyReferenceBuilder $customerGroup)
@@ -305,6 +307,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ChannelKeyReferenceBuilder $channel)
@@ -315,6 +318,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomBuilder $custom)
@@ -325,6 +329,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)

@@ -47,6 +47,7 @@ final class InventoryEntryCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withInventoryEntry() instead
      * @return $this
      */
     public function withInventoryEntryBuilder(?InventoryEntryBuilder $inventoryEntry)

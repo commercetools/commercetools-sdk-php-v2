@@ -71,6 +71,7 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
@@ -81,6 +82,7 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldShippingInfo() instead
      * @return $this
      */
     public function withOldShippingInfoBuilder(?ShippingInfoBuilder $oldShippingInfo)

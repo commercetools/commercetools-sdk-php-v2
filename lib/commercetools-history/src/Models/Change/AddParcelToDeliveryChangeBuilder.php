@@ -97,6 +97,7 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ParcelBuilder $nextValue)

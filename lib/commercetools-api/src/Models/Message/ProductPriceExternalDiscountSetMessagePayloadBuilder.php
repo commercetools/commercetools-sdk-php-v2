@@ -167,6 +167,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)

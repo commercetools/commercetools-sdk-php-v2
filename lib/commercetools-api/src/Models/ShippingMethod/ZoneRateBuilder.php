@@ -73,6 +73,7 @@ final class ZoneRateBuilder implements Builder
     }
 
     /**
+     * @deprecated use withZone() instead
      * @return $this
      */
     public function withZoneBuilder(?ZoneReferenceBuilder $zone)

@@ -93,6 +93,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariables() instead
      * @return $this
      */
     public function withVariablesBuilder(?GraphQLVariablesMapBuilder $variables)

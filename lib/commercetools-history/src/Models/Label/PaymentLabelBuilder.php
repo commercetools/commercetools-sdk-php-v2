@@ -71,6 +71,7 @@ final class PaymentLabelBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPlanned() instead
      * @return $this
      */
     public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)

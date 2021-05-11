@@ -71,6 +71,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?DiscountCodeBuilder $obj)

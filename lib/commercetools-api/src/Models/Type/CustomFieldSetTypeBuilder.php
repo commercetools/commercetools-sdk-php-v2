@@ -45,6 +45,7 @@ final class CustomFieldSetTypeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withElementType() instead
      * @return $this
      */
     public function withElementTypeBuilder(?FieldTypeBuilder $elementType)

@@ -247,6 +247,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLocalizedDescription() instead
      * @return $this
      */
     public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
@@ -257,6 +258,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
@@ -267,6 +269,7 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

@@ -249,6 +249,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?TypedMoneyBuilder $price)
@@ -259,6 +260,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRate() instead
      * @return $this
      */
     public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
@@ -269,6 +271,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -279,6 +282,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryKeyReferenceBuilder $taxCategory)
@@ -289,6 +293,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingMethod() instead
      * @return $this
      */
     public function withShippingMethodBuilder(?ShippingMethodKeyReferenceBuilder $shippingMethod)
@@ -299,6 +304,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountedPrice() instead
      * @return $this
      */
     public function withDiscountedPriceBuilder(?DiscountedLineItemPriceDraftBuilder $discountedPrice)

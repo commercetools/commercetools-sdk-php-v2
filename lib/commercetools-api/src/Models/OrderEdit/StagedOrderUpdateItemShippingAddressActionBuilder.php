@@ -49,6 +49,7 @@ final class StagedOrderUpdateItemShippingAddressActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?BaseAddressBuilder $address)

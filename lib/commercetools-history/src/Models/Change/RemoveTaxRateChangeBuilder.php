@@ -101,6 +101,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?TaxRateBuilder $previousValue)
@@ -111,6 +112,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?TaxRateBuilder $nextValue)

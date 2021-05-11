@@ -25,6 +25,11 @@ final class AddressDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $id;
+
+    /**
+     * @var ?string
+     */
     private $key;
 
     /**
@@ -146,6 +151,14 @@ final class AddressDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return null|string
@@ -347,6 +360,17 @@ final class AddressDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $id
+     * @return $this
+     */
+    public function withId(?string $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -625,6 +649,7 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -637,6 +662,7 @@ final class AddressDraftBuilder implements Builder
     public function build(): AddressDraft
     {
         return new AddressDraftModel(
+            $this->id,
             $this->key,
             $this->title,
             $this->salutation,

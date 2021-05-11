@@ -77,6 +77,7 @@ final class ReferenceAttributeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?KeyReferenceBuilder $value)

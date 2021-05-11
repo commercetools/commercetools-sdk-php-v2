@@ -47,6 +47,7 @@ final class OrderStoreSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreKeyReferenceBuilder $store)

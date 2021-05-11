@@ -123,6 +123,7 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomLineItem() instead
      * @return $this
      */
     public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)
@@ -133,6 +134,7 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
@@ -143,6 +145,7 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)

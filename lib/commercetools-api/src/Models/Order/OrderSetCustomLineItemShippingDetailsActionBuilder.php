@@ -71,6 +71,7 @@ final class OrderSetCustomLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

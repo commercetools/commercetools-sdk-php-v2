@@ -119,6 +119,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?MoneyBuilder $price)

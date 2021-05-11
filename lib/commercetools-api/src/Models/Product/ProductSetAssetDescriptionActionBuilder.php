@@ -167,6 +167,7 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)

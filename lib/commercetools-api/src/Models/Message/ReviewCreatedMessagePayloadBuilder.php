@@ -47,6 +47,7 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withReview() instead
      * @return $this
      */
     public function withReviewBuilder(?ReviewBuilder $review)

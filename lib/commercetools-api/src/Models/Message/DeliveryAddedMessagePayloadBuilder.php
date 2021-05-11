@@ -47,6 +47,7 @@ final class DeliveryAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDelivery() instead
      * @return $this
      */
     public function withDeliveryBuilder(?DeliveryBuilder $delivery)

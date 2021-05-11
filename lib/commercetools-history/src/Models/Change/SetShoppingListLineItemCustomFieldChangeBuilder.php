@@ -169,6 +169,7 @@ final class SetShoppingListLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLineItem() instead
      * @return $this
      */
     public function withLineItemBuilder(?ShoppingListLineItemValueBuilder $lineItem)

@@ -306,6 +306,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)
@@ -316,6 +317,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
@@ -326,6 +328,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

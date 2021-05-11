@@ -145,6 +145,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?CategoryOrderHintsBuilder $previousValue)
@@ -155,6 +156,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CategoryOrderHintsBuilder $nextValue)

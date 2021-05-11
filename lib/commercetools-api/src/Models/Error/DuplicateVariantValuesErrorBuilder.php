@@ -69,6 +69,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariantValues() instead
      * @return $this
      */
     public function withVariantValuesBuilder(?VariantValuesBuilder $variantValues)

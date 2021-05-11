@@ -339,6 +339,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -349,6 +350,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -359,6 +361,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductType() instead
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
@@ -369,6 +372,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMasterData() instead
      * @return $this
      */
     public function withMasterDataBuilder(?ProductCatalogDataBuilder $masterData)
@@ -379,6 +383,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
@@ -389,6 +394,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateReferenceBuilder $state)
@@ -399,6 +405,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @deprecated use withReviewRatingStatistics() instead
      * @return $this
      */
     public function withReviewRatingStatisticsBuilder(?ReviewRatingStatisticsBuilder $reviewRatingStatistics)

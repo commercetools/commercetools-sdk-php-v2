@@ -117,6 +117,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannels() instead
      * @return $this
      */
     public function withChannelsBuilder(?ProductVariantChannelAvailabilityMapBuilder $channels)

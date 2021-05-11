@@ -141,6 +141,7 @@ final class MissingPricesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeta() instead
      * @return $this
      */
     public function withMetaBuilder(?MissingPricesMetaBuilder $meta)

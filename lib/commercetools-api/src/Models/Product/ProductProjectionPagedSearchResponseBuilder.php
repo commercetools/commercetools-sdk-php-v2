@@ -165,6 +165,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFacets() instead
      * @return $this
      */
     public function withFacetsBuilder(?FacetResultsBuilder $facets)

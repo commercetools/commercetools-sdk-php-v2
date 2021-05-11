@@ -47,6 +47,7 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withGeoLocation() instead
      * @return $this
      */
     public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)

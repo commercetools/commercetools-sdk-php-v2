@@ -288,6 +288,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @deprecated use withModifiedBy() instead
      * @return $this
      */
     public function withModifiedByBuilder(?ModifiedByBuilder $modifiedBy)
@@ -298,6 +299,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLabel() instead
      * @return $this
      */
     public function withLabelBuilder(?LabelBuilder $label)
@@ -308,6 +310,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousLabel() instead
      * @return $this
      */
     public function withPreviousLabelBuilder(?LabelBuilder $previousLabel)
@@ -318,6 +321,7 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)

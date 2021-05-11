@@ -169,6 +169,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldState() instead
      * @return $this
      */
     public function withOldStateBuilder(?StateReferenceBuilder $oldState)
@@ -179,6 +180,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNewState() instead
      * @return $this
      */
     public function withNewStateBuilder(?StateReferenceBuilder $newState)
@@ -189,6 +191,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTarget() instead
      * @return $this
      */
     public function withTargetBuilder(?ReferenceBuilder $target)

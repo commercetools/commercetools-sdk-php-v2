@@ -129,6 +129,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmountPlanned() instead
      * @return $this
      */
     public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
@@ -139,6 +140,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentMethodInfo() instead
      * @return $this
      */
     public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
@@ -149,6 +151,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -159,6 +162,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTransaction() instead
      * @return $this
      */
     public function withTransactionBuilder(?MyTransactionDraftBuilder $transaction)

@@ -99,6 +99,7 @@ final class PaymentStatusBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateReferenceBuilder $state)

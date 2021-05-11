@@ -47,6 +47,7 @@ final class SimilarProductSearchRequestMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSimilarityMeasures() instead
      * @return $this
      */
     public function withSimilarityMeasuresBuilder(?SimilarityMeasuresBuilder $similarityMeasures)

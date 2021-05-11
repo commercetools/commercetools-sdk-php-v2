@@ -288,6 +288,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -298,6 +299,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategoryOrderHints() instead
      * @return $this
      */
     public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
@@ -308,6 +310,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -318,6 +321,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -328,6 +332,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaTitle() instead
      * @return $this
      */
     public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
@@ -338,6 +343,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
@@ -348,6 +354,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
@@ -358,6 +365,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMasterVariant() instead
      * @return $this
      */
     public function withMasterVariantBuilder(?ProductVariantBuilder $masterVariant)
@@ -368,6 +376,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSearchKeywords() instead
      * @return $this
      */
     public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)

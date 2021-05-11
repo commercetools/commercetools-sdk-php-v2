@@ -71,6 +71,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?CustomerGroupBuilder $obj)

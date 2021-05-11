@@ -97,6 +97,7 @@ final class OrderEditSetDeliveryAddressCustomFieldActionBuilder implements Build
     }
 
     /**
+     * @deprecated use withType() instead
      * @return $this
      */
     public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
@@ -107,6 +108,7 @@ final class OrderEditSetDeliveryAddressCustomFieldActionBuilder implements Build
     }
 
     /**
+     * @deprecated use withFields() instead
      * @return $this
      */
     public function withFieldsBuilder(?FieldContainerBuilder $fields)

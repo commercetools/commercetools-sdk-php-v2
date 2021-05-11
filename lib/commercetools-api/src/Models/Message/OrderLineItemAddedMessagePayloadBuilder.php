@@ -71,6 +71,7 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLineItem() instead
      * @return $this
      */
     public function withLineItemBuilder(?LineItemBuilder $lineItem)

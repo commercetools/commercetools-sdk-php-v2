@@ -73,6 +73,7 @@ final class TaxedItemPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalNet() instead
      * @return $this
      */
     public function withTotalNetBuilder(?TypedMoneyBuilder $totalNet)
@@ -83,6 +84,7 @@ final class TaxedItemPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalGross() instead
      * @return $this
      */
     public function withTotalGrossBuilder(?TypedMoneyBuilder $totalGross)

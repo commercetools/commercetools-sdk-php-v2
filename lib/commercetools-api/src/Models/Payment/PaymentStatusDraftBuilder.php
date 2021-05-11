@@ -95,6 +95,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)

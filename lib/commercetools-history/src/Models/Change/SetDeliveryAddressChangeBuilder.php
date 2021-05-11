@@ -121,6 +121,7 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?AddressBuilder $nextValue)
@@ -131,6 +132,7 @@ final class SetDeliveryAddressChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?AddressBuilder $previousValue)

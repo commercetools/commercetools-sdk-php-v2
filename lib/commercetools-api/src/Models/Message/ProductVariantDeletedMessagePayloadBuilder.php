@@ -71,6 +71,7 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariant() instead
      * @return $this
      */
     public function withVariantBuilder(?ProductVariantBuilder $variant)

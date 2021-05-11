@@ -71,6 +71,7 @@ final class ReviewReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?ReviewBuilder $obj)

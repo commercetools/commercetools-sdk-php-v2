@@ -73,6 +73,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscount() instead
      * @return $this
      */
     public function withDiscountBuilder(?CartDiscountReferenceBuilder $discount)
@@ -83,6 +84,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountedAmount() instead
      * @return $this
      */
     public function withDiscountedAmountBuilder(?TypedMoneyBuilder $discountedAmount)

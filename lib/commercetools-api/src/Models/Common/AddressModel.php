@@ -24,6 +24,11 @@ final class AddressModel extends JsonObjectModel implements Address
     /**
      * @var ?string
      */
+    protected $id;
+
+    /**
+     * @var ?string
+     */
     protected $key;
 
     /**
@@ -142,11 +147,6 @@ final class AddressModel extends JsonObjectModel implements Address
     protected $externalId;
 
     /**
-     * @var ?string
-     */
-    protected $id;
-
-    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -156,6 +156,7 @@ final class AddressModel extends JsonObjectModel implements Address
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $id = null,
         ?string $key = null,
         ?string $title = null,
         ?string $salutation = null,
@@ -180,9 +181,9 @@ final class AddressModel extends JsonObjectModel implements Address
         ?string $fax = null,
         ?string $additionalAddressInfo = null,
         ?string $externalId = null,
-        ?string $id = null,
         ?CustomFields $custom = null
     ) {
+        $this->id = $id;
         $this->key = $key;
         $this->title = $title;
         $this->salutation = $salutation;
@@ -207,8 +208,24 @@ final class AddressModel extends JsonObjectModel implements Address
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
-        $this->id = $id;
         $this->custom = $custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -622,23 +639,6 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -656,6 +656,14 @@ final class AddressModel extends JsonObjectModel implements Address
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @param ?string $key
@@ -847,14 +855,6 @@ final class AddressModel extends JsonObjectModel implements Address
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
-    }
-
-    /**
-     * @param ?string $id
-     */
-    public function setId(?string $id): void
-    {
-        $this->id = $id;
     }
 
     /**

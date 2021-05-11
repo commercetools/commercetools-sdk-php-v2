@@ -121,6 +121,7 @@ final class AddVariantChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?VariantBuilder $previousValue)
@@ -131,6 +132,7 @@ final class AddVariantChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?VariantBuilder $nextValue)

@@ -97,6 +97,7 @@ final class MyShoppingListSetTextLineItemCustomTypeActionBuilder implements Buil
     }
 
     /**
+     * @deprecated use withType() instead
      * @return $this
      */
     public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
@@ -107,6 +108,7 @@ final class MyShoppingListSetTextLineItemCustomTypeActionBuilder implements Buil
     }
 
     /**
+     * @deprecated use withFields() instead
      * @return $this
      */
     public function withFieldsBuilder(?FieldContainerBuilder $fields)

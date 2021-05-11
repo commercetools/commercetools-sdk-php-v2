@@ -47,6 +47,7 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withInteraction() instead
      * @return $this
      */
     public function withInteractionBuilder(?CustomFieldsBuilder $interaction)

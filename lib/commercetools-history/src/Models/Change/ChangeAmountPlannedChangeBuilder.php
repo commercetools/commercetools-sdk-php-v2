@@ -95,6 +95,7 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?MoneyBuilder $previousValue)
@@ -105,6 +106,7 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?MoneyBuilder $nextValue)

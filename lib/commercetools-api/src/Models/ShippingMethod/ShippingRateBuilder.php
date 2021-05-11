@@ -127,6 +127,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?TypedMoneyBuilder $price)
@@ -137,6 +138,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFreeAbove() instead
      * @return $this
      */
     public function withFreeAboveBuilder(?TypedMoneyBuilder $freeAbove)

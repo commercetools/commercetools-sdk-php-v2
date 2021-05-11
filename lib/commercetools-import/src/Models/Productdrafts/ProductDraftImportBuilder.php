@@ -465,6 +465,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductType() instead
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeKeyReferenceBuilder $productType)
@@ -475,6 +476,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -485,6 +487,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -495,6 +498,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -505,6 +509,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaTitle() instead
      * @return $this
      */
     public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
@@ -515,6 +520,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
@@ -525,6 +531,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
@@ -535,6 +542,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMasterVariant() instead
      * @return $this
      */
     public function withMasterVariantBuilder(?ProductVariantDraftImportBuilder $masterVariant)
@@ -545,6 +553,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryKeyReferenceBuilder $taxCategory)
@@ -555,6 +564,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSearchKeywords() instead
      * @return $this
      */
     public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
@@ -565,6 +575,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateKeyReferenceBuilder $state)

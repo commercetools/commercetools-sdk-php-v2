@@ -275,6 +275,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -285,6 +286,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -295,6 +297,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDestination() instead
      * @return $this
      */
     public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)

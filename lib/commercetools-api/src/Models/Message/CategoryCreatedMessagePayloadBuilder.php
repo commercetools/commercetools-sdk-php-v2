@@ -47,6 +47,7 @@ final class CategoryCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategory() instead
      * @return $this
      */
     public function withCategoryBuilder(?CategoryBuilder $category)

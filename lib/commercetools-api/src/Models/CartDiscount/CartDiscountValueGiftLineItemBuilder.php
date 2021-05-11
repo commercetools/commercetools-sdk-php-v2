@@ -125,6 +125,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductReferenceBuilder $product)
@@ -135,6 +136,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
@@ -145,6 +147,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)

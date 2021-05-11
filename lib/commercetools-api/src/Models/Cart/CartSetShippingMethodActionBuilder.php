@@ -71,6 +71,7 @@ final class CartSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingMethod() instead
      * @return $this
      */
     public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
@@ -81,6 +82,7 @@ final class CartSetShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)

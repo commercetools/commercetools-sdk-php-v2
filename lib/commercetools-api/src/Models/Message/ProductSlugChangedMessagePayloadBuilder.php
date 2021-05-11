@@ -71,6 +71,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -81,6 +82,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldSlug() instead
      * @return $this
      */
     public function withOldSlugBuilder(?LocalizedStringBuilder $oldSlug)

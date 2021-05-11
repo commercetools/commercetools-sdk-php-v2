@@ -145,6 +145,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ProductVariantAvailabilityBuilder $previousValue)
@@ -155,6 +156,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ProductVariantAvailabilityBuilder $nextValue)

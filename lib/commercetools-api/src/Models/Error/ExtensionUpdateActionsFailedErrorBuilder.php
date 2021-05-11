@@ -119,6 +119,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLocalizedMessage() instead
      * @return $this
      */
     public function withLocalizedMessageBuilder(?LocalizedStringBuilder $localizedMessage)
@@ -129,6 +130,7 @@ final class ExtensionUpdateActionsFailedErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withErrorByExtension() instead
      * @return $this
      */
     public function withErrorByExtensionBuilder(?ErrorByExtensionBuilder $errorByExtension)

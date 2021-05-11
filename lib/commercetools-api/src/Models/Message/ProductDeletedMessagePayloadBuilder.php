@@ -71,6 +71,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCurrentProjection() instead
      * @return $this
      */
     public function withCurrentProjectionBuilder(?ProductProjectionBuilder $currentProjection)

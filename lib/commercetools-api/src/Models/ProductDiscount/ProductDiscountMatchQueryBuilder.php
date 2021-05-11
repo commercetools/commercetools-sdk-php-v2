@@ -119,6 +119,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?QueryPriceBuilder $price)

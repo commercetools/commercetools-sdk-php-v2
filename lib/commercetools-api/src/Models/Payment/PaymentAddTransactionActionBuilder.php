@@ -45,6 +45,7 @@ final class PaymentAddTransactionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTransaction() instead
      * @return $this
      */
     public function withTransactionBuilder(?TransactionDraftBuilder $transaction)

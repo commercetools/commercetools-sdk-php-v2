@@ -119,6 +119,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ReferenceBuilder $product)
@@ -129,6 +130,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ReferenceBuilder $supplyChannel)
@@ -139,6 +141,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ReferenceBuilder $distributionChannel)

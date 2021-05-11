@@ -71,6 +71,7 @@ final class StoreReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?StoreBuilder $obj)

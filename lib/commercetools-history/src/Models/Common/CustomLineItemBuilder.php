@@ -195,6 +195,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -205,6 +206,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?MoneyBuilder $money)
@@ -215,6 +217,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
@@ -225,6 +228,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)

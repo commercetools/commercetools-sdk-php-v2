@@ -270,6 +270,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?MoneyBuilder $value)
@@ -280,6 +281,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -290,6 +292,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ChannelReferenceBuilder $channel)
@@ -300,6 +303,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
@@ -310,6 +314,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

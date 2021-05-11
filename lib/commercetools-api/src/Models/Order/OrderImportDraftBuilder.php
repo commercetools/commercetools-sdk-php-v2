@@ -599,6 +599,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
@@ -609,6 +610,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedPriceDraftBuilder $taxedPrice)
@@ -619,6 +621,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
     public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
@@ -629,6 +632,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
      * @return $this
      */
     public function withBillingAddressBuilder(?BaseAddressBuilder $billingAddress)
@@ -639,6 +643,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
@@ -649,6 +654,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoImportDraftBuilder $shippingInfo)
@@ -659,6 +665,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -669,6 +676,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)

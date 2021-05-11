@@ -71,6 +71,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?MoneyBuilder $price)
@@ -81,6 +82,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)

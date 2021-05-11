@@ -73,6 +73,7 @@ final class StagedOrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeasurements() instead
      * @return $this
      */
     public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)

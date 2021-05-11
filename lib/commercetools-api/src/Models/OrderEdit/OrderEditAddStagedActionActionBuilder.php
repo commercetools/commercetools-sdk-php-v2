@@ -47,6 +47,7 @@ final class OrderEditAddStagedActionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStagedAction() instead
      * @return $this
      */
     public function withStagedActionBuilder(?StagedOrderUpdateActionBuilder $stagedAction)

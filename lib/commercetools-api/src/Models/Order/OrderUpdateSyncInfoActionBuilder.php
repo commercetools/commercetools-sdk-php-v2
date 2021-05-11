@@ -96,6 +96,7 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ChannelResourceIdentifierBuilder $channel)

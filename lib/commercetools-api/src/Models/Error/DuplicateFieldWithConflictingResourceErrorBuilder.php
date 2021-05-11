@@ -119,6 +119,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withConflictingResource() instead
      * @return $this
      */
     public function withConflictingResourceBuilder(?ReferenceBuilder $conflictingResource)

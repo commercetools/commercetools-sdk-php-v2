@@ -47,6 +47,7 @@ final class LocalizedLabelBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?LocalizedStringBuilder $value)

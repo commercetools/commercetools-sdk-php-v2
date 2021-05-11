@@ -145,6 +145,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAsset() instead
      * @return $this
      */
     public function withAssetBuilder(?AssetDraftBuilder $asset)

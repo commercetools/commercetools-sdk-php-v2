@@ -169,6 +169,7 @@ final class SetTextLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTextLineItem() instead
      * @return $this
      */
     public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)

@@ -71,6 +71,7 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withZone() instead
      * @return $this
      */
     public function withZoneBuilder(?ZoneResourceIdentifierBuilder $zone)
@@ -81,6 +82,7 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRate() instead
      * @return $this
      */
     public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)

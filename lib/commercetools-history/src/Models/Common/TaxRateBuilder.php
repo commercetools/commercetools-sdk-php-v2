@@ -197,6 +197,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSubRates() instead
      * @return $this
      */
     public function withSubRatesBuilder(?SubRateBuilder $subRates)

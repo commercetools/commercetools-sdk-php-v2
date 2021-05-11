@@ -95,6 +95,7 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?InventoryQuantityValueBuilder $nextValue)
@@ -105,6 +106,7 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?InventoryQuantityValueBuilder $previousValue)

@@ -23,6 +23,11 @@ final class BaseAddressBuilder implements Builder
     /**
      * @var ?string
      */
+    private $id;
+
+    /**
+     * @var ?string
+     */
     private $key;
 
     /**
@@ -139,6 +144,14 @@ final class BaseAddressBuilder implements Builder
      * @var ?string
      */
     private $externalId;
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return null|string
@@ -332,6 +345,17 @@ final class BaseAddressBuilder implements Builder
     public function getExternalId()
     {
         return $this->externalId;
+    }
+
+    /**
+     * @param ?string $id
+     * @return $this
+     */
+    public function withId(?string $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -602,6 +626,7 @@ final class BaseAddressBuilder implements Builder
     public function build(): BaseAddress
     {
         return new BaseAddressModel(
+            $this->id,
             $this->key,
             $this->title,
             $this->salutation,

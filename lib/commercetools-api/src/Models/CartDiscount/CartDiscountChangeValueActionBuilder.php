@@ -45,6 +45,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?CartDiscountValueDraftBuilder $value)

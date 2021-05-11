@@ -45,6 +45,7 @@ final class AttributeSetTypeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withElementType() instead
      * @return $this
      */
     public function withElementTypeBuilder(?AttributeTypeBuilder $elementType)

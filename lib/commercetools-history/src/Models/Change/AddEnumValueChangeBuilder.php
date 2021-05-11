@@ -99,6 +99,7 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?EnumValueBuilder $nextValue)

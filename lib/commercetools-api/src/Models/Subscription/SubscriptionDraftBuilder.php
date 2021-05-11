@@ -141,6 +141,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDestination() instead
      * @return $this
      */
     public function withDestinationBuilder(?DestinationBuilder $destination)
@@ -151,6 +152,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFormat() instead
      * @return $this
      */
     public function withFormatBuilder(?DeliveryFormatBuilder $format)

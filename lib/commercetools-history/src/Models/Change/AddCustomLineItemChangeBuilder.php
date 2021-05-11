@@ -97,6 +97,7 @@ final class AddCustomLineItemChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CustomLineItemBuilder $nextValue)
@@ -107,6 +108,7 @@ final class AddCustomLineItemChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?CustomLineItemBuilder $previousValue)

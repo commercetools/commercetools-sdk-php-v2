@@ -119,6 +119,7 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withImage() instead
      * @return $this
      */
     public function withImageBuilder(?ImageBuilder $image)

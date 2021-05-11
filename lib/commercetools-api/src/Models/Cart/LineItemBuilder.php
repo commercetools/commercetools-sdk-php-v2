@@ -587,6 +587,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -597,6 +598,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductSlug() instead
      * @return $this
      */
     public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
@@ -607,6 +609,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductType() instead
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
@@ -617,6 +620,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariant() instead
      * @return $this
      */
     public function withVariantBuilder(?ProductVariantBuilder $variant)
@@ -627,6 +631,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?PriceBuilder $price)
@@ -637,6 +642,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
@@ -647,6 +653,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
@@ -657,6 +664,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -667,6 +675,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
@@ -677,6 +686,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
@@ -687,6 +697,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -697,6 +708,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)

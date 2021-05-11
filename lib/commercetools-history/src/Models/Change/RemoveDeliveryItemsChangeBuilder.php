@@ -73,6 +73,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?DeliveryBuilder $previousValue)

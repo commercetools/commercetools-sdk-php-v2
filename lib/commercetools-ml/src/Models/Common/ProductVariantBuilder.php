@@ -99,6 +99,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductReferenceBuilder $product)

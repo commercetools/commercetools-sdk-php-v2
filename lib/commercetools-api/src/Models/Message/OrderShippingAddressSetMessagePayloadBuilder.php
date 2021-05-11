@@ -71,6 +71,7 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?AddressBuilder $address)
@@ -81,6 +82,7 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldAddress() instead
      * @return $this
      */
     public function withOldAddressBuilder(?AddressBuilder $oldAddress)

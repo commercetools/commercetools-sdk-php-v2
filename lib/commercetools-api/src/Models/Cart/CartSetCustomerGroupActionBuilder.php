@@ -47,6 +47,7 @@ final class CartSetCustomerGroupActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)

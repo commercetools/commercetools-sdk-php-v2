@@ -683,6 +683,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
@@ -693,6 +694,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
@@ -703,6 +705,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
     public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
@@ -713,6 +716,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
      * @return $this
      */
     public function withBillingAddressBuilder(?BaseAddressBuilder $billingAddress)
@@ -723,6 +727,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingMethod() instead
      * @return $this
      */
     public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
@@ -733,6 +738,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRateForShippingMethod() instead
      * @return $this
      */
     public function withExternalTaxRateForShippingMethodBuilder(?ExternalTaxRateDraftBuilder $externalTaxRateForShippingMethod)
@@ -743,6 +749,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -753,6 +760,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInput() instead
      * @return $this
      */
     public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)

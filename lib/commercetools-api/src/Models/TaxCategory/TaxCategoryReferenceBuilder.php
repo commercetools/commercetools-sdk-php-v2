@@ -71,6 +71,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?TaxCategoryBuilder $obj)

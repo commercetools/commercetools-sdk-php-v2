@@ -71,6 +71,7 @@ final class DiscountedLineItemPriceDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?MoneyBuilder $value)

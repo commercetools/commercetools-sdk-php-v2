@@ -191,6 +191,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAnonymousCart() instead
      * @return $this
      */
     public function withAnonymousCartBuilder(?CartResourceIdentifierBuilder $anonymousCart)

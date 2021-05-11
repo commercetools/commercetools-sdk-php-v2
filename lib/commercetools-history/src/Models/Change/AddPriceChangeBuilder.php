@@ -121,6 +121,7 @@ final class AddPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?PriceBuilder $nextValue)

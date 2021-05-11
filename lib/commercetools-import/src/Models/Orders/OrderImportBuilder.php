@@ -605,6 +605,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerKeyReferenceBuilder $customer)
@@ -615,6 +616,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
@@ -625,6 +627,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
@@ -635,6 +638,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
     public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
@@ -645,6 +649,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
      * @return $this
      */
     public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
@@ -655,6 +660,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupKeyReferenceBuilder $customerGroup)
@@ -665,6 +671,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoImportDraftBuilder $shippingInfo)
@@ -675,6 +682,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomBuilder $custom)

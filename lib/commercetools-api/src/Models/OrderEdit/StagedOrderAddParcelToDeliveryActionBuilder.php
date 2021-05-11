@@ -124,6 +124,7 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeasurements() instead
      * @return $this
      */
     public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
@@ -134,6 +135,7 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTrackingData() instead
      * @return $this
      */
     public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)

@@ -47,6 +47,7 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInputType() instead
      * @return $this
      */
     public function withShippingRateInputTypeBuilder(?ShippingRateInputTypeBuilder $shippingRateInputType)

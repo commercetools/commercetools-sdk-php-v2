@@ -313,6 +313,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -323,6 +324,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariant() instead
      * @return $this
      */
     public function withVariantBuilder(?ProductVariantImportDraftBuilder $variant)
@@ -333,6 +335,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?PriceDraftBuilder $price)
@@ -343,6 +346,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
@@ -353,6 +357,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
@@ -363,6 +368,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -373,6 +379,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -383,6 +390,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

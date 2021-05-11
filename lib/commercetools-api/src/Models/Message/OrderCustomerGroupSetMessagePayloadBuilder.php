@@ -71,6 +71,7 @@ final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -81,6 +82,7 @@ final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldCustomerGroup() instead
      * @return $this
      */
     public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)

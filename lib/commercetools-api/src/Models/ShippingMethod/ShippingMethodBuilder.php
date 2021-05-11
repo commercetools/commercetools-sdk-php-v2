@@ -404,6 +404,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -414,6 +415,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -424,6 +426,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLocalizedDescription() instead
      * @return $this
      */
     public function withLocalizedDescriptionBuilder(?LocalizedStringBuilder $localizedDescription)
@@ -434,6 +437,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
@@ -444,6 +448,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

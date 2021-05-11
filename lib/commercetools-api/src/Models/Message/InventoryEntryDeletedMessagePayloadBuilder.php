@@ -71,6 +71,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)

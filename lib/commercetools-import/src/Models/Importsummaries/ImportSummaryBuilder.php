@@ -73,6 +73,7 @@ final class ImportSummaryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStates() instead
      * @return $this
      */
     public function withStatesBuilder(?OperationStatesBuilder $states)

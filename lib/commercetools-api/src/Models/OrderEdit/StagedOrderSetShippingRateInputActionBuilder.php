@@ -49,6 +49,7 @@ final class StagedOrderSetShippingRateInputActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInput() instead
      * @return $this
      */
     public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)

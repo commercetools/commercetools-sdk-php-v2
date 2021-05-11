@@ -69,6 +69,7 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeasurements() instead
      * @return $this
      */
     public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)

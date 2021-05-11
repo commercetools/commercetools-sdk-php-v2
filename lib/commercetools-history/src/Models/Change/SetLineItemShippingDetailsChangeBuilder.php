@@ -121,6 +121,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ItemShippingDetailsBuilder $nextValue)
@@ -131,6 +132,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ItemShippingDetailsBuilder $previousValue)

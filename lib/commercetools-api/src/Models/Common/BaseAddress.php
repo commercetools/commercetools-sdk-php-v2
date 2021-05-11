@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 
 interface BaseAddress extends JsonObject
 {
+    public const FIELD_ID = 'id';
     public const FIELD_KEY = 'key';
     public const FIELD_TITLE = 'title';
     public const FIELD_SALUTATION = 'salutation';
@@ -37,6 +38,11 @@ interface BaseAddress extends JsonObject
     public const FIELD_FAX = 'fax';
     public const FIELD_ADDITIONAL_ADDRESS_INFO = 'additionalAddressInfo';
     public const FIELD_EXTERNAL_ID = 'externalId';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
 
     /**
      * @return null|string
@@ -159,6 +165,11 @@ interface BaseAddress extends JsonObject
      * @return null|string
      */
     public function getExternalId();
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
 
     /**
      * @param ?string $key

@@ -47,6 +47,7 @@ final class MyCartAddPaymentActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPayment() instead
      * @return $this
      */
     public function withPaymentBuilder(?PaymentResourceIdentifierBuilder $payment)

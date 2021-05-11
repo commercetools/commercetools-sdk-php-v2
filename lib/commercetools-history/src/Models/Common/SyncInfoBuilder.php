@@ -95,6 +95,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+     * @deprecated use withChannel() instead
      * @return $this
      */
     public function withChannelBuilder(?ReferenceBuilder $channel)
