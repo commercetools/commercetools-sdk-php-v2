@@ -47,6 +47,7 @@ final class CartAddItemShippingAddressActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?BaseAddressBuilder $address)

@@ -101,6 +101,7 @@ final class RemoveLocationChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?LocationBuilder $previousValue)
@@ -111,6 +112,7 @@ final class RemoveLocationChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?LocationBuilder $nextValue)

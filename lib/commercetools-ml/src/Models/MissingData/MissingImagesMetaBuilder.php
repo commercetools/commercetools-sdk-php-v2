@@ -95,6 +95,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductLevel() instead
      * @return $this
      */
     public function withProductLevelBuilder(?MissingImagesProductLevelBuilder $productLevel)
@@ -105,6 +106,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariantLevel() instead
      * @return $this
      */
     public function withVariantLevelBuilder(?MissingImagesVariantLevelBuilder $variantLevel)

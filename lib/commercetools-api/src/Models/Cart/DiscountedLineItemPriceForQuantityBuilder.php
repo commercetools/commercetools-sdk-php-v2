@@ -69,6 +69,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountedPrice() instead
      * @return $this
      */
     public function withDiscountedPriceBuilder(?DiscountedLineItemPriceBuilder $discountedPrice)

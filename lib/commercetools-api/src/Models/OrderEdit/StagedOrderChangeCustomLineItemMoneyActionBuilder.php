@@ -73,6 +73,7 @@ final class StagedOrderChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?MoneyBuilder $money)

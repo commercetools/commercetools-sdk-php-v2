@@ -141,6 +141,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+     * @deprecated use withMeta() instead
      * @return $this
      */
     public function withMetaBuilder(?ProjectCategoryRecommendationMetaBuilder $meta)

@@ -123,6 +123,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParcel() instead
      * @return $this
      */
     public function withParcelBuilder(?ParcelChangeValueBuilder $parcel)
@@ -133,6 +134,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ParcelMeasurementsBuilder $nextValue)
@@ -143,6 +145,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ParcelMeasurementsBuilder $previousValue)

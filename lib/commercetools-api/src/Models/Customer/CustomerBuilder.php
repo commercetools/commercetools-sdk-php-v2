@@ -764,6 +764,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -774,6 +775,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -784,6 +786,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -794,6 +797,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

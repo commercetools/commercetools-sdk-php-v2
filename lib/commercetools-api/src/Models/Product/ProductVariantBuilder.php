@@ -316,6 +316,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?PriceBuilder $price)
@@ -326,6 +327,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAvailability() instead
      * @return $this
      */
     public function withAvailabilityBuilder(?ProductVariantAvailabilityBuilder $availability)
@@ -336,6 +338,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * @deprecated use withScopedPrice() instead
      * @return $this
      */
     public function withScopedPriceBuilder(?ScopedPriceBuilder $scopedPrice)

@@ -121,6 +121,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?SearchKeywordsBuilder $previousValue)
@@ -131,6 +132,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?SearchKeywordsBuilder $nextValue)

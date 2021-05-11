@@ -169,6 +169,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?PriceBuilder $previousValue)
@@ -179,6 +180,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?PriceBuilder $nextValue)

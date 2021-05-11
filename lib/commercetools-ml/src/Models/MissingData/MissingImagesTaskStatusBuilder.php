@@ -98,6 +98,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?MissingImagesPagedQueryResultBuilder $result)

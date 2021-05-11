@@ -71,6 +71,7 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)

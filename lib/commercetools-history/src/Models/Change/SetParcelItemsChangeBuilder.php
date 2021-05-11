@@ -122,6 +122,7 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParcel() instead
      * @return $this
      */
     public function withParcelBuilder(?ParcelChangeValueBuilder $parcel)

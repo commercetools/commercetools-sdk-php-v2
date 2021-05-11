@@ -632,6 +632,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupKeyReferenceBuilder $customerGroup)
@@ -642,6 +643,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomBuilder $custom)

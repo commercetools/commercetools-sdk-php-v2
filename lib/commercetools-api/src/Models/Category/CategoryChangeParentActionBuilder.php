@@ -45,6 +45,7 @@ final class CategoryChangeParentActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParent() instead
      * @return $this
      */
     public function withParentBuilder(?CategoryResourceIdentifierBuilder $parent)

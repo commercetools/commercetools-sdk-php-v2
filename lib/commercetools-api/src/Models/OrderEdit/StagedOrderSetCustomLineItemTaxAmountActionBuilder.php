@@ -73,6 +73,7 @@ final class StagedOrderSetCustomLineItemTaxAmountActionBuilder implements Builde
     }
 
     /**
+     * @deprecated use withExternalTaxAmount() instead
      * @return $this
      */
     public function withExternalTaxAmountBuilder(?ExternalTaxAmountDraftBuilder $externalTaxAmount)

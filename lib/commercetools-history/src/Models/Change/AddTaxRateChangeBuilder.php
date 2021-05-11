@@ -75,6 +75,7 @@ final class AddTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?TaxRateBuilder $nextValue)

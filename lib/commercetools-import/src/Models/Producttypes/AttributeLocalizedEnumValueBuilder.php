@@ -78,6 +78,7 @@ final class AttributeLocalizedEnumValueBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLabel() instead
      * @return $this
      */
     public function withLabelBuilder(?LocalizedStringBuilder $label)

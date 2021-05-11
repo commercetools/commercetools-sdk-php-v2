@@ -157,6 +157,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withType() instead
      * @return $this
      */
     public function withTypeBuilder(?FieldTypeBuilder $type)
@@ -167,6 +168,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLabel() instead
      * @return $this
      */
     public function withLabelBuilder(?LocalizedStringBuilder $label)

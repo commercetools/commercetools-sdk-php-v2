@@ -94,6 +94,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExcerptBeforeEdit() instead
      * @return $this
      */
     public function withExcerptBeforeEditBuilder(?OrderExcerptBuilder $excerptBeforeEdit)
@@ -104,6 +105,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExcerptAfterEdit() instead
      * @return $this
      */
     public function withExcerptAfterEditBuilder(?OrderExcerptBuilder $excerptAfterEdit)

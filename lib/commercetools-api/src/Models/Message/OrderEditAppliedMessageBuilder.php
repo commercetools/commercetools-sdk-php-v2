@@ -320,6 +320,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -330,6 +331,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -340,6 +342,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -350,6 +353,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -360,6 +364,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withEdit() instead
      * @return $this
      */
     public function withEditBuilder(?OrderEditReferenceBuilder $edit)
@@ -370,6 +375,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?OrderEditAppliedBuilder $result)

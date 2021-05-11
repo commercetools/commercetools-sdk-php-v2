@@ -96,6 +96,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)

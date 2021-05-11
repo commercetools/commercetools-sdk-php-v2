@@ -258,6 +258,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
@@ -268,6 +269,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
@@ -278,6 +280,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -288,6 +291,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

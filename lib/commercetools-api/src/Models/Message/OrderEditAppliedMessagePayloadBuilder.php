@@ -73,6 +73,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withEdit() instead
      * @return $this
      */
     public function withEditBuilder(?OrderEditReferenceBuilder $edit)
@@ -83,6 +84,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?OrderEditAppliedBuilder $result)

@@ -73,6 +73,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAttribute() instead
      * @return $this
      */
     public function withAttributeBuilder(?AttributeBuilder $attribute)

@@ -122,6 +122,7 @@ final class RemoveFromCategoryChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategory() instead
      * @return $this
      */
     public function withCategoryBuilder(?ReferenceBuilder $category)

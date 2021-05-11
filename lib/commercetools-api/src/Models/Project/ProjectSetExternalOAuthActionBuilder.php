@@ -48,6 +48,7 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalOAuth() instead
      * @return $this
      */
     public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)

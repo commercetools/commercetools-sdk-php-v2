@@ -47,6 +47,7 @@ final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)

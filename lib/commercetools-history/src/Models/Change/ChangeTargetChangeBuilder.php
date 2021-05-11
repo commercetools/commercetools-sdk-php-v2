@@ -97,6 +97,7 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ChangeTargetChangeValueBuilder $nextValue)
@@ -107,6 +108,7 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ChangeTargetChangeValueBuilder $previousValue)

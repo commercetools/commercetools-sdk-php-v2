@@ -99,6 +99,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ValidFromAndUntilValueBuilder $previousValue)
@@ -109,6 +110,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?ValidFromAndUntilValueBuilder $nextValue)

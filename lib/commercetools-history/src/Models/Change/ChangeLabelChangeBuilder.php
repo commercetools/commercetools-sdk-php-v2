@@ -149,6 +149,7 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?LocalizedStringBuilder $nextValue)
@@ -159,6 +160,7 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)

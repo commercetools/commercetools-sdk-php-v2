@@ -69,6 +69,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     }
 
     /**
+     * @deprecated use withNewValue() instead
      * @return $this
      */
     public function withNewValueBuilder(?AttributeLocalizedEnumValueBuilder $newValue)

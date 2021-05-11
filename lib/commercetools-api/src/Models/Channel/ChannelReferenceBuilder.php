@@ -71,6 +71,7 @@ final class ChannelReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?ChannelBuilder $obj)

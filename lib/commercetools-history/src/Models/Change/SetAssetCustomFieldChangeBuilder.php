@@ -169,6 +169,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAsset() instead
      * @return $this
      */
     public function withAssetBuilder(?AssetChangeValueBuilder $asset)

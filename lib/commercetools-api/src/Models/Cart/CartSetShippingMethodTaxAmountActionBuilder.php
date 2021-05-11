@@ -45,6 +45,7 @@ final class CartSetShippingMethodTaxAmountActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxAmount() instead
      * @return $this
      */
     public function withExternalTaxAmountBuilder(?ExternalTaxAmountDraftBuilder $externalTaxAmount)

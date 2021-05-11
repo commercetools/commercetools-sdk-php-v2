@@ -341,6 +341,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -351,6 +352,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -361,6 +363,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?OrderReferenceBuilder $resource)
@@ -371,6 +374,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -381,6 +385,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?OrderEditResultBuilder $result)

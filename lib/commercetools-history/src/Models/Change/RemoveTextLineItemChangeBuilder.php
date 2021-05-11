@@ -95,6 +95,7 @@ final class RemoveTextLineItemChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?TextLineItemBuilder $previousValue)
@@ -105,6 +106,7 @@ final class RemoveTextLineItemChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?TextLineItemBuilder $nextValue)

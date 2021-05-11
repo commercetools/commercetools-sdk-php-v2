@@ -73,6 +73,7 @@ final class ZoneRateDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withZone() instead
      * @return $this
      */
     public function withZoneBuilder(?ZoneResourceIdentifierBuilder $zone)

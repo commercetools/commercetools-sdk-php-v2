@@ -146,6 +146,7 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -156,6 +157,7 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)

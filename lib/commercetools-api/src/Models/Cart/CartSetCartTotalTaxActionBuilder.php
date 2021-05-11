@@ -73,6 +73,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTotalGross() instead
      * @return $this
      */
     public function withExternalTotalGrossBuilder(?MoneyBuilder $externalTotalGross)

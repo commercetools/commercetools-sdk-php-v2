@@ -123,6 +123,7 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAsset() instead
      * @return $this
      */
     public function withAssetBuilder(?AssetChangeValueBuilder $asset)
@@ -133,6 +134,7 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
@@ -143,6 +145,7 @@ final class SetAssetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)

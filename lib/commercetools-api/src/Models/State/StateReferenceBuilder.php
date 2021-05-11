@@ -71,6 +71,7 @@ final class StateReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?StateBuilder $obj)

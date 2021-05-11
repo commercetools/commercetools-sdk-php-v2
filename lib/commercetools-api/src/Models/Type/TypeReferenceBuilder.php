@@ -71,6 +71,7 @@ final class TypeReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?TypeBuilder $obj)

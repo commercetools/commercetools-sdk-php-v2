@@ -330,6 +330,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -340,6 +341,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -350,6 +352,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -360,6 +363,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParent() instead
      * @return $this
      */
     public function withParentBuilder(?CategoryResourceIdentifierBuilder $parent)
@@ -370,6 +374,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaTitle() instead
      * @return $this
      */
     public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
@@ -380,6 +385,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
@@ -390,6 +396,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
@@ -400,6 +407,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

@@ -73,6 +73,7 @@ final class OrderEditSetShippingAddressCustomTypeActionBuilder implements Builde
     }
 
     /**
+     * @deprecated use withType() instead
      * @return $this
      */
     public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
@@ -83,6 +84,7 @@ final class OrderEditSetShippingAddressCustomTypeActionBuilder implements Builde
     }
 
     /**
+     * @deprecated use withFields() instead
      * @return $this
      */
     public function withFieldsBuilder(?FieldContainerBuilder $fields)

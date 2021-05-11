@@ -370,6 +370,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -380,6 +381,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?TypedMoneyBuilder $money)
@@ -390,6 +392,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
@@ -400,6 +403,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
@@ -410,6 +414,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
@@ -420,6 +425,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -430,6 +436,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -440,6 +447,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)

@@ -71,6 +71,7 @@ final class CartSetLineItemPriceActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalPrice() instead
      * @return $this
      */
     public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)

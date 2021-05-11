@@ -71,6 +71,7 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInput() instead
      * @return $this
      */
     public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)
@@ -81,6 +82,7 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldShippingRateInput() instead
      * @return $this
      */
     public function withOldShippingRateInputBuilder(?ShippingRateInputBuilder $oldShippingRateInput)

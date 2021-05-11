@@ -154,6 +154,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmount() instead
      * @return $this
      */
     public function withAmountBuilder(?MoneyBuilder $amount)

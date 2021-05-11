@@ -510,6 +510,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -520,6 +521,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -530,6 +532,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -540,6 +543,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -550,6 +554,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -560,6 +565,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParent() instead
      * @return $this
      */
     public function withParentBuilder(?CategoryReferenceBuilder $parent)
@@ -570,6 +576,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaTitle() instead
      * @return $this
      */
     public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
@@ -580,6 +587,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
@@ -590,6 +598,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
@@ -600,6 +609,7 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

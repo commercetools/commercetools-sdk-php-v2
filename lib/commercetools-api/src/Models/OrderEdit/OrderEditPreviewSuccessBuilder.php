@@ -70,6 +70,7 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreview() instead
      * @return $this
      */
     public function withPreviewBuilder(?StagedOrderBuilder $preview)

@@ -101,6 +101,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategory() instead
      * @return $this
      */
     public function withCategoryBuilder(?CategoryReferenceBuilder $category)

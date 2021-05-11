@@ -305,6 +305,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -315,6 +316,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
@@ -325,6 +327,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -335,6 +338,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -345,6 +349,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -355,6 +360,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)

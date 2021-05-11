@@ -199,6 +199,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductReferenceBuilder $product)
@@ -209,6 +210,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductType() instead
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
@@ -219,6 +221,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAttributeCount() instead
      * @return $this
      */
     public function withAttributeCountBuilder(?AttributeCountBuilder $attributeCount)
@@ -229,6 +232,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAttributeCoverage() instead
      * @return $this
      */
     public function withAttributeCoverageBuilder(?AttributeCoverageBuilder $attributeCoverage)

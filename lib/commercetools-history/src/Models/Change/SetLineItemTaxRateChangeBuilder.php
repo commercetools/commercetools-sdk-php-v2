@@ -127,6 +127,7 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLineItem() instead
      * @return $this
      */
     public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
@@ -137,6 +138,7 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?TaxRateBuilder $nextValue)
@@ -147,6 +149,7 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?TaxRateBuilder $previousValue)

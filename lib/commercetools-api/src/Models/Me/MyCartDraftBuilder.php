@@ -407,6 +407,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
     public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
@@ -417,6 +418,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
      * @return $this
      */
     public function withBillingAddressBuilder(?BaseAddressBuilder $billingAddress)
@@ -427,6 +429,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingMethod() instead
      * @return $this
      */
     public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
@@ -437,6 +440,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -447,6 +451,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreKeyReferenceBuilder $store)

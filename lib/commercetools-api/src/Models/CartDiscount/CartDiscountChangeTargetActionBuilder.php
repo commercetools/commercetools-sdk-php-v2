@@ -45,6 +45,7 @@ final class CartDiscountChangeTargetActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTarget() instead
      * @return $this
      */
     public function withTargetBuilder(?CartDiscountTargetBuilder $target)

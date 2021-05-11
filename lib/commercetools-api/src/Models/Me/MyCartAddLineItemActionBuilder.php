@@ -322,6 +322,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -332,6 +333,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
@@ -342,6 +344,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
@@ -352,6 +355,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
@@ -362,6 +366,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalPrice() instead
      * @return $this
      */
     public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
@@ -372,6 +377,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTotalPrice() instead
      * @return $this
      */
     public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
@@ -382,6 +388,7 @@ final class MyCartAddLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

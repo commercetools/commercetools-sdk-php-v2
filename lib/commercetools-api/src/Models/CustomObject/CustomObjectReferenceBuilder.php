@@ -71,6 +71,7 @@ final class CustomObjectReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?CustomObjectBuilder $obj)

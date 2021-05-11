@@ -47,6 +47,7 @@ final class ShoppingListSetSlugActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)

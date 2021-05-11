@@ -125,6 +125,7 @@ final class StagedOrderSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRate() instead
      * @return $this
      */
     public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
@@ -135,6 +136,7 @@ final class StagedOrderSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
@@ -145,6 +147,7 @@ final class StagedOrderSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)

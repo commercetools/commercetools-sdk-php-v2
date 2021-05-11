@@ -165,6 +165,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -175,6 +176,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -185,6 +187,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)

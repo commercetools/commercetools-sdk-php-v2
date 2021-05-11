@@ -69,6 +69,7 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSearchKeywords() instead
      * @return $this
      */
     public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)

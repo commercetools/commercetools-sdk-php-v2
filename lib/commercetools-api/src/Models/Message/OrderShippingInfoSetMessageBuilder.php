@@ -318,6 +318,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -328,6 +329,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -338,6 +340,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -348,6 +351,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -358,6 +362,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
@@ -368,6 +373,7 @@ final class OrderShippingInfoSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldShippingInfo() instead
      * @return $this
      */
     public function withOldShippingInfoBuilder(?ShippingInfoBuilder $oldShippingInfo)

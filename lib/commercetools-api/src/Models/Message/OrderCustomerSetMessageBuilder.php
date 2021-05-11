@@ -368,6 +368,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -378,6 +379,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -388,6 +390,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -398,6 +401,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -408,6 +412,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
@@ -418,6 +423,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -428,6 +434,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldCustomer() instead
      * @return $this
      */
     public function withOldCustomerBuilder(?CustomerReferenceBuilder $oldCustomer)
@@ -438,6 +445,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldCustomerGroup() instead
      * @return $this
      */
     public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)

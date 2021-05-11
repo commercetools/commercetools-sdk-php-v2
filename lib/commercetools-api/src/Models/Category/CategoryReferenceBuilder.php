@@ -71,6 +71,7 @@ final class CategoryReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?CategoryBuilder $obj)

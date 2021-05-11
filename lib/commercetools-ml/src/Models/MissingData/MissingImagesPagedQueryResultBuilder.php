@@ -141,6 +141,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeta() instead
      * @return $this
      */
     public function withMetaBuilder(?MissingImagesMetaBuilder $meta)

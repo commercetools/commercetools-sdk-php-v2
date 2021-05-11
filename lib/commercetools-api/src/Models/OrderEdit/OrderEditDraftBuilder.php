@@ -182,6 +182,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?OrderReferenceBuilder $resource)
@@ -192,6 +193,7 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

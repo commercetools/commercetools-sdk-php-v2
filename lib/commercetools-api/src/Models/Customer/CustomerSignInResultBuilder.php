@@ -74,6 +74,7 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerBuilder $customer)
@@ -84,6 +85,7 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCart() instead
      * @return $this
      */
     public function withCartBuilder(?CartBuilder $cart)

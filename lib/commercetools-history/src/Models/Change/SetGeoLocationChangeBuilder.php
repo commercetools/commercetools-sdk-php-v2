@@ -97,6 +97,7 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?GeoLocationBuilder $nextValue)
@@ -107,6 +108,7 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?GeoLocationBuilder $previousValue)

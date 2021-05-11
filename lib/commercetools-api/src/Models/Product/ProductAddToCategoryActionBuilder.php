@@ -95,6 +95,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategory() instead
      * @return $this
      */
     public function withCategoryBuilder(?CategoryResourceIdentifierBuilder $category)

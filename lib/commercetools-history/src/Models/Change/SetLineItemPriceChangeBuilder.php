@@ -123,6 +123,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLineItem() instead
      * @return $this
      */
     public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
@@ -133,6 +134,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?PriceBuilder $nextValue)
@@ -143,6 +145,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?PriceBuilder $previousValue)

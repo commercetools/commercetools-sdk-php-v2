@@ -144,6 +144,7 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFromState() instead
      * @return $this
      */
     public function withFromStateBuilder(?StateResourceIdentifierBuilder $fromState)
@@ -154,6 +155,7 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withToState() instead
      * @return $this
      */
     public function withToStateBuilder(?StateResourceIdentifierBuilder $toState)

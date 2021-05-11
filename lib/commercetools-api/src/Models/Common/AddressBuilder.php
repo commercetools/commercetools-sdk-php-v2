@@ -25,6 +25,11 @@ final class AddressBuilder implements Builder
     /**
      * @var ?string
      */
+    private $id;
+
+    /**
+     * @var ?string
+     */
     private $key;
 
     /**
@@ -143,14 +148,17 @@ final class AddressBuilder implements Builder
     private $externalId;
 
     /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return null|string
@@ -347,19 +355,22 @@ final class AddressBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @return null|CustomFields
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $id
+     * @return $this
+     */
+    public function withId(?string $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -627,17 +638,6 @@ final class AddressBuilder implements Builder
     }
 
     /**
-     * @param ?string $id
-     * @return $this
-     */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -649,6 +649,7 @@ final class AddressBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -661,6 +662,7 @@ final class AddressBuilder implements Builder
     public function build(): Address
     {
         return new AddressModel(
+            $this->id,
             $this->key,
             $this->title,
             $this->salutation,
@@ -685,7 +687,6 @@ final class AddressBuilder implements Builder
             $this->fax,
             $this->additionalAddressInfo,
             $this->externalId,
-            $this->id,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

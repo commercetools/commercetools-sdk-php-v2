@@ -69,6 +69,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTotalPrice() instead
      * @return $this
      */
     public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)

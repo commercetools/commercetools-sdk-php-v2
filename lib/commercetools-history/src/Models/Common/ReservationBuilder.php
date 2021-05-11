@@ -117,6 +117,7 @@ final class ReservationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOwner() instead
      * @return $this
      */
     public function withOwnerBuilder(?ReferenceBuilder $owner)

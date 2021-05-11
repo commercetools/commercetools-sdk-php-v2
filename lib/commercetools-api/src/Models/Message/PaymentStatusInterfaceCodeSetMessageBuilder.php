@@ -316,6 +316,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -326,6 +327,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -336,6 +338,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -346,6 +349,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)

@@ -326,6 +326,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -336,6 +337,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?TypedMoneyBuilder $money)
@@ -346,6 +348,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?CustomLineItemTaxedPriceBuilder $taxedPrice)
@@ -356,6 +359,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
@@ -366,6 +370,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryKeyReferenceBuilder $taxCategory)
@@ -376,6 +381,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -386,6 +392,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
@@ -396,6 +403,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

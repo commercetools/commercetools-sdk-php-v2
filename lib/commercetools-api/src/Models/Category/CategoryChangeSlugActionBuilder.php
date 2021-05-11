@@ -50,6 +50,7 @@ final class CategoryChangeSlugActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)

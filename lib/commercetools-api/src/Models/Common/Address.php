@@ -14,23 +14,12 @@ use Commercetools\Base\JsonObject;
 
 interface Address extends BaseAddress
 {
-    public const FIELD_ID = 'id';
     public const FIELD_CUSTOM = 'custom';
-
-    /**
-     * @return null|string
-     */
-    public function getId();
 
     /**
      * @return null|CustomFields
      */
     public function getCustom();
-
-    /**
-     * @param ?string $id
-     */
-    public function setId(?string $id): void;
 
     /**
      * @param ?CustomFields $custom

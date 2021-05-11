@@ -121,6 +121,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalPrice() instead
      * @return $this
      */
     public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
@@ -131,6 +132,7 @@ final class MyCartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTotalPrice() instead
      * @return $this
      */
     public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)

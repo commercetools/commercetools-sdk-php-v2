@@ -1086,6 +1086,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -1096,6 +1097,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -1106,6 +1108,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
@@ -1116,6 +1119,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
@@ -1126,6 +1130,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
@@ -1136,6 +1141,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingAddress() instead
      * @return $this
      */
     public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
@@ -1146,6 +1152,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBillingAddress() instead
      * @return $this
      */
     public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
@@ -1156,6 +1163,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
@@ -1166,6 +1174,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateReferenceBuilder $state)
@@ -1176,6 +1185,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
@@ -1186,6 +1196,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCart() instead
      * @return $this
      */
     public function withCartBuilder(?CartReferenceBuilder $cart)
@@ -1196,6 +1207,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
@@ -1206,6 +1218,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPaymentInfo() instead
      * @return $this
      */
     public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
@@ -1216,6 +1229,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInput() instead
      * @return $this
      */
     public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)

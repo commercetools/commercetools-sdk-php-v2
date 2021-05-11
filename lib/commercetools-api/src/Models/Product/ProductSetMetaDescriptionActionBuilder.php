@@ -71,6 +71,7 @@ final class ProductSetMetaDescriptionActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)

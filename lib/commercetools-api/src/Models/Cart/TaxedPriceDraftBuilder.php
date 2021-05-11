@@ -95,6 +95,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalNet() instead
      * @return $this
      */
     public function withTotalNetBuilder(?MoneyBuilder $totalNet)
@@ -105,6 +106,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalGross() instead
      * @return $this
      */
     public function withTotalGrossBuilder(?MoneyBuilder $totalGross)

@@ -433,6 +433,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductType() instead
      * @return $this
      */
     public function withProductTypeBuilder(?ProductTypeResourceIdentifierBuilder $productType)
@@ -443,6 +444,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -453,6 +455,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
@@ -463,6 +466,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
@@ -473,6 +477,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCategoryOrderHints() instead
      * @return $this
      */
     public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
@@ -483,6 +488,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaTitle() instead
      * @return $this
      */
     public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
@@ -493,6 +499,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaDescription() instead
      * @return $this
      */
     public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
@@ -503,6 +510,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
@@ -513,6 +521,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMasterVariant() instead
      * @return $this
      */
     public function withMasterVariantBuilder(?ProductVariantDraftBuilder $masterVariant)
@@ -523,6 +532,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
@@ -533,6 +543,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSearchKeywords() instead
      * @return $this
      */
     public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
@@ -543,6 +554,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)

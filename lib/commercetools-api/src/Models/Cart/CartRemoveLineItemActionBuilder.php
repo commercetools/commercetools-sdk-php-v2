@@ -143,6 +143,7 @@ final class CartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalPrice() instead
      * @return $this
      */
     public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
@@ -153,6 +154,7 @@ final class CartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTotalPrice() instead
      * @return $this
      */
     public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
@@ -163,6 +165,7 @@ final class CartRemoveLineItemActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetailsToRemove() instead
      * @return $this
      */
     public function withShippingDetailsToRemoveBuilder(?ItemShippingDetailsDraftBuilder $shippingDetailsToRemove)

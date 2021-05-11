@@ -141,6 +141,7 @@ final class MissingAttributesPagedQueryResultBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMeta() instead
      * @return $this
      */
     public function withMetaBuilder(?MissingAttributesMetaBuilder $meta)

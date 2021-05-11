@@ -369,6 +369,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -379,6 +380,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -389,6 +391,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -399,6 +402,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -409,6 +413,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
@@ -419,6 +424,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)

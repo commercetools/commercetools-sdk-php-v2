@@ -71,6 +71,7 @@ final class OrderEditReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?OrderEditBuilder $obj)

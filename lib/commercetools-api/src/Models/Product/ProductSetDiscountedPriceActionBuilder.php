@@ -95,6 +95,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)

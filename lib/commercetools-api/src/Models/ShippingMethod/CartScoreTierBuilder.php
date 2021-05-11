@@ -119,6 +119,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPrice() instead
      * @return $this
      */
     public function withPriceBuilder(?MoneyBuilder $price)
@@ -129,6 +130,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPriceFunction() instead
      * @return $this
      */
     public function withPriceFunctionBuilder(?PriceFunctionBuilder $priceFunction)

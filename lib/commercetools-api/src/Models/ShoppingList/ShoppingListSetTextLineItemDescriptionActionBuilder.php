@@ -71,6 +71,7 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
     }
 
     /**
+     * @deprecated use withDescription() instead
      * @return $this
      */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)

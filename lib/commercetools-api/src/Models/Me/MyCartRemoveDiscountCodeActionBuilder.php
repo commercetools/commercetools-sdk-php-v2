@@ -47,6 +47,7 @@ final class MyCartRemoveDiscountCodeActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDiscountCode() instead
      * @return $this
      */
     public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)

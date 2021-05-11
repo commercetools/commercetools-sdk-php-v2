@@ -255,6 +255,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withName() instead
      * @return $this
      */
     public function withNameBuilder(?LocalizedStringBuilder $name)
@@ -265,6 +266,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?MoneyBuilder $money)
@@ -275,6 +277,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
@@ -285,6 +288,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
@@ -295,6 +299,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
@@ -305,6 +310,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingDetails() instead
      * @return $this
      */
     public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)

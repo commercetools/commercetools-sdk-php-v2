@@ -69,6 +69,7 @@ final class MissingPricesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductLevel() instead
      * @return $this
      */
     public function withProductLevelBuilder(?MissingPricesProductLevelBuilder $productLevel)
@@ -79,6 +80,7 @@ final class MissingPricesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariantLevel() instead
      * @return $this
      */
     public function withVariantLevelBuilder(?MissingPricesVariantLevelBuilder $variantLevel)

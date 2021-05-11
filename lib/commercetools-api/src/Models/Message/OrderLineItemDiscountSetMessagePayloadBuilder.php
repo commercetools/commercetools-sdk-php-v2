@@ -122,6 +122,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalPrice() instead
      * @return $this
      */
     public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
@@ -132,6 +133,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedPrice() instead
      * @return $this
      */
     public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)

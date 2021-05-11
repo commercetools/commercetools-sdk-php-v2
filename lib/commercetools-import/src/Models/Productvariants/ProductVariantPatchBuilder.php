@@ -81,6 +81,7 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductVariant() instead
      * @return $this
      */
     public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
@@ -91,6 +92,7 @@ final class ProductVariantPatchBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAttributes() instead
      * @return $this
      */
     public function withAttributesBuilder(?AttributesBuilder $attributes)

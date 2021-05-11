@@ -73,6 +73,7 @@ final class StagedOrderSetParcelTrackingDataActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTrackingData() instead
      * @return $this
      */
     public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)

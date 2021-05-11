@@ -121,6 +121,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRate() instead
      * @return $this
      */
     public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
@@ -131,6 +132,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxCategory() instead
      * @return $this
      */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
@@ -141,6 +143,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)

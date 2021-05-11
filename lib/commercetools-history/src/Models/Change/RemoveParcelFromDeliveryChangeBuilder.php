@@ -97,6 +97,7 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?ParcelBuilder $previousValue)

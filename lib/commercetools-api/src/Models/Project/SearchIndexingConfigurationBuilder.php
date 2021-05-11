@@ -45,6 +45,7 @@ final class SearchIndexingConfigurationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProducts() instead
      * @return $this
      */
     public function withProductsBuilder(?SearchIndexingConfigurationValuesBuilder $products)

@@ -95,6 +95,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductLevel() instead
      * @return $this
      */
     public function withProductLevelBuilder(?MissingAttributesDetailsBuilder $productLevel)
@@ -105,6 +106,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated use withVariantLevel() instead
      * @return $this
      */
     public function withVariantLevelBuilder(?MissingAttributesDetailsBuilder $variantLevel)

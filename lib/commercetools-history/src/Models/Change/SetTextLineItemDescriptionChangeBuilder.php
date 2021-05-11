@@ -121,6 +121,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTextLineItem() instead
      * @return $this
      */
     public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
@@ -131,6 +132,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?LocalizedStringBuilder $previousValue)
@@ -141,6 +143,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?LocalizedStringBuilder $nextValue)

@@ -98,6 +98,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?MissingAttributesPagedQueryResultBuilder $result)

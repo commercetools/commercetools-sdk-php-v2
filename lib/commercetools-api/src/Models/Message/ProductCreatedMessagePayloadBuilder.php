@@ -47,6 +47,7 @@ final class ProductCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProductProjection() instead
      * @return $this
      */
     public function withProductProjectionBuilder(?ProductProjectionBuilder $productProjection)

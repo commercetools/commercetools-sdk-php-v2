@@ -71,6 +71,7 @@ final class ProductReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?ProductBuilder $obj)

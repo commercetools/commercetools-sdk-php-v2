@@ -71,6 +71,7 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMoney() instead
      * @return $this
      */
     public function withMoneyBuilder(?MoneyBuilder $money)

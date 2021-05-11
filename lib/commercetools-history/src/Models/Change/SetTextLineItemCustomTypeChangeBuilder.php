@@ -123,6 +123,7 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTextLineItem() instead
      * @return $this
      */
     public function withTextLineItemBuilder(?TextLineItemValueBuilder $textLineItem)
@@ -133,6 +134,7 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CustomFieldsBuilder $nextValue)
@@ -143,6 +145,7 @@ final class SetTextLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?CustomFieldsBuilder $previousValue)

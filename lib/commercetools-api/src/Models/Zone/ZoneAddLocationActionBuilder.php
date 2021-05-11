@@ -45,6 +45,7 @@ final class ZoneAddLocationActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLocation() instead
      * @return $this
      */
     public function withLocationBuilder(?LocationBuilder $location)

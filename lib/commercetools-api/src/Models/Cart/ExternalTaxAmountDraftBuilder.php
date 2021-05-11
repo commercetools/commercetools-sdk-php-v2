@@ -73,6 +73,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTotalGross() instead
      * @return $this
      */
     public function withTotalGrossBuilder(?MoneyBuilder $totalGross)
@@ -83,6 +84,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?ExternalTaxRateDraftBuilder $taxRate)

@@ -97,6 +97,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShoppingList() instead
      * @return $this
      */
     public function withShoppingListBuilder(?ShoppingListResourceIdentifierBuilder $shoppingList)
@@ -107,6 +108,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
@@ -117,6 +119,7 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDistributionChannel() instead
      * @return $this
      */
     public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)

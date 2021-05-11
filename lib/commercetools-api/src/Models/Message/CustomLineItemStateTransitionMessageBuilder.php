@@ -390,6 +390,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -400,6 +401,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -410,6 +412,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -420,6 +423,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -430,6 +434,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFromState() instead
      * @return $this
      */
     public function withFromStateBuilder(?StateReferenceBuilder $fromState)
@@ -440,6 +445,7 @@ final class CustomLineItemStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withToState() instead
      * @return $this
      */
     public function withToStateBuilder(?StateReferenceBuilder $toState)

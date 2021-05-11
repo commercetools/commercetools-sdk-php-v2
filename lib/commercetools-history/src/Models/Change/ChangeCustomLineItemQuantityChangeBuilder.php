@@ -145,6 +145,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomLineItem() instead
      * @return $this
      */
     public function withCustomLineItemBuilder(?LocalizedStringBuilder $customLineItem)

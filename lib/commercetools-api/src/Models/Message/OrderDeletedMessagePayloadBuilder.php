@@ -47,6 +47,7 @@ final class OrderDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOrder() instead
      * @return $this
      */
     public function withOrderBuilder(?OrderBuilder $order)

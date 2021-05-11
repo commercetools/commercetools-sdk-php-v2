@@ -71,6 +71,7 @@ final class CustomFieldsBuilder implements Builder
     }
 
     /**
+     * @deprecated use withType() instead
      * @return $this
      */
     public function withTypeBuilder(?ReferenceBuilder $type)

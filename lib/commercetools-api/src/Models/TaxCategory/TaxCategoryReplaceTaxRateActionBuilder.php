@@ -69,6 +69,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxRate() instead
      * @return $this
      */
     public function withTaxRateBuilder(?TaxRateDraftBuilder $taxRate)

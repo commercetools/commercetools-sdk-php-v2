@@ -695,6 +695,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAnonymousCart() instead
      * @return $this
      */
     public function withAnonymousCartBuilder(?CartResourceIdentifierBuilder $anonymousCart)
@@ -705,6 +706,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomerGroup() instead
      * @return $this
      */
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
@@ -715,6 +717,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)

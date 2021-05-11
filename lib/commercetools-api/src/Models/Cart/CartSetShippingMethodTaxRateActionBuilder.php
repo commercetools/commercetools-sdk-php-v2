@@ -45,6 +45,7 @@ final class CartSetShippingMethodTaxRateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalTaxRate() instead
      * @return $this
      */
     public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)

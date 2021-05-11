@@ -71,6 +71,7 @@ final class ProductTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)

@@ -71,6 +71,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withInputTip() instead
      * @return $this
      */
     public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)

@@ -75,6 +75,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?CustomFieldExpandedValueBuilder $nextValue)

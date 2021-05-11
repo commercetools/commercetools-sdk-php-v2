@@ -97,6 +97,7 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAmount() instead
      * @return $this
      */
     public function withAmountBuilder(?TypedMoneyBuilder $amount)

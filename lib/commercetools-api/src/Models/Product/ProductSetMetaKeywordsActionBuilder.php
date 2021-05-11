@@ -71,6 +71,7 @@ final class ProductSetMetaKeywordsActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMetaKeywords() instead
      * @return $this
      */
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)

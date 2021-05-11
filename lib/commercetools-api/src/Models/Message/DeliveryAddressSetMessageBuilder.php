@@ -342,6 +342,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -352,6 +353,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -362,6 +364,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -372,6 +375,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -382,6 +386,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?AddressBuilder $address)
@@ -392,6 +397,7 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldAddress() instead
      * @return $this
      */
     public function withOldAddressBuilder(?AddressBuilder $oldAddress)

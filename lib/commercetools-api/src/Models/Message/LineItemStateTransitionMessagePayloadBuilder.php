@@ -144,6 +144,7 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withFromState() instead
      * @return $this
      */
     public function withFromStateBuilder(?StateReferenceBuilder $fromState)
@@ -154,6 +155,7 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withToState() instead
      * @return $this
      */
     public function withToStateBuilder(?StateReferenceBuilder $toState)

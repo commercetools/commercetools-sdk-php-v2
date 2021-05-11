@@ -71,6 +71,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withParcel() instead
      * @return $this
      */
     public function withParcelBuilder(?ParcelBuilder $parcel)

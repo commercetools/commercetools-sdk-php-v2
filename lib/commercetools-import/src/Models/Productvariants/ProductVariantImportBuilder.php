@@ -239,6 +239,7 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
      * @return $this
      */
     public function withProductBuilder(?ProductKeyReferenceBuilder $product)

@@ -362,6 +362,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -372,6 +373,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -382,6 +384,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
     public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
@@ -392,6 +395,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustom() instead
      * @return $this
      */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)

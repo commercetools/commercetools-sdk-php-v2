@@ -73,6 +73,7 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateKeyReferenceBuilder $state)

@@ -69,6 +69,7 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSuggestTokenizer() instead
      * @return $this
      */
     public function withSuggestTokenizerBuilder(?SuggestTokenizerBuilder $suggestTokenizer)

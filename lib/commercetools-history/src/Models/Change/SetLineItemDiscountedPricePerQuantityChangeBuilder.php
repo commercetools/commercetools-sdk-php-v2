@@ -147,6 +147,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+     * @deprecated use withLineItem() instead
      * @return $this
      */
     public function withLineItemBuilder(?LocalizedStringBuilder $lineItem)
@@ -157,6 +158,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?DiscountedLineItemPriceForQuantityBuilder $nextValue)
@@ -167,6 +169,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+     * @deprecated use withPreviousValue() instead
      * @return $this
      */
     public function withPreviousValueBuilder(?DiscountedLineItemPriceForQuantityBuilder $previousValue)

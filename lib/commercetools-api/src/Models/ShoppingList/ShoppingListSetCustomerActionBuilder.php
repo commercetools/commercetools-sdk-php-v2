@@ -47,6 +47,7 @@ final class ShoppingListSetCustomerActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
      * @return $this
      */
     public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)

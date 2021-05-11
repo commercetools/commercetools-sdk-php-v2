@@ -71,6 +71,7 @@ final class ShippingMethodReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?ShippingMethodBuilder $obj)

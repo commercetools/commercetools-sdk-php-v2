@@ -95,6 +95,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTrackingData() instead
      * @return $this
      */
     public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)

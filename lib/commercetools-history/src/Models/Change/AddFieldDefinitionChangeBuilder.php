@@ -73,6 +73,7 @@ final class AddFieldDefinitionChangeBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNextValue() instead
      * @return $this
      */
     public function withNextValueBuilder(?FieldDefinitionBuilder $nextValue)

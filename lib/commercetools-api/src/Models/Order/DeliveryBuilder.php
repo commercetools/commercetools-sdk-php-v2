@@ -147,6 +147,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?AddressBuilder $address)

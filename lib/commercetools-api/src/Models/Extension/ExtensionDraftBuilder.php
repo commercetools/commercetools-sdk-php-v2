@@ -128,6 +128,7 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withDestination() instead
      * @return $this
      */
     public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)

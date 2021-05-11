@@ -69,6 +69,7 @@ final class ExtensionHttpDestinationBuilder implements Builder
     }
 
     /**
+     * @deprecated use withAuthentication() instead
      * @return $this
      */
     public function withAuthenticationBuilder(?ExtensionHttpDestinationAuthenticationBuilder $authentication)

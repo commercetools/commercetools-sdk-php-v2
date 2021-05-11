@@ -47,6 +47,7 @@ final class CustomerAddStoreActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withStore() instead
      * @return $this
      */
     public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)

@@ -69,6 +69,7 @@ final class TypeChangeLocalizedEnumValueLabelActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withValue() instead
      * @return $this
      */
     public function withValueBuilder(?CustomFieldLocalizedEnumValueBuilder $value)

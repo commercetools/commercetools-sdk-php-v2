@@ -71,6 +71,7 @@ final class CartDiscountReferenceBuilder implements Builder
     }
 
     /**
+     * @deprecated use withObj() instead
      * @return $this
      */
     public function withObjBuilder(?CartDiscountBuilder $obj)

@@ -98,6 +98,7 @@ final class SimilarProductsTaskStatusBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?SimilarProductsPagedQueryResultBuilder $result)

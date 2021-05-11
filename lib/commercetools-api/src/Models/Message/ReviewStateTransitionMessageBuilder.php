@@ -414,6 +414,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
@@ -424,6 +425,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCreatedBy() instead
      * @return $this
      */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
@@ -434,6 +436,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResource() instead
      * @return $this
      */
     public function withResourceBuilder(?ReferenceBuilder $resource)
@@ -444,6 +447,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResourceUserProvidedIdentifiers() instead
      * @return $this
      */
     public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
@@ -454,6 +458,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withOldState() instead
      * @return $this
      */
     public function withOldStateBuilder(?StateReferenceBuilder $oldState)
@@ -464,6 +469,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withNewState() instead
      * @return $this
      */
     public function withNewStateBuilder(?StateReferenceBuilder $newState)
@@ -474,6 +480,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTarget() instead
      * @return $this
      */
     public function withTargetBuilder(?ReferenceBuilder $target)

@@ -229,6 +229,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCart() instead
      * @return $this
      */
     public function withCartBuilder(?CartResourceIdentifierBuilder $cart)
@@ -239,6 +240,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
      * @return $this
      */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)

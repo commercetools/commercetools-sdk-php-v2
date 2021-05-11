@@ -98,6 +98,7 @@ final class MissingPricesTaskStatusBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?MissingPricesPagedQueryResultBuilder $result)

@@ -348,6 +348,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMessages() instead
      * @return $this
      */
     public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
@@ -358,6 +359,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withShippingRateInputType() instead
      * @return $this
      */
     public function withShippingRateInputTypeBuilder(?ShippingRateInputTypeBuilder $shippingRateInputType)
@@ -368,6 +370,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withExternalOAuth() instead
      * @return $this
      */
     public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)
@@ -378,6 +381,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCarts() instead
      * @return $this
      */
     public function withCartsBuilder(?CartsConfigurationBuilder $carts)
@@ -388,6 +392,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @deprecated use withSearchIndexing() instead
      * @return $this
      */
     public function withSearchIndexingBuilder(?SearchIndexingConfigurationBuilder $searchIndexing)

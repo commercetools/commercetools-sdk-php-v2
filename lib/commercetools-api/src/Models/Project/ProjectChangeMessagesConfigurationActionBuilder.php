@@ -47,6 +47,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withMessagesConfiguration() instead
      * @return $this
      */
     public function withMessagesConfigurationBuilder(?MessageConfigurationDraftBuilder $messagesConfiguration)

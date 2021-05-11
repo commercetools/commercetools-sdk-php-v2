@@ -71,6 +71,7 @@ final class EditPreviewFailedErrorBuilder implements Builder
     }
 
     /**
+     * @deprecated use withResult() instead
      * @return $this
      */
     public function withResultBuilder(?OrderEditPreviewFailureBuilder $result)
