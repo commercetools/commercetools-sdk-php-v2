@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+ini_set("memory_limit", "-1");
 use Commercetools\Tools\SummaryOnlyOutputFormatter;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
@@ -12,7 +14,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set('paths', [__DIR__ . '/src', __DIR__ . '/test', __DIR__ . '/lib/commercetools-api/src', __DIR__ . '/lib/commercetools-api-tests/test', __DIR__ . '/lib/commercetools-base/src', __DIR__ . '/lib/commercetools-base/test', __DIR__ . '/lib/commercetools-import/src', __DIR__ . '/lib/commercetools-import-tests/test', __DIR__ . '/lib/commercetools-ml/src', __DIR__ . '/lib/commercetools-ml-tests/test']);
 
-    $parameters->set('sets', ['psr12']);
+    $containerConfigurator->import(SetList::PSR_12);
 
     $services = $containerConfigurator->services();
 

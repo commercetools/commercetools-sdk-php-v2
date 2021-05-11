@@ -43,7 +43,7 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         $errorAndDiffResult = $errorAndDiffCollector;
     }
 
-    public function report(ErrorAndDiffResult $errorAndDiffResult, int $processedFilesCount): int
+    public function report(ErrorAndDiffResult $errorAndDiffResult, $processedFilesCount): int
     {
         if ($errorAndDiffResult->getErrorCount() === 0
             && $errorAndDiffResult->getFileDiffsCount() === 0
