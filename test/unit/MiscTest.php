@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressDraft;
 use Commercetools\Api\Models\Common\AddressDraftBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
@@ -267,14 +268,23 @@ class MiscTest extends TestCase
         $cart = CartDraftBuilder::of()
             ->withShippingAddress($addressDraft)
             ->withBillingAddress($address)
+            ->withItemShippingAddresses(
+                BaseAddressCollection::of()
+                    ->add($addressDraft)
+                    ->add($address)
+            )
             ->build();
         $this->assertInstanceOf(CartDraft::class, $cart);
         $this->assertInstanceOf(BaseAddress::class, $cart->getShippingAddress());
         $this->assertInstanceOf(BaseAddress::class, $cart->getBillingAddress());
         $this->assertJsonStringEqualsJsonString(
             '{
-                "shippingAddress":{"custom":{"type":{"typeId":"type","key":"abc"}}},
-                "billingAddress":{"custom":{"type":{"typeId":"type","id":"abc"}}}
+                "shippingAddress": {"custom":{"type":{"typeId":"type","key":"abc"}}},
+                "billingAddress": {"custom":{"type":{"typeId":"type","id":"abc"}}},
+                "itemShippingAddresses": [
+                    {"custom":{"type":{"typeId":"type","key":"abc"}}},
+                    {"custom":{"type":{"typeId":"type","id":"abc"}}}
+                ]
             }',
             json_encode($cart)
         );
