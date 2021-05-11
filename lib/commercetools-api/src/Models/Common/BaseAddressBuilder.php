@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -18,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<Address>
+ * @implements Builder<BaseAddress>
  */
-final class AddressBuilder implements Builder
+final class BaseAddressBuilder implements Builder
 {
     /**
      * @var ?string
@@ -141,16 +139,6 @@ final class AddressBuilder implements Builder
      * @var ?string
      */
     private $externalId;
-
-    /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
-     * @var null|CustomFields|CustomFieldsBuilder
-     */
-    private $custom;
 
     /**
      * @return null|string
@@ -344,22 +332,6 @@ final class AddressBuilder implements Builder
     public function getExternalId()
     {
         return $this->externalId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -626,41 +598,10 @@ final class AddressBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @param ?string $id
-     * @return $this
-     */
-    public function withId(?string $id)
+
+    public function build(): BaseAddress
     {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    public function build(): Address
-    {
-        return new AddressModel(
+        return new BaseAddressModel(
             $this->key,
             $this->title,
             $this->salutation,
@@ -684,13 +625,11 @@ final class AddressBuilder implements Builder
             $this->email,
             $this->fax,
             $this->additionalAddressInfo,
-            $this->externalId,
-            $this->id,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->externalId
         );
     }
 
-    public static function of(): AddressBuilder
+    public static function of(): BaseAddressBuilder
     {
         return new self();
     }

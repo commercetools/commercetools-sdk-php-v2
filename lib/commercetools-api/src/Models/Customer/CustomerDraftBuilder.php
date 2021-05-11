@@ -10,7 +10,7 @@ namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
@@ -95,7 +95,7 @@ final class CustomerDraftBuilder implements Builder
     private $vatId;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     private $addresses;
 
@@ -281,7 +281,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getAddresses()
     {
@@ -552,10 +552,10 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?BaseAddressCollection $addresses
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withAddresses(?BaseAddressCollection $addresses)
     {
         $this->addresses = $addresses;
 

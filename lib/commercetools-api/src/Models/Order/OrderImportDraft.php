@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -96,12 +96,12 @@ interface OrderImportDraft extends JsonObject
     public function getTaxedPrice();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress();
 
@@ -174,7 +174,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
 
@@ -226,14 +226,14 @@ interface OrderImportDraft extends JsonObject
     public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      */
-    public function setShippingAddress(?Address $shippingAddress): void;
+    public function setShippingAddress(?BaseAddress $shippingAddress): void;
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      */
-    public function setBillingAddress(?Address $billingAddress): void;
+    public function setBillingAddress(?BaseAddress $billingAddress): void;
 
     /**
      * @param ?CustomerGroupResourceIdentifier $customerGroup
@@ -286,9 +286,9 @@ interface OrderImportDraft extends JsonObject
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+    public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
 
     /**
      * @param ?StoreResourceIdentifier $store

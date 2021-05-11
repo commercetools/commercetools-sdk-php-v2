@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -24,7 +24,7 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function getItems();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress();
 
@@ -39,9 +39,9 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function setItems(?DeliveryItemCollection $items): void;
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void;
+    public function setAddress(?BaseAddress $address): void;
 
     /**
      * @param ?ParcelDraftCollection $parcels

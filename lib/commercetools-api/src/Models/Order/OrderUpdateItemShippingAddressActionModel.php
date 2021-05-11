@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,7 +28,7 @@ final class OrderUpdateItemShippingAddressActionModel extends JsonObjectModel im
     protected $action;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $address;
 
@@ -37,7 +37,7 @@ final class OrderUpdateItemShippingAddressActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Address $address = null
+        ?BaseAddress $address = null
     ) {
         $this->address = $address;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +61,7 @@ final class OrderUpdateItemShippingAddressActionModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
@@ -72,7 +72,7 @@ final class OrderUpdateItemShippingAddressActionModel extends JsonObjectModel im
                 return null;
             }
 
-            $this->address = AddressModel::of($data);
+            $this->address = BaseAddressModel::of($data);
         }
 
         return $this->address;
@@ -80,9 +80,9 @@ final class OrderUpdateItemShippingAddressActionModel extends JsonObjectModel im
 
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void
+    public function setAddress(?BaseAddress $address): void
     {
         $this->address = $address;
     }

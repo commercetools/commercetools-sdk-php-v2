@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
@@ -32,7 +32,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     private $items;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
@@ -50,11 +50,11 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+        return $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address;
     }
 
     /**
@@ -77,10 +77,10 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      * @return $this
      */
-    public function withAddress(?Address $address)
+    public function withAddress(?BaseAddress $address)
     {
         $this->address = $address;
 
@@ -101,7 +101,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function withAddressBuilder(?BaseAddressBuilder $address)
     {
         $this->address = $address;
 
@@ -112,7 +112,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     {
         return new StagedOrderAddDeliveryActionModel(
             $this->items,
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels
         );
     }

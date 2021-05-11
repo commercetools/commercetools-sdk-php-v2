@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -48,7 +48,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     protected $description;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $address;
 
@@ -71,7 +71,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
         ?array $roles = null,
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
-        ?Address $address = null,
+        ?BaseAddress $address = null,
         ?CustomFieldsDraft $custom = null,
         ?GeoJson $geoLocation = null
     ) {
@@ -157,7 +157,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
@@ -168,7 +168,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
                 return null;
             }
 
-            $this->address = AddressModel::of($data);
+            $this->address = BaseAddressModel::of($data);
         }
 
         return $this->address;
@@ -246,9 +246,9 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void
+    public function setAddress(?BaseAddress $address): void
     {
         $this->address = $address;
     }

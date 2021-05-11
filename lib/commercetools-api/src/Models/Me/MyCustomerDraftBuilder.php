@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
@@ -71,7 +71,7 @@ final class MyCustomerDraftBuilder implements Builder
     private $vatId;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     private $addresses;
 
@@ -175,7 +175,7 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getAddresses()
     {
@@ -330,10 +330,10 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?BaseAddressCollection $addresses
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withAddresses(?BaseAddressCollection $addresses)
     {
         $this->addresses = $addresses;
 

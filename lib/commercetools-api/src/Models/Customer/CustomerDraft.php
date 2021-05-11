@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -129,7 +129,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getAddresses();
 
@@ -283,9 +283,9 @@ interface CustomerDraft extends JsonObject
     public function setVatId(?string $vatId): void;
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?BaseAddressCollection $addresses
      */
-    public function setAddresses(?AddressCollection $addresses): void;
+    public function setAddresses(?BaseAddressCollection $addresses): void;
 
     /**
      * @param ?int $defaultShippingAddress

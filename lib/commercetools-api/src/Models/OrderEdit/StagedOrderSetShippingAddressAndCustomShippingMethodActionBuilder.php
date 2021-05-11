@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
@@ -31,7 +31,7 @@ use stdClass;
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var null|Address|AddressBuilder
+     * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
@@ -56,11 +56,11 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     private $externalTaxRate;
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+        return $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address;
     }
 
     /**
@@ -96,10 +96,10 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      * @return $this
      */
-    public function withAddress(?Address $address)
+    public function withAddress(?BaseAddress $address)
     {
         $this->address = $address;
 
@@ -153,7 +153,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     /**
      * @return $this
      */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function withAddressBuilder(?BaseAddressBuilder $address)
     {
         $this->address = $address;
 
@@ -193,7 +193,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     public function build(): StagedOrderSetShippingAddressAndCustomShippingMethodAction
     {
         return new StagedOrderSetShippingAddressAndCustomShippingMethodActionModel(
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->shippingMethodName,
             $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
@@ -37,7 +37,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $items;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $address;
 
@@ -52,7 +52,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?DeliveryItemCollection $items = null,
-        ?Address $address = null,
+        ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null
     ) {
         $this->items = $items;
@@ -96,7 +96,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
@@ -107,7 +107,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
                 return null;
             }
 
-            $this->address = AddressModel::of($data);
+            $this->address = BaseAddressModel::of($data);
         }
 
         return $this->address;
@@ -140,9 +140,9 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void
+    public function setAddress(?BaseAddress $address): void
     {
         $this->address = $address;
     }
