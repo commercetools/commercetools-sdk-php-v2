@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<Address>
+ * @implements Builder<AddressDraft>
  */
-final class AddressBuilder implements Builder
+final class AddressDraftBuilder implements Builder
 {
     /**
      * @var ?string
@@ -143,12 +143,7 @@ final class AddressBuilder implements Builder
     private $externalId;
 
     /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -347,19 +342,11 @@ final class AddressBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -627,21 +614,10 @@ final class AddressBuilder implements Builder
     }
 
     /**
-     * @param ?string $id
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -651,16 +627,16 @@ final class AddressBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
         return $this;
     }
 
-    public function build(): Address
+    public function build(): AddressDraft
     {
-        return new AddressModel(
+        return new AddressDraftModel(
             $this->key,
             $this->title,
             $this->salutation,
@@ -685,12 +661,11 @@ final class AddressBuilder implements Builder
             $this->fax,
             $this->additionalAddressInfo,
             $this->externalId,
-            $this->id,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 
-    public static function of(): AddressBuilder
+    public static function of(): AddressDraftBuilder
     {
         return new self();
     }

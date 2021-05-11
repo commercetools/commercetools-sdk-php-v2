@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -19,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class AddressModel extends JsonObjectModel implements Address
+final class BaseAddressModel extends JsonObjectModel implements BaseAddress
 {
     /**
      * @var ?string
@@ -141,16 +139,6 @@ final class AddressModel extends JsonObjectModel implements Address
      */
     protected $externalId;
 
-    /**
-     * @var ?string
-     */
-    protected $id;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -179,9 +167,7 @@ final class AddressModel extends JsonObjectModel implements Address
         ?string $email = null,
         ?string $fax = null,
         ?string $additionalAddressInfo = null,
-        ?string $externalId = null,
-        ?string $id = null,
-        ?CustomFields $custom = null
+        ?string $externalId = null
     ) {
         $this->key = $key;
         $this->title = $title;
@@ -207,8 +193,6 @@ final class AddressModel extends JsonObjectModel implements Address
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
-        $this->id = $id;
-        $this->custom = $custom;
     }
 
     /**
@@ -621,41 +605,6 @@ final class AddressModel extends JsonObjectModel implements Address
         return $this->externalId;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
 
     /**
      * @param ?string $key
@@ -847,21 +796,5 @@ final class AddressModel extends JsonObjectModel implements Address
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
-    }
-
-    /**
-     * @param ?string $id
-     */
-    public function setId(?string $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
     }
 }

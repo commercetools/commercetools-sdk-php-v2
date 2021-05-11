@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -142,12 +142,12 @@ interface CartDraft extends JsonObject
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress();
 
@@ -210,7 +210,7 @@ interface CartDraft extends JsonObject
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
 
@@ -292,14 +292,14 @@ interface CartDraft extends JsonObject
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      */
-    public function setShippingAddress(?Address $shippingAddress): void;
+    public function setShippingAddress(?BaseAddress $shippingAddress): void;
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      */
-    public function setBillingAddress(?Address $billingAddress): void;
+    public function setBillingAddress(?BaseAddress $billingAddress): void;
 
     /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
@@ -337,9 +337,9 @@ interface CartDraft extends JsonObject
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+    public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
 
     /**
      * @param ?array $discountCodes

@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -101,12 +101,12 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     protected $customLineItems;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $billingAddress;
 
@@ -146,7 +146,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     protected $shippingRateInput;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
@@ -174,8 +174,8 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?string $taxCalculationMode = null,
         ?LineItemDraftCollection $lineItems = null,
         ?CustomLineItemDraftCollection $customLineItems = null,
-        ?Address $shippingAddress = null,
-        ?Address $billingAddress = null,
+        ?BaseAddress $shippingAddress = null,
+        ?BaseAddress $billingAddress = null,
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
         ?ExternalTaxRateDraft $externalTaxRateForShippingMethod = null,
         ?CustomFieldsDraft $custom = null,
@@ -183,7 +183,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?int $deleteDaysAfterLastModification = null,
         ?string $origin = null,
         ?ShippingRateInputDraft $shippingRateInput = null,
-        ?AddressCollection $itemShippingAddresses = null,
+        ?BaseAddressCollection $itemShippingAddresses = null,
         ?array $discountCodes = null
     ) {
         $this->currency = $currency;
@@ -480,7 +480,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress()
     {
@@ -491,14 +491,14 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
                 return null;
             }
 
-            $this->shippingAddress = AddressModel::of($data);
+            $this->shippingAddress = BaseAddressModel::of($data);
         }
 
         return $this->shippingAddress;
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress()
     {
@@ -509,7 +509,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
                 return null;
             }
 
-            $this->billingAddress = AddressModel::of($data);
+            $this->billingAddress = BaseAddressModel::of($data);
         }
 
         return $this->billingAddress;
@@ -662,7 +662,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
     {
@@ -672,7 +672,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
             if (is_null($data)) {
                 return null;
             }
-            $this->itemShippingAddresses = AddressCollection::fromArray($data);
+            $this->itemShippingAddresses = BaseAddressCollection::fromArray($data);
         }
 
         return $this->itemShippingAddresses;
@@ -811,17 +811,17 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      */
-    public function setShippingAddress(?Address $shippingAddress): void
+    public function setShippingAddress(?BaseAddress $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      */
-    public function setBillingAddress(?Address $billingAddress): void
+    public function setBillingAddress(?BaseAddress $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
@@ -883,9 +883,9 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
+    public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }

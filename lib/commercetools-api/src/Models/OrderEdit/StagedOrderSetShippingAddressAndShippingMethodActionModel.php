@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -34,7 +34,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     protected $action;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $address;
 
@@ -53,7 +53,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Address $address = null,
+        ?BaseAddress $address = null,
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
         ?ExternalTaxRateDraft $externalTaxRate = null
     ) {
@@ -81,7 +81,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress()
     {
@@ -92,7 +92,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
                 return null;
             }
 
-            $this->address = AddressModel::of($data);
+            $this->address = BaseAddressModel::of($data);
         }
 
         return $this->address;
@@ -136,9 +136,9 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
 
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void
+    public function setAddress(?BaseAddress $address): void
     {
         $this->address = $address;
     }

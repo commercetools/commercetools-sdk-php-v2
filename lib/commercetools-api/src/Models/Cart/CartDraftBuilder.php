@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressBuilder;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressBuilder;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -102,12 +102,12 @@ final class CartDraftBuilder implements Builder
     private $customLineItems;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var null|BaseAddress|BaseAddressBuilder
      */
     private $shippingAddress;
 
     /**
-     * @var null|Address|AddressBuilder
+     * @var null|BaseAddress|BaseAddressBuilder
      */
     private $billingAddress;
 
@@ -147,7 +147,7 @@ final class CartDraftBuilder implements Builder
     private $shippingRateInput;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     private $itemShippingAddresses;
 
@@ -295,19 +295,19 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress()
     {
-        return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
+        return $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress()
     {
-        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+        return $this->billingAddress instanceof BaseAddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
     }
 
     /**
@@ -390,7 +390,7 @@ final class CartDraftBuilder implements Builder
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
     {
@@ -562,10 +562,10 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      * @return $this
      */
-    public function withShippingAddress(?Address $shippingAddress)
+    public function withShippingAddress(?BaseAddress $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
 
@@ -573,10 +573,10 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      * @return $this
      */
-    public function withBillingAddress(?Address $billingAddress)
+    public function withBillingAddress(?BaseAddress $billingAddress)
     {
         $this->billingAddress = $billingAddress;
 
@@ -661,10 +661,10 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      * @return $this
      */
-    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    public function withItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses)
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
 
@@ -705,7 +705,7 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
+    public function withShippingAddressBuilder(?BaseAddressBuilder $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
 
@@ -715,7 +715,7 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    public function withBillingAddressBuilder(?BaseAddressBuilder $billingAddress)
     {
         $this->billingAddress = $billingAddress;
 
@@ -779,8 +779,8 @@ final class CartDraftBuilder implements Builder
             $this->taxCalculationMode,
             $this->lineItems,
             $this->customLineItems,
-            $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
-            $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->shippingAddress instanceof BaseAddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
+            $this->billingAddress instanceof BaseAddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
             $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod,
             $this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,

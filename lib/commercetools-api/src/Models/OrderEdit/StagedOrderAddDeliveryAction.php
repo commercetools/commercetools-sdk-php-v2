@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
@@ -27,7 +27,7 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public function getItems();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress();
 
@@ -42,9 +42,9 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public function setItems(?DeliveryItemCollection $items): void;
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void;
+    public function setAddress(?BaseAddress $address): void;
 
     /**
      * @param ?ParcelDraftCollection $parcels

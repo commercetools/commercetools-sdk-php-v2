@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
@@ -70,7 +70,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     protected $vatId;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     protected $addresses;
 
@@ -113,7 +113,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         ?DateTimeImmutable $dateOfBirth = null,
         ?string $companyName = null,
         ?string $vatId = null,
-        ?AddressCollection $addresses = null,
+        ?BaseAddressCollection $addresses = null,
         ?int $defaultShippingAddress = null,
         ?int $defaultBillingAddress = null,
         ?CustomFields $custom = null,
@@ -297,7 +297,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getAddresses()
     {
@@ -307,7 +307,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
             if (is_null($data)) {
                 return null;
             }
-            $this->addresses = AddressCollection::fromArray($data);
+            $this->addresses = BaseAddressCollection::fromArray($data);
         }
 
         return $this->addresses;
@@ -481,9 +481,9 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?BaseAddressCollection $addresses
      */
-    public function setAddresses(?AddressCollection $addresses): void
+    public function setAddresses(?BaseAddressCollection $addresses): void
     {
         $this->addresses = $addresses;
     }

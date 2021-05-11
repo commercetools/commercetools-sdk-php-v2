@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,12 +17,12 @@ interface MyCartSetBillingAddressAction extends MyCartUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress();
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void;
+    public function setAddress(?BaseAddress $address): void;
 }

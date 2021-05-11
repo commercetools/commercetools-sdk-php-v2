@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
-use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
@@ -25,7 +25,7 @@ interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends Sta
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getAddress();
 
@@ -50,9 +50,9 @@ interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends Sta
     public function getExternalTaxRate();
 
     /**
-     * @param ?Address $address
+     * @param ?BaseAddress $address
      */
-    public function setAddress(?Address $address): void;
+    public function setAddress(?BaseAddress $address): void;
 
     /**
      * @param ?string $shippingMethodName

@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -67,12 +67,12 @@ interface MyCartDraft extends JsonObject
     public function getLineItems();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress();
 
@@ -112,7 +112,7 @@ interface MyCartDraft extends JsonObject
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
 
@@ -152,14 +152,14 @@ interface MyCartDraft extends JsonObject
     public function setLineItems(?MyLineItemDraftCollection $lineItems): void;
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      */
-    public function setShippingAddress(?Address $shippingAddress): void;
+    public function setShippingAddress(?BaseAddress $shippingAddress): void;
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      */
-    public function setBillingAddress(?Address $billingAddress): void;
+    public function setBillingAddress(?BaseAddress $billingAddress): void;
 
     /**
      * @param ?ShippingMethodResourceIdentifier $shippingMethod
@@ -187,9 +187,9 @@ interface MyCartDraft extends JsonObject
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+    public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
 
     /**
      * @param ?StoreKeyReference $store

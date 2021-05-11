@@ -11,9 +11,9 @@ namespace Commercetools\Api\Models\Order;
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
-use Commercetools\Api\Models\Common\Address;
-use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Common\BaseAddressCollection;
+use Commercetools\Api\Models\Common\BaseAddressModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
@@ -70,12 +70,12 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $taxedPrice;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
-     * @var ?Address
+     * @var ?BaseAddress
      */
     protected $billingAddress;
 
@@ -130,7 +130,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $taxRoundingMode;
 
     /**
-     * @var ?AddressCollection
+     * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
@@ -156,8 +156,8 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?CustomLineItemDraftCollection $customLineItems = null,
         ?Money $totalPrice = null,
         ?TaxedPriceDraft $taxedPrice = null,
-        ?Address $shippingAddress = null,
-        ?Address $billingAddress = null,
+        ?BaseAddress $shippingAddress = null,
+        ?BaseAddress $billingAddress = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
         ?string $country = null,
         ?string $orderState = null,
@@ -168,7 +168,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?CustomFieldsDraft $custom = null,
         ?string $inventoryMode = null,
         ?string $taxRoundingMode = null,
-        ?AddressCollection $itemShippingAddresses = null,
+        ?BaseAddressCollection $itemShippingAddresses = null,
         ?StoreResourceIdentifier $store = null,
         ?string $origin = null
     ) {
@@ -333,7 +333,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getShippingAddress()
     {
@@ -344,14 +344,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
                 return null;
             }
 
-            $this->shippingAddress = AddressModel::of($data);
+            $this->shippingAddress = BaseAddressModel::of($data);
         }
 
         return $this->shippingAddress;
     }
 
     /**
-     * @return null|Address
+     * @return null|BaseAddress
      */
     public function getBillingAddress()
     {
@@ -362,7 +362,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
                 return null;
             }
 
-            $this->billingAddress = AddressModel::of($data);
+            $this->billingAddress = BaseAddressModel::of($data);
         }
 
         return $this->billingAddress;
@@ -564,7 +564,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
-     * @return null|AddressCollection
+     * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
     {
@@ -574,7 +574,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
             if (is_null($data)) {
                 return null;
             }
-            $this->itemShippingAddresses = AddressCollection::fromArray($data);
+            $this->itemShippingAddresses = BaseAddressCollection::fromArray($data);
         }
 
         return $this->itemShippingAddresses;
@@ -675,17 +675,17 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @param ?Address $shippingAddress
+     * @param ?BaseAddress $shippingAddress
      */
-    public function setShippingAddress(?Address $shippingAddress): void
+    public function setShippingAddress(?BaseAddress $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
 
     /**
-     * @param ?Address $billingAddress
+     * @param ?BaseAddress $billingAddress
      */
-    public function setBillingAddress(?Address $billingAddress): void
+    public function setBillingAddress(?BaseAddress $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
@@ -771,9 +771,9 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @param ?AddressCollection $itemShippingAddresses
+     * @param ?BaseAddressCollection $itemShippingAddresses
      */
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
+    public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
